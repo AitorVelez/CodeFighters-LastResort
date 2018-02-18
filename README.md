@@ -1,4 +1,4 @@
-#Game Description
+# Game Description
 
 Last Resort is a sci-fi horizontally-scrolling shoot 'em up developed and released by SNK for arcades (running Neo Geo MVS hardware) on March 23, 1992.
 
