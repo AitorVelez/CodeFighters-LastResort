@@ -22,20 +22,19 @@ After launching away, the Unit quickly rejoins the ship. Enemies that appear fro
 ![LastResort](https://www.arcade-museum.com/images/118/1181242126124.png)
 
 ## Responsibilities
+
 #### Management 
-Aitor Velez: Personal Github[here](https://github.com/AitorVelez)
+Aitor Velez: Personal Github [here](https://github.com/AitorVelez)
 
 
 #### Art/Design 
->Marc Doctor: https://github.com/thedoctormarc
+Marc Doctor: Personal Github [here](https://github.com/thedoctormarc)
 
 
 #### Code
->Guillem Sanchez: https://github.com/GuillemSanchez
+Guillem Sanchez: Personal Github [here](https://github.com/GuillemSanchez)
 
->Sebastian Lopez: https://github.com/Sebi-Lopez
-
-
+Sebastian Lopez: Personal Github [here] (https://github.com/Sebi-Lopez)
 
 
 #### Q&A
@@ -44,4 +43,4 @@ Aitor Velez: Personal Github[here](https://github.com/AitorVelez)
 
 ## Video of the gameplay
 
-https://youtu.be/aybhwlEV0EM
+[Last Resort Video](https://youtu.be/aybhwlEV0EM)
