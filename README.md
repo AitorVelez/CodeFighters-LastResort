@@ -1,4 +1,6 @@
-# Game Description
+# CodeFighters Page
+
+## Game Description
 
 Last Resort is a sci-fi horizontally-scrolling shoot 'em up developed and released by SNK for arcades (running Neo Geo MVS hardware) on March 23, 1992.
 
@@ -12,3 +14,5 @@ The game was later released for the Neo Geo AES on April 24, 1992 and ported to 
 
 
 We are going to 'emulate' the arcade game Last Resort, as the aim of project 1 subject in CITM.
+
+## Gameplay description
