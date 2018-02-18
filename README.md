@@ -19,7 +19,7 @@ Movement is controlled with a four-way joystick, with one button to shoot and la
 The Unit always moves and fires opposite the direction of the ship's movement; the second button on the controller can be used to stop its rotation in place, or to start it again. When the fire button is held down, releasing it will launch the Unit away from the ship.
 After launching away, the Unit quickly rejoins the ship. Enemies that appear from all angles and each stage culminates in a fight against a boss.
 
-![LastResort](![LastResort](https://i.imgur.com/OvSOF.jpg))
+![LastResort](https://www.arcade-museum.com/images/118/1181242126124.png)
 
 
 ## Video of the gameplay
