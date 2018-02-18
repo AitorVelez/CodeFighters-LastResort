@@ -38,7 +38,7 @@ Sebastian Lopez: Personal Github [here](https://github.com/Sebi-Lopez)
 
 
 #### Q&A
->Roger Cano: https://github.com/RogerCano
+Roger Cano: Personal Github [here](https://github.com/RogerCano)
 
 
 ## Video of the gameplay
