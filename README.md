@@ -29,7 +29,7 @@ After launching away, the Unit quickly rejoins the ship. Enemies that appear fro
 >Marc Doctor: https://github.com/thedoctormarc
 
 ### Code
-#### >Guillem Sanchez: https://github.com/GuillemSanchez
+>Guillem Sanchez: https://github.com/GuillemSanchez
 
 >Sebastian Lopez: https://github.com/Sebi-Lopez
 
