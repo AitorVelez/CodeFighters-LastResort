@@ -23,7 +23,7 @@ After launching away, the Unit quickly rejoins the ship. Enemies that appear fro
 
 ## Responsibilities
 #### Management 
->Aitor Velez: https://github.com/AitorVelez
+[Aitor Velez:](https://github.com/AitorVelez)
 
 
 #### Art/Design 
