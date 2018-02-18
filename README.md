@@ -19,3 +19,5 @@ In the game, you pilot a ship in a side-scrolling stage, constantly shooting at 
 
 
 ## Video of the gameplay
+
+![Gameplay](https://youtu.be/aybhwlEV0EM)
