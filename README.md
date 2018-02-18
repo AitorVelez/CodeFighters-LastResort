@@ -1,5 +1,3 @@
-# CodeFighters Page
-
 ## Game Description
 
 Last Resort is a sci-fi horizontally-scrolling shoot 'em up developed and released by SNK for arcades (running Neo Geo MVS hardware) on March 23, 1992.
@@ -18,3 +16,6 @@ We are going to 'emulate' the arcade game Last Resort, as the aim of project 1 s
 ## Gameplay description
 
 In the game, you pilot a ship in a side-scrolling stage, constantly shooting at the assailing enemies. Movement is controlled with a four-way joystick, with one button to shoot and launch the Unit, and another button to lock or release the Unit's orbit. The Unit is a satellite weapon similar to the Force in R-Type or the Option in Gradius. The Unit always moves and fires opposite the direction of the ship's movement; the second button on the controller can be used to stop its rotation in place, or to start it again. When the fire button is held down, releasing it will launch the Unit away from the ship. After launching away, the Unit quickly rejoins the ship. Playing with the balance of unit placement and weapon charging is a key strategy to defeating the enemies that appear from all angles, often surrounding the ship. Each stage culminates in a fight against a boss.
+
+
+## Video of the gameplay
