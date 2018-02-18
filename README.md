@@ -34,7 +34,7 @@ Marc Doctor: Personal Github [here](https://github.com/thedoctormarc)
 #### Code
 Guillem Sanchez: Personal Github [here](https://github.com/GuillemSanchez)
 
-Sebastian Lopez: Personal Github [here] (https://github.com/Sebi-Lopez)
+Sebastian Lopez: Personal Github [here](https://github.com/Sebi-Lopez)
 
 
 #### Q&A
