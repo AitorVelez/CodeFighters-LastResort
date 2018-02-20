@@ -45,4 +45,4 @@ Roger Cano: Personal Github [here](https://github.com/RogerCano)
 
 [Last Resort Video](https://youtu.be/aybhwlEV0EM)
 
-<iframe width="560" height="420" src="http://www.youtube.com/embed/oHg5SJYRHA0?color=white&theme=light"></iframe>
+
