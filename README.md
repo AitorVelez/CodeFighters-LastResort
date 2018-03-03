@@ -43,7 +43,7 @@ Roger Cano: Personal Github [here](https://github.com/RogerCano)
 
 ## Team Photo
 
-![Code fighters](https://www.arcade-museum.com/images/118/1181242126124.png)
+![Code fighters](https://github.com/AitorVelez/CodeFighters-LastResort/blob/master/Team%20Photo/CodeFighters.jpeg?raw=true)
 
 ## Video of the gameplay
 
