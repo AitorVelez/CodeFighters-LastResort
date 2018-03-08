@@ -184,31 +184,31 @@ bool Check_Input() {
 			switch (e.key.keysym.sym)
 			{
 			case SDLK_UP:
-				g.up = false;
+				g.up_2 = false;
 				break;
 			case SDLK_DOWN:
-				g.down = false;
+				g.down_2 = false;
 				break;
 			case SDLK_RIGHT:
-				g.right = false;
+				g.right_2 = false;
 				break;
 			case SDLK_LEFT:
-				g.left = false;
+				g.left_2 = false;
 				break;
 
 				// PLAYER 2
 
 			case SDLK_w:
-				g.up_2 = false;
+				g.up = false;
 				break;
 			case SDLK_s:
-				g.down_2 = false; 
+				g.down = false; 
 				break;
 			case SDLK_a:
-				g.left_2 = false; 
+				g.left = false; 
 				break;
 			case SDLK_d:
-				g.right_2 = false; 
+				g.right = false; 
 				break;
 			}
 		}
@@ -220,37 +220,37 @@ bool Check_Input() {
 				// PLAYER 1
 
 			case SDL_SCANCODE_UP:
-				g.up = true;
+				g.up_2 = true;
 				break;
 			case SDL_SCANCODE_DOWN:
-				g.down = true;
+				g.down_2 = true;
 				break;
 			case SDL_SCANCODE_RIGHT:
-				g.right = true;
+				g.right_2 = true;
 				break;
 			case SDL_SCANCODE_LEFT:
-				g.left = true;
+				g.left_2 = true;
 				break;
 			case SDL_SCANCODE_KP_ENTER:
-				g.fire = true;
+				g.fire_2 = true;
 				break;
 
 				// PLAYER 2
 
 			case SDL_SCANCODE_W:
-				g.up_2 = true;
+				g.up = true;
 				break;
 			case SDL_SCANCODE_S:
-				g.down_2 = true;
+				g.down = true;
 				break;
 			case SDL_SCANCODE_D:
-				g.right_2 = true;
+				g.right = true;
 				break;
 			case SDL_SCANCODE_A:
-				g.left_2 = true;
+				g.left = true;
 				break;
 			case SDL_SCANCODE_SPACE:
-				g.fire_2 = true; 
+				g.fire = true; 
 				break;
 
 				//  EXIT
