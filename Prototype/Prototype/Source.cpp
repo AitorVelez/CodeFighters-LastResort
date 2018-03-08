@@ -13,9 +13,9 @@
 #define SPEED 7
 #define PLAYER_SIZE 150
 #define BULLET_SPEED 10
-#define AMMO 10
+#define AMMO 30
 #define BULLET_SIZE 30
-
+#define HITS 25
 
 struct projectile {
 
@@ -26,7 +26,7 @@ struct projectile {
 
 struct Hit {
 
-	bool hit=false;
+	bool hit = false;
 	int y; 
 };
 
@@ -39,7 +39,8 @@ struct globals {
 	SDL_Surface* surface = nullptr;
 	SDL_Texture* background = nullptr;
 	SDL_Texture* character = nullptr;
-	SDL_Texture* fireball = nullptr;
+	SDL_Texture* ball = nullptr;	
+	SDL_Texture* ball_2 = nullptr; 
 	SDL_Texture* character_2 = nullptr; 
 	SDL_Texture* splash = nullptr; 
 	SDL_Texture* splash_2 = nullptr; 
@@ -54,12 +55,10 @@ struct globals {
 	projectile shots[AMMO];
 	projectile shots_2[AMMO];
 
-	Hit hits[3];
+	Hit hits[HITS];
 	int last_hit = 0;
-
-	Hit hits_2[3];
+	Hit hits_2[HITS];
 	int last_hit_2 = 0;
-
 
 	int last_shot = 0;
 	int last_shot_2 = 0;
@@ -87,6 +86,14 @@ void Start() {
 
 	g.renderer = SDL_CreateRenderer(g.window, -1, SDL_RENDERER_PRESENTVSYNC);
 
+	for (int i = 0; i < AMMO; i++)
+	{
+		g.shots[i].alive = false; 
+		g.shots[i].y = 2000;
+		g.shots_2[i].alive = false;
+		g.shots_2[i].y = 2000;
+
+	}
 
 	//IMAGE SETTINGS
 
@@ -103,10 +110,15 @@ void Start() {
 	g.character_2 = SDL_CreateTextureFromSurface(g.renderer, g.surface);
 	SDL_FreeSurface(g.surface);
 
-	g.surface = IMG_Load("assets/fireball.png");
-	g.fireball = SDL_CreateTextureFromSurface(g.renderer, g.surface);
+	g.surface = IMG_Load("assets/ball_1.png");
+	g.ball = SDL_CreateTextureFromSurface(g.renderer, g.surface);
 	SDL_FreeSurface(g.surface);
 	
+	g.surface = IMG_Load("assets/ball_2.png");
+	g.ball_2 = SDL_CreateTextureFromSurface(g.renderer, g.surface);
+	SDL_FreeSurface(g.surface);
+
+
 	g.surface = IMG_Load("assets/splash.png");
 	g.splash = SDL_CreateTextureFromSurface(g.renderer, g.surface);
 	SDL_FreeSurface(g.surface);
@@ -135,12 +147,17 @@ void Finish() {
 	SDL_DestroyTexture(g.background);
 	SDL_DestroyTexture(g.character);
 	SDL_DestroyTexture(g.character_2);
-	SDL_DestroyTexture(g.fireball);
+	SDL_DestroyTexture(g.ball);
+	SDL_DestroyTexture(g.ball_2);
+	SDL_DestroyTexture(g.splash);
+	SDL_DestroyTexture(g.splash_2);
 	IMG_Quit();
 
 	//SOUND QUIT
 
 	Mix_FreeChunk(g.fx_shot);
+	Mix_FreeChunk(g.fx_hit);
+	Mix_FreeChunk(g.fx_splash);
 	Mix_FreeMusic(g.music);
 	Mix_CloseAudio();
 	Mix_Quit();
@@ -245,6 +262,8 @@ bool Check_Input() {
 		}
 		if (e.type == SDL_QUIT)exit = true;
 	}
+
+
 	return exit;
 }
 
@@ -252,13 +271,13 @@ bool Check_Input() {
 void Movement() {
 
 	if (g.up && g.player.y > 0)g.player.y -= SPEED;
-	if (g.down && g.player.y < SCREEN_HEIGHT - 195)g.player.y += SPEED;
+	if (g.down && g.player.y < SCREEN_HEIGHT - 250)g.player.y += SPEED;
 	if (g.left && g.player.x > -20)g.player.x -= SPEED;
 	if (g.right && g.player.x < SCREEN_WIDTH - (PLAYER_SIZE - 10))g.player.x += SPEED;
 
 
 	if (g.up_2 && g.player_2.y > 0)g.player_2.y -= SPEED;
-	if (g.down_2 && g.player_2.y < SCREEN_HEIGHT - 195)g.player_2.y += SPEED;
+	if (g.down_2 && g.player_2.y < SCREEN_HEIGHT - 250)g.player_2.y += SPEED;
 	if (g.left_2 && g.player_2.x > -20)g.player_2.x -= SPEED;
 	if (g.right_2 && g.player_2.x < SCREEN_WIDTH - (PLAYER_SIZE - 10))g.player_2.x += SPEED;
 
@@ -281,10 +300,10 @@ void Movement() {
 		if (g.shots[i].alive) {
 			g.shots[i].x += BULLET_SPEED;
 				if (g.shots[i].x > SCREEN_WIDTH) {
-				if (g.last_hit == 3)g.last_hit = 0;
+				if (g.last_hit == HITS)g.last_hit = 0;
 				g.shots[i].alive = false;
 				g.hits[g.last_hit].hit = true;
-				g.hits[g.last_hit].y = g.shots[i].y;
+				g.hits[g.last_hit].y = g.shots[i].y - 50;
 				g.last_hit++;
 				Mix_PlayChannel(-1, g.fx_splash, 0);
 			}
@@ -316,10 +335,10 @@ void Movement() {
 		if (g.shots_2[i].alive) {
 			g.shots_2[i].x -= BULLET_SPEED;
 			if (g.shots_2[i].x < -40) {
-				if (g.last_hit_2 == 3)g.last_hit_2 = 0;
+				if (g.last_hit_2 == HITS)g.last_hit_2 = 0;
 				g.shots_2[i].alive = false;
 				g.hits_2[g.last_hit_2].hit = true; 
-				g.hits_2[g.last_hit_2].y = g.shots_2[i].y;
+				g.hits_2[g.last_hit_2].y = g.shots_2[i].y-60;
 				g.last_hit_2++;
 				Mix_PlayChannel(-1, g.fx_splash, 0);
 			}
@@ -338,8 +357,7 @@ void Movement() {
 
 void Render() {
 	SDL_Rect target;
-	target.h = BULLET_SIZE;
-	target.w = BULLET_SIZE;
+
 
 	SDL_RenderCopy(g.renderer, g.background, NULL, NULL);			//Background
 
@@ -347,34 +365,38 @@ void Render() {
 	{
 		target.x = g.shots[i].x;
 		target.y = g.shots[i].y;
-		SDL_RenderCopy(g.renderer, g.fireball, NULL, &target);
+		target.h = 41;
+		target.w = 70;
+		SDL_RenderCopy(g.renderer, g.ball, NULL, &target);
 	}
 
 	for (int i = 0; i < AMMO; i++)									//Bullets
 	{
 		target.x = g.shots_2[i].x;
 		target.y = g.shots_2[i].y;
-		SDL_RenderCopy(g.renderer, g.fireball, NULL, &target);
+		target.h = 40;
+		target.w = 70;
+		SDL_RenderCopy(g.renderer, g.ball_2, NULL, &target);
 	}
 
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < HITS; i++) {
 		if (g.hits_2[i].hit) {
 			target.x = -20;
 			target.y = g.hits_2[i].y;
 			target.h = 120;
 			target.w = 50;
 
-			SDL_RenderCopy(g.renderer, g.splash_2, NULL, &target);
+			SDL_RenderCopy(g.renderer, g.splash, NULL, &target);
 		}
 	}
 
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < HITS; i++) {
 		if (g.hits[i].hit) {
-			target.x = SCREEN_WIDTH - 50;
+			target.x = SCREEN_WIDTH - 30;
 			target.y = g.hits[i].y;
 			target.h = 120;
 			target.w = 50; 
-			SDL_RenderCopy(g.renderer, g.splash, NULL, &target); 
+			SDL_RenderCopy(g.renderer, g.splash_2, NULL, &target); 
 		}
 	}
 
