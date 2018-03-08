@@ -11,10 +11,10 @@
 #define SCREEN_WIDTH 1080
 #define SCREEN_HEIGHT 760
 #define SPEED 7
-#define PLAYER_SIZE 75
-#define BULLET_SPEED 20
+#define PLAYER_SIZE 150
+#define BULLET_SPEED 10
 #define AMMO 10
-#define BULLET_SIZE 10
+#define BULLET_SIZE 30
 
 
 struct projectile {
@@ -42,17 +42,28 @@ struct globals {
 	SDL_Texture* fireball = nullptr;
 	SDL_Texture* character_2 = nullptr; 
 	SDL_Texture* splash = nullptr; 
+	SDL_Texture* splash_2 = nullptr; 
+
 	Mix_Chunk* fx_shot = nullptr;
+	Mix_Chunk* fx_splash = nullptr; 
+	Mix_Chunk* fx_hit = nullptr; 
 	Mix_Music* music = nullptr;
-	SDL_Rect player{ 300, SCREEN_HEIGHT / 2,PLAYER_SIZE,PLAYER_SIZE };
+
+	SDL_Rect player{ 80, SCREEN_HEIGHT / 2,PLAYER_SIZE,PLAYER_SIZE };
 	SDL_Rect player_2{ 900, SCREEN_HEIGHT / 2,PLAYER_SIZE,PLAYER_SIZE };
 	projectile shots[AMMO];
 	projectile shots_2[AMMO];
+
 	Hit hits[3];
+	int last_hit = 0;
+
+	Hit hits_2[3];
+	int last_hit_2 = 0;
+
 
 	int last_shot = 0;
 	int last_shot_2 = 0;
-	int last_hit = 0;
+
 
 	bool up, down, right, left, fire = false;
 	bool up_2, down_2, right_2, left_2, fire_2 = false;
@@ -100,12 +111,18 @@ void Start() {
 	g.splash = SDL_CreateTextureFromSurface(g.renderer, g.surface);
 	SDL_FreeSurface(g.surface);
 
+	g.surface = IMG_Load("assets/splash_2.png");
+	g.splash_2 = SDL_CreateTextureFromSurface(g.renderer, g.surface);
+	SDL_FreeSurface(g.surface); 
+
 
 	//SOUND SETTINGS
 
 	Mix_OpenAudio(25000, MIX_DEFAULT_FORMAT, 2, 2500);
 
 	g.fx_shot = Mix_LoadWAV("assets/laser.WAV");
+	g.fx_splash = Mix_LoadWAV("assets/splash.WAV"); 
+	g.fx_hit = Mix_LoadWAV("assets/hit.WAV");
 	g.music = Mix_LoadMUS("assets/background_music.ogg");
 	Mix_PlayMusic(g.music, -1);
 }
@@ -197,7 +214,7 @@ bool Check_Input() {
 			case SDL_SCANCODE_LEFT:
 				g.left = true;
 				break;
-			case SDL_SCANCODE_SPACE:
+			case SDL_SCANCODE_KP_ENTER:
 				g.fire = true;
 				break;
 
@@ -215,7 +232,7 @@ bool Check_Input() {
 			case SDL_SCANCODE_A:
 				g.left_2 = true;
 				break;
-			case SDL_SCANCODE_H:
+			case SDL_SCANCODE_SPACE:
 				g.fire_2 = true; 
 				break;
 
@@ -246,6 +263,8 @@ void Movement() {
 	if (g.right_2 && g.player_2.x < SCREEN_WIDTH - (PLAYER_SIZE - 10))g.player_2.x += SPEED;
 
 
+	//PLAYER 1 SHOTS
+
 	if (g.fire)
 	{
 		g.fire = false;
@@ -261,11 +280,24 @@ void Movement() {
 	{
 		if (g.shots[i].alive) {
 			g.shots[i].x += BULLET_SPEED;
-			if (g.shots[i].x > SCREEN_WIDTH)
+				if (g.shots[i].x > SCREEN_WIDTH) {
+				if (g.last_hit == 3)g.last_hit = 0;
 				g.shots[i].alive = false;
+				g.hits[g.last_hit].hit = true;
+				g.hits[g.last_hit].y = g.shots[i].y;
+				g.last_hit++;
+				Mix_PlayChannel(-1, g.fx_splash, 0);
+			}
+			if (g.shots[i].x > (g.player_2.x) && g.shots[i].y >(g.player_2.y - 10) && g.shots[i].y < (g.player_2.y + 150)) {
+				Mix_PlayChannel(-1, g.fx_hit, 0);
+				g.shots[i].alive = false;
+				g.shots[i].x = 2000;
+			}
 		}
 	}
 
+
+	// PLAYER 2 SHOTS
 
 	if (g.fire_2)
 	{
@@ -283,16 +315,20 @@ void Movement() {
 	{
 		if (g.shots_2[i].alive) {
 			g.shots_2[i].x -= BULLET_SPEED;
-			if (g.shots_2[i].x < -10) {
-				if (g.last_hit == 3)g.last_hit = 0;
+			if (g.shots_2[i].x < -40) {
+				if (g.last_hit_2 == 3)g.last_hit_2 = 0;
 				g.shots_2[i].alive = false;
-				g.hits[g.last_hit].hit = true; 
-				g.hits[g.last_hit].y = g.shots_2[i].y;
-				g.last_hit++;
+				g.hits_2[g.last_hit_2].hit = true; 
+				g.hits_2[g.last_hit_2].y = g.shots_2[i].y;
+				g.last_hit_2++;
+				Mix_PlayChannel(-1, g.fx_splash, 0);
 			}
-			if (g.shots_2[i].x < (g.player.x + 75) && g.shots_2[i].y >(g.player.y - 10) && g.shots_2[i].y < (g.player.y + 75)) {
+			if (g.shots_2[i].x < (g.player.x + 120) && g.shots_2[i].y >(g.player.y - 10) && g.shots_2[i].y < (g.player.y + 150)) {
+				Mix_PlayChannel(-1, g.fx_hit, 0);
 				g.shots_2[i].alive = false;
-				g.shots_2[i].x = 2000;				
+				g.shots_2[i].x = 2000;	
+			
+
 			}
 		}
 	}
@@ -322,24 +358,26 @@ void Render() {
 	}
 
 	for (int i = 0; i < 3; i++) {
-		if (g.hits[i].hit) {
+		if (g.hits_2[i].hit) {
 			target.x = -20;
-			target.y = g.hits[i].y;
+			target.y = g.hits_2[i].y;
 			target.h = 120;
 			target.w = 50;
 
-			SDL_RenderCopy(g.renderer, g.splash, NULL, &target);
+			SDL_RenderCopy(g.renderer, g.splash_2, NULL, &target);
 		}
 	}
 
-	/*if (g.hit_2) {
-		target.x = -20; 
-		target.y = g.pos_hit_2; 
-		target.h = 120;
-		target.w = 50;
+	for (int i = 0; i < 3; i++) {
+		if (g.hits[i].hit) {
+			target.x = SCREEN_WIDTH - 50;
+			target.y = g.hits[i].y;
+			target.h = 120;
+			target.w = 50; 
+			SDL_RenderCopy(g.renderer, g.splash, NULL, &target); 
+		}
+	}
 
-		SDL_RenderCopy(g.renderer, g.splash, NULL, &target);
-	}*/
 
 	SDL_RenderCopy(g.renderer, g.character, NULL, &g.player);		//Character
 	SDL_RenderCopy(g.renderer, g.character_2, NULL, &g.player_2);
