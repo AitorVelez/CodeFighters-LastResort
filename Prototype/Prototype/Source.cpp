@@ -15,7 +15,7 @@
 #define BULLET_SPEED 10
 #define AMMO 30
 #define BULLET_SIZE 30
-#define HITS 25
+#define HITS 35
 
 struct projectile {
 
@@ -106,7 +106,7 @@ void Start() {
 	g.character = SDL_CreateTextureFromSurface(g.renderer, g.surface);
 	SDL_FreeSurface(g.surface);
 
-	g.surface = IMG_Load("assets/mario_2.png");
+	g.surface = IMG_Load("assets/luigi.png");
 	g.character_2 = SDL_CreateTextureFromSurface(g.renderer, g.surface);
 	SDL_FreeSurface(g.surface);
 
@@ -135,7 +135,7 @@ void Start() {
 	g.fx_shot = Mix_LoadWAV("assets/laser.WAV");
 	g.fx_splash = Mix_LoadWAV("assets/splash.WAV"); 
 	g.fx_hit = Mix_LoadWAV("assets/hit.WAV");
-	g.music = Mix_LoadMUS("assets/background_music.ogg");
+	g.music = Mix_LoadMUS("assets/music.ogg");
 	Mix_PlayMusic(g.music, -1);
 }
 
@@ -271,14 +271,16 @@ bool Check_Input() {
 void Movement() {
 
 	if (g.up && g.player.y > 0)g.player.y -= SPEED;
-	if (g.down && g.player.y < SCREEN_HEIGHT - 250)g.player.y += SPEED;
-	if (g.left && g.player.x > -20)g.player.x -= SPEED;
+	//if (g.down && g.player.y < SCREEN_HEIGHT - 250)g.player.y += SPEED;
+	if (g.down && g.player.y < SCREEN_HEIGHT - PLAYER_SIZE)g.player.y += SPEED;
+	if (g.left && g.player.x > 0)g.player.x -= SPEED;
 	if (g.right && g.player.x < SCREEN_WIDTH - (PLAYER_SIZE - 10))g.player.x += SPEED;
 
 
 	if (g.up_2 && g.player_2.y > 0)g.player_2.y -= SPEED;
-	if (g.down_2 && g.player_2.y < SCREEN_HEIGHT - 250)g.player_2.y += SPEED;
-	if (g.left_2 && g.player_2.x > -20)g.player_2.x -= SPEED;
+	/*if (g.down_2 && g.player_2.y < SCREEN_HEIGHT - 250)g.player_2.y += SPEED;*/
+	if (g.down_2 && g.player_2.y < SCREEN_HEIGHT - PLAYER_SIZE)g.player_2.y += SPEED;
+	if (g.left_2 && g.player_2.x > 0)g.player_2.x -= SPEED;
 	if (g.right_2 && g.player_2.x < SCREEN_WIDTH - (PLAYER_SIZE - 10))g.player_2.x += SPEED;
 
 
@@ -307,7 +309,7 @@ void Movement() {
 				g.last_hit++;
 				Mix_PlayChannel(-1, g.fx_splash, 0);
 			}
-			if (g.shots[i].x > (g.player_2.x) && g.shots[i].y >(g.player_2.y - 10) && g.shots[i].y < (g.player_2.y + 150)) {
+			if (g.shots[i].x > g.player_2.x && g.shots[i].y >(g.player_2.y - 30) && g.shots[i].y < (g.player_2.y + 140)) {
 				Mix_PlayChannel(-1, g.fx_hit, 0);
 				g.shots[i].alive = false;
 				g.shots[i].x = 2000;
@@ -342,7 +344,7 @@ void Movement() {
 				g.last_hit_2++;
 				Mix_PlayChannel(-1, g.fx_splash, 0);
 			}
-			if (g.shots_2[i].x < (g.player.x + 120) && g.shots_2[i].y >(g.player.y - 10) && g.shots_2[i].y < (g.player.y + 150)) {
+			if (g.shots_2[i].x < (g.player.x + 120) && g.shots_2[i].y >(g.player.y - 30) && g.shots_2[i].y < (g.player.y + 140)) {
 				Mix_PlayChannel(-1, g.fx_hit, 0);
 				g.shots_2[i].alive = false;
 				g.shots_2[i].x = 2000;	
@@ -367,7 +369,7 @@ void Render() {
 		target.y = g.shots[i].y;
 		target.h = 41;
 		target.w = 70;
-		SDL_RenderCopy(g.renderer, g.ball, NULL, &target);
+		SDL_RenderCopy(g.renderer, g.ball_2, NULL, &target);
 	}
 
 	for (int i = 0; i < AMMO; i++)									//Bullets
@@ -376,7 +378,7 @@ void Render() {
 		target.y = g.shots_2[i].y;
 		target.h = 40;
 		target.w = 70;
-		SDL_RenderCopy(g.renderer, g.ball_2, NULL, &target);
+		SDL_RenderCopy(g.renderer, g.ball, NULL, &target);
 	}
 
 	for (int i = 0; i < HITS; i++) {
@@ -386,7 +388,7 @@ void Render() {
 			target.h = 120;
 			target.w = 50;
 
-			SDL_RenderCopy(g.renderer, g.splash, NULL, &target);
+			SDL_RenderCopy(g.renderer, g.splash_2, NULL, &target);
 		}
 	}
 
@@ -396,7 +398,7 @@ void Render() {
 			target.y = g.hits[i].y;
 			target.h = 120;
 			target.w = 50; 
-			SDL_RenderCopy(g.renderer, g.splash_2, NULL, &target); 
+			SDL_RenderCopy(g.renderer, g.splash, NULL, &target); 
 		}
 	}
 
