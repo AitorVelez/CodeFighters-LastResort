@@ -48,6 +48,8 @@ struct globals {
 	bool up, down, right, left, fire = false;
 	bool up_2, down_2, right_2, left_2, fire_2 = false;
 
+	bool hit = false;
+	bool hit_2 = false; 
 }g;
 
 
@@ -267,11 +269,16 @@ void Movement() {
 	{
 		if (g.shots_2[i].alive) {
 			g.shots_2[i].x -= BULLET_SPEED;
-			if (g.shots_2[i].x < 0)
+			if (g.shots_2[i].x < -10) {
 				g.shots_2[i].alive = false;
+				g.hit_2 = true; 
+			}
+			if (g.shots_2[i].x < (g.player.x + 75) && g.shots_2[i].y >(g.player.y - 10) && g.shots_2[i].y < (g.player.y + 75)) {
+				g.shots_2[i].alive = false;
+				g.shots_2[i].x = 2000;				
+			}
 		}
 	}
-
 
 }
 
