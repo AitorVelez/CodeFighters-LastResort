@@ -48,11 +48,12 @@ struct globals {
 	SDL_Rect player_2{ 900, SCREEN_HEIGHT / 2,PLAYER_SIZE,PLAYER_SIZE };
 	projectile shots[AMMO];
 	projectile shots_2[AMMO];
-
 	Hit hits[3];
+
 	int last_shot = 0;
 	int last_shot_2 = 0;
 	int last_hit = 0;
+
 	bool up, down, right, left, fire = false;
 	bool up_2, down_2, right_2, left_2, fire_2 = false;
 
@@ -283,9 +284,11 @@ void Movement() {
 		if (g.shots_2[i].alive) {
 			g.shots_2[i].x -= BULLET_SPEED;
 			if (g.shots_2[i].x < -10) {
+				if (g.last_hit == 3)g.last_hit = 0;
 				g.shots_2[i].alive = false;
-				g.hit_2 = true; 
-				g.pos_hit_2 = g.shots_2[i].y;
+				g.hits[g.last_hit].hit = true; 
+				g.hits[g.last_hit].y = g.shots_2[i].y;
+				g.last_hit++;
 			}
 			if (g.shots_2[i].x < (g.player.x + 75) && g.shots_2[i].y >(g.player.y - 10) && g.shots_2[i].y < (g.player.y + 75)) {
 				g.shots_2[i].alive = false;
@@ -318,14 +321,25 @@ void Render() {
 		SDL_RenderCopy(g.renderer, g.fireball, NULL, &target);
 	}
 
-	if (g.hit_2) {
+	for (int i = 0; i < 3; i++) {
+		if (g.hits[i].hit) {
+			target.x = -20;
+			target.y = g.hits[i].y;
+			target.h = 120;
+			target.w = 50;
+
+			SDL_RenderCopy(g.renderer, g.splash, NULL, &target);
+		}
+	}
+
+	/*if (g.hit_2) {
 		target.x = -20; 
 		target.y = g.pos_hit_2; 
 		target.h = 120;
 		target.w = 50;
 
 		SDL_RenderCopy(g.renderer, g.splash, NULL, &target);
-	}
+	}*/
 
 	SDL_RenderCopy(g.renderer, g.character, NULL, &g.player);		//Character
 	SDL_RenderCopy(g.renderer, g.character_2, NULL, &g.player_2);
