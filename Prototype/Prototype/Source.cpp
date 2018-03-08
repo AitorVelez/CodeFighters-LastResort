@@ -385,7 +385,7 @@ void Render() {
 		if (g.hits_2[i].hit) {
 			target.x = -20;
 			target.y = g.hits_2[i].y;
-			target.h = 120;
+			target.h = 155;
 			target.w = 50;
 
 			SDL_RenderCopy(g.renderer, g.splash_2, NULL, &target);
@@ -396,7 +396,7 @@ void Render() {
 		if (g.hits[i].hit) {
 			target.x = SCREEN_WIDTH - 30;
 			target.y = g.hits[i].y;
-			target.h = 120;
+			target.h = 155;
 			target.w = 50; 
 			SDL_RenderCopy(g.renderer, g.splash, NULL, &target); 
 		}
