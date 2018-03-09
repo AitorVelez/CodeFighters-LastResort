@@ -232,7 +232,7 @@ bool Check_Input() {
 				g.left_2 = true;
 				break;
 			case SDL_SCANCODE_KP_ENTER:
-				g.fire_2 = true;
+				g.fire_2 = (e.key.repeat == 0);
 				break;
 
 				// PLAYER 2
@@ -250,7 +250,7 @@ bool Check_Input() {
 				g.left = true;
 				break;
 			case SDL_SCANCODE_SPACE:
-				g.fire = true; 
+				g.fire = (e.key.repeat == 0);
 				break;
 
 				//  EXIT
@@ -292,7 +292,7 @@ void Movement() {
 		Mix_PlayChannel(-1, g.fx_shot, 0);
 		if (g.last_shot == AMMO) g.last_shot = 0;
 		g.shots[g.last_shot].alive = true;
-		g.shots[g.last_shot].x = g.player.x + PLAYER_SIZE;
+		g.shots[g.last_shot].x = g.player.x + (PLAYER_SIZE - 50);
 		g.shots[g.last_shot].y = g.player.y + (PLAYER_SIZE / 2);
 
 		g.last_shot++;
