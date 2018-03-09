@@ -79,7 +79,7 @@ void Start() {
 	IMG_Init(IMG_INIT_PNG);
 	Mix_Init(MIX_INIT_OGG);
 
-	g.window = SDL_CreateWindow("My Super Awesome Game",
+	g.window = SDL_CreateWindow("Paint Mario",
 		SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
 		SCREEN_WIDTH, SCREEN_HEIGHT,
 		SDL_WINDOW_SHOWN);
