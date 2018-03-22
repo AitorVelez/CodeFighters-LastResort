@@ -32,20 +32,19 @@ bool ModuleRender::Init()
 		ret = false;
 	}
 
-	// TODO 9: load a texture "test.png" to test is everything works well
-
-	//SDL_Rect camera = { 0,0,SCREEN_WIDTH,SCREEN_HEIGHT };
-	
-	camera.x = 0;
-	camera.y = 0;
-	camera.w = 320;
-	camera.h = 224;
-
-
-
-	tex = App->textures->Load("assets/backgroundlvl1.png");
 
 	
+	
+
+	
+	background= App->textures->Load("assets/backgroundlvl1.png");
+	player = App->textures->Load("assets/SpaceShip_Sprite.png");
+	camera = new SDL_Rect;
+
+	camera->h = 224;
+	camera->w = 320;
+	camera->x = 0;
+	camera->y = 0;
 
 	SDL_SetRenderDrawColor(App->render->renderer, 0, 0, 0, 0);
 	return ret;
@@ -54,15 +53,18 @@ bool ModuleRender::Init()
 // Called every draw update
 update_status ModuleRender::PreUpdate()
 {
-	update_status state = UPDATE_CONTINUE; 
-
-	camera.x = camera.x + 2;
-	// TODO 7: Clear the screen to black before starting every frame
+	update_status state = UPDATE_CONTINUE;
 	SDL_RenderClear(App->render->renderer);
 
-	// TODO 10: Blit our test texture to check functionality
-	if (!(Blit(tex, 0, 0, 0))) state = UPDATE_STOP; 
+	camera->x += 1;
+	Blit(background, 0, 0, camera);
+	SDL_Rect target;
+	target.x = 64;
+	target.y = 0;
+	target.h = 16;
+	target.w = 32;
 
+	Blit(player, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, &target);
 	return state;
 }
 
