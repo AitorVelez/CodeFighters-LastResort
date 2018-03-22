@@ -24,6 +24,6 @@ typedef unsigned int uint;
 #define WIN_FULLSCREEN_DESKTOP 0
 #define WIN_BORDERLESS 0
 #define WIN_RESIZABLE 1
-#define REN_VSYNC 2
+#define REN_VSYNC 1
 
 #endif // __GLOBALS_H__

@@ -33,8 +33,8 @@ bool ModuleRender::Init()
 	}
 
 	// TODO 9: load a texture "test.png" to test is everything works well
-	tex = App->textures->Load("test.png");
-
+	tex = App->textures->Load("assets/backgroundlvl1.png");
+	
 
 	SDL_SetRenderDrawColor(App->render->renderer, 0, 0, 0, 0);
 	return ret;
