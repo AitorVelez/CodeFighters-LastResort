@@ -32,11 +32,6 @@ bool ModuleRender::Init()
 		ret = false;
 	}
 
-
-	
-	
-
-	
 	background= App->textures->Load("assets/backgroundlvl1.png");
 	player = App->textures->Load("assets/SpaceShip_Sprite.png");
 	camera = new SDL_Rect;

@@ -1,1 +1,10 @@
-﻿  SDL Game.vcxproj -> C:\Users\gollim\Documents\GitHub\CodeFighters-LastResort\Last_Resort_Prototype\Debug\SDL3 Handout.exe
+﻿  ModuleWindow.cpp
+  ModuleTextures.cpp
+  ModuleRender.cpp
+  ModuleInput.cpp
+  Main.cpp
+  Globals.cpp
+  Application.cpp
+  Generating Code...
+  SDL Game.vcxproj -> C:\Users\Sebi\Documents\GitHub\CodeFighters-LastResort\Last_Resort_Prototype\Debug\SDL3 Handout.exe
+  SDL Game.vcxproj -> C:\Users\Sebi\Documents\GitHub\CodeFighters-LastResort\Last_Resort_Prototype\Debug\SDL3 Handout.pdb (Full PDB)
