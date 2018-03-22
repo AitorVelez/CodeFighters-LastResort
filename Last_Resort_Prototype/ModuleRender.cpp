@@ -33,7 +33,18 @@ bool ModuleRender::Init()
 	}
 
 	// TODO 9: load a texture "test.png" to test is everything works well
+
+	//SDL_Rect camera = { 0,0,SCREEN_WIDTH,SCREEN_HEIGHT };
+	
+	camera.x = 0;
+	camera.y = 0;
+	camera.w = 320;
+	camera.h = 224;
+
+
+
 	tex = App->textures->Load("assets/backgroundlvl1.png");
+
 	
 
 	SDL_SetRenderDrawColor(App->render->renderer, 0, 0, 0, 0);
@@ -44,6 +55,8 @@ bool ModuleRender::Init()
 update_status ModuleRender::PreUpdate()
 {
 	update_status state = UPDATE_CONTINUE; 
+
+	camera.x = camera.x + 2;
 	// TODO 7: Clear the screen to black before starting every frame
 	SDL_RenderClear(App->render->renderer);
 
@@ -78,6 +91,7 @@ bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, SDL_Rect* section)
 {
 	bool ret = true;
 	SDL_Rect rect;
+
 	rect.x = x;
 	rect.y = y;
 

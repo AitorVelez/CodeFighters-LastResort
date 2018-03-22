@@ -1,3 +1,19 @@
-﻿  ModuleRender.cpp
-  SDL Game.vcxproj -> C:\Users\Sebi\Documents\GitHub\CodeFighters-LastResort\Last_Resort_Prototype\Debug\SDL3 Handout.exe
-  SDL Game.vcxproj -> C:\Users\Sebi\Documents\GitHub\CodeFighters-LastResort\Last_Resort_Prototype\Debug\SDL3 Handout.pdb (Full PDB)
+﻿  ModuleTextures.cpp
+  ModuleRender.cpp
+d:\users\mi pc\documents\github\codefighters-lastresort\last_resort_prototype\modulerender.cpp(39): error C2065: 'camera': identificador no declarado
+d:\users\mi pc\documents\github\codefighters-lastresort\last_resort_prototype\modulerender.cpp(39): error C2228: el operando izquierdo de '.x' debe tener class/struct/union
+  d:\users\mi pc\documents\github\codefighters-lastresort\last_resort_prototype\modulerender.cpp(39): note: el tipo es 'unknown-type'
+d:\users\mi pc\documents\github\codefighters-lastresort\last_resort_prototype\modulerender.cpp(40): error C2065: 'camera': identificador no declarado
+d:\users\mi pc\documents\github\codefighters-lastresort\last_resort_prototype\modulerender.cpp(40): error C2228: el operando izquierdo de '.y' debe tener class/struct/union
+  d:\users\mi pc\documents\github\codefighters-lastresort\last_resort_prototype\modulerender.cpp(40): note: el tipo es 'unknown-type'
+d:\users\mi pc\documents\github\codefighters-lastresort\last_resort_prototype\modulerender.cpp(41): error C2065: 'camera': identificador no declarado
+d:\users\mi pc\documents\github\codefighters-lastresort\last_resort_prototype\modulerender.cpp(41): error C2228: el operando izquierdo de '.w' debe tener class/struct/union
+  d:\users\mi pc\documents\github\codefighters-lastresort\last_resort_prototype\modulerender.cpp(41): note: el tipo es 'unknown-type'
+d:\users\mi pc\documents\github\codefighters-lastresort\last_resort_prototype\modulerender.cpp(42): error C2065: 'camera': identificador no declarado
+d:\users\mi pc\documents\github\codefighters-lastresort\last_resort_prototype\modulerender.cpp(42): error C2228: el operando izquierdo de '.h' debe tener class/struct/union
+  d:\users\mi pc\documents\github\codefighters-lastresort\last_resort_prototype\modulerender.cpp(42): note: el tipo es 'unknown-type'
+d:\users\mi pc\documents\github\codefighters-lastresort\last_resort_prototype\modulerender.cpp(59): error C2065: 'camera': identificador no declarado
+d:\users\mi pc\documents\github\codefighters-lastresort\last_resort_prototype\modulerender.cpp(59): error C2228: el operando izquierdo de '.x' debe tener class/struct/union
+  d:\users\mi pc\documents\github\codefighters-lastresort\last_resort_prototype\modulerender.cpp(59): note: el tipo es 'unknown-type'
+  Application.cpp
+  Generando código...
