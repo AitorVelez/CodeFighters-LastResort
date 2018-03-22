@@ -1,3 +1,12 @@
-﻿  ModuleRender.cpp
-  SDL Game.vcxproj -> C:\Users\Sebi\Desktop\SDL3_handout\Debug\SDL3 Handout.exe
-  SDL Game.vcxproj -> C:\Users\Sebi\Desktop\SDL3_handout\Debug\SDL3 Handout.pdb (Full PDB)
+﻿  Application.cpp
+  Generating Code...
+  Compiling...
+  ModuleWindow.cpp
+  ModuleTextures.cpp
+  ModuleRender.cpp
+c:\users\sebi\documents\github\codefighters-lastresort\last_resort_prototype\modulerender.cpp(22): warning C4806: '==': unsafe operation: no value of type 'bool' promoted to type 'int' can equal the given constant
+  ModuleInput.cpp
+  Main.cpp
+  Generating Code...
+  SDL Game.vcxproj -> C:\Users\Sebi\Documents\GitHub\CodeFighters-LastResort\Last_Resort_Prototype\Debug\SDL3 Handout.exe
+  SDL Game.vcxproj -> C:\Users\Sebi\Documents\GitHub\CodeFighters-LastResort\Last_Resort_Prototype\Debug\SDL3 Handout.pdb (Full PDB)
