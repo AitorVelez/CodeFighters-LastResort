@@ -12,7 +12,7 @@ ModuleBackground::ModuleBackground()
 	background.x = 0;
 	background.y = 0;
 	background.w = 4560;
-	background.h = 176;
+	background.h = 239;
 
 }
 
@@ -32,6 +32,7 @@ bool ModuleBackground::Start()
 // Update: draw background
 update_status ModuleBackground::Update()
 {
+	int scroll = 3; 
 	// Draw everything --------------------------------------
 	App->render->Blit(graphics, 0, 0, &background, 0.75f); // sea and sky
 	

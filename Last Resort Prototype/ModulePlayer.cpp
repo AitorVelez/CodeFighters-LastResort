@@ -9,34 +9,22 @@
 
 ModulePlayer::ModulePlayer()
 {
-	position.x = 100;
-	position.y = 220;
+	position.x = 50;
+	position.y = 125;
 
 	// idle animation (arcade sprite sheet)
-	idle.PushBack({7, 14, 60, 90});
-	idle.PushBack({95, 15, 60, 89});
-	idle.PushBack({184, 14, 60, 90});
-	idle.PushBack({276, 11, 60, 93});
-	idle.PushBack({366, 12, 60, 92});
-	idle.speed = 0.2f;
+	
+	idle.PushBack({ 64,3,32,14 });
 
-	// walk forward animation (arcade sprite sheet)
-	//forward.frames.PushBack({9, 136, 53, 83});
-	forward.PushBack({78, 131, 60, 88});
-	forward.PushBack({162, 128, 64, 92});
-	forward.PushBack({259, 128, 63, 90});
-	forward.PushBack({352, 128, 54, 91});
-	forward.PushBack({432, 131, 50, 89});
-	forward.speed = 0.1f;
+	// Up animation
+	up.PushBack({ 0,3,32,14 });
+	up.PushBack({ 32,3,32,14 });
+	up.speed = 0.2f;
 
-	// TODO 4: Make ryu walk backwards with the correct animations
-	backward.PushBack({ 542,130,63,90 });
-	backward.PushBack({ 627,128,61,92 });
-	backward.PushBack({ 713,127,58,92 });
-	backward.PushBack({ 797,127,58,91 });
-	backward.PushBack({ 882,127,60,93 });
-	backward.PushBack({ 974,127,58,90 });
-	backward.speed = 0.1f;
+	// Down animation
+	down.PushBack({ 96,3,32,14 });
+	down.PushBack({ 128,3,32,14 });
+	down.speed = 0.2f;
 
 }
 
@@ -59,16 +47,25 @@ update_status ModulePlayer::Update()
 
 	int speed = 1;
 
-	if(App->input->keyboard[SDL_SCANCODE_D] == 1)
+	// Input -----
+	App->render->camera.x -= speed;
+	position.x += speed; 
+
+	if(App->input->keyboard[SDL_SCANCODE_W] == 1)
 	{
-		current_animation = &forward;
+		current_animation = &up;
+		position.y -= speed;
+	}
+	if (App->input->keyboard[SDL_SCANCODE_S] == 1)
+	{
+		current_animation = &down;
+		position.y += speed;
+	}
+	if (App->input->keyboard[SDL_SCANCODE_D] == 1)
 		position.x += speed;
-	}
+
 	if (App->input->keyboard[SDL_SCANCODE_A] == 1)
-	{
-		current_animation = &backward;
 		position.x -= speed;
-	}
 
 
 	// Draw everything --------------------------------------
