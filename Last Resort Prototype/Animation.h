@@ -24,13 +24,10 @@ public:
 
 	SDL_Rect& GetCurrentFrame()
 	{
-		bool next_anim = true; 
-		if (next_anim) {
-			current_frame += speed;
-			if (current_frame >= last_frame)
-				if (repeat) current_frame = 0;
-				else next_anim = false;
-		}
+		current_frame += speed;
+		if (current_frame >= last_frame)
+			 current_frame = 0;
+			
 		return frames[(int)current_frame];
 	}
 };
