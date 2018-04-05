@@ -4,7 +4,7 @@
 #include "ModuleWindow.h"
 #include "ModuleInput.h"
 #include "SDL/include/SDL.h"
-
+#define movingbgwidth 4560    // SPAGHETTI WARNING // //
 ModuleRender::ModuleRender() : Module()
 {
 	camera.x = camera.y = 0;
@@ -42,10 +42,27 @@ bool ModuleRender::Init()
 // Called every draw update
 update_status ModuleRender::PreUpdate()
 {
-	SDL_RenderClear(renderer);
+	do {
+	update_status state = UPDATE_CONTINUE;
+	
+	SDL_RenderClear(App->render->renderer);
+	//Blit(staticbackground, 0, 0, camera);//
 
-	return update_status::UPDATE_CONTINUE;
+		camera->x += 1;
+		Blit(background, 0, 0, camera);
+	
+
+	SDL_Rect target;
+	target.x = 64;
+	target.y = 0;
+	target.h = 16;
+	target.w = 32;
+
+	Blit(player, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, &target);
+	return state;
+	} while (camera->x < movingbgwidth);   //            !!!!         PROPOSE; MUST CHECK      !!!              //
 }
+
 
 update_status ModuleRender::Update()	
 {
