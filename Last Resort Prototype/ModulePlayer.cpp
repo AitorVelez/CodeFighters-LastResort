@@ -20,12 +20,14 @@ ModulePlayer::ModulePlayer()
 	up.PushBack({ 0,3,32,14 });
 	up.PushBack({ 32,3,32,14 });
 	up.speed = 0.2f;
+	up.repeat = false; 
+
 
 	// Down animation
 	down.PushBack({ 96,3,32,14 });
 	down.PushBack({ 128,3,32,14 });
 	down.speed = 0.2f;
-
+	down.repeat = false; 
 }
 
 ModulePlayer::~ModulePlayer()
@@ -48,7 +50,7 @@ update_status ModulePlayer::Update()
 	int speed = 1;
 
 	// Input -----
-	App->render->camera.x -= speed;
+
 	position.x += speed; 
 
 	if(App->input->keyboard[SDL_SCANCODE_W] == 1)

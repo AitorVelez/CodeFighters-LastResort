@@ -9,6 +9,7 @@ class Animation
 public:
 	float speed = 1.0f;
 	SDL_Rect frames[MAX_FRAMES];
+	bool repeat = true; 
 
 private:
 	float current_frame;
@@ -23,10 +24,13 @@ public:
 
 	SDL_Rect& GetCurrentFrame()
 	{
-		current_frame += speed;
-		if(current_frame >= last_frame)
-			current_frame = 0;
-
+		bool next_anim = true; 
+		if (next_anim) {
+			current_frame += speed;
+			if (current_frame >= last_frame)
+				if (repeat) current_frame = 0;
+				else next_anim = false;
+		}
 		return frames[(int)current_frame];
 	}
 };

@@ -33,6 +33,7 @@ bool ModuleBackground::Start()
 update_status ModuleBackground::Update()
 {
 	int scroll = 3; 
+	App->render->camera.x -= scroll;
 	// Draw everything --------------------------------------
 	App->render->Blit(graphics, 0, 0, &background, 0.75f); // sea and sky
 	
