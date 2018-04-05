@@ -46,8 +46,8 @@ update_status ModuleBackground::Update()
 		scroll = false; 
 
 	// Draw everything --------------------------------------
-		App->render->Blit(graphics, 2800, 0, &crater, 0.5f);
-	App->render->Blit(graphics, 0, 0, &background, 0.75f); // sea and sky
+		App->render->Blit(graphics, 0, 0, &crater, 0.0001f);
+		App->render->Blit(graphics, 0, 0, &background, 0.75f); // sea and sky
 
 	return UPDATE_CONTINUE;
 }
