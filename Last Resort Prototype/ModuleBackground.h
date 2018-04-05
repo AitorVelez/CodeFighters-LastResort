@@ -20,6 +20,8 @@ public:
 	
 	SDL_Texture* graphics = nullptr;
 	SDL_Rect background;
+	SDL_Rect crater;
+	bool scroll = true; 
 };
 
 #endif

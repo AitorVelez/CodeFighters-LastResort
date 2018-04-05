@@ -11,9 +11,13 @@ ModuleBackground::ModuleBackground()
 	// Background
 	background.x = 0;
 	background.y = 0;
-	background.w = 4560;
+	background.w = 4233;
 	background.h = 239;
 
+	crater.x = 4232;
+	crater.y = 0; 
+	crater.w = 328;
+	crater.h = 239;
 }
 
 
@@ -32,10 +36,18 @@ bool ModuleBackground::Start()
 // Update: draw background
 update_status ModuleBackground::Update()
 {
-	int scroll = 3; 
-	App->render->camera.x -= scroll;
+	int scroll_speed = 10; 
+
+	if (scroll) {
+		App->render->camera.x -= scroll_speed;
+	}
+
+	if (App->render->camera.x <= -5700 * SCREEN_SIZE)
+		scroll = false; 
+
 	// Draw everything --------------------------------------
+		App->render->Blit(graphics, 2800, 0, &crater, 0.5f);
 	App->render->Blit(graphics, 0, 0, &background, 0.75f); // sea and sky
-	
+
 	return UPDATE_CONTINUE;
 }
