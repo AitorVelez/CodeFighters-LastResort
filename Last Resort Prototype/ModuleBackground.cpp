@@ -36,7 +36,7 @@ bool ModuleBackground::Start()
 // Update: draw background
 update_status ModuleBackground::Update()
 {
-	int scroll_speed = 10; 
+	int scroll_speed = 3; 
 
 	if (scroll) {
 		App->render->camera.x -= scroll_speed;

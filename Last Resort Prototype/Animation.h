@@ -14,6 +14,7 @@ public:
 private:
 	float current_frame;
 	int last_frame = 0;
+	bool cont = true; 
 
 public:
 
@@ -24,9 +25,11 @@ public:
 
 	SDL_Rect& GetCurrentFrame()
 	{
-		current_frame += speed;
-		if (current_frame >= last_frame)
-			 current_frame = 0;
+		if(cont) current_frame += speed;
+		if (current_frame >= last_frame) {
+			if (repeat) current_frame = 0;
+			else cont = false;
+		}
 			
 		return frames[(int)current_frame];
 	}
