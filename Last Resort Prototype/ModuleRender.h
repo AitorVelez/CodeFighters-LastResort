@@ -23,7 +23,10 @@ public:
 
 public:
 	SDL_Renderer* renderer = nullptr;
-	SDL_Rect camera;
+	SDL_Texture* player; 
+	SDL_Texture* background;                 // This bg has to move //
+	SDL_Texture* staticbackground;            // This is the crater bg //
+	SDL_Rect* camera = nullptr;
 };
 
 #endif //__ModuleRenderer_H__
