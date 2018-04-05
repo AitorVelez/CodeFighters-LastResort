@@ -22,7 +22,7 @@ bool ModuleRender::Init()
 	LOG("Creating Renderer context");
 	bool ret = true;
 	Uint32 flags = 0;
-
+	
 	if(REN_VSYNC == true)
 	{
 		flags |= SDL_RENDERER_PRESENTVSYNC;
@@ -35,18 +35,30 @@ bool ModuleRender::Init()
 		LOG("Renderer could not be created! SDL_Error: %s\n", SDL_GetError());
 		ret = false;
 	}
+        
+	background = App->textures->Load("assets/notstaticlvl1.png");                   // MOVING BG //
+	staticbackground = App->textures->Load("assets/staticlvl1.png");                      // STATIC BG //
+	player = App->textures->Load("assets/SpaceShip_Sprite.png");
+	camera = new SDL_Rect;
 
+	camera->h = 224;
+	camera->w = 320;
+	camera->x = 0;
+	camera->y = 0;
+
+	SDL_SetRenderDrawColor(App->render->renderer, 0, 0, 0, 0);
 	return ret;
 }
 
 // Called every draw update
 update_status ModuleRender::PreUpdate()
 {
+	// BEFORE SHOWING THE MOVING BACKGROUND, THE OTHER BG (STATIC) MUST BE ALREADY THERE //
 	do {
 	update_status state = UPDATE_CONTINUE;
 	
 	SDL_RenderClear(App->render->renderer);
-	//Blit(staticbackground, 0, 0, camera);//
+	
 
 		camera->x += 1;
 		Blit(background, 0, 0, camera);
