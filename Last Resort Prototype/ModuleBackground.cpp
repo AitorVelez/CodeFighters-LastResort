@@ -29,7 +29,7 @@ bool ModuleBackground::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	graphics = App->textures->Load("backgroundlvl1.png");
+	graphics = App->textures->Load("backgroundlvl1v2.png");
 	return ret;
 }
 
