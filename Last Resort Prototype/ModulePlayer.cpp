@@ -17,8 +17,8 @@ ModulePlayer::ModulePlayer()
 	idle.PushBack({ 64,3,32,14 });
 
 	// Up animation
-	up.PushBack({ 0,3,32,14 });
 	up.PushBack({ 32,3,32,14 });
+	up.PushBack({ 0,3,32,14 });
 	up.speed = 0.2f;
 	up.repeat = false; 
 
