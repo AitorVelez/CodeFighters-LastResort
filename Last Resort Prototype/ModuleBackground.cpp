@@ -14,10 +14,18 @@ ModuleBackground::ModuleBackground()
 	background.w = 4233;
 	background.h = 239;
 
-	crater.x = 4232;
+	// Crater 
+	crater.x = 0;
 	crater.y = 0; 
-	crater.w = 328;
+	crater.w = 327;
 	crater.h = 239;
+
+	// 1st Level Building
+	building_1.x = 0;
+	building_1.y = 290;
+	building_1.w = 1304;
+	building_1.h = 163;
+
 }
 
 
@@ -29,7 +37,9 @@ bool ModuleBackground::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	graphics = App->textures->Load("backgroundlvl1v2.png");
+	//graphics = App->textures->Load("backgroundlvl1v2.png");
+	graphics = App->textures->Load("background_lvl1.png");
+	graphics2 = App->textures->Load("background_lvl1_extra.png");
 	return ret;
 }
 
@@ -46,8 +56,9 @@ update_status ModuleBackground::Update()
 		scroll = false; 
 
 	// Draw everything --------------------------------------
-		App->render->Blit(graphics, 0, 0, &crater, 0.0001f);
-		App->render->Blit(graphics, 0, 0, &background, 0.75f); // sea and sky
+	App->render->Blit(graphics2, 0, 0, &crater, 0.f);
+	App->render->Blit(graphics2, 0, 30, &building_1, 0.7f);
+	App->render->Blit(graphics, 0, 0, &background, 0.75f); // sea and sky
 
 	return UPDATE_CONTINUE;
 }
