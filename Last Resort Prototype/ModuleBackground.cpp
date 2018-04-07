@@ -74,6 +74,7 @@ update_status ModuleBackground::Update()
 	if (App->render->camera.x <= -6000 * SCREEN_SIZE)
 		scroll = false; 
 
+			// Up and down Conditions
 	if(App->render->camera.x<=-100 && App->render->camera.x>=-250)
 		MoveDown();
 

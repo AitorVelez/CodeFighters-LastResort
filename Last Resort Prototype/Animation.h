@@ -38,7 +38,6 @@ public:
 				current_frame += speed;
 			return frames[(int)current_frame]; 
 			break; 
-
 		}
 	}
 };
