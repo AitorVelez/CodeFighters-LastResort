@@ -32,12 +32,15 @@ ModuleBackground::ModuleBackground()
 	building_2.w = 803; 
 	building_2.h = 160; 
 
-	light.PushBack({ 327,0,32,72 });
-	light.PushBack({ 360,0,32,72 });
-	light.PushBack({ 395,0,6,70 });
-	light.PushBack({ 403,0,25,79 });
-	light.PushBack({ 427,0,28,81 });
-	light.speed = 0.05f;
+	light.PushBack({ 327,0,32,70 });
+	light.PushBack({ 365,0,24,71 });
+	light.PushBack({ 394,0,5,70 });
+	light.PushBack({ 403,0,25,77 });
+	light.PushBack({ 427,0,31,79 });
+	light.PushBack({ 403,0,25,77 });
+	light.PushBack({ 394,0,5,70 });
+	light.PushBack({ 365,0,24,71 });
+	light.speed = 0.1f;
 
 }
 
@@ -57,15 +60,15 @@ bool ModuleBackground::Start()
 }
 
 
-void ModuleBackground::MoveUp()
-{
-	App->render->camera.y += 1; 
-}
-
-void ModuleBackground::MoveDown()
-{
-	App->render->camera.y -= 1; 
-}
+//void ModuleBackground::MoveUp()
+//{
+//	App->render->camera.y += 1; 
+//}
+//
+//void ModuleBackground::MoveDown()
+//{
+//	App->render->camera.y -= 1; 
+//}
 
 
 // Update: draw background
@@ -82,18 +85,18 @@ update_status ModuleBackground::Update()
 		scroll = false; 
 
 			// Up and down Conditions
-	if(App->render->camera.x<=-100 && App->render->camera.x>=-250)
-		MoveDown();
+	//if(App->render->camera.x<=-100 && App->render->camera.x>=-250)
+	//	MoveDown();
 
-	if (App->render->camera.x <= -450 && App->render->camera.x >= -600)
-		MoveUp();
+	//if (App->render->camera.x <= -450 && App->render->camera.x >= -600)
+	//	MoveUp();
 
 
 
 	// Draw everything --------------------------------------
 	App->render->Blit(graphics2, 0, 0, &crater, 0.f);
 	App->render->Blit(graphics2, 0, 0, &building_2, 0.224f);
-	App->render->Blit(graphics2, 43, 10, &light.GetCurrentFrame(), 0.4f);
+	App->render->Blit(graphics2, 171, -20, &light.GetCurrentFrame(), 0.4f);
 	App->render->Blit(graphics2, 0, 35, &building_1, 0.4f)	;
 	App->render->Blit(graphics, 0, 0, &background, 0.75f); 
 
