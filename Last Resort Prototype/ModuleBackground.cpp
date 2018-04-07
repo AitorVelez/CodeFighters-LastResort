@@ -23,7 +23,7 @@ ModuleBackground::ModuleBackground()
 	// 1st Level Building
 	building_1.x = 0;
 	building_1.y = 290;
-	building_1.w = 1304;
+	building_1.w = 1530;
 	building_1.h = 163;
 
 }
@@ -57,8 +57,8 @@ update_status ModuleBackground::Update()
 
 	// Draw everything --------------------------------------
 	App->render->Blit(graphics2, 0, 0, &crater, 0.f);
-	App->render->Blit(graphics2, 0, 30, &building_1, 0.7f);
-	App->render->Blit(graphics, 0, 0, &background, 0.75f); // sea and sky
+	App->render->Blit(graphics2, 0, 30, &building_1, 0.5f);
+	App->render->Blit(graphics, 0, 0, &background, 0.75f); 
 
 	return UPDATE_CONTINUE;
 }
