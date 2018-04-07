@@ -12,7 +12,7 @@ ModuleBackground::ModuleBackground()
 	// Background
 	background.x = 0;
 	background.y = 0;
-	background.w = 4233;
+	background.w = 4408;
 	background.h = 239;
 
 	// Crater 
@@ -71,7 +71,7 @@ update_status ModuleBackground::Update()
 		App->render->camera.x -= scroll_speed;
 	}
 
-	if (App->render->camera.x <= -5700 * SCREEN_SIZE)
+	if (App->render->camera.x <= -6000 * SCREEN_SIZE)
 		scroll = false; 
 
 	if(App->render->camera.x<=-100 && App->render->camera.x>=-250)
