@@ -3,4 +3,12 @@
 #include "Module.h"
 #include "Globals.h"
 
+
+
+class ModuleAudio : public Module
+{
+public:
+	ModuleAudio();
+	~ModuleAudio();
+};
 #endif
