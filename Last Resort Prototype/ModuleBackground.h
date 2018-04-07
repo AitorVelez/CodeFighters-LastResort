@@ -23,6 +23,7 @@ public:
 	SDL_Rect background;
 	SDL_Rect crater;
 	SDL_Rect building_1; 
+	SDL_Rect building_2; 
 	bool scroll = true; 
 };
 

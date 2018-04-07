@@ -26,6 +26,11 @@ ModuleBackground::ModuleBackground()
 	building_1.w = 1530;
 	building_1.h = 163;
 
+	building_2.x = 839;
+	building_2.y = 0;
+	building_2.w = 803; 
+	building_2.h = 160; 
+
 }
 
 
@@ -57,7 +62,8 @@ update_status ModuleBackground::Update()
 
 	// Draw everything --------------------------------------
 	App->render->Blit(graphics2, 0, 0, &crater, 0.f);
-	App->render->Blit(graphics2, 0, 35, &building_1, 0.5f);
+	App->render->Blit(graphics2, 0, 0, &building_2, 0.224f);
+	App->render->Blit(graphics2, 0, 35, &building_1, 0.5f)	;
 	App->render->Blit(graphics, 0, 0, &background, 0.75f); 
 
 	return UPDATE_CONTINUE;
