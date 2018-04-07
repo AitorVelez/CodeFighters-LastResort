@@ -15,6 +15,8 @@ public:
 
 	bool Start();
 	update_status Update();
+	void MoveUp();
+	void MoveDown();
 
 public:
 	

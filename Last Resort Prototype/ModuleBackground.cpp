@@ -3,6 +3,7 @@
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 #include "ModuleBackground.h"
+#include "ModulePlayer.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
@@ -48,6 +49,18 @@ bool ModuleBackground::Start()
 	return ret;
 }
 
+
+void ModuleBackground::MoveUp()
+{
+	App->render->camera.y += 1; 
+}
+
+void ModuleBackground::MoveDown()
+{
+	App->render->camera.y -= 1; 
+}
+
+
 // Update: draw background
 update_status ModuleBackground::Update()
 {
@@ -59,6 +72,10 @@ update_status ModuleBackground::Update()
 
 	if (App->render->camera.x <= -5700 * SCREEN_SIZE)
 		scroll = false; 
+
+	if(App->render->camera.x<=-100 && App->render->camera.x>=-250)
+	MoveDown();
+
 
 	// Draw everything --------------------------------------
 	App->render->Blit(graphics2, 0, 0, &crater, 0.f);
