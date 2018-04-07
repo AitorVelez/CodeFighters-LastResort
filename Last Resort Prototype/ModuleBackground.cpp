@@ -66,6 +66,7 @@ update_status ModuleBackground::Update()
 {
 	int scroll_speed = 3; 
 
+	// Camera Movement Conditions
 	if (scroll) {
 		App->render->camera.x -= scroll_speed;
 	}
@@ -74,7 +75,11 @@ update_status ModuleBackground::Update()
 		scroll = false; 
 
 	if(App->render->camera.x<=-100 && App->render->camera.x>=-250)
-	MoveDown();
+		MoveDown();
+
+	if (App->render->camera.x <= -450 && App->render->camera.x >= -600)
+		MoveUp();
+
 
 
 	// Draw everything --------------------------------------
