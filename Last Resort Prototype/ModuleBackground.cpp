@@ -32,6 +32,13 @@ ModuleBackground::ModuleBackground()
 	building_2.w = 803; 
 	building_2.h = 160; 
 
+	light.PushBack({ 327,0,32,72 });
+	light.PushBack({ 360,0,32,72 });
+	light.PushBack({ 395,0,6,70 });
+	light.PushBack({ 403,0,25,79 });
+	light.PushBack({ 427,0,28,81 });
+	light.speed = 0.05f;
+
 }
 
 
@@ -86,6 +93,7 @@ update_status ModuleBackground::Update()
 	// Draw everything --------------------------------------
 	App->render->Blit(graphics2, 0, 0, &crater, 0.f);
 	App->render->Blit(graphics2, 0, 0, &building_2, 0.224f);
+	App->render->Blit(graphics2, 43, 10, &light.GetCurrentFrame(), 0.4f);
 	App->render->Blit(graphics2, 0, 35, &building_1, 0.4f)	;
 	App->render->Blit(graphics, 0, 0, &background, 0.75f); 
 
