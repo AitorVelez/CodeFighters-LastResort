@@ -6,6 +6,7 @@
 #include "ModulePlayer.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
+int a = 171, b = -20;
 
 ModuleBackground::ModuleBackground()
 {
@@ -43,7 +44,6 @@ ModuleBackground::ModuleBackground()
 	light.speed = 0.1f;
 
 }
-
 
 ModuleBackground::~ModuleBackground()
 {}
@@ -91,12 +91,16 @@ update_status ModuleBackground::Update()
 	//if (App->render->camera.x <= -450 && App->render->camera.x >= -600)
 	//	MoveUp();
 
+	/*if (App->background->light.PushBack({ 365,0,24,71 }) == true) {
+		a = a - 20;
+	}*/
 
 
 	// Draw everything --------------------------------------
+	
 	App->render->Blit(graphics2, 0, 0, &crater, 0.f);
 	App->render->Blit(graphics2, 0, 0, &building_2, 0.224f);
-	App->render->Blit(graphics2, 171, -20, &light.GetCurrentFrame(), 0.4f);
+	App->render->Blit(graphics2, a, b, &light.GetCurrentFrame(), 0.4f);
 	App->render->Blit(graphics2, 0, 35, &building_1, 0.4f)	;
 	App->render->Blit(graphics, 0, 0, &background, 0.75f); 
 
