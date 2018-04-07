@@ -57,7 +57,7 @@ update_status ModuleBackground::Update()
 
 	// Draw everything --------------------------------------
 	App->render->Blit(graphics2, 0, 0, &crater, 0.f);
-	App->render->Blit(graphics2, 0, 30, &building_1, 0.5f);
+	App->render->Blit(graphics2, 0, 35, &building_1, 0.5f);
 	App->render->Blit(graphics, 0, 0, &background, 0.75f); 
 
 	return UPDATE_CONTINUE;
