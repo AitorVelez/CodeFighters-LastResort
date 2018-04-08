@@ -9,6 +9,9 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleStartingImage.h"
 
+#define CameraScrollTime 1016
+#define CameraWaitTime 4098                   // CHECK // 
+
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 int a = 171, b = -20;
 
@@ -109,16 +112,20 @@ update_status ModuleBackground::Update()
 	if (App->render->camera.x <= -6000 * SCREEN_SIZE)
 		scroll = false; 
 
-			// Up and down Conditions
-	//if(App->render->camera.x<=-100 && App->render->camera.x>=-250)
-	//	MoveDown();
-
-	//if (App->render->camera.x <= -450 && App->render->camera.x >= -600)
-	//	MoveUp();
-
-	/*if (App->background->light.PushBack({ 365,0,24,71 }) == true) {
-		a = a - 20;
-	}*/
+			// Up and down Conditions 
+	Uint32 now = SDL_GetTicks();
+	int UntilFirstScrollTime = 3530; 
+	
+	if (now >= UntilFirstScrollTime) {
+		if (now > 3000 && now < 3000 + CameraScrollTime) {     // Camera scrolls down
+			MoveDown();
+		}
+		if (now > 3000 + CameraScrollTime + CameraWaitTime && now < 3000 + CameraWaitTime + CameraScrollTime * 2) {     // Camera scrolls up
+			MoveUp();
+		}
+		now = 0;
+		UntilFirstScrollTime = 0;
+	}
 
 
 	// Draw everything --------------------------------------
