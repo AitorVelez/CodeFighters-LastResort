@@ -36,7 +36,7 @@ public:
 		if (enabled == true)
 		{
 			enabled = false;
-			Start();
+			CleanUp();
 		}
 	}
 };
