@@ -4,6 +4,7 @@
 #include "ModuleRender.h"
 #include "ModuleBackground.h"
 #include "ModulePlayer.h"
+#include "ModuleAudio.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 int a = 171, b = -20;
@@ -56,6 +57,9 @@ bool ModuleBackground::Start()
 	//graphics = App->textures->Load("backgroundlvl1v2.png");
 	graphics = App->textures->Load("background_lvl1.png");
 	graphics2 = App->textures->Load("background_lvl1_extra.png");
+	
+	Mix_Music* mus = App->audio->LoadMus("music.ogg");
+	App->audio->PlayMus(mus);
 	return ret;
 }
 
