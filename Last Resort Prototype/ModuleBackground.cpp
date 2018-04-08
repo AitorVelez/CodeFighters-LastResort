@@ -63,20 +63,20 @@ ModuleBackground::ModuleBackground()
 	backgroundLights.PushBack({ 1136,748,284,144 });
 	backgroundLights.PushBack({ 1420,748,284,144 });
 	backgroundLights.PushBack({ 1704,748,284,144 });
-	//backgroundLights.PushBack({ 1420,748,284,144 });
-	//backgroundLights.PushBack({ 1136,748,284,144 });
-	//backgroundLights.PushBack({ 852,748,284,144 });
-	//backgroundLights.PushBack({ 568,748,284,144 });
-	//backgroundLights.PushBack({ 284,748,284,144 });
-	//backgroundLights.PushBack({ 0,748,284,144 });
-	//backgroundLights.PushBack({ 1704,309,284,144 });
-	//backgroundLights.PushBack({ 1704,451,284,144 });
-	//backgroundLights.PushBack({ 1704,595,284,144 });
-	//backgroundLights.PushBack({ 1420,595,284,144 });
-	//backgroundLights.PushBack({ 1136,595,284,144 });
-	//backgroundLights.PushBack({ 852,595,284,144 });
-	//backgroundLights.PushBack({ 568,595,284,144 });
-	//backgroundLights.PushBack({ 284,595,284,144 });
+	backgroundLights.PushBack({ 1420,748,284,144 });
+	backgroundLights.PushBack({ 1136,748,284,144 });
+	backgroundLights.PushBack({ 852,748,284,144 });
+	backgroundLights.PushBack({ 568,748,284,144 });
+	backgroundLights.PushBack({ 284,748,284,144 });
+	backgroundLights.PushBack({ 0,748,284,144 });
+	backgroundLights.PushBack({ 1704,309,284,144 });
+	backgroundLights.PushBack({ 1704,451,284,144 });
+	backgroundLights.PushBack({ 1704,595,284,144 });
+	backgroundLights.PushBack({ 1420,595,284,144 });
+	backgroundLights.PushBack({ 1136,595,284,144 });
+	backgroundLights.PushBack({ 852,595,284,144 });
+	backgroundLights.PushBack({ 568,595,284,144 });
+	backgroundLights.PushBack({ 284,595,284,144 });
 	backgroundLights.speed = 0.17f;
 
 }
