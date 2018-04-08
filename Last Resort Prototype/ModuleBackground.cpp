@@ -113,6 +113,24 @@ void ModuleBackground::MoveDown()
 	App->render->camera.y -= 1; 
 }
 
+void ModuleBackground::CameraScroll(){
+	Uint32 now = SDL_GetTicks();
+	int UntilFirstScrollTime = 3530;
+	int cont = 0;
+
+	if (now >= UntilFirstScrollTime) {
+		if (cont >= 1) {                         // FORCE LOOP, STILL DOES NOT WORK // 
+			now = UntilFirstScrollTime;
+		}
+		if (now >= UntilFirstScrollTime && now <= UntilFirstScrollTime + CameraScrollTime) {     // Camera scrolls down
+			MoveDown();
+		}
+		if (now > UntilFirstScrollTime + CameraScrollTime + CameraWaitTime && now < UntilFirstScrollTime + CameraWaitTime + CameraScrollTime * 2) {     // Camera scrolls up
+			MoveUp();
+		}
+		cont++;
+	}
+}
 
 // Update: draw background
 update_status ModuleBackground::Update()
@@ -132,19 +150,7 @@ update_status ModuleBackground::Update()
 		scroll = false; 
 
 			// Up and down Conditions 
-	Uint32 now = SDL_GetTicks();
-	int UntilFirstScrollTime = 3530; 
-	
-	if (now >= UntilFirstScrollTime) {
-		if (now > UntilFirstScrollTime && now < UntilFirstScrollTime + CameraScrollTime) {     // Camera scrolls down
-			MoveDown();
-		}
-		if (now > UntilFirstScrollTime + CameraScrollTime + CameraWaitTime && now < UntilFirstScrollTime + CameraWaitTime + CameraScrollTime * 2) {     // Camera scrolls up
-			MoveUp();
-		}
-		now = 0;
-		UntilFirstScrollTime = 0;
-	}
+		CameraScroll();
 
 	// Draw everything --------------------------------------
 	

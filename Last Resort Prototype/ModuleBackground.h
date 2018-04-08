@@ -17,6 +17,7 @@ public:
 	update_status Update();
 	void MoveUp();
 	void MoveDown();
+	void CameraScroll(); 
 
 public:
 	
