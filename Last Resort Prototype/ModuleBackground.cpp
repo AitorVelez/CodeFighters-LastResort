@@ -47,37 +47,38 @@ ModuleBackground::ModuleBackground()
 	light.PushBack({ 595,0,67,79 });
 	light.speed = 0.1f;
 
-	backgroundLights.PushBack({ 0,595,284,144 });
-	backgroundLights.PushBack({ 284,595,284,144 });
-	backgroundLights.PushBack({ 568,595,284,144 });
-	backgroundLights.PushBack({ 852,595,284,144 });
-	backgroundLights.PushBack({ 1136,595,284,144 });
-	backgroundLights.PushBack({ 1420,595,284,144 });
-	backgroundLights.PushBack({ 1704,595,284,144 });
-	backgroundLights.PushBack({ 1704,451,284,144 });
-	backgroundLights.PushBack({ 1704,309,284,144 });
-	backgroundLights.PushBack({ 0,748,284,144 });
-	backgroundLights.PushBack({ 284,748,284,144 });
-	backgroundLights.PushBack({ 568,748,284,144 });
-	backgroundLights.PushBack({ 852,748,284,144 });
-	backgroundLights.PushBack({ 1136,748,284,144 });
-	backgroundLights.PushBack({ 1420,748,284,144 });
-	backgroundLights.PushBack({ 1704,748,284,144 });
-	//backgroundLights.PushBack({ 1420,748,284,144 });
-	//backgroundLights.PushBack({ 1136,748,284,144 });
-	//backgroundLights.PushBack({ 852,748,284,144 });
-	//backgroundLights.PushBack({ 568,748,284,144 });
-	//backgroundLights.PushBack({ 284,748,284,144 });
-	//backgroundLights.PushBack({ 0,748,284,144 });
-	//backgroundLights.PushBack({ 1704,309,284,144 });
-	//backgroundLights.PushBack({ 1704,451,284,144 });
-	//backgroundLights.PushBack({ 1704,595,284,144 });
-	//backgroundLights.PushBack({ 1420,595,284,144 });
-	//backgroundLights.PushBack({ 1136,595,284,144 });
-	//backgroundLights.PushBack({ 852,595,284,144 });
-	//backgroundLights.PushBack({ 568,595,284,144 });
-	//backgroundLights.PushBack({ 284,595,284,144 });
-	backgroundLights.speed = 0.17f;
+	backgroundLights1.PushBack({ 0,595,284,144 });
+	backgroundLights1.PushBack({ 284,595,284,144 });
+	backgroundLights1.PushBack({ 568,595,284,144 });
+	backgroundLights1.PushBack({ 852,595,284,144 });
+	backgroundLights1.PushBack({ 1136,595,284,144 });
+	backgroundLights1.PushBack({ 1420,595,284,144 });
+	backgroundLights1.PushBack({ 1704,595,284,144 });
+	backgroundLights1.PushBack({ 1704,451,284,144 });
+	backgroundLights1.PushBack({ 1704,309,284,144 });
+	backgroundLights1.PushBack({ 0,748,284,144 });
+	backgroundLights1.PushBack({ 284,748,284,144 });
+	backgroundLights1.PushBack({ 568,748,284,144 });
+	backgroundLights1.PushBack({ 852,748,284,144 });
+	backgroundLights1.PushBack({ 1136,748,284,144 });
+	backgroundLights1.PushBack({ 1420,748,284,144 });
+	backgroundLights1.PushBack({ 1704,748,284,144 });
+	backgroundLights2.PushBack({ 1420,748,284,144 });
+	backgroundLights2.PushBack({ 1136,748,284,144 });
+	backgroundLights2.PushBack({ 852,748,284,144 });
+	backgroundLights2.PushBack({ 568,748,284,144 });
+	backgroundLights2.PushBack({ 284,748,284,144 });
+	backgroundLights2.PushBack({ 0,748,284,144 });
+	backgroundLights2.PushBack({ 1704,309,284,144 });
+	backgroundLights2.PushBack({ 1704,451,284,144 });
+	backgroundLights2.PushBack({ 1704,595,284,144 });
+	backgroundLights2.PushBack({ 1420,595,284,144 });
+	backgroundLights2.PushBack({ 1136,595,284,144 });
+	backgroundLights2.PushBack({ 852,595,284,144 });
+	backgroundLights2.PushBack({ 568,595,284,144 });
+	backgroundLights2.PushBack({ 284,595,284,144 });
+	backgroundLights1.speed = 0.3f;
+	backgroundLights2.speed = 0.3f;
 
 }
 
@@ -146,7 +147,7 @@ void ModuleBackground::CameraScroll(){
 update_status ModuleBackground::Update()
 {
 	int scroll_speed = 3; 
-	
+
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
 		App->fade->FadeToBlack(App->background, App->startimage, 5.0f);
 	}
@@ -167,7 +168,18 @@ update_status ModuleBackground::Update()
 	App->render->Blit(graphics2, 0, 0, &crater, 0.f);
 	App->render->Blit(graphics2, 0, 0, &building_2, 0.224f);
 	App->render->Blit(graphics2, 171, 0, &light.GetCurrentFrame(), 0.4f);
-	App->render->Blit(graphics2, 450, 0, &backgroundLights.GetCurrentFrame(), 0.4f);
+	if (flip == 0) {
+		App->render->Blit(graphics2, 450, 0, &backgroundLights1.GetCurrentFrame(), 0.4f);
+		lights1++;
+		if (lights1 == 160)
+			flip = 1;
+	}
+	else if (flip == 1) {
+		App->render->Blit(graphics2, 450, 0, &backgroundLights2.GetCurrentFrame(), 0.4f);
+		lights1--;
+		if (lights1 == 0)
+			flip = 0;
+	}
 	App->render->Blit(graphics2, 0, 35, &building_1, 0.4f)	;
 	App->render->Blit(graphics, 0, 0, &background, 0.75f); 
 

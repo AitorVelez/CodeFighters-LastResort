@@ -29,9 +29,12 @@ public:
 	SDL_Rect building_1; 
 	SDL_Rect building_2; 
 
-	Animation backgroundLights;
+	Animation backgroundLights1;
+	Animation backgroundLights2;
 	Animation streetLights;
 	Animation light;
+	int lights1 = 0;
+	int flip = 0;
 	bool scroll = true; 
 };
 
