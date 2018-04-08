@@ -5,6 +5,9 @@
 #include "ModuleBackground.h"
 #include "ModulePlayer.h"
 #include "ModuleAudio.h"
+#include "ModuleInput.h"
+#include "ModuleFadeToBlack.h"
+#include "ModuleStartingImage.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 int a = 171, b = -20;
@@ -53,6 +56,8 @@ ModuleBackground::~ModuleBackground()
 bool ModuleBackground::Start()
 {
 	LOG("Loading background assets");
+
+
 	bool ret = true;
 	//graphics = App->textures->Load("backgroundlvl1v2.png");
 	graphics = App->textures->Load("background_lvl1.png");
