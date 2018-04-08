@@ -8,7 +8,7 @@
 #include "ModuleAudio.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleStartingImage.h"
-
+#include "Module.h"
 
 
 Application::Application()
@@ -17,11 +17,13 @@ Application::Application()
 	modules[1] = render = new ModuleRender();
 	modules[2] = input = new ModuleInput();
 	modules[3] = textures = new ModuleTextures();
-	modules[4] = startimage = new ModuleStartingImage();
-	modules[5] = background = new ModuleBackground();
-	modules[6] = player = new ModulePlayer();
+	modules[4] = background = new ModuleBackground();
+	modules[5] = player = new ModulePlayer();
+	modules[6] = startimage = new ModuleStartingImage();
 	modules[7] = audio = new ModuleAudio(); 
 	modules[8] = fade = new ModuleFadeToBlack();
+
+	
 }	
 
 Application::~Application()
@@ -39,6 +41,7 @@ bool Application::Init()
 
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)
 		ret = modules[i]->Start();
+
 
 	return ret;
 }

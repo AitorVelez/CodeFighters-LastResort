@@ -29,10 +29,10 @@ bool ModuleStartingImage::Start()
 	LOG("Loading background assets");
 	bool ret = true;
 	TexStImage = App->textures->Load("StartingTitle.png");
-	App->startimage->Enable();
+
 
 	// TODO 1: Enable (and properly disable) the player module
-	App->textures->Enable();
+	App->player->Disable();
 
 	return ret;
 }

@@ -40,7 +40,7 @@ bool ModulePlayer::Start()
 	LOG("Loading player textures");
 	bool ret = true;
 	graphics = App->textures->Load("main_character.png"); // arcade version
-	chunk = App->audio->LoadChunk("shot.WAV");
+	chunk = App->audio->LoadChunk("shot.wav");
 	return ret;
 }
 
