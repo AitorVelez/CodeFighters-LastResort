@@ -53,7 +53,7 @@ update_status ModuleStartingImage::Update()
 	App->render->Blit(TexStImage, 0, 0, &StImage);
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
-		App->fade->FadeToBlack(App->startimage, App->background, 1.0f);
+		App->fade->FadeToBlack(App->startimage, App->background, 1.5f);
 	}
 
 

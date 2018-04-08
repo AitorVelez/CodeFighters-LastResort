@@ -151,10 +151,6 @@ update_status ModuleBackground::Update()
 {
 	int scroll_speed = 3; 
 
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
-		App->fade->FadeToBlack(App->background, App->startimage, 5.0f);
-	}
-
 	// Camera Movement Conditions
 	if (scroll) {
 		App->render->camera.x -= scroll_speed;
@@ -171,8 +167,9 @@ update_status ModuleBackground::Update()
 	App->render->Blit(graphics2, 0, 0, &crater, 0.f);
 	App->render->Blit(graphics2, 0, 0, &building_2, 0.224f);
 	App->render->Blit(graphics2, 172, -20, &light.GetCurrentFrame(), 0.4f);
+	
 	if (flip == 0) {
-		App->render->Blit(graphics2, 450, 0, &backgroundLights.GetCurrentFrame(), 0.4f);
+		App->render->Blit(graphics2, 450, -10, &backgroundLights.GetCurrentFrame(), 0.4f);
 		lights1++;
 		if (lights1 == 1) {
 			flip = 1;
@@ -183,12 +180,13 @@ update_status ModuleBackground::Update()
 		if (lights1 == 0)
 			flip = 0;
 	}
+
 	App->render->Blit(graphics2, 0, 35, &building_1, 0.4f)	;
 	App->render->Blit(graphics, 0, 0, &background, 0.75f); 
 
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
-		App->fade->FadeToBlack(App->background, App->startimage, 1.0f);
+		App->fade->FadeToBlack(App->background, App->startimage, 1.5f);
 
 	return UPDATE_CONTINUE;
 }
