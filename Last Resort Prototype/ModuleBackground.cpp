@@ -117,16 +117,15 @@ update_status ModuleBackground::Update()
 	int UntilFirstScrollTime = 3530; 
 	
 	if (now >= UntilFirstScrollTime) {
-		if (now > 3000 && now < 3000 + CameraScrollTime) {     // Camera scrolls down
+		if (now > UntilFirstScrollTime && now < UntilFirstScrollTime + CameraScrollTime) {     // Camera scrolls down
 			MoveDown();
 		}
-		if (now > 3000 + CameraScrollTime + CameraWaitTime && now < 3000 + CameraWaitTime + CameraScrollTime * 2) {     // Camera scrolls up
+		if (now > UntilFirstScrollTime + CameraScrollTime + CameraWaitTime && now < UntilFirstScrollTime + CameraWaitTime + CameraScrollTime * 2) {     // Camera scrolls up
 			MoveUp();
 		}
 		now = 0;
 		UntilFirstScrollTime = 0;
 	}
-
 
 	// Draw everything --------------------------------------
 	
