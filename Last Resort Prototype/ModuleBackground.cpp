@@ -85,9 +85,7 @@ bool ModuleBackground::Start()
 	graphics = App->textures->Load("background_lvl1.png");
 	graphics2 = App->textures->Load("background_lvl1_extra.png");
 	
-	/*if (App->input->keyboard[SDL_SCANCODE_SPACE]) {
-		App->fade->FadeToBlack(App->background, App->startimage, 5.0f);
-	}*/
+	
 
 	Mix_Music* mus = App->audio->LoadMus("music.ogg");
 	App->audio->PlayMus(mus);
@@ -110,6 +108,10 @@ void ModuleBackground::MoveDown()
 update_status ModuleBackground::Update()
 {
 	int scroll_speed = 3; 
+	
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
+		App->fade->FadeToBlack(App->background, App->startimage, 5.0f);
+	}
 
 	// Camera Movement Conditions
 	if (scroll) {

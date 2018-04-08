@@ -6,9 +6,10 @@
 class Module
 {
 private:
-	bool enabled = true;
 
+	bool enabled = true;
 public:
+
 	virtual ~Module() {}
 
 	virtual bool Init()					{ return true; }
