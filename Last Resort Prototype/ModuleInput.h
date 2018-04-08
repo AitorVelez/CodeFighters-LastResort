@@ -3,6 +3,7 @@
 
 #include "Module.h"
 #include "Globals.h"
+#include "SDL\include\SDL_events.h"
 #include "SDL\include\SDL_scancode.h"
 
 typedef unsigned char Uint8;
@@ -20,6 +21,7 @@ public:
 
 public:
 	const Uint8 *keyboard = nullptr;
+	SDL_Event ev;
 };
 
 #endif // __ModuleInput_H__
