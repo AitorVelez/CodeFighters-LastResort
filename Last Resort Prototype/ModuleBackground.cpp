@@ -14,7 +14,6 @@
 #define CameraWaitTime 4098                   // CHECK // 
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
-int a = 171, b = -20;
 
 ModuleBackground::ModuleBackground()
 {
@@ -41,14 +40,11 @@ ModuleBackground::ModuleBackground()
 	building_2.w = 803; 
 	building_2.h = 160; 
 
-	light.PushBack({ 327,0,32,70 });
-	light.PushBack({ 365,0,24,71 });
-	light.PushBack({ 394,0,5,70 });
-	light.PushBack({ 403,0,25,77 });
-	light.PushBack({ 427,0,31,79 });
-	light.PushBack({ 403,0,25,77 });
-	light.PushBack({ 394,0,5,70 });
-	light.PushBack({ 365,0,24,71 });
+	light.PushBack({ 327,0,67,79 });
+	light.PushBack({ 394,0,67,79 });
+	light.PushBack({ 461,0,67,79 });
+	light.PushBack({ 528,0,67,79 });
+	light.PushBack({ 595,0,67,79 });
 	light.speed = 0.1f;
 
 	backgroundLights.PushBack({ 0,595,284,144 });
@@ -154,7 +150,7 @@ update_status ModuleBackground::Update()
 	
 	App->render->Blit(graphics2, 0, 0, &crater, 0.f);
 	App->render->Blit(graphics2, 0, 0, &building_2, 0.224f);
-	App->render->Blit(graphics2, a, b, &light.GetCurrentFrame(), 0.4f);
+	App->render->Blit(graphics2, 171, 0, &light.GetCurrentFrame(), 0.4f);
 	App->render->Blit(graphics2, 450, 0, &backgroundLights.GetCurrentFrame(), 0.4f);
 	App->render->Blit(graphics2, 0, 35, &building_1, 0.4f)	;
 	App->render->Blit(graphics, 0, 0, &background, 0.75f); 
