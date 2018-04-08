@@ -7,6 +7,7 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleBackground.h"
+#include "Application.h"
 
 
 // Reference at https://youtu.be/6OlenbCC4WI?t=382
@@ -27,7 +28,8 @@ bool ModuleStartingImage::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	graphics = App->textures->Load("StartingTitle.png");
+	TexStImage = App->textures->Load("StartingTitle.png");
+	App->startimage->Enable();
 
 	// TODO 1: Enable (and properly disable) the player module
 	App->textures->Enable();
@@ -49,7 +51,7 @@ bool ModuleStartingImage::CleanUp()
 update_status ModuleStartingImage::Update()
 {
 	// Draw everything --------------------------------------	
-	App->render->Blit(graphics, 0, 160, &StImage);
+	App->render->Blit(TexStImage, 0, 0, &StImage);
 
 
 	// TODO 2: make so pressing SPACE the KEN stage is loaded
@@ -58,8 +60,8 @@ update_status ModuleStartingImage::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
 
-		App->fade->FadeToBlack(App->startimage, App->background, 5.0f);
-
+		App->fade->FadeToBlack(App->background, App->startimage, 5.0f);
+		App->player->Enable();
 	}
 
 

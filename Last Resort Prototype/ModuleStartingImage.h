@@ -19,7 +19,7 @@ public:
 
 public:
 
-	SDL_Texture * graphics = nullptr;
+	SDL_Texture * TexStImage = nullptr;
 	SDL_Rect StImage;
 
 

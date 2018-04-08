@@ -10,6 +10,7 @@
 #include "ModuleStartingImage.h"
 
 
+
 Application::Application()
 {
 	modules[0] = window = new ModuleWindow();
