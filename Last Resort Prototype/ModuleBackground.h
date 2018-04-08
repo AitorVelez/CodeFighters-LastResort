@@ -15,6 +15,7 @@ public:
 
 	bool Start();
 	update_status Update();
+	bool CleanUp(); 
 	void MoveUp();
 	void MoveDown();
 	void CameraScroll(); 

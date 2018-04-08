@@ -36,11 +36,16 @@ bool Application::Init()
 {
 	bool ret = true;
 
+
+	player->Disable();
+	background->Disable();
+
+
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)
 		ret = modules[i]->Init();
 
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)
-		ret = modules[i]->Start();
+		ret = modules[i]->IsEnabled() ? modules[i]->Start() : true;
 
 
 	return ret;
@@ -51,13 +56,13 @@ update_status Application::Update()
 	update_status ret = UPDATE_CONTINUE;
 
 	for(int i = 0; i < NUM_MODULES && ret == UPDATE_CONTINUE; ++i)
-		ret = modules[i]->PreUpdate();
+		ret = modules[i]->IsEnabled() ? modules[i]->PreUpdate() : UPDATE_CONTINUE;
 
 	for(int i = 0; i < NUM_MODULES && ret == UPDATE_CONTINUE; ++i)
-		ret = modules[i]->Update();
+		ret = modules[i]->IsEnabled() ? modules[i]->Update() : UPDATE_CONTINUE;
 
 	for(int i = 0; i < NUM_MODULES && ret == UPDATE_CONTINUE; ++i)
-		ret = modules[i]->PostUpdate();
+		ret = modules[i]->IsEnabled() ? modules[i]->PostUpdate() : UPDATE_CONTINUE;
 
 	return ret;
 }

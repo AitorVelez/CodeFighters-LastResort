@@ -95,11 +95,18 @@ bool ModuleBackground::Start()
 	graphics = App->textures->Load("background_lvl1.png");
 	graphics2 = App->textures->Load("background_lvl1_extra.png");
 	
-	
+	App->player->Enable();
 
 	Mix_Music* mus = App->audio->LoadMus("music.ogg");
 	App->audio->PlayMus(mus);
 	return ret;
+}
+
+bool ModuleBackground::CleanUp()
+{
+	LOG("Cleaning Up background");
+
+	return true;
 }
 
 
@@ -150,7 +157,7 @@ update_status ModuleBackground::Update()
 		scroll = false; 
 
 			// Up and down Conditions 
-		CameraScroll();
+	CameraScroll();
 
 	// Draw everything --------------------------------------
 	

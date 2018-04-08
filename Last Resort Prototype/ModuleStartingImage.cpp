@@ -8,6 +8,7 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleBackground.h"
 #include "Application.h"
+#include "Module.h"
 
 
 // Reference at https://youtu.be/6OlenbCC4WI?t=382
@@ -30,9 +31,7 @@ bool ModuleStartingImage::Start()
 	bool ret = true;
 	TexStImage = App->textures->Load("StartingTitle.png");
 
-
-	// TODO 1: Enable (and properly disable) the player module
-	App->player->Disable();
+	App->player->Disable(); 
 
 	return ret;
 }
@@ -41,7 +40,7 @@ bool ModuleStartingImage::Start()
 bool ModuleStartingImage::CleanUp()
 {
 	// TODO 5: Remove all memory leaks
-//	App->textures(graphics)->Disable();
+	// App->textures(graphics)->Disable();
 	LOG("Unloading honda stage");
 
 	return true;
@@ -53,15 +52,8 @@ update_status ModuleStartingImage::Update()
 	// Draw everything --------------------------------------	
 	App->render->Blit(TexStImage, 0, 0, &StImage);
 
-
-	// TODO 2: make so pressing SPACE the KEN stage is loaded
-
-
-
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
-
-		App->fade->FadeToBlack(App->background, App->startimage, 5.0f);
-		App->player->Enable();
+		App->fade->FadeToBlack(App->background, App->startimage, 1.0f);
 	}
 
 
