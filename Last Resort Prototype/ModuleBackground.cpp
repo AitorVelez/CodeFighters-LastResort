@@ -105,7 +105,7 @@ bool ModuleBackground::Start()
 
 void ModuleBackground::MoveUp()
 {
-	App->render->camera.y += 1; 
+	App->render->camera.y += 2.0000008f; 
 }
 
 void ModuleBackground::MoveDown()
