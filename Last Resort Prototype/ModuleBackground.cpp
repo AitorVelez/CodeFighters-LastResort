@@ -93,12 +93,12 @@ bool ModuleBackground::Start()
 
 	bool ret = true;
 	//graphics = App->textures->Load("backgroundlvl1v2.png");
-	graphics = App->textures->Load("background_lvl1.png");
-	graphics2 = App->textures->Load("background_lvl1_extra.png");
+	graphics = App->textures->Load("assets/background_lvl1.png");
+	graphics2 = App->textures->Load("assets/background_lvl1_extra.png");
 	
 	App->player->Enable();
 
-	Mix_Music* mus = App->audio->LoadMus("music.ogg");
+	Mix_Music* mus = App->audio->LoadMus("assets/music.ogg");
 	App->audio->PlayMus(mus);
 	return ret;
 }

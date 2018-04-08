@@ -10,8 +10,7 @@
 
 ModulePlayer::ModulePlayer()
 {
-	position.x = 50;
-	position.y = 125;
+
 
 	// idle animation (arcade sprite sheet)
 	
@@ -39,8 +38,10 @@ bool ModulePlayer::Start()
 {
 	LOG("Loading player textures");
 	bool ret = true;
-	graphics = App->textures->Load("main_character.png"); // arcade version
-	chunk = App->audio->LoadChunk("shot.wav");
+	position.x = 50;
+	position.y = 125;
+	graphics = App->textures->Load("assets/main_character.png"); // arcade version
+	chunk = App->audio->LoadChunk("assets/shot.wav");
 	return ret;
 }
 
