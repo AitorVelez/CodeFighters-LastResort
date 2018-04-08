@@ -146,7 +146,7 @@ void ModuleBackground::CameraScroll(){
 update_status ModuleBackground::Update()
 {
 	int scroll_speed = 3; 
-	
+
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
 		App->fade->FadeToBlack(App->background, App->startimage, 5.0f);
 	}
@@ -167,7 +167,7 @@ update_status ModuleBackground::Update()
 	App->render->Blit(graphics2, 0, 0, &crater, 0.f);
 	App->render->Blit(graphics2, 0, 0, &building_2, 0.224f);
 	App->render->Blit(graphics2, 171, 0, &light.GetCurrentFrame(), 0.4f);
-	App->render->Blit(graphics2, 450, 0, &backgroundLights.GetCurrentFrame(), 0.4f);
+	App->render->Blit(graphics2, 450, -10, &backgroundLights.GetCurrentFrame(), 0.4f);
 	App->render->Blit(graphics2, 0, 35, &building_1, 0.4f)	;
 	App->render->Blit(graphics, 0, 0, &background, 0.75f); 
 

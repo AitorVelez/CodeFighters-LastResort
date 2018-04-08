@@ -32,6 +32,8 @@ public:
 	Animation backgroundLights;
 	Animation streetLights;
 	Animation light;
+	int lights1 = 0;
+	int flip = 0;
 	bool scroll = true; 
 };
 
