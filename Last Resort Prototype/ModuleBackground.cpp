@@ -8,6 +8,7 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleStartingImage.h"
+#include "SDL/include/SDL_timer.h"
 
 #define CameraScrollTime 1016
 #define CameraWaitTime 4098                   // CHECK // 
