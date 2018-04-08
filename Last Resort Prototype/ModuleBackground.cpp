@@ -51,21 +51,23 @@ ModuleBackground::ModuleBackground()
 	light.PushBack({ 365,0,24,71 });
 	light.speed = 0.1f;
 
-	streetLights.PushBack({ 459,0,25,144 });
-	streetLights.PushBack({ 484,0,38,144 });
-	streetLights.PushBack({ 522,0,52,144 });
-	streetLights.PushBack({ 574,0,65,144 });
-	streetLights.PushBack({ 639,0,81,144 });
-	streetLights.PushBack({ 720,0,99,144 });
-	streetLights.PushBack({ 327,145,123,144 });
-	streetLights.PushBack({ 448,145,144,142 });
-	streetLights.PushBack({ 327,145,123,144 });
-	streetLights.PushBack({ 720,0,99,144 });
-	streetLights.PushBack({ 639,0,81,144 });
-	streetLights.PushBack({ 574,0,65,144 });
-	streetLights.PushBack({ 522,0,52,144 });
-	streetLights.PushBack({ 484,0,38,144 });
-	streetLights.speed = 0.12f;
+	backgroundLights.PushBack({ 0,595,284,144 });
+	backgroundLights.PushBack({ 284,595,243,144 });
+	backgroundLights.PushBack({ 527,595,197,144 });
+	backgroundLights.PushBack({ 724,595,162,144 });
+	backgroundLights.PushBack({ 886,595,130,144 });
+	backgroundLights.PushBack({ 1016,595,104,144 });
+	backgroundLights.PushBack({ 1120,595,76,144 });
+	backgroundLights.PushBack({ 1196,595,50,144 });
+	/*backgroundLights.PushBack({ ,,50,144 });
+	backgroundLights.PushBack({ ,,76,144 });
+	backgroundLights.PushBack({ ,,104,144 });
+	backgroundLights.PushBack({ ,,130,144 });
+	backgroundLights.PushBack({ ,,162,144 });
+	backgroundLights.PushBack({ ,,197,144 });
+	backgroundLights.PushBack({ ,,243,144 });
+	backgroundLights.PushBack({ ,,284,144 });*/
+	backgroundLights.speed = 0.12f;
 
 }
 
@@ -133,7 +135,7 @@ update_status ModuleBackground::Update()
 	App->render->Blit(graphics2, 0, 0, &crater, 0.f);
 	App->render->Blit(graphics2, 0, 0, &building_2, 0.224f);
 	App->render->Blit(graphics2, a, b, &light.GetCurrentFrame(), 0.4f);
-	App->render->Blit(graphics2, 450, 0, &streetLights.GetCurrentFrame(), 0.4f);
+	App->render->Blit(graphics2, 450, 0, &backgroundLights.GetCurrentFrame(), 0.4f);
 	App->render->Blit(graphics2, 0, 35, &building_1, 0.4f)	;
 	App->render->Blit(graphics, 0, 0, &background, 0.75f); 
 

@@ -27,6 +27,7 @@ public:
 	SDL_Rect building_1; 
 	SDL_Rect building_2; 
 
+	Animation backgroundLights;
 	Animation streetLights;
 	Animation light;
 	bool scroll = true; 
