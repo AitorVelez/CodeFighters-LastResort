@@ -60,15 +60,15 @@ bool ModuleBackground::Start()
 }
 
 
-//void ModuleBackground::MoveUp()
-//{
-//	App->render->camera.y += 1; 
-//}
-//
-//void ModuleBackground::MoveDown()
-//{
-//	App->render->camera.y -= 1; 
-//}
+void ModuleBackground::MoveUp()
+{
+	App->render->camera.y += 1; 
+}
+
+void ModuleBackground::MoveDown()
+{
+	App->render->camera.y -= 1; 
+}
 
 
 // Update: draw background
