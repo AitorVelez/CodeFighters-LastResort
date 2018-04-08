@@ -8,7 +8,6 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleBackground.h"
 #include "Application.h"
-#include "Module.h"
 
 
 // Reference at https://youtu.be/6OlenbCC4WI?t=382
@@ -30,7 +29,8 @@ bool ModuleStartingImage::Start()
 	LOG("Loading background assets");
 	bool ret = true;
 	TexStImage = App->textures->Load("StartingTitle.png");
-
+	App->render->camera.x = 0;
+	App->render->camera.y = 0;
 	App->player->Disable(); 
 
 	return ret;

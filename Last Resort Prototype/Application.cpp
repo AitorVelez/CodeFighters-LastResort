@@ -38,7 +38,7 @@ bool Application::Init()
 
 
 	player->Disable();
-	background->Disable();
+	startimage->Disable();
 
 
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)

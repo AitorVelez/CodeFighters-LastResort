@@ -168,5 +168,9 @@ update_status ModuleBackground::Update()
 	App->render->Blit(graphics2, 0, 35, &building_1, 0.4f)	;
 	App->render->Blit(graphics, 0, 0, &background, 0.75f); 
 
+
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
+		App->fade->FadeToBlack(App->background, App->startimage, 1.0f);
+
 	return UPDATE_CONTINUE;
 }
