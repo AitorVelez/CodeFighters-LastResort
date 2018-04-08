@@ -47,6 +47,22 @@ ModuleBackground::ModuleBackground()
 	light.PushBack({ 365,0,24,71 });
 	light.speed = 0.1f;
 
+	streetLights.PushBack({ 459,0,25,144 });
+	streetLights.PushBack({ 484,0,38,144 });
+	streetLights.PushBack({ 522,0,52,144 });
+	streetLights.PushBack({ 574,0,65,144 });
+	streetLights.PushBack({ 639,0,81,144 });
+	streetLights.PushBack({ 720,0,99,144 });
+	streetLights.PushBack({ 327,145,123,144 });
+	streetLights.PushBack({ 448,145,144,142 });
+	streetLights.PushBack({ 327,145,123,144 });
+	streetLights.PushBack({ 720,0,99,144 });
+	streetLights.PushBack({ 639,0,81,144 });
+	streetLights.PushBack({ 574,0,65,144 });
+	streetLights.PushBack({ 522,0,52,144 });
+	streetLights.PushBack({ 484,0,38,144 });
+	streetLights.speed = 0.12f;
+
 }
 
 ModuleBackground::~ModuleBackground()
@@ -110,6 +126,7 @@ update_status ModuleBackground::Update()
 	App->render->Blit(graphics2, 0, 0, &crater, 0.f);
 	App->render->Blit(graphics2, 0, 0, &building_2, 0.224f);
 	App->render->Blit(graphics2, a, b, &light.GetCurrentFrame(), 0.4f);
+	App->render->Blit(graphics2, 450, 0, &streetLights.GetCurrentFrame(), 0.4f);
 	App->render->Blit(graphics2, 0, 35, &building_1, 0.4f)	;
 	App->render->Blit(graphics, 0, 0, &background, 0.75f); 
 
