@@ -137,6 +137,9 @@ void ModuleBackground::CameraScroll(){
 		}
 		cont++;
 	}
+	if (now >= 15000 && now <= 15000 + CameraScrollTime + 100) {    // provisional scroll before tunnel, the starting point must be corrected
+		MoveDown();
+	}
 }
 
 // Update: draw background
