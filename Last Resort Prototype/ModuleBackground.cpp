@@ -41,11 +41,16 @@ ModuleBackground::ModuleBackground()
 	building_2.h = 160; 
 
 	light.PushBack({ 327,0,67,79 });
-	light.PushBack({ 394,0,67,79 });
-	light.PushBack({ 461,0,67,79 });
-	light.PushBack({ 528,0,67,79 });
-	light.PushBack({ 595,0,67,79 });
-	light.speed = 0.1f;
+	light.PushBack({ 385,0,67,79 });
+	light.PushBack({ 443,0,67,79 });
+	light.PushBack({ 501,0,67,79 });
+	light.PushBack({ 559,0,67,79 });
+	/*light.PushBack({ 327,79,67,79 });
+	light.PushBack({ 385,79,67,79 });
+	light.PushBack({ 443,79,67,79 });
+	light.PushBack({ 501,79,67,79 });
+	light.PushBack({ 559,79,67,79 });*/
+	light.speed = 0.05f;
 
 	backgroundLights1.PushBack({ 0,595,284,144 });
 	backgroundLights1.PushBack({ 284,595,284,144 });
