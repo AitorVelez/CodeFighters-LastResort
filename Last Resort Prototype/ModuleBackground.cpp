@@ -41,6 +41,7 @@ ModuleBackground::ModuleBackground()
 	building_2.h = 160; 
 
 	light.PushBack({ 327,0,67,79 });
+<<<<<<< HEAD
 	light.PushBack({ 385,0,67,79 });
 	light.PushBack({ 443,0,67,79 });
 	light.PushBack({ 501,0,67,79 });
@@ -51,6 +52,13 @@ ModuleBackground::ModuleBackground()
 	light.PushBack({ 501,79,67,79 });
 	light.PushBack({ 559,79,67,79 });*/
 	light.speed = 0.05f;
+=======
+	light.PushBack({ 394,0,67,79 });
+	light.PushBack({ 461,0,67,79 });
+	light.PushBack({ 528,0,67,79 });
+	light.PushBack({ 595,0,67,79 });
+	light.speed = 0.1f;
+>>>>>>> 832959305b1d02612790c78804caf9648bf3963b
 
 	backgroundLights.PushBack({ 0,595,284,144 });
 	backgroundLights.PushBack({ 284,595,284,144 });
@@ -82,8 +90,12 @@ ModuleBackground::ModuleBackground()
 	backgroundLights.PushBack({ 852,595,284,144 });
 	backgroundLights.PushBack({ 568,595,284,144 });
 	backgroundLights.PushBack({ 284,595,284,144 });
+<<<<<<< HEAD
 	backgroundLights.speed = 0.3f;
 
+=======
+	backgroundLights.speed = 0.17f;
+>>>>>>> 832959305b1d02612790c78804caf9648bf3963b
 
 }
 
@@ -173,6 +185,7 @@ update_status ModuleBackground::Update()
 	App->render->Blit(graphics2, 0, 0, &crater, 0.f);
 	App->render->Blit(graphics2, 0, 0, &building_2, 0.224f);
 	App->render->Blit(graphics2, 171, 0, &light.GetCurrentFrame(), 0.4f);
+<<<<<<< HEAD
 	if (flip == 0) {
 		App->render->Blit(graphics2, 450, 0, &backgroundLights.GetCurrentFrame(), 0.4f);
 		lights1++;
@@ -185,6 +198,9 @@ update_status ModuleBackground::Update()
 			if (lights1 == 0)
 		flip = 0;
 	}
+=======
+	App->render->Blit(graphics2, 450, -10, &backgroundLights.GetCurrentFrame(), 0.4f);
+>>>>>>> 832959305b1d02612790c78804caf9648bf3963b
 	App->render->Blit(graphics2, 0, 35, &building_1, 0.4f)	;
 	App->render->Blit(graphics, 0, 0, &background, 0.75f); 
 
