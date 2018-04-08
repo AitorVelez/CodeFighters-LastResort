@@ -52,22 +52,36 @@ ModuleBackground::ModuleBackground()
 	light.speed = 0.1f;
 
 	backgroundLights.PushBack({ 0,595,284,144 });
-	backgroundLights.PushBack({ 284,595,243,144 });
-	backgroundLights.PushBack({ 527,595,197,144 });
-	backgroundLights.PushBack({ 724,595,162,144 });
-	backgroundLights.PushBack({ 886,595,130,144 });
-	backgroundLights.PushBack({ 1016,595,104,144 });
-	backgroundLights.PushBack({ 1120,595,76,144 });
-	backgroundLights.PushBack({ 1196,595,50,144 });
-	/*backgroundLights.PushBack({ ,,50,144 });
-	backgroundLights.PushBack({ ,,76,144 });
-	backgroundLights.PushBack({ ,,104,144 });
-	backgroundLights.PushBack({ ,,130,144 });
-	backgroundLights.PushBack({ ,,162,144 });
-	backgroundLights.PushBack({ ,,197,144 });
-	backgroundLights.PushBack({ ,,243,144 });
-	backgroundLights.PushBack({ ,,284,144 });*/
-	backgroundLights.speed = 0.12f;
+	/*backgroundLights.PushBack({ 284,595,284,144 });*/
+	backgroundLights.PushBack({ 568,595,284,144 });
+	/*backgroundLights.PushBack({ 852,595,284,144 });*/
+	backgroundLights.PushBack({ 1136,595,284,144 });
+	//backgroundLights.PushBack({ 1420,595,284,144 });
+	/*backgroundLights.PushBack({ 1704,595,284,144 });*/
+	backgroundLights.PushBack({ 1704,451,284,144 });
+	backgroundLights.PushBack({ 1704,309,284,144 });
+	backgroundLights.PushBack({ 0,748,284,144 });
+	backgroundLights.PushBack({ 284,748,284,144 });
+	backgroundLights.PushBack({ 568,748,284,144 });
+	backgroundLights.PushBack({ 852,748,284,144 });
+	backgroundLights.PushBack({ 1136,748,284,144 });
+	backgroundLights.PushBack({ 1420,748,284,144 });
+	backgroundLights.PushBack({ 1704,748,284,144 });
+	backgroundLights.PushBack({ 1420,748,284,144 });
+	backgroundLights.PushBack({ 1136,748,284,144 });
+	backgroundLights.PushBack({ 852,748,284,144 });
+	backgroundLights.PushBack({ 568,748,284,144 });
+	backgroundLights.PushBack({ 284,748,284,144 });
+	backgroundLights.PushBack({ 0,748,284,144 });
+	backgroundLights.PushBack({ 1704,309,284,144 });
+	/*backgroundLights.PushBack({ 1704,451,284,144 });*/
+	/*backgroundLights.PushBack({ 1704,595,284,144 });*/
+	backgroundLights.PushBack({ 1420,595,284,144 });
+	/*backgroundLights.PushBack({ 1136,595,284,144 });*/
+	backgroundLights.PushBack({ 852,595,284,144 });
+	/*backgroundLights.PushBack({ 568,595,284,144 });*/
+	backgroundLights.PushBack({ 284,595,284,144 });
+	backgroundLights.speed = 0.17f;
 
 }
 
