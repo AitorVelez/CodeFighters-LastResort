@@ -85,6 +85,10 @@ bool ModuleBackground::Start()
 	graphics = App->textures->Load("background_lvl1.png");
 	graphics2 = App->textures->Load("background_lvl1_extra.png");
 	
+	/*if (App->input->keyboard[SDL_SCANCODE_SPACE]) {
+		App->fade->FadeToBlack(App->background, App->startimage, 5.0f);
+	}*/
+
 	Mix_Music* mus = App->audio->LoadMus("music.ogg");
 	App->audio->PlayMus(mus);
 	return ret;

@@ -29,7 +29,7 @@ public:
 	ModuleStartingImage* startimage = nullptr;
 	ModulePlayer* player = nullptr;
 	ModuleAudio* audio = nullptr; 
-	ModuleFadeToBlack* fade;
+	ModuleFadeToBlack* fade=nullptr;
 
 public:
 
