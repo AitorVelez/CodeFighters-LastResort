@@ -33,3 +33,18 @@ void ModuleAudio::PlayMus(Mix_Music* mus)
 {
 	Mix_PlayMusic(mus, 1);
 }
+
+Mix_Chunk * ModuleAudio::LoadChunk(const char * path)
+{
+	Mix_Chunk* chunky = nullptr; 
+	chunky = Mix_LoadWAV(path);
+	if (chunky == nullptr)
+		LOG("There was a problem loading the chunk.");
+
+	return chunky;
+}
+
+void ModuleAudio::PlayChunk(Mix_Chunk * chunk, int times)
+{
+	Mix_PlayChannel(-1, chunk, times);
+}
