@@ -4,6 +4,7 @@
 #include "ModuleInput.h"
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
+#include "ModuleAudio.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
@@ -39,6 +40,7 @@ bool ModulePlayer::Start()
 	LOG("Loading player textures");
 	bool ret = true;
 	graphics = App->textures->Load("main_character.png"); // arcade version
+	chunk = App->audio->LoadChunk("shot.WAV");
 	return ret;
 }
 
@@ -69,6 +71,8 @@ update_status ModulePlayer::Update()
 	if (App->input->keyboard[SDL_SCANCODE_A] == 1)
 		position.x -= speed;
 
+	if (App->input->keyboard[SDL_SCANCODE_F] == 1)
+		App->audio->PlayChunk(chunk, 0);
 
 	// Draw everything --------------------------------------
 	SDL_Rect r = current_animation->GetCurrentFrame();
