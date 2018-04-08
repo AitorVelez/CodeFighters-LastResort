@@ -28,7 +28,7 @@ bool ModuleStartingImage::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	TexStImage = App->textures->Load("StartingTitle.png");
+	TexStImage = App->textures->Load("assets/StartingTitle.png");
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 	App->player->Disable(); 
