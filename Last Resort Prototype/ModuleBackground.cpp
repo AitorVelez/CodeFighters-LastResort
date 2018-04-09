@@ -177,9 +177,12 @@ update_status ModuleBackground::Update()
 	CameraScroll();
 
 	// Draw everything --------------------------------------
-	
-	App->render->Blit(graphics2, 0, 0, &crater, 0.f);
+	if(App->render->camera.x<=-4800*SCREEN_SIZE)
+		App->render->Blit(graphics2, 0, 0, &crater, 0.f);
+
 	App->render->Blit(graphics2, 0, 0, &building_2, 0.224f);
+
+
 	App->render->Blit(graphics2, 172, -20, &light.GetCurrentFrame(), 0.4f);
 	
 	if (!render_light) {
@@ -187,6 +190,7 @@ update_status ModuleBackground::Update()
 		render_light = true; 
 	}
 	else render_light = false;  
+
 
 	App->render->Blit(graphics2, 0, 35, &building_1, 0.4f)	;
 	App->render->Blit(graphics, 0, 0, &background, 0.75f); 
