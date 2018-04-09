@@ -48,7 +48,7 @@ ModuleBackground::ModuleBackground()
 	light.PushBack({ 510,0,67,70 });
 	light.PushBack({ 449,0,67,79 });
 	light.PushBack({ 388,0,67,79 });
-	light.speed = 0.05f;
+	light.speed = 0.035f;
 
 	backgroundLights.PushBack({ 0,595,284,144 });
 	backgroundLights.PushBack({ 284,595,284,144 });
@@ -80,7 +80,7 @@ ModuleBackground::ModuleBackground()
 	backgroundLights.PushBack({ 852,595,284,144 });
 	backgroundLights.PushBack({ 568,595,284,144 });
 	backgroundLights.PushBack({ 284,595,284,144 });
-	backgroundLights.speed = 0.3f;
+	backgroundLights.speed = 0.4f;
 
 
 }
@@ -177,14 +177,17 @@ update_status ModuleBackground::Update()
 	CameraScroll();
 
 	// Draw everything --------------------------------------
-	if(App->render->camera.x<=-4800*SCREEN_SIZE)
-		App->render->Blit(graphics2, 0, 0, &crater, 0.f);
+	if(App->render->camera.x<=-4800*SCREEN_SIZE)	
+		App->render->Blit(graphics2, 0, 0, &crater, 0.f);		//Now the crater appears when camera reaches certain distance - not at the beggining
 
-	App->render->Blit(graphics2, 0, 0, &building_2, 0.224f);
+	App->render->Blit(graphics2, 0, 0, &building_2, 0.224f);										// DEPTH 1
 
 
-	App->render->Blit(graphics2, 172, -20, &light.GetCurrentFrame(), 0.4f);
-	
+	App->render->Blit(graphics2, 171, -19, &light.GetCurrentFrame(), 0.4f);		
+	App->render->Blit(graphics2, 683, -19, &light.GetCurrentFrame(), 0.4f);
+	App->render->Blit(graphics2, 763, 13, &light.GetCurrentFrame(), 0.4f);
+	App->render->Blit(graphics2, 827, -35, &light.GetCurrentFrame(), 0.4f);
+
 	if (!render_light) {
 		App->render->Blit(graphics2, 450, -10, &backgroundLights.GetCurrentFrame(), 0.4f);
 		render_light = true; 
@@ -192,8 +195,9 @@ update_status ModuleBackground::Update()
 	else render_light = false;  
 
 
-	App->render->Blit(graphics2, 0, 35, &building_1, 0.4f)	;
-	App->render->Blit(graphics, 0, 0, &background, 0.75f); 
+	App->render->Blit(graphics2, 0, 35, &building_1, 0.4f)	;										// DEPTH 2
+
+	App->render->Blit(graphics, 0, 0, &background, 0.75f);											// DEPTH 3
 
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
