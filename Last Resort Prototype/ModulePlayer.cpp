@@ -45,6 +45,19 @@ bool ModulePlayer::Start()
 	return ret;
 }
 
+
+bool ModulePlayer::CleanUp()
+{
+	LOG("Closing Up Player Module");
+	// Free All textures
+	App->textures->Unload(graphics);
+
+	// Free all audio material
+	App->audio->UnloadChunk(chunk);
+
+	return true; 
+}
+
 // Update: draw background
 update_status ModulePlayer::Update()
 {

@@ -101,7 +101,7 @@ bool ModuleBackground::Start()
 	
 	App->player->Enable();
 
-	Mix_Music* mus = App->audio->LoadMus("assets/music.ogg");
+	mus = App->audio->LoadMus("assets/music.ogg");
 	App->audio->PlayMus(mus);
 	return ret;
 }
@@ -109,7 +109,15 @@ bool ModuleBackground::Start()
 bool ModuleBackground::CleanUp()
 {
 	LOG("Cleaning Up background");
+	//Disable Other Modules
+	App->player->Disable(); 
 
+	//Free all loaded textures
+	App->textures->Unload(graphics);
+	App->textures->Unload(graphics2);
+
+	//Free all audio material
+	App->audio->UnloadMus(mus); 
 	return true;
 }
 

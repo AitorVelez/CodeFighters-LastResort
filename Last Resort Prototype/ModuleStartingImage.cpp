@@ -10,8 +10,6 @@
 #include "Application.h"
 
 
-// Reference at https://youtu.be/6OlenbCC4WI?t=382
-
 ModuleStartingImage::ModuleStartingImage()
 {
 	StImage.x = 0;
@@ -39,9 +37,8 @@ bool ModuleStartingImage::Start()
 // Load assets
 bool ModuleStartingImage::CleanUp()
 {
-	// TODO 5: Remove all memory leaks
-	// App->textures(graphics)->Disable();
-	LOG("Unloading honda stage");
+	LOG("Unloading Intro Scene");
+	App->textures->Unload(TexStImage);
 
 	return true;
 }
