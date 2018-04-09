@@ -40,6 +40,8 @@ bool ModulePlayer::Start()
 	bool ret = true;
 	position.x = 50;
 	position.y = 125;
+	relativeposition.x = 50;
+	relativeposition.y = 125; 
 	graphics = App->textures->Load("assets/main_character.png"); // arcade version
 	chunk = App->audio->LoadChunk("assets/shot.wav");
 	return ret;
