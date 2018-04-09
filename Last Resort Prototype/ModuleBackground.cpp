@@ -129,7 +129,7 @@ void ModuleBackground::MoveUp()
 	App->player->relativeposition.y -= 2.0000008f/2;
 }
  
-}
+
 
 void ModuleBackground::MoveDown()
 {
