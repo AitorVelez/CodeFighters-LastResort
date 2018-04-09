@@ -125,11 +125,17 @@ bool ModuleBackground::CleanUp()
 void ModuleBackground::MoveUp()
 {
 	App->render->camera.y += 2.0000008f; 
+	App->player->position.y -= 2.0000008f/2;
+	App->player->relativeposition.y -= 2.0000008f/2;
+}
+ 
 }
 
 void ModuleBackground::MoveDown()
 {
 	App->render->camera.y -= 1; 
+	App->player->position.y += 1;
+	App->player->relativeposition.y += 1;
 }
 
 void ModuleBackground::CameraScroll(){
