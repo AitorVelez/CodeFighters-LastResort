@@ -17,9 +17,11 @@ public:
 
 	Mix_Music* LoadMus(const char* path);
 	void PlayMus(Mix_Music* mus);
-	
+	bool UnloadMus(Mix_Music* mus);
+
 	Mix_Chunk* LoadChunk(const char* path);
 	void PlayChunk(Mix_Chunk* chunk, int times);
+	bool UnloadChunk(Mix_Chunk* chunk); 
 
 };
 
