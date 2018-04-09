@@ -71,22 +71,44 @@ update_status ModulePlayer::Update()
 
 	if(App->input->keyboard[SDL_SCANCODE_W] == 1)
 	{
-		current_animation = &up;
-		position.y -= speed;
+		if (relativeposition.y > CHARACTER_HEIGHT) {
+			current_animation = &up;
+			relativeposition.y -= speed; 
+			position.y -= speed;
+		}
+		else {
+			relativeposition.y = CHARACTER_HEIGHT;
+		}
 	}
 	if (App->input->keyboard[SDL_SCANCODE_S] == 1)
 	{
-		current_animation = &down;
-		position.y += speed;
+		if (relativeposition.y < SCREEN_HEIGHT* SCREEN_SIZE - CHARACTER_HEIGHT) {
+			current_animation = &down;
+			relativeposition.y += speed;
+			position.y += speed;
+		}
+		else {
+			relativeposition.y = SCREEN_HEIGHT * SCREEN_SIZE - CHARACTER_HEIGHT;
+		}
 	}
-	if (App->input->keyboard[SDL_SCANCODE_D] == 1)
-		position.x += speed;
-
-	if (App->input->keyboard[SDL_SCANCODE_A] == 1)
-		position.x -= speed;
-
-	if (App->input->keyboard[SDL_SCANCODE_F] == 1)
-		App->audio->PlayChunk(chunk, 0);
+	if (App->input->keyboard[SDL_SCANCODE_D] == 1) {
+		if (relativeposition.x < SCREEN_WIDTH* SCREEN_SIZE - CHARACTER_WIDTH) {
+			relativeposition.x += speed;
+			position.x += speed;
+		}
+		else {
+			relativeposition.x = SCREEN_WIDTH * SCREEN_SIZE - CHARACTER_WIDTH;
+		}
+	}
+	if (App->input->keyboard[SDL_SCANCODE_A] == 1) {
+		if (relativeposition.x > 0) {
+			relativeposition.x -= speed;
+			position.x -= speed; 
+		}
+		else {
+			relativeposition.x = 0; 
+		}
+	}
 
 	// Draw everything --------------------------------------
 	SDL_Rect r = current_animation->GetCurrentFrame();
