@@ -20,6 +20,7 @@ public:
 	void MoveUp();
 	void MoveDown();
 	void CameraScroll(); 
+	void RenderLights(); 
 
 public:
 	

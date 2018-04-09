@@ -160,6 +160,20 @@ void ModuleBackground::CameraScroll(){
 	}
 }
 
+void ModuleBackground::RenderLights()
+{
+	App->render->Blit(graphics2, 171, -19, &light.GetCurrentFrame(), 0.4f);
+	App->render->Blit(graphics2, 683, -19, &light.GetCurrentFrame(), 0.4f);
+	App->render->Blit(graphics2, 763, 13, &light.GetCurrentFrame(), 0.4f);
+	App->render->Blit(graphics2, 827, -35, &light.GetCurrentFrame(), 0.4f);
+
+	if (!render_light) {
+		App->render->Blit(graphics2, 450, -10, &backgroundLights.GetCurrentFrame(), 0.4f);
+		render_light = true;
+	}
+	else render_light = false;
+}
+
 // Update: draw background
 update_status ModuleBackground::Update()
 {
@@ -181,19 +195,8 @@ update_status ModuleBackground::Update()
 		App->render->Blit(graphics2, 0, 0, &crater, 0.f);		//Now the crater appears when camera reaches certain distance - not at the beggining
 
 	App->render->Blit(graphics2, 0, 0, &building_2, 0.224f);										// DEPTH 1
-
-
-	App->render->Blit(graphics2, 171, -19, &light.GetCurrentFrame(), 0.4f);		
-	App->render->Blit(graphics2, 683, -19, &light.GetCurrentFrame(), 0.4f);
-	App->render->Blit(graphics2, 763, 13, &light.GetCurrentFrame(), 0.4f);
-	App->render->Blit(graphics2, 827, -35, &light.GetCurrentFrame(), 0.4f);
-
-	if (!render_light) {
-		App->render->Blit(graphics2, 450, -10, &backgroundLights.GetCurrentFrame(), 0.4f);
-		render_light = true; 
-	}
-	else render_light = false;  
-
+	
+	RenderLights(); 
 
 	App->render->Blit(graphics2, 0, 35, &building_1, 0.4f)	;										// DEPTH 2
 
