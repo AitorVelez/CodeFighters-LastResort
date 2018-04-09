@@ -30,12 +30,11 @@ public:
 	SDL_Rect crater;
 	SDL_Rect building_1; 
 	SDL_Rect building_2; 
-
 	Animation backgroundLights;
 	Animation streetLights;
-	Animation light;
-	int lights1 = 0;
-	int flip = 0;
+	Animation light;	
+
+	bool render_light = false;
 	bool scroll = true; 
 };
 

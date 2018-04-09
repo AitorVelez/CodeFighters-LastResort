@@ -176,18 +176,11 @@ update_status ModuleBackground::Update()
 	App->render->Blit(graphics2, 0, 0, &building_2, 0.224f);
 	App->render->Blit(graphics2, 172, -20, &light.GetCurrentFrame(), 0.4f);
 	
-	if (flip == 0) {
+	if (!render_light) {
 		App->render->Blit(graphics2, 450, -10, &backgroundLights.GetCurrentFrame(), 0.4f);
-		lights1++;
-		if (lights1 == 1) {
-			flip = 1;
-		}
+		render_light = true; 
 	}
-	else if (flip == 1) {
-		lights1--;
-		if (lights1 == 0)
-			flip = 0;
-	}
+	else render_light = false;  
 
 	App->render->Blit(graphics2, 0, 35, &building_1, 0.4f)	;
 	App->render->Blit(graphics, 0, 0, &background, 0.75f); 
