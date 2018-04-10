@@ -28,9 +28,9 @@ bool ModuleStartingImage::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	TexStImage = App->textures->Load("assets/StartingTitle.png");
+	TexStImage = App->textures->Load("assets/sprites/StartingTitle.png");
 
-	mus = App->audio->LoadMus("assets/musicInit.ogg");
+	mus = App->audio->LoadMus("assets/SFX/musicInit.ogg");
 	App->audio->PlayMus(mus);
 
 	App->render->camera.x = 0;

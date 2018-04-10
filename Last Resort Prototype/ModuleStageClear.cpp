@@ -30,9 +30,9 @@ bool ModuleStageClear::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	TexStageImage = App->textures->Load("assets/Stage1Clear.png");
+	TexStageImage = App->textures->Load("assets/sprites/Stage1Clear.png");
 
-	ClearMus = App->audio->LoadMus("assets/musicStageClear.ogg");
+	ClearMus = App->audio->LoadMus("assets/SFX/musicStageClear.ogg");
 	App->audio->PlayMus(ClearMus);
 
 	App->render->camera.x = 0;

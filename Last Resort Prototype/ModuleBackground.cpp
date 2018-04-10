@@ -149,14 +149,14 @@ bool ModuleBackground::Start()
 
 	bool ret = true;
 	//graphics = App->textures->Load("backgroundlvl1v2.png");
-	graphics = App->textures->Load("assets/background_lvl1.png");
-	graphics2 = App->textures->Load("assets/background_lvl1_extra.png");
-	graphics3 = App->textures->Load("assets/StreetLights_lvl1.png");
-	graphics4 = App->textures->Load("assets/tunnelLights.png");
-	graphics5 = App->textures->Load("assets/backspaceship_lvl101.png");
+	graphics = App->textures->Load("assets/sprites/background_lvl1.png");
+	graphics2 = App->textures->Load("assets/sprites/background_lvl1_extra.png");
+	graphics3 = App->textures->Load("assets/sprites/StreetLights_lvl1.png");
+	graphics4 = App->textures->Load("assets/sprites/tunnelLights.png");
+	graphics5 = App->textures->Load("assets/sprites/backspaceship_lvl101.png");
 	App->player->Enable();
 
-	mus = App->audio->LoadMus("assets/music.ogg");
+	mus = App->audio->LoadMus("assets/SFX/music.ogg");
 	App->audio->PlayMus(mus);
 	return ret;
 }
@@ -238,7 +238,6 @@ void ModuleBackground::RenderStreetLights()
 {
 	App->render->Blit(graphics3, 167, 136, &streetLights.GetCurrentFrame(), 0.75f);
 	App->render->Blit(graphics3, 103, 136, &streetLights_2.GetCurrentFrame(), 0.75f);
-
 }
 
 

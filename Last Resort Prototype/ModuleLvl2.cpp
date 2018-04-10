@@ -30,7 +30,7 @@ bool ModuleLvl2::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	TexLvl2Image = App->textures->Load("assets/Background_2.png");
+	TexLvl2Image = App->textures->Load("assets/sprites/Background_2.png");
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 	App->player->Enable();
