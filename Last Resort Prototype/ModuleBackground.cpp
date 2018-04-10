@@ -242,7 +242,8 @@ void ModuleBackground::RenderStreetLights()
 	// 2 1 2 2 1 
 	// 2 1 1 2 1 
 	// 2 2 1 2 1 
-	// 2 1 don't delete yet
+	// 2 1 don't delete yet (+64)
+
 	App->render->Blit(graphics3, 39, 136, &streetLights.GetCurrentFrame(), 0.75f);
 
 	App->render->Blit(graphics3, 103, 136, &streetLights.GetCurrentFrame(), 0.75f);
