@@ -50,15 +50,10 @@ public:
 	Animation light;	
 	Animation lightNew;
 	Animation tunnelLights;
-<<<<<<< HEAD
-	Animation Ships;
+	Animation tunnelLights_2;	
 	Animation DeepBackgroundLights;
-
-=======
-	Animation tunnelLights_2;
-	Animation ships;
+	Animation ships;	
 	
->>>>>>> 88c225458a182dee685c10c7a61bf490efe7ab2a
 	bool render_light = false;
 	bool scroll = true; 
 };
