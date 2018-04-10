@@ -59,7 +59,7 @@ ModuleBackground::ModuleBackground()
 	lightNew.PushBack({ 510,79,67,105 });
 	lightNew.PushBack({ 449,79,67,117 });
 	lightNew.PushBack({ 388,79,67,114 });
-	lightNew.speed = light.speed;
+	lightNew.speed = 0.1235f;
 
 	streetLights.PushBack({ 0,21,50,65 });
 	streetLights.PushBack({ 51,21,50,65 });
