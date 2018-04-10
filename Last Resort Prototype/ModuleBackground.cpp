@@ -164,18 +164,20 @@ bool ModuleBackground::Start()
 {
 	LOG("Loading background assets");
 
+	bool ret = true;	
 
-	bool ret = true;
+	App->player->Enable();
+
 	//graphics = App->textures->Load("backgroundlvl1v2.png");
 	graphics = App->textures->Load("assets/sprites/background_lvl1.png");
 	graphics2 = App->textures->Load("assets/sprites/background_lvl1_extra.png");
 	graphics3 = App->textures->Load("assets/sprites/StreetLights_lvl1.png");
 	graphics4 = App->textures->Load("assets/sprites/tunnelLights.png");
 	graphics5 = App->textures->Load("assets/sprites/backspaceship_lvl101.png");
-	App->player->Enable();
 
 	mus = App->audio->LoadMus("assets/SFX/music.ogg");
 	App->audio->PlayMus(mus);
+
 	return ret;
 }
 
@@ -234,6 +236,16 @@ void ModuleBackground::CameraScroll(){
 	if (now >= 15000 && now <= 15000 + CameraScrollTime + 100) {    // provisional scroll before tunnel, the starting point must be corrected
 		MoveDown();
 	}
+}
+
+void ModuleBackground::CameraScroll2(int since, int to, bool up)
+{
+	if (App->render->camera.x >= -to && App->render->camera.x <= -since)
+	{
+		if (up) MoveUp();
+		if (!up) MoveDown(); 
+	}
+	
 }
 
 void ModuleBackground::RenderDiscoLights()
@@ -330,8 +342,6 @@ void ModuleBackground::RenderTunnelLights()
 	App->render->Blit(graphics4, 3336, 0, &tunnelLights_2.GetCurrentFrame(), 0.75f);
 	App->render->Blit(graphics4, 3593, 0, &tunnelLights.GetCurrentFrame(), 0.75f);
 	App->render->Blit(graphics4, 3850, 0, &tunnelLights_2.GetCurrentFrame(), 0.75f);
-
-
 }
 
 
@@ -350,11 +360,15 @@ update_status ModuleBackground::Update()
 		scroll = false; 
 
 			// Up and down Conditions 
-	CameraScroll();
+	//CameraScroll();
+
+	CameraScroll2(100, 250, false);
+	CameraScroll2(400, 475, true);
+	CameraScroll2(700, 850, false);
 
 	// Draw everything --------------------------------------
 	if(App->render->camera.x<=-4800*SCREEN_SIZE)	
-		App->render->Blit(graphics2, 0, 0, &crater, 0.f);		//Now the crater appears when camera reaches certain distance - not at the beggining
+		App->render->Blit(graphics2, 0, 0, &crater, 0.f);		
 
 	App->render->Blit(graphics2, 0, 0, &building_2, 0.224f);										// DEPTH 1
 	
