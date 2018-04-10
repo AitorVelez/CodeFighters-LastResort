@@ -123,6 +123,11 @@ ModuleBackground::ModuleBackground()
 	backgroundLights.PushBack({ 284,595,284,144 });
 	backgroundLights.speed = 0.4f;
 
+	Ships.PushBack({ 0,0,8,3 });
+	Ships.PushBack({ 15,0,8,4 });
+	Ships.PushBack({ 30,0,8,4 });
+	Ships.speed = 0.01f;
+
 
 }
 
@@ -140,6 +145,7 @@ bool ModuleBackground::Start()
 	graphics = App->textures->Load("assets/background_lvl1.png");
 	graphics2 = App->textures->Load("assets/background_lvl1_extra.png");
 	graphics3 = App->textures->Load("assets/StreetLights_lvl1.png");
+	graphics4 = App->textures->Load("assets/backspaceship_lvl101.png");
 	
 	App->player->Enable();
 
@@ -209,6 +215,7 @@ void ModuleBackground::RenderDiscoLights()
 	App->render->Blit(graphics2, 683, -19, &light.GetCurrentFrame(), 0.4f);
 	App->render->Blit(graphics2, 752, -22, &lightNew.GetCurrentFrame(), 0.4f);
 	App->render->Blit(graphics2, 827, -35, &light.GetCurrentFrame(), 0.4f);
+	App->render->Blit(graphics4, 100, 50,&Ships.GetCurrentFrame(), -1.f); // example of the backship
 
 	if (!render_light) {
 		App->render->Blit(graphics2, 300, -10, &backgroundLights.GetCurrentFrame(), 0.4f);
