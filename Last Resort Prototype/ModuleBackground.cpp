@@ -71,6 +71,16 @@ ModuleBackground::ModuleBackground()
 	streetLights.PushBack({ 51,21,50,65 });
 	streetLights.speed = 0.1f;
 
+	streetLights_2.PushBack({ 204,21,50,65 });
+	streetLights_2.PushBack({ 153,21,50,65 });
+	streetLights_2.PushBack({ 102,21,50,65 });
+	streetLights_2.PushBack({ 51,21,50,65 });
+	streetLights_2.PushBack({ 0,21,50,65 });
+	streetLights_2.PushBack({ 51,21,50,65 });
+	streetLights_2.PushBack({ 102,21,50,65 });
+	streetLights_2.PushBack({ 153,21,50,65 });
+	streetLights_2.speed = 0.1f; 
+
 	lightFloor.PushBack({ 0,0,60,20 });
 	lightFloor.PushBack({ 61,0,60,20 });
 	lightFloor.PushBack({ 122,0,60,20 });
@@ -191,7 +201,7 @@ void ModuleBackground::CameraScroll(){
 	}
 }
 
-void ModuleBackground::RenderLights()
+void ModuleBackground::RenderDiscoLights()
 {
 	App->render->Blit(graphics2, 171, -19, &light.GetCurrentFrame(), 0.4f);
 	App->render->Blit(graphics2, 683, -19, &light.GetCurrentFrame(), 0.4f);
@@ -203,6 +213,13 @@ void ModuleBackground::RenderLights()
 		render_light = true;
 	}
 	else render_light = false;
+
+}
+
+void ModuleBackground::RenderStreetLights()
+{
+	App->render->Blit(graphics3, 167, 136, &streetLights.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 103, 136, &streetLights_2.GetCurrentFrame(), 0.75f);
 
 }
 
@@ -230,18 +247,17 @@ update_status ModuleBackground::Update()
 
 	App->render->Blit(graphics2, 0, 0, &building_2, 0.224f);										// DEPTH 1
 	
-	RenderLights(); 
+	RenderDiscoLights(); 
 
 	App->render->Blit(graphics2, 0, 35, &building_1, 0.4f)	;										// DEPTH 2
 
 	App->render->Blit(graphics, 0, 0, &background, 0.75f);											// DEPTH 3
-	App->render->Blit(graphics3, 167, 136, &streetLights.GetCurrentFrame(), 0.75f);
 
-
+	RenderStreetLights(); 
 	App->render->Blit(graphics3, 121, 217, &lightFloor.GetCurrentFrame(), 0.75f);
 
 
-
+	// Fade to black
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
 		App->fade->FadeToBlack(App->background, App->stageclear, 1.5f);
 

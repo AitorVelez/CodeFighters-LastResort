@@ -20,20 +20,25 @@ public:
 	void MoveUp();
 	void MoveDown();
 	void CameraScroll(); 
-	void RenderLights(); 
+	void RenderDiscoLights(); 
+	void RenderStreetLights(); 
 
 public:
 	
 	SDL_Texture* graphics = nullptr;
 	SDL_Texture* graphics2 = nullptr; 
 	SDL_Texture* graphics3 = nullptr;
+
 	Mix_Music* mus = nullptr; 
+
 	SDL_Rect background;
 	SDL_Rect crater;
 	SDL_Rect building_1; 
 	SDL_Rect building_2; 
+
 	Animation backgroundLights;
 	Animation streetLights;
+	Animation streetLights_2; 
 	Animation light;	
 	Animation lightNew;
 	Animation lightFloor;
