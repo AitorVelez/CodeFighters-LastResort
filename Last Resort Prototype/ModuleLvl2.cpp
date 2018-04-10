@@ -9,6 +9,7 @@
 #include "ModuleBackground.h"
 #include "ModuleStageClear.h"
 #include "ModuleLvl2.h"
+#include "ModuleAudio.h"
 #include "Application.h"
 
 
@@ -33,7 +34,6 @@ bool ModuleLvl2::Start()
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 	App->player->Enable();
-
 	return ret;
 }
 

@@ -22,7 +22,7 @@ public:
 
 	SDL_Texture * TexStImage = nullptr;
 	SDL_Rect StImage;
-	Mix_Music* StMus = nullptr;
+	Mix_Music* mus = nullptr;
 
 };
 

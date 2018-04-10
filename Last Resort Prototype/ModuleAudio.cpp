@@ -7,7 +7,7 @@
 bool ModuleAudio::Init()
 {
 	Mix_Init(MIX_INIT_OGG);
-	Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, 2, 2500);
+	Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, 2, 1500);
 	return true;
 }
 
@@ -31,7 +31,7 @@ Mix_Music* ModuleAudio::LoadMus(const char * path)
 
 void ModuleAudio::PlayMus(Mix_Music* mus)
 {
-	Mix_PlayMusic(mus, 1);
+	Mix_PlayMusic(mus, -1);
 }
 
 bool ModuleAudio::UnloadMus(Mix_Music* mus)

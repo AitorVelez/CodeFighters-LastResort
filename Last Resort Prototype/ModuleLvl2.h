@@ -21,8 +21,6 @@ public:
 
 	SDL_Texture * TexLvl2Image = nullptr;
 	SDL_Rect Lvl2Image;
-
-
 };
 
 #endif // __MODULESTAGECLEAR_H__
