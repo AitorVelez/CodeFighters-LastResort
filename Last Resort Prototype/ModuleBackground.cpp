@@ -67,7 +67,7 @@ ModuleBackground::ModuleBackground()
 	streetLights.PushBack({ 153,21,50,65 });
 	streetLights.PushBack({ 102,21,50,65 });
 	streetLights.PushBack({ 51,21,50,65 });
-	streetLights.speed = 0.045f;
+	streetLights.speed = 0.06f;
 
 	backgroundLights.PushBack({ 0,595,284,144 });
 	backgroundLights.PushBack({ 284,595,284,144 });
@@ -223,7 +223,7 @@ update_status ModuleBackground::Update()
 	App->render->Blit(graphics2, 0, 35, &building_1, 0.4f)	;										// DEPTH 2
 
 	App->render->Blit(graphics, 0, 0, &background, 0.75f);											// DEPTH 3
-	App->render->Blit(graphics3, 167, 137, &streetLights.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 167, 136, &streetLights.GetCurrentFrame(), 0.75f);
 
 
 
