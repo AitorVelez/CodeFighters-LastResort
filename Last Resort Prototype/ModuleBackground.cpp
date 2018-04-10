@@ -69,7 +69,7 @@ ModuleBackground::ModuleBackground()
 	streetLights.PushBack({ 153,21,50,65 });
 	streetLights.PushBack({ 102,21,50,65 });
 	streetLights.PushBack({ 51,21,50,65 });
-	streetLights.speed = 0.1f;
+	streetLights.speed = 0.02f;
 
 
 	streetLights_2.PushBack({ 204,21,50,65 });
@@ -80,7 +80,7 @@ ModuleBackground::ModuleBackground()
 	streetLights_2.PushBack({ 51,21,50,65 });
 	streetLights_2.PushBack({ 102,21,50,65 });
 	streetLights_2.PushBack({ 153,21,50,65 });
-	streetLights_2.speed = 0.1f; 
+	streetLights_2.speed = 0.02f; 
 
 	lightFloor.PushBack({ 0,0,60,20 });
 	lightFloor.PushBack({ 61,0,60,20 });
@@ -235,9 +235,48 @@ void ModuleBackground::RenderDiscoLights()
 }
 
 void ModuleBackground::RenderStreetLights()
-{
-	App->render->Blit(graphics3, 167, 136, &streetLights.GetCurrentFrame(), 0.75f);
-	App->render->Blit(graphics3, 103, 136, &streetLights_2.GetCurrentFrame(), 0.75f);
+{	
+	// 1
+	// 1 2 2 1 1 
+	// 2 1 2 1 2 
+	// 2 1 2 2 1 
+	// 2 1 1 2 1 
+	// 2 2 1 2 1 
+	// 2 1 don't delete yet
+	App->render->Blit(graphics3, 39, 136, &streetLights.GetCurrentFrame(), 0.75f);
+
+	App->render->Blit(graphics3, 103, 136, &streetLights.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 167, 136, &streetLights_2.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 231, 136, &streetLights_2.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 295, 136, &streetLights.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 359, 136, &streetLights.GetCurrentFrame(), 0.75f);
+
+	App->render->Blit(graphics3, 423, 136, &streetLights_2.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 487, 136, &streetLights.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 551, 136, &streetLights_2.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 615, 136, &streetLights.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 679, 136, &streetLights_2.GetCurrentFrame(), 0.75f);
+
+	App->render->Blit(graphics3, 743, 136, &streetLights_2.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 807, 136, &streetLights.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 871, 136, &streetLights_2.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 935, 136, &streetLights_2.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 999, 136, &streetLights.GetCurrentFrame(), 0.75f);
+
+	App->render->Blit(graphics3, 1063, 136, &streetLights_2.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 1127, 136, &streetLights.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 1191, 136, &streetLights.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 1255, 136, &streetLights_2.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 1319, 136, &streetLights.GetCurrentFrame(), 0.75f);
+
+	App->render->Blit(graphics3, 1383, 136, &streetLights_2.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 1447, 136, &streetLights_2.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 1511, 136, &streetLights.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 1575, 136, &streetLights_2.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 1639, 136, &streetLights.GetCurrentFrame(), 0.75f);
+
+	App->render->Blit(graphics3, 1703, 136, &streetLights_2.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 1767, 136, &streetLights.GetCurrentFrame(), 0.75f);
 }
 
 
@@ -269,8 +308,6 @@ update_status ModuleBackground::Update()
 	App->render->Blit(graphics2, 0, 35, &building_1, 0.4f)	;										// DEPTH 2
 
 	App->render->Blit(graphics, 0, 0, &background, 0.75f);											// DEPTH 3
-
-	App->render->Blit(graphics3, 167, 136, &streetLights.GetCurrentFrame(), 0.75f);
 
 	App->render->Blit(graphics3, 121, 217, &lightFloor.GetCurrentFrame(), 0.75f);
 
