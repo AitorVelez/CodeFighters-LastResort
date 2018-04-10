@@ -53,7 +53,11 @@ public:
 	Animation DeepBackgroundLights;
 	Animation tunnelLights_2;
 	Animation ships;
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 5e98e6fae6165c1bfada6a5d9c67f0c24c27d6c6
 	bool render_light = false;
 	bool scroll = true; 
 };
