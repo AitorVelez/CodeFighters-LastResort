@@ -13,47 +13,47 @@
 
 
 
-ModuleStageClear::ModuleStageClear()
+ModuleLvl2::ModuleLvl2()
 {
-	StageImage.x = 0;
-	StageImage.y = 0;
-	StageImage.w = SCREEN_WIDTH;
-	StageImage.h = SCREEN_HEIGHT;
+	Lvl2Image.x = 0;
+	Lvl2Image.y = 0;
+	Lvl2Image.w = SCREEN_WIDTH;
+	Lvl2Image.h = SCREEN_HEIGHT;
 }
 
-ModuleStageClear::~ModuleStageClear()
+ModuleLvl2::~ModuleLvl2()
 {}
 
 // Load assets
-bool ModuleStageClear::Start()
+bool ModuleLvl2::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	TexStageImage = App->textures->Load("assets/Stage1Clear.png");
+	TexLvl2Image = App->textures->Load("assets/Background_2.png");
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
-	App->player->Disable();
+	App->player->Enable();
 
 	return ret;
 }
 
 // Load assets
-bool ModuleStageClear::CleanUp()
+bool ModuleLvl2::CleanUp()
 {
 	LOG("Unloading Intro Scene");
-	App->textures->Unload(TexStageImage);
+	App->textures->Unload(TexLvl2Image);
 
 	return true;
 }
 
 // Update: draw background
-update_status ModuleStageClear::Update()
+update_status ModuleLvl2::Update()
 {
 	// Draw everything --------------------------------------	
-	App->render->Blit(TexStageImage, 0, 0, &StageImage);
+	App->render->Blit(TexLvl2Image, 0, 0, &Lvl2Image);
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
-		App->fade->FadeToBlack(App->stageclear, App->lvl2, 1.5f);
+		App->fade->FadeToBlack(App->lvl2, App->startimage, 1.5f);
 	}
 
 

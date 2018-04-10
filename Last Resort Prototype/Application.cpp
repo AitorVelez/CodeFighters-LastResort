@@ -9,6 +9,7 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleStageClear.h"
 #include "ModuleStartingImage.h"
+#include "ModuleLvl2.h"
 #include "Module.h"
 
 
@@ -22,8 +23,9 @@ Application::Application()
 	modules[5] = player = new ModulePlayer();
 	modules[6] = startimage = new ModuleStartingImage();
 	modules[7] = stageclear = new ModuleStageClear();
-	modules[8] = audio = new ModuleAudio(); 
-	modules[9] = fade = new ModuleFadeToBlack();
+	modules[8] = lvl2 = new ModuleLvl2();
+	modules[9] = audio = new ModuleAudio(); 
+	modules[10] = fade = new ModuleFadeToBlack();
 
 	
 }	
@@ -42,6 +44,7 @@ bool Application::Init()
 	player->Disable();
 	background->Disable();
 	stageclear->Disable();
+	lvl2->Disable();
 
 
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)
