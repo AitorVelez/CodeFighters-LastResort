@@ -59,6 +59,12 @@
     <ClInclude Include="ModuleStartingImage.h">
       <Filter>Modules</Filter>
     </ClInclude>
+    <ClInclude Include="ModuleStageClear.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleLvl2.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -95,6 +101,12 @@
       <Filter>Modules</Filter>
     </ClCompile>
     <ClCompile Include="ModuleStartingImage.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleStageClear.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleLvl2.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
   </ItemGroup>
