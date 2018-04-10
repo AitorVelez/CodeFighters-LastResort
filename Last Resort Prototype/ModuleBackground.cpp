@@ -183,11 +183,8 @@ bool ModuleBackground::Start()
 	graphics4 = App->textures->Load("assets/sprites/tunnelLights.png");
 	graphics5 = App->textures->Load("assets/sprites/backspaceship_lvl101.png");
 	graphics6 = App->textures->Load("assets/sprites/DeepBackgroundLights.png");
-<<<<<<< HEAD
-	App->player->Enable();
-=======
 
->>>>>>> 5e98e6fae6165c1bfada6a5d9c67f0c24c27d6c6
+	App->player->Enable();
 
 	mus = App->audio->LoadMus("assets/SFX/music.ogg");
 	App->audio->PlayMus(mus);
