@@ -26,6 +26,7 @@ public:
 	
 	SDL_Texture* graphics = nullptr;
 	SDL_Texture* graphics2 = nullptr; 
+	SDL_Texture* graphics3 = nullptr;
 	Mix_Music* mus = nullptr; 
 	SDL_Rect background;
 	SDL_Rect crater;
