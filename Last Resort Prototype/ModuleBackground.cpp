@@ -41,6 +41,14 @@ ModuleBackground::ModuleBackground()
 	building_2.w = 803; 
 	building_2.h = 160; 
 
+	DeepBackgroundLights.PushBack({ 0,0,240,74 });
+	DeepBackgroundLights.PushBack({ 240,0,240,74 });
+	DeepBackgroundLights.PushBack({ 480,0,240,74 });
+	DeepBackgroundLights.PushBack({ 720,0,240,74 });
+	DeepBackgroundLights.PushBack({ 480,0,240,74 });
+	DeepBackgroundLights.PushBack({ 240,0,240,74 });
+	DeepBackgroundLights.speed = 0.1f;
+
 	light.PushBack({ 327,0,67,79 });
 	light.PushBack({ 388,0,67,79 });
 	light.PushBack({ 449,0,67,79 });
@@ -105,7 +113,7 @@ ModuleBackground::ModuleBackground()
 	tunnelLights.PushBack({ 414,0,137,161 });
 	tunnelLights.PushBack({ 276,0,137,161 });
 	tunnelLights.PushBack({ 138,0,137,161 });
-	tunnelLights.speed = 0.1f;
+	tunnelLights.speed = 0.075f;
 
 	backgroundLights.PushBack({ 0,595,284,144 });
 	backgroundLights.PushBack({ 284,595,284,144 });
@@ -163,6 +171,7 @@ bool ModuleBackground::Start()
 	graphics3 = App->textures->Load("assets/sprites/StreetLights_lvl1.png");
 	graphics4 = App->textures->Load("assets/sprites/tunnelLights.png");
 	graphics5 = App->textures->Load("assets/sprites/backspaceship_lvl101.png");
+	graphics6 = App->textures->Load("assets/sprites/DeepBackgroundLights.png");
 	App->player->Enable();
 
 	mus = App->audio->LoadMus("assets/SFX/music.ogg");
@@ -182,6 +191,7 @@ bool ModuleBackground::CleanUp()
 	App->textures->Unload(graphics3);
 	App->textures->Unload(graphics4);
 	App->textures->Unload(graphics5);
+	App->textures->Unload(graphics6);
 
 	//Free all audio material
 	App->audio->UnloadMus(mus); 
@@ -286,8 +296,6 @@ void ModuleBackground::RenderStreetLights()
 	App->render->Blit(graphics3, 1639, 136, &streetLights.GetCurrentFrame(), 0.75f);
 
 	App->render->Blit(graphics3, 1703, 136, &streetLights_2.GetCurrentFrame(), 0.75f);
-	App->render->Blit(graphics3, 1767, 136, &streetLights.GetCurrentFrame(), 0.75f);
-
 
 	//	BOTTOM PART
 	
@@ -334,10 +342,11 @@ update_status ModuleBackground::Update()
 	if(App->render->camera.x<=-4800*SCREEN_SIZE)	
 		App->render->Blit(graphics2, 0, 0, &crater, 0.f);		//Now the crater appears when camera reaches certain distance - not at the beggining
 
-	App->render->Blit(graphics2, 0, 0, &building_2, 0.224f);										// DEPTH 1
-	
-	RenderDiscoLights(); 
+	App->render->Blit(graphics2, 0, 0, &building_2, 0.224f);
+	App->render->Blit(graphics6, 0, 0, &DeepBackgroundLights.GetCurrentFrame(), 0.75f);             // DEPTH 1
 
+	RenderDiscoLights(); 
+	
 	App->render->Blit(graphics2, 0, 35, &building_1, 0.4f)	;										// DEPTH 2
 
 	App->render->Blit(graphics, 0, 0, &background, 0.75f);											// DEPTH 3
