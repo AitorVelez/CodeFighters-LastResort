@@ -69,11 +69,15 @@ ModuleBackground::ModuleBackground()
 	streetLights.PushBack({ 153,21,50,65 });
 	streetLights.PushBack({ 102,21,50,65 });
 	streetLights.PushBack({ 51,21,50,65 });
-<<<<<<< HEAD
 	streetLights.speed = 0.1f;
-=======
-	streetLights.speed = 0.06f;
->>>>>>> 064cd5baac307e40e069caccd0989a03791ead5e
+
+	lightFloor.PushBack({ 0,0,60,20 });
+	lightFloor.PushBack({ 61,0,60,20 });
+	lightFloor.PushBack({ 122,0,60,20 });
+	lightFloor.PushBack({ 183,0,60,20 });
+	lightFloor.PushBack({ 122,0,60,20 });
+	lightFloor.PushBack({ 61,0,60,20 });
+	lightFloor.speed = 0.1f;
 
 	backgroundLights.PushBack({ 0,595,284,144 });
 	backgroundLights.PushBack({ 284,595,284,144 });
@@ -228,14 +232,10 @@ update_status ModuleBackground::Update()
 
 	App->render->Blit(graphics2, 0, 35, &building_1, 0.4f)	;										// DEPTH 2
 
-<<<<<<< HEAD
-	App->render->Blit(graphics, 0, 0, &background, 0.75f);                                          // DEPTH 3
-	App->render->Blit(graphics3, 171, 151, &streetLights.GetCurrentFrame(), 0.4f);
-=======
 	App->render->Blit(graphics, 0, 0, &background, 0.75f);											// DEPTH 3
 	App->render->Blit(graphics3, 167, 136, &streetLights.GetCurrentFrame(), 0.75f);
 
->>>>>>> 064cd5baac307e40e069caccd0989a03791ead5e
+	App->render->Blit(graphics3, 121, 217, &lightFloor.GetCurrentFrame(), 0.75f);
 
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
