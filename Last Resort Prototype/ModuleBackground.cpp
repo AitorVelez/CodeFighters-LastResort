@@ -79,6 +79,14 @@ ModuleBackground::ModuleBackground()
 	lightFloor.PushBack({ 61,0,60,20 });
 	lightFloor.speed = 0.1f;
 
+	tunnelLights.PushBack({ 0,0,137,161});
+	tunnelLights.PushBack({ 138,0,137,161 });
+	tunnelLights.PushBack({ 276,0,137,161 });
+	tunnelLights.PushBack({ 414,0,137,161 });
+	tunnelLights.PushBack({ 276,0,137,161 });
+	tunnelLights.PushBack({ 138,0,137,161 });
+	tunnelLights.speed = 0.1f;
+
 	backgroundLights.PushBack({ 0,595,284,144 });
 	backgroundLights.PushBack({ 284,595,284,144 });
 	backgroundLights.PushBack({ 568,595,284,144 });
@@ -128,6 +136,7 @@ bool ModuleBackground::Start()
 	graphics = App->textures->Load("assets/background_lvl1.png");
 	graphics2 = App->textures->Load("assets/background_lvl1_extra.png");
 	graphics3 = App->textures->Load("assets/StreetLights_lvl1.png");
+	graphics4 = App->textures->Load("assets/tunnelLights.png");
 	
 	App->player->Enable();
 
@@ -146,6 +155,7 @@ bool ModuleBackground::CleanUp()
 	App->textures->Unload(graphics);
 	App->textures->Unload(graphics2);
 	App->textures->Unload(graphics3);
+	App->textures->Unload(graphics4);
 
 	//Free all audio material
 	App->audio->UnloadMus(mus); 
@@ -237,14 +247,9 @@ update_status ModuleBackground::Update()
 	App->render->Blit(graphics, 0, 0, &background, 0.75f);											// DEPTH 3
 	App->render->Blit(graphics3, 167, 136, &streetLights.GetCurrentFrame(), 0.75f);
 
-<<<<<<< HEAD
-	App->render->Blit(graphics3, 121, 217, &lightFloor.GetCurrentFrame(), 0.75f);
-=======
-
 	App->render->Blit(graphics3, 121, 217, &lightFloor.GetCurrentFrame(), 0.75f);
 
->>>>>>> 5acacdd47a00d8c9a8ed16b913c718ebc2422527
-
+	App->render->Blit(graphics4, 2051, 0, &tunnelLights.GetCurrentFrame(), 0.75f);
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
 		App->fade->FadeToBlack(App->background, App->stageclear, 1.5f);
