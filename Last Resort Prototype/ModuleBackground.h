@@ -34,7 +34,7 @@ public:
 	Animation backgroundLights;
 	Animation streetLights;
 	Animation light;	
-	Animation light1;
+	Animation lightNew;
 
 	bool render_light = false;
 	bool scroll = true; 
