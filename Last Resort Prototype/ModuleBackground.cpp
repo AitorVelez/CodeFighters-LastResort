@@ -50,15 +50,15 @@ ModuleBackground::ModuleBackground()
 	light.PushBack({ 388,0,67,79 });
 	light.speed = 0.035f;
 
-	light1.PushBack({ 327,79,67,160 });
-	light1.PushBack({ 388,79,67,160 });
-	light1.PushBack({ 449,79,67,160 });
-	light1.PushBack({ 510,79,67,160 });
-	light1.PushBack({ 571,79,67,160 });
-	light1.PushBack({ 510,79,67,160 });
-	light1.PushBack({ 449,79,67,160 });
-	light1.PushBack({ 388,79,67,160 });
-	light1.speed = 0.9f;
+	light1.PushBack({ 327,79,100,128 });
+	light1.PushBack({ 427,79,100,128 });
+	light1.PushBack({ 527,79,100,128 });
+	light1.PushBack({ 627,79,100,128 });
+	light1.PushBack({ 727,79,100,128 });
+	light1.PushBack({ 627,79,100,128 });
+	light1.PushBack({ 527,79,100,128 });
+	light1.PushBack({ 427,79,100,128 });
+	light1.speed = 0.35f;
 
 	backgroundLights.PushBack({ 0,595,284,144 });
 	backgroundLights.PushBack({ 284,595,284,144 });
@@ -74,7 +74,7 @@ ModuleBackground::ModuleBackground()
 	backgroundLights.PushBack({ 568,748,284,144 });
 	backgroundLights.PushBack({ 852,748,284,144 });
 	backgroundLights.PushBack({ 1136,748,284,144 });
-	backgroundLights.PushBack({ 1420,748,284,144 });
+    backgroundLights.PushBack({ 1420,748,284,144 });
 	backgroundLights.PushBack({ 1704,748,284,144 });
 	backgroundLights.PushBack({ 1420,748,284,144 });
 	backgroundLights.PushBack({ 1136,748,284,144 });
@@ -174,11 +174,11 @@ void ModuleBackground::RenderLights()
 {
 	App->render->Blit(graphics2, 171, -19, &light.GetCurrentFrame(), 0.4f);
 	App->render->Blit(graphics2, 683, -19, &light.GetCurrentFrame(), 0.4f);
-	App->render->Blit(graphics2, 763, 13, &light1.GetCurrentFrame(), 0.4f);
+	App->render->Blit(graphics2, 765, 10, &light1.GetCurrentFrame(), 0.4f);
 	App->render->Blit(graphics2, 827, -35, &light.GetCurrentFrame(), 0.4f);
 
 	if (!render_light) {
-		App->render->Blit(graphics2, 450, -10, &backgroundLights.GetCurrentFrame(), 0.4f);
+		App->render->Blit(graphics2, 300, -10, &backgroundLights.GetCurrentFrame(), 0.4f);
 		render_light = true;
 	}
 	else render_light = false;
