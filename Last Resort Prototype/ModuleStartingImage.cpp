@@ -30,7 +30,7 @@ bool ModuleStartingImage::Start()
 	bool ret = true;
 	TexStImage = App->textures->Load("assets/StartingTitle.png");
 
-	mus = App->audio->LoadMus("assets/01-NEO-GEO-LOGO-SONG.ogg");
+	mus = App->audio->LoadMus("assets/musicInit.ogg");
 	App->audio->PlayMus(mus);
 
 	App->render->camera.x = 0;
