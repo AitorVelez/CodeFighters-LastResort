@@ -88,7 +88,16 @@ ModuleBackground::ModuleBackground()
 	lightFloor.PushBack({ 183,0,60,20 });
 	lightFloor.PushBack({ 122,0,60,20 });
 	lightFloor.PushBack({ 61,0,60,20 });
-	lightFloor.speed = 0.1f;
+	lightFloor.speed = 0.02f;
+
+	lightFloor_2.PushBack({ 183,0,60,20 });
+	lightFloor_2.PushBack({ 122,0,60,20 });
+	lightFloor_2.PushBack({ 61,0,60,20 });
+	lightFloor_2.PushBack({ 0,0,60,20 });
+	lightFloor_2.PushBack({ 61,0,60,20 });
+	lightFloor_2.PushBack({ 122,0,60,20 });
+	lightFloor_2.speed = 0.02f; 
+
 
 	tunnelLights.PushBack({ 0,0,137,161});
 	tunnelLights.PushBack({ 138,0,137,161 });
@@ -278,6 +287,29 @@ void ModuleBackground::RenderStreetLights()
 
 	App->render->Blit(graphics3, 1703, 136, &streetLights_2.GetCurrentFrame(), 0.75f);
 	App->render->Blit(graphics3, 1767, 136, &streetLights.GetCurrentFrame(), 0.75f);
+
+
+	//	BOTTOM PART
+	
+	// 1 2 2 1 1 
+	// 2 1 2 1 2 
+	// 2 1 2 2 1 (+128)
+
+	App->render->Blit(graphics3, 121, 217, &lightFloor.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 249, 217, &lightFloor_2.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 377, 217, &lightFloor_2.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 505, 217, &lightFloor.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 633, 217, &lightFloor.GetCurrentFrame(), 0.75f);
+
+	App->render->Blit(graphics3, 761, 217, &lightFloor_2.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 889, 217, &lightFloor.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 1017, 217, &lightFloor_2.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 1145, 217, &lightFloor.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 1273, 217, &lightFloor_2.GetCurrentFrame(), 0.75f);
+
+	App->render->Blit(graphics3, 1401, 217, &lightFloor_2.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 1529, 217, &lightFloor.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 1657, 217, &lightFloor_2.GetCurrentFrame(), 0.75f);
 }
 
 
@@ -315,7 +347,6 @@ update_status ModuleBackground::Update()
 	App->render->Blit(graphics4, 2051, 0, &tunnelLights.GetCurrentFrame(), 0.75f);
 
 	RenderStreetLights(); 
-	App->render->Blit(graphics3, 121, 217, &lightFloor.GetCurrentFrame(), 0.75f);
 
 	// Fade to black
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)

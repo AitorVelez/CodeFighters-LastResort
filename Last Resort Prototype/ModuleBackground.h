@@ -40,10 +40,11 @@ public:
 
 	Animation backgroundLights;
 	Animation streetLights;
-	Animation streetLights_2; 
+	Animation streetLights_2; 	
+	Animation lightFloor;
+	Animation lightFloor_2;
 	Animation light;	
 	Animation lightNew;
-	Animation lightFloor;
 	Animation tunnelLights;
 	Animation Ships;
 
