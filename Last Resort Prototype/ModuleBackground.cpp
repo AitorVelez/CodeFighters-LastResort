@@ -72,6 +72,7 @@ ModuleBackground::ModuleBackground()
 	streetLights.speed = 0.1f;
 
 
+
 	lightFloor.PushBack({ 0,0,60,20 });
 	lightFloor.PushBack({ 61,0,60,20 });
 	lightFloor.PushBack({ 122,0,60,20 });
@@ -79,7 +80,6 @@ ModuleBackground::ModuleBackground()
 	lightFloor.PushBack({ 122,0,60,20 });
 	lightFloor.PushBack({ 61,0,60,20 });
 	lightFloor.speed = 0.1f;
-
 
 
 	backgroundLights.PushBack({ 0,595,284,144 });
@@ -242,8 +242,6 @@ update_status ModuleBackground::Update()
 
 
 	App->render->Blit(graphics3, 121, 217, &lightFloor.GetCurrentFrame(), 0.75f);
-
-
 
 
 
