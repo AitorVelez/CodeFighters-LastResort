@@ -21,8 +21,6 @@ public:
 
 	SDL_Texture * TexStageImage = nullptr;
 	SDL_Rect StageImage;
-
-
 };
 
 #endif // __MODULESTAGECLEAR_H__
