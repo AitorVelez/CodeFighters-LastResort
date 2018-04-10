@@ -30,7 +30,7 @@ bool ModuleStartingImage::Start()
 	bool ret = true;
 	TexStImage = App->textures->Load("assets/StartingTitle.png");
 
-	mus = App->audio->LoadMus("assets/musicc.ogg");
+	mus = App->audio->LoadMus("assets/muss.ogg");
 	App->audio->PlayMus(mus);
 
 	App->render->camera.x = 0;
