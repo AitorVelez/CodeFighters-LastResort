@@ -49,17 +49,25 @@ ModuleBackground::ModuleBackground()
 	light.PushBack({ 510,0,67,70 });
 	light.PushBack({ 449,0,67,79 });
 	light.PushBack({ 388,0,67,79 });
-	light.speed = 0.035f;
+	light.speed = 0.041f;
 
-	lightNew.PushBack({ 327,79,67,121 });
-	lightNew.PushBack({ 388,79,67,121 });
-	lightNew.PushBack({ 449,79,67,121 });
-	lightNew.PushBack({ 510,79,67,121 });
-	lightNew.PushBack({ 571,79,67,121 });
-	lightNew.PushBack({ 510,79,67,121 });
-	lightNew.PushBack({ 449,79,67,121 });
-	lightNew.PushBack({ 388,79,67,121 });
-	lightNew.speed = 0.035f;
+	lightNew.PushBack({ 327,79,67,113 });
+	lightNew.PushBack({ 388,79,67,114 });
+	lightNew.PushBack({ 449,79,67,117 });
+	lightNew.PushBack({ 510,79,67,105 });
+	lightNew.PushBack({ 571,79,67,105 });
+	lightNew.PushBack({ 510,79,67,105 });
+	lightNew.PushBack({ 449,79,67,117 });
+	lightNew.PushBack({ 388,79,67,114 });
+	lightNew.speed = light.speed;
+
+	streetLights.PushBack({ 0,21,50,65 });
+	streetLights.PushBack({ 51,21,50,65 });
+	streetLights.PushBack({ 102,21,50,65 });
+	streetLights.PushBack({ 153,21,50,65 });
+	streetLights.PushBack({ 102,21,50,65 });
+	streetLights.PushBack({ 51,21,50,65 });
+	streetLights.speed = 0.045f;
 
 	backgroundLights.PushBack({ 0,595,284,144 });
 	backgroundLights.PushBack({ 284,595,284,144 });
@@ -109,6 +117,7 @@ bool ModuleBackground::Start()
 	//graphics = App->textures->Load("backgroundlvl1v2.png");
 	graphics = App->textures->Load("assets/background_lvl1.png");
 	graphics2 = App->textures->Load("assets/background_lvl1_extra.png");
+	graphics3 = App->textures->Load("assets/StreetLights_lvl1.png");
 	
 	App->player->Enable();
 
@@ -126,6 +135,7 @@ bool ModuleBackground::CleanUp()
 	//Free all loaded textures
 	App->textures->Unload(graphics);
 	App->textures->Unload(graphics2);
+	App->textures->Unload(graphics3);
 
 	//Free all audio material
 	App->audio->UnloadMus(mus); 
@@ -175,14 +185,16 @@ void ModuleBackground::RenderLights()
 {
 	App->render->Blit(graphics2, 171, -19, &light.GetCurrentFrame(), 0.4f);
 	App->render->Blit(graphics2, 683, -19, &light.GetCurrentFrame(), 0.4f);
-	App->render->Blit(graphics2, 750, 10, &lightNew.GetCurrentFrame(), 0.4f);
+	App->render->Blit(graphics2, 752, -22, &lightNew.GetCurrentFrame(), 0.4f);
 	App->render->Blit(graphics2, 827, -35, &light.GetCurrentFrame(), 0.4f);
+	App->render->Blit(graphics3, 171, 151, &streetLights.GetCurrentFrame(), 0.4f);
 
 	if (!render_light) {
 		App->render->Blit(graphics2, 300, -10, &backgroundLights.GetCurrentFrame(), 0.4f);
 		render_light = true;
 	}
 	else render_light = false;
+
 }
 
 // Update: draw background
