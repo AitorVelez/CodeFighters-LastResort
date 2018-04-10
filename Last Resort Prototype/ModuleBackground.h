@@ -17,11 +17,13 @@ public:
 	bool Start();
 	update_status Update();
 	bool CleanUp(); 
+
 	void MoveUp();
 	void MoveDown();
 	void CameraScroll(); 
 	void RenderDiscoLights(); 
 	void RenderStreetLights(); 
+	void RenderTunnelLights();
 
 public:
 	
@@ -46,8 +48,9 @@ public:
 	Animation light;	
 	Animation lightNew;
 	Animation tunnelLights;
-	Animation Ships;
-
+	Animation tunnelLights_2;
+	Animation ships;
+	
 	bool render_light = false;
 	bool scroll = true; 
 };

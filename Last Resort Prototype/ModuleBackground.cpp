@@ -105,7 +105,16 @@ ModuleBackground::ModuleBackground()
 	tunnelLights.PushBack({ 414,0,137,161 });
 	tunnelLights.PushBack({ 276,0,137,161 });
 	tunnelLights.PushBack({ 138,0,137,161 });
-	tunnelLights.speed = 0.1f;
+	tunnelLights.speed = 0.03f;
+
+
+	tunnelLights_2.PushBack({ 414,0,137,161 });
+	tunnelLights_2.PushBack({ 276,0,137,161 });
+	tunnelLights_2.PushBack({ 138,0,137,161 });	
+	tunnelLights_2.PushBack({ 0,0,137,161 });
+	tunnelLights_2.PushBack({ 138,0,137,161 });
+	tunnelLights_2.PushBack({ 276,0,137,161 });
+	tunnelLights_2.speed = 0.025f;
 
 	backgroundLights.PushBack({ 0,595,284,144 });
 	backgroundLights.PushBack({ 284,595,284,144 });
@@ -139,10 +148,10 @@ ModuleBackground::ModuleBackground()
 	backgroundLights.PushBack({ 284,595,284,144 });
 	backgroundLights.speed = 0.4f;
 
-	Ships.PushBack({ 0,0,8,3 });
-	Ships.PushBack({ 15,0,8,4 });
-	Ships.PushBack({ 30,0,8,4 });
-	Ships.speed = 0.01f;
+	ships.PushBack({ 0,0,8,3 });
+	ships.PushBack({ 15,0,8,4 });
+	ships.PushBack({ 30,0,8,4 });
+	ships.speed = 0.01f;
 
 
 }
@@ -233,7 +242,7 @@ void ModuleBackground::RenderDiscoLights()
 	App->render->Blit(graphics2, 683, -19, &light.GetCurrentFrame(), 0.4f);
 	App->render->Blit(graphics2, 752, -22, &lightNew.GetCurrentFrame(), 0.4f);
 	App->render->Blit(graphics2, 827, -35, &light.GetCurrentFrame(), 0.4f);
-	App->render->Blit(graphics5, 100, 50,&Ships.GetCurrentFrame(), -1.f); // example of the backship
+	App->render->Blit(graphics5, 100, 50, &ships.GetCurrentFrame(), -1.f); // example of the backship
 
 	if (!render_light) {
 		App->render->Blit(graphics2, 300, -10, &backgroundLights.GetCurrentFrame(), 0.4f);
@@ -286,7 +295,6 @@ void ModuleBackground::RenderStreetLights()
 	App->render->Blit(graphics3, 1639, 136, &streetLights.GetCurrentFrame(), 0.75f);
 
 	App->render->Blit(graphics3, 1703, 136, &streetLights_2.GetCurrentFrame(), 0.75f);
-	App->render->Blit(graphics3, 1767, 136, &streetLights.GetCurrentFrame(), 0.75f);
 
 
 	//	BOTTOM PART
@@ -310,6 +318,20 @@ void ModuleBackground::RenderStreetLights()
 	App->render->Blit(graphics3, 1401, 217, &lightFloor_2.GetCurrentFrame(), 0.75f);
 	App->render->Blit(graphics3, 1529, 217, &lightFloor.GetCurrentFrame(), 0.75f);
 	App->render->Blit(graphics3, 1657, 217, &lightFloor_2.GetCurrentFrame(), 0.75f);
+}
+
+void ModuleBackground::RenderTunnelLights()
+{
+	App->render->Blit(graphics4, 2051, 0, &tunnelLights.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics4, 2308, 0, &tunnelLights_2.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics4, 2565, 0, &tunnelLights.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics4, 2822, 0, &tunnelLights_2.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics4, 3079, 0, &tunnelLights.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics4, 3336, 0, &tunnelLights_2.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics4, 3593, 0, &tunnelLights.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics4, 3850, 0, &tunnelLights_2.GetCurrentFrame(), 0.75f);
+
+
 }
 
 
@@ -344,10 +366,8 @@ update_status ModuleBackground::Update()
 
 	App->render->Blit(graphics3, 121, 217, &lightFloor.GetCurrentFrame(), 0.75f);
 
-	App->render->Blit(graphics4, 2051, 0, &tunnelLights.GetCurrentFrame(), 0.75f);
-
 	RenderStreetLights(); 
-
+	RenderTunnelLights();
 	// Fade to black
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
 		App->fade->FadeToBlack(App->background, App->stageclear, 1.5f);
