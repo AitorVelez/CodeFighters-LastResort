@@ -84,22 +84,22 @@ update_status ModulePlayer::Update()
 	}
 	if (App->input->keyboard[SDL_SCANCODE_S] == 1)
 	{
-		if (relativeposition.y < SCREEN_HEIGHT* SCREEN_SIZE - CHARACTER_HEIGHT) {
+		if (relativeposition.y < SCREEN_HEIGHT) {
 			current_animation = &down;
 			relativeposition.y += speed;
 			position.y += speed;
 		}
 		else {
-			relativeposition.y = SCREEN_HEIGHT * SCREEN_SIZE - CHARACTER_HEIGHT;
+			relativeposition.y = SCREEN_HEIGHT;
 		}
 	}
 	if (App->input->keyboard[SDL_SCANCODE_D] == 1) {
-		if (relativeposition.x < SCREEN_WIDTH* SCREEN_SIZE - CHARACTER_WIDTH) {
+		if (relativeposition.x < SCREEN_WIDTH - CHARACTER_WIDTH) {
 			relativeposition.x += speed;
 			position.x += speed;
 		}
 		else {
-			relativeposition.x = SCREEN_WIDTH * SCREEN_SIZE - CHARACTER_WIDTH;
+			relativeposition.x = SCREEN_WIDTH  - CHARACTER_WIDTH;
 		}
 	}
 	if (App->input->keyboard[SDL_SCANCODE_A] == 1) {
