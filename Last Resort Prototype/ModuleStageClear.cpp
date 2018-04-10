@@ -4,6 +4,7 @@
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
+#include "ModuleAudio.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleBackground.h"
@@ -30,6 +31,10 @@ bool ModuleStageClear::Start()
 	LOG("Loading background assets");
 	bool ret = true;
 	TexStageImage = App->textures->Load("assets/Stage1Clear.png");
+
+	ClearMus = App->audio->LoadMus("assets/musicStageClear.ogg");
+	App->audio->PlayMus(ClearMus);
+
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 	App->player->Disable();
@@ -42,6 +47,7 @@ bool ModuleStageClear::CleanUp()
 {
 	LOG("Unloading Intro Scene");
 	App->textures->Unload(TexStageImage);
+	App->audio->UnloadMus(ClearMus);
 
 	return true;
 }

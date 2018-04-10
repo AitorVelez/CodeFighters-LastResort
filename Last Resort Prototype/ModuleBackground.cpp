@@ -71,6 +71,17 @@ ModuleBackground::ModuleBackground()
 	streetLights.PushBack({ 51,21,50,65 });
 	streetLights.speed = 0.1f;
 
+
+	streetLights_2.PushBack({ 204,21,50,65 });
+	streetLights_2.PushBack({ 153,21,50,65 });
+	streetLights_2.PushBack({ 102,21,50,65 });
+	streetLights_2.PushBack({ 51,21,50,65 });
+	streetLights_2.PushBack({ 0,21,50,65 });
+	streetLights_2.PushBack({ 51,21,50,65 });
+	streetLights_2.PushBack({ 102,21,50,65 });
+	streetLights_2.PushBack({ 153,21,50,65 });
+	streetLights_2.speed = 0.1f; 
+
 	lightFloor.PushBack({ 0,0,60,20 });
 	lightFloor.PushBack({ 61,0,60,20 });
 	lightFloor.PushBack({ 122,0,60,20 });
@@ -79,6 +90,7 @@ ModuleBackground::ModuleBackground()
 	lightFloor.PushBack({ 61,0,60,20 });
 	lightFloor.speed = 0.1f;
 
+<<<<<<< HEAD
 	tunnelLights.PushBack({ 0,0,137,161});
 	tunnelLights.PushBack({ 138,0,137,161 });
 	tunnelLights.PushBack({ 276,0,137,161 });
@@ -86,6 +98,8 @@ ModuleBackground::ModuleBackground()
 	tunnelLights.PushBack({ 276,0,137,161 });
 	tunnelLights.PushBack({ 138,0,137,161 });
 	tunnelLights.speed = 0.1f;
+=======
+>>>>>>> 75a373bf08888d78bff3981053c0cc0a169ecf26
 
 	backgroundLights.PushBack({ 0,595,284,144 });
 	backgroundLights.PushBack({ 284,595,284,144 });
@@ -119,6 +133,11 @@ ModuleBackground::ModuleBackground()
 	backgroundLights.PushBack({ 284,595,284,144 });
 	backgroundLights.speed = 0.4f;
 
+	Ships.PushBack({ 0,0,8,3 });
+	Ships.PushBack({ 15,0,8,4 });
+	Ships.PushBack({ 30,0,8,4 });
+	Ships.speed = 0.01f;
+
 
 }
 
@@ -136,7 +155,11 @@ bool ModuleBackground::Start()
 	graphics = App->textures->Load("assets/background_lvl1.png");
 	graphics2 = App->textures->Load("assets/background_lvl1_extra.png");
 	graphics3 = App->textures->Load("assets/StreetLights_lvl1.png");
+<<<<<<< HEAD
 	graphics4 = App->textures->Load("assets/tunnelLights.png");
+=======
+	graphics4 = App->textures->Load("assets/backspaceship_lvl101.png");
+>>>>>>> 75a373bf08888d78bff3981053c0cc0a169ecf26
 	
 	App->player->Enable();
 
@@ -201,18 +224,26 @@ void ModuleBackground::CameraScroll(){
 	}
 }
 
-void ModuleBackground::RenderLights()
+void ModuleBackground::RenderDiscoLights()
 {
 	App->render->Blit(graphics2, 171, -19, &light.GetCurrentFrame(), 0.4f);
 	App->render->Blit(graphics2, 683, -19, &light.GetCurrentFrame(), 0.4f);
 	App->render->Blit(graphics2, 752, -22, &lightNew.GetCurrentFrame(), 0.4f);
 	App->render->Blit(graphics2, 827, -35, &light.GetCurrentFrame(), 0.4f);
+	App->render->Blit(graphics4, 100, 50,&Ships.GetCurrentFrame(), -1.f); // example of the backship
 
 	if (!render_light) {
 		App->render->Blit(graphics2, 300, -10, &backgroundLights.GetCurrentFrame(), 0.4f);
 		render_light = true;
 	}
 	else render_light = false;
+
+}
+
+void ModuleBackground::RenderStreetLights()
+{
+	App->render->Blit(graphics3, 167, 136, &streetLights.GetCurrentFrame(), 0.75f);
+	App->render->Blit(graphics3, 103, 136, &streetLights_2.GetCurrentFrame(), 0.75f);
 
 }
 
@@ -240,17 +271,29 @@ update_status ModuleBackground::Update()
 
 	App->render->Blit(graphics2, 0, 0, &building_2, 0.224f);										// DEPTH 1
 	
-	RenderLights(); 
+	RenderDiscoLights(); 
 
 	App->render->Blit(graphics2, 0, 35, &building_1, 0.4f)	;										// DEPTH 2
 
 	App->render->Blit(graphics, 0, 0, &background, 0.75f);											// DEPTH 3
+
 	App->render->Blit(graphics3, 167, 136, &streetLights.GetCurrentFrame(), 0.75f);
 
+<<<<<<< HEAD
 	App->render->Blit(graphics3, 121, 217, &lightFloor.GetCurrentFrame(), 0.75f);
 
 	App->render->Blit(graphics4, 2051, 0, &tunnelLights.GetCurrentFrame(), 0.75f);
+=======
 
+	App->render->Blit(graphics3, 121, 217, &lightFloor.GetCurrentFrame(), 0.75f);
+
+
+	RenderStreetLights(); 
+	App->render->Blit(graphics3, 121, 217, &lightFloor.GetCurrentFrame(), 0.75f);
+
+>>>>>>> 75a373bf08888d78bff3981053c0cc0a169ecf26
+
+	// Fade to black
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
 		App->fade->FadeToBlack(App->background, App->stageclear, 1.5f);
 
