@@ -113,9 +113,6 @@ ModuleBackground::ModuleBackground()
 	tunnelLights.PushBack({ 414,0,137,161 });
 	tunnelLights.PushBack({ 276,0,137,161 });
 	tunnelLights.PushBack({ 138,0,137,161 });
-<<<<<<< HEAD
-	tunnelLights.speed = 0.075f;
-=======
 	tunnelLights.speed = 0.03f;
 
 
@@ -126,7 +123,6 @@ ModuleBackground::ModuleBackground()
 	tunnelLights_2.PushBack({ 138,0,137,161 });
 	tunnelLights_2.PushBack({ 276,0,137,161 });
 	tunnelLights_2.speed = 0.025f;
->>>>>>> 88c225458a182dee685c10c7a61bf490efe7ab2a
 
 	backgroundLights.PushBack({ 0,595,284,144 });
 	backgroundLights.PushBack({ 284,595,284,144 });
@@ -186,11 +182,8 @@ bool ModuleBackground::Start()
 	graphics3 = App->textures->Load("assets/sprites/StreetLights_lvl1.png");
 	graphics4 = App->textures->Load("assets/sprites/tunnelLights.png");
 	graphics5 = App->textures->Load("assets/sprites/backspaceship_lvl101.png");
-<<<<<<< HEAD
 	graphics6 = App->textures->Load("assets/sprites/DeepBackgroundLights.png");
 	App->player->Enable();
-=======
->>>>>>> 88c225458a182dee685c10c7a61bf490efe7ab2a
 
 	mus = App->audio->LoadMus("assets/SFX/music.ogg");
 	App->audio->PlayMus(mus);
@@ -325,10 +318,6 @@ void ModuleBackground::RenderStreetLights()
 	App->render->Blit(graphics3, 1639, 136, &streetLights.GetCurrentFrame(), 0.75f);
 
 	App->render->Blit(graphics3, 1703, 136, &streetLights_2.GetCurrentFrame(), 0.75f);
-<<<<<<< HEAD
-=======
-
->>>>>>> 88c225458a182dee685c10c7a61bf490efe7ab2a
 
 	//	BOTTOM PART
 	
