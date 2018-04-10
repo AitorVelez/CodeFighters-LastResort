@@ -237,7 +237,13 @@ update_status ModuleBackground::Update()
 	App->render->Blit(graphics, 0, 0, &background, 0.75f);											// DEPTH 3
 	App->render->Blit(graphics3, 167, 136, &streetLights.GetCurrentFrame(), 0.75f);
 
+<<<<<<< HEAD
 	App->render->Blit(graphics3, 121, 217, &lightFloor.GetCurrentFrame(), 0.75f);
+=======
+
+	App->render->Blit(graphics3, 121, 217, &lightFloor.GetCurrentFrame(), 0.75f);
+
+>>>>>>> 5acacdd47a00d8c9a8ed16b913c718ebc2422527
 
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
