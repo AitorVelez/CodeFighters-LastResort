@@ -8,6 +8,7 @@
 #include "ModuleAudio.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleStageClear.h"
+#include "ModuleParticles.h"
 #include "ModuleStartingImage.h"
 #include "ModuleLoseImage.h"
 #include "ModuleLvl2.h"
@@ -22,12 +23,13 @@ Application::Application()
 	modules[3] = textures = new ModuleTextures();
 	modules[4] = background = new ModuleBackground();
 	modules[5] = player = new ModulePlayer();
-	modules[6] = startimage = new ModuleStartingImage();
-	modules[7] = stageclear = new ModuleStageClear();
-	modules[8] = lvl2 = new ModuleLvl2();
-	modules[9] = loseimage = new ModuleLoseImage();
-	modules[10] = audio = new ModuleAudio(); 
-	modules[11] = fade = new ModuleFadeToBlack();
+	modules[6] = particles = new ModuleParticles();
+	modules[7] = startimage = new ModuleStartingImage();
+	modules[8] = stageclear = new ModuleStageClear();
+	modules[9] = lvl2 = new ModuleLvl2();
+	modules[10] = loseimage = new ModuleLoseImage();
+	modules[11] = audio = new ModuleAudio(); 
+	modules[12] = fade = new ModuleFadeToBlack();
 
 	
 }	

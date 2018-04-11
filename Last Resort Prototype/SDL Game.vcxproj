@@ -86,6 +86,7 @@
     <ClInclude Include="ModuleInput.h" />
     <ClInclude Include="ModuleLoseImage.h" />
     <ClInclude Include="ModuleLvl2.h" />
+    <ClInclude Include="ModuleParticles.h" />
     <ClInclude Include="ModulePlayer.h" />
     <ClInclude Include="ModuleRender.h" />
     <ClInclude Include="ModuleStageClear.h" />
@@ -104,6 +105,7 @@
     <ClCompile Include="ModuleInput.cpp" />
     <ClCompile Include="ModuleLoseImage.cpp" />
     <ClCompile Include="ModuleLvl2.cpp" />
+    <ClCompile Include="ModuleParticles.cpp" />
     <ClCompile Include="ModulePlayer.cpp" />
     <ClCompile Include="ModuleRender.cpp" />
     <ClCompile Include="ModuleStageClear.cpp" />

@@ -20,14 +20,14 @@ ModulePlayer::ModulePlayer()
 	up.PushBack({ 32,3,32,14 });
 	up.PushBack({ 0,3,32,14 });
 	up.speed = 0.2f;
-	up.repeat = false; 
+	up.loop = false; 
 
 
 	// Down animation
 	down.PushBack({ 96,3,32,14 });
 	down.PushBack({ 128,3,32,14 });
 	down.speed = 0.2f;
-	down.repeat = false; 
+	down.loop = false; 
 }
 
 ModulePlayer::~ModulePlayer()
