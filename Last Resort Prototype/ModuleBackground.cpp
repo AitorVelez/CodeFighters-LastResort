@@ -9,6 +9,7 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleStageClear.h"
 #include "ModuleStartingImage.h"
+#include "ModuleLoseImage.h"
 #include "SDL/include/SDL_timer.h"
 
 
@@ -406,6 +407,10 @@ update_status ModuleBackground::Update()
 	// Fade to black
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
 		App->fade->FadeToBlack(App->background, App->stageclear, 1.5f);
+
+	if (App->input->keyboard[SDL_SCANCODE_L] == 1) {
+		App->fade->FadeToBlack(App->background, App->loseimage, 1.5f);
+	}
 
 	return UPDATE_CONTINUE;
 }

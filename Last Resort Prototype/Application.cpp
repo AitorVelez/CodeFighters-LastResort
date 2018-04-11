@@ -9,6 +9,7 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleStageClear.h"
 #include "ModuleStartingImage.h"
+#include "ModuleLoseImage.h"
 #include "ModuleLvl2.h"
 #include "Module.h"
 
@@ -24,8 +25,9 @@ Application::Application()
 	modules[6] = startimage = new ModuleStartingImage();
 	modules[7] = stageclear = new ModuleStageClear();
 	modules[8] = lvl2 = new ModuleLvl2();
-	modules[9] = audio = new ModuleAudio(); 
-	modules[10] = fade = new ModuleFadeToBlack();
+	modules[9] = loseimage = new ModuleLoseImage();
+	modules[10] = audio = new ModuleAudio(); 
+	modules[11] = fade = new ModuleFadeToBlack();
 
 	
 }	
@@ -45,6 +47,7 @@ bool Application::Init()
 	background->Disable();
 	stageclear->Disable();
 	lvl2->Disable();
+	loseimage->Disable();
 
 
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)

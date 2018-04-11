@@ -65,6 +65,9 @@
     <ClInclude Include="ModuleLvl2.h">
       <Filter>Modules</Filter>
     </ClInclude>
+    <ClInclude Include="ModuleLoseImage.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -107,6 +110,9 @@
       <Filter>Modules</Filter>
     </ClCompile>
     <ClCompile Include="ModuleLvl2.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleLoseImage.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
   </ItemGroup>
