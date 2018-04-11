@@ -44,7 +44,7 @@ bool ModuleParticles::Start()
 	bullet.anim.loop = false;
 	bullet.anim.speed = 0.3f;
 	bullet.speed.x = 5;
-	bullet.life = 305;
+	bullet.life = 1000;
 
 
 	return true;
