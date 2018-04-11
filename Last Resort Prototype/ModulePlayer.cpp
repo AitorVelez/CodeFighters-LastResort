@@ -40,9 +40,24 @@ bool ModulePlayer::Start()
 	bool ret = true;
 	position.x = 50;
 	position.y = 125;
-	graphics = App->textures->Load("assets/main_character.png"); // arcade version
-	chunk = App->audio->LoadChunk("assets/shot.wav");
+	relativeposition.x = 50;
+	relativeposition.y = 125; 
+	graphics = App->textures->Load("assets/sprites/main_character.png"); // arcade version
+	chunk = App->audio->LoadChunk("assets/SFX/shot.wav");
 	return ret;
+}
+
+
+bool ModulePlayer::CleanUp()
+{
+	LOG("Closing Up Player Module");
+	// Free All textures
+	App->textures->Unload(graphics);
+
+	// Free all audio material
+	App->audio->UnloadChunk(chunk);
+
+	return true; 
 }
 
 // Update: draw background
@@ -58,22 +73,44 @@ update_status ModulePlayer::Update()
 
 	if(App->input->keyboard[SDL_SCANCODE_W] == 1)
 	{
-		current_animation = &up;
-		position.y -= speed;
+		if (relativeposition.y > CHARACTER_HEIGHT) {
+			current_animation = &up;
+			relativeposition.y -= speed; 
+			position.y -= speed;
+		}
+		else {
+			relativeposition.y = CHARACTER_HEIGHT;
+		}
 	}
 	if (App->input->keyboard[SDL_SCANCODE_S] == 1)
 	{
-		current_animation = &down;
-		position.y += speed;
+		if (relativeposition.y < SCREEN_HEIGHT) {
+			current_animation = &down;
+			relativeposition.y += speed;
+			position.y += speed;
+		}
+		else {
+			relativeposition.y = SCREEN_HEIGHT;
+		}
 	}
-	if (App->input->keyboard[SDL_SCANCODE_D] == 1)
-		position.x += speed;
-
-	if (App->input->keyboard[SDL_SCANCODE_A] == 1)
-		position.x -= speed;
-
-	if (App->input->keyboard[SDL_SCANCODE_F] == 1)
-		App->audio->PlayChunk(chunk, 0);
+	if (App->input->keyboard[SDL_SCANCODE_D] == 1) {
+		if (relativeposition.x < SCREEN_WIDTH - CHARACTER_WIDTH) {
+			relativeposition.x += speed;
+			position.x += speed;
+		}
+		else {
+			relativeposition.x = SCREEN_WIDTH  - CHARACTER_WIDTH;
+		}
+	}
+	if (App->input->keyboard[SDL_SCANCODE_A] == 1) {
+		if (relativeposition.x > 0) {
+			relativeposition.x -= speed;
+			position.x -= speed; 
+		}
+		else {
+			relativeposition.x = 0; 
+		}
+	}
 
 	// Draw everything --------------------------------------
 	SDL_Rect r = current_animation->GetCurrentFrame();

@@ -2,6 +2,7 @@
 #include "Globals.h"
 #include "Application.h"
 #include "ModuleTextures.h"
+
 #include "ModuleRender.h"
 #include "ModuleParticles.h"
 
@@ -20,33 +21,7 @@ ModuleParticles::~ModuleParticles()
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
-	playerPart = App->textures->Load("game/assets/sprites/main_character.png");
-
-	// Explosion particle
 	
-	/*explosion.anim.PushBack({ 274, 296, 33, 30 });
-	explosion.anim.PushBack({ 313, 296, 33, 30 });
-	explosion.anim.PushBack({ 346, 296, 33, 30 });
-	explosion.anim.PushBack({ 382, 296, 33, 30 });
-	explosion.anim.PushBack({ 419, 296, 33, 30 });
-	explosion.anim.PushBack({ 457, 296, 33, 30 });
-	explosion.anim.loop = false;
-	explosion.anim.speed = 0.3f;*/
-
-	// TODO 2: Create the template for a new particle "laser"
-
-	laser.anim.PushBack({ 232,103,16,13 });
-	laser.anim.PushBack({ 249,105,16,8 });
-	laser.anim.loop = true;
-	laser.anim.speed = 0.3f;
-	laser.speed.x = 5;
-
-	//shoot.anim.Pushback({ 115,124,12,12 });
-	//shoot.anim.Pushback({ 128,126,10,9 });
-
-	//laser.life = 35;
-
-
 	return true;
 }
 
@@ -54,7 +29,7 @@ bool ModuleParticles::Start()
 bool ModuleParticles::CleanUp()
 {
 	LOG("Unloading particles");
-	App->textures->Unload(playerPart);
+	App->textures->Unload(graphics);
 
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
@@ -85,7 +60,7 @@ update_status ModuleParticles::Update()
 		}
 		else if (SDL_GetTicks() >= p->born)
 		{
-			App->render->Blit(playerPart, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
+			App->render->Blit(graphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
 			if (p->fx_played == false)
 			{
 				p->fx_played = true;

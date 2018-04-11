@@ -6,6 +6,7 @@
 #include "Globals.h"
 
 struct SDL_Texture;
+struct Mix_Music;
 
 class ModuleStartingImage : public Module
 {
@@ -21,7 +22,7 @@ public:
 
 	SDL_Texture * TexStImage = nullptr;
 	SDL_Rect StImage;
-
+	Mix_Music* mus = nullptr;
 
 };
 

@@ -3,15 +3,7 @@
 
 #include "Globals.h"
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-#define NUM_MODULES 9
-=======
 #define NUM_MODULES 12
->>>>>>> parent of 2490e7f... Module Particles included
-=======
-#define NUM_MODULES 11
->>>>>>> parent of 1fc184f... Added direct lose by pressing L
 
 class ModuleWindow;
 class ModuleInput;
@@ -21,15 +13,10 @@ class ModuleBackground;
 class ModuleStartingImage;
 class ModulePlayer;
 class ModuleAudio;
-<<<<<<< HEAD
-=======
 class ModuleLvl2;
->>>>>>> parent of 2490e7f... Module Particles included
 class ModuleFadeToBlack;
-<<<<<<< HEAD
-=======
 class ModuleStageClear;
->>>>>>> parent of 1fc184f... Added direct lose by pressing L
+class ModuleLoseImage;
 class Module;
 
 class Application
@@ -44,16 +31,11 @@ public:
 	ModuleBackground* background = nullptr;
 	ModuleStartingImage* startimage = nullptr;
 	ModulePlayer* player = nullptr;
-<<<<<<< HEAD
-=======
 	ModuleStageClear* stageclear = nullptr;
-<<<<<<< HEAD
 	ModuleLoseImage* loseimage = nullptr;
->>>>>>> parent of 2490e7f... Module Particles included
-=======
->>>>>>> parent of 1fc184f... Added direct lose by pressing L
 	ModuleAudio* audio = nullptr; 
 	ModuleFadeToBlack* fade=nullptr;
+	ModuleLvl2* lvl2 = nullptr;
 
 public:
 
