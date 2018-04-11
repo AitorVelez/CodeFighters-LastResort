@@ -36,6 +36,7 @@ public:
 	SDL_Texture* graphics4 = nullptr;
 	SDL_Texture* graphics5 = nullptr;
 	SDL_Texture* graphics6 = nullptr;
+	SDL_Texture* graphics7 = nullptr;
 
 	Mix_Music* mus = nullptr; 
 
@@ -55,6 +56,8 @@ public:
 	Animation tunnelLights_2;
 	Animation DeepBackgroundLights;
 	Animation DeepBackgroundLights2;
+	Animation MidBackgroundLights;
+	Animation MidBackgroundLights2;
 	Animation ships;
 
 	bool render_light = false;

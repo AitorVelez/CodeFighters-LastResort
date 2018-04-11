@@ -60,6 +60,26 @@ ModuleBackground::ModuleBackground()
 	DeepBackgroundLights2.PushBack({ 747,299,249,112 });
 	DeepBackgroundLights2.speed = 0.1f;
 
+	MidBackgroundLights.PushBack({ 0,0,275,125});
+	MidBackgroundLights.PushBack({ 275,0,275,125 });
+	MidBackgroundLights.PushBack({ 550,0,275,125 });
+	MidBackgroundLights.PushBack({ 825,0,275,125 });
+	MidBackgroundLights.PushBack({ 0,125,275,125 });
+	MidBackgroundLights.PushBack({ 275,125,275,125 });
+	MidBackgroundLights.PushBack({ 550,125,275,125 });
+	MidBackgroundLights.PushBack({ 825,125,275,125 });
+	MidBackgroundLights.speed = 0.05f;
+
+	MidBackgroundLights2.PushBack({ 0,250,227,107});
+	MidBackgroundLights2.PushBack({ 227,250,227,107 });
+	MidBackgroundLights2.PushBack({ 454,250,227,107 });
+	MidBackgroundLights2.PushBack({ 681,250,227,107 });
+	MidBackgroundLights2.PushBack({ 0,357,227,107 });
+	MidBackgroundLights2.PushBack({ 227,357,227,107 });
+	MidBackgroundLights2.PushBack({ 454,357,227,107 });
+	MidBackgroundLights2.PushBack({ 681,357,227,107 });
+	MidBackgroundLights2.speed = 0.05f;
+
 	light.PushBack({ 327,0,67,79 });
 	light.PushBack({ 388,0,67,79 });
 	light.PushBack({ 449,0,67,79 });
@@ -192,6 +212,7 @@ bool ModuleBackground::Start()
 	graphics4 = App->textures->Load("assets/sprites/tunnelLights.png");
 	graphics5 = App->textures->Load("assets/sprites/backspaceship_lvl101.png");
 	graphics6 = App->textures->Load("assets/sprites/DeepBackgroundLights.png");
+	graphics7 = App->textures->Load("assets/sprites/MidBackgroundLights.png");
 
 	App->player->Enable();
 
@@ -214,6 +235,7 @@ bool ModuleBackground::CleanUp()
 	App->textures->Unload(graphics4);
 	App->textures->Unload(graphics5);
 	App->textures->Unload(graphics6);
+	App->textures->Unload(graphics7);
 
 	//Free all audio material
 	App->audio->UnloadMus(mus); 
@@ -274,7 +296,6 @@ void ModuleBackground::RenderDiscoLights()
 		render_light = true;
 	}
 	else render_light = false;
-
 }
 
 void ModuleBackground::RenderStreetLights()
@@ -397,7 +418,9 @@ update_status ModuleBackground::Update()
 	RenderDeepBuildingLights();
 	RenderDiscoLights(); 
 	
-	App->render->Blit(graphics2, 0, 35, &building_1, 0.4f)	;										// DEPTH 2
+	App->render->Blit(graphics2, 0, 35, &building_1, 0.4f)	;
+	App->render->Blit(graphics7, 32, 52, &MidBackgroundLights.GetCurrentFrame(), 0.4f);
+	App->render->Blit(graphics7, 544, 52, &MidBackgroundLights.GetCurrentFrame(), 0.4f);            // DEPTH 2
 
 	App->render->Blit(graphics, 0, 0, &background, 0.75f);											// DEPTH 3
 
