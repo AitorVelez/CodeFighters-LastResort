@@ -392,7 +392,7 @@ update_status ModuleBackground::Update()
 	// Draw everything --------------------------------------
 	
 	RenderCrater();
-	App->render->Blit(graphics2, 0, -10, &building_2, 0.244f);										// DEPTH 1
+	App->render->Blit(graphics2, 0, -10, &building_2, 0.224f);										// DEPTH 1
 	
 	RenderDeepBuildingLights();
 	RenderDiscoLights(); 
