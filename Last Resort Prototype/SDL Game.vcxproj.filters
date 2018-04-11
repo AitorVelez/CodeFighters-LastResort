@@ -59,6 +59,18 @@
     <ClInclude Include="ModuleStartingImage.h">
       <Filter>Modules</Filter>
     </ClInclude>
+<<<<<<< HEAD
+=======
+    <ClInclude Include="ModuleStageClear.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleLvl2.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleLoseImage.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+>>>>>>> parent of 2490e7f... Module Particles included
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -97,5 +109,17 @@
     <ClCompile Include="ModuleStartingImage.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
+<<<<<<< HEAD
+=======
+    <ClCompile Include="ModuleStageClear.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleLvl2.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleLoseImage.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+>>>>>>> parent of 2490e7f... Module Particles included
   </ItemGroup>
 </Project>
