@@ -113,8 +113,8 @@ update_status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_DOWN) {
-		App->particles->AddParticle(App->particles->bullet, position.x+15, position.y-15);
+	if (App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_DOWN) {
+		App->particles->AddParticle(App->particles->bullet, position.x+25, position.y-15);
 	}
 
 
