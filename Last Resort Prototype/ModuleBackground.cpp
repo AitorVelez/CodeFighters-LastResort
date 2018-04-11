@@ -240,28 +240,61 @@ void ModuleBackground::MoveDown()
 	App->player->relativeposition.y += 1;
 }
 
-void ModuleBackground::CameraScroll(){
+void ModuleBackground::CameraScroll() {
 	Uint32 now = SDL_GetTicks();
 	int UntilFirstScrollTime = 3530;
+	int timesincenow = 0;
+	int starttime;
+	bool start = false;
+	bool firsstarttime = true;
+	bool loop = false; 
+	int starttimeloop;
 	int cont = 0;
 
-	if (now >= UntilFirstScrollTime) {
-		if (cont >= 1) {                         // FORCE LOOP, STILL DOES NOT WORK // 
-			now = UntilFirstScrollTime;
-		}
-		if (now >= UntilFirstScrollTime && now <= UntilFirstScrollTime + CameraScrollTime) {     // Camera scrolls down
-			MoveDown();
-		}
-		if (now > UntilFirstScrollTime + CameraScrollTime + CameraWaitTime && now < UntilFirstScrollTime + CameraWaitTime + CameraScrollTime * 2) {     // Camera scrolls up
-			MoveUp();
-		}
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
+		timesincenow = SDL_GetTicks() - now;
+	}
+
+	starttime = timesincenow + 1500 + UntilFirstScrollTime;    // until hitting space + fade time + until first scroll time //
+	
+	if (starttime == timesincenow + 1500 + UntilFirstScrollTime) {
+		start = true;
 		cont++;
 	}
-	if (now >= 15000 && now <= 15000 + CameraScrollTime + 100) {    // provisional scroll before tunnel, the starting point must be corrected
-		MoveDown();
+
+	if (firsstarttime == true) {
+		starttimeloop = timesincenow + 1500 + UntilFirstScrollTime;
+	}
+
+	int starttimeinc = 0;
+
+	if (cont == 1) {
+		if (start == true) {
+			if (loop == true) {
+				if (starttimeinc == 0) {
+					starttimeloop += CameraWaitTime * 2 + CameraScrollTime * 2;  // start time reset for the loop //
+					loop = false;
+					starttimeinc++;
+				}
+			}
+			if (now >= starttimeloop && now <= starttimeloop + CameraScrollTime) {     // Camera scrolls down
+				MoveDown();
+			}
+			else if (now > starttimeloop + CameraScrollTime + CameraWaitTime && now < starttimeloop + CameraWaitTime + CameraScrollTime * 2) {     // Camera scrolls up
+				MoveUp();
+			}
+			else if (now == starttimeloop + CameraWaitTime*2 + CameraScrollTime * 2) {
+				loop = true;  
+				firsstarttime = false;
+				starttimeinc--;
+			}
+			else if (now >= 50000 && now <= 50000 + CameraScrollTime + 100) {    // provisional scroll before tunnel, the starting point must be corrected
+				MoveDown();
+			}
+		}
 	}
 }
-
+/*
 void ModuleBackground::CameraScroll2(int since, int to, bool up)
 {
 	if (App->render->camera.x >= -to && App->render->camera.x <= -since)
@@ -270,7 +303,7 @@ void ModuleBackground::CameraScroll2(int since, int to, bool up)
 		if (!up) MoveDown(); 
 	}
 	
-}
+}*/
 
 void ModuleBackground::RenderDiscoLights()
 {
@@ -383,11 +416,11 @@ update_status ModuleBackground::Update()
 		scroll = false; 
 
 			// Up and down Conditions 
-	//CameraScroll();
-
+	CameraScroll();
+	/*
 	CameraScroll2(100, 250, false);
 	CameraScroll2(400, 475, true);
-	CameraScroll2(700, 850, false);
+	CameraScroll2(700, 850, false);*/
 
 	// Draw everything --------------------------------------
 	if(App->render->camera.x<=-4800*SCREEN_SIZE)	
