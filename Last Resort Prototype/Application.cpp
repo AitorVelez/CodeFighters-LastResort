@@ -7,6 +7,10 @@
 #include "ModulePlayer.h"
 #include "ModuleAudio.h"
 #include "ModuleFadeToBlack.h"
+<<<<<<< HEAD
+=======
+#include "ModuleStageClear.h"
+>>>>>>> parent of 2490e7f... Module Particles included
 #include "ModuleStartingImage.h"
 #include "Module.h"
 
@@ -20,8 +24,16 @@ Application::Application()
 	modules[4] = background = new ModuleBackground();
 	modules[5] = player = new ModulePlayer();
 	modules[6] = startimage = new ModuleStartingImage();
+<<<<<<< HEAD
 	modules[7] = audio = new ModuleAudio(); 
 	modules[8] = fade = new ModuleFadeToBlack();
+=======
+	modules[7] = stageclear = new ModuleStageClear();
+	modules[8] = lvl2 = new ModuleLvl2();
+	modules[9] = loseimage = new ModuleLoseImage();
+	modules[10] = audio = new ModuleAudio(); 
+	modules[11] = fade = new ModuleFadeToBlack();
+>>>>>>> parent of 2490e7f... Module Particles included
 
 	
 }	
