@@ -114,7 +114,7 @@ update_status ModulePlayer::Update()
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_DOWN) {
-		App->particles->AddParticle(App->particles->bullet, position.x, position.y);
+		App->particles->AddParticle(App->particles->bullet, position.x+15, position.y-15);
 	}
 
 
