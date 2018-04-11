@@ -41,13 +41,25 @@ ModuleBackground::ModuleBackground()
 	building_2.w = 803; 
 	building_2.h = 160; 
 
-	DeepBackgroundLights.PushBack({ 0,0,240,74 });
-	DeepBackgroundLights.PushBack({ 240,0,240,74 });
-	DeepBackgroundLights.PushBack({ 480,0,240,74 });
-	DeepBackgroundLights.PushBack({ 720,0,240,74 });
-	DeepBackgroundLights.PushBack({ 480,0,240,74 });
-	DeepBackgroundLights.PushBack({ 240,0,240,74 });
-	DeepBackgroundLights.speed = 0.1f;
+	DeepBackgroundLights.PushBack({ 0,0,240,94 });
+	DeepBackgroundLights.PushBack({ 240,0,240,94 });
+	DeepBackgroundLights.PushBack({ 480,0,240,94 });
+	DeepBackgroundLights.PushBack({ 720,0,240,94 });
+	DeepBackgroundLights.PushBack({ 0,94,240,92 });
+	DeepBackgroundLights.PushBack({ 240,94,240,92 });
+	DeepBackgroundLights.PushBack({ 480,94,240,92 });
+	DeepBackgroundLights.PushBack({ 720,94,240,92 });
+	DeepBackgroundLights.speed = 0.07f;
+
+	DeepBackgroundLights2.PushBack({ 0,187,249,112 });
+	DeepBackgroundLights2.PushBack({ 249,187,249,112 });
+	DeepBackgroundLights2.PushBack({ 498,187,249,112 });
+	DeepBackgroundLights2.PushBack({ 747,187,249,112 });
+	DeepBackgroundLights2.PushBack({ 0,299,249,112 });
+	DeepBackgroundLights2.PushBack({ 249,299,249,112 });
+	DeepBackgroundLights2.PushBack({ 498,299,249,112 });
+	DeepBackgroundLights2.PushBack({ 747,299,249,112 });
+	DeepBackgroundLights2.speed = 0.1f;
 
 	light.PushBack({ 327,0,67,79 });
 	light.PushBack({ 388,0,67,79 });
@@ -67,7 +79,7 @@ ModuleBackground::ModuleBackground()
 	lightNew.PushBack({ 510,79,67,105 });
 	lightNew.PushBack({ 449,79,67,117 });
 	lightNew.PushBack({ 388,79,67,114 });
-	lightNew.speed = 0.1235f;
+	lightNew.speed = 0.1255f;
 
 	streetLights.PushBack({ 0,21,50,65 });
 	streetLights.PushBack({ 51,21,50,65 });
@@ -77,7 +89,7 @@ ModuleBackground::ModuleBackground()
 	streetLights.PushBack({ 153,21,50,65 });
 	streetLights.PushBack({ 102,21,50,65 });
 	streetLights.PushBack({ 51,21,50,65 });
-	streetLights.speed = 0.02f;
+	streetLights.speed = 0.015f;
 
 
 	streetLights_2.PushBack({ 204,21,50,65 });
@@ -88,7 +100,7 @@ ModuleBackground::ModuleBackground()
 	streetLights_2.PushBack({ 51,21,50,65 });
 	streetLights_2.PushBack({ 102,21,50,65 });
 	streetLights_2.PushBack({ 153,21,50,65 });
-	streetLights_2.speed = 0.02f; 
+	streetLights_2.speed = 0.015f; 
 
 	lightFloor.PushBack({ 0,0,60,20 });
 	lightFloor.PushBack({ 61,0,60,20 });
@@ -124,36 +136,36 @@ ModuleBackground::ModuleBackground()
 	tunnelLights_2.PushBack({ 276,0,137,161 });
 	tunnelLights_2.speed = 0.025f;
 
-	backgroundLights.PushBack({ 0,595,284,144 });
-	backgroundLights.PushBack({ 284,595,284,144 });
-	backgroundLights.PushBack({ 568,595,284,144 });
-	backgroundLights.PushBack({ 852,595,284,144 });
-	backgroundLights.PushBack({ 1136,595,284,144 });
-	backgroundLights.PushBack({ 1420,595,284,144 });
-	backgroundLights.PushBack({ 1704,595,284,144 });
-	backgroundLights.PushBack({ 1704,451,284,144 });
-	backgroundLights.PushBack({ 1704,309,284,144 });
-	backgroundLights.PushBack({ 0,748,284,144 });
-	backgroundLights.PushBack({ 284,748,284,144 });
-	backgroundLights.PushBack({ 568,748,284,144 });
-	backgroundLights.PushBack({ 852,748,284,144 });
-	backgroundLights.PushBack({ 1136,748,284,144 });
-    backgroundLights.PushBack({ 1420,748,284,144 });
-	backgroundLights.PushBack({ 1704,748,284,144 });
-	backgroundLights.PushBack({ 1420,748,284,144 });
-	backgroundLights.PushBack({ 1136,748,284,144 });
-	backgroundLights.PushBack({ 852,748,284,144 });
-	backgroundLights.PushBack({ 568,748,284,144 });
-	backgroundLights.PushBack({ 284,748,284,144 });
-	backgroundLights.PushBack({ 0,748,284,144 });
-	backgroundLights.PushBack({ 1704,309,284,144 });
-	backgroundLights.PushBack({ 1704,451,284,144 });
-	backgroundLights.PushBack({ 1704,595,284,144 });
-	backgroundLights.PushBack({ 1420,595,284,144 });
-	backgroundLights.PushBack({ 1136,595,284,144 });
-	backgroundLights.PushBack({ 852,595,284,144 });
-	backgroundLights.PushBack({ 568,595,284,144 });
-	backgroundLights.PushBack({ 284,595,284,144 });
+	backgroundLights.PushBack({ 0,595,284,142 });
+	backgroundLights.PushBack({ 284,595,284,142 });
+	backgroundLights.PushBack({ 568,595,284,142 });
+	backgroundLights.PushBack({ 852,595,284,142 });
+	backgroundLights.PushBack({ 1136,595,284,142 });
+	backgroundLights.PushBack({ 1420,595,284,142 });
+	backgroundLights.PushBack({ 1704,595,284,142 });
+	backgroundLights.PushBack({ 1704,451,284,142 });
+	backgroundLights.PushBack({ 1704,309,284,142 });
+	backgroundLights.PushBack({ 0,748,284,142 });
+	backgroundLights.PushBack({ 284,748,284,142 });
+	backgroundLights.PushBack({ 568,748,284,142 });
+	backgroundLights.PushBack({ 852,748,284,142 });
+	backgroundLights.PushBack({ 1136,748,284,142 });
+    backgroundLights.PushBack({ 1420,748,284,142 });
+	backgroundLights.PushBack({ 1704,748,284,142 });
+	backgroundLights.PushBack({ 1420,748,284,142 });
+	backgroundLights.PushBack({ 1136,748,284,142 });
+	backgroundLights.PushBack({ 852,748,284,142 });
+	backgroundLights.PushBack({ 568,748,284,142 });
+	backgroundLights.PushBack({ 284,748,284,142 });
+	backgroundLights.PushBack({ 0,748,284,142 });
+	backgroundLights.PushBack({ 1704,309,284,142 });
+	backgroundLights.PushBack({ 1704,451,284,142 });
+	backgroundLights.PushBack({ 1704,595,284,142 });
+	backgroundLights.PushBack({ 1420,595,284,142 });
+	backgroundLights.PushBack({ 1136,595,284,142 });
+	backgroundLights.PushBack({ 852,595,284,142 });
+	backgroundLights.PushBack({ 568,595,284,142 });
+	backgroundLights.PushBack({ 284,595,284,142 });
 	backgroundLights.speed = 0.4f;
 
 	ships.PushBack({ 0,0,8,3 });
@@ -269,7 +281,7 @@ void ModuleBackground::RenderDiscoLights()
 	App->render->Blit(graphics5, 100, 50, &ships.GetCurrentFrame(), -1.f); // example of the backship
 
 	if (!render_light) {
-		App->render->Blit(graphics2, 300, -10, &backgroundLights.GetCurrentFrame(), 0.4f);
+		App->render->Blit(graphics2, 250, 0, &backgroundLights.GetCurrentFrame(), 0.224f);
 		render_light = true;
 	}
 	else render_light = false;
@@ -382,7 +394,8 @@ update_status ModuleBackground::Update()
 		App->render->Blit(graphics2, 0, 0, &crater, 0.f);		
 
 	App->render->Blit(graphics2, 0, 0, &building_2, 0.224f);
-	App->render->Blit(graphics6, 0, 0, &DeepBackgroundLights.GetCurrentFrame(), 0.75f);             // DEPTH 1
+	App->render->Blit(graphics6, 312, 0, &DeepBackgroundLights2.GetCurrentFrame(), 0.224f);
+	App->render->Blit(graphics6, 56, 0, &DeepBackgroundLights.GetCurrentFrame(), 0.224f);             // DEPTH 1
 
 	RenderDiscoLights(); 
 	

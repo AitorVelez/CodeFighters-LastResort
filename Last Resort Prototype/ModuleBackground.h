@@ -50,9 +50,11 @@ public:
 	Animation light;	
 	Animation lightNew;
 	Animation tunnelLights;
-	Animation DeepBackgroundLights;
 	Animation tunnelLights_2;
+	Animation DeepBackgroundLights;
+	Animation DeepBackgroundLights2;
 	Animation ships;
+
 
 	bool render_light = false;
 	bool scroll = true; 
