@@ -20,7 +20,7 @@ public:
 
 	void MoveUp();
 	void MoveDown();
-	void CameraScroll2(int since, int to, bool up); 
+	void CameraOscillation(int since, int to, bool up); 
 
 	void RenderDeepBuildingLights(); 
 	void RenderDiscoLights(); 

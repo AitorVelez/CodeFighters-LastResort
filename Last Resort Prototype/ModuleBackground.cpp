@@ -244,7 +244,7 @@ void ModuleBackground::MoveDown()
 
 
 
-void ModuleBackground::CameraScroll2(int since, int to, bool up)
+void ModuleBackground::CameraOscillation(int since, int to, bool up)
 {
 	if (App->render->camera.x >= -to && App->render->camera.x <= -since)
 	{
@@ -274,7 +274,7 @@ void ModuleBackground::RenderDiscoLights()
 	App->render->Blit(graphics5, 100, 50, &ships.GetCurrentFrame(), -1.f); // example of the backship
 
 	if (!render_light) {
-		App->render->Blit(graphics2, 250, 0, &backgroundLights.GetCurrentFrame(), 0.224f);
+		App->render->Blit(graphics2, 250, -10, &backgroundLights.GetCurrentFrame(), 0.224f);
 		render_light = true;
 	}
 	else render_light = false;
@@ -377,15 +377,14 @@ update_status ModuleBackground::Update()
 
 			// Up and down Conditions 
 
-	
-	CameraScroll2(100, 280, false);
-	CameraScroll2(600, 970, true);
-	CameraScroll2(1400, 1770, false);
-	CameraScroll2(2100, 2470, true);
-	CameraScroll2(2900, 3270, false);
-	CameraScroll2(3800, 4170, true);
-	CameraScroll2(4600, 4970, false);
-	CameraScroll2(5200, 5380, true);
+	CameraOscillation(100, 280, false);
+	CameraOscillation(600, 970, true);
+	CameraOscillation(1400, 1770, false);
+	CameraOscillation(2100, 2470, true);
+	CameraOscillation(2900, 3270, false);
+	CameraOscillation(3800, 4170, true);
+	CameraOscillation(4600, 4970, false);
+	CameraOscillation(5200, 5380, true);
 
 	// Draw everything --------------------------------------
 	if(App->render->camera.x<=-4800*SCREEN_SIZE)	
