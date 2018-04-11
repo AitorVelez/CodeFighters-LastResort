@@ -225,11 +225,7 @@ bool ModuleBackground::CleanUp()
 
 void ModuleBackground::MoveUp()
 {
-	/*App->render->camera.y += 2.0000008f; 
-	App->player->position.y -= 2.0000008f/2;
-	App->player->relativeposition.y -= 2.0000008f/2;*/
-
-	App->render->camera.y += 1;
+	App->render->camera.y += 3;
 	App->player->position.y -= 1;
 	App->player->relativeposition.y -=1;
 }
@@ -238,7 +234,7 @@ void ModuleBackground::MoveUp()
 
 void ModuleBackground::MoveDown()
 {
-	App->render->camera.y -= 1; 
+	App->render->camera.y -= 3; 
 	App->player->position.y += 1;
 	App->player->relativeposition.y += 1;
 }
@@ -378,20 +374,27 @@ update_status ModuleBackground::Update()
 
 			// Up and down Conditions 
 
-	CameraOscillation(100, 280, false);
-	CameraOscillation(600, 970, true);
-	CameraOscillation(1400, 1770, false);
-	CameraOscillation(2100, 2470, true);
-	CameraOscillation(2900, 3270, false);
-	CameraOscillation(3800, 4170, true);
-	CameraOscillation(4600, 4970, false);
-	CameraOscillation(5200, 5380, true);
+	CameraOscillation(100, 160, false);
+	CameraOscillation(860, 990, true);
+	CameraOscillation(1690, 1820, false);
+	CameraOscillation(2520, 2650, true);
+    CameraOscillation(3350, 3480, false);
+    CameraOscillation(4180, 4310, true);
+    CameraOscillation(5010, 5140, false);
+	CameraOscillation(5840, 5970, true);
+	CameraOscillation(6670, 6800, false);
+	CameraOscillation(7500, 7630, true);
+	CameraOscillation(8330, 8460, false);
+	CameraOscillation(9160, 9290, true);
+	CameraOscillation(9990, 10060, false);
+
+
 
 	// Draw everything --------------------------------------
 	if(App->render->camera.x<=-4800*SCREEN_SIZE)	
 		App->render->Blit(graphics2, 0, 0, &crater, 0.f);		
 
-	App->render->Blit(graphics2, 0, -10, &building_2, 0.224f);										// DEPTH 1
+	App->render->Blit(graphics2, 0, -10, &building_2, 0.244f);										// DEPTH 1
 	
 	RenderDeepBuildingLights();
 	RenderDiscoLights(); 
