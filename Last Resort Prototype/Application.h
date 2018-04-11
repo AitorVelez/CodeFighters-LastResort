@@ -3,11 +3,7 @@
 
 #include "Globals.h"
 
-<<<<<<< HEAD
 #define NUM_MODULES 9
-=======
-#define NUM_MODULES 12
->>>>>>> parent of 2490e7f... Module Particles included
 
 class ModuleWindow;
 class ModuleInput;
@@ -17,10 +13,6 @@ class ModuleBackground;
 class ModuleStartingImage;
 class ModulePlayer;
 class ModuleAudio;
-<<<<<<< HEAD
-=======
-class ModuleLvl2;
->>>>>>> parent of 2490e7f... Module Particles included
 class ModuleFadeToBlack;
 class Module;
 
@@ -36,11 +28,6 @@ public:
 	ModuleBackground* background = nullptr;
 	ModuleStartingImage* startimage = nullptr;
 	ModulePlayer* player = nullptr;
-<<<<<<< HEAD
-=======
-	ModuleStageClear* stageclear = nullptr;
-	ModuleLoseImage* loseimage = nullptr;
->>>>>>> parent of 2490e7f... Module Particles included
 	ModuleAudio* audio = nullptr; 
 	ModuleFadeToBlack* fade=nullptr;
 
