@@ -380,13 +380,13 @@ update_status ModuleBackground::Update()
 	CameraOscillation(2520, 2650, true);
     CameraOscillation(3350, 3480, false);
     CameraOscillation(4180, 4310, true);
-    CameraOscillation(5010, 5140, false);
+    CameraOscillation(5010, 5080, false);/*
 	CameraOscillation(5840, 5970, true);
-	CameraOscillation(6670, 6800, false);
+	CameraOscillation(6670, 6800, false);              // Awaiting //
 	CameraOscillation(7500, 7630, true);
 	CameraOscillation(8330, 8460, false);
 	CameraOscillation(9160, 9290, true);
-	CameraOscillation(9990, 10060, false);
+	CameraOscillation(9990, 10060, false);*/
 
 
 
