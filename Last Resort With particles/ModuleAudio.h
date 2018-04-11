@@ -8,6 +8,12 @@
 struct Mix_Music;
 struct Mix_Chunk;
 
+enum audio_status{
+	AUDIO_OUT,
+	AUDIO_PLAY,
+	AUDIO_UNLOAD
+};
+
 class ModuleAudio : public Module {
 
 public:
@@ -18,6 +24,7 @@ public:
 	Mix_Music* LoadMus(const char* path);
 	void PlayMus(Mix_Music* mus);
 	bool UnloadMus(Mix_Music* mus);
+	void FadeMus(int time); 
 
 	Mix_Chunk* LoadChunk(const char* path);
 	void PlayChunk(Mix_Chunk* chunk, int times);

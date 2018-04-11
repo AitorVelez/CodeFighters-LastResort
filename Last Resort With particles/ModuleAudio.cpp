@@ -11,7 +11,6 @@ bool ModuleAudio::Init()
 	return true;
 }
 
-
 bool ModuleAudio::CleanUp()
 {
 	Mix_Quit(); 
@@ -43,6 +42,11 @@ bool ModuleAudio::UnloadMus(Mix_Music* mus)
 		ret = false; 
 	}
 	return ret; 
+}
+
+void ModuleAudio::FadeMus(int time)
+{
+	Mix_FadeOutMusic(time);
 }
 
 Mix_Chunk * ModuleAudio::LoadChunk(const char * path)
