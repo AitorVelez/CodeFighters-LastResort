@@ -48,7 +48,7 @@ ModuleBackground::ModuleBackground()
 	DeepBackgroundLights.PushBack({ 240,94,240,92 });
 	DeepBackgroundLights.PushBack({ 480,94,240,92 });
 	DeepBackgroundLights.PushBack({ 720,94,240,92 });
-	DeepBackgroundLights.speed = 0.06f;
+	DeepBackgroundLights.speed = 0.045f;
 
 	DeepBackgroundLights2.PushBack({ 0,187,249,112 });
 	DeepBackgroundLights2.PushBack({ 249,187,249,112 });
@@ -58,7 +58,7 @@ ModuleBackground::ModuleBackground()
 	DeepBackgroundLights2.PushBack({ 249,299,249,112 });
 	DeepBackgroundLights2.PushBack({ 498,299,249,112 });
 	DeepBackgroundLights2.PushBack({ 747,299,249,112 });
-	DeepBackgroundLights2.speed = 0.1f;
+	DeepBackgroundLights2.speed = 0.045f;
 
 	light.PushBack({ 327,0,67,79 });
 	light.PushBack({ 388,0,67,79 });
