@@ -72,7 +72,7 @@ update_status ModulePlayer::Update()
 
 	position.x += speed; 
 
-	if(App->input->keyboard[SDL_SCANCODE_W] == 1)
+	if(App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
 	{
 		if (relativeposition.y > CHARACTER_HEIGHT) {
 			current_animation = &up;
@@ -83,7 +83,7 @@ update_status ModulePlayer::Update()
 			relativeposition.y = CHARACTER_HEIGHT;
 		}
 	}
-	if (App->input->keyboard[SDL_SCANCODE_S] == 1)
+	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
 	{
 		if (relativeposition.y < SCREEN_HEIGHT) {
 			current_animation = &down;
@@ -94,7 +94,7 @@ update_status ModulePlayer::Update()
 			relativeposition.y = SCREEN_HEIGHT;
 		}
 	}
-	if (App->input->keyboard[SDL_SCANCODE_D] == 1) {
+	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT) {
 		if (relativeposition.x < SCREEN_WIDTH - CHARACTER_WIDTH) {
 			relativeposition.x += speed;
 			position.x += speed;
@@ -103,7 +103,7 @@ update_status ModulePlayer::Update()
 			relativeposition.x = SCREEN_WIDTH  - CHARACTER_WIDTH;
 		}
 	}
-	if (App->input->keyboard[SDL_SCANCODE_A] == 1) {
+	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT) {
 		if (relativeposition.x > 0) {
 			relativeposition.x -= speed;
 			position.x -= speed; 
