@@ -29,6 +29,5 @@ typedef unsigned int uint;
 #define WIN_BORDERLESS 0
 #define WIN_RESIZABLE 0
 #define REN_VSYNC 1
-#define CHARACTER_HEIGHT 11 
-#define CHARACTER_WIDTH 32
+
 #endif // __GLOBALS_H__

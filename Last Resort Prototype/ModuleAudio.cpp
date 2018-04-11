@@ -7,7 +7,7 @@
 bool ModuleAudio::Init()
 {
 	Mix_Init(MIX_INIT_OGG);
-	Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, 2, 2049);
+	Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, 2, 2500);
 	return true;
 }
 
@@ -31,18 +31,7 @@ Mix_Music* ModuleAudio::LoadMus(const char * path)
 
 void ModuleAudio::PlayMus(Mix_Music* mus)
 {
-	Mix_PlayMusic(mus, -1);
-}
-
-bool ModuleAudio::UnloadMus(Mix_Music* mus)
-{
-	bool ret = true; 
-	Mix_FreeMusic(mus);
-	if (mus != nullptr) {
-		LOG("Could not unload the music properly");
-		ret = false; 
-	}
-	return ret; 
+	Mix_PlayMusic(mus, 1);
 }
 
 Mix_Chunk * ModuleAudio::LoadChunk(const char * path)
@@ -57,18 +46,5 @@ Mix_Chunk * ModuleAudio::LoadChunk(const char * path)
 
 void ModuleAudio::PlayChunk(Mix_Chunk * chunk, int times)
 {
-	Mix_PlayChannel(-1, chunk, times-1);
-}
-
-bool ModuleAudio::UnloadChunk(Mix_Chunk* chunk)
-{
-	bool ret = true; 
-
-	Mix_FreeChunk(chunk);
-	if (chunk != nullptr)
-	{
-		LOG("Could not unload the chunk properly");
-		ret = false;
-	}
-	return ret; 
+	Mix_PlayChannel(-1, chunk, times);
 }
