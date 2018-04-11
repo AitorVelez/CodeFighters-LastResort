@@ -67,10 +67,13 @@
     <ClInclude Include="ModuleLvl2.h">
       <Filter>Modules</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="ModuleLoseImage.h">
       <Filter>Modules</Filter>
     </ClInclude>
 >>>>>>> parent of 2490e7f... Module Particles included
+=======
+>>>>>>> parent of 1fc184f... Added direct lose by pressing L
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -117,9 +120,12 @@
     <ClCompile Include="ModuleLvl2.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="ModuleLoseImage.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
 >>>>>>> parent of 2490e7f... Module Particles included
+=======
+>>>>>>> parent of 1fc184f... Added direct lose by pressing L
   </ItemGroup>
 </Project>

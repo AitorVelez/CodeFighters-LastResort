@@ -186,7 +186,11 @@ update_status ModuleBackground::Update()
 
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
+<<<<<<< HEAD
 		App->fade->FadeToBlack(App->background, App->startimage, 1.5f);
+=======
+		App->fade->FadeToBlack(App->background, App->stageclear, 1.5f);
+>>>>>>> parent of 1fc184f... Added direct lose by pressing L
 
 	return UPDATE_CONTINUE;
 }
