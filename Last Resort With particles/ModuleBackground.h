@@ -21,6 +21,7 @@ public:
 	void MoveUp();
 	void MoveDown();
 	void CameraOscillation(int since, int to, bool up); 
+	void RenderCrater();
 
 	void RenderDeepBuildingLights(); 
 	void RenderDiscoLights(); 
@@ -55,7 +56,6 @@ public:
 	Animation DeepBackgroundLights;
 	Animation DeepBackgroundLights2;
 	Animation ships;
-
 
 	bool render_light = false;
 	bool scroll = true; 

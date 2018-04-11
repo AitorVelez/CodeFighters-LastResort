@@ -171,8 +171,6 @@ ModuleBackground::ModuleBackground()
 	ships.PushBack({ 15,0,8,4 });
 	ships.PushBack({ 30,0,8,4 });
 	ships.speed = 0.01f;
-
-
 }
 
 ModuleBackground::~ModuleBackground()
@@ -230,16 +228,12 @@ void ModuleBackground::MoveUp()
 	App->player->relativeposition.y -=1;
 }
  
-
-
 void ModuleBackground::MoveDown()
 {
 	App->render->camera.y -= 3; 
 	App->player->position.y += 1;
 	App->player->relativeposition.y += 1;
 }
-
-
 
 void ModuleBackground::CameraOscillation(int since, int to, bool up)
 {
@@ -249,6 +243,11 @@ void ModuleBackground::CameraOscillation(int since, int to, bool up)
 		if (!up) MoveDown(); 
 	}
 	
+}
+
+void ModuleBackground::RenderCrater()
+{
+	App->render->Blit(graphics2, 0, 0, &crater, 0.f);
 }
 
 void ModuleBackground::RenderDeepBuildingLights()
@@ -391,9 +390,8 @@ update_status ModuleBackground::Update()
 
 
 	// Draw everything --------------------------------------
-	if(App->render->camera.x<=-4800*SCREEN_SIZE)	
-		App->render->Blit(graphics2, 0, 0, &crater, 0.f);		
-
+	
+	RenderCrater();
 	App->render->Blit(graphics2, 0, -10, &building_2, 0.244f);										// DEPTH 1
 	
 	RenderDeepBuildingLights();
