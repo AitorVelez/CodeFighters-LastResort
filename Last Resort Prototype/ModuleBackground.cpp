@@ -11,8 +11,6 @@
 #include "ModuleStartingImage.h"
 #include "SDL/include/SDL_timer.h"
 
-#define CameraScrollTime 1016
-#define CameraWaitTime 4098                   // CHECK // 
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
@@ -244,60 +242,7 @@ void ModuleBackground::MoveDown()
 	App->player->relativeposition.y += 1;
 }
 
-void ModuleBackground::CameraScroll() {
-	Uint32 now = SDL_GetTicks();
-	int UntilFirstScrollTime = 3530;
-	int timesincenow = 0;
-	int starttime;
-	bool start = false;
-	bool firsstarttime = true;
-	bool loop = false; 
-	int starttimeloop;
-	int cont = 0;
 
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
-		timesincenow = SDL_GetTicks() - now;
-	}
-
-	starttime = timesincenow + 1500 + UntilFirstScrollTime;    // until hitting space + fade time + until first scroll time //
-	
-	if (starttime == timesincenow + 1500 + UntilFirstScrollTime) {
-		start = true;
-		cont++;
-	}
-
-	if (firsstarttime == true) {
-		starttimeloop = timesincenow + 1500 + UntilFirstScrollTime;
-	}
-
-	int starttimeinc = 1;
-
-	if (cont == 1) {
-		if (start == true) {
-			if (loop == true) {
-				if (starttimeinc == 0) {
-					starttimeloop += CameraWaitTime * 2 + CameraScrollTime * 2;  // start time reset for the loop //
-					loop = false;
-					starttimeinc++;
-				}
-			}
-			if (now >= starttimeloop && now <= starttimeloop + CameraScrollTime) {     // Camera scrolls down
-				MoveDown();
-			}
-			else if (now > starttimeloop + CameraScrollTime + CameraWaitTime && now < starttimeloop + CameraWaitTime + CameraScrollTime * 2) {     // Camera scrolls up
-				MoveUp();
-			}
-			else if (now == starttimeloop + CameraWaitTime*2 + CameraScrollTime * 2) {
-				loop = true;  
-				firsstarttime = false;
-				starttimeinc--;
-			}
-			else if (now >= 50000 && now <= 50000 + CameraScrollTime + 100) {    // provisional scroll before tunnel, the starting point must be corrected
-				MoveDown();
-			}
-		}
-	}
-}
 
 void ModuleBackground::CameraScroll2(int since, int to, bool up)
 {
@@ -420,16 +365,16 @@ update_status ModuleBackground::Update()
 		scroll = false; 
 
 			// Up and down Conditions 
-	//CameraScroll();
+
 	
-	CameraScroll2(100, 250, false);
-	CameraScroll2(600, 900, true);
-	CameraScroll2(1400, 1700, false);
-	CameraScroll2(2100, 2400, true);
-	CameraScroll2(2900, 3200, false);
-	CameraScroll2(3800, 4100, true);
-	CameraScroll2(4600, 4900, false);
-	CameraScroll2(5200, 5350, true);
+	CameraScroll2(100, 280, false);
+	CameraScroll2(600, 970, true);
+	CameraScroll2(1400, 1770, false);
+	CameraScroll2(2100, 2470, true);
+	CameraScroll2(2900, 3270, false);
+	CameraScroll2(3800, 4170, true);
+	CameraScroll2(4600, 4970, false);
+	CameraScroll2(5200, 5380, true);
 
 
 
