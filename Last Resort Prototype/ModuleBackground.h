@@ -22,6 +22,8 @@ public:
 	void MoveDown();
 	void CameraScroll(); 
 	void CameraScroll2(int since, int to, bool up); 
+
+	void RenderDeepBuildingLights(); 
 	void RenderDiscoLights(); 
 	void RenderStreetLights(); 
 	void RenderTunnelLights();

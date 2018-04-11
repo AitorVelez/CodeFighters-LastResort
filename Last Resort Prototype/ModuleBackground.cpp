@@ -49,7 +49,7 @@ ModuleBackground::ModuleBackground()
 	DeepBackgroundLights.PushBack({ 240,94,240,92 });
 	DeepBackgroundLights.PushBack({ 480,94,240,92 });
 	DeepBackgroundLights.PushBack({ 720,94,240,92 });
-	DeepBackgroundLights.speed = 0.07f;
+	DeepBackgroundLights.speed = 0.06f;
 
 	DeepBackgroundLights2.PushBack({ 0,187,249,112 });
 	DeepBackgroundLights2.PushBack({ 249,187,249,112 });
@@ -309,6 +309,17 @@ void ModuleBackground::CameraScroll2(int since, int to, bool up)
 	
 }
 
+void ModuleBackground::RenderDeepBuildingLights()
+{
+	//TOP - BOT (+62 Y)
+
+	App->render->Blit(graphics6, 312, -10, &DeepBackgroundLights2.GetCurrentFrame(), 0.224f);
+	App->render->Blit(graphics6, 56, -10, &DeepBackgroundLights.GetCurrentFrame(), 0.224f);
+	App->render->Blit(graphics6, 857, -10, &DeepBackgroundLights2.GetCurrentFrame(), 0.224f);
+	App->render->Blit(graphics6, 568, -10, &DeepBackgroundLights.GetCurrentFrame(), 0.224f);
+
+}
+
 void ModuleBackground::RenderDiscoLights()
 {
 	App->render->Blit(graphics2, 171, -19, &light.GetCurrentFrame(), 0.4f);
@@ -431,18 +442,13 @@ update_status ModuleBackground::Update()
 	CameraScroll2(4600, 4900, false);
 	CameraScroll2(5200, 5350, true);
 
-
-
-
-
 	// Draw everything --------------------------------------
 	if(App->render->camera.x<=-4800*SCREEN_SIZE)	
 		App->render->Blit(graphics2, 0, 0, &crater, 0.f);		
 
 	App->render->Blit(graphics2, 0, -10, &building_2, 0.224f);										// DEPTH 1
-	App->render->Blit(graphics6, 312, -10, &DeepBackgroundLights2.GetCurrentFrame(), 0.224f);
-	App->render->Blit(graphics6, 56, -10, &DeepBackgroundLights.GetCurrentFrame(), 0.224f);           
-
+	
+	RenderDeepBuildingLights();
 	RenderDiscoLights(); 
 	
 	App->render->Blit(graphics2, 0, 35, &building_1, 0.4f)	;										// DEPTH 2
