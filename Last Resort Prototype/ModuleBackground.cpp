@@ -266,7 +266,7 @@ void ModuleBackground::CameraScroll() {
 		starttimeloop = timesincenow + 1500 + UntilFirstScrollTime;
 	}
 
-	int starttimeinc = 0;
+	int starttimeinc = 1;
 
 	if (cont == 1) {
 		if (start == true) {
