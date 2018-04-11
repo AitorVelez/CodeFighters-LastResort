@@ -20,7 +20,7 @@ ModuleParticles::~ModuleParticles()
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
-	playerPart = App->textures->Load("game/assets/sprites/main_character.png");
+	playerPart = App->textures->Load("assets/sprites/main_character.png");
 
 	// Explosion particle
 	
@@ -35,19 +35,16 @@ bool ModuleParticles::Start()
 
 	// TODO 2: Create the template for a new particle "laser"
 
-	laser.anim.PushBack({ 232,103,16,13 });
-	laser.anim.PushBack({ 249,105,16,8 });
-	laser.anim.loop = true;
-	laser.anim.speed = 0.3f;
-	laser.speed.x = 5;
+	
 
 	
-	shoot.anim.PushBack({ 115,124,12,12 });
-	shoot.anim.PushBack({ 128,126,10,9 });
-	shoot.anim.loop = false;
-	shoot.anim.speed = 0.3f;
-	laser.speed.x = 5;
-	//laser.life = 35;
+	bullet.anim.PushBack({ 115,124,12,12 });
+	bullet.anim.PushBack({ 128,126,10,9 });
+	bullet.anim.PushBack({ 148,127,14,7 });
+	bullet.anim.loop = false;
+	bullet.anim.speed = 0.3f;
+	bullet.speed.x = 5;
+	bullet.life = 305;
 
 
 	return true;

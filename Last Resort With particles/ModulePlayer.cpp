@@ -114,7 +114,7 @@ update_status ModulePlayer::Update()
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_X] == 1) {
-		App->particles->AddParticle(App->particles->shoot, position.x, position.y);
+		App->particles->AddParticle(App->particles->bullet, position.x, position.y);
 	}
 
 
