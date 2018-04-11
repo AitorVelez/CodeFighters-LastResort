@@ -6,7 +6,6 @@
 #include "Globals.h"
 
 struct SDL_Texture;
-struct Mix_Music; 
 
 class ModuleBackground : public Module
 {
@@ -17,27 +16,14 @@ public:
 	bool Start();
 	update_status Update();
 	bool CleanUp(); 
-
 	void MoveUp();
 	void MoveDown();
-	void CameraOscillation(int since, int to, bool up); 
-
-	void RenderDeepBuildingLights(); 
-	void RenderDiscoLights(); 
-	void RenderStreetLights(); 
-	void RenderTunnelLights();
+	void CameraScroll(); 
 
 public:
 	
 	SDL_Texture* graphics = nullptr;
 	SDL_Texture* graphics2 = nullptr; 
-	SDL_Texture* graphics3 = nullptr;
-	SDL_Texture* graphics4 = nullptr;
-	SDL_Texture* graphics5 = nullptr;
-	SDL_Texture* graphics6 = nullptr;
-
-	Mix_Music* mus = nullptr; 
-
 	SDL_Rect background;
 	SDL_Rect crater;
 	SDL_Rect building_1; 
@@ -45,19 +31,9 @@ public:
 
 	Animation backgroundLights;
 	Animation streetLights;
-	Animation streetLights_2; 	
-	Animation lightFloor;
-	Animation lightFloor_2;
-	Animation light;	
-	Animation lightNew;
-	Animation tunnelLights;
-	Animation tunnelLights_2;
-	Animation DeepBackgroundLights;
-	Animation DeepBackgroundLights2;
-	Animation ships;
-
-
-	bool render_light = false;
+	Animation light;
+	int lights1 = 0;
+	int flip = 0;
 	bool scroll = true; 
 };
 

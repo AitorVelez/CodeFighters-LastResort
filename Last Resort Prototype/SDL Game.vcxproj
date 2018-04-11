@@ -14,21 +14,29 @@
     <ProjectGuid>{746CC4C3-787F-4B0E-AA66-E388FE3FF4F6}</ProjectGuid>
     <RootNamespace>SDLGame</RootNamespace>
     <ProjectName>SDL4 Handout</ProjectName>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+<<<<<<< HEAD
+=======
+    <PlatformToolset>v140</PlatformToolset>
+>>>>>>> parent of 1fc184f... Added direct lose by pressing L
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+<<<<<<< HEAD
+=======
+    <PlatformToolset>v140</PlatformToolset>
+>>>>>>> parent of 1fc184f... Added direct lose by pressing L
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -40,12 +48,7 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <TargetName>$(ProjectName)\Game</TargetName>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <TargetName>$(ProjectName)\Game</TargetName>
-  </PropertyGroup>
+  <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -84,12 +87,16 @@
     <ClInclude Include="ModuleBackground.h" />
     <ClInclude Include="ModuleFadeToBlack.h" />
     <ClInclude Include="ModuleInput.h" />
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
     <ClInclude Include="ModuleLoseImage.h" />
+=======
+>>>>>>> parent of 1fc184f... Added direct lose by pressing L
     <ClInclude Include="ModuleLvl2.h" />
-    <ClInclude Include="ModuleParticles.h" />
+>>>>>>> parent of 2490e7f... Module Particles included
     <ClInclude Include="ModulePlayer.h" />
     <ClInclude Include="ModuleRender.h" />
-    <ClInclude Include="ModuleStageClear.h" />
     <ClInclude Include="ModuleStartingImage.h" />
     <ClInclude Include="ModuleTextures.h" />
     <ClInclude Include="ModuleWindow.h" />
@@ -103,12 +110,16 @@
     <ClCompile Include="ModuleBackground.cpp" />
     <ClCompile Include="ModuleFadeToBlack.cpp" />
     <ClCompile Include="ModuleInput.cpp" />
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
     <ClCompile Include="ModuleLoseImage.cpp" />
+=======
+>>>>>>> parent of 1fc184f... Added direct lose by pressing L
     <ClCompile Include="ModuleLvl2.cpp" />
-    <ClCompile Include="ModuleParticles.cpp" />
+>>>>>>> parent of 2490e7f... Module Particles included
     <ClCompile Include="ModulePlayer.cpp" />
     <ClCompile Include="ModuleRender.cpp" />
-    <ClCompile Include="ModuleStageClear.cpp" />
     <ClCompile Include="ModuleStartingImage.cpp" />
     <ClCompile Include="ModuleTextures.cpp" />
     <ClCompile Include="ModuleWindow.cpp" />

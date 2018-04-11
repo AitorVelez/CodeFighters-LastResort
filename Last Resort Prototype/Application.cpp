@@ -7,11 +7,15 @@
 #include "ModulePlayer.h"
 #include "ModuleAudio.h"
 #include "ModuleFadeToBlack.h"
+<<<<<<< HEAD
+=======
 #include "ModuleStageClear.h"
-#include "ModuleParticles.h"
+>>>>>>> parent of 2490e7f... Module Particles included
 #include "ModuleStartingImage.h"
-#include "ModuleLoseImage.h"
+<<<<<<< HEAD
+=======
 #include "ModuleLvl2.h"
+>>>>>>> parent of 1fc184f... Added direct lose by pressing L
 #include "Module.h"
 
 
@@ -23,13 +27,22 @@ Application::Application()
 	modules[3] = textures = new ModuleTextures();
 	modules[4] = background = new ModuleBackground();
 	modules[5] = player = new ModulePlayer();
-	modules[6] = particles = new ModuleParticles();
-	modules[7] = startimage = new ModuleStartingImage();
-	modules[8] = stageclear = new ModuleStageClear();
-	modules[9] = lvl2 = new ModuleLvl2();
-	modules[10] = loseimage = new ModuleLoseImage();
-	modules[11] = audio = new ModuleAudio(); 
-	modules[12] = fade = new ModuleFadeToBlack();
+	modules[6] = startimage = new ModuleStartingImage();
+<<<<<<< HEAD
+	modules[7] = audio = new ModuleAudio(); 
+	modules[8] = fade = new ModuleFadeToBlack();
+=======
+	modules[7] = stageclear = new ModuleStageClear();
+	modules[8] = lvl2 = new ModuleLvl2();
+<<<<<<< HEAD
+	modules[9] = loseimage = new ModuleLoseImage();
+	modules[10] = audio = new ModuleAudio(); 
+	modules[11] = fade = new ModuleFadeToBlack();
+>>>>>>> parent of 2490e7f... Module Particles included
+=======
+	modules[9] = audio = new ModuleAudio(); 
+	modules[10] = fade = new ModuleFadeToBlack();
+>>>>>>> parent of 1fc184f... Added direct lose by pressing L
 
 	
 }	
@@ -47,9 +60,11 @@ bool Application::Init()
 
 	player->Disable();
 	background->Disable();
+<<<<<<< HEAD
+=======
 	stageclear->Disable();
 	lvl2->Disable();
-	loseimage->Disable();
+>>>>>>> parent of 1fc184f... Added direct lose by pressing L
 
 
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)
