@@ -249,8 +249,16 @@ void ModuleBackground::CameraOscillation(int since, int to, bool up)
 {
 	if (App->render->camera.x >= -to && App->render->camera.x <= -since)
 	{
-		if (up) MoveUp();
-		if (!up) MoveDown(); 
+		if (up) {//MoveUp();
+			App->render->camera.y += 3;
+			App->player->position.y -= 1;
+			App->player->relativeposition.y -= 1;          // camera MUST move 3 times more than player
+		}
+		if (!up) {// MoveDown(); 
+			App->render->camera.y -= 3;
+			App->player->position.y += 1;                       
+			App->player->relativeposition.y += 1;                    // camera MUST move 3 times more than player
+		}
 	}
 	
 }
@@ -378,7 +386,7 @@ update_status ModuleBackground::Update()
 
 			// Up and down Conditions 
 
-	CameraOscillation(100, 280, false);
+	CameraOscillation(100, 280 , false);
 	CameraOscillation(600, 970, true);
 	CameraOscillation(1400, 1770, false);
 	CameraOscillation(2100, 2470, true);
@@ -386,6 +394,11 @@ update_status ModuleBackground::Update()
 	CameraOscillation(3800, 4170, true);
 	CameraOscillation(4600, 4970, false);
 	CameraOscillation(5200, 5380, true);
+
+
+	 // fInal shake   
+
+
 
 	// Draw everything --------------------------------------
 	if(App->render->camera.x<=-4800*SCREEN_SIZE)	
