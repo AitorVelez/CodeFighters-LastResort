@@ -226,9 +226,13 @@ bool ModuleBackground::CleanUp()
 
 void ModuleBackground::MoveUp()
 {
-	App->render->camera.y += 2.0000008f; 
+	/*App->render->camera.y += 2.0000008f; 
 	App->player->position.y -= 2.0000008f/2;
-	App->player->relativeposition.y -= 2.0000008f/2;
+	App->player->relativeposition.y -= 2.0000008f/2;*/
+
+	App->render->camera.y += 1;
+	App->player->position.y -= 1;
+	App->player->relativeposition.y -=1;
 }
  
 
@@ -294,7 +298,7 @@ void ModuleBackground::CameraScroll() {
 		}
 	}
 }
-/*
+
 void ModuleBackground::CameraScroll2(int since, int to, bool up)
 {
 	if (App->render->camera.x >= -to && App->render->camera.x <= -since)
@@ -303,7 +307,7 @@ void ModuleBackground::CameraScroll2(int since, int to, bool up)
 		if (!up) MoveDown(); 
 	}
 	
-}*/
+}
 
 void ModuleBackground::RenderDiscoLights()
 {
@@ -416,19 +420,28 @@ update_status ModuleBackground::Update()
 		scroll = false; 
 
 			// Up and down Conditions 
-	CameraScroll();
-	/*
+	//CameraScroll();
+	
 	CameraScroll2(100, 250, false);
-	CameraScroll2(400, 475, true);
-	CameraScroll2(700, 850, false);*/
+	CameraScroll2(600, 900, true);
+	CameraScroll2(1400, 1700, false);
+	CameraScroll2(2100, 2400, true);
+	CameraScroll2(2900, 3200, false);
+	CameraScroll2(3800, 4100, true);
+	CameraScroll2(4600, 4900, false);
+	CameraScroll2(5200, 5350, true);
+
+
+
+
 
 	// Draw everything --------------------------------------
 	if(App->render->camera.x<=-4800*SCREEN_SIZE)	
 		App->render->Blit(graphics2, 0, 0, &crater, 0.f);		
 
-	App->render->Blit(graphics2, 0, 0, &building_2, 0.224f);
-	App->render->Blit(graphics6, 312, 0, &DeepBackgroundLights2.GetCurrentFrame(), 0.224f);
-	App->render->Blit(graphics6, 56, 0, &DeepBackgroundLights.GetCurrentFrame(), 0.224f);             // DEPTH 1
+	App->render->Blit(graphics2, 0, -10, &building_2, 0.224f);										// DEPTH 1
+	App->render->Blit(graphics6, 312, -10, &DeepBackgroundLights2.GetCurrentFrame(), 0.224f);
+	App->render->Blit(graphics6, 56, -10, &DeepBackgroundLights.GetCurrentFrame(), 0.224f);           
 
 	RenderDiscoLights(); 
 	
