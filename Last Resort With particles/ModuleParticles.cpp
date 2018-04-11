@@ -41,9 +41,12 @@ bool ModuleParticles::Start()
 	laser.anim.speed = 0.3f;
 	laser.speed.x = 5;
 
-	//shoot.anim.Pushback({ 115,124,12,12 });
-	//shoot.anim.Pushback({ 128,126,10,9 });
-
+	
+	shoot.anim.PushBack({ 115,124,12,12 });
+	shoot.anim.PushBack({ 128,126,10,9 });
+	shoot.anim.loop = false;
+	shoot.anim.speed = 0.3f;
+	laser.speed.x = 5;
 	//laser.life = 35;
 
 

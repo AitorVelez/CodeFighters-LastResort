@@ -5,6 +5,7 @@
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
 #include "ModuleAudio.h"
+#include "ModuleParticles.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
@@ -111,6 +112,11 @@ update_status ModulePlayer::Update()
 			relativeposition.x = 0; 
 		}
 	}
+
+	if (App->input->keyboard[SDL_SCANCODE_X] == 1) {
+		App->particles->AddParticle(App->particles->shoot, position.x, position.y);
+	}
+
 
 	// Draw everything --------------------------------------
 	SDL_Rect r = current_animation->GetCurrentFrame();
