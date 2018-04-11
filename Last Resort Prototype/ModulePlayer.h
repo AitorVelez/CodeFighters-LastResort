@@ -17,7 +17,6 @@ public:
 
 	bool Start();
 	update_status Update();
-	bool CleanUp(); 
 
 public:
 
@@ -28,7 +27,7 @@ public:
 	Animation forward;
 	Animation backward;
 	iPoint position;
-	iPoint relativeposition;
+	
 
 	Mix_Chunk* chunk;
 

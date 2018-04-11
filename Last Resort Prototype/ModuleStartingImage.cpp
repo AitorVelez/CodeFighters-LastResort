@@ -5,12 +5,12 @@
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
 #include "ModuleInput.h"
-#include "ModuleAudio.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleBackground.h"
-#include "ModuleStageClear.h"
 #include "Application.h"
 
+
+// Reference at https://youtu.be/6OlenbCC4WI?t=382
 
 ModuleStartingImage::ModuleStartingImage()
 {
@@ -28,11 +28,7 @@ bool ModuleStartingImage::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	TexStImage = App->textures->Load("assets/sprites/StartingTitle.png");
-
-	mus = App->audio->LoadMus("assets/SFX/musicInit.ogg");
-	App->audio->PlayMus(mus);
-
+	TexStImage = App->textures->Load("assets/StartingTitle.png");
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 	App->player->Disable(); 
@@ -43,9 +39,9 @@ bool ModuleStartingImage::Start()
 // Load assets
 bool ModuleStartingImage::CleanUp()
 {
-	LOG("Unloading Intro Scene");
-	App->textures->Unload(TexStImage);
-	App->audio->UnloadMus(mus);
+	// TODO 5: Remove all memory leaks
+	// App->textures(graphics)->Disable();
+	LOG("Unloading honda stage");
 
 	return true;
 }

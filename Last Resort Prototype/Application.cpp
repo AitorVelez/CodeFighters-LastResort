@@ -7,11 +7,7 @@
 #include "ModulePlayer.h"
 #include "ModuleAudio.h"
 #include "ModuleFadeToBlack.h"
-#include "ModuleStageClear.h"
-#include "ModuleParticles.h"
 #include "ModuleStartingImage.h"
-#include "ModuleLoseImage.h"
-#include "ModuleLvl2.h"
 #include "Module.h"
 
 
@@ -23,13 +19,9 @@ Application::Application()
 	modules[3] = textures = new ModuleTextures();
 	modules[4] = background = new ModuleBackground();
 	modules[5] = player = new ModulePlayer();
-	modules[6] = particles = new ModuleParticles();
-	modules[7] = startimage = new ModuleStartingImage();
-	modules[8] = stageclear = new ModuleStageClear();
-	modules[9] = lvl2 = new ModuleLvl2();
-	modules[10] = loseimage = new ModuleLoseImage();
-	modules[11] = audio = new ModuleAudio(); 
-	modules[12] = fade = new ModuleFadeToBlack();
+	modules[6] = startimage = new ModuleStartingImage();
+	modules[7] = audio = new ModuleAudio(); 
+	modules[8] = fade = new ModuleFadeToBlack();
 
 	
 }	
@@ -47,9 +39,6 @@ bool Application::Init()
 
 	player->Disable();
 	background->Disable();
-	stageclear->Disable();
-	lvl2->Disable();
-	loseimage->Disable();
 
 
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)
