@@ -386,7 +386,7 @@ update_status ModuleBackground::Update()
 
 			// Up and down Conditions 
 
-	CameraOscillation(100, 280 , false);
+	CameraOscillation(100, 150 , false);
 	CameraOscillation(600, 970, true);
 	CameraOscillation(1400, 1770, false);
 	CameraOscillation(2100, 2470, true);
