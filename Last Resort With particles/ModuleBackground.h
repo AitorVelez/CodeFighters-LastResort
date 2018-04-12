@@ -39,6 +39,7 @@ public:
 	SDL_Texture* graphics5 = nullptr;
 	SDL_Texture* graphics6 = nullptr;
 	SDL_Texture* graphics7 = nullptr;
+	SDL_Texture* graphics8 = nullptr;
 
 	Mix_Music* mus = nullptr; 
 

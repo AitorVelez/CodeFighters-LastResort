@@ -86,13 +86,12 @@ ModuleBackground::ModuleBackground()
 	MidBackgroundLights2.PushBack({ 681,357,227,107 });
 	MidBackgroundLights2.speed = 0.06f;
 
-	MidBackgroundLights3.PushBack({ 251,907,18,120 });
-	MidBackgroundLights3.PushBack({ 269,907,18,120 });
-	MidBackgroundLights3.PushBack({ 287,907,18,120 });
-	MidBackgroundLights3.PushBack({ 305,907,18,120 });
-	MidBackgroundLights3.PushBack({ 323,907,18,120 });
-	MidBackgroundLights3.PushBack({ 341,907,18,120 });
-	MidBackgroundLights3.speed = 0.04f;
+	MidBackgroundLights3.PushBack({ 0,0,17,120 });
+	MidBackgroundLights3.PushBack({ 17,0,17,120 });
+	MidBackgroundLights3.PushBack({ 34,0,17,120 });
+	MidBackgroundLights3.PushBack({ 51,0,17,120 });
+	MidBackgroundLights3.PushBack({ 68,0,17,120 });
+	MidBackgroundLights3.speed = 0.07f;
 
 	light.PushBack({ 327,0,67,79 });
 	light.PushBack({ 388,0,67,79 });
@@ -227,6 +226,7 @@ bool ModuleBackground::Start()
 	graphics5 = App->textures->Load("assets/sprites/backspaceship_lvl101.png");
 	graphics6 = App->textures->Load("assets/sprites/DeepBackgroundLights.png");
 	graphics7 = App->textures->Load("assets/sprites/MidBackgroundLights.png");
+	graphics8 = App->textures->Load("assets/sprites/MidBackgroundLightsExtra.png");
 
 	App->player->Enable();
 
@@ -250,6 +250,7 @@ bool ModuleBackground::CleanUp()
 	App->textures->Unload(graphics5);
 	App->textures->Unload(graphics6);
 	App->textures->Unload(graphics7);
+	App->textures->Unload(graphics8);
 
 	//Free all audio material
 	App->audio->UnloadMus(mus); 
@@ -319,7 +320,7 @@ void ModuleBackground::RenderBuildingLights()
 	App->render->Blit(graphics7, 544, 52, &MidBackgroundLights.GetCurrentFrame(), depth_2);
 	App->render->Blit(graphics7, 305, 70, &MidBackgroundLights2.GetCurrentFrame(), depth_2);
 	App->render->Blit(graphics7, 817, 70, &MidBackgroundLights2.GetCurrentFrame(), depth_2);
-	App->render->Blit(graphics7, 0, 0, &MidBackgroundLights3.GetCurrentFrame(), depth_2);
+	App->render->Blit(graphics8, 328, 34, &MidBackgroundLights3.GetCurrentFrame(), depth_2);
 }
 
 void ModuleBackground::RenderDiscoLights()
