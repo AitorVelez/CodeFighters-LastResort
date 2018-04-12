@@ -66,11 +66,11 @@ update_status ModulePlayer::Update()
 {
 	Animation* current_animation = &idle;
 
-float speed = 0.66666f;
+	float speed = 5.66666f;
 
 	// Input -----
-
-	position.x += speed; 
+	if (position.x <= 6000)
+		position.x += speed;
 
 	if(App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
 	{
