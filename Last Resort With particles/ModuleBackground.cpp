@@ -245,16 +245,16 @@ bool ModuleBackground::CleanUp()
 
 void ModuleBackground::MoveUp()
 {
-	App->render->camera.y += 3;
-	App->player->position.y -= 1;
-	App->player->relativeposition.y -=1;
+	App->render->camera.y += 2;
+	App->player->position.y -= 0.555555f;
+	App->player->relativeposition.y -= 0.555555f;
 }
  
 void ModuleBackground::MoveDown()
 {
-	App->render->camera.y -= 3; 
-	App->player->position.y += 1;
-	App->player->relativeposition.y += 1;
+	App->render->camera.y -= 2;
+	App->player->position.y += 0.555555f;
+	App->player->relativeposition.y += 0.555555f;
 }
 
 void ModuleBackground::CameraOscillation(int since, int to, bool up)
@@ -382,7 +382,7 @@ void ModuleBackground::RenderTunnelLights()
 // Update: draw background
 update_status ModuleBackground::Update()
 {
-	int scroll_speed = 3; 
+    float scroll_speed = 2.4f; 
 
 	// Camera Movement Conditions
 	if (scroll) {
@@ -394,19 +394,19 @@ update_status ModuleBackground::Update()
 
 			// Up and down Conditions 
 
-	CameraOscillation(100, 160, false);
-	CameraOscillation(860, 990, true);
-	CameraOscillation(1690, 1820, false);
-	CameraOscillation(2520, 2650, true);
-    CameraOscillation(3350, 3480, false);
-    CameraOscillation(4180, 4310, true);
-    CameraOscillation(5010, 5080, false);/*
-	CameraOscillation(5840, 5970, true);
-	CameraOscillation(6670, 6800, false);              // Awaiting //
-	CameraOscillation(7500, 7630, true);
-	CameraOscillation(8330, 8460, false);
-	CameraOscillation(9160, 9290, true);
-	CameraOscillation(9990, 10060, false);*/
+	CameraOscillation(100, 155, false);
+	CameraOscillation(444, 569, true);
+	CameraOscillation(858, 983, false);
+	CameraOscillation(1272, 1397, true);
+    CameraOscillation(1686, 1811, false);
+    CameraOscillation(2100, 2225, true);
+    CameraOscillation(2514, 2639, false);
+	CameraOscillation(2928, 3053, true);
+	CameraOscillation(3342, 3467, false);            
+	CameraOscillation(3756, 3881, true);
+	CameraOscillation(4170, 4295, false);
+	CameraOscillation(4584, 4709 , true);
+	CameraOscillation(4998, 5065, false);
 
 
 

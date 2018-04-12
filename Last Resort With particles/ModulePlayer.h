@@ -27,8 +27,8 @@ public:
 	Animation down; 
 	Animation forward;
 	Animation backward;
-	iPoint position;
-	iPoint relativeposition;
+	fPoint position;
+	fPoint relativeposition;
 
 	Mix_Chunk* chunk;
 

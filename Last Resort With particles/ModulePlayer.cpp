@@ -66,7 +66,7 @@ update_status ModulePlayer::Update()
 {
 	Animation* current_animation = &idle;
 
-	int speed = 1;
+float speed = 0.66666f;
 
 	// Input -----
 
