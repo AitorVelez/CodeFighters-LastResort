@@ -169,8 +169,14 @@ ModuleBackground::ModuleBackground()
 	tunnelLights_2.speed = 0.025f;
 
 	backgroundLights.PushBack({ 0,595,284,142 });
+	backgroundLights.PushBack({ 0,595,284,142 });
+	backgroundLights.PushBack({ 0,595,284,142 });
+	backgroundLights.PushBack({ 284,595,284,142 });
+	backgroundLights.PushBack({ 284,595,284,142 });
 	backgroundLights.PushBack({ 284,595,284,142 });
 	backgroundLights.PushBack({ 568,595,284,142 });
+	backgroundLights.PushBack({ 568,595,284,142 });
+	backgroundLights.PushBack({ 852,595,284,142 });
 	backgroundLights.PushBack({ 852,595,284,142 });
 	backgroundLights.PushBack({ 1136,595,284,142 });
 	backgroundLights.PushBack({ 1420,595,284,142 });
@@ -180,13 +186,25 @@ ModuleBackground::ModuleBackground()
 	backgroundLights.PushBack({ 0,748,284,142 });
 	backgroundLights.PushBack({ 284,748,284,142 });
 	backgroundLights.PushBack({ 568,748,284,142 });
+	backgroundLights.PushBack({ 568,748,284,142 });
 	backgroundLights.PushBack({ 852,748,284,142 });
+	backgroundLights.PushBack({ 852,748,284,142 });
+	backgroundLights.PushBack({ 1136,748,284,142 });
+	backgroundLights.PushBack({ 1136,748,284,142 });
 	backgroundLights.PushBack({ 1136,748,284,142 });
     backgroundLights.PushBack({ 1420,748,284,142 });
+	backgroundLights.PushBack({ 1420,748,284,142 });
+	backgroundLights.PushBack({ 1420,748,284,142 });
 	backgroundLights.PushBack({ 1704,748,284,142 });
 	backgroundLights.PushBack({ 1420,748,284,142 });
+	backgroundLights.PushBack({ 1420,748,284,142 });
+	backgroundLights.PushBack({ 1420,748,284,142 });
+	backgroundLights.PushBack({ 1136,748,284,142 });
+	backgroundLights.PushBack({ 1136,748,284,142 });
 	backgroundLights.PushBack({ 1136,748,284,142 });
 	backgroundLights.PushBack({ 852,748,284,142 });
+	backgroundLights.PushBack({ 852,748,284,142 });
+	backgroundLights.PushBack({ 568,748,284,142 });
 	backgroundLights.PushBack({ 568,748,284,142 });
 	backgroundLights.PushBack({ 284,748,284,142 });
 	backgroundLights.PushBack({ 0,748,284,142 });
@@ -196,9 +214,15 @@ ModuleBackground::ModuleBackground()
 	backgroundLights.PushBack({ 1420,595,284,142 });
 	backgroundLights.PushBack({ 1136,595,284,142 });
 	backgroundLights.PushBack({ 852,595,284,142 });
+	backgroundLights.PushBack({ 852,595,284,142 });
+	backgroundLights.PushBack({ 568,595,284,142 });
 	backgroundLights.PushBack({ 568,595,284,142 });
 	backgroundLights.PushBack({ 284,595,284,142 });
-	backgroundLights.speed = 0.4f;
+	backgroundLights.PushBack({ 284,595,284,142 });
+	backgroundLights.PushBack({ 284,595,284,142 });
+	backgroundLights.PushBack({ 0,595,284,142 });
+	backgroundLights.PushBack({ 0,595,284,142 });
+	backgroundLights.speed = 0.82f;
 
 	ships.PushBack({ 0,0,8,3 });
 	ships.PushBack({ 15,0,8,4 });
