@@ -407,20 +407,20 @@ update_status ModuleBackground::Update()
 		scroll = false; 
 
 			// Up and down Conditions 
-
-	CameraOscillation(100, 155, false);
-	CameraOscillation(444, 569, true);
-	CameraOscillation(858, 983, false);
-	CameraOscillation(1272, 1397, true);
-    CameraOscillation(1686, 1811, false);
-    CameraOscillation(2100, 2225, true);
-    CameraOscillation(2514, 2639, false);
-	CameraOscillation(2928, 3053, true);
-	CameraOscillation(3342, 3467, false);            
-	CameraOscillation(3756, 3881, true);
-	CameraOscillation(4170, 4295, false);
-	CameraOscillation(4584, 4709 , true);
-	CameraOscillation(4998, 5065, false);
+	int  scrolltime = 190; int waittime = 443; 
+	CameraOscillation(100, 190, false);
+	CameraOscillation(190+ waittime, 190 + waittime + scrolltime, true);
+	CameraOscillation(190 + waittime * 2 + scrolltime, 190 + waittime * 2 + scrolltime * 2, false);
+	CameraOscillation(190 + waittime * 3 + scrolltime * 2, 190 + waittime * 3 + scrolltime * 3, true);
+    CameraOscillation(190 + waittime * 4 + scrolltime * 3, 190 + waittime * 4 + scrolltime * 4, false);
+    CameraOscillation(190 + waittime * 5 + scrolltime * 4, 190 + waittime * 5 + scrolltime * 5, true);
+    CameraOscillation(190 + waittime * 6 + scrolltime * 5, 190 + waittime * 6 + scrolltime * 6, false);
+	CameraOscillation(190 + waittime * 7 + scrolltime * 6, 190 + waittime * 7 + scrolltime * 7, true);
+	CameraOscillation(190 + waittime * 8 + scrolltime * 7, 190 + waittime * 8 + scrolltime * 8, false);
+	CameraOscillation(190 + waittime * 9 + scrolltime * 8, 190 + waittime * 9 + scrolltime * 9, true);
+	CameraOscillation(190 + waittime * 10 + scrolltime * 9, 190 + waittime * 10 + scrolltime * 10, false);
+	CameraOscillation(190 + waittime * 11 + scrolltime * 10, 190 + waittime * 11 + scrolltime * 11, true);
+	CameraOscillation(190 + waittime * 12 + scrolltime * 11, 190 + waittime * 12 + scrolltime *11 + 100, false);
 
 
 
