@@ -23,6 +23,7 @@ public:
 	void CameraOscillation(int since, int to, bool up); 
 	void RenderCrater();
 
+	void RenderBackgroundSpaceships(); 
 	void RenderDeepBuildingLights(); 
 	void RenderBuildingLights(); 
 	void RenderDiscoLights(); 
@@ -61,6 +62,7 @@ public:
 	Animation MidBackgroundLights2;
 	Animation ships;
 
+	int posx = 0;
 	bool render_light = false;
 	bool scroll = true; 
 	float depth_1;
