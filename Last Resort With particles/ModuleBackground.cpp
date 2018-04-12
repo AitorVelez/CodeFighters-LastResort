@@ -280,16 +280,18 @@ void ModuleBackground::RenderCrater()
 
 void ModuleBackground::RenderBackgroundSpaceships()
 {
-	posx+=2;
-	App->render->Blit(graphics5, posx, 50, &ships.GetCurrentFrame(), 0); 
-	App->render->Blit(graphics5, posx - 50, 50, &ships.GetCurrentFrame(),0); 
-	App->render->Blit(graphics5, posx - 100, 50, &ships.GetCurrentFrame(), 0); 
-	App->render->Blit(graphics5, posx - 300, 40, &ships.GetCurrentFrame(), 0); 
-	App->render->Blit(graphics5, posx - 350, 40, &ships.GetCurrentFrame(), 0); 
-	App->render->Blit(graphics5, posx - 400, 40, &ships.GetCurrentFrame(), 0); 
-	App->render->Blit(graphics5, posx - 650, 60, &ships.GetCurrentFrame(), 0); 
-	App->render->Blit(graphics5, posx - 700, 60, &ships.GetCurrentFrame(), 0);
-	App->render->Blit(graphics5, posx - 750, 60, &ships.GetCurrentFrame(), 0);
+	if (App->render->camera.x >= -4000 * SCREEN_SIZE) {
+		posx += 2;
+		App->render->Blit(graphics5, posx, 50, &ships.GetCurrentFrame(), 0);
+		App->render->Blit(graphics5, posx - 50, 50, &ships.GetCurrentFrame(), 0);
+		App->render->Blit(graphics5, posx - 100, 50, &ships.GetCurrentFrame(), 0);
+		App->render->Blit(graphics5, posx - 300, 40, &ships.GetCurrentFrame(), 0);
+		App->render->Blit(graphics5, posx - 350, 40, &ships.GetCurrentFrame(), 0);
+		App->render->Blit(graphics5, posx - 400, 40, &ships.GetCurrentFrame(), 0);
+		App->render->Blit(graphics5, posx - 650, 60, &ships.GetCurrentFrame(), 0);
+		App->render->Blit(graphics5, posx - 700, 60, &ships.GetCurrentFrame(), 0);
+		App->render->Blit(graphics5, posx - 750, 60, &ships.GetCurrentFrame(), 0);
+	}
 }
 
 void ModuleBackground::RenderDeepBuildingLights()
