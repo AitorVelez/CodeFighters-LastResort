@@ -24,6 +24,7 @@ public:
 	void RenderCrater();
 
 	void RenderDeepBuildingLights(); 
+	void RenderBuildingLights(); 
 	void RenderDiscoLights(); 
 	void RenderStreetLights(); 
 	void RenderTunnelLights();

@@ -283,6 +283,14 @@ void ModuleBackground::RenderDeepBuildingLights()
 
 }
 
+void ModuleBackground::RenderBuildingLights()
+{
+	App->render->Blit(graphics7, 32, 52, &MidBackgroundLights.GetCurrentFrame(), 0.4f);
+	App->render->Blit(graphics7, 544, 52, &MidBackgroundLights.GetCurrentFrame(), 0.4f);
+	App->render->Blit(graphics7, 305, 70, &MidBackgroundLights2.GetCurrentFrame(), 0.4f);
+	App->render->Blit(graphics7, 817, 70, &MidBackgroundLights2.GetCurrentFrame(), 0.4f);
+}
+
 void ModuleBackground::RenderDiscoLights()
 {
 	App->render->Blit(graphics2, 171, -19, &light.GetCurrentFrame(), 0.4f);
@@ -418,11 +426,10 @@ update_status ModuleBackground::Update()
 	RenderDeepBuildingLights();
 	RenderDiscoLights(); 
 	
-	App->render->Blit(graphics2, 0, 35, &building_1, 0.4f)	;
-	App->render->Blit(graphics7, 32, 52, &MidBackgroundLights.GetCurrentFrame(), 0.4f);
-	App->render->Blit(graphics7, 544, 52, &MidBackgroundLights.GetCurrentFrame(), 0.4f);            // DEPTH 2
-	App->render->Blit(graphics7, 305, 70, &MidBackgroundLights2.GetCurrentFrame(), 0.4f);
-	App->render->Blit(graphics7, 817, 70, &MidBackgroundLights2.GetCurrentFrame(), 0.4f);
+	App->render->Blit(graphics2, 0, 35, &building_1, 0.4f)	;										// DEPTH 2
+	
+	RenderBuildingLights();
+
 	App->render->Blit(graphics, 0, 0, &background, 0.75f);											// DEPTH 3
 
 	App->render->Blit(graphics3, 121, 217, &lightFloor.GetCurrentFrame(), 0.75f);
