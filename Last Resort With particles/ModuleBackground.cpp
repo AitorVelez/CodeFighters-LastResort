@@ -86,6 +86,14 @@ ModuleBackground::ModuleBackground()
 	MidBackgroundLights2.PushBack({ 681,357,227,107 });
 	MidBackgroundLights2.speed = 0.06f;
 
+	MidBackgroundLights3.PushBack({ 251,907,18,120 });
+	MidBackgroundLights3.PushBack({ 269,907,18,120 });
+	MidBackgroundLights3.PushBack({ 287,907,18,120 });
+	MidBackgroundLights3.PushBack({ 305,907,18,120 });
+	MidBackgroundLights3.PushBack({ 323,907,18,120 });
+	MidBackgroundLights3.PushBack({ 341,907,18,120 });
+	MidBackgroundLights3.speed = 0.04f;
+
 	light.PushBack({ 327,0,67,79 });
 	light.PushBack({ 388,0,67,79 });
 	light.PushBack({ 449,0,67,79 });
@@ -311,6 +319,7 @@ void ModuleBackground::RenderBuildingLights()
 	App->render->Blit(graphics7, 544, 52, &MidBackgroundLights.GetCurrentFrame(), depth_2);
 	App->render->Blit(graphics7, 305, 70, &MidBackgroundLights2.GetCurrentFrame(), depth_2);
 	App->render->Blit(graphics7, 817, 70, &MidBackgroundLights2.GetCurrentFrame(), depth_2);
+	App->render->Blit(graphics7, 0, 0, &MidBackgroundLights3.GetCurrentFrame(), depth_2);
 }
 
 void ModuleBackground::RenderDiscoLights()

@@ -60,6 +60,7 @@ public:
 	Animation DeepBackgroundLights2;
 	Animation MidBackgroundLights;
 	Animation MidBackgroundLights2;
+	Animation MidBackgroundLights3;
 	Animation ships;
 
 	int posx = 0;
