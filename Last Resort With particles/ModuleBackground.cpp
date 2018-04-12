@@ -432,10 +432,10 @@ update_status ModuleBackground::Update()
 
 	App->render->Blit(graphics, 0, 0, &background, 0.75f);											// DEPTH 3
 
-	App->render->Blit(graphics3, 121, 217, &lightFloor.GetCurrentFrame(), 0.75f);
-
 	RenderStreetLights(); 
 	RenderTunnelLights();
+
+
 	// Fade to black
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
 		if(App->fade->FadeToBlack(App->background, App->stageclear, 1.5f))

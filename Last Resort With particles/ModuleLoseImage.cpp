@@ -31,7 +31,7 @@ bool ModuleLoseImage::Start()
 	bool ret = true;
 	TexLoseImage = App->textures->Load("assets/sprites/GameOver.png");
 
-	LoseMus = App->audio->LoadMus("assets/SFX/musicGameOver.ogg");
+	LoseMus = App->audio->LoadMus("assets/SFX/game_over.ogg");
 	App->audio->PlayMus(LoseMus);
 
 	App->render->camera.x = 0;
@@ -58,7 +58,8 @@ update_status ModuleLoseImage::Update()
 	App->render->Blit(TexLoseImage, 0, 0, &LoseImage);
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
-		App->fade->FadeToBlack(App->loseimage, App->startimage, 1.5f);
+		if (App->fade->FadeToBlack(App->loseimage, App->startimage, 1.5f))
+			App->audio->FadeMus(750);
 	}
 
 
