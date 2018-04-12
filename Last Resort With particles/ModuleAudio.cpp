@@ -9,7 +9,6 @@ bool ModuleAudio::Init()
 	LOG("Init Audio library");
 	bool ret = true;
 
-	// load support for the PNG image format
 	int flags = MIX_INIT_OGG;
 	int init = Mix_Init(flags);
 
