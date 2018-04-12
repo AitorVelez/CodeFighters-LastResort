@@ -117,7 +117,7 @@ update_status ModulePlayer::Update()
 		App->particles->AddParticle(App->particles->bulletEx, position.x+33, position.y-14);
 		App->audio->PlayChunk(chunk, 1);
 	}
-
+	App->particles->AddParticle(App->particles->SpaceshipAnim, position.x, position.y);
 
 	// Draw everything --------------------------------------
 	SDL_Rect r = current_animation->GetCurrentFrame();

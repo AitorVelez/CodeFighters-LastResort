@@ -46,7 +46,7 @@ private:
 public:
 
 	
-
+	Particle SpaceshipAnim;
 	Particle bullet;
 	Particle bulletEx;
 };

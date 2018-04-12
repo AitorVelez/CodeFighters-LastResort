@@ -37,6 +37,25 @@ bool ModuleParticles::Start()
 	bullet.speed.x = 5;
 	bullet.life = 1000;
 
+	SpaceshipAnim.anim.PushBack({ 0,122,111,1 });
+	SpaceshipAnim.anim.PushBack({ 0,125,111,2 });
+	SpaceshipAnim.anim.PushBack({ 0,127,77,5 });
+	SpaceshipAnim.anim.PushBack({ 0,132,74,7 });
+	SpaceshipAnim.anim.PushBack({ 0,142,64,15 });
+	SpaceshipAnim.anim.PushBack({ 0,171,64,15 });
+	SpaceshipAnim.anim.PushBack({ 0,193,64,16 });
+	SpaceshipAnim.anim.PushBack({ 0,219,64,16 });
+	SpaceshipAnim.anim.PushBack({ 64,143,64,16 });
+	SpaceshipAnim.anim.PushBack({ 64,164,64,25 });
+	SpaceshipAnim.anim.PushBack({ 64,189,64,25 });
+	SpaceshipAnim.anim.PushBack({ 64,214,64,25 });
+	SpaceshipAnim.anim.PushBack({ 128,143,64,19 });
+	SpaceshipAnim.anim.PushBack({ 128,162,64,19 });
+	SpaceshipAnim.anim.loop = false;
+	SpaceshipAnim.anim.speed = 0.5f;
+	SpaceshipAnim.speed.x = 0;
+	SpaceshipAnim.life = 100;
+
 
 	return true;
 }
