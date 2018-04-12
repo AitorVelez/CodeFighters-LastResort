@@ -418,7 +418,7 @@ update_status ModuleBackground::Update()
 		App->render->camera.x -= scroll_speed;
 	}
 
-	if (App->render->camera.x <= -6000 * SCREEN_SIZE)
+	if (App->render->camera.x <= -9100 * SCREEN_SIZE)
 		scroll = false; 
 
 			// Up and down Conditions 

@@ -66,7 +66,7 @@ update_status ModulePlayer::Update()
 {
 	Animation* current_animation = &idle;
 	int scroll_speed = 1;
-	if (position.x <= 6000)
+	if (position.x <= 9150)
 		position.x += scroll_speed;
 	// Input -----
 
