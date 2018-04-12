@@ -32,7 +32,7 @@ bool ModuleStageClear::Start()
 	bool ret = true;
 	TexStageImage = App->textures->Load("assets/sprites/Stage1Clear.png");
 
-	ClearMus = App->audio->LoadMus("assets/SFX/musicStageClear.ogg");
+	ClearMus = App->audio->LoadMus("assets/SFX/stage_clear.ogg");
 	App->audio->PlayMus(ClearMus);
 
 	App->render->camera.x = 0;
@@ -59,7 +59,8 @@ update_status ModuleStageClear::Update()
 	App->render->Blit(TexStageImage, 0, 0, &StageImage);
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
-		App->fade->FadeToBlack(App->stageclear, App->lvl2, 1.5f);
+		if (App->fade->FadeToBlack(App->stageclear, App->lvl2, 1.5f))
+			App->audio->FadeMus(750);
 	}
 
 

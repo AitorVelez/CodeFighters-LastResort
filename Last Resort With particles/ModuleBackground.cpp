@@ -222,7 +222,7 @@ bool ModuleBackground::Start()
 
 	App->player->Enable();
 
-	mus = App->audio->LoadMus("assets/SFX/music.ogg");
+	mus = App->audio->LoadMus("assets/SFX/level_1.ogg");
 	App->audio->PlayMus(mus);
 
 	return ret;
@@ -278,6 +278,20 @@ void ModuleBackground::RenderCrater()
 	App->render->Blit(graphics2, 0, 0, &crater, 0.f);
 }
 
+void ModuleBackground::RenderBackgroundSpaceships()
+{
+	posx+=2;
+	App->render->Blit(graphics5, posx, 50, &ships.GetCurrentFrame(), 0); 
+	App->render->Blit(graphics5, posx - 100, 50, &ships.GetCurrentFrame(),0); 
+	App->render->Blit(graphics5, posx - 200, 50, &ships.GetCurrentFrame(), 0); 
+	App->render->Blit(graphics5, posx - 500, 40, &ships.GetCurrentFrame(), 0); 
+	App->render->Blit(graphics5, posx - 550, 40, &ships.GetCurrentFrame(), 0); 
+	App->render->Blit(graphics5, posx - 600, 40, &ships.GetCurrentFrame(), 0); 
+	App->render->Blit(graphics5, posx - 800, 60, &ships.GetCurrentFrame(), 0); 
+	App->render->Blit(graphics5, posx - 850, 60, &ships.GetCurrentFrame(), 0);
+	App->render->Blit(graphics5, posx - 900, 60, &ships.GetCurrentFrame(), 0);
+}
+
 void ModuleBackground::RenderDeepBuildingLights()
 {
 	//TOP - BOT (+62 Y)
@@ -303,7 +317,6 @@ void ModuleBackground::RenderDiscoLights()
 	App->render->Blit(graphics2, 683, -19, &light.GetCurrentFrame(), depth_2);
 	App->render->Blit(graphics2, 752, -22, &lightNew.GetCurrentFrame(), depth_2);
 	App->render->Blit(graphics2, 827, -35, &light.GetCurrentFrame(), depth_2);
-	App->render->Blit(graphics5, 100, 50, &ships.GetCurrentFrame(), -1.f); // example of the backship
 
 	if (!render_light) {
 		App->render->Blit(graphics2, 250, -10, &backgroundLights.GetCurrentFrame(), depth_3);
@@ -431,7 +444,8 @@ update_status ModuleBackground::Update()
 	
 	RenderDeepBuildingLights();
 	RenderDiscoLights(); 
-	
+	RenderBackgroundSpaceships(); 
+
 	App->render->Blit(graphics2, 0, 35, &building_1, depth_2);										// DEPTH 2
 	
 	RenderBuildingLights();
