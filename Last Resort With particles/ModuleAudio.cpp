@@ -6,9 +6,21 @@
 
 bool ModuleAudio::Init()
 {
-	Mix_Init(MIX_INIT_OGG);
+	LOG("Init Audio library");
+	bool ret = true;
+
+	// load support for the PNG image format
+	int flags = MIX_INIT_OGG;
+	int init = Mix_Init(flags);
+
+	if ((init & flags) != flags)
+	{
+		LOG("Could not initialize Image lib. IMG_Init: %s", Mix_GetError());
+		ret = false;
+	}
+
 	Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, 2, 2049);
-	return true;
+	return ret;
 }
 
 bool ModuleAudio::CleanUp()
