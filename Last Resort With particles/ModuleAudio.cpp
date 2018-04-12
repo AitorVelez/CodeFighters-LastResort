@@ -14,7 +14,7 @@ bool ModuleAudio::Init()
 
 	if ((init & flags) != flags)
 	{
-		LOG("Could not initialize Image lib. IMG_Init: %s", Mix_GetError());
+		LOG("Could not initialize Audio lib. Mix_Init: %s", Mix_GetError());
 		ret = false;
 	}
 

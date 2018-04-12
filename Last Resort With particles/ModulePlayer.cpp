@@ -65,13 +65,12 @@ bool ModulePlayer::CleanUp()
 update_status ModulePlayer::Update()
 {
 	Animation* current_animation = &idle;
-
-	float speed = 0.66666f;
+	float scroll_speed =0.66666666666f;
 	if (position.x <= 6000)
-		position.x += speed;
+		position.x += scroll_speed;
 	// Input -----
 
-
+	int speed = 2;
 	if(App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
 	{
 		if (relativeposition.y > CHARACTER_HEIGHT) {
@@ -123,7 +122,7 @@ update_status ModulePlayer::Update()
 	// Draw everything --------------------------------------
 	SDL_Rect r = current_animation->GetCurrentFrame();
 
-	App->render->Blit(graphics, position.x, position.y - r.h, &r);
+	App->render->Blit(graphics, (float)position.x, (float)position.y - r.h, &r);
 	
 	return UPDATE_CONTINUE;
 }
