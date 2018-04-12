@@ -63,6 +63,9 @@ public:
 
 	bool render_light = false;
 	bool scroll = true; 
+	float depth_1;
+	float depth_2;
+	float depth_3; 
 };
 
 #endif

@@ -65,7 +65,7 @@ bool ModulePlayer::CleanUp()
 update_status ModulePlayer::Update()
 {
 	Animation* current_animation = &idle;
-	float scroll_speed =0.66666666666f;
+	int scroll_speed = 1;
 	if (position.x <= 6000)
 		position.x += scroll_speed;
 	// Input -----
