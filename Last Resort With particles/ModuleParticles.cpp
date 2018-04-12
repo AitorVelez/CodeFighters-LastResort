@@ -52,9 +52,8 @@ bool ModuleParticles::Start()
 	SpaceshipAnim.anim.PushBack({ 128,143,64,19 });
 	SpaceshipAnim.anim.PushBack({ 128,162,64,19 });
 	SpaceshipAnim.anim.loop = false;
+	SpaceshipAnim.speed.x = 1;
 	SpaceshipAnim.anim.speed = 0.5f;
-	SpaceshipAnim.speed.x = 0;
-	SpaceshipAnim.life = 100;
 
 
 	return true;

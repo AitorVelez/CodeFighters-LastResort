@@ -43,8 +43,12 @@ bool ModulePlayer::Start()
 	position.y = 125;
 	relativeposition.x = 50;
 	relativeposition.y = 125; 
+
 	graphics = App->textures->Load("assets/sprites/main_character.png"); // arcade version
 	chunk = App->audio->LoadChunk("assets/SFX/shot.wav");
+
+	//App->particles->AddParticle(App->particles->SpaceshipAnim, position.x - 30, position.y - 20, 200);
+
 	return ret;
 }
 
@@ -117,7 +121,6 @@ update_status ModulePlayer::Update()
 		App->particles->AddParticle(App->particles->bulletEx, position.x+33, position.y-14);
 		App->audio->PlayChunk(chunk, 1);
 	}
-	App->particles->AddParticle(App->particles->SpaceshipAnim, position.x, position.y);
 
 	// Draw everything --------------------------------------
 	SDL_Rect r = current_animation->GetCurrentFrame();

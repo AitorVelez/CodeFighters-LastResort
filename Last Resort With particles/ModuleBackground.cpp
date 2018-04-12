@@ -111,7 +111,7 @@ ModuleBackground::ModuleBackground()
 	lightNew.PushBack({ 510,79,67,105 });
 	lightNew.PushBack({ 449,79,67,117 });
 	lightNew.PushBack({ 388,79,67,114 });
-	lightNew.speed = 0.1255f;
+	lightNew.speed = 0.1231f;
 
 	streetLights.PushBack({ 0,21,50,65 });
 	streetLights.PushBack({ 51,21,50,65 });
@@ -308,7 +308,8 @@ void ModuleBackground::CameraOscillation(int since, int to, bool up)
 
 void ModuleBackground::RenderCrater()
 {
-	App->render->Blit(graphics2, 0, 0, &crater, 0.f);
+	if (App->render->camera.x <= -7500 * SCREEN_SIZE)
+		App->render->Blit(graphics2, 0, 0, &crater, 0.f);
 }
 
 void ModuleBackground::RenderBackgroundSpaceships()
