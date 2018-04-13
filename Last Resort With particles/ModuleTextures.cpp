@@ -100,6 +100,7 @@ bool ModuleTextures::Unload(SDL_Texture * texture)
 			{
 				textures[i] = nullptr;
 				ret = true;
+				LOG("Could unload the texture properly");
 				break;
 			}
 		}
