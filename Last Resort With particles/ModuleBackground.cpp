@@ -10,6 +10,7 @@
 #include "ModuleStageClear.h"
 #include "ModuleStartingImage.h"
 #include "ModuleLoseImage.h"
+#include "ModuleParticles.h"
 #include "SDL/include/SDL_timer.h"
 
 
@@ -241,7 +242,7 @@ bool ModuleBackground::Start()
 	bool ret = true;	
 
 	App->player->Enable();
-
+	App->particles->Enable(); 
 	//graphics = App->textures->Load("backgroundlvl1v2.png");
 	graphics = App->textures->Load("assets/sprites/background_lvl1.png");
 	graphics2 = App->textures->Load("assets/sprites/background_lvl1_extra.png");
@@ -265,7 +266,7 @@ bool ModuleBackground::CleanUp()
 	LOG("Cleaning Up background");
 	//Disable Other Modules
 	App->player->Disable(); 
-
+	App->particles->Disable(); 
 	//Free all loaded textures
 	App->textures->Unload(graphics);
 	App->textures->Unload(graphics2);

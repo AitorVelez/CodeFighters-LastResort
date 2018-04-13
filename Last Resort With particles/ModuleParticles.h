@@ -10,6 +10,7 @@
 #define MAX_ACTIVE_PARTICLES 150
 
 struct SDL_Texture;
+struct Mix_Chunk; 
 struct Collider;
 enum COLLIDER_TYPE;
 
@@ -49,11 +50,10 @@ private:
 	uint last_particle = 0;
 
 public:
-
-	
 	Particle SpaceshipAnim;
 	Particle bullet;
 	Particle bulletEx;
+	Mix_Chunk* shot = nullptr; 
 };
 
 #endif // __MODULEPARTICLES_H__

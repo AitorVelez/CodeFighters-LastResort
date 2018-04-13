@@ -49,6 +49,7 @@ bool Application::Init()
 
 
 	player->Disable();
+	particles->Disable(); 
 	background->Disable();
 	stageclear->Disable();
 	lvl2->Disable();

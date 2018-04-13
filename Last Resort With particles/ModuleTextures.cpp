@@ -106,6 +106,7 @@ bool ModuleTextures::Unload(SDL_Texture * texture)
 		}
 		SDL_DestroyTexture(texture);
 	}
+	if (ret = false) LOG("The texture entered to unload is unvalid"); 
 
 	return ret;
 }

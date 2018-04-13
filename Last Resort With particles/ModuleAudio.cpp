@@ -156,11 +156,7 @@ bool ModuleAudio::UnloadChunk(Mix_Chunk* chunk)
 	/*bool ret = true; 
 
 	Mix_FreeChunk(chunk);
-	if (chunk != nullptr)
-	{
-		LOG("Could not unload the chunk properly");
-		ret = false;
-	}
+
 	return ret; */
 
 	bool ret = false;
@@ -177,6 +173,7 @@ bool ModuleAudio::UnloadChunk(Mix_Chunk* chunk)
 		}
 		Mix_FreeChunk(chunk);
 	}
+	if (ret = false) LOG("The chunk passed to unload is empty"); 
 
 	return ret;
 

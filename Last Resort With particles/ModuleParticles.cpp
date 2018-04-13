@@ -5,6 +5,7 @@
 #include "ModuleRender.h"
 #include "ModuleParticles.h"
 #include "ModuleCollision.h"
+#include "ModuleAudio.h"
 
 #include "SDL/include/SDL_timer.h"
 
@@ -22,6 +23,8 @@ bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
 	playerPart = App->textures->Load("assets/sprites/main_character.png");
+	shot = App->audio->LoadChunk("assets/SFX/shot.wav");		// Shot -> fx = 0 
+
 
 	bulletEx.anim.PushBack({ 115,124,12,12 });
 	bulletEx.anim.PushBack({ 128,126,10,9 });
@@ -29,7 +32,6 @@ bool ModuleParticles::Start()
 	bulletEx.anim.PushBack({ 128,126,10,9 });
 	bulletEx.anim.loop = true;
 	bullet.anim.speed = 0.03f;
-
 	bulletEx.life = 40;
 
 	bullet.anim.PushBack({ 148,127,14,7 });
@@ -37,6 +39,7 @@ bool ModuleParticles::Start()
 	bullet.anim.speed = 0.3f;
 	bullet.speed.x = 5;
 	bullet.life = 1000;
+	bullet.fx = 0;
 
 	SpaceshipAnim.anim.PushBack({ 0,122,111,1 });
 	SpaceshipAnim.anim.PushBack({ 0,125,111,2 });
@@ -65,7 +68,7 @@ bool ModuleParticles::CleanUp()
 {
 	LOG("Unloading particles");
 	App->textures->Unload(playerPart);
-
+	App->audio->UnloadChunk(shot);
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
 		if (active[i] != nullptr)
@@ -99,7 +102,8 @@ update_status ModuleParticles::Update()
 			if (p->fx_played == false)
 			{
 				p->fx_played = true;
-				// Play particle fx here
+				// Play particle fx here				
+				App->audio->PlayChunk(App->audio->chunks[p->fx], 1);
 			}
 		}
 	}

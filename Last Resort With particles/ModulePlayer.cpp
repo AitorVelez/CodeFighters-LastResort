@@ -62,12 +62,6 @@ bool ModulePlayer::Start()
 	relativeposition.y = 125; 
 
 	graphics = App->textures->Load("assets/sprites/main_character.png"); // arcade version
-	chunk = App->audio->LoadChunk("assets/SFX/shot.wav");
-
-
-
-
-	//App->particles->AddParticle(App->particles->SpaceshipAnim, position.x - 30, position.y - 20, 200);
 
 	return ret;
 }
@@ -78,9 +72,6 @@ bool ModulePlayer::CleanUp()
 	LOG("Closing Up Player Module");
 	// Free All textures
 	App->textures->Unload(graphics);
-
-	// Free all audio material
-	App->audio->UnloadChunk(chunk);
 
 	return true; 
 }
@@ -144,10 +135,9 @@ update_status ModulePlayer::Update()
 			}
 		}
 
-		if (App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_DOWN) {
+		if (App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_DOWN) {			
 			App->particles->AddParticle(App->particles->bullet, position.x + 33, position.y - 13);
 			App->particles->AddParticle(App->particles->bulletEx, position.x + 33, position.y - 14);
-			App->audio->PlayChunk(chunk, 1);
 		}
 	}
 	// Draw everything --------------------------------------
