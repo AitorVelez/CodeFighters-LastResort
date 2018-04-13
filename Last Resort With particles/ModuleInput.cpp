@@ -34,6 +34,12 @@ bool ModuleInput::Init()
 update_status ModuleInput::PreUpdate()
 {
 	SDL_PumpEvents();
+	SDL_Event e;
+	SDL_PollEvent(&e);
+	if (e.type == SDL_QUIT) {
+		return update_status::UPDATE_STOP;
+	}
+
 
 	const Uint8* keys = SDL_GetKeyboardState(NULL);
 
