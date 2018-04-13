@@ -124,7 +124,7 @@ update_status ModulePlayer::Update()
 		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
 		{
 			if (relativeposition.y > CHARACTER_HEIGHT) {
-				// SwitchToUp(current_animation);   // first does the remaining animations (int he function)
+				// SwitchToUp(current_animation);   // first does the remaining animations (in the function)
 				current_animation = &up;         // then does the up animation 
 				relativeposition.y -= speed;
 				position.y -= speed;
@@ -136,7 +136,7 @@ update_status ModulePlayer::Update()
 		if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
 		{
 			if (relativeposition.y < SCREEN_HEIGHT) {
-				// SwitchToDown(current_animation);   // first does the remaining animations (int he function)
+				// SwitchToDown(current_animation);   // first does the remaining animations (in the function)
 				current_animation = &down;         // then does the down animation 
 				relativeposition.y += speed;
 				position.y += speed;
