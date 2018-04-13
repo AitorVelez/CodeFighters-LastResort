@@ -81,6 +81,33 @@ void ModulePlayer::RenderStartingAnim() {
 	App->render->Blit(graphics, 50 , 125 , &playershowup.GetCurrentFrame(), 0);
 }
 
+/*
+void SwitchToDown(Animation* anim) {
+	if (//player has reached the top animation) {
+	anim.PushBack({ 32,3,32,14 });   
+    anim.PushBack({ 64,3,32,14 });    // up anim and then idle //
+
+	}
+	else {
+	anim.PushBack({ 64,3,32,14 });  // only idle //
+	}
+};*/
+
+/*
+void SwitchToUp(Animation* anim) {
+if (// player has reached the bottom animation ) {
+anim.PushBack({ 96,3,32,14 });
+anim.PushBack({ 64,3,32,14 });    // it does the remaining down anim and then idle //      
+
+	}
+	else {
+		anim.PushBack({ 64,3,32,14 });  // it does only idle //
+	}
+};*/
+
+
+ 
+
 // Update: draw background
 update_status ModulePlayer::Update()
 {
@@ -97,7 +124,8 @@ update_status ModulePlayer::Update()
 		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
 		{
 			if (relativeposition.y > CHARACTER_HEIGHT) {
-				current_animation = &up;
+				// SwitchToUp(current_animation);   // first does the remaining animations (int he function)
+				current_animation = &up;         // then does the up animation 
 				relativeposition.y -= speed;
 				position.y -= speed;
 			}
@@ -108,7 +136,8 @@ update_status ModulePlayer::Update()
 		if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
 		{
 			if (relativeposition.y < SCREEN_HEIGHT) {
-				current_animation = &down;
+				// SwitchToDown(current_animation);   // first does the remaining animations (int he function)
+				current_animation = &down;         // then does the down animation 
 				relativeposition.y += speed;
 				position.y += speed;
 			}
