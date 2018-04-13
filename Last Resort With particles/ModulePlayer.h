@@ -18,7 +18,7 @@ public:
 	bool Start();
 	update_status Update();
 	bool CleanUp(); 
-
+	void RenderStartingAnim(); 
 public:
 
 	SDL_Texture* graphics = nullptr;
@@ -27,6 +27,7 @@ public:
 	Animation down; 
 	Animation forward;
 	Animation backward;
+	Animation playershowup; 
 	fPoint position;
 	fPoint relativeposition;
 
