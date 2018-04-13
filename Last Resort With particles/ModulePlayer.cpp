@@ -26,7 +26,7 @@ ModulePlayer::ModulePlayer()
 	playershowup.PushBack({ 72, 214, 56, 25 });
 	playershowup.PushBack({ 156, 143, 36, 19 });
 	playershowup.PushBack({ 160, 171, 32, 15 });
-	playershowup.speed = 0.26f;
+	playershowup.speed = 0.3f;
 
 
 	// idle animation (arcade sprite sheet)
