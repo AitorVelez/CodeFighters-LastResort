@@ -7,9 +7,11 @@
 #include "ModulePlayer.h"
 #include "ModuleAudio.h"
 #include "ModuleFadeToBlack.h"
+#include "ModuleCollision.h"
 #include "ModuleStageClear.h"
 #include "ModuleParticles.h"
 #include "ModuleStartingImage.h"
+#include "ModuleCollision.h"
 #include "ModuleLoseImage.h"
 #include "ModuleLvl2.h"
 #include "Module.h"
@@ -29,7 +31,8 @@ Application::Application()
 	modules[9] = lvl2 = new ModuleLvl2();
 	modules[10] = loseimage = new ModuleLoseImage();
 	modules[11] = audio = new ModuleAudio(); 
-	modules[12] = fade = new ModuleFadeToBlack();
+	modules[12] = collision = new ModuleCollision();
+	modules[13] = fade = new ModuleFadeToBlack();
 
 	
 }	
@@ -50,6 +53,7 @@ bool Application::Init()
 	stageclear->Disable();
 	lvl2->Disable();
 	loseimage->Disable();
+	collision->Disable();
 
 
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)
