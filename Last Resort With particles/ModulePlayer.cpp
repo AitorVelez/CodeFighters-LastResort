@@ -4,6 +4,7 @@
 #include "ModuleInput.h"
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
+#include "ModuleCollision.h"
 #include "ModuleAudio.h"
 #include "ModuleParticles.h"
 
@@ -62,6 +63,7 @@ bool ModulePlayer::Start()
 	relativeposition.y = 125; 
 
 	graphics = App->textures->Load("assets/sprites/main_character.png"); // arcade version
+	PlayerCollider = App->collision->AddCollider({ position.x,position.y-14, 32, 14 }, COLLIDER_PLAYER);
 
 	return ret;
 }
@@ -172,6 +174,7 @@ update_status ModulePlayer::Update()
 	// Draw everything --------------------------------------
 	SDL_Rect r = current_animation->GetCurrentFrame();
 
+	PlayerCollider->SetPos(position.x, position.y);
 	App->render->Blit(graphics, (float)position.x, (float)position.y - r.h, &r);
 	
 	return UPDATE_CONTINUE;

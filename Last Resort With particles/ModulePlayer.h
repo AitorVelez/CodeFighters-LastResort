@@ -7,6 +7,7 @@
 #include "p2Point.h"
 
 struct SDL_Texture;
+struct Collider;
 struct Mix_Chunk;
 
 class ModulePlayer : public Module
@@ -30,8 +31,9 @@ public:
 	Animation forward;
 	Animation backward;
 	Animation playershowup; 
-	fPoint position;
+	iPoint position;
 	fPoint relativeposition;
+	Collider *PlayerCollider = nullptr;
 
 	Mix_Chunk* chunk;
 

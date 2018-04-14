@@ -257,6 +257,7 @@ bool ModuleBackground::Start()
 
 	mus = App->audio->LoadMus("assets/SFX/level_1.ogg");
 	App->audio->PlayMus(mus);
+	App->collision->Enable();
 
 	return ret;
 }
@@ -279,6 +280,10 @@ bool ModuleBackground::CleanUp()
 
 	//Free all audio material
 	App->audio->UnloadMus(mus); 
+
+	//Free Collision
+
+	App->collision->Disable();
 	return true;
 }
 
