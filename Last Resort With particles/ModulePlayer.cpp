@@ -63,7 +63,7 @@ bool ModulePlayer::Start()
 	relativeposition.y = 125; 
 
 	graphics = App->textures->Load("assets/sprites/main_character.png"); // arcade version
-	PlayerCollider = App->collision->AddCollider({ position.x,position.y-14, 32, 14 }, COLLIDER_PLAYER);
+	PlayerCollider = App->collision->AddCollider({ position.x,position.y, 32, 14 }, COLLIDER_PLAYER);
 
 	return ret;
 }
@@ -174,7 +174,7 @@ update_status ModulePlayer::Update()
 	// Draw everything --------------------------------------
 	SDL_Rect r = current_animation->GetCurrentFrame();
 
-	PlayerCollider->SetPos(position.x, position.y);
+	PlayerCollider->SetPos(position.x, position.y - r.h);
 	App->render->Blit(graphics, (float)position.x, (float)position.y - r.h, &r);
 	
 	return UPDATE_CONTINUE;
