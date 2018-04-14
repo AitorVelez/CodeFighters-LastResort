@@ -229,6 +229,12 @@ ModuleBackground::ModuleBackground()
 	ships.PushBack({ 15,0,8,4 });
 	ships.PushBack({ 30,0,8,4 });
 	ships.speed = 0.01f;
+
+	EnemyTest.PushBack({ 9,443,32,16 });
+	EnemyTest.PushBack({ 9,459,32,15 });
+	EnemyTest.PushBack({ 9,474,32,15 });
+	EnemyTest.PushBack({ 9,490,32,15 });
+	EnemyTest.speed = 0.2f;
 }
 
 ModuleBackground::~ModuleBackground()
@@ -252,6 +258,8 @@ bool ModuleBackground::Start()
 	graphics6 = App->textures->Load("assets/sprites/DeepBackgroundLights.png");
 	graphics7 = App->textures->Load("assets/sprites/MidBackgroundLights.png");
 	graphics8 = App->textures->Load("assets/sprites/MidBackgroundLightsExtra.png");
+	graphics9 = App->textures->Load("assets/sprites/CommonEnemies1.png");
+	
 
 	App->player->Enable();
 
@@ -277,6 +285,7 @@ bool ModuleBackground::CleanUp()
 	App->textures->Unload(graphics6);
 	App->textures->Unload(graphics7);
 	App->textures->Unload(graphics8);
+	App->textures->Unload(graphics9);
 
 	//Free all audio material
 	App->audio->UnloadMus(mus); 
@@ -332,6 +341,13 @@ void ModuleBackground::RenderBackgroundSpaceships()
 		App->render->Blit(graphics5, posx - 700, 60, &ships.GetCurrentFrame(), 0);
 		App->render->Blit(graphics5, posx - 750, 60, &ships.GetCurrentFrame(), 0);
 	}
+}
+
+void ModuleBackground::RenderEnemyTest() 
+{
+	App->render->Blit(graphics9, posx-100, 50, &EnemyTest.GetCurrentFrame(), 0);
+
+
 }
 
 void ModuleBackground::RenderDeepBuildingLights()
@@ -448,7 +464,6 @@ void ModuleBackground::RenderTunnelLights()
 }
 
 
-
 // Update: draw background
 update_status ModuleBackground::Update()
 {
@@ -485,18 +500,23 @@ update_status ModuleBackground::Update()
 	RenderCrater();
 	App->render->Blit(graphics2, 0, -5, &building_2, depth_3);										// DEPTH 3
 	
+	
 	RenderDeepBuildingLights();
 	RenderDiscoLights(); 
 	RenderBackgroundSpaceships(); 
+	
+	
 
 	App->render->Blit(graphics2, 0, 35, &building_1, depth_2);										// DEPTH 2
 	
 	RenderBuildingLights();
 
 	App->render->Blit(graphics, 0, 0, &background, depth_1);										// DEPTH 1
-
+	RenderEnemyTest();
 	RenderStreetLights(); 
 	RenderTunnelLights();
+	
+	
 
 
 	// Fade to black

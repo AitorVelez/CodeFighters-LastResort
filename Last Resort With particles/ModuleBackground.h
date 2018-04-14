@@ -29,6 +29,9 @@ public:
 	void RenderDiscoLights(); 
 	void RenderStreetLights(); 
 	void RenderTunnelLights();
+	void RenderEnemyTest();
+
+	
 
 public:
 	
@@ -40,6 +43,7 @@ public:
 	SDL_Texture* graphics6 = nullptr;
 	SDL_Texture* graphics7 = nullptr;
 	SDL_Texture* graphics8 = nullptr;
+	SDL_Texture* graphics9 = nullptr;
 
 	Mix_Music* mus = nullptr; 
 
@@ -63,6 +67,7 @@ public:
 	Animation MidBackgroundLights2;
 	Animation MidBackgroundLights3;
 	Animation ships;
+	Animation EnemyTest;
 
 	int posx = 0;
 	bool render_light = false;
