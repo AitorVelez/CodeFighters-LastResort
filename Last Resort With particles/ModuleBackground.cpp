@@ -345,7 +345,7 @@ void ModuleBackground::RenderBackgroundSpaceships()
 
 void ModuleBackground::RenderEnemyTest() 
 {
-	App->render->Blit(graphics9, posx-100, 50, &EnemyTest.GetCurrentFrame(), 0);
+	App->render->Blit(graphics9,250, 50, &EnemyTest.GetCurrentFrame(), 0);
 
 
 }
