@@ -7,6 +7,10 @@
 #include "ModuleCollision.h"
 #include "ModuleAudio.h"
 #include "ModuleParticles.h"
+#include "ModuleFadeToBlack.h"
+#include "ModuleBackground.h"
+#include "ModuleStageClear.h"
+
 #define  SideLimit 15
 #define  TopLimit 2
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
@@ -64,7 +68,7 @@ bool ModulePlayer::Start()
 	relativeposition.y = 125; 
 
 	graphics = App->textures->Load("assets/sprites/main_character.png"); // arcade version
-	PlayerCollider = App->collision->AddCollider({ position.x,position.y, 32, 14 }, COLLIDER_PLAYER);
+	PlayerCollider = App->collision->AddCollider({ position.x,position.y, 32, 14 }, COLLIDER_PLAYER, this);
 	
 
 	return ret;
@@ -83,6 +87,12 @@ bool ModulePlayer::CleanUp()
 
 void ModulePlayer::RenderStartingAnim() {
 	App->render->Blit(graphics, -100, -100, &playershowup.GetCurrentFrame(), 0);
+}
+
+void ModulePlayer::OnCollision(Collider * c1, Collider * c2)
+{
+	// in this function is written what happens when the player collides with something
+	App->particles->AddParticle(App->particles->bullet, position.x, position.y);
 }
 
 /*

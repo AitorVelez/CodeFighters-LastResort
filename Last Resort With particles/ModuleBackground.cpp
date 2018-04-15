@@ -444,6 +444,7 @@ void ModuleBackground::RenderEnemyTest()
 	enposx += +1;
 
 	App->render->Blit(graphics9,enposx, 50, &EnemyTest.GetCurrentFrame(), 1);
+	EnemyCollider->SetPos(enposx, 50);
 }
 
 void ModuleBackground::RenderDeepBuildingLights()
@@ -559,15 +560,6 @@ void ModuleBackground::RenderTunnelLights()
 	App->render->Blit(graphics4, 3593, 0, &tunnelLights.GetCurrentFrame(), depth_1);
 	App->render->Blit(graphics4, 3850, 0, &tunnelLights_2.GetCurrentFrame(), depth_1);
 }
-
-void ModuleBackground::RenderEnemyColliders() 
-
-{
-
-	EnemyCollider->SetPos(enposx, 50);
-
-}
-
 
 // Update: draw background
 update_status ModuleBackground::Update()
@@ -803,7 +795,6 @@ update_status ModuleBackground::Update()
 
 	App->render->Blit(graphics, 0, 0, &background, depth_1);										// DEPTH 1
 	RenderEnemyTest();
-	RenderEnemyColliders();
 	RenderStreetLights(); 
 	RenderTunnelLights();
 	

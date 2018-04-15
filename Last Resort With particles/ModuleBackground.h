@@ -35,7 +35,6 @@ public:
 	void RenderStreetLights(); 
 	void RenderTunnelLights();
 	void RenderEnemyTest();
-	void RenderEnemyColliders();
 	
 	
 

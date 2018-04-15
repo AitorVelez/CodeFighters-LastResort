@@ -20,6 +20,7 @@ public:
 	update_status Update();
 	bool CleanUp(); 
 	void RenderStartingAnim(); 
+	void OnCollision(Collider* c1, Collider* c2);
 	/*void SwitchToDown(Animation*);     // switch animation functions, they should recieve the "idle" animation
 	void SwitchToUp(Animation*);*/
 public:
