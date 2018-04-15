@@ -58,7 +58,6 @@ bool ModuleParticles::Start()
 	SpaceshipAnim.anim.loop = false;
 	SpaceshipAnim.speed.x = 1;
 	SpaceshipAnim.anim.speed = 0.5f;
-	SpaceshipAnim.fx = 2;
 
 
 	return true;
