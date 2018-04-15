@@ -7,7 +7,8 @@
 #include "ModuleCollision.h"
 #include "ModuleAudio.h"
 #include "ModuleParticles.h"
-
+#define  SideLimit 15
+#define  TopLimit 2
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
 ModulePlayer::ModulePlayer()
@@ -125,44 +126,44 @@ update_status ModulePlayer::Update()
 	else {
 		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
 		{
-			if (relativeposition.y > CHARACTER_HEIGHT) {
+			if (relativeposition.y > CHARACTER_HEIGHT + TopLimit) {
 				// SwitchToUp(current_animation);   // first does the remaining animations (in the function)
 				current_animation = &up;         // then does the up animation 
 				relativeposition.y -= speed;
 				position.y -= speed;
 			}
 			else {
-				relativeposition.y = CHARACTER_HEIGHT;
+				relativeposition.y = CHARACTER_HEIGHT + TopLimit;
 			}
 		}
 		if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
 		{
-			if (relativeposition.y < SCREEN_HEIGHT) {
+			if (relativeposition.y < SCREEN_HEIGHT - TopLimit) {
 				// SwitchToDown(current_animation);   // first does the remaining animations (in the function)
 				current_animation = &down;         // then does the down animation 
 				relativeposition.y += speed;
 				position.y += speed;
 			}
 			else {
-				relativeposition.y = SCREEN_HEIGHT;
+				relativeposition.y = SCREEN_HEIGHT - TopLimit;
 			}
 		}
 		if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT) {
-			if (relativeposition.x < SCREEN_WIDTH - CHARACTER_WIDTH) {
+			if (relativeposition.x < SCREEN_WIDTH - CHARACTER_WIDTH - SideLimit) {
 				relativeposition.x += speed;
 				position.x += speed;
 			}
 			else {
-				relativeposition.x = SCREEN_WIDTH - CHARACTER_WIDTH;
+				relativeposition.x = SCREEN_WIDTH - CHARACTER_WIDTH - SideLimit;
 			}
 		}
 		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT) {
-			if (relativeposition.x > 0) {
+			if (relativeposition.x >  SideLimit) {
 				relativeposition.x -= speed;
 				position.x -= speed;
 			}
 			else {
-				relativeposition.x = 0;
+				relativeposition.x = SideLimit;
 			}
 		}
 
