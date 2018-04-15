@@ -441,7 +441,7 @@ void ModuleBackground::RenderBackgroundSpaceships()
 
 void ModuleBackground::RenderEnemyTest() 
 {
-	enposx += -1;
+	enposx += +1;
 
 	App->render->Blit(graphics9,enposx, 50, &EnemyTest.GetCurrentFrame(), 1);
 }
