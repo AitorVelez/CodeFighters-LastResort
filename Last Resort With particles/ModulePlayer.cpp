@@ -92,7 +92,9 @@ void ModulePlayer::RenderStartingAnim() {
 void ModulePlayer::OnCollision(Collider * c1, Collider * c2)
 {
 	// in this function is written what happens when the player collides with something
-	App->player->Disable();
+
+	//Add an explosion here
+	App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage);
 }
 
 /*
