@@ -225,9 +225,12 @@ ModuleBackground::ModuleBackground()
 	backgroundLights.PushBack({ 0,595,284,142 });
 	backgroundLights.speed = 0.82f;
 
+	
 	ships.PushBack({ 0,0,8,3 });
 	ships.PushBack({ 15,0,8,4 });
 	ships.PushBack({ 30,0,8,4 });
+	ships.PushBack({ 15,0,8,4 });
+	ships.PushBack({ 0,0,8,3 });
 	ships.speed = 0.01f;
 
 	EnemyTest.PushBack({ 9,443,32,16 });
@@ -262,7 +265,7 @@ bool ModuleBackground::Start()
 	
 	//Colliders
 
-	EnemyCollider = App->collision->AddCollider({ 250,50, 32, 16 }, COLLIDER_ENEMY);
+	EnemyCollider = App->collision->AddCollider({ enposx ,50, 32, 16 }, COLLIDER_ENEMY);
 	
 
 
@@ -356,24 +359,79 @@ void ModuleBackground::RenderCrater()
 void ModuleBackground::RenderBackgroundSpaceships()
 {
 	if (App->render->camera.x >= -4000 * SCREEN_SIZE) {
-		posx += 2;
-		App->render->Blit(graphics5, posx, 50, &ships.GetCurrentFrame(), 0);
-		App->render->Blit(graphics5, posx - 50, 50, &ships.GetCurrentFrame(), 0);
-		App->render->Blit(graphics5, posx - 100, 50, &ships.GetCurrentFrame(), 0);
-		App->render->Blit(graphics5, posx - 300, 40, &ships.GetCurrentFrame(), 0);
-		App->render->Blit(graphics5, posx - 350, 40, &ships.GetCurrentFrame(), 0);
-		App->render->Blit(graphics5, posx - 400, 40, &ships.GetCurrentFrame(), 0);
-		App->render->Blit(graphics5, posx - 650, 60, &ships.GetCurrentFrame(), 0);
-		App->render->Blit(graphics5, posx - 700, 60, &ships.GetCurrentFrame(), 0);
-		App->render->Blit(graphics5, posx - 750, 60, &ships.GetCurrentFrame(), 0);
+		posx += 1.46;
+		
+		App->render->Blit(graphics5, posx, 90 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 50, 100 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 50, 140 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 100, 90 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 170, 60 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 210, 60 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 230, 140 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 250, 60 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 290, 60 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 330, 60 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 370, 140 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 410, 140 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 450, 140 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 490, 140 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 530, 140 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 540, 120 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 590, 70 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 590, 140 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 640, 140 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 640, 90 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 660, 70 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 680, 80 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 740, 70 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 780, 70 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 820, 70 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 860, 70 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 900, 70 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 740, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 780, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 820, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 860, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 900, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 1600, 60 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 1640, 80 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 1680, 100 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 1720, 120 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 1740, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 1780, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 1820, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 1860, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 1900, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 3000, 80 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 3040, 50 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 3040, 75 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 3040, 100 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 3090, 60 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 3090, 75 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 3090, 90 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 3140, 60 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 3140, 90 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 3340, 120 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 3380, 100 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 3420, 80 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 3460, 60 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 3480, 50 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 3520, 50 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 3560, 50 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 3600, 50 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(graphics5, posx - 3640, 50 - 10, &ships.GetCurrentFrame(), depth_2);
+
+
+
+
 	}
 }
 
 void ModuleBackground::RenderEnemyTest() 
 {
-	enposx += -2;
+	enposx += -1;
 
-	App->render->Blit(graphics9,enposx, 50, &EnemyTest.GetCurrentFrame(), 0);
+	App->render->Blit(graphics9,enposx, 50, &EnemyTest.GetCurrentFrame(), 1);
 }
 
 void ModuleBackground::RenderDeepBuildingLights()
@@ -477,6 +535,7 @@ void ModuleBackground::RenderStreetLights()
 	App->render->Blit(graphics3, 1657, 217, &lightFloor_2.GetCurrentFrame(), depth_1);
 }
 
+
 void ModuleBackground::RenderTunnelLights()
 {
 	App->render->Blit(graphics4, 2051, 0, &tunnelLights.GetCurrentFrame(), depth_1);
@@ -493,7 +552,7 @@ void ModuleBackground::RenderEnemyColliders()
 
 {
 
-
+	EnemyCollider->SetPos(enposx, 50);
 
 }
 
@@ -730,6 +789,7 @@ update_status ModuleBackground::Update()
 
 	App->render->Blit(graphics, 0, 0, &background, depth_1);										// DEPTH 1
 	RenderEnemyTest();
+	RenderEnemyColliders();
 	RenderStreetLights(); 
 	RenderTunnelLights();
 	
