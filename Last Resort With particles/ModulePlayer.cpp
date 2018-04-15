@@ -179,7 +179,7 @@ update_status ModulePlayer::Update()
 		}
 
 		if (App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_DOWN) {			
-			App->particles->AddParticle(App->particles->bullet, position.x + 33, position.y - 13);
+			App->particles->AddParticle(App->particles->bullet, position.x + 33, position.y - 13,COLLIDER_PLAYER_SHOT);
 			App->particles->AddParticle(App->particles->bulletEx, position.x + 33, position.y - 14);
 		}
 	}
@@ -187,7 +187,7 @@ update_status ModulePlayer::Update()
 	SDL_Rect r = current_animation->GetCurrentFrame();
 	RenderStartingAnim(); 
 	PlayerCollider->SetPos(position.x, position.y - r.h);
-	App->render->Blit(graphics, (float)position.x, (float)position.y - r.h, &r);
+	App->render->Blit(graphics, position.x, position.y - r.h, &r);
 	
 	return UPDATE_CONTINUE;
 }

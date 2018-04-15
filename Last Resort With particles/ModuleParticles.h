@@ -7,11 +7,11 @@
 #include "p2Point.h"
 #include "ModuleCollision.h"
 
-#define MAX_ACTIVE_PARTICLES 150
+#define MAX_ACTIVE_PARTICLES 100
 
 struct SDL_Texture;
-struct Mix_Chunk; 
 struct Collider;
+struct Mix_Chunk; 
 enum COLLIDER_TYPE;
 
 struct Particle
@@ -27,6 +27,7 @@ struct Particle
 
 	Particle();
 	Particle(const Particle& p);
+	~Particle();
 	bool Update();
 };
 
@@ -41,7 +42,7 @@ public:
 	bool CleanUp();
 	void OnCollision(Collider* c1, Collider* c2);
 
-	void AddParticle(const Particle& particle, int x, int y, Uint32 delay = 0);
+	void AddParticle(const Particle& particle, int x, int y, COLLIDER_TYPE collider_type = COLLIDER_NONE, Uint32 delay = 0);
 
 private:
 

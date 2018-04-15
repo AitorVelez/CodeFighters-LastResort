@@ -58,6 +58,7 @@ bool ModuleParticles::Start()
 	SpaceshipAnim.anim.loop = false;
 	SpaceshipAnim.speed.x = 1;
 	SpaceshipAnim.anim.speed = 0.5f;
+	SpaceshipAnim.fx = 2;
 
 
 	return true;
@@ -111,14 +112,22 @@ update_status ModuleParticles::Update()
 	return UPDATE_CONTINUE;
 }
 
-void ModuleParticles::AddParticle(const Particle& particle, int x, int y, Uint32 delay)
+void ModuleParticles::AddParticle(const Particle& particle, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay)
 {
-	Particle* p = new Particle(particle);
-	p->born = SDL_GetTicks() + delay;
-	p->position.x = x;
-	p->position.y = y;
-
-	active[last_particle++] = p;
+	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
+	{
+		if (active[i] == nullptr)
+		{
+			Particle* p = new Particle(particle);
+			p->born = SDL_GetTicks() + delay;
+			p->position.x = x;
+			p->position.y = y;
+			if (collider_type != COLLIDER_NONE)
+				p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), collider_type, this);
+			active[i] = p;
+			break;
+		}
+	}
 }
 
 void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
@@ -128,6 +137,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 		// Always destroy particles that collide
 		if (active[i] != nullptr && active[i]->collider == c1)
 		{
+			AddParticle(SpaceshipAnim, active[i]->position.x, active[i]->position.y);
 			delete active[i];
 			active[i] = nullptr;
 			break;
@@ -148,6 +158,12 @@ Particle::Particle(const Particle& p) :
 	fx(p.fx), born(p.born), life(p.life)
 {}
 
+Particle::~Particle()
+{
+	if (collider != nullptr)
+		collider->to_delete = true;
+}
+
 bool Particle::Update()
 {
 	bool ret = true;
@@ -163,6 +179,9 @@ bool Particle::Update()
 
 	position.x += speed.x;
 	position.y += speed.y;
+
+	if (collider != nullptr)
+		collider->SetPos(position.x, position.y);
 
 	return ret;
 }
