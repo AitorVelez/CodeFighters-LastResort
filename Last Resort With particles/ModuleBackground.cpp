@@ -301,14 +301,27 @@ void ModuleBackground::MoveUp()
 {
 	App->render->camera.y += 3;
 	App->player->position.y -= 1;
-	App->player->relativeposition.y -= 1;
 }
  
+
+void ModuleBackground::MoveCameraUp()
+{
+	int intensity = 15; 
+	App->render->camera.y += intensity;
+	intensity += 10; 
+}
+
 void ModuleBackground::MoveDown()
 {
 	App->render->camera.y -= 3;
 	App->player->position.y += 1;
-	App->player->relativeposition.y += 1;
+}
+
+void ModuleBackground::MoveCameraDown()
+{
+	int intensity = 15;
+	App->render->camera.y -= intensity;
+	intensity += 10;
 }
 
 void ModuleBackground::CameraOscillation(int since, int to, bool up)
@@ -319,6 +332,14 @@ void ModuleBackground::CameraOscillation(int since, int to, bool up)
 		if (!up) MoveDown(); 
 	}
 	
+}
+
+void ModuleBackground::CameraOscillationShake(int since, int to, bool up) {
+	if (App->render->camera.x >= -to && App->render->camera.x <= -since)
+	{
+		if (up) MoveCameraUp();
+		if (!up) MoveCameraDown();
+	}
 }
 
 void ModuleBackground::RenderCrater()
@@ -493,7 +514,190 @@ update_status ModuleBackground::Update()
 	CameraOscillation(190 + waittime * 11 + scrolltime * 10, 190 + waittime * 11 + scrolltime * 11, true);
 	CameraOscillation(190 + waittime * 12 + scrolltime * 11, 190 + waittime * 12 + scrolltime *11 + 100, false);
 
-
+	                     // End shake 
+	
+	/*int  scrolltime2 = 10; int start = 9100 * SCREEN_SIZE;
+	
+	CameraOscillationShake(start + scrolltime2, start + scrolltime2 * 2, true);
+	CameraOscillationShake(start + scrolltime2 * 2, start + scrolltime2 * 3, false);
+	CameraOscillationShake(start + scrolltime2 * 3, start + scrolltime2 * 4, true);
+	CameraOscillationShake(start + scrolltime2 * 4, start + scrolltime2 * 5, false);
+	CameraOscillationShake(start + scrolltime2 * 5, start + scrolltime2 * 6, true);
+	CameraOscillationShake(start + scrolltime2 * 6, start + scrolltime2 * 7, false);
+	CameraOscillationShake(start + scrolltime2 * 7, start + scrolltime2 * 8, true);
+	CameraOscillationShake(start + scrolltime2 * 8, start + scrolltime2 * 9, false);
+	CameraOscillationShake(start + scrolltime2 * 9, start + scrolltime2 * 10, true);
+	CameraOscillationShake(start + scrolltime2 * 10, start + scrolltime2 * 11, false);
+	CameraOscillationShake(start + scrolltime2 * 11, start + scrolltime2 * 12, true);
+	CameraOscillationShake(start + scrolltime2 * 12, start + scrolltime2 * 13, false);
+	CameraOscillationShake(start + scrolltime2 * 13, start + scrolltime2 * 14, true);
+	CameraOscillationShake(start + scrolltime2 * 14, start + scrolltime2 * 15, false);
+	CameraOscillationShake(start + scrolltime2 * 15, start + scrolltime2 * 16, true);
+	CameraOscillationShake(start + scrolltime2 * 16, start + scrolltime2 * 17, false);
+	CameraOscillationShake(start + scrolltime2 * 17, start + scrolltime2 * 18, true);
+	CameraOscillationShake(start + scrolltime2 * 18, start + scrolltime2 * 19, false);
+	CameraOscillationShake(start + scrolltime2 * 19, start + scrolltime2 * 20, true);
+	CameraOscillationShake(start + scrolltime2 * 20, start + scrolltime2 * 21, false);
+	CameraOscillationShake(start + scrolltime2 * 21, start + scrolltime2 * 22, true);
+	CameraOscillationShake(start + scrolltime2 * 22, start + scrolltime2 * 23, false);
+	CameraOscillationShake(start + scrolltime2 * 23, start + scrolltime2 * 24, true);
+	CameraOscillationShake(start + scrolltime2 * 24, start + scrolltime2 * 25, false);
+	CameraOscillationShake(start + scrolltime2 * 25, start + scrolltime2 * 26, true);
+	CameraOscillationShake(start + scrolltime2 * 26, start + scrolltime2 * 27, false);
+	CameraOscillationShake(start + scrolltime2 * 27, start + scrolltime2 * 28, true);
+	CameraOscillationShake(start + scrolltime2 * 28, start + scrolltime2 * 29, false);
+	CameraOscillationShake(start + scrolltime2 * 29, start + scrolltime2 * 30, true);
+	CameraOscillationShake(start + scrolltime2 * 30, start + scrolltime2 * 31, false);
+	CameraOscillationShake(start + scrolltime2 * 31, start + scrolltime2 * 32, true);
+	CameraOscillationShake(start + scrolltime2 * 32, start + scrolltime2 * 33, false);
+	CameraOscillationShake(start + scrolltime2 * 33, start + scrolltime2 * 34, true);
+	CameraOscillationShake(start + scrolltime2 * 34, start + scrolltime2 * 35, false);
+	CameraOscillationShake(start + scrolltime2 * 35, start + scrolltime2 * 36, true);
+	CameraOscillationShake(start + scrolltime2 * 36, start + scrolltime2 * 37, false);
+	CameraOscillationShake(start + scrolltime2 * 37, start + scrolltime2 * 38, true);
+	CameraOscillationShake(start + scrolltime2 * 38, start + scrolltime2 * 39, false);
+	CameraOscillationShake(start + scrolltime2 * 39, start + scrolltime2 * 40, true);
+	CameraOscillationShake(start + scrolltime2 * 40, start + scrolltime2 * 41, false);
+	CameraOscillationShake(start + scrolltime2 * 41, start + scrolltime2 * 42, true);
+	CameraOscillationShake(start + scrolltime2 * 42, start + scrolltime2 * 43, false);
+	CameraOscillationShake(start + scrolltime2 * 43, start + scrolltime2 * 44, true);
+	CameraOscillationShake(start + scrolltime2 * 44, start + scrolltime2 * 45, false);
+	CameraOscillationShake(start + scrolltime2 * 45, start + scrolltime2 * 46, true);
+	CameraOscillationShake(start + scrolltime2 * 46, start + scrolltime2 * 47, false);
+	CameraOscillationShake(start + scrolltime2 * 47, start + scrolltime2 * 48, true);
+	CameraOscillationShake(start + scrolltime2 * 48, start + scrolltime2 * 49, false);
+	CameraOscillationShake(start + scrolltime2 * 49, start + scrolltime2 * 50, true);
+	CameraOscillationShake(start + scrolltime2 * 50, start + scrolltime2 * 51, false);
+	CameraOscillationShake(start + scrolltime2 * 51, start + scrolltime2 * 52, true);
+	CameraOscillationShake(start + scrolltime2 * 52, start + scrolltime2 * 53, false);
+	CameraOscillationShake(start + scrolltime2 * 53, start + scrolltime2 * 54, true);
+	CameraOscillationShake(start + scrolltime2 * 54, start + scrolltime2 * 55, false);
+	CameraOscillationShake(start + scrolltime2 * 55, start + scrolltime2 * 56, true);
+	CameraOscillationShake(start + scrolltime2 * 56, start + scrolltime2 * 57, false);
+	CameraOscillationShake(start + scrolltime2 * 57, start + scrolltime2 * 58, true);
+	CameraOscillationShake(start + scrolltime2 * 58, start + scrolltime2 * 59, false);
+	CameraOscillationShake(start + scrolltime2 * 59, start + scrolltime2 * 60, true);
+	CameraOscillationShake(start + scrolltime2 * 60, start + scrolltime2 * 61, false);
+	CameraOscillationShake(start + scrolltime2 * 61, start + scrolltime2 * 62, true);
+	CameraOscillationShake(start + scrolltime2 * 62, start + scrolltime2 * 63, false);
+	CameraOscillationShake(start + scrolltime2 * 63, start + scrolltime2 * 64, true);
+	CameraOscillationShake(start + scrolltime2 * 64, start + scrolltime2 * 65, false);
+	CameraOscillationShake(start + scrolltime2 * 65, start + scrolltime2 * 66, true);
+	CameraOscillationShake(start + scrolltime2 * 66, start + scrolltime2 * 67, false);
+	CameraOscillationShake(start + scrolltime2 * 67, start + scrolltime2 * 68, true);
+	CameraOscillationShake(start + scrolltime2 * 68, start + scrolltime2 * 69, false);
+	CameraOscillationShake(start + scrolltime2 * 69, start + scrolltime2 * 70, true);
+	CameraOscillationShake(start + scrolltime2 * 70, start + scrolltime2 * 71, false);
+	CameraOscillationShake(start + scrolltime2 * 71, start + scrolltime2 * 72, true);
+	CameraOscillationShake(start + scrolltime2 * 72, start + scrolltime2 * 73, false);
+	CameraOscillationShake(start + scrolltime2 * 73, start + scrolltime2 * 74, true);
+	CameraOscillationShake(start + scrolltime2 * 74, start + scrolltime2 * 75, false);
+	CameraOscillationShake(start + scrolltime2 * 75, start + scrolltime2 * 76, true);
+	CameraOscillationShake(start + scrolltime2 * 76, start + scrolltime2 * 77, false);
+	CameraOscillationShake(start + scrolltime2 * 77, start + scrolltime2 * 78, true);
+	CameraOscillationShake(start + scrolltime2 * 78, start + scrolltime2 * 79, false);
+	CameraOscillationShake(start + scrolltime2 * 79, start + scrolltime2 * 80, true);
+	CameraOscillationShake(start + scrolltime2 * 80, start + scrolltime2 * 81, false);
+	CameraOscillationShake(start + scrolltime2 * 81, start + scrolltime2 * 82, true);
+	CameraOscillationShake(start + scrolltime2 * 82, start + scrolltime2 * 83, false);
+	CameraOscillationShake(start + scrolltime2 * 83, start + scrolltime2 * 84, true);
+	CameraOscillationShake(start + scrolltime2 * 84, start + scrolltime2 * 85, false);
+	CameraOscillationShake(start + scrolltime2 * 85, start + scrolltime2 * 86, true);
+	CameraOscillationShake(start + scrolltime2 * 86, start + scrolltime2 * 87, false);
+	CameraOscillationShake(start + scrolltime2 * 87, start + scrolltime2 * 88, true);
+	CameraOscillationShake(start + scrolltime2 * 88, start + scrolltime2 * 89, false);
+	CameraOscillationShake(start + scrolltime2 * 89, start + scrolltime2 * 90, true);
+	CameraOscillationShake(start + scrolltime2 * 90, start + scrolltime2 * 91, false);
+	CameraOscillationShake(start + scrolltime2 * 91, start + scrolltime2 * 92, true);
+	CameraOscillationShake(start + scrolltime2 * 92, start + scrolltime2 * 93, false);
+	CameraOscillationShake(start + scrolltime2 * 93, start + scrolltime2 * 94, true);
+	CameraOscillationShake(start + scrolltime2 * 94, start + scrolltime2 * 95, false);
+	CameraOscillationShake(start + scrolltime2 * 95, start + scrolltime2 * 96, true);
+	CameraOscillationShake(start + scrolltime2 * 96, start + scrolltime2 * 97, false);
+	CameraOscillationShake(start + scrolltime2 * 97, start + scrolltime2 * 98, true);
+	CameraOscillationShake(start + scrolltime2 * 98, start + scrolltime2 * 99, false);
+	CameraOscillationShake(start + scrolltime2 * 99, start + scrolltime2 * 100, true);
+	CameraOscillationShake(start + scrolltime2 * 100, start + scrolltime2 * 101, false);
+	CameraOscillationShake(start + scrolltime2 * 101, start + scrolltime2 * 102, true);
+	CameraOscillationShake(start + scrolltime2 * 102, start + scrolltime2 * 103, false);
+	CameraOscillationShake(start + scrolltime2 * 103, start + scrolltime2 * 104, true);
+	CameraOscillationShake(start + scrolltime2 * 104, start + scrolltime2 * 105, false);
+	CameraOscillationShake(start + scrolltime2 * 105, start + scrolltime2 * 106, true);
+	CameraOscillationShake(start + scrolltime2 * 106, start + scrolltime2 * 107, false);
+	CameraOscillationShake(start + scrolltime2 * 107, start + scrolltime2 * 108, true);
+	CameraOscillationShake(start + scrolltime2 * 108, start + scrolltime2 * 109, false);
+	CameraOscillationShake(start + scrolltime2 * 109, start + scrolltime2 * 110, true);
+	CameraOscillationShake(start + scrolltime2 * 110, start + scrolltime2 * 111, false);
+	CameraOscillationShake(start + scrolltime2 * 111, start + scrolltime2 * 112, true);
+	CameraOscillationShake(start + scrolltime2 * 112, start + scrolltime2 * 113, false);
+	CameraOscillationShake(start + scrolltime2 * 113, start + scrolltime2 * 114, true);
+	CameraOscillationShake(start + scrolltime2 * 114, start + scrolltime2 * 115, false);
+	CameraOscillationShake(start + scrolltime2 * 115, start + scrolltime2 * 116, true);
+	CameraOscillationShake(start + scrolltime2 * 116, start + scrolltime2 * 117, false);
+	CameraOscillationShake(start + scrolltime2 * 117, start + scrolltime2 * 118, true);
+	CameraOscillationShake(start + scrolltime2 * 118, start + scrolltime2 * 119, false);
+	CameraOscillationShake(start + scrolltime2 * 119, start + scrolltime2 * 120, true);
+	CameraOscillationShake(start + scrolltime2 * 120, start + scrolltime2 * 121, false);
+	CameraOscillationShake(start + scrolltime2 * 121, start + scrolltime2 * 122, true);
+	CameraOscillationShake(start + scrolltime2 * 122, start + scrolltime2 * 123, false);
+	CameraOscillationShake(start + scrolltime2 * 123, start + scrolltime2 * 124, true);
+	CameraOscillationShake(start + scrolltime2 * 124, start + scrolltime2 * 125, false);
+	CameraOscillationShake(start + scrolltime2 * 125, start + scrolltime2 * 126, true);
+	CameraOscillationShake(start + scrolltime2 * 126, start + scrolltime2 * 127, false);
+	CameraOscillationShake(start + scrolltime2 * 127, start + scrolltime2 * 128, true);
+	CameraOscillationShake(start + scrolltime2 * 128, start + scrolltime2 * 129, false);
+	CameraOscillationShake(start + scrolltime2 * 129, start + scrolltime2 * 130, true);
+	CameraOscillationShake(start + scrolltime2 * 130, start + scrolltime2 * 131, false);
+	CameraOscillationShake(start + scrolltime2 * 131, start + scrolltime2 * 132, true);
+	CameraOscillationShake(start + scrolltime2 * 132, start + scrolltime2 * 133, false);
+	CameraOscillationShake(start + scrolltime2 * 133, start + scrolltime2 * 134, true);
+	CameraOscillationShake(start + scrolltime2 * 134, start + scrolltime2 * 135, false);
+	CameraOscillationShake(start + scrolltime2 * 135, start + scrolltime2 * 136, true);
+	CameraOscillationShake(start + scrolltime2 * 136, start + scrolltime2 * 137, false);
+	CameraOscillationShake(start + scrolltime2 * 137, start + scrolltime2 * 138, true);
+	CameraOscillationShake(start + scrolltime2 * 138, start + scrolltime2 * 139, false);
+	CameraOscillationShake(start + scrolltime2 * 139, start + scrolltime2 * 140, true);
+	CameraOscillationShake(start + scrolltime2 * 140, start + scrolltime2 * 141, false);
+	CameraOscillationShake(start + scrolltime2 * 141, start + scrolltime2 * 142, true);
+	CameraOscillationShake(start + scrolltime2 * 142, start + scrolltime2 * 143, false);
+	CameraOscillationShake(start + scrolltime2 * 143, start + scrolltime2 * 144, true);
+	CameraOscillationShake(start + scrolltime2 * 144, start + scrolltime2 * 145, false);
+	CameraOscillationShake(start + scrolltime2 * 145, start + scrolltime2 * 146, true);
+	CameraOscillationShake(start + scrolltime2 * 146, start + scrolltime2 * 147, false);
+	CameraOscillationShake(start + scrolltime2 * 147, start + scrolltime2 * 148, true);
+	CameraOscillationShake(start + scrolltime2 * 148, start + scrolltime2 * 149, false);
+	CameraOscillationShake(start + scrolltime2 * 149, start + scrolltime2 * 150, true);
+	CameraOscillationShake(start + scrolltime2 * 150, start + scrolltime2 * 151, false);
+	CameraOscillationShake(start + scrolltime2 * 151, start + scrolltime2 * 152, true);
+	CameraOscillationShake(start + scrolltime2 * 152, start + scrolltime2 * 153, false);
+	CameraOscillationShake(start + scrolltime2 * 153, start + scrolltime2 * 154, true);
+	CameraOscillationShake(start + scrolltime2 * 154, start + scrolltime2 * 155, false);
+	CameraOscillationShake(start + scrolltime2 * 155, start + scrolltime2 * 156, true);
+	CameraOscillationShake(start + scrolltime2 * 156, start + scrolltime2 * 157, false);
+	CameraOscillationShake(start + scrolltime2 * 157, start + scrolltime2 * 158, true);
+	CameraOscillationShake(start + scrolltime2 * 158, start + scrolltime2 * 159, false);
+	CameraOscillationShake(start + scrolltime2 * 159, start + scrolltime2 * 160, true);
+	CameraOscillationShake(start + scrolltime2 * 160, start + scrolltime2 * 161, false);
+	CameraOscillationShake(start + scrolltime2 * 161, start + scrolltime2 * 162, true);
+	CameraOscillationShake(start + scrolltime2 * 162, start + scrolltime2 * 163, false);
+	CameraOscillationShake(start + scrolltime2 * 163, start + scrolltime2 * 164, true);
+	CameraOscillationShake(start + scrolltime2 * 164, start + scrolltime2 * 165, false);
+	CameraOscillationShake(start + scrolltime2 * 165, start + scrolltime2 * 166, true);
+	CameraOscillationShake(start + scrolltime2 * 166, start + scrolltime2 * 167, false);
+	CameraOscillationShake(start + scrolltime2 * 167, start + scrolltime2 * 168, true);
+	CameraOscillationShake(start + scrolltime2 * 168, start + scrolltime2 * 169, false);
+	CameraOscillationShake(start + scrolltime2 * 169, start + scrolltime2 * 170, true);
+	CameraOscillationShake(start + scrolltime2 * 170, start + scrolltime2 * 171, false);
+	CameraOscillationShake(start + scrolltime2 * 171, start + scrolltime2 * 172, true);
+	CameraOscillationShake(start + scrolltime2 * 172, start + scrolltime2 * 173, false);
+	CameraOscillationShake(start + scrolltime2 * 173, start + scrolltime2 * 174, true);
+	CameraOscillationShake(start + scrolltime2 * 174, start + scrolltime2 * 175, false);
+	CameraOscillationShake(start + scrolltime2 * 175, start + scrolltime2 * 176, true);
+	CameraOscillationShake(start + scrolltime2 * 176, start + scrolltime2 * 177, false);
+	CameraOscillationShake(start + scrolltime2 * 177, start + scrolltime2 * 178, true);
+	CameraOscillationShake(start + scrolltime2 * 178, start + scrolltime2 * 179, false);
+	CameraOscillationShake(start + scrolltime2 * 179, start + scrolltime2 * 180, true);
+	CameraOscillationShake(start + scrolltime2 * 180, start + scrolltime2 * 181, false);*/   // Crater doesn't move 
 
 	// Draw everything --------------------------------------
 	

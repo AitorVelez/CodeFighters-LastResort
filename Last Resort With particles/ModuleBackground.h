@@ -19,8 +19,11 @@ public:
 	bool CleanUp(); 
 
 	void MoveUp();
+	void MoveCameraUp();
 	void MoveDown();
+	void MoveCameraDown();
 	void CameraOscillation(int since, int to, bool up); 
+	void CameraOscillationShake(int since, int to, bool up);
 	void RenderCrater();
 
 	void RenderBackgroundSpaceships(); 

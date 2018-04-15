@@ -80,7 +80,7 @@ bool ModulePlayer::CleanUp()
 
 
 void ModulePlayer::RenderStartingAnim() {
-	App->render->Blit(graphics, 50 , 125 , &playershowup.GetCurrentFrame(), 0);
+	App->render->Blit(graphics, position.x, position.y, &playershowup.GetCurrentFrame(), 0);
 }
 
 /*
