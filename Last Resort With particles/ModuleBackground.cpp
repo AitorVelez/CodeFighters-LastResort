@@ -331,6 +331,18 @@ void ModuleBackground::MoveCameraDown()
 	App->render->camera.y -= intensity;
 	intensity += 10;
 }
+void ModuleBackground::Craterup()
+{
+	int intensity = 15;
+	cratery += intensity;
+	intensity += 10;
+}
+void ModuleBackground::Craterdown()
+{
+	int intensity = 15;
+	cratery -= intensity;
+	intensity += 10;
+}
 
 void ModuleBackground::CameraOscillation(int since, int to, bool up)
 {
@@ -345,15 +357,15 @@ void ModuleBackground::CameraOscillation(int since, int to, bool up)
 void ModuleBackground::CameraOscillationShake(int since, int to, bool up) {
 	if (falscamara >= -to && falscamara <= -since)
 	{
-		if (up) MoveCameraUp();
-		if (!up) MoveCameraDown();
+		if (up) Craterup();
+		if (!up) Craterdown();
 	}
 }
 
 void ModuleBackground::RenderCrater()
 {
 	if (App->render->camera.x <= -7500 * SCREEN_SIZE)
-		App->render->Blit(graphics2, 0, 0, &crater, 0.f);
+		App->render->Blit(graphics2, craterx, cratery, &crater, 0);
 }
 
 void ModuleBackground::RenderBackgroundSpaceships()

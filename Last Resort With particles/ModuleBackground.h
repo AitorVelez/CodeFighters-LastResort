@@ -25,9 +25,9 @@ public:
 	void MoveCameraDown();
 	void CameraOscillation(int since, int to, bool up); 
 	void CameraOscillationShake(int since, int to, bool up);
-	void CameraOscillationShake2(int moment, bool up);
 	void RenderCrater();
-
+	void Craterup();
+	void Craterdown();
 	void RenderBackgroundSpaceships(); 
 	void RenderDeepBuildingLights(); 
 	void RenderBuildingLights(); 
@@ -78,7 +78,8 @@ public:
 	Collider *EnemyCollider = nullptr;
 
 	float posx = -200;
-	float posxx = -200;
+	int craterx = 0;
+	int cratery = 0;
 	int falscamara = 0;
 	int enposx = 450;
 	bool render_light = false;
