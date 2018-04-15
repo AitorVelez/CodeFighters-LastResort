@@ -92,7 +92,7 @@ void ModulePlayer::RenderStartingAnim() {
 void ModulePlayer::OnCollision(Collider * c1, Collider * c2)
 {
 	// in this function is written what happens when the player collides with something
-	App->particles->AddParticle(App->particles->bullet, position.x, position.y);
+	App->player->Disable();
 }
 
 /*

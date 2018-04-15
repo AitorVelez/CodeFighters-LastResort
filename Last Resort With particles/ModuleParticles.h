@@ -18,7 +18,7 @@ struct Particle
 {
 	Collider* collider = nullptr;
 	Animation anim;
-	uint fx = 0;
+	uint fx = -1;
 	iPoint position;
 	iPoint speed;
 	Uint32 born = 0;
