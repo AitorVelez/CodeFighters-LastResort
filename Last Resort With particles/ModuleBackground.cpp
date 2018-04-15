@@ -367,8 +367,6 @@ void ModuleBackground::RenderBackgroundSpaceships()
 void ModuleBackground::RenderEnemyTest() 
 {
 	App->render->Blit(graphics9,250, 50, &EnemyTest.GetCurrentFrame(), 0);
-
-
 }
 
 void ModuleBackground::RenderDeepBuildingLights()

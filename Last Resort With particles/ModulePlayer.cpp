@@ -29,7 +29,7 @@ ModulePlayer::ModulePlayer()
 	playershowup.PushBack({ 156, 143, 36, 19 });
 	playershowup.PushBack({ 160, 171, 32, 15 });
 	playershowup.loop = false;
-	playershowup.speed = 0.3f;
+	playershowup.speed = 0.15f;
 
 
 	// idle animation (arcade sprite sheet)
@@ -81,7 +81,7 @@ bool ModulePlayer::CleanUp()
 
 
 void ModulePlayer::RenderStartingAnim() {
-	App->render->Blit(graphics, position.x, position.y, &playershowup.GetCurrentFrame(), 0);
+	App->render->Blit(graphics, -100, -100, &playershowup.GetCurrentFrame(), 0);
 }
 
 /*
@@ -120,8 +120,8 @@ update_status ModulePlayer::Update()
 	if (position.x <= 9150)
 		position.x += scroll_speed;
 	// Input -----
-	if (App->render->camera.x >= -150) {
-		current_animation = &playershowup; 
+	if (App->render->camera.x >= -160) {
+		current_animation = &playershowup;     // player shows up
 	}
 	else {
 		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
@@ -174,7 +174,7 @@ update_status ModulePlayer::Update()
 	}
 	// Draw everything --------------------------------------
 	SDL_Rect r = current_animation->GetCurrentFrame();
-
+	RenderStartingAnim(); 
 	PlayerCollider->SetPos(position.x, position.y - r.h);
 	App->render->Blit(graphics, (float)position.x, (float)position.y - r.h, &r);
 	
