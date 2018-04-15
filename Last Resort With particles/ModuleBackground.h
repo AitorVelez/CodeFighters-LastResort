@@ -77,6 +77,7 @@ public:
 	Collider *EnemyCollider = nullptr;
 
 	int posx = 0;
+	int enposx = 250;
 	bool render_light = false;
 	bool scroll = true; 
 	float depth_1;
