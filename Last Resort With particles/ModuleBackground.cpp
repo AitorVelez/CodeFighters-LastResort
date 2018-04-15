@@ -260,6 +260,11 @@ bool ModuleBackground::Start()
 	graphics8 = App->textures->Load("assets/sprites/MidBackgroundLightsExtra.png");
 	graphics9 = App->textures->Load("assets/sprites/CommonEnemies1.png");
 	
+	//Colliders
+
+	EnemyCollider = App->collision->AddCollider({ 250,50, 32, 16 }, COLLIDER_ENEMY);
+	
+
 
 	App->player->Enable();
 
@@ -480,6 +485,14 @@ void ModuleBackground::RenderTunnelLights()
 	App->render->Blit(graphics4, 3336, 0, &tunnelLights_2.GetCurrentFrame(), depth_1);
 	App->render->Blit(graphics4, 3593, 0, &tunnelLights.GetCurrentFrame(), depth_1);
 	App->render->Blit(graphics4, 3850, 0, &tunnelLights_2.GetCurrentFrame(), depth_1);
+}
+
+void ModuleBackground::RenderEnemyColliders() 
+
+{
+
+
+
 }
 
 

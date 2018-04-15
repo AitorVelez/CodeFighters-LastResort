@@ -7,6 +7,7 @@
 
 struct SDL_Texture;
 struct Mix_Music; 
+struct Collider;
 
 class ModuleBackground : public Module
 {
@@ -33,6 +34,7 @@ public:
 	void RenderStreetLights(); 
 	void RenderTunnelLights();
 	void RenderEnemyTest();
+	void RenderEnemyColliders();
 
 	
 
@@ -71,6 +73,8 @@ public:
 	Animation MidBackgroundLights3;
 	Animation ships;
 	Animation EnemyTest;
+
+	Collider *EnemyCollider = nullptr;
 
 	int posx = 0;
 	bool render_light = false;

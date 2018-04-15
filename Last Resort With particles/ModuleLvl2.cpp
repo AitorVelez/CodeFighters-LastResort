@@ -33,7 +33,7 @@ bool ModuleLvl2::Start()
 	TexLvl2Image = App->textures->Load("assets/sprites/Background_2.png");
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
-	App->player->Enable();
+	//App->player->Enable();
 	return ret;
 }
 

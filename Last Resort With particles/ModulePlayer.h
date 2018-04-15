@@ -34,6 +34,7 @@ public:
 	iPoint position;
 	fPoint relativeposition;
 	Collider *PlayerCollider = nullptr;
+	
 
 	Mix_Chunk* chunk;
 
