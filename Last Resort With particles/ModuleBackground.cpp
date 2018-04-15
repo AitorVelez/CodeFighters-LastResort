@@ -343,7 +343,7 @@ void ModuleBackground::CameraOscillation(int since, int to, bool up)
 }
 
 void ModuleBackground::CameraOscillationShake(int since, int to, bool up) {
-	if (App->render->camera.x >= -to && App->render->camera.x <= -since)
+	if (falscamara >= -to && falscamara <= -since)
 	{
 		if (up) MoveCameraUp();
 		if (!up) MoveCameraDown();
@@ -563,6 +563,8 @@ update_status ModuleBackground::Update()
     int scroll_speed = 3; 
 
 	// Camera Movement Conditions
+	falscamara -= scroll_speed;
+
 	if (scroll) {
 		App->render->camera.x -= scroll_speed;
 	}
@@ -588,7 +590,7 @@ update_status ModuleBackground::Update()
 
 	                     // End shake 
 	
-	/*int  scrolltime2 = 10; int start = 9100 * SCREEN_SIZE;
+	int  scrolltime2 = 10; int start = 9100 * SCREEN_SIZE;
 	
 	CameraOscillationShake(start + scrolltime2, start + scrolltime2 * 2, true);
 	CameraOscillationShake(start + scrolltime2 * 2, start + scrolltime2 * 3, false);
@@ -769,7 +771,7 @@ update_status ModuleBackground::Update()
 	CameraOscillationShake(start + scrolltime2 * 177, start + scrolltime2 * 178, true);
 	CameraOscillationShake(start + scrolltime2 * 178, start + scrolltime2 * 179, false);
 	CameraOscillationShake(start + scrolltime2 * 179, start + scrolltime2 * 180, true);
-	CameraOscillationShake(start + scrolltime2 * 180, start + scrolltime2 * 181, false);*/   // Crater doesn't move 
+	CameraOscillationShake(start + scrolltime2 * 180, start + scrolltime2 * 181, false);  // Crater doesn't move 
 
 	// Draw everything --------------------------------------
 	
