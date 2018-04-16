@@ -17,23 +17,31 @@
 
 ModulePlayer::ModulePlayer()
 {
+	current_animation = &idle;
+
+
 	playershowup.PushBack({ 0,122, 111, 1 });
 	playershowup.PushBack({ 6,125, 105, 2 });
 	playershowup.PushBack({ 1,127, 77, 5 });
 	playershowup.PushBack({ 0,124, 74, 7 });
 	playershowup.PushBack({ 0,132, 111, 1 });
-	playershowup.PushBack({ 2,142, 62, 15 });   // player shows up
-	playershowup.PushBack({ 2, 172, 62, 15 });
-	playershowup.PushBack({ 13, 193, 51, 16 });
-	playershowup.PushBack({ 13, 219, 51, 16 });
-	playershowup.PushBack({ 64, 143, 64, 16 });
-	playershowup.PushBack({ 64, 164, 64, 24 });
-	playershowup.PushBack({ 71, 189, 57, 25 });
-	playershowup.PushBack({ 72, 214, 56, 25 });
-	playershowup.PushBack({ 156, 143, 36, 19 });
-	playershowup.PushBack({ 160, 171, 32, 15 });
 	playershowup.loop = false;
-	playershowup.speed = 0.25f;
+	playershowup.speed = 0.1f;
+	playershowup2.PushBack({ 2,142, 62, 15 });   // player shows up
+	playershowup2.PushBack({ 2, 172, 62, 15 });
+	playershowup2.PushBack({ 13, 193, 51, 16 });
+	playershowup2.PushBack({ 13, 219, 51, 16 });
+	playershowup2.PushBack({ 64, 143, 64, 16 });
+	playershowup2.PushBack({ 64, 164, 64, 24 });
+	playershowup2.PushBack({ 71, 189, 57, 25 });
+	playershowup2.loop = false;
+	playershowup2.speed = 0.25f;
+	playershowup3.PushBack({ 72, 214, 56, 25 });
+	playershowup3.PushBack({ 156, 143, 36, 19 });
+	playershowup3.PushBack({ 160, 171, 32, 15 });
+	playershowup3.PushBack({ 64,3,32,14 });
+	playershowup3.loop = false;
+	playershowup3.speed = 0.2f;
 
 
 	// Death Animation 
@@ -57,7 +65,7 @@ ModulePlayer::ModulePlayer()
 	Death.PushBack({ 124, 89, 41, 12 });
 	Death.PushBack({ 128, 108, 37, 10 });
 	Death.loop = false;
-	Death.speed = 0.28f;
+	Death.speed = 0.35f;
 
 	// idle animation (arcade sprite sheet)
 	
@@ -66,15 +74,27 @@ ModulePlayer::ModulePlayer()
 	// Up animation
 	up.PushBack({ 32,3,32,14 });
 	up.PushBack({ 0,3,32,14 });
-	up.speed = 0.2f;
-	up.loop = false; 
+	up.speed = 0.1;
+	up.loop = false;
 
+	re1.PushBack({ 0,3,32,14 });
+	re1.PushBack({ 32,3,32,14 });
+	re1.PushBack({ 64,3,32,14 });
+	re1.speed = 0.1;
+	re1.loop = false;
 
 	// Down animation
 	down.PushBack({ 96,3,32,14 });
 	down.PushBack({ 128,3,32,14 });
-	down.speed = 0.2f;
-	down.loop = false; 
+	down.speed = 0.1;
+	down.loop = false;
+
+	re2.PushBack({ 128,3,32,14 });
+	re2.PushBack({ 96,3,32,14 });
+	re2.PushBack({ 64,3,32,14 });
+	re2.speed = 0.1;
+	re2.loop = false;
+
 }
 
 ModulePlayer::~ModulePlayer()
@@ -151,14 +171,21 @@ anim.PushBack({ 64,3,32,14 });    // it does the remaining down anim and then id
 // Update: draw background
 update_status ModulePlayer::Update()
 {
-	Animation* current_animation = &idle;
 	int scroll_speed = 1;
 	int speed = 2;
 	if (position.x <= 9150 && alive == true)
 		position.x += scroll_speed;
 	// Input -----
-	if (App->render->camera.x >= -110) {
-		current_animation = &playershowup;     // player shows up
+	if (App->render->camera.x >= -150) {
+		if(App->render->camera.x >= -40){
+			current_animation = &playershowup;     // player shows up
+		}
+		else if(App->render->camera.x >= -100){
+			current_animation = &playershowup2;
+		}
+		else {
+			current_animation = &playershowup3;
+		}
 	}
 	else {
 		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
@@ -168,6 +195,9 @@ update_status ModulePlayer::Update()
 				current_animation = &up;         // then does the up animation 
 				relativeposition.y -= speed;
 				position.y -= speed;
+				re1.Reset();
+				re2.Reset();
+
 			}
 			else {
 				relativeposition.y = CHARACTER_HEIGHT + TopLimit;
@@ -180,6 +210,8 @@ update_status ModulePlayer::Update()
 				current_animation = &down;         // then does the down animation 
 				relativeposition.y += speed;
 				position.y += speed;
+				re1.Reset();
+				re2.Reset();
 			}
 			else {
 				relativeposition.y = SCREEN_HEIGHT - TopLimit;
@@ -204,6 +236,7 @@ update_status ModulePlayer::Update()
 			}
 		}
 
+<<<<<<< HEAD
 		if (App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_DOWN) {			
 			App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12,COLLIDER_PLAYER_SHOT);
 			App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);
@@ -223,6 +256,22 @@ update_status ModulePlayer::Update()
 
 				position.y += speed;
 			}
+=======
+		if (App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_DOWN) {
+			App->particles->AddParticle(App->particles->bullet, position.x + 33, position.y - 13, COLLIDER_PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->bulletEx, position.x + 33, position.y - 14);
+>>>>>>> b51860a33be08c047c5970e90764537aa80f3663
+		}
+		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP) {
+
+			up.Reset();
+			current_animation = &re1;
+		}
+		if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_UP) {
+
+			down.Reset();
+			current_animation = &re2;
+
 		}
 	}
 	// Draw everything --------------------------------------

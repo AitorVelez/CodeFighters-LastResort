@@ -26,12 +26,17 @@ public:
 public:
 
 	SDL_Texture* graphics = nullptr;
+	Animation *current_animation;
 	Animation idle;
 	Animation up;
 	Animation down; 
 	Animation forward;
 	Animation backward;
 	Animation playershowup; 
+	Animation playershowup2;
+	Animation playershowup3;
+	Animation re1;
+	Animation re2;
 	Animation Death;
 	iPoint position;
 	fPoint relativeposition;
