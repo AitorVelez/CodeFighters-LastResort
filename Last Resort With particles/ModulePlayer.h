@@ -20,7 +20,7 @@ public:
 	update_status Update();
 	bool CleanUp();  
 	void OnCollision(Collider* c1, Collider* c2);
-	void RenderDeath(); 
+
 	/*void SwitchToDown(Animation*);     // switch animation functions, they should recieve the "idle" animation
 	void SwitchToUp(Animation*);*/
 public:
@@ -37,7 +37,7 @@ public:
 	Animation playershowup3;
 	Animation re1;
 	Animation re2;
-	Animation Death;
+	Animation death;
 	iPoint position;
 	fPoint relativeposition;
 	Collider *PlayerCollider = nullptr;

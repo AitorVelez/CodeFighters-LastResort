@@ -47,26 +47,26 @@ ModulePlayer::ModulePlayer()
 
 	// Death Animation 
 
-	Death.PushBack({ 18, 20, 37, 16 });
-	Death.PushBack({ 14, 37, 41, 17 });
-	Death.PushBack({ 9, 54, 46, 18 });
-	Death.PushBack({ 3, 71, 52, 16 });
-	Death.PushBack({ 2, 87, 54, 15 });
-	Death.PushBack({ 0, 104, 55, 16 });
-	Death.PushBack({ 57, 21, 53, 15 });
-	Death.PushBack({ 58, 36, 52, 16 });
-	Death.PushBack({ 55, 53, 55, 17 });
-	Death.PushBack({ 56, 70, 54, 17 });
-	Death.PushBack({ 55, 88, 55, 17 });
-	Death.PushBack({ 57, 106, 53, 15 });
-	Death.PushBack({ 112, 19, 53, 18 });
-	Death.PushBack({ 114, 38, 51, 14 });
-	Death.PushBack({ 118, 53, 47, 18 });
-	Death.PushBack({ 118, 72, 47, 14 });
-	Death.PushBack({ 124, 89, 41, 12 });
-	Death.PushBack({ 128, 108, 37, 10 });
-	Death.loop = false;
-	Death.speed = 0.15f;
+	death.PushBack({ 18, 20, 37, 16 });
+	death.PushBack({ 14, 37, 41, 17 });
+	death.PushBack({ 9, 54, 46, 18 });
+	death.PushBack({ 3, 71, 52, 16 });
+	death.PushBack({ 2, 87, 54, 15 });
+	death.PushBack({ 0, 104, 55, 16 });
+	death.PushBack({ 57, 21, 53, 15 });
+	death.PushBack({ 58, 36, 52, 16 });
+	death.PushBack({ 55, 53, 55, 17 });
+	death.PushBack({ 56, 70, 54, 17 });
+	death.PushBack({ 55, 88, 55, 17 });
+	death.PushBack({ 57, 106, 53, 15 });
+	death.PushBack({ 112, 19, 53, 18 });
+	death.PushBack({ 114, 38, 51, 14 });
+	death.PushBack({ 118, 53, 47, 18 });
+	death.PushBack({ 118, 72, 47, 14 });
+	death.PushBack({ 124, 89, 41, 12 });
+	death.PushBack({ 128, 108, 37, 10 });
+	death.loop = false;
+	death.speed = 0.15f;
 
 	// idle animation (arcade sprite sheet)
 	
@@ -115,6 +115,8 @@ bool ModulePlayer::Start()
 	graphics = App->textures->Load("assets/sprites/main_character.png"); // arcade version
 	PlayerCollider = App->collision->AddCollider({ position.x,position.y, 32, 14 }, COLLIDER_PLAYER, this);
 	
+	death.Reset();
+	
 
 	return ret;
 }
@@ -127,11 +129,6 @@ bool ModulePlayer::CleanUp()
 	App->textures->Unload(graphics);
 
 	return true; 
-}
-
-void ModulePlayer::RenderDeath(){
-
-	App->render->Blit(graphics, position.x, position.y, &Death.GetCurrentFrame(), 0);
 }
 
 void ModulePlayer::OnCollision(Collider * c1, Collider * c2)
@@ -289,8 +286,8 @@ update_status ModulePlayer::Update()
 
 	SDL_Rect r = current_animation->GetCurrentFrame();
 	if (alive == false) {
-		current_animation = &Death;
-		r = current_animation->GetCurrentFrame();
+		current_animation = &death;
+		r = current_animation->GetCurrentFrame();	
 	}
 	PlayerCollider->SetPos(position.x, position.y - r.h);
 	App->render->Blit(graphics, position.x, position.y - r.h, &r);
