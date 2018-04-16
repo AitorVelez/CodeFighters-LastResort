@@ -305,6 +305,24 @@ bool ModuleBackground::CleanUp()
 }
 
 
+void ModuleBackground::CameraUpDown()
+{
+	int  scrolltime = 190; int waittime = 443;
+	CameraOscillation(100, 190, false);
+	CameraOscillation(190 + waittime, 190 + waittime + scrolltime, true);
+	CameraOscillation(190 + waittime * 2 + scrolltime, 190 + waittime * 2 + scrolltime * 2, false);
+	CameraOscillation(190 + waittime * 3 + scrolltime * 2, 190 + waittime * 3 + scrolltime * 3, true);
+	CameraOscillation(190 + waittime * 4 + scrolltime * 3, 190 + waittime * 4 + scrolltime * 4, false);
+	CameraOscillation(190 + waittime * 5 + scrolltime * 4, 190 + waittime * 5 + scrolltime * 5, true);
+	CameraOscillation(190 + waittime * 6 + scrolltime * 5, 190 + waittime * 6 + scrolltime * 6, false);
+	CameraOscillation(190 + waittime * 7 + scrolltime * 6, 190 + waittime * 7 + scrolltime * 7, true);
+	CameraOscillation(190 + waittime * 8 + scrolltime * 7, 190 + waittime * 8 + scrolltime * 8, false);
+	CameraOscillation(190 + waittime * 9 + scrolltime * 8, 190 + waittime * 9 + scrolltime * 9, true);
+	CameraOscillation(190 + waittime * 10 + scrolltime * 9, 190 + waittime * 10 + scrolltime * 10, false);
+	CameraOscillation(190 + waittime * 11 + scrolltime * 10, 190 + waittime * 11 + scrolltime * 11, true);
+	CameraOscillation(190 + waittime * 12 + scrolltime * 11, 190 + waittime * 12 + scrolltime * 11 + 100, false);
+}
+
 void ModuleBackground::MoveUp()
 {
 	App->render->camera.y += 3;
@@ -432,10 +450,6 @@ void ModuleBackground::RenderBackgroundSpaceships()
 		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3560, 50 - 10, &ships.GetCurrentFrame(), depth_2);
 		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3600, 50 - 10, &ships.GetCurrentFrame(), depth_2);
 		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3640, 50 - 10, &ships.GetCurrentFrame(), depth_2);
-
-
-
-
 	}
 }
 
@@ -577,20 +591,7 @@ update_status ModuleBackground::Update()
 		scroll = false; 
 
 			// Up and down Conditions 
-	int  scrolltime = 190; int waittime = 443; 
-	CameraOscillation(100, 190, false);
-	CameraOscillation(190+ waittime, 190 + waittime + scrolltime, true);
-	CameraOscillation(190 + waittime * 2 + scrolltime, 190 + waittime * 2 + scrolltime * 2, false);
-	CameraOscillation(190 + waittime * 3 + scrolltime * 2, 190 + waittime * 3 + scrolltime * 3, true);
-    CameraOscillation(190 + waittime * 4 + scrolltime * 3, 190 + waittime * 4 + scrolltime * 4, false);
-    CameraOscillation(190 + waittime * 5 + scrolltime * 4, 190 + waittime * 5 + scrolltime * 5, true);
-    CameraOscillation(190 + waittime * 6 + scrolltime * 5, 190 + waittime * 6 + scrolltime * 6, false);
-	CameraOscillation(190 + waittime * 7 + scrolltime * 6, 190 + waittime * 7 + scrolltime * 7, true);
-	CameraOscillation(190 + waittime * 8 + scrolltime * 7, 190 + waittime * 8 + scrolltime * 8, false);
-	CameraOscillation(190 + waittime * 9 + scrolltime * 8, 190 + waittime * 9 + scrolltime * 9, true);
-	CameraOscillation(190 + waittime * 10 + scrolltime * 9, 190 + waittime * 10 + scrolltime * 10, false);
-	CameraOscillation(190 + waittime * 11 + scrolltime * 10, 190 + waittime * 11 + scrolltime * 11, true);
-	CameraOscillation(190 + waittime * 12 + scrolltime * 11, 190 + waittime * 12 + scrolltime *11 + 100, false);
+	CameraUpDown();
 
 	                     // End shake 
 	

@@ -19,6 +19,7 @@ public:
 	update_status Update();
 	bool CleanUp(); 
 
+	void CameraUpDown();
 	void MoveUp();
 	void MoveCameraUp();
 	void MoveDown();
