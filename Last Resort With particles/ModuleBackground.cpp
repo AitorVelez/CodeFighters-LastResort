@@ -330,14 +330,6 @@ void ModuleBackground::MoveUp()
 	App->player->position.y -= 1;
 	downscroll = false; 
 }
- 
-
-void ModuleBackground::MoveCameraUp()
-{
-	int intensity = 15; 
-	App->render->camera.y += intensity;
-	intensity += 10; 
-}
 
 void ModuleBackground::MoveDown()
 {
@@ -345,26 +337,6 @@ void ModuleBackground::MoveDown()
 	App->player->position.y += 1;
 	downscroll = true; 
 }
-
-void ModuleBackground::MoveCameraDown()
-{
-	int intensity = 15;
-	App->render->camera.y -= intensity;
-	intensity += 10;
-}
-void ModuleBackground::Craterup()
-{
-	int intensity = 15;
-	cratery += intensity;
-	intensity += 10;
-}
-void ModuleBackground::Craterdown()
-{
-	int intensity = 15;
-	cratery -= intensity;
-	intensity += 10;
-}
-
 void ModuleBackground::CameraOscillation(int since, int to, bool up)
 {
 	if (App->render->camera.x >= -to && App->render->camera.x <= -since)
@@ -373,14 +345,6 @@ void ModuleBackground::CameraOscillation(int since, int to, bool up)
 		if (!up) MoveDown(); 
 	}
 	
-}
-
-void ModuleBackground::CameraOscillationShake(int since, int to, bool up) {
-	if (falscamara >= -to && falscamara <= -since)
-	{
-		if (up) Craterup();
-		if (!up) Craterdown();
-	}
 }
 
 void ModuleBackground::RenderCrater()
@@ -590,14 +554,8 @@ update_status ModuleBackground::Update()
 	if (App->render->camera.x <= -9100 * SCREEN_SIZE)
 		scroll = false; 
 
-			// Up and down Conditions 
+	// Up and down Conditions 
 	CameraUpDown();
-
-	                     // End shake 
-	
-	int  scrolltime2 = 10; int start = 9100 * SCREEN_SIZE;
-	
-	
 
 	// Draw everything --------------------------------------
 	
@@ -610,18 +568,19 @@ update_status ModuleBackground::Update()
 	RenderBackgroundSpaceships(); 
 	
 	
-
 	App->render->Blit(BackgroundLvl1_extra, 0, 35, &building_1, depth_2);										// DEPTH 2
 	
+
 	RenderBuildingLights();
 
+
 	App->render->Blit(BackgroundLvl1, 0, 0, &background, depth_1);										// DEPTH 1
+	
+	
 	RenderEnemyTest();
 	RenderStreetLights(); 
 	RenderTunnelLights();
 	
-	
-
 
 	// Fade to black
 	if (App->input->keyboard[SDL_SCANCODE_F2] == 1)

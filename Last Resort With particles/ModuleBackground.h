@@ -19,16 +19,14 @@ public:
 	update_status Update();
 	bool CleanUp(); 
 
+	// Camera movements
 	void CameraUpDown();
 	void MoveUp();
-	void MoveCameraUp();
 	void MoveDown();
-	void MoveCameraDown();
 	void CameraOscillation(int since, int to, bool up); 
-	void CameraOscillationShake(int since, int to, bool up);
+
+	// Renders
 	void RenderCrater();
-	void Craterup();
-	void Craterdown();
 	void RenderBackgroundSpaceships(); 
 	void RenderDeepBuildingLights(); 
 	void RenderBuildingLights(); 

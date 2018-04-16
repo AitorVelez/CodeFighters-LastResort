@@ -45,13 +45,6 @@ bool ModuleAudio::CleanUp()
 
 Mix_Music* ModuleAudio::LoadMus(const char * path)
 {
-	/*Mix_Music* mus = NULL;
-	mus = Mix_LoadMUS(path);
-	if (mus == NULL)
-		LOG("There was a problem loading a OGG");
-
-	return mus;*/
-
 	Mix_Music* music = NULL;
 	music = Mix_LoadMUS(path);
 
@@ -84,11 +77,6 @@ void ModuleAudio::PlayMus(Mix_Music* mus)
 
 bool ModuleAudio::UnloadMus(Mix_Music* mus)
 {
-	
-	/*Mix_FreeMusic(mus);
-	return true; 
-	*/
-	
 	bool ret = false; 
 	if (mus != nullptr) {
 		for (int i = 0; i < MAX_MUSICS; ++i)
@@ -114,12 +102,7 @@ void ModuleAudio::FadeMus(int time)
 
 Mix_Chunk * ModuleAudio::LoadChunk(const char * path)
 {
-	/*Mix_Chunk* chunky = nullptr; 
-	chunky = Mix_LoadWAV(path);
-	if (chunky == nullptr)
-		LOG("There was a problem loading the chunk.");
-	return chunky;*/
-
+	
 	Mix_Chunk* chunk = NULL;
 	chunk = Mix_LoadWAV(path);
 
