@@ -26,18 +26,18 @@ bool ModuleParticles::Start()
 	shot = App->audio->LoadChunk("assets/SFX/shot.wav");		// Shot -> fx = 0 
 
 
-	bulletEx.anim.PushBack({ 115,124,12,12 });
-	bulletEx.anim.PushBack({ 128,126,10,9 });
-	bulletEx.anim.PushBack({ 115,124,12,12 });
-	bulletEx.anim.PushBack({ 128,126,10,9 });
+	bulletEx.anim.PushBack({ 278,90,13,12 });
+	bulletEx.anim.PushBack({ 291,90,13,12 });
+	bulletEx.anim.PushBack({ 304,90,12,12 });
 	bulletEx.anim.loop = true;
-	bullet.anim.speed = 0.03f;
-	bulletEx.life = 40;
+	bulletEx.anim.speed = 0.25f;
+	bulletEx.speed.x = 1;
+	bulletEx.life = 120;
 
 	bullet.anim.PushBack({ 148,127,14,7 });
 	bullet.anim.loop = false;
 	bullet.anim.speed = 0.3f;
-	bullet.speed.x = 5;
+	bullet.speed.x = 8;
 	bullet.life = 1000;
 	bullet.fx = 0;
 
@@ -98,7 +98,7 @@ update_status ModuleParticles::Update()
 		}
 		else if (SDL_GetTicks() >= p->born)
 		{
-			App->render->Blit(playerPart, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
+			App->render->Blit(playerPart, p->position.x -2, p->position.y -1, &(p->anim.GetCurrentFrame()));
 			if (p->fx_played == false)
 			{
 				p->fx_played = true;
