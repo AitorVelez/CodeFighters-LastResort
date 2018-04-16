@@ -23,8 +23,8 @@ bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
 	playerPart = App->textures->Load("assets/sprites/main_character.png");
-	shot = App->audio->LoadChunk("assets/SFX/shot.wav");		// Shot -> fx = 0 
-
+	shot = App->audio->LoadChunk("assets/SFX/shot.wav");							// Shot -> fx = 0 
+	player_death_sfx = App->audio->LoadChunk("assets/SFX/player_death.wav");		// Death -> fx = 1
 
 	bulletEx.anim.PushBack({ 278,90,13,12 });
 	bulletEx.anim.PushBack({ 291,90,13,12 });
@@ -60,6 +60,29 @@ bool ModuleParticles::Start()
 	SpaceshipAnim.anim.speed = 0.5f;
 
 
+	player_death.anim.PushBack({ 18, 20, 37, 16 });
+	player_death.anim.PushBack({ 14, 37, 41, 17 });
+	player_death.anim.PushBack({ 9, 54, 46, 18 });
+	player_death.anim.PushBack({ 3, 71, 52, 16 });
+	player_death.anim.PushBack({ 2, 87, 54, 15 });
+	player_death.anim.PushBack({ 0, 104, 55, 16 });
+	player_death.anim.PushBack({ 57, 21, 53, 15 });
+	player_death.anim.PushBack({ 58, 36, 52, 16 });
+	player_death.anim.PushBack({ 55, 53, 55, 17 });
+	player_death.anim.PushBack({ 56, 70, 54, 17 });
+	player_death.anim.PushBack({ 55, 88, 55, 17 });
+	player_death.anim.PushBack({ 57, 106, 53, 15 });
+	player_death.anim.PushBack({ 112, 19, 53, 18 });
+	player_death.anim.PushBack({ 114, 38, 51, 14 });
+	player_death.anim.PushBack({ 118, 53, 47, 18 });
+	player_death.anim.PushBack({ 118, 72, 47, 14 });
+	player_death.anim.PushBack({ 124, 89, 41, 12 });
+	player_death.anim.PushBack({ 128, 108, 37, 10 });
+	player_death.anim.loop = false;
+	player_death.anim.speed = 0.15f;
+	player_death.speed.x = 1;
+	player_death.fx = 1; 
+
 	return true;
 }
 
@@ -69,6 +92,7 @@ bool ModuleParticles::CleanUp()
 	LOG("Unloading particles");
 	App->textures->Unload(playerPart);
 	App->audio->UnloadChunk(shot);
+	App->audio->UnloadChunk(player_death_sfx);
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
 		if (active[i] != nullptr)

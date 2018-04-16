@@ -51,10 +51,15 @@ private:
 	uint last_particle = 0;
 
 public:
+
+	Particle player_death;
 	Particle SpaceshipAnim;
 	Particle bullet;
 	Particle bulletEx;
+
+
 	Mix_Chunk* shot = nullptr; 
+	Mix_Chunk* player_death_sfx = nullptr; 
 };
 
 #endif // __MODULEPARTICLES_H__

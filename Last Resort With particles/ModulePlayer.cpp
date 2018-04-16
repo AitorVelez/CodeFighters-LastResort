@@ -115,6 +115,7 @@ bool ModulePlayer::Start()
 	graphics = App->textures->Load("assets/sprites/main_character.png"); // arcade version
 	PlayerCollider = App->collision->AddCollider({ position.x,position.y, 32, 14 }, COLLIDER_PLAYER, this);
 	
+	death_played = false; 
 	death.Reset();
 	playershowup.Reset();
 	playershowup2.Reset(); 
@@ -139,7 +140,7 @@ void ModulePlayer::OnCollision(Collider * c1, Collider * c2)
 
 	//Add an explosion here
 	alive = false; 
-	App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage);
+	App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage,2.5f);
 }
 
 /*
@@ -176,6 +177,7 @@ update_status ModulePlayer::Update()
 	int speed = 2;
 	if (position.x <= 9150 && alive == true)
 		position.x += scroll_speed;
+
 	// Input -----
 	if (App->render->camera.x >= -150) {
 		if(App->render->camera.x >= -40){
@@ -259,17 +261,24 @@ update_status ModulePlayer::Update()
 			App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);		
 		}
 	
+		
 	}
-
+		
+	if (alive) {
+		SDL_Rect r = current_animation->GetCurrentFrame();
+		PlayerCollider->SetPos(position.x, position.y - r.h);
+		App->render->Blit(graphics, position.x, position.y - r.h, &r);
+	}
 	// Draw everything --------------------------------------
-
-	SDL_Rect r = current_animation->GetCurrentFrame();
-	if (alive == false) {
-		current_animation = &death;
-		r = current_animation->GetCurrentFrame();	
+	else {
+		/*current_animation = &death;
+		r = current_animation->GetCurrentFrame();*/	
+		if (death_played == false) {
+			App->particles->AddParticle(App->particles->player_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
+			death_played = true;
+		}
 	}
-	PlayerCollider->SetPos(position.x, position.y - r.h);
-	App->render->Blit(graphics, position.x, position.y - r.h, &r);
+
 	
 	return UPDATE_CONTINUE;
 }
