@@ -238,6 +238,7 @@ ModuleBackground::ModuleBackground()
 	EnemyTest.PushBack({ 9,474,32,15 });
 	EnemyTest.PushBack({ 9,490,32,15 });
 	EnemyTest.speed = 0.2f;
+
 }
 
 ModuleBackground::~ModuleBackground()
@@ -251,7 +252,9 @@ bool ModuleBackground::Start()
 	bool ret = true;	
 
 	App->player->Enable();
-	App->particles->Enable(); 
+	App->particles->Enable(); 	
+	App->collision->Enable();
+
 	//graphics = App->textures->Load("backgroundlvl1v2.png");
 	BackgroundLvl1 = App->textures->Load("assets/sprites/background_lvl1.png");
 	BackgroundLvl1_extra = App->textures->Load("assets/sprites/background_lvl1_extra.png");
@@ -269,11 +272,9 @@ bool ModuleBackground::Start()
 	
 
 
-	App->player->Enable();
-
 	mus = App->audio->LoadMus("assets/SFX/level_1.ogg");
 	App->audio->PlayMus(mus);
-	App->collision->Enable();
+	background_spaceship_posx = -200;
 
 	return ret;
 }
@@ -389,67 +390,67 @@ void ModuleBackground::RenderCrater()
 void ModuleBackground::RenderBackgroundSpaceships()
 {
 	if (App->render->camera.x >= -4000 * SCREEN_SIZE) {
-		posx += 1.46;
+		background_spaceship_posx += 1.46;
 		
-		App->render->Blit(BackgroundSpaceshipLvl1, posx, 90 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 50, 100 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 50, 140 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 100, 90 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 170, 60 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 210, 60 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 230, 140 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 250, 60 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 290, 60 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 330, 60 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 370, 140 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 410, 140 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 450, 140 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 490, 140 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 530, 140 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 540, 120 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 590, 70 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 590, 140 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 640, 140 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 640, 90 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 660, 70 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 680, 80 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 740, 70 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 780, 70 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 820, 70 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 860, 70 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 900, 70 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 740, 130 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 780, 130 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 820, 130 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 860, 130 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 900, 130 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 1600, 60 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 1640, 80 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 1680, 100 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 1720, 120 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 1740, 130 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 1780, 130 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 1820, 130 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 1860, 130 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 1900, 130 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3000, 80 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3040, 50 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3040, 75 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3040, 100 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3090, 60 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3090, 75 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3090, 90 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3140, 60 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3140, 90 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3340, 120 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3380, 100 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3420, 80 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3460, 60 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3480, 50 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3520, 50 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3560, 50 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3600, 50 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3640, 50 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx, 90 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 50, 100 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 50, 140 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 100, 90 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 170, 60 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 210, 60 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 230, 140 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 250, 60 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 290, 60 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 330, 60 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 370, 140 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 410, 140 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 450, 140 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 490, 140 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 530, 140 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 540, 120 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 590, 70 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 590, 140 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 640, 140 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 640, 90 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 660, 70 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 680, 80 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 740, 70 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 780, 70 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 820, 70 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 860, 70 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 900, 70 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 740, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 780, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 820, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 860, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 900, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 1600, 60 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 1640, 80 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 1680, 100 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 1720, 120 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 1740, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 1780, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 1820, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 1860, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 1900, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 3000, 80 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 3040, 50 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 3040, 75 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 3040, 100 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 3090, 60 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 3090, 75 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 3090, 90 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 3140, 60 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 3140, 90 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 3340, 120 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 3380, 100 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 3420, 80 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 3460, 60 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 3480, 50 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 3520, 50 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 3560, 50 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 3600, 50 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 3640, 50 - 10, &ships.GetCurrentFrame(), depth_2);
 	}
 }
 

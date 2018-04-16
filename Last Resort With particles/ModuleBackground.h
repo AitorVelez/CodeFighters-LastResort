@@ -77,7 +77,7 @@ public:
 
 	Collider *EnemyCollider = nullptr;
 
-	float posx = -200;
+	float background_spaceship_posx = 0;
 	int craterx = 0;
 	int cratery = 0;
 	int falscamara = 0;
