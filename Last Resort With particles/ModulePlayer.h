@@ -37,7 +37,6 @@ public:
 	fPoint relativeposition;
 	Collider *PlayerCollider = nullptr;
 	
-	bool alive = true; 
 
 	Mix_Chunk* chunk;
 
