@@ -205,8 +205,24 @@ update_status ModulePlayer::Update()
 		}
 
 		if (App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_DOWN) {			
-			App->particles->AddParticle(App->particles->bullet, position.x + 33, position.y - 13,COLLIDER_PLAYER_SHOT);
-			App->particles->AddParticle(App->particles->bulletEx, position.x + 33, position.y - 14);
+			App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12,COLLIDER_PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);
+			if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT) {
+
+					position.x -= speed;
+				}
+			else if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT) {
+
+				position.x += speed;
+			}
+			else if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT) {
+
+				position.y -= speed;
+			}
+			else if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT) {
+
+				position.y += speed;
+			}
 		}
 	}
 	// Draw everything --------------------------------------
