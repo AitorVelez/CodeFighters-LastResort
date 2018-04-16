@@ -17,6 +17,9 @@
 
 ModulePlayer::ModulePlayer()
 {
+	current_animation = &idle;
+
+
 	playershowup.PushBack({ 0,122, 111, 1 });
 	playershowup.PushBack({ 6,125, 105, 2 });
 	playershowup.PushBack({ 1,127, 77, 5 });
@@ -36,6 +39,7 @@ ModulePlayer::ModulePlayer()
 	playershowup3.PushBack({ 72, 214, 56, 25 });
 	playershowup3.PushBack({ 156, 143, 36, 19 });
 	playershowup3.PushBack({ 160, 171, 32, 15 });
+	playershowup3.PushBack({ 64,3,32,14 });
 	playershowup3.loop = false;
 	playershowup3.speed = 0.2f;
 
@@ -70,15 +74,27 @@ ModulePlayer::ModulePlayer()
 	// Up animation
 	up.PushBack({ 32,3,32,14 });
 	up.PushBack({ 0,3,32,14 });
-	up.speed = 0.2f;
-	up.loop = false; 
+	up.speed = 0.1;
+	up.loop = false;
 
+	re1.PushBack({ 0,3,32,14 });
+	re1.PushBack({ 32,3,32,14 });
+	re1.PushBack({ 64,3,32,14 });
+	re1.speed = 0.1;
+	re1.loop = false;
 
 	// Down animation
 	down.PushBack({ 96,3,32,14 });
 	down.PushBack({ 128,3,32,14 });
-	down.speed = 0.2f;
-	down.loop = false; 
+	down.speed = 0.1;
+	down.loop = false;
+
+	re2.PushBack({ 128,3,32,14 });
+	re2.PushBack({ 96,3,32,14 });
+	re2.PushBack({ 64,3,32,14 });
+	re2.speed = 0.1;
+	re2.loop = false;
+
 }
 
 ModulePlayer::~ModulePlayer()
@@ -155,7 +171,6 @@ anim.PushBack({ 64,3,32,14 });    // it does the remaining down anim and then id
 // Update: draw background
 update_status ModulePlayer::Update()
 {
-	Animation* current_animation = &idle;
 	int scroll_speed = 1;
 	int speed = 2;
 	if (position.x <= 9150 && alive == true)
@@ -180,6 +195,9 @@ update_status ModulePlayer::Update()
 				current_animation = &up;         // then does the up animation 
 				relativeposition.y -= speed;
 				position.y -= speed;
+				re1.Reset();
+				re2.Reset();
+
 			}
 			else {
 				relativeposition.y = CHARACTER_HEIGHT + TopLimit;
@@ -192,6 +210,8 @@ update_status ModulePlayer::Update()
 				current_animation = &down;         // then does the down animation 
 				relativeposition.y += speed;
 				position.y += speed;
+				re1.Reset();
+				re2.Reset();
 			}
 			else {
 				relativeposition.y = SCREEN_HEIGHT - TopLimit;
@@ -216,9 +236,20 @@ update_status ModulePlayer::Update()
 			}
 		}
 
-		if (App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_DOWN) {			
-			App->particles->AddParticle(App->particles->bullet, position.x + 33, position.y - 13,COLLIDER_PLAYER_SHOT);
+		if (App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_DOWN) {
+			App->particles->AddParticle(App->particles->bullet, position.x + 33, position.y - 13, COLLIDER_PLAYER_SHOT);
 			App->particles->AddParticle(App->particles->bulletEx, position.x + 33, position.y - 14);
+		}
+		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP) {
+
+			up.Reset();
+			current_animation = &re1;
+		}
+		if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_UP) {
+
+			down.Reset();
+			current_animation = &re2;
+
 		}
 	}
 	// Draw everything --------------------------------------
