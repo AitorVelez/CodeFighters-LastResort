@@ -33,7 +33,7 @@ ModulePlayer::ModulePlayer()
 	playershowup.PushBack({ 156, 143, 36, 19 });
 	playershowup.PushBack({ 160, 171, 32, 15 });
 	playershowup.loop = false;
-	playershowup.speed = 0.15f;
+	playershowup.speed = 0.25f;
 
 
 	// idle animation (arcade sprite sheet)
@@ -85,10 +85,6 @@ bool ModulePlayer::CleanUp()
 }
 
 
-void ModulePlayer::RenderStartingAnim() {
-	App->render->Blit(graphics, -100, -100, &playershowup.GetCurrentFrame(), 0);
-}
-
 void ModulePlayer::OnCollision(Collider * c1, Collider * c2)
 {
 	// in this function is written what happens when the player collides with something
@@ -133,7 +129,7 @@ update_status ModulePlayer::Update()
 	if (position.x <= 9150)
 		position.x += scroll_speed;
 	// Input -----
-	if (App->render->camera.x >= -160) {
+	if (App->render->camera.x >= -110) {
 		current_animation = &playershowup;     // player shows up
 	}
 	else {
@@ -187,7 +183,6 @@ update_status ModulePlayer::Update()
 	}
 	// Draw everything --------------------------------------
 	SDL_Rect r = current_animation->GetCurrentFrame();
-	RenderStartingAnim(); 
 	PlayerCollider->SetPos(position.x, position.y - r.h);
 	App->render->Blit(graphics, position.x, position.y - r.h, &r);
 	
