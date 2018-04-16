@@ -181,25 +181,19 @@ update_status ModulePlayer::Update()
 	// Input -----
 	if (App->render->camera.x >= -150) {
 <<<<<<< HEAD
-<<<<<<< HEAD
 		if (App->render->camera.x >= -40) {
 			current_animation = &playershowup;
 =======
 		if(App->render->camera.x >= -40){
 			current_animation = &playershowup;     // player shows up
 >>>>>>> parent of c29244f... Merge branch 'master' of https://github.com/AitorVelez/CodeFighters-LastResort
-=======
-		if(App->render->camera.x >= -40){
-			current_animation = &playershowup;    
->>>>>>> parent of 3d09a3a... Experimenting
 		}
-		else if(App->render->camera.x >= -100){
+		else if (App->render->camera.x >= -100) {
 			current_animation = &playershowup2;
 		}
 		else {
 			current_animation = &playershowup3;
 		}
-<<<<<<< HEAD
 	}
 <<<<<<< HEAD
 
@@ -209,13 +203,6 @@ update_status ModulePlayer::Update()
 =======
 	else if (alive){
 >>>>>>> parent of c29244f... Merge branch 'master' of https://github.com/AitorVelez/CodeFighters-LastResort
-=======
-	}	
-	
-	// Input -----
-
-	else if (alive){
->>>>>>> parent of 3d09a3a... Experimenting
 
 		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
 		{
@@ -237,7 +224,7 @@ update_status ModulePlayer::Update()
 			up.Reset();
 			current_animation = &re1;
 		}
-		
+
 
 		if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
 		{
@@ -280,7 +267,6 @@ update_status ModulePlayer::Update()
 			}
 		}
 <<<<<<< HEAD
-<<<<<<< HEAD
 
 
 <<<<<<< HEAD
@@ -301,27 +287,17 @@ update_status ModulePlayer::Update()
 					//App->particles->bullet.speed.y += 0.1f;
 				}
 =======
-=======
->>>>>>> parent of 3d09a3a... Experimenting
 		/*if (App->background->notscrolling == false) {
 			if (App->background->downscroll == true) {
 				App->particles->bullet.speed.y += 0.1f;
 				App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
-<<<<<<< HEAD
 				App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);
 				App->particles->bullet.speed.y -= 0.1f;
 >>>>>>> parent of c29244f... Merge branch 'master' of https://github.com/AitorVelez/CodeFighters-LastResort
 			}
 			else {*/
-=======
->>>>>>> parent of 3d09a3a... Experimenting
 				App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);
-				App->particles->bullet.speed.y -= 0.1f;
-			}
-			else{
-				App->particles->bullet.speed.y -= 0.1f;
 				App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
-<<<<<<< HEAD
 			//}
 		}
 <<<<<<< HEAD
@@ -338,10 +314,6 @@ update_status ModulePlayer::Update()
 			if (death_played == false) {
 				App->particles->AddParticle(App->particles->player_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
 				death_played = true;
-=======
-				App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);
-				App->particles->bullet.speed.y += 0.1f;
->>>>>>> parent of 3d09a3a... Experimenting
 			}
 =======
 		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
@@ -372,34 +344,8 @@ update_status ModulePlayer::Update()
 			death_played = true;
 >>>>>>> parent of 6f9de38... I wanna become a programmer
 		}
-		else {*/
-		App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
-		App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);
-	}
-		
-=======
-		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
-			App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);
-			App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
-		}		
->>>>>>> b580d79ed6067d94a9e0261f3681791537a0a9e0
-	}
-		
-	if (alive) {
-		SDL_Rect r = current_animation->GetCurrentFrame();
-		PlayerCollider->SetPos(position.x, position.y - r.h);
-		App->render->Blit(graphics, position.x, position.y - r.h, &r);
-	}
-	// Draw everything --------------------------------------
-	else {
-		/*current_animation = &death;
-		r = current_animation->GetCurrentFrame();*/	
-		if (death_played == false) {
-			App->particles->AddParticle(App->particles->player_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
-			death_played = true;
-		}
-	}
 
-	
-	return UPDATE_CONTINUE;
+
+		return UPDATE_CONTINUE;
+	}
 }
