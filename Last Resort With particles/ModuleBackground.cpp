@@ -197,7 +197,7 @@ ModuleBackground::ModuleBackground()
 	backgroundLights.PushBack({ 1420,748,284,142 });
 	backgroundLights.PushBack({ 1420,748,284,142 });
 	backgroundLights.PushBack({ 1704,748,284,142 });
-	backgroundLights.PushBack({ 1420,748,284,142 });
+	backgroundLights.PushBack({ 1420,748,284,142 }); 
 	backgroundLights.PushBack({ 1420,748,284,142 });
 	backgroundLights.PushBack({ 1420,748,284,142 });
 	backgroundLights.PushBack({ 1136,748,284,142 });
