@@ -57,7 +57,7 @@ ModulePlayer::ModulePlayer()
 	Death.PushBack({ 124, 89, 41, 12 });
 	Death.PushBack({ 128, 108, 37, 10 });
 	Death.loop = false;
-	Death.speed = 0.05f;
+	Death.speed = 0.28f;
 
 	// idle animation (arcade sprite sheet)
 	
@@ -154,7 +154,7 @@ update_status ModulePlayer::Update()
 	Animation* current_animation = &idle;
 	int scroll_speed = 1;
 	int speed = 2;
-	if (position.x <= 9150)
+	if (position.x <= 9150 && alive == true)
 		position.x += scroll_speed;
 	// Input -----
 	if (App->render->camera.x >= -110) {
