@@ -30,8 +30,8 @@ bool ModuleStartingImage::Start()
 	bool ret = true;
 	TexStImage = App->textures->Load("assets/sprites/StartingTitle.png");
 
-	mus = App->audio->LoadMus("assets/SFX/musicInit.ogg");
-	App->audio->PlayMus(mus);
+	//mus = App->audio->LoadMus("assets/SFX/musicInit.ogg");
+	//App->audio->PlayMus(mus);
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
@@ -45,7 +45,7 @@ bool ModuleStartingImage::CleanUp()
 {
 	LOG("Unloading Intro Scene");
 	App->textures->Unload(TexStImage);
-	App->audio->UnloadMus(mus);
+	//App->audio->UnloadMus(mus);
 
 	return true;
 }

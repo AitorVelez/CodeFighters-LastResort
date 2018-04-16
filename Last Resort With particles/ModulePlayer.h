@@ -20,6 +20,7 @@ public:
 	update_status Update();
 	bool CleanUp();  
 	void OnCollision(Collider* c1, Collider* c2);
+	void RenderDeath(); 
 	/*void SwitchToDown(Animation*);     // switch animation functions, they should recieve the "idle" animation
 	void SwitchToUp(Animation*);*/
 public:
@@ -31,10 +32,12 @@ public:
 	Animation forward;
 	Animation backward;
 	Animation playershowup; 
+	Animation Death;
 	iPoint position;
 	fPoint relativeposition;
 	Collider *PlayerCollider = nullptr;
 	
+	bool alive = true; 
 
 	Mix_Chunk* chunk;
 
