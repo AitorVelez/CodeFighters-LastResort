@@ -179,20 +179,20 @@ update_status ModulePlayer::Update()
 		position.x += scroll_speed;
 	// player shows up
 	if (App->render->camera.x >= -150) {
-		if(App->render->camera.x >= -40){
-			current_animation = &playershowup;    
+		if (App->render->camera.x >= -40) {
+			current_animation = &playershowup;
 		}
-		else if(App->render->camera.x >= -100){
+		else if (App->render->camera.x >= -100) {
 			current_animation = &playershowup2;
 		}
 		else {
 			current_animation = &playershowup3;
 		}
-	}	
-	
+	}
+
 	// Input -----
 
-	else if (alive){
+	else if (alive) {
 
 		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
 		{
@@ -214,7 +214,7 @@ update_status ModulePlayer::Update()
 			up.Reset();
 			current_animation = &re1;
 		}
-		
+
 
 		if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
 		{
@@ -256,49 +256,47 @@ update_status ModulePlayer::Update()
 				relativeposition.x = SideLimit;
 			}
 		}
-<<<<<<< HEAD
-		/*if (App->background->notscrolling == false) {
-			if (App->background->downscroll == true) {
-				App->particles->bullet.speed.y += 0.1f;
-				App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);
-				App->particles->bullet.speed.y -= 0.1f;
-			}
-			else{
-				App->particles->bullet.speed.y -= 0.1f;
-				App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);
-				App->particles->bullet.speed.y += 0.1f;
-			}
-		}
-		else {*/
-		App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
-		App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);
-	}
-		
-=======
-		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
-			App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);
-			App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
-		}		
->>>>>>> b580d79ed6067d94a9e0261f3681791537a0a9e0
-	}
-		
-	if (alive) {
-		SDL_Rect r = current_animation->GetCurrentFrame();
-		PlayerCollider->SetPos(position.x, position.y - r.h);
-		App->render->Blit(graphics, position.x, position.y - r.h, &r);
-	}
-	// Draw everything --------------------------------------
-	else {
-		/*current_animation = &death;
-		r = current_animation->GetCurrentFrame();*/	
-		if (death_played == false) {
-			App->particles->AddParticle(App->particles->player_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
-			death_played = true;
-		}
-	}
 
-	
-	return UPDATE_CONTINUE;
+
+
+
+		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
+			/*if (App->background->notscrolling == false) {
+				if (App->background->downscroll == true) {
+					App->particles->bullet.speed.y += 0.1f;
+					App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);
+					//App->particles->bullet.speed.y -= 0.1f;
+				}
+				else {
+					App->particles->bullet.speed.y -= 0.1f;
+					App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);
+					//App->particles->bullet.speed.y += 0.1f;
+				}
+			}
+			else {*/
+				App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);
+				App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
+			//}
+		}
+
+		if (alive) {
+			SDL_Rect r = current_animation->GetCurrentFrame();
+			PlayerCollider->SetPos(position.x, position.y - r.h);
+			App->render->Blit(graphics, position.x, position.y - r.h, &r);
+		}
+		// Draw everything --------------------------------------
+		else {
+			/*current_animation = &death;
+			r = current_animation->GetCurrentFrame();*/
+			if (death_played == false) {
+				App->particles->AddParticle(App->particles->player_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
+				death_played = true;
+			}
+		}
+
+
+		return UPDATE_CONTINUE;
+	}
 }
