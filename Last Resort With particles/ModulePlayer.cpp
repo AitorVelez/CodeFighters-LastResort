@@ -177,16 +177,10 @@ update_status ModulePlayer::Update()
 	int speed = 2;
 	if (position.x <= 9150 && alive == true)
 		position.x += scroll_speed;
-
-	// Input -----
+	// player shows up
 	if (App->render->camera.x >= -150) {
-<<<<<<< HEAD
 		if (App->render->camera.x >= -40) {
 			current_animation = &playershowup;
-=======
-		if(App->render->camera.x >= -40){
-			current_animation = &playershowup;     // player shows up
->>>>>>> parent of c29244f... Merge branch 'master' of https://github.com/AitorVelez/CodeFighters-LastResort
 		}
 		else if (App->render->camera.x >= -100) {
 			current_animation = &playershowup2;
@@ -195,14 +189,10 @@ update_status ModulePlayer::Update()
 			current_animation = &playershowup3;
 		}
 	}
-<<<<<<< HEAD
 
 	// Input -----
 
 	else if (alive) {
-=======
-	else if (alive){
->>>>>>> parent of c29244f... Merge branch 'master' of https://github.com/AitorVelez/CodeFighters-LastResort
 
 		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
 		{
@@ -266,7 +256,6 @@ update_status ModulePlayer::Update()
 				relativeposition.x = SideLimit;
 			}
 		}
-<<<<<<< HEAD
 
 
 <<<<<<< HEAD
@@ -286,21 +275,12 @@ update_status ModulePlayer::Update()
 					App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);
 					//App->particles->bullet.speed.y += 0.1f;
 				}
-=======
-		/*if (App->background->notscrolling == false) {
-			if (App->background->downscroll == true) {
-				App->particles->bullet.speed.y += 0.1f;
-				App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);
-				App->particles->bullet.speed.y -= 0.1f;
->>>>>>> parent of c29244f... Merge branch 'master' of https://github.com/AitorVelez/CodeFighters-LastResort
 			}
 			else {*/
 				App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);
 				App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
 			//}
 		}
-<<<<<<< HEAD
 
 		if (alive) {
 			SDL_Rect r = current_animation->GetCurrentFrame();
@@ -321,12 +301,6 @@ update_status ModulePlayer::Update()
 			App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);		
 		}
 	
-=======
-		else {*/
-		App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
-		App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);
-	}
->>>>>>> parent of c29244f... Merge branch 'master' of https://github.com/AitorVelez/CodeFighters-LastResort
 		
 	}
 		
