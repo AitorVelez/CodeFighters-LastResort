@@ -22,18 +22,22 @@ ModulePlayer::ModulePlayer()
 	playershowup.PushBack({ 1,127, 77, 5 });
 	playershowup.PushBack({ 0,124, 74, 7 });
 	playershowup.PushBack({ 0,132, 111, 1 });
-	playershowup.PushBack({ 2,142, 62, 15 });   // player shows up
-	playershowup.PushBack({ 2, 172, 62, 15 });
-	playershowup.PushBack({ 13, 193, 51, 16 });
-	playershowup.PushBack({ 13, 219, 51, 16 });
-	playershowup.PushBack({ 64, 143, 64, 16 });
-	playershowup.PushBack({ 64, 164, 64, 24 });
-	playershowup.PushBack({ 71, 189, 57, 25 });
-	playershowup.PushBack({ 72, 214, 56, 25 });
-	playershowup.PushBack({ 156, 143, 36, 19 });
-	playershowup.PushBack({ 160, 171, 32, 15 });
 	playershowup.loop = false;
-	playershowup.speed = 0.25f;
+	playershowup.speed = 0.1f;
+	playershowup2.PushBack({ 2,142, 62, 15 });   // player shows up
+	playershowup2.PushBack({ 2, 172, 62, 15 });
+	playershowup2.PushBack({ 13, 193, 51, 16 });
+	playershowup2.PushBack({ 13, 219, 51, 16 });
+	playershowup2.PushBack({ 64, 143, 64, 16 });
+	playershowup2.PushBack({ 64, 164, 64, 24 });
+	playershowup2.PushBack({ 71, 189, 57, 25 });
+	playershowup2.loop = false;
+	playershowup2.speed = 0.25f;
+	playershowup3.PushBack({ 72, 214, 56, 25 });
+	playershowup3.PushBack({ 156, 143, 36, 19 });
+	playershowup3.PushBack({ 160, 171, 32, 15 });
+	playershowup3.loop = false;
+	playershowup3.speed = 0.2f;
 
 
 	// Death Animation 
@@ -57,7 +61,7 @@ ModulePlayer::ModulePlayer()
 	Death.PushBack({ 124, 89, 41, 12 });
 	Death.PushBack({ 128, 108, 37, 10 });
 	Death.loop = false;
-	Death.speed = 0.28f;
+	Death.speed = 0.35f;
 
 	// idle animation (arcade sprite sheet)
 	
@@ -157,8 +161,16 @@ update_status ModulePlayer::Update()
 	if (position.x <= 9150 && alive == true)
 		position.x += scroll_speed;
 	// Input -----
-	if (App->render->camera.x >= -110) {
-		current_animation = &playershowup;     // player shows up
+	if (App->render->camera.x >= -150) {
+		if(App->render->camera.x >= -40){
+			current_animation = &playershowup;     // player shows up
+		}
+		else if(App->render->camera.x >= -100){
+			current_animation = &playershowup2;
+		}
+		else {
+			current_animation = &playershowup3;
+		}
 	}
 	else {
 		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
