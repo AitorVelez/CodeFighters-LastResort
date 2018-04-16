@@ -263,5 +263,5 @@ update_status ModulePlayer::Update()
 			death_played = true;
 		}
 	}
-		return UPDATE_CONTINUE;
+	return UPDATE_CONTINUE;
 }

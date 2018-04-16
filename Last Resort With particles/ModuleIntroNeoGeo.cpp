@@ -58,7 +58,13 @@ update_status ModuleIntroNeoGeo::Update()
 	App->render->Blit(TexNeoGeoImage, 0, 0, &StImage);
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
-		if (App->fade->FadeToBlack(App->introneogeo, App->startimage, 1.5f))
+		if (App->fade->FadeToBlack(this, App->startimage, 1.5f))
+			App->audio->FadeMus(750);
+	}
+	
+	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_STATE::KEY_DOWN)
+	{
+		if (App->fade->FadeToBlack(this, App->background, 1.5f))
 			App->audio->FadeMus(750);
 	}
 

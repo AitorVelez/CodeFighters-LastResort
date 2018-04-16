@@ -631,7 +631,6 @@ update_status ModuleBackground::Update()
 	if (App->input->keyboard[SDL_SCANCODE_F3] == 1) 
 		if (App->fade->FadeToBlack(App->background, App->loseimage, 1.5f))
 			App->audio->FadeMus(750);
-	
 
 	return UPDATE_CONTINUE;
 }
