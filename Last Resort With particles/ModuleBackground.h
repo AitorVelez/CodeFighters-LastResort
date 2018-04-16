@@ -19,7 +19,6 @@ public:
 	update_status Update();
 	bool CleanUp(); 
 
-	void CameraUpDown();
 	void MoveUp();
 	void MoveCameraUp();
 	void MoveDown();
@@ -77,7 +76,7 @@ public:
 
 	Collider *EnemyCollider = nullptr;
 
-	float background_spaceship_posx = 0;
+	float posx = -200;
 	int craterx = 0;
 	int cratery = 0;
 	int falscamara = 0;
