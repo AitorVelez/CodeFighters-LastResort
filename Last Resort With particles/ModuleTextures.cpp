@@ -98,13 +98,13 @@ bool ModuleTextures::Unload(SDL_Texture * texture)
 		{
 			if (textures[i] == texture)
 			{
+				SDL_DestroyTexture(textures[i]);
 				textures[i] = nullptr;
 				ret = true;
 				LOG("Could unload the texture properly");
 				break;
 			}
 		}
-		SDL_DestroyTexture(texture);
 	}
 	if (ret = false) LOG("The texture entered to unload is unvalid"); 
 

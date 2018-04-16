@@ -94,14 +94,14 @@ bool ModuleAudio::UnloadMus(Mix_Music* mus)
 		for (int i = 0; i < MAX_MUSICS; ++i)
 		{
 			if (musics[i] == mus)
-			{
+			{		
+				Mix_FreeMusic(musics[i]);
 				musics[i] = nullptr;
 				ret = true;
 				LOG("Could unload the music properly");
 				break;
 			}
 		}
-		Mix_FreeMusic(mus);
 	}
 
 	return ret; 
@@ -164,14 +164,14 @@ bool ModuleAudio::UnloadChunk(Mix_Chunk* chunk)
 		for (int i = 0; i < MAX_MUSICS; ++i)
 		{
 			if (chunks[i] == chunk)
-			{
+			{		
+				Mix_FreeChunk(chunks[i]);
 				chunks[i] = nullptr;
 				ret = true;
 				LOG("Could unload the chunk properly");
 				break;
 			}
 		}
-		Mix_FreeChunk(chunk);
 	}
 	if (ret = false) LOG("The chunk passed to unload is empty"); 
 
