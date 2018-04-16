@@ -39,9 +39,9 @@ ModulePlayer::ModulePlayer()
 	playershowup3.PushBack({ 72, 214, 56, 25 });
 	playershowup3.PushBack({ 156, 143, 36, 19 });
 	playershowup3.PushBack({ 160, 171, 32, 15 });
-	playershowup3.PushBack({ 64,3,32,14 });
 	playershowup3.loop = false;
 	playershowup3.speed = 0.2f;
+
 
 
 	// Death Animation 
@@ -65,7 +65,7 @@ ModulePlayer::ModulePlayer()
 	Death.PushBack({ 124, 89, 41, 12 });
 	Death.PushBack({ 128, 108, 37, 10 });
 	Death.loop = false;
-	Death.speed = 0.35f;
+	Death.speed = 0.15f;
 
 	// idle animation (arcade sprite sheet)
 	
