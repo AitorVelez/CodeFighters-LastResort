@@ -227,7 +227,7 @@ update_status ModulePlayer::Update()
 			}
 		}
 		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT) {
-			if (relativeposition.x >  SideLimit) {
+			if (relativeposition.x > SideLimit) {
 				relativeposition.x -= speed;
 				position.x -= speed;
 			}
@@ -236,14 +236,14 @@ update_status ModulePlayer::Update()
 			}
 		}
 
-<<<<<<< HEAD
-		if (App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_DOWN) {			
-			App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12,COLLIDER_PLAYER_SHOT);
+
+		if (App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_DOWN) {
+			App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
 			App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);
 			if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT) {
 
-					position.x -= speed;
-				}
+				position.x -= speed;
+			}
 			else if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT) {
 
 				position.x += speed;
@@ -256,11 +256,13 @@ update_status ModulePlayer::Update()
 
 				position.y += speed;
 			}
-=======
-		if (App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_DOWN) {
-			App->particles->AddParticle(App->particles->bullet, position.x + 33, position.y - 13, COLLIDER_PLAYER_SHOT);
-			App->particles->AddParticle(App->particles->bulletEx, position.x + 33, position.y - 14);
->>>>>>> b51860a33be08c047c5970e90764537aa80f3663
+
+			//if (App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_DOWN) {
+				//App->particles->AddParticle(App->particles->bullet, position.x + 33, position.y - 13, COLLIDER_PLAYER_SHOT);
+				//App->particles->AddParticle(App->particles->bulletEx, position.x + 33, position.y - 14);
+
+			//}
+		
 		}
 		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP) {
 
