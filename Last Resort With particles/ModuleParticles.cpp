@@ -41,23 +41,23 @@ bool ModuleParticles::Start()
 	bullet.life = 1000;
 	bullet.fx = 0;
 
-	SpaceshipAnim.anim.PushBack({ 0,122,111,1 });
-	SpaceshipAnim.anim.PushBack({ 0,125,111,2 });
-	SpaceshipAnim.anim.PushBack({ 0,127,77,5 });
-	SpaceshipAnim.anim.PushBack({ 0,132,74,7 });
-	SpaceshipAnim.anim.PushBack({ 0,142,64,15 });
-	SpaceshipAnim.anim.PushBack({ 0,171,64,15 });
-	SpaceshipAnim.anim.PushBack({ 0,193,64,16 });
-	SpaceshipAnim.anim.PushBack({ 0,219,64,16 });
-	SpaceshipAnim.anim.PushBack({ 64,143,64,16 });
-	SpaceshipAnim.anim.PushBack({ 64,164,64,25 });
-	SpaceshipAnim.anim.PushBack({ 64,189,64,25 });
-	SpaceshipAnim.anim.PushBack({ 64,214,64,25 });
-	SpaceshipAnim.anim.PushBack({ 128,143,64,19 });
-	SpaceshipAnim.anim.PushBack({ 128,162,64,19 });
+	SpaceshipAnim.anim.PushBack({ 0,121,111,25 });
+	SpaceshipAnim.anim.PushBack({ 0,146,111,25 });
+	SpaceshipAnim.anim.PushBack({ 0,171,111,25 });
+	SpaceshipAnim.anim.PushBack({ 0,196,111,25 });
+	SpaceshipAnim.anim.PushBack({ 0,221,111,25 });
+	SpaceshipAnim.anim.PushBack({ 0,246,111,25 });
+	SpaceshipAnim.anim.PushBack({ 0,271,111,25 });
+	SpaceshipAnim.anim.PushBack({ 0,296,111,25 });
+	SpaceshipAnim.anim.PushBack({ 0,321,111,25 });
+	SpaceshipAnim.anim.PushBack({ 0,346,111,25 });
+	SpaceshipAnim.anim.PushBack({ 0,371,111,25 });
+	SpaceshipAnim.anim.PushBack({ 0,396,111,25 });
+	SpaceshipAnim.anim.PushBack({ 0,421,111,25 });
+	SpaceshipAnim.anim.PushBack({ 0,446,111,25 });
 	SpaceshipAnim.anim.loop = false;
 	SpaceshipAnim.speed.x = 1;
-	SpaceshipAnim.anim.speed = 0.5f;
+	SpaceshipAnim.anim.speed = 0.007f;
 
 
 	player_death.anim.PushBack({ 18, 20, 37, 16 });

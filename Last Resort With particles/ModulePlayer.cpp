@@ -20,26 +20,25 @@ ModulePlayer::ModulePlayer()
 	current_animation = &idle;
 
 
-	playershowup.PushBack({ 0,122, 111, 1 });
-	playershowup.PushBack({ 6,125, 105, 2 });
-	playershowup.PushBack({ 1,127, 77, 5 });
-	playershowup.PushBack({ 0,124, 74, 7 });
-	playershowup.PushBack({ 0,132, 111, 1 });
+	playershowup.PushBack({ 0,121,111,25 });
+	playershowup.PushBack({ 0,146,111,25 });
+	playershowup.PushBack({ 0,171,111,25 });
+	
 	playershowup.loop = false;
 	playershowup.speed = 0.1f;
-	playershowup2.PushBack({ 2,142, 62, 15 });   // player shows up
-	playershowup2.PushBack({ 2, 172, 62, 15 });
-	playershowup2.PushBack({ 13, 193, 51, 16 });
-	playershowup2.PushBack({ 13, 219, 51, 16 });
-	playershowup2.PushBack({ 64, 143, 64, 16 });
-	playershowup2.PushBack({ 64, 164, 64, 24 });
-	playershowup2.PushBack({ 71, 189, 57, 25 });
+	playershowup2.PushBack({ 0,196,111,25 });
+	playershowup2.PushBack({ 0,221,111,25 });
+	playershowup2.PushBack({ 0,246,111,25 });
+	playershowup2.PushBack({ 0,271,111,25 });
+	playershowup2.PushBack({ 0,296,111,25 });
+	playershowup2.PushBack({ 0,321,111,25 });
+	playershowup2.PushBack({ 0,346,111,25 });
 	playershowup2.loop = false;
 	playershowup2.speed = 0.25f;
-	playershowup3.PushBack({ 72, 214, 56, 25 });
-	playershowup3.PushBack({ 156, 143, 36, 19 });
-	playershowup3.PushBack({ 160, 171, 32, 15 });
-	playershowup3.PushBack({ 64,3,32,14 });
+	playershowup3.PushBack({ 0,371,111,25 });
+	playershowup3.PushBack({ 0,396,111,25 });
+	playershowup3.PushBack({ 0,421,111,25 });
+	playershowup3.PushBack({ 0,446,111,25 });
 	playershowup3.loop = false;
 	playershowup3.speed = 0.2f;
 
