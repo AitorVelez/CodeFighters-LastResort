@@ -622,11 +622,11 @@ update_status ModuleBackground::Update()
 
 
 	// Fade to black
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
+	if (App->input->keyboard[SDL_SCANCODE_F2] == 1)
 		if(App->fade->FadeToBlack(App->background, App->stageclear, 1.5f))
 			App->audio->FadeMus(750);
 
-	if (App->input->keyboard[SDL_SCANCODE_L] == 1) 
+	if (App->input->keyboard[SDL_SCANCODE_F3] == 1) 
 		if (App->fade->FadeToBlack(App->background, App->loseimage, 1.5f))
 			App->audio->FadeMus(750);
 	
