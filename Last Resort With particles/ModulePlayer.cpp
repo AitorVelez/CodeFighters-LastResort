@@ -36,6 +36,29 @@ ModulePlayer::ModulePlayer()
 	playershowup.speed = 0.25f;
 
 
+	// Death Animation 
+
+	Death.PushBack({ 18, 20, 37, 16 });
+	Death.PushBack({ 14, 37, 41, 17 });
+	Death.PushBack({ 9, 54, 46, 18 });
+	Death.PushBack({ 3, 71, 52, 16 });
+	Death.PushBack({ 2, 87, 54, 15 });
+	Death.PushBack({ 0, 104, 55, 16 });
+	Death.PushBack({ 57, 21, 53, 15 });
+	Death.PushBack({ 58, 36, 52, 16 });
+	Death.PushBack({ 55, 53, 55, 17 });
+	Death.PushBack({ 56, 70, 54, 17 });
+	Death.PushBack({ 55, 88, 55, 17 });
+	Death.PushBack({ 57, 106, 53, 15 });
+	Death.PushBack({ 112, 19, 53, 18 });
+	Death.PushBack({ 114, 38, 51, 14 });
+	Death.PushBack({ 118, 53, 47, 18 });
+	Death.PushBack({ 118, 72, 47, 14 });
+	Death.PushBack({ 124, 89, 41, 12 });
+	Death.PushBack({ 128, 108, 37, 10 });
+	Death.loop = false;
+	Death.speed = 0.05f;
+
 	// idle animation (arcade sprite sheet)
 	
 	idle.PushBack({ 64,3,32,14 });
@@ -84,12 +107,17 @@ bool ModulePlayer::CleanUp()
 	return true; 
 }
 
+void ModulePlayer::RenderDeath(){
+
+	App->render->Blit(graphics, position.x, position.y, &Death.GetCurrentFrame(), 0);
+}
 
 void ModulePlayer::OnCollision(Collider * c1, Collider * c2)
 {
 	// in this function is written what happens when the player collides with something
 
 	//Add an explosion here
+
 	App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage);
 }
 
@@ -182,6 +210,7 @@ update_status ModulePlayer::Update()
 		}
 	}
 	// Draw everything --------------------------------------
+
 	SDL_Rect r = current_animation->GetCurrentFrame();
 	PlayerCollider->SetPos(position.x, position.y - r.h);
 	App->render->Blit(graphics, position.x, position.y - r.h, &r);
