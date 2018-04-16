@@ -10,12 +10,6 @@
 struct Mix_Music;
 struct Mix_Chunk;
 
-enum audio_status{
-	AUDIO_OUT,
-	AUDIO_PLAY,
-	AUDIO_UNLOAD
-};
-
 class ModuleAudio : public Module {
 
 public:
