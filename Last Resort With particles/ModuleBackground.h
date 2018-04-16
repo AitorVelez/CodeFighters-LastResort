@@ -81,7 +81,6 @@ public:
 	int craterx = 0;
 	int cratery = 0;
 	int falscamara = 0;
-	int enposx = 200;
 	bool render_light = false;
 	bool scroll = true; 
 	float depth_1;

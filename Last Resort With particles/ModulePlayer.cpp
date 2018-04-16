@@ -108,8 +108,9 @@ bool ModulePlayer::Start()
 	bool ret = true;
 	position.x = 50;
 	position.y = 125;
-	relativeposition.x = 50;
-	relativeposition.y = 125; 
+	relativeposition.x = position.x;
+	relativeposition.y = position.y;
+	alive = true; 
 
 	graphics = App->textures->Load("assets/sprites/main_character.png"); // arcade version
 	PlayerCollider = App->collision->AddCollider({ position.x,position.y, 32, 14 }, COLLIDER_PLAYER, this);
@@ -188,7 +189,8 @@ update_status ModulePlayer::Update()
 			current_animation = &playershowup3;
 		}
 	}
-	else {
+	else if (alive){
+
 		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
 		{
 			if (relativeposition.y > CHARACTER_HEIGHT + TopLimit) {
@@ -204,6 +206,13 @@ update_status ModulePlayer::Update()
 				relativeposition.y = CHARACTER_HEIGHT + TopLimit;
 			}
 		}
+		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP) {
+
+			up.Reset();
+			current_animation = &re1;
+		}
+		
+
 		if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
 		{
 			if (relativeposition.y < SCREEN_HEIGHT - TopLimit) {
@@ -218,6 +227,14 @@ update_status ModulePlayer::Update()
 				relativeposition.y = SCREEN_HEIGHT - TopLimit;
 			}
 		}
+
+		if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_UP) {
+
+			down.Reset();
+			current_animation = &re2;
+
+		}
+
 		if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT) {
 			if (relativeposition.x < SCREEN_WIDTH - CHARACTER_WIDTH - SideLimit) {
 				relativeposition.x += speed;
@@ -265,18 +282,9 @@ update_status ModulePlayer::Update()
 			//}
 		
 		}
-		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP) {
-
-			up.Reset();
-			current_animation = &re1;
-		}
-		if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_UP) {
-
-			down.Reset();
-			current_animation = &re2;
-
-		}
+	
 	}
+
 	// Draw everything --------------------------------------
 
 	SDL_Rect r = current_animation->GetCurrentFrame();

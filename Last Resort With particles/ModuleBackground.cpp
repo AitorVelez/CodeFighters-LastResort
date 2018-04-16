@@ -268,7 +268,7 @@ bool ModuleBackground::Start()
 	
 	//Colliders
 
-	EnemyCollider = App->collision->AddCollider({ enposx ,50, 32, 16 }, COLLIDER_ENEMY);
+	EnemyCollider = App->collision->AddCollider({ 350 ,112, 32, 16 }, COLLIDER_ENEMY);
 	
 
 
@@ -456,10 +456,7 @@ void ModuleBackground::RenderBackgroundSpaceships()
 
 void ModuleBackground::RenderEnemyTest() 
 {
-	enposx += +1;
-
-	App->render->Blit(CommonEnemies,enposx, 50, &EnemyTest.GetCurrentFrame(), 1);
-	EnemyCollider->SetPos(enposx, 50);
+	App->render->Blit(CommonEnemies,350, 112, &EnemyTest.GetCurrentFrame(), 1);
 }
 
 void ModuleBackground::RenderDeepBuildingLights()
