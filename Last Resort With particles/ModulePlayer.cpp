@@ -258,6 +258,7 @@ update_status ModulePlayer::Update()
 		}
 
 
+<<<<<<< HEAD
 
 
 		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
@@ -294,6 +295,28 @@ update_status ModulePlayer::Update()
 				App->particles->AddParticle(App->particles->player_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
 				death_played = true;
 			}
+=======
+		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
+			App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);		
+		}
+	
+		
+	}
+		
+	if (alive) {
+		SDL_Rect r = current_animation->GetCurrentFrame();
+		PlayerCollider->SetPos(position.x, position.y - r.h);
+		App->render->Blit(graphics, position.x, position.y - r.h, &r);
+	}
+	// Draw everything --------------------------------------
+	else {
+		/*current_animation = &death;
+		r = current_animation->GetCurrentFrame();*/	
+		if (death_played == false) {
+			App->particles->AddParticle(App->particles->player_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
+			death_played = true;
+>>>>>>> parent of 6f9de38... I wanna become a programmer
 		}
 
 

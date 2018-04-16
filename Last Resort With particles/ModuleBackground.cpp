@@ -328,7 +328,6 @@ void ModuleBackground::MoveUp()
 {
 	App->render->camera.y += 3;
 	App->player->position.y -= 1;
-	downscroll = false; 
 }
  
 
@@ -343,7 +342,6 @@ void ModuleBackground::MoveDown()
 {
 	App->render->camera.y -= 3;
 	App->player->position.y += 1;
-	downscroll = true; 
 }
 
 void ModuleBackground::MoveCameraDown()

@@ -86,8 +86,6 @@ public:
 	float depth_1;
 	float depth_2;
 	float depth_3; 
-	bool downscroll = false; 
-	bool notscrolling = true;
 };
 
 #endif
