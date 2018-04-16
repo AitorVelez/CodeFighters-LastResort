@@ -20,17 +20,17 @@ ModulePlayer::ModulePlayer()
 	current_animation = &idle;
 
 
-	playershowup.PushBack({ 0,121,111,25 });
-	playershowup.PushBack({ 6,146,105,25 });
-	playershowup.PushBack({ 32,171,79,25 });
+	playershowup.PushBack({ 0,130,111,16 });
+	playershowup.PushBack({ 6,155,105,16 });
+	playershowup.PushBack({ 32,180,79,16 });
 	playershowup.loop = false;
 	playershowup.speed = 0.1f;
-	playershowup2.PushBack({ 34,196,77,25 });
-	playershowup2.PushBack({ 46,221,65,25 }); //player shows up
-	playershowup2.PushBack({ 46,246,65,25 });
-	playershowup2.PushBack({ 57,271,56,25 });
-	playershowup2.PushBack({ 57,296,56,25 });
-	playershowup2.PushBack({ 44,321,67,25 });
+	playershowup2.PushBack({ 34,204,77,17 });
+	playershowup2.PushBack({ 46,224,65,22 }); //player shows up
+	playershowup2.PushBack({ 46,252,65,19 });
+	playershowup2.PushBack({ 57,274,56,22 });
+	playershowup2.PushBack({ 57,300,56,21 });
+	playershowup2.PushBack({ 44,325,67,21 });
 	playershowup2.PushBack({ 44,346,67,25 });
 	playershowup2.loop = false;
 	playershowup2.speed = 0.15f;
