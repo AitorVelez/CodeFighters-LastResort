@@ -10,7 +10,6 @@
 #include "ModuleBackground.h"
 #include "ModuleStageClear.h"
 #include "ModuleIntroNeoGeo.h"
-#include "ModuleLvl2.h"
 #include "Application.h"
 
 
