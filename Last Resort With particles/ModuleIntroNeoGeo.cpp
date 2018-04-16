@@ -5,56 +5,61 @@
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
 #include "ModuleInput.h"
+#include "ModuleAudio.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleBackground.h"
 #include "ModuleStageClear.h"
-#include "ModuleLvl2.h"
-#include "ModuleAudio.h"
 #include "ModuleIntroNeoGeo.h"
 #include "Application.h"
 
 
-
-ModuleLvl2::ModuleLvl2()
+ModuleIntroNeoGeo::ModuleIntroNeoGeo()
 {
-	Lvl2Image.x = 0;
-	Lvl2Image.y = 0;
-	Lvl2Image.w = SCREEN_WIDTH;
-	Lvl2Image.h = SCREEN_HEIGHT;
+	StImage.x = 0;
+	StImage.y = 0;
+	StImage.w = SCREEN_WIDTH;
+	StImage.h = SCREEN_HEIGHT;
 }
 
-ModuleLvl2::~ModuleLvl2()
+ModuleIntroNeoGeo::~ModuleIntroNeoGeo()
 {}
 
 // Load assets
-bool ModuleLvl2::Start()
+bool ModuleIntroNeoGeo::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	TexLvl2Image = App->textures->Load("assets/sprites/Background_2.png");
+	TexNeoGeoImage = App->textures->Load("assets/sprites/Neogeo.png");
+
+	mus = App->audio->LoadMus("assets/SFX/musicInit.ogg");
+	App->audio->PlayMus(mus);
+
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
-	//App->player->Enable();
+	App->player->Disable();
+
 	return ret;
 }
 
 // Load assets
-bool ModuleLvl2::CleanUp()
+bool ModuleIntroNeoGeo::CleanUp()
 {
 	LOG("Unloading Intro Scene");
-	App->textures->Unload(TexLvl2Image);
+	App->textures->Unload(TexNeoGeoImage);
+	App->audio->UnloadMus(mus);
 
 	return true;
 }
 
 // Update: draw background
-update_status ModuleLvl2::Update()
+update_status ModuleIntroNeoGeo::Update()
 {
 	// Draw everything --------------------------------------	
-	App->render->Blit(TexLvl2Image, 0, 0, &Lvl2Image);
+	App->render->Blit(TexNeoGeoImage, 0, 0, &StImage);
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
-		App->fade->FadeToBlack(App->lvl2, App->introneogeo, 1.5f);
+		if (App->fade->FadeToBlack(App->introneogeo, App->startimage, 1.5f))
+			App->audio->FadeMus(750);
 	}
 
 

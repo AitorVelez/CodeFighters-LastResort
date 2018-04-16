@@ -10,6 +10,7 @@
 #include "ModuleCollision.h"
 #include "ModuleStageClear.h"
 #include "ModuleParticles.h"
+#include "ModuleIntroNeoGeo.h"
 #include "ModuleStartingImage.h"
 #include "ModuleCollision.h"
 #include "ModuleLoseImage.h"
@@ -26,13 +27,14 @@ Application::Application()
 	modules[4] = background = new ModuleBackground();
 	modules[5] = player = new ModulePlayer();
 	modules[6] = particles = new ModuleParticles();
-	modules[7] = startimage = new ModuleStartingImage();
-	modules[8] = stageclear = new ModuleStageClear();
-	modules[9] = lvl2 = new ModuleLvl2();
-	modules[10] = loseimage = new ModuleLoseImage();
-	modules[11] = audio = new ModuleAudio(); 
-	modules[12] = collision = new ModuleCollision();
-	modules[13] = fade = new ModuleFadeToBlack();
+	modules[7] = introneogeo = new ModuleIntroNeoGeo();
+	modules[8] = startimage = new ModuleStartingImage();
+	modules[9] = stageclear = new ModuleStageClear();
+	modules[10] = lvl2 = new ModuleLvl2();
+	modules[11] = loseimage = new ModuleLoseImage();
+	modules[12] = audio = new ModuleAudio(); 
+	modules[13] = collision = new ModuleCollision();
+	modules[14] = fade = new ModuleFadeToBlack();
 
 	
 }	
@@ -47,7 +49,7 @@ bool Application::Init()
 {
 	bool ret = true;
 
-
+	startimage->Disable();
 	player->Disable();
 	particles->Disable(); 
 	background->Disable();
