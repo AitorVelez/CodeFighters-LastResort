@@ -136,39 +136,9 @@ bool ModulePlayer::CleanUp()
 
 void ModulePlayer::OnCollision(Collider * c1, Collider * c2)
 {
-	// in this function is written what happens when the player collides with something
-
-	//Add an explosion here
 	alive = false; 
 	App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage,2.5f);
 }
-
-/*
-void SwitchToDown(Animation* anim) {
-	if (//player has reached the top animation) {
-	anim.PushBack({ 32,3,32,14 });   
-    anim.PushBack({ 64,3,32,14 });    // up anim and then idle //
-
-	}
-	else {
-	anim.PushBack({ 64,3,32,14 });  // only idle //
-	}
-};*/
-
-/*
-void SwitchToUp(Animation* anim) {
-if (// player has reached the bottom animation ) {
-anim.PushBack({ 96,3,32,14 });
-anim.PushBack({ 64,3,32,14 });    // it does the remaining down anim and then idle //      
-
-	}
-	else {
-		anim.PushBack({ 64,3,32,14 });  // it does only idle //
-	}
-};*/
-
-
- 
 
 // Update: draw background
 update_status ModulePlayer::Update()
@@ -197,13 +167,11 @@ update_status ModulePlayer::Update()
 		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
 		{
 			if (relativeposition.y > CHARACTER_HEIGHT + TopLimit) {
-				// SwitchToUp(current_animation);   // first does the remaining animations (in the function)
-				current_animation = &up;         // then does the up animation 
+				current_animation = &up;
 				relativeposition.y -= speed;
 				position.y -= speed;
 				re1.Reset();
 				re2.Reset();
-
 			}
 			else {
 				relativeposition.y = CHARACTER_HEIGHT + TopLimit;
@@ -219,8 +187,7 @@ update_status ModulePlayer::Update()
 		if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
 		{
 			if (relativeposition.y < SCREEN_HEIGHT - TopLimit) {
-				// SwitchToDown(current_animation);   // first does the remaining animations (in the function)
-				current_animation = &down;         // then does the down animation 
+				current_animation = &down;
 				relativeposition.y += speed;
 				position.y += speed;
 				re1.Reset();
@@ -276,27 +243,25 @@ update_status ModulePlayer::Update()
 				}
 			}
 			else {*/
-				App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);
-				App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);
+			App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
 			//}
 		}
+	}
 
-		if (alive) {
-			SDL_Rect r = current_animation->GetCurrentFrame();
-			PlayerCollider->SetPos(position.x, position.y - r.h);
-			App->render->Blit(graphics, position.x, position.y - r.h, &r);
-		}
+	if (alive) {
+		SDL_Rect r = current_animation->GetCurrentFrame();
+		PlayerCollider->SetPos(position.x, position.y - r.h);
+		App->render->Blit(graphics, position.x, position.y - r.h, &r);
+	}
 		// Draw everything --------------------------------------
-		else {
+	else {
 			/*current_animation = &death;
 			r = current_animation->GetCurrentFrame();*/
-			if (death_played == false) {
-				App->particles->AddParticle(App->particles->player_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
-				death_played = true;
-			}
+		if (death_played == false) {
+			App->particles->AddParticle(App->particles->player_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
+			death_played = true;
 		}
-
-
-		return UPDATE_CONTINUE;
 	}
+		return UPDATE_CONTINUE;
 }
