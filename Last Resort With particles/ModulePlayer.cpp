@@ -33,7 +33,7 @@ ModulePlayer::ModulePlayer()
 	playershowup2.PushBack({ 44,321,67,25 });
 	playershowup2.PushBack({ 44,346,67,25 });
 	playershowup2.loop = false;
-	playershowup2.speed = 0.25f;
+	playershowup2.speed = 0.15f;
 	playershowup3.PushBack({ 51,371,60,25 });
 	playershowup3.PushBack({ 52,396,59,25 });
 	playershowup3.PushBack({ 72,421,39,25 });
@@ -153,8 +153,11 @@ update_status ModulePlayer::Update()
 		else if (App->render->camera.x >= -100) {
 			current_animation = &playershowup2;
 		}
-		else {
+		else if (App->render->camera.x >= -149) {
 			current_animation = &playershowup3;
+		}
+		else {
+			current_animation = &idle;
 		}
 	}
 
