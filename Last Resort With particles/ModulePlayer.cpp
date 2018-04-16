@@ -117,7 +117,7 @@ void ModulePlayer::OnCollision(Collider * c1, Collider * c2)
 	// in this function is written what happens when the player collides with something
 
 	//Add an explosion here
-
+	alive = false; 
 	App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage);
 }
 
@@ -212,6 +212,10 @@ update_status ModulePlayer::Update()
 	// Draw everything --------------------------------------
 
 	SDL_Rect r = current_animation->GetCurrentFrame();
+	if (alive == false) {
+		current_animation = &Death;
+		r = current_animation->GetCurrentFrame();
+	}
 	PlayerCollider->SetPos(position.x, position.y - r.h);
 	App->render->Blit(graphics, position.x, position.y - r.h, &r);
 	
