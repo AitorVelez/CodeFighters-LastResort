@@ -32,7 +32,7 @@ bool ModuleParticles::Start()
 	bulletEx.anim.loop = true;
 	bulletEx.anim.speed = 0.25f;
 	bulletEx.speed.x = 1;
-	bulletEx.life = 120;
+	bulletEx.life = 100;
 
 	bullet.anim.PushBack({ 148,127,14,7 });
 	bullet.anim.loop = false;
@@ -79,7 +79,7 @@ bool ModuleParticles::Start()
 	player_death.anim.PushBack({ 124, 89, 41, 12 });
 	player_death.anim.PushBack({ 128, 108, 37, 10 });
 	player_death.anim.loop = false;
-	player_death.anim.speed = 0.15f;
+	player_death.anim.speed = 0.25f;
 	player_death.fx = 1; 
 
 	return true;
