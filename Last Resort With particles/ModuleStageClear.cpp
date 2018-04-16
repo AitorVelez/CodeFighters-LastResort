@@ -9,7 +9,6 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleBackground.h"
 #include "ModuleStageClear.h"
-#include "ModuleLvl2.h"
 #include "Application.h"
 
 
@@ -59,7 +58,7 @@ update_status ModuleStageClear::Update()
 	App->render->Blit(TexStageImage, 0, 0, &StageImage);
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
-		if (App->fade->FadeToBlack(App->stageclear, App->lvl2, 1.5f))
+		if (App->fade->FadeToBlack(App->stageclear,App->startimage, 1.5f))
 			App->audio->FadeMus(750);
 	}
 

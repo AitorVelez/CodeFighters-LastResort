@@ -13,7 +13,6 @@
 #include "ModuleStartingImage.h"
 #include "ModuleCollision.h"
 #include "ModuleLoseImage.h"
-#include "ModuleLvl2.h"
 #include "Module.h"
 
 
@@ -28,11 +27,10 @@ Application::Application()
 	modules[6] = particles = new ModuleParticles();
 	modules[7] = startimage = new ModuleStartingImage();
 	modules[8] = stageclear = new ModuleStageClear();
-	modules[9] = lvl2 = new ModuleLvl2();
-	modules[10] = loseimage = new ModuleLoseImage();
-	modules[11] = audio = new ModuleAudio(); 
-	modules[12] = collision = new ModuleCollision();
-	modules[13] = fade = new ModuleFadeToBlack();
+	modules[9] = loseimage = new ModuleLoseImage();
+	modules[10] = audio = new ModuleAudio(); 
+	modules[11] = collision = new ModuleCollision();
+	modules[12] = fade = new ModuleFadeToBlack();
 
 	
 }	
@@ -52,7 +50,7 @@ bool Application::Init()
 	particles->Disable(); 
 	background->Disable();
 	stageclear->Disable();
-	lvl2->Disable();
+
 	loseimage->Disable();
 	collision->Disable();
 
