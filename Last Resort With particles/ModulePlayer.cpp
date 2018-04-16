@@ -21,24 +21,23 @@ ModulePlayer::ModulePlayer()
 
 
 	playershowup.PushBack({ 0,121,111,25 });
-	playershowup.PushBack({ 0,146,111,25 });
-	playershowup.PushBack({ 0,171,111,25 });
-	
+	playershowup.PushBack({ 6,146,105,25 });
+	playershowup.PushBack({ 32,171,79,25 });
 	playershowup.loop = false;
 	playershowup.speed = 0.1f;
-	playershowup2.PushBack({ 0,196,111,25 });
-	playershowup2.PushBack({ 0,221,111,25 });
-	playershowup2.PushBack({ 0,246,111,25 });
-	playershowup2.PushBack({ 0,271,111,25 });
-	playershowup2.PushBack({ 0,296,111,25 });
-	playershowup2.PushBack({ 0,321,111,25 });
-	playershowup2.PushBack({ 0,346,111,25 });
+	playershowup2.PushBack({ 34,196,77,25 });
+	playershowup2.PushBack({ 46,221,65,25 }); //player shows up
+	playershowup2.PushBack({ 46,246,65,25 });
+	playershowup2.PushBack({ 57,271,56,25 });
+	playershowup2.PushBack({ 57,296,56,25 });
+	playershowup2.PushBack({ 44,321,67,25 });
+	playershowup2.PushBack({ 44,346,67,25 });
 	playershowup2.loop = false;
 	playershowup2.speed = 0.25f;
-	playershowup3.PushBack({ 0,371,111,25 });
-	playershowup3.PushBack({ 0,396,111,25 });
-	playershowup3.PushBack({ 0,421,111,25 });
-	playershowup3.PushBack({ 0,446,111,25 });
+	playershowup3.PushBack({ 51,371,60,25 });
+	playershowup3.PushBack({ 52,396,59,25 });
+	playershowup3.PushBack({ 72,421,39,25 });
+	playershowup3.PushBack({ 76,446,35,25 });
 	playershowup3.loop = false;
 	playershowup3.speed = 0.2f;
 

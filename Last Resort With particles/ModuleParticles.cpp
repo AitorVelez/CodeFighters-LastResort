@@ -57,7 +57,7 @@ bool ModuleParticles::Start()
 	SpaceshipAnim.anim.PushBack({ 0,446,111,25 });
 	SpaceshipAnim.anim.loop = false;
 	SpaceshipAnim.speed.x = 1;
-	SpaceshipAnim.anim.speed = 0.007f;
+	SpaceshipAnim.anim.speed = 0.3f;
 
 
 	player_death.anim.PushBack({ 18, 20, 37, 16 });
