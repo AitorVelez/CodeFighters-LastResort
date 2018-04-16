@@ -177,11 +177,10 @@ update_status ModulePlayer::Update()
 	int speed = 2;
 	if (position.x <= 9150 && alive == true)
 		position.x += scroll_speed;
-
-	// Input -----
+	// player shows up
 	if (App->render->camera.x >= -150) {
 		if(App->render->camera.x >= -40){
-			current_animation = &playershowup;     // player shows up
+			current_animation = &playershowup;    
 		}
 		else if(App->render->camera.x >= -100){
 			current_animation = &playershowup2;
@@ -189,7 +188,10 @@ update_status ModulePlayer::Update()
 		else {
 			current_animation = &playershowup3;
 		}
-	}
+	}	
+	
+	// Input -----
+
 	else if (alive){
 
 		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
@@ -254,14 +256,10 @@ update_status ModulePlayer::Update()
 				relativeposition.x = SideLimit;
 			}
 		}
-
-
 		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
+			App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);
 			App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
-			App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);		
-		}
-	
-		
+		}		
 	}
 		
 	if (alive) {
