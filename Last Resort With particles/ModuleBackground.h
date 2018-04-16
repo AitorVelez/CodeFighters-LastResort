@@ -40,15 +40,15 @@ public:
 
 public:
 	
-	SDL_Texture* graphics = nullptr;
-	SDL_Texture* graphics2 = nullptr; 
-	SDL_Texture* graphics3 = nullptr;
-	SDL_Texture* graphics4 = nullptr;
-	SDL_Texture* graphics5 = nullptr;
-	SDL_Texture* graphics6 = nullptr;
-	SDL_Texture* graphics7 = nullptr;
-	SDL_Texture* graphics8 = nullptr;
-	SDL_Texture* graphics9 = nullptr;
+	SDL_Texture* BackgroundLvl1 = nullptr;
+	SDL_Texture* BackgroundLvl1_extra = nullptr; 
+	SDL_Texture* StreetLightsTex = nullptr;
+	SDL_Texture* TunnelLightsTex = nullptr;
+	SDL_Texture* BackgroundSpaceshipLvl1 = nullptr;
+	SDL_Texture* BackLights = nullptr;
+	SDL_Texture* BackLights2 = nullptr;
+	SDL_Texture* BackLights3 = nullptr;
+	SDL_Texture* CommonEnemies = nullptr;
 
 	Mix_Music* mus = nullptr; 
 

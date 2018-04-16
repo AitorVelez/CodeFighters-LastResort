@@ -253,15 +253,15 @@ bool ModuleBackground::Start()
 	App->player->Enable();
 	App->particles->Enable(); 
 	//graphics = App->textures->Load("backgroundlvl1v2.png");
-	graphics = App->textures->Load("assets/sprites/background_lvl1.png");
-	graphics2 = App->textures->Load("assets/sprites/background_lvl1_extra.png");
-	graphics3 = App->textures->Load("assets/sprites/StreetLights_lvl1.png");
-	graphics4 = App->textures->Load("assets/sprites/tunnelLights.png");
-	graphics5 = App->textures->Load("assets/sprites/backspaceship_lvl101.png");
-	graphics6 = App->textures->Load("assets/sprites/DeepBackgroundLights.png");
-	graphics7 = App->textures->Load("assets/sprites/MidBackgroundLights.png");
-	graphics8 = App->textures->Load("assets/sprites/MidBackgroundLightsExtra.png");
-	graphics9 = App->textures->Load("assets/sprites/CommonEnemies1.png");
+	BackgroundLvl1 = App->textures->Load("assets/sprites/background_lvl1.png");
+	BackgroundLvl1_extra = App->textures->Load("assets/sprites/background_lvl1_extra.png");
+	StreetLightsTex = App->textures->Load("assets/sprites/StreetLights_lvl1.png");
+	TunnelLightsTex = App->textures->Load("assets/sprites/tunnelLights.png");
+	BackgroundSpaceshipLvl1 = App->textures->Load("assets/sprites/backspaceship_lvl101.png");
+	BackLights = App->textures->Load("assets/sprites/DeepBackgroundLights.png");
+	BackLights2 = App->textures->Load("assets/sprites/MidBackgroundLights.png");
+	BackLights3 = App->textures->Load("assets/sprites/MidBackgroundLightsExtra.png");
+	CommonEnemies = App->textures->Load("assets/sprites/CommonEnemies1.png");
 	
 	//Colliders
 
@@ -285,15 +285,15 @@ bool ModuleBackground::CleanUp()
 	App->player->Disable(); 
 	App->particles->Disable(); 
 	//Free all loaded textures
-	App->textures->Unload(graphics);
-	App->textures->Unload(graphics2);
-	App->textures->Unload(graphics3);
-	App->textures->Unload(graphics4);
-	App->textures->Unload(graphics5);
-	App->textures->Unload(graphics6);
-	App->textures->Unload(graphics7);
-	App->textures->Unload(graphics8);
-	App->textures->Unload(graphics9);
+	App->textures->Unload(BackgroundLvl1);
+	App->textures->Unload(BackgroundLvl1_extra);
+	App->textures->Unload(StreetLightsTex);
+	App->textures->Unload(TunnelLightsTex);
+	App->textures->Unload(BackgroundSpaceshipLvl1);
+	App->textures->Unload(BackLights);
+	App->textures->Unload(BackLights2);
+	App->textures->Unload(BackLights3);
+	App->textures->Unload(CommonEnemies);
 
 	//Free all audio material
 	App->audio->UnloadMus(mus); 
@@ -365,7 +365,7 @@ void ModuleBackground::CameraOscillationShake(int since, int to, bool up) {
 void ModuleBackground::RenderCrater()
 {
 	if (App->render->camera.x <= -7500 * SCREEN_SIZE)
-		App->render->Blit(graphics2, craterx, cratery, &crater, 0);
+		App->render->Blit(BackgroundLvl1_extra, craterx, cratery, &crater, 0);
 }
 
 void ModuleBackground::RenderBackgroundSpaceships()
@@ -373,65 +373,65 @@ void ModuleBackground::RenderBackgroundSpaceships()
 	if (App->render->camera.x >= -4000 * SCREEN_SIZE) {
 		posx += 1.46;
 		
-		App->render->Blit(graphics5, posx, 90 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 50, 100 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 50, 140 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 100, 90 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 170, 60 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 210, 60 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 230, 140 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 250, 60 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 290, 60 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 330, 60 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 370, 140 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 410, 140 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 450, 140 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 490, 140 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 530, 140 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 540, 120 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 590, 70 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 590, 140 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 640, 140 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 640, 90 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 660, 70 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 680, 80 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 740, 70 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 780, 70 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 820, 70 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 860, 70 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 900, 70 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 740, 130 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 780, 130 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 820, 130 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 860, 130 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 900, 130 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 1600, 60 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 1640, 80 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 1680, 100 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 1720, 120 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 1740, 130 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 1780, 130 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 1820, 130 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 1860, 130 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 1900, 130 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 3000, 80 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 3040, 50 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 3040, 75 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 3040, 100 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 3090, 60 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 3090, 75 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 3090, 90 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 3140, 60 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 3140, 90 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 3340, 120 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 3380, 100 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 3420, 80 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 3460, 60 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 3480, 50 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 3520, 50 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 3560, 50 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 3600, 50 - 10, &ships.GetCurrentFrame(), depth_2);
-		App->render->Blit(graphics5, posx - 3640, 50 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx, 90 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 50, 100 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 50, 140 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 100, 90 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 170, 60 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 210, 60 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 230, 140 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 250, 60 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 290, 60 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 330, 60 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 370, 140 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 410, 140 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 450, 140 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 490, 140 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 530, 140 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 540, 120 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 590, 70 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 590, 140 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 640, 140 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 640, 90 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 660, 70 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 680, 80 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 740, 70 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 780, 70 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 820, 70 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 860, 70 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 900, 70 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 740, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 780, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 820, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 860, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 900, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 1600, 60 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 1640, 80 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 1680, 100 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 1720, 120 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 1740, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 1780, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 1820, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 1860, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 1900, 130 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3000, 80 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3040, 50 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3040, 75 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3040, 100 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3090, 60 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3090, 75 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3090, 90 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3140, 60 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3140, 90 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3340, 120 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3380, 100 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3420, 80 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3460, 60 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3480, 50 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3520, 50 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3560, 50 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3600, 50 - 10, &ships.GetCurrentFrame(), depth_2);
+		App->render->Blit(BackgroundSpaceshipLvl1, posx - 3640, 50 - 10, &ships.GetCurrentFrame(), depth_2);
 
 
 
@@ -443,7 +443,7 @@ void ModuleBackground::RenderEnemyTest()
 {
 	enposx += +1;
 
-	App->render->Blit(graphics9,enposx, 50, &EnemyTest.GetCurrentFrame(), 1);
+	App->render->Blit(CommonEnemies,enposx, 50, &EnemyTest.GetCurrentFrame(), 1);
 	EnemyCollider->SetPos(enposx, 50);
 }
 
@@ -451,31 +451,31 @@ void ModuleBackground::RenderDeepBuildingLights()
 {
 	//TOP - BOT (+62 Y)
 
-	App->render->Blit(graphics6, 312, -10, &DeepBackgroundLights2.GetCurrentFrame(), depth_3);
-	App->render->Blit(graphics6, 56, -10, &DeepBackgroundLights.GetCurrentFrame(), depth_3);
-	App->render->Blit(graphics6, 857, -10, &DeepBackgroundLights2.GetCurrentFrame(), depth_3);
-	App->render->Blit(graphics6, 568, -10, &DeepBackgroundLights.GetCurrentFrame(), depth_3);
+	App->render->Blit(BackLights, 312, -10, &DeepBackgroundLights2.GetCurrentFrame(), depth_3);
+	App->render->Blit(BackLights, 56, -10, &DeepBackgroundLights.GetCurrentFrame(), depth_3);
+	App->render->Blit(BackLights, 857, -10, &DeepBackgroundLights2.GetCurrentFrame(), depth_3);
+	App->render->Blit(BackLights, 568, -10, &DeepBackgroundLights.GetCurrentFrame(), depth_3);
 
 }
 
 void ModuleBackground::RenderBuildingLights()
 {
-	App->render->Blit(graphics7, 32, 52, &MidBackgroundLights.GetCurrentFrame(), depth_2);
-	App->render->Blit(graphics7, 544, 52, &MidBackgroundLights.GetCurrentFrame(), depth_2);
-	App->render->Blit(graphics7, 305, 70, &MidBackgroundLights2.GetCurrentFrame(), depth_2);
-	App->render->Blit(graphics7, 817, 70, &MidBackgroundLights2.GetCurrentFrame(), depth_2);
-	App->render->Blit(graphics8, 328, 34, &MidBackgroundLights3.GetCurrentFrame(), depth_2);
+	App->render->Blit(BackLights2, 32, 52, &MidBackgroundLights.GetCurrentFrame(), depth_2);
+	App->render->Blit(BackLights2, 544, 52, &MidBackgroundLights.GetCurrentFrame(), depth_2);
+	App->render->Blit(BackLights2, 305, 70, &MidBackgroundLights2.GetCurrentFrame(), depth_2);
+	App->render->Blit(BackLights2, 817, 70, &MidBackgroundLights2.GetCurrentFrame(), depth_2);
+	App->render->Blit(BackLights3, 328, 34, &MidBackgroundLights3.GetCurrentFrame(), depth_2);
 }
 
 void ModuleBackground::RenderDiscoLights()
 {
-	App->render->Blit(graphics2, 171, -19, &light.GetCurrentFrame(), depth_2);
-	App->render->Blit(graphics2, 683, -19, &light.GetCurrentFrame(), depth_2);
-	App->render->Blit(graphics2, 752, -22, &lightNew.GetCurrentFrame(), depth_2);
-	App->render->Blit(graphics2, 827, -35, &light.GetCurrentFrame(), depth_2);
+	App->render->Blit(BackgroundLvl1_extra, 171, -19, &light.GetCurrentFrame(), depth_2);
+	App->render->Blit(BackgroundLvl1_extra, 683, -19, &light.GetCurrentFrame(), depth_2);
+	App->render->Blit(BackgroundLvl1_extra, 752, -22, &lightNew.GetCurrentFrame(), depth_2);
+	App->render->Blit(BackgroundLvl1_extra, 827, -35, &light.GetCurrentFrame(), depth_2);
 
 	if (!render_light) {
-		App->render->Blit(graphics2, 250, -10, &backgroundLights.GetCurrentFrame(), depth_3);
+		App->render->Blit(BackgroundLvl1_extra, 250, -10, &backgroundLights.GetCurrentFrame(), depth_3);
 		render_light = true;
 	}
 	else render_light = false;
@@ -491,39 +491,39 @@ void ModuleBackground::RenderStreetLights()
 	// 2 2 1 2 1 
 	// 2 1 don't delete yet (+64)
 
-	App->render->Blit(graphics3, 39, 136, &streetLights.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 39, 136, &streetLights.GetCurrentFrame(), depth_1);
 
-	App->render->Blit(graphics3, 103, 136, &streetLights.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 167, 136, &streetLights_2.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 231, 136, &streetLights_2.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 295, 136, &streetLights.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 359, 136, &streetLights.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 103, 136, &streetLights.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 167, 136, &streetLights_2.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 231, 136, &streetLights_2.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 295, 136, &streetLights.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 359, 136, &streetLights.GetCurrentFrame(), depth_1);
 
-	App->render->Blit(graphics3, 423, 136, &streetLights_2.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 487, 136, &streetLights.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 551, 136, &streetLights_2.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 615, 136, &streetLights.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 679, 136, &streetLights_2.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 423, 136, &streetLights_2.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 487, 136, &streetLights.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 551, 136, &streetLights_2.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 615, 136, &streetLights.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 679, 136, &streetLights_2.GetCurrentFrame(), depth_1);
 
-	App->render->Blit(graphics3, 743, 136, &streetLights_2.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 807, 136, &streetLights.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 871, 136, &streetLights_2.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 935, 136, &streetLights_2.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 999, 136, &streetLights.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 743, 136, &streetLights_2.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 807, 136, &streetLights.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 871, 136, &streetLights_2.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 935, 136, &streetLights_2.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 999, 136, &streetLights.GetCurrentFrame(), depth_1);
 
-	App->render->Blit(graphics3, 1063, 136, &streetLights_2.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 1127, 136, &streetLights.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 1191, 136, &streetLights.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 1255, 136, &streetLights_2.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 1319, 136, &streetLights.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 1063, 136, &streetLights_2.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 1127, 136, &streetLights.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 1191, 136, &streetLights.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 1255, 136, &streetLights_2.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 1319, 136, &streetLights.GetCurrentFrame(), depth_1);
 
-	App->render->Blit(graphics3, 1383, 136, &streetLights_2.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 1447, 136, &streetLights_2.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 1511, 136, &streetLights.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 1575, 136, &streetLights_2.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 1639, 136, &streetLights.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 1383, 136, &streetLights_2.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 1447, 136, &streetLights_2.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 1511, 136, &streetLights.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 1575, 136, &streetLights_2.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 1639, 136, &streetLights.GetCurrentFrame(), depth_1);
 
-	App->render->Blit(graphics3, 1703, 136, &streetLights_2.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 1703, 136, &streetLights_2.GetCurrentFrame(), depth_1);
 
 	//	BOTTOM PART
 	
@@ -531,34 +531,34 @@ void ModuleBackground::RenderStreetLights()
 	// 2 1 2 1 2 
 	// 2 1 2 2 1 (+128)
 
-	App->render->Blit(graphics3, 121, 217, &lightFloor.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 249, 217, &lightFloor_2.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 377, 217, &lightFloor_2.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 505, 217, &lightFloor.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 633, 217, &lightFloor.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 121, 217, &lightFloor.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 249, 217, &lightFloor_2.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 377, 217, &lightFloor_2.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 505, 217, &lightFloor.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 633, 217, &lightFloor.GetCurrentFrame(), depth_1);
 
-	App->render->Blit(graphics3, 761, 217, &lightFloor_2.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 889, 217, &lightFloor.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 1017, 217, &lightFloor_2.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 1145, 217, &lightFloor.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 1273, 217, &lightFloor_2.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 761, 217, &lightFloor_2.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 889, 217, &lightFloor.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 1017, 217, &lightFloor_2.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 1145, 217, &lightFloor.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 1273, 217, &lightFloor_2.GetCurrentFrame(), depth_1);
 
-	App->render->Blit(graphics3, 1401, 217, &lightFloor_2.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 1529, 217, &lightFloor.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics3, 1657, 217, &lightFloor_2.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 1401, 217, &lightFloor_2.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 1529, 217, &lightFloor.GetCurrentFrame(), depth_1);
+	App->render->Blit(StreetLightsTex, 1657, 217, &lightFloor_2.GetCurrentFrame(), depth_1);
 }
 
 
 void ModuleBackground::RenderTunnelLights()
 {
-	App->render->Blit(graphics4, 2051, 0, &tunnelLights.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics4, 2308, 0, &tunnelLights_2.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics4, 2565, 0, &tunnelLights.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics4, 2822, 0, &tunnelLights_2.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics4, 3079, 0, &tunnelLights.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics4, 3336, 0, &tunnelLights_2.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics4, 3593, 0, &tunnelLights.GetCurrentFrame(), depth_1);
-	App->render->Blit(graphics4, 3850, 0, &tunnelLights_2.GetCurrentFrame(), depth_1);
+	App->render->Blit(TunnelLightsTex, 2051, 0, &tunnelLights.GetCurrentFrame(), depth_1);
+	App->render->Blit(TunnelLightsTex, 2308, 0, &tunnelLights_2.GetCurrentFrame(), depth_1);
+	App->render->Blit(TunnelLightsTex, 2565, 0, &tunnelLights.GetCurrentFrame(), depth_1);
+	App->render->Blit(TunnelLightsTex, 2822, 0, &tunnelLights_2.GetCurrentFrame(), depth_1);
+	App->render->Blit(TunnelLightsTex, 3079, 0, &tunnelLights.GetCurrentFrame(), depth_1);
+	App->render->Blit(TunnelLightsTex, 3336, 0, &tunnelLights_2.GetCurrentFrame(), depth_1);
+	App->render->Blit(TunnelLightsTex, 3593, 0, &tunnelLights.GetCurrentFrame(), depth_1);
+	App->render->Blit(TunnelLightsTex, 3850, 0, &tunnelLights_2.GetCurrentFrame(), depth_1);
 }
 
 // Update: draw background
@@ -780,7 +780,7 @@ update_status ModuleBackground::Update()
 	// Draw everything --------------------------------------
 	
 	RenderCrater();
-	App->render->Blit(graphics2, 0, -5, &building_2, depth_3);										// DEPTH 3
+	App->render->Blit(BackgroundLvl1_extra, 0, -5, &building_2, depth_3);										// DEPTH 3
 	
 	
 	RenderDeepBuildingLights();
@@ -789,11 +789,11 @@ update_status ModuleBackground::Update()
 	
 	
 
-	App->render->Blit(graphics2, 0, 35, &building_1, depth_2);										// DEPTH 2
+	App->render->Blit(BackgroundLvl1_extra, 0, 35, &building_1, depth_2);										// DEPTH 2
 	
 	RenderBuildingLights();
 
-	App->render->Blit(graphics, 0, 0, &background, depth_1);										// DEPTH 1
+	App->render->Blit(BackgroundLvl1, 0, 0, &background, depth_1);										// DEPTH 1
 	RenderEnemyTest();
 	RenderStreetLights(); 
 	RenderTunnelLights();
