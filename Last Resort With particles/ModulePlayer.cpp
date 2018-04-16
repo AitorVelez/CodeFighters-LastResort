@@ -162,8 +162,9 @@ update_status ModulePlayer::Update()
 	}
 
 	// Input -----
-
 	else if (alive) {
+		
+		current_animation = &idle;
 
 		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
 		{
