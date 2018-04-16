@@ -36,8 +36,8 @@ ModulePlayer::ModulePlayer()
 	playershowup2.speed = 0.15f;
 	playershowup3.PushBack({ 51,371,60,25 });
 	playershowup3.PushBack({ 52,396,59,25 });
-	playershowup3.PushBack({ 72,421,39,25 });
-	playershowup3.PushBack({ 76,446,35,25 });
+	playershowup3.PushBack({ 72,425,39,18 });
+	playershowup3.PushBack({ 76,452,35,15 });
 	playershowup3.loop = false;
 	playershowup3.speed = 0.2f;
 
