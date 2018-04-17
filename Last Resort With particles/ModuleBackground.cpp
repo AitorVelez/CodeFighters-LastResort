@@ -234,6 +234,10 @@ ModuleBackground::ModuleBackground()
 	ships.PushBack({ 0,0,8,3 });
 	ships.speed = 0.01f;
 
+	CarsBottom1.PushBack({ 0,0,19,11 });
+	CarsBottom1.PushBack({ 21,0,20,11 });
+	CarsBottom1.PushBack({ 42,0,18,11 });
+	CarsBottom1.speed = 0.01f;
 }
 
 ModuleBackground::~ModuleBackground()
@@ -259,6 +263,7 @@ bool ModuleBackground::Start()
 	BackLights = App->textures->Load("assets/sprites/DeepBackgroundLights.png");
 	BackLights2 = App->textures->Load("assets/sprites/MidBackgroundLights.png");
 	BackLights3 = App->textures->Load("assets/sprites/MidBackgroundLightsExtra.png");
+	carsBottom = App->textures->Load("assets/sprites/cars_bottom.png");
 
 	//Enemies	
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 500 + 300, 40);
@@ -351,6 +356,7 @@ bool ModuleBackground::CleanUp()
 	App->textures->Unload(BackLights);
 	App->textures->Unload(BackLights2);
 	App->textures->Unload(BackLights3);
+	App->textures->Unload(carsBottom);
 
 	//Free all audio material
 	App->audio->UnloadMus(mus); 
@@ -588,6 +594,10 @@ void ModuleBackground::RenderTunnelLights()
 	App->render->Blit(TunnelLightsTex, 3336, 0, &tunnelLights_2.GetCurrentFrame(), depth_1);
 	App->render->Blit(TunnelLightsTex, 3593, 0, &tunnelLights.GetCurrentFrame(), depth_1);
 	App->render->Blit(TunnelLightsTex, 3850, 0, &tunnelLights_2.GetCurrentFrame(), depth_1);
+}
+
+void ModuleBackground::RenderCars() {
+	App->render->Blit(carsBottom, 0, 0, &CarsBottom1.GetCurrentFrame(), depth_1);
 }
 
 // Update: draw background
