@@ -82,26 +82,26 @@ bool ModuleParticles::Start()
 	player_death.anim.speed = 0.25f;
 	player_death.fx = 1; 
 
-	BulletsAndLaser = App->textures->Load("assets/sprites/BulletsAndLasers.png");
-
-	CommonExplosion.anim.PushBack({ 148,0,0,16 });
-	CommonExplosion.anim.PushBack({ 166,0,20,20 });
-	CommonExplosion.anim.PushBack({ 188,0,30,20 });
-	CommonExplosion.anim.PushBack({ 220,0,26,26 });
-	CommonExplosion.anim.PushBack({ 148,28,32,22 });
-	CommonExplosion.anim.PushBack({ 182,28,22,29 });
-	CommonExplosion.anim.PushBack({ 216,28,32,29 });
-	CommonExplosion.anim.PushBack({ 148,59,32,30 });
-	CommonExplosion.anim.PushBack({ 182,59,32,32 });
-	CommonExplosion.anim.PushBack({ 216,59,32,32 });
-	CommonExplosion.anim.PushBack({ 148,93,32,30 });
-	CommonExplosion.anim.PushBack({ 182,93,32,32 });
-	CommonExplosion.anim.PushBack({ 216,93,32,32 });
-	CommonExplosion.anim.PushBack({ 148,127,32,32 });
+	//BulletsAndLaser = App->textures->Load("assets/sprites/BulletsAndLasers.png");
+																									//THIS COORDENATES ARE FROM BulletsAndLAsers.png 
+	CommonExplosion.anim.PushBack({ 393,0,0,16 });//													//Dont know if i can put 2 png's
+	CommonExplosion.anim.PushBack({ 411,0,20,20 });//
+	CommonExplosion.anim.PushBack({ 433,0,30,20 });//
+	CommonExplosion.anim.PushBack({ 465,0,26,26 });//
+	CommonExplosion.anim.PushBack({ 393,28,32,22 });//
+	CommonExplosion.anim.PushBack({ 427,28,22,29 });//
+	CommonExplosion.anim.PushBack({ 461,28,32,29 });//
+	CommonExplosion.anim.PushBack({ 393,59,32,30 });//
+	CommonExplosion.anim.PushBack({ 427,59,32,32 });//
+	CommonExplosion.anim.PushBack({ 461,59,32,32 });//
+	CommonExplosion.anim.PushBack({ 393,93,32,30 });//
+	CommonExplosion.anim.PushBack({ 427,93,32,32 });//
+	CommonExplosion.anim.PushBack({ 461,93,32,32 });//
+	CommonExplosion.anim.PushBack({ 393,127,32,32 });//
 	CommonExplosion.anim.loop = false;
 	CommonExplosion.anim.speed = 0.25f;
 	CommonExplosion.fx = 1;
-
+	
 	return true;
 }
 
