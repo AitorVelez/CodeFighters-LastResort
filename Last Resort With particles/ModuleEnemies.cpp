@@ -7,7 +7,8 @@
 #include "Enemy.h"
 #include "Enemy_Cockroach.h"
 #include "Enemy_Rhino.h"
-#include "Enemy_Lamella.h" 
+#include "Enemy_Lamella.h"
+#include "car.h"
 
 #define SPAWN_MARGIN 50
 
