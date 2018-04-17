@@ -59,6 +59,7 @@ public:
 	Particle SpaceshipAnim;
 	Particle bullet;
 	Particle bulletEx;
+	Particle cars;
 
 
 	Mix_Chunk* shot = nullptr; 
