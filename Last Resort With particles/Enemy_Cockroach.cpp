@@ -10,12 +10,10 @@ Enemy_Cockroach::Enemy_Cockroach(int x, int y) : Enemy(x, y)
 	fly.PushBack({ 9,474,32,15 });
 	fly.PushBack({ 9,490,32,15 });
 	fly.speed = 0.2f;
-
 	animation = &fly;
 
 	collider = App->collision->AddCollider({ 0, 0, 24, 24 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
-	original_y = y;
 }
 
 void Enemy_Cockroach::Move()
