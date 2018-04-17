@@ -5,9 +5,9 @@
 car::car(int x, int y) : Enemy(x, y)
 {
 
-	goCar.PushBack({ 256,512,18,11 });
-	goCar.PushBack({ 274,512,22,11 });
-	goCar.PushBack({ 294,512,21,11 });
+	goCar.PushBack({ 253,512,21,11 });
+	goCar.PushBack({ 274,512,21,11 });
+	goCar.PushBack({ 295,512,21,11 });
 	goCar.PushBack({ 316,512,21,11 });
 
 	goCar.speed = 0.1;
@@ -20,5 +20,5 @@ car::car(int x, int y) : Enemy(x, y)
 
 void car::Move()
 {
-	position.x += 1;
+	position.x += 1.2;
 }
