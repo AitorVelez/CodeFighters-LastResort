@@ -21,5 +21,5 @@ Enemy_Cockroach::Enemy_Cockroach(int x, int y) : Enemy(x, y)
 
 void Enemy_Cockroach::Move()
 {
-	position.x -= 2;
+	position.x -= 1;
 }

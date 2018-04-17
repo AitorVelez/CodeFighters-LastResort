@@ -44,6 +44,9 @@ Enemy_Lamella::Enemy_Lamella(int x, int y) : Enemy(x, y)
 	animation = &fly;
 
 	collider = App->collision->AddCollider({ 0, 0, 31, 30 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+
+	original_y = y;
+	original_x = x;
 }
 
 
