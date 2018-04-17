@@ -46,7 +46,6 @@ public:
 	SDL_Texture* BackLights = nullptr;
 	SDL_Texture* BackLights2 = nullptr;
 	SDL_Texture* BackLights3 = nullptr;
-	SDL_Texture* carsBottom = nullptr;
 
 	Mix_Music* mus = nullptr; 
 
@@ -70,9 +69,6 @@ public:
 	Animation MidBackgroundLights2;
 	Animation MidBackgroundLights3;
 	Animation ships;
-	Animation CarsBottom1;
-	Animation CarsBottom2;
-	Animation CarsBottom3;
 
 	float background_spaceship_posx = 0;
 	int craterx = 0;
