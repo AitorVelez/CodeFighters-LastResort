@@ -82,6 +82,26 @@ bool ModuleParticles::Start()
 	player_death.anim.speed = 0.25f;
 	player_death.fx = 1; 
 
+	BulletsAndLaser = App->textures->Load("assets/sprites/BulletsAndLasers.png");
+
+	CommonExplosion.anim.PushBack({ 148,0,0,16 });
+	CommonExplosion.anim.PushBack({ 166,0,20,20 });
+	CommonExplosion.anim.PushBack({ 188,0,30,20 });
+	CommonExplosion.anim.PushBack({ 220,0,26,26 });
+	CommonExplosion.anim.PushBack({ 148,28,32,22 });
+	CommonExplosion.anim.PushBack({ 182,28,22,29 });
+	CommonExplosion.anim.PushBack({ 216,28,32,29 });
+	CommonExplosion.anim.PushBack({ 148,59,32,30 });
+	CommonExplosion.anim.PushBack({ 182,59,32,32 });
+	CommonExplosion.anim.PushBack({ 216,59,32,32 });
+	CommonExplosion.anim.PushBack({ 148,93,32,30 });
+	CommonExplosion.anim.PushBack({ 182,93,32,32 });
+	CommonExplosion.anim.PushBack({ 216,93,32,32 });
+	CommonExplosion.anim.PushBack({ 148,127,32,32 });
+	CommonExplosion.anim.loop = false;
+	CommonExplosion.anim.speed = 0.25f;
+	CommonExplosion.fx = 1;
+
 	return true;
 }
 
@@ -90,6 +110,7 @@ bool ModuleParticles::CleanUp()
 {
 	LOG("Unloading particles");
 	App->textures->Unload(playerPart);
+	App->textures->Unload(BulletsAndLaser);
 	App->audio->UnloadChunk(shot);
 	App->audio->UnloadChunk(player_death_sfx);
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)

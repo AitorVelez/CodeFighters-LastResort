@@ -29,5 +29,5 @@ void Enemy::Draw(SDL_Texture* sprites)
 
 void Enemy::OnCollision(Collider* collider)
 {
-	App->particles->AddParticle(App->particles->player_death, position.x, position.y);
+	App->particles->AddParticle(App->particles->CommonExplosion, position.x, position.y);
 }
