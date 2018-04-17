@@ -25,6 +25,8 @@ bool ModuleEnemies::Start()
 {
 	// Create a prototype for each enemy available so we can copy them around
 	sprites = App->textures->Load("assets/sprites/common_enemies1.png");
+	sprites2 = App->textures->Load("assets/sprites/Enemies-bug.png");
+
 
 	return true;
 }
@@ -85,6 +87,7 @@ bool ModuleEnemies::CleanUp()
 	LOG("Freeing all enemies");
 
 	App->textures->Unload(sprites);
+	App->textures->Unload(sprites2);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
