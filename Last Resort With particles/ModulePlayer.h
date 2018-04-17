@@ -44,6 +44,7 @@ public:
 	
 	bool alive = true; 
 	bool death_played = false;
+	bool god_mode = false; 
 
 	Mix_Chunk* chunk;
 

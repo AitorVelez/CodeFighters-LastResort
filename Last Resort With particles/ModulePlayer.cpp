@@ -135,8 +135,10 @@ bool ModulePlayer::CleanUp()
 
 void ModulePlayer::OnCollision(Collider * c1, Collider * c2)
 {
-	alive = false; 
-	App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage,2.5f);
+	if (!god_mode) {
+		alive = false;
+		App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage, 2.5f);
+	}
 }
 
 // Update: draw background
@@ -249,6 +251,12 @@ update_status ModulePlayer::Update()
 			App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
 			//}
 		}
+
+		if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {
+			if (god_mode == true) god_mode = false;
+			else god_mode = true; 
+		}
+
 	}
 
 	if (alive) {
