@@ -35,8 +35,8 @@ public:
 	Animation playershowup; 
 	Animation playershowup2;
 	Animation playershowup3;
-	Animation re1;
-	Animation re2;
+	Animation re_up;
+	Animation re_down;
 	Animation death;
 	iPoint position;
 	fPoint relativeposition;

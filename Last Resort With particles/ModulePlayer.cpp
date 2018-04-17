@@ -38,6 +38,7 @@ ModulePlayer::ModulePlayer()
 	playershowup3.PushBack({ 52,396,59,25 });
 	playershowup3.PushBack({ 72,425,39,18 });
 	playershowup3.PushBack({ 76,452,35,15 });
+	playershowup3.PushBack({ 64,3,32,14 });
 	playershowup3.loop = false;
 	playershowup3.speed = 0.2f;
 
@@ -76,11 +77,11 @@ ModulePlayer::ModulePlayer()
 	up.speed = 0.1;
 	up.loop = false;
 
-	re1.PushBack({ 0,3,32,14 });
-	re1.PushBack({ 32,3,32,14 });
-	re1.PushBack({ 64,3,32,14 });
-	re1.speed = 0.1;
-	re1.loop = false;
+	re_up.PushBack({ 0,3,32,14 });
+	re_up.PushBack({ 32,3,32,14 });
+	re_up.PushBack({ 64,3,32,14 });
+	re_up.speed = 0.1;
+	re_up.loop = false;
 
 	// Down animation
 	down.PushBack({ 96,3,32,14 });
@@ -88,11 +89,11 @@ ModulePlayer::ModulePlayer()
 	down.speed = 0.1;
 	down.loop = false;
 
-	re2.PushBack({ 128,3,32,14 });
-	re2.PushBack({ 96,3,32,14 });
-	re2.PushBack({ 64,3,32,14 });
-	re2.speed = 0.1;
-	re2.loop = false;
+	re_down.PushBack({ 128,3,32,14 });
+	re_down.PushBack({ 96,3,32,14 });
+	re_down.PushBack({ 64,3,32,14 });
+	re_down.speed = 0.1;
+	re_down.loop = false;
 
 }
 
@@ -156,33 +157,30 @@ update_status ModulePlayer::Update()
 		else if (App->render->camera.x >= -149) {
 			current_animation = &playershowup3;
 		}
-		else {
-			current_animation = &idle;
-		}
 	}
 
 	// Input -----
 	else if (alive) {
 		
-		current_animation = &idle;
-
 		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
 		{
 			if (relativeposition.y > CHARACTER_HEIGHT + TopLimit) {
 				current_animation = &up;
 				relativeposition.y -= speed;
 				position.y -= speed;
-				re1.Reset();
-				re2.Reset();
+				re_up.Reset();
+				re_down.Reset();
 			}
 			else {
 				relativeposition.y = CHARACTER_HEIGHT + TopLimit;
+				current_animation = &up;			
+				re_up.Reset();
 			}
 		}
 		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP) {
 
 			up.Reset();
-			current_animation = &re1;
+			current_animation = &re_up;
 		}
 
 
@@ -192,18 +190,20 @@ update_status ModulePlayer::Update()
 				current_animation = &down;
 				relativeposition.y += speed;
 				position.y += speed;
-				re1.Reset();
-				re2.Reset();
+				re_up.Reset();
+				re_down.Reset();
 			}
 			else {
 				relativeposition.y = SCREEN_HEIGHT - TopLimit;
+				current_animation = &down;
+				re_down.Reset();
 			}
 		}
 
 		if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_UP) {
 
 			down.Reset();
-			current_animation = &re2;
+			current_animation = &re_down;
 
 		}
 
