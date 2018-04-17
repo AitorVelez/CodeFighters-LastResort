@@ -268,6 +268,7 @@ bool ModuleBackground::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 420, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 450, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 480, 112);
+	App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 550, 100);
 
 	mus = App->audio->LoadMus("assets/SFX/level_1.ogg");
 	App->audio->PlayMus(mus);

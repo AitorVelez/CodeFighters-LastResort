@@ -17,6 +17,7 @@ enum ENEMY_TYPES
 	NO_TYPE,
 	COCKROACH,
 	RHINO,	
+	LAMELLA,
 };
 
 class Enemy;
