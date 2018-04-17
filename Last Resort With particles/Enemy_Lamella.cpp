@@ -4,7 +4,7 @@
 #include "ModulePlayer.h"
 Enemy_Lamella::Enemy_Lamella(int x, int y) : Enemy(x, y)
 {
-	fly.PushBack({ 85,152,31,30 });
+	fly.PushBack({ 140,665,31,30 });
 
 
 
