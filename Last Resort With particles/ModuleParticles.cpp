@@ -180,7 +180,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 		// Always destroy particles that collide
 		if (active[i] != nullptr && active[i]->collider == c1)
 		{
-			AddParticle(SpaceshipAnim, active[i]->position.x, active[i]->position.y);
+			AddParticle(CommonExplosion, active[i]->position.x, active[i]->position.y);
 			delete active[i];
 			active[i] = nullptr;
 			break;
