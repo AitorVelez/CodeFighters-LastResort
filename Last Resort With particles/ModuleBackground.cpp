@@ -339,6 +339,8 @@ bool ModuleBackground::Start()
 
 	App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 550, 100);
 
+	App->enemies->AddEnemy(ENEMY_TYPES::CAR, 50, 200);
+
 	mus = App->audio->LoadMus("assets/SFX/level_1.ogg");
 	App->audio->PlayMus(mus);
 	background_spaceship_posx = -200;
