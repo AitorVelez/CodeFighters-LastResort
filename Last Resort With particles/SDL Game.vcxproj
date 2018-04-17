@@ -79,6 +79,7 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Enemy_Cockroach.h" />
+    <ClInclude Include="Enemy_Lamella.h" />
     <ClInclude Include="Enemy_Rhino.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="ModuleEnemies.h" />
@@ -105,6 +106,7 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Enemy_Cockroach.cpp" />
+    <ClCompile Include="Enemy_Lamella.cpp" />
     <ClCompile Include="Enemy_Rhino.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="ModuleEnemies.cpp" />
