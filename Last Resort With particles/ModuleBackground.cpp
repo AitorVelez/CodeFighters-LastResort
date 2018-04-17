@@ -263,6 +263,11 @@ bool ModuleBackground::Start()
 	//Enemies	
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 300, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 330, 112);
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 360, 112);
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 390, 112);
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 420, 112);
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 450, 112);
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 480, 112);
 
 	mus = App->audio->LoadMus("assets/SFX/level_1.ogg");
 	App->audio->PlayMus(mus);
