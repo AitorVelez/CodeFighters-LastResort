@@ -33,8 +33,6 @@ public:
 	void RenderDiscoLights(); 
 	void RenderStreetLights(); 
 	void RenderTunnelLights();
-	void RenderEnemyTest();
-	
 	
 
 public:
@@ -71,9 +69,6 @@ public:
 	Animation MidBackgroundLights2;
 	Animation MidBackgroundLights3;
 	Animation ships;
-	Animation EnemyTest;
-
-	Collider *EnemyCollider = nullptr;
 
 	float background_spaceship_posx = 0;
 	int craterx = 0;

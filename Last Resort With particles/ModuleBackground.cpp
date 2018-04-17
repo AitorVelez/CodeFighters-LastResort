@@ -11,6 +11,7 @@
 #include "ModuleStartingImage.h"
 #include "ModuleLoseImage.h"
 #include "ModuleParticles.h"
+#include "ModuleEnemies.h"
 #include "SDL/include/SDL_timer.h"
 
 
@@ -232,13 +233,6 @@ ModuleBackground::ModuleBackground()
 	ships.PushBack({ 15,0,8,4 });
 	ships.PushBack({ 0,0,8,3 });
 	ships.speed = 0.01f;
-
-	EnemyTest.PushBack({ 9,443,32,16 });
-	EnemyTest.PushBack({ 9,459,32,15 });
-	EnemyTest.PushBack({ 9,474,32,15 });
-	EnemyTest.PushBack({ 9,490,32,15 });
-	EnemyTest.speed = 0.2f;
-
 }
 
 ModuleBackground::~ModuleBackground()
@@ -266,11 +260,8 @@ bool ModuleBackground::Start()
 	BackLights3 = App->textures->Load("assets/sprites/MidBackgroundLightsExtra.png");
 	CommonEnemies = App->textures->Load("assets/sprites/CommonEnemies1.png");
 	
-	//Colliders
-
-	EnemyCollider = App->collision->AddCollider({ 350 ,112, 32, 16 }, COLLIDER_ENEMY);
-	
-
+	//Enemies	
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 300, 112);
 
 	mus = App->audio->LoadMus("assets/SFX/level_1.ogg");
 	App->audio->PlayMus(mus);
@@ -418,11 +409,6 @@ void ModuleBackground::RenderBackgroundSpaceships()
 		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 3600, 50 - 10, &ships.GetCurrentFrame(), depth_2);
 		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx - 3640, 50 - 10, &ships.GetCurrentFrame(), depth_2);
 	}
-}
-
-void ModuleBackground::RenderEnemyTest() 
-{
-	App->render->Blit(CommonEnemies,350, 112, &EnemyTest.GetCurrentFrame(), 1);
 }
 
 void ModuleBackground::RenderDeepBuildingLights()
@@ -576,8 +562,7 @@ update_status ModuleBackground::Update()
 
 	App->render->Blit(BackgroundLvl1, 0, 0, &background, depth_1);										// DEPTH 1
 	
-	
-	RenderEnemyTest();
+
 	RenderStreetLights(); 
 	RenderTunnelLights();
 	

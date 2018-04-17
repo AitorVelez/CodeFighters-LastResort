@@ -4,6 +4,7 @@
 #include "ModuleInput.h"
 #include "ModuleTextures.h"
 #include "ModuleBackground.h"
+#include "ModuleEnemies.h"
 #include "ModulePlayer.h"
 #include "ModuleAudio.h"
 #include "ModuleFadeToBlack.h"
@@ -24,15 +25,16 @@ Application::Application()
 	modules[2] = input = new ModuleInput();
 	modules[3] = textures = new ModuleTextures();
 	modules[4] = background = new ModuleBackground();
-	modules[5] = player = new ModulePlayer();
-	modules[6] = particles = new ModuleParticles();
-	modules[7] = introneogeo = new ModuleIntroNeoGeo();
-	modules[8] = startimage = new ModuleStartingImage();
-	modules[9] = stageclear = new ModuleStageClear();
-	modules[10] = loseimage = new ModuleLoseImage();
-	modules[11] = audio = new ModuleAudio(); 
-	modules[12] = collision = new ModuleCollision();
-	modules[13] = fade = new ModuleFadeToBlack();
+	modules[5] = enemies = new ModuleEnemies(); 
+	modules[6] = player = new ModulePlayer();
+	modules[7] = particles = new ModuleParticles();
+	modules[8] = introneogeo = new ModuleIntroNeoGeo();
+	modules[9] = startimage = new ModuleStartingImage();
+	modules[10] = stageclear = new ModuleStageClear();
+	modules[11] = loseimage = new ModuleLoseImage();
+	modules[12] = audio = new ModuleAudio(); 
+	modules[13] = collision = new ModuleCollision();
+	modules[14] = fade = new ModuleFadeToBlack();
 
 	
 }	
