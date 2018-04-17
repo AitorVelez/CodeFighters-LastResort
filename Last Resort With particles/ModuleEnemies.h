@@ -16,6 +16,7 @@ enum ENEMY_TYPES
 {
 	NO_TYPE,
 	COCKROACH,
+	RHINO,	
 };
 
 class Enemy;
