@@ -259,7 +259,7 @@ bool ModuleBackground::Start()
 	BackLights2 = App->textures->Load("assets/sprites/MidBackgroundLights.png");
 	BackLights3 = App->textures->Load("assets/sprites/MidBackgroundLightsExtra.png");
 	CommonEnemies = App->textures->Load("assets/sprites/CommonEnemies1.png");
-	
+    EnemyLamella = App->textures->Load("assets/sprites/CommonEnemies1.png");
 	//Enemies	
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 300, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 330, 112);
@@ -293,7 +293,7 @@ bool ModuleBackground::CleanUp()
 	App->textures->Unload(BackLights2);
 	App->textures->Unload(BackLights3);
 	App->textures->Unload(CommonEnemies);
-
+	App->textures->Unload(EnemyLamella);
 	//Free all audio material
 	App->audio->UnloadMus(mus); 
 

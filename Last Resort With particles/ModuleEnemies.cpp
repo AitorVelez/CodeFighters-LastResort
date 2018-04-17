@@ -7,6 +7,7 @@
 #include "Enemy.h"
 #include "Enemy_Cockroach.h"
 #include "Enemy_Rhino.h"
+#include "Enemy_Lamella.h" 
 
 #define SPAWN_MARGIN 50
 
@@ -137,8 +138,11 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::RHINO:
 			enemies[i] = new Enemy_Rhino(info.x, info.y);
 			break;
+
+		case ENEMY_TYPES::LAMELLA:
+			enemies[i] = new Enemy_Lamella(info.x, info.y);
+			break;
 		}
-	
 	
 	}
 }

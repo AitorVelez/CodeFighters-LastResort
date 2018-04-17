@@ -4,7 +4,7 @@
 #include "ModulePlayer.h"
 Enemy_Lamella::Enemy_Lamella(int x, int y) : Enemy(x, y)
 {
-	fly.PushBack({ 0,0,0,0 });
+	fly.PushBack({ 85,152,31,30 });
 
 
 
@@ -12,7 +12,7 @@ Enemy_Lamella::Enemy_Lamella(int x, int y) : Enemy(x, y)
 
 	animation = &fly;
 
-	collider = App->collision->AddCollider({ 0, 0, 48, 48 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 31, 30 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 	original_y = y;
 	original_x = x;
