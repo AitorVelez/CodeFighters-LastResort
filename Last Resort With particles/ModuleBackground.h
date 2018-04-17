@@ -46,6 +46,7 @@ public:
 	SDL_Texture* BackLights2 = nullptr;
 	SDL_Texture* BackLights3 = nullptr;
 	SDL_Texture* CommonEnemies = nullptr;
+	SDL_Texture* EnemyLamella = nullptr;
 
 	Mix_Music* mus = nullptr; 
 

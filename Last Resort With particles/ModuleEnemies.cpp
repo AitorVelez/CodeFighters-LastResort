@@ -7,6 +7,7 @@
 #include "Enemy.h"
 #include "Enemy_Cockroach.h"
 #include "Enemy_Rhino.h"
+#include "Enemy_Lamella.h" 
 
 #define SPAWN_MARGIN 50
 
@@ -25,6 +26,8 @@ bool ModuleEnemies::Start()
 {
 	// Create a prototype for each enemy available so we can copy them around
 	sprites = App->textures->Load("assets/sprites/common_enemies1.png");
+	sprites2 = App->textures->Load("assets/sprites/Enemies-bug.png");
+
 
 	return true;
 }
@@ -85,6 +88,7 @@ bool ModuleEnemies::CleanUp()
 	LOG("Freeing all enemies");
 
 	App->textures->Unload(sprites);
+	App->textures->Unload(sprites2);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
@@ -134,8 +138,11 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::RHINO:
 			enemies[i] = new Enemy_Rhino(info.x, info.y);
 			break;
+
+		case ENEMY_TYPES::LAMELLA:
+			enemies[i] = new Enemy_Lamella(info.x, info.y);
+			break;
 		}
-	
 	
 	}
 }
