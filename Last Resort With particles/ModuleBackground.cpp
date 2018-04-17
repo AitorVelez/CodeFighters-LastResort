@@ -258,15 +258,14 @@ bool ModuleBackground::Start()
 	BackLights = App->textures->Load("assets/sprites/DeepBackgroundLights.png");
 	BackLights2 = App->textures->Load("assets/sprites/MidBackgroundLights.png");
 	BackLights3 = App->textures->Load("assets/sprites/MidBackgroundLightsExtra.png");
-	CommonEnemies = App->textures->Load("assets/sprites/CommonEnemies1.png");
-    EnemyLamella = App->textures->Load("assets/sprites/CommonEnemies1.png");
+
 	//Enemies	
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 300, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 330, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 360, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 390, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 420, 112);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 450, 112);
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 450, 112); 
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 480, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 550, 100);
 
@@ -292,8 +291,7 @@ bool ModuleBackground::CleanUp()
 	App->textures->Unload(BackLights);
 	App->textures->Unload(BackLights2);
 	App->textures->Unload(BackLights3);
-	App->textures->Unload(CommonEnemies);
-	App->textures->Unload(EnemyLamella);
+
 	//Free all audio material
 	App->audio->UnloadMus(mus); 
 
