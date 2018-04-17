@@ -141,6 +141,9 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::LAMELLA:
 			enemies[i] = new Enemy_Lamella(info.x, info.y);
 			break;
+		case ENEMY_TYPES::CAR:
+			enemies[i] = new car(info.x, info.y);
+			break;
 		}
 	
 	}

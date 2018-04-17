@@ -18,6 +18,7 @@ enum ENEMY_TYPES
 	COCKROACH,
 	RHINO,	
 	LAMELLA,
+	CAR,
 };
 
 class Enemy;

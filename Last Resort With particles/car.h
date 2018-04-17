@@ -6,7 +6,7 @@
 class car : public Enemy
 {
 private:
-	Animation fly;
+	Animation goCar;
 
 public:
 
