@@ -351,9 +351,12 @@ bool ModuleBackground::Start()
 
 	App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 400, 112);
 
-
-
 	App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 550, 100);
+
+	// TANK
+
+	App->enemies->AddEnemy(ENEMY_TYPES::TANK, 1000, 300);
+
 
 	App->enemies->AddEnemy(ENEMY_TYPES::CAR, 55, 200);
 

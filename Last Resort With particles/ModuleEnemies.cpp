@@ -9,7 +9,7 @@
 #include "Enemy_Rhino.h"
 #include "Enemy_Lamella.h"
 #include "car.h"
-
+#include "Enemy_Tank.h"
 #define SPAWN_MARGIN 50
 
 ModuleEnemies::ModuleEnemies()
@@ -143,6 +143,9 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			break;
 		case ENEMY_TYPES::CAR:
 			enemies[i] = new car(info.x, info.y);
+			break;
+		case ENEMY_TYPES::TANK:
+			enemies[i] = new Enemy_Tank(info.x, info.y);
 			break;
 		}
 	

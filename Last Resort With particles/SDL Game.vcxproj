@@ -82,6 +82,7 @@
     <ClInclude Include="Enemy_Cockroach.h" />
     <ClInclude Include="Enemy_Lamella.h" />
     <ClInclude Include="Enemy_Rhino.h" />
+    <ClInclude Include="Enemy_Tank.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="ModuleEnemies.h" />
     <ClInclude Include="ModuleIntroNeoGeo.h" />
@@ -110,6 +111,7 @@
     <ClCompile Include="Enemy_Cockroach.cpp" />
     <ClCompile Include="Enemy_Lamella.cpp" />
     <ClCompile Include="Enemy_Rhino.cpp" />
+    <ClCompile Include="Enemy_Tank.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="ModuleEnemies.cpp" />
     <ClCompile Include="ModuleIntroNeoGeo.cpp" />

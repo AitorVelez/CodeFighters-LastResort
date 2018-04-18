@@ -19,6 +19,7 @@ enum ENEMY_TYPES
 	RHINO,	
 	LAMELLA,
 	CAR,
+	TANK,
 };
 
 class Enemy;
