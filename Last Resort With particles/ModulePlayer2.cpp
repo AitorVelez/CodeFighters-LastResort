@@ -19,54 +19,56 @@ ModulePlayer2::ModulePlayer2()
 {
 	current_animation = &idle;
 
-
-	/*playershowup.PushBack({ 0,130,111,16 });
-	playershowup.PushBack({ 6,155,105,16 });
-	playershowup.PushBack({ 32,180,79,16 });
+/*
+	playershowup.PushBack({ 0,11,112,1 });
+	playershowup.PushBack({ 5,37,105,2 });
+	playershowup.PushBack({ 34,59,76,4 });
 	playershowup.loop = false;
 	playershowup.speed = 0.1f;
-	playershowup2.PushBack({ 34,204,77,17 });
-	playershowup2.PushBack({ 46,224,65,22 }); //player shows up
-	playershowup2.PushBack({ 46,252,65,19 });
-	playershowup2.PushBack({ 57,274,56,22 });
-	playershowup2.PushBack({ 57,300,56,21 });
-	playershowup2.PushBack({ 44,325,67,21 });
-	playershowup2.PushBack({ 44,346,67,25 });
+	playershowup2.PushBack({ 57,82,54,18 });
+	playershowup2.PushBack({ 49,103,62,15 }); //player shows up
+	playershowup2.PushBack({ 49,131,62,15 });
+	playershowup2.PushBack({ 60,153,51,16 });
+	playershowup2.PushBack({ 60,180,51,16 });
+	playershowup2.PushBack({ 157,4,64,16 });
+	playershowup2.PushBack({ 158,25,64,25 });
 	playershowup2.loop = false;
 	playershowup2.speed = 0.15f;
-	playershowup3.PushBack({ 51,371,60,25 });
-	playershowup3.PushBack({ 52,396,59,25 });
-	playershowup3.PushBack({ 72,425,39,18 });
-	playershowup3.PushBack({ 76,452,35,15 });
-	playershowup3.PushBack({ 64,3,32,14 });
+	playershowup3.PushBack({ 164,49,57,25 });
+	playershowup3.PushBack({ 166,75,56,25 });
+	playershowup3.PushBack({ 186,103,36,19 });
+	playershowup3.PushBack({ 190,130,32,15 });
+	playershowup3.PushBack({ 286,8,32,11 });
 	playershowup3.loop = false;
 	playershowup3.speed = 0.2f;
 
-
+	
 
 	// Death Animation 
 
-	death.PushBack({ 18, 20, 37, 16 });
-	death.PushBack({ 14, 37, 41, 17 });
-	death.PushBack({ 9, 54, 46, 18 });
-	death.PushBack({ 3, 71, 52, 16 });
-	death.PushBack({ 2, 87, 54, 15 });
-	death.PushBack({ 0, 104, 55, 16 });
-	death.PushBack({ 57, 21, 53, 15 });
-	death.PushBack({ 58, 36, 52, 16 });
-	death.PushBack({ 55, 53, 55, 17 });
-	death.PushBack({ 56, 70, 54, 17 });
-	death.PushBack({ 55, 88, 55, 17 });
-	death.PushBack({ 57, 106, 53, 15 });
-	death.PushBack({ 112, 19, 53, 18 });
-	death.PushBack({ 114, 38, 51, 14 });
-	death.PushBack({ 118, 53, 47, 18 });
-	death.PushBack({ 118, 72, 47, 14 });
-	death.PushBack({ 124, 89, 41, 12 });
-	death.PushBack({ 128, 108, 37, 10 });
+	death.PushBack({ 286, 35, 33, 11 });
+	death.PushBack({ 286, 62, 32, 12 });
+	death.PushBack({ 283, 88, 36, 15 });
+	death.PushBack({ 277, 114, 40, 18 });
+	death.PushBack({ 273, 140, 45, 19 });
+	death.PushBack({ 266, 167, 51, 20 });
+	death.PushBack({ 259, 196, 59, 21 });
+	death.PushBack({ 319, 1, 62, 22 });
+	death.PushBack({ 318, 29, 63, 24 });
+	death.PushBack({ 318, 58, 63, 23 });
+	death.PushBack({ 320, 86, 60, 23 });
+	death.PushBack({ 321, 113, 60, 24 });
+	death.PushBack({ 323, 143, 58, 25 });
+	death.PushBack({ 327, 170, 54, 26 });
+	death.PushBack({ 323, 197, 58, 27 });
+	death.PushBack({ 383, 0, 60, 28 });
+	death.PushBack({ 388, 28, 55, 28 });
+	death.PushBack({ 390, 56, 54, 28 });
+	death.PushBack({ 392, 85, 52, 27 });
+	death.PushBack({ 394, 115, 50, 21 });
 	death.loop = false;
 	death.speed = 0.15f;
-
+	/*
 	// idle animation (arcade sprite sheet)
 
 	idle.PushBack({ 64,3,32,14 });
