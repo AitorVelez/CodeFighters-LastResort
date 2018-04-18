@@ -43,7 +43,7 @@ public:
 	Collider *PlayerCollider = nullptr;
 
 	bool alive = true;
-	bool death_played = false;
+	bool death_played = false; // different than player one 
 	bool god_mode = false;
 
 	Mix_Chunk* chunk;
