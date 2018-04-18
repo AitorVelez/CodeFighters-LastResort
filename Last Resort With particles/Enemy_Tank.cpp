@@ -1,7 +1,7 @@
 #include "Application.h"
 #include "Enemy_Tank.h"
 #include "ModuleCollision.h"
-
+#include "ModulePlayer.h"
 Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
 {
 	tank.PushBack({ 16,857,157,64 });
@@ -13,5 +13,7 @@ Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
 
 void Enemy_Tank::Move()
 {
-
+	if (App->player->position.x >= position.x) {
+		position.x += 1; 
+	}
 }
