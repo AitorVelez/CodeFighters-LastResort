@@ -8,7 +8,7 @@ Red_Car::Red_Car(int x, int y) : Enemy(x, y)
 	goCarB.PushBack({ 313,666,21,11 });
 	goCarB.PushBack({ 334,666,21,11 });
 	goCarB.PushBack({ 355,666,21,11 });
-	goCarB.PushBack({ 226,681,21,11 });
+	goCarB.PushBack({ 256,681,21,11 });
 
 	goCarB.speed = 0.1;
 	animation = &goCarB;
@@ -20,5 +20,5 @@ Red_Car::Red_Car(int x, int y) : Enemy(x, y)
 
 void Red_Car::Move()
 {
-	position.x += 1.75;
+	position.x += 2;
 }

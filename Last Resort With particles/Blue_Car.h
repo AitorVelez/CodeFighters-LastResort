@@ -1,5 +1,5 @@
-#ifndef __BLUE_CAR_H__
-#define __BLUE_CAR_H__
+#ifndef __Blue_Car_H__
+#define __Blue_Car_H__
 
 #include "Enemy.h"
 
@@ -15,4 +15,4 @@ public:
 	void Move();
 };
 
-#endif // __BLUE_CAR_H__
+#endif // __Blue_Car_H__

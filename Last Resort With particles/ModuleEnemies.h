@@ -2,9 +2,9 @@
 #define __ModuleEnemies_H__
 
 #include "Module.h"
-#include "Enemy_Cockroach.h"
+//#include "Enemy_Cockroach.h"
 
-#define MAX_ENEMIES 200
+#define MAX_ENEMIES 300
 
 // TODO 2: Add a new enemy: Brown Cookies!
 
