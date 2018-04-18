@@ -13,7 +13,7 @@
 #include "ModuleParticles.h"
 #include "ModuleEnemies.h"
 #include "SDL/include/SDL_timer.h"
-
+#include "ModulePlayer2.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 

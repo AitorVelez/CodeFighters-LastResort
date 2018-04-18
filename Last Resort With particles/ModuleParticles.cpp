@@ -82,6 +82,27 @@ bool ModuleParticles::Start()
 	player_death.anim.speed = 0.25f;
 	player_death.fx = 1; 
 
+
+
+
+
+
+
+
+
+
+	// player 2 death
+
+
+
+
+
+
+
+
+
+
+
 	
 	CommonExplosion.anim.PushBack({ 393,0,0,16 });//													
 	CommonExplosion.anim.PushBack({ 411,0,20,20 });//

@@ -4,6 +4,7 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
+#include "ModulePlayer2.h"
 #include "ModuleStartingImage.h"
 #include "SDL/include/SDL_render.h"
 #include "SDL/include/SDL_timer.h"

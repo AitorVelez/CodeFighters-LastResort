@@ -4,6 +4,7 @@
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
+#include "ModulePlayer2.h"
 #include "ModuleInput.h"
 #include "ModuleAudio.h"
 #include "ModuleFadeToBlack.h"
@@ -37,7 +38,7 @@ bool ModuleIntroNeoGeo::Start()
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 	App->player->Disable();
-
+	App->player2->Disable();
 	return ret;
 }
 

@@ -11,7 +11,7 @@
 #include "ModuleStageClear.h"
 #include "ModuleIntroNeoGeo.h"
 #include "Application.h"
-
+#include "ModulePlayer2.h"
 
 
 ModuleStageClear::ModuleStageClear()
@@ -38,7 +38,7 @@ bool ModuleStageClear::Start()
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 	App->player->Disable();
-
+	App->player2->Disable();
 	return ret;
 }
 

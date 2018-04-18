@@ -10,7 +10,7 @@
 #include "ModuleBackground.h"
 #include "ModuleStageClear.h"
 #include "Application.h"
-
+#include "ModulePlayer2.h"
 
 ModuleStartingImage::ModuleStartingImage()
 {
@@ -36,7 +36,7 @@ bool ModuleStartingImage::Start()
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 	App->player->Disable(); 
-
+	App->player2->Disable();
 	return ret;
 }
 

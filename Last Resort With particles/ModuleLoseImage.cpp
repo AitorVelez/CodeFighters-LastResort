@@ -11,7 +11,7 @@
 #include "ModuleLoseImage.h"
 #include "ModuleStageClear.h"
 #include "Application.h"
-
+#include "ModulePlayer2.h"
 
 ModuleLoseImage::ModuleLoseImage()
 {
@@ -37,7 +37,7 @@ bool ModuleLoseImage::Start()
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 	App->player->Disable();
-
+	App->player2->Disable();
 	return ret;
 }
 
