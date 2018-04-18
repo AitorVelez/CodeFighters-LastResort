@@ -16,7 +16,7 @@
 #include "ModuleCollision.h"
 #include "ModuleLoseImage.h"
 #include "Module.h"
-
+#include "ModulePlayer2.h"
 
 Application::Application()
 {
@@ -35,7 +35,7 @@ Application::Application()
 	modules[12] = audio = new ModuleAudio(); 
 	modules[13] = collision = new ModuleCollision();
 	modules[14] = fade = new ModuleFadeToBlack();
-
+	modules[15] = player2 = new ModulePlayer2();
 	
 }	
 
