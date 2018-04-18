@@ -15,6 +15,7 @@ Red_Car::Red_Car(int x, int y) : Enemy(x, y)
 
 
 	collider = App->collision->AddCollider({ 0, 0, 18, 11 }, COLLIDER_TYPE::COLLIDER_CAR, (Module*)App->enemies);
+
 }
 
 void Red_Car::Move()
