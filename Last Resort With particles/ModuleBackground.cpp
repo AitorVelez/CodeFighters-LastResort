@@ -327,13 +327,25 @@ bool ModuleBackground::Start()
 	
 	//ENEMY RHINO
 	
-	
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 330, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 360, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 390, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 420, 112);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 450, 112); 
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 450, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 480, 112);
+	
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 5000, 112);
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 5035, 112);
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 5070, 112);
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 6005, 112);
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 6040, 112); 
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 6075, 112);
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 7010, 112);
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 7045, 112);
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 7080, 112);
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 8015, 112);
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 8040, 112);
+
 
 
 
