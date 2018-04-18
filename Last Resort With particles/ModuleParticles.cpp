@@ -115,7 +115,7 @@ bool ModuleParticles::Start()
 	player2_death.anim.PushBack({ 392, 85, 52, 27 });
 	player2_death.anim.PushBack({ 394, 115, 50, 21 });
 	player2_death.anim.loop = false;
-	player2_death.anim.speed = 0.15f;
+	player2_death.anim.speed = 0.25f;
 
 
 

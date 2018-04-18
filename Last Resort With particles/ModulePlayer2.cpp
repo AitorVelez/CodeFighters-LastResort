@@ -108,7 +108,7 @@ bool ModulePlayer2::Start()
 	LOG("Loading player 2 textures");
 	bool ret = true;
 	position.x = 50;                             
-	position.y = 325;
+	position.y = 175;
 	relativeposition.x = position.x;                                                               
 	relativeposition.y = position.y;
 	alive = true;
@@ -233,7 +233,7 @@ update_status ModulePlayer2::Update()
 
 
 
-		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
+		if (App->input->keyboard[SDL_SCANCODE_B] == KEY_STATE::KEY_DOWN) {
 		
 			App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);
 			App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);

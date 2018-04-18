@@ -51,13 +51,14 @@ bool Application::Init()
 
 	startimage->Disable();
 	player->Disable();
+	player2->Disable();
 	particles->Disable(); 
 	background->Disable();
 	stageclear->Disable();
 	loseimage->Disable();
 	collision->Disable();
 	enemies->Disable();
-	player2->Disable();
+
 
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)
 		ret = modules[i]->Init();

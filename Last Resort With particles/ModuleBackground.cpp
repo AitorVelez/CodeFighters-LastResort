@@ -246,10 +246,11 @@ bool ModuleBackground::Start()
 	bool ret = true;	
 
 	App->player->Enable();
+	App->player2->Enable();
 	App->particles->Enable(); 	
 	App->collision->Enable();
 	App->enemies->Enable();
-	App->player2->Enable();
+
 	//graphics = App->textures->Load("backgroundlvl1v2.png");
 	BackgroundLvl1 = App->textures->Load("assets/sprites/background_lvl1.png");
 	BackgroundLvl1_extra = App->textures->Load("assets/sprites/background_lvl1_extra.png");
@@ -260,7 +261,7 @@ bool ModuleBackground::Start()
 	BackLights2 = App->textures->Load("assets/sprites/MidBackgroundLights.png");
 	BackLights3 = App->textures->Load("assets/sprites/MidBackgroundLightsExtra.png");
 
-	
+	bgpos = 0; 
 
 	//ENEMY COCKROACH
 
@@ -356,7 +357,7 @@ bool ModuleBackground::Start()
 	// TANK
 
 
-	App->enemies->AddEnemy(ENEMY_TYPES::TANK, 1500, 200);
+	App->enemies->AddEnemy(ENEMY_TYPES::TANK, 1000, 100);
 
 
 	App->enemies->AddEnemy(ENEMY_TYPES::CAR, 55, 200);
@@ -373,8 +374,9 @@ bool ModuleBackground::CleanUp()
 	LOG("Cleaning Up background");
 	//Disable Other Modules
 	App->player->Disable(); 
-	App->particles->Disable(); 
 	App->player2->Disable();
+	App->particles->Disable(); 
+	
 	//Free all loaded textures
 	App->textures->Unload(BackgroundLvl1);
 	App->textures->Unload(BackgroundLvl1_extra);
@@ -682,6 +684,7 @@ update_status ModuleBackground::Update()
 
 	if (scroll) {
 		App->render->camera.x -= scroll_speed;
+		bgpos += 1; 
 	}
 
 	if (App->render->camera.x <= -9100 * SCREEN_SIZE)

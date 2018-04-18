@@ -81,6 +81,7 @@ public:
 	float depth_3; 
 	bool downscroll = false; 
 	bool notscrolling = true;
+	int bgpos; 
 };
 
 #endif
