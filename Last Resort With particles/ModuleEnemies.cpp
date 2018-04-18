@@ -8,7 +8,7 @@
 #include "Enemy_Cockroach.h"
 #include "Enemy_Rhino.h"
 #include "Enemy_Lamella.h"
-#include "car.h"
+#include "Blue_Car.h"
 #include "Enemy_Tank.h"
 #define SPAWN_MARGIN 50
 
@@ -141,8 +141,8 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::LAMELLA:
 			enemies[i] = new Enemy_Lamella(info.x, info.y);
 			break;
-		case ENEMY_TYPES::CAR:
-			enemies[i] = new car(info.x, info.y);
+		case ENEMY_TYPES::BLUE_CAR:
+			enemies[i] = new Blue_Car(info.x, info.y);
 			break;
 		case ENEMY_TYPES::TANK:
 			enemies[i] = new Enemy_Tank(info.x, info.y);
