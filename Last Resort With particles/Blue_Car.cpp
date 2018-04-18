@@ -14,7 +14,7 @@ Blue_Car::Blue_Car(int x, int y) : Enemy(x, y)
 	animation = &goCarA;
 
 
-	collider = App->collision->AddCollider({ 0, 0, 18, 11 }, COLLIDER_TYPE::COLLIDER_BLUE_CAR, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 18, 11 }, COLLIDER_TYPE::COLLIDER_CAR, (Module*)App->enemies);
 
 }
 
