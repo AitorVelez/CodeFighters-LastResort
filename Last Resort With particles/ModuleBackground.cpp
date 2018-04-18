@@ -336,7 +336,7 @@ bool ModuleBackground::Start()
 	
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 5000, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 5035, 112);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 5070, 112);
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 5070, 112);						//THESE RHINOS DONT SPAWN
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 6005, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 6040, 112); 
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 6075, 112);
@@ -346,6 +346,10 @@ bool ModuleBackground::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 8015, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 8040, 112);
 
+
+	//ENEMY LAMELLA
+
+	App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 400, 112);
 
 
 

@@ -2,6 +2,8 @@
 #include "Enemy_Lamella.h"
 #include "ModuleCollision.h"
 #include "ModulePlayer.h"
+
+
 Enemy_Lamella::Enemy_Lamella(int x, int y) : Enemy(x, y)
 {
 	fly.PushBack({ 4,513,28,28 });
