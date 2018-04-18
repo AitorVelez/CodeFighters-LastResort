@@ -20,5 +20,5 @@ car::car(int x, int y) : Enemy(x, y)
 
 void car::Move()
 {
-	position.x += 1.2;
+	position.x += 2;
 }

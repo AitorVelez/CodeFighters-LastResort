@@ -37,9 +37,9 @@ bool ModuleAudio::Init()
 }
 
 bool ModuleAudio::CleanUp()
-{
-	Mix_Quit(); 
+{	
 	Mix_CloseAudio();
+	Mix_Quit(); 
 	return false;
 }
 
