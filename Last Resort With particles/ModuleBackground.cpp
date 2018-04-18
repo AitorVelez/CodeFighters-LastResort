@@ -392,18 +392,56 @@ void ModuleBackground::CameraUpDown()
 {
 	int  scrolltime = 190; int waittime = 443;
 	CameraOscillation(100, 190, false);
+
+	NotScrolling(190, 190 + waittime);
+
 	CameraOscillation(190 + waittime, 190 + waittime + scrolltime, true);
+
+	NotScrolling(190 + waittime + scrolltime, 190 + waittime * 2 + scrolltime);
+
 	CameraOscillation(190 + waittime * 2 + scrolltime, 190 + waittime * 2 + scrolltime * 2, false);
+
+	NotScrolling(190 + waittime * 2 + scrolltime * 2, 190 + waittime * 3 + scrolltime * 2);
+
 	CameraOscillation(190 + waittime * 3 + scrolltime * 2, 190 + waittime * 3 + scrolltime * 3, true);
+
+	NotScrolling(190 + waittime * 3 + scrolltime * 3, 190 + waittime * 4 + scrolltime * 3);
+
 	CameraOscillation(190 + waittime * 4 + scrolltime * 3, 190 + waittime * 4 + scrolltime * 4, false);
+
+	NotScrolling(190 + waittime * 4 + scrolltime * 4, 190 + waittime * 5 + scrolltime * 4);
+
 	CameraOscillation(190 + waittime * 5 + scrolltime * 4, 190 + waittime * 5 + scrolltime * 5, true);
+
+	NotScrolling(190 + waittime * 5 + scrolltime * 5, 190 + waittime * 6 + scrolltime * 5);
+
 	CameraOscillation(190 + waittime * 6 + scrolltime * 5, 190 + waittime * 6 + scrolltime * 6, false);
+
+	NotScrolling(190 + waittime * 6 + scrolltime * 6, 190 + waittime * 7 + scrolltime * 6);
+
 	CameraOscillation(190 + waittime * 7 + scrolltime * 6, 190 + waittime * 7 + scrolltime * 7, true);
+
+	NotScrolling(190 + waittime * 7 + scrolltime * 7, 190 + waittime * 8 + scrolltime * 7);
+
 	CameraOscillation(190 + waittime * 8 + scrolltime * 7, 190 + waittime * 8 + scrolltime * 8, false);
+
+	NotScrolling(190 + waittime * 8 + scrolltime * 8, 190 + waittime * 9 + scrolltime * 8);
+
 	CameraOscillation(190 + waittime * 9 + scrolltime * 8, 190 + waittime * 9 + scrolltime * 9, true);
+
+	NotScrolling(190 + waittime * 9 + scrolltime * 9, 190 + waittime * 10 + scrolltime * 9);
+
 	CameraOscillation(190 + waittime * 10 + scrolltime * 9, 190 + waittime * 10 + scrolltime * 10, false);
+
+	NotScrolling(190 + waittime * 10 + scrolltime * 10, 190 + waittime * 11 + scrolltime * 10);
+
 	CameraOscillation(190 + waittime * 11 + scrolltime * 10, 190 + waittime * 11 + scrolltime * 11, true);
+
+	NotScrolling(190 + waittime * 11 + scrolltime * 11, 190 + waittime * 12 + scrolltime * 11);
+
 	CameraOscillation(190 + waittime * 12 + scrolltime * 11, 190 + waittime * 12 + scrolltime * 11 + 100, false);
+
+	NotScrolling(190 + waittime * 12 + scrolltime * 11 + 100, 100000);
 }
 
 void ModuleBackground::MoveUp()
@@ -411,6 +449,7 @@ void ModuleBackground::MoveUp()
 	App->render->camera.y += 3;
 	App->player->position.y -= 1;
 	downscroll = false; 
+	notscrolling = false;
 }
 
 void ModuleBackground::MoveDown()
@@ -418,15 +457,21 @@ void ModuleBackground::MoveDown()
 	App->render->camera.y -= 3;
 	App->player->position.y += 1;
 	downscroll = true; 
+	notscrolling = false;
 }
+
+void ModuleBackground::NotScrolling(int since, int to) {
+	notscrolling = true;
+	downscroll = false;
+}
+
 void ModuleBackground::CameraOscillation(int since, int to, bool up)
 {
 	if (App->render->camera.x >= -to && App->render->camera.x <= -since)
 	{
 		if (up) MoveUp();
-		if (!up) MoveDown(); 
+		if (!up) MoveDown();
 	}
-	
 }
 
 void ModuleBackground::RenderCrater()

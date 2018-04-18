@@ -24,6 +24,7 @@ public:
 	void MoveUp();
 	void MoveDown();
 	void CameraOscillation(int since, int to, bool up); 
+	void NotScrolling(int since, int to); 
 
 	// Renders
 	void RenderCrater();
