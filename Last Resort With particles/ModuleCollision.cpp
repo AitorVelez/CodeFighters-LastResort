@@ -17,18 +17,21 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_PLAYER][COLLIDER_WALL] = true;
 	matrix[COLLIDER_PLAYER][COLLIDER_PLAYER] = false;
 	matrix[COLLIDER_PLAYER][COLLIDER_ENEMY] = true;
+	matrix[COLLIDER_PLAYER][COLLIDER_CAR] = false;
 	matrix[COLLIDER_PLAYER][COLLIDER_PLAYER_SHOT] = false;
 	matrix[COLLIDER_PLAYER][COLLIDER_ENEMY_SHOT] = true;
 
 	matrix[COLLIDER_ENEMY][COLLIDER_WALL] = true;
 	matrix[COLLIDER_ENEMY][COLLIDER_PLAYER] = true;
-	matrix[COLLIDER_ENEMY][COLLIDER_ENEMY] = false;     
+	matrix[COLLIDER_ENEMY][COLLIDER_ENEMY] = false;
 	matrix[COLLIDER_ENEMY][COLLIDER_PLAYER_SHOT] = true;
 	matrix[COLLIDER_ENEMY][COLLIDER_ENEMY_SHOT] = false;
+	matrix[COLLIDER_ENEMY][COLLIDER_CAR] = false;
 
 	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_WALL] = true;
 	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_PLAYER] = false;
 	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_ENEMY] = true;
+	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_CAR] = true;
 	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_PLAYER_SHOT] = false;
 	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_ENEMY_SHOT] = false;
 
@@ -38,17 +41,11 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_PLAYER_SHOT] = false;
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_ENEMY_SHOT] = false;
 
-	matrix[COLLIDER_BLUE_CAR][COLLIDER_WALL] = false;
-	matrix[COLLIDER_BLUE_CAR][COLLIDER_PLAYER] = false;
-	matrix[COLLIDER_BLUE_CAR][COLLIDER_ENEMY] = false;
-	matrix[COLLIDER_BLUE_CAR][COLLIDER_PLAYER_SHOT] = true;
-	matrix[COLLIDER_BLUE_CAR][COLLIDER_ENEMY_SHOT] = false;
-
-	matrix[COLLIDER_RED_CAR][COLLIDER_WALL] = false;
-	matrix[COLLIDER_RED_CAR][COLLIDER_PLAYER] = false;
-	matrix[COLLIDER_RED_CAR][COLLIDER_ENEMY] = false;
-	matrix[COLLIDER_RED_CAR][COLLIDER_PLAYER_SHOT] = true;
-	matrix[COLLIDER_RED_CAR][COLLIDER_ENEMY_SHOT] = false;
+	matrix[COLLIDER_CAR][COLLIDER_WALL] = false;
+	matrix[COLLIDER_CAR][COLLIDER_PLAYER] = false;
+	matrix[COLLIDER_CAR][COLLIDER_ENEMY] = false;
+	matrix[COLLIDER_CAR][COLLIDER_PLAYER_SHOT] = true;
+	matrix[COLLIDER_CAR][COLLIDER_ENEMY_SHOT] = false;
 }
 
 // Destructor
@@ -147,10 +144,7 @@ void ModuleCollision::DebugDraw()
 		case COLLIDER_ENEMY_SHOT: // magenta
 			App->render->DrawQuad(colliders[i]->rect, 0, 255, 255, alpha);
 			break;
-		case COLLIDER_BLUE_CAR: // black
-			App->render->DrawQuad(colliders[i]->rect, 0, 0, 0, alpha);
-			break;
-		case COLLIDER_RED_CAR: // black
+		case COLLIDER_CAR: // black
 			App->render->DrawQuad(colliders[i]->rect, 0, 0, 0, alpha);
 			break;
 		}
