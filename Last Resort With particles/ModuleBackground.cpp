@@ -249,7 +249,7 @@ bool ModuleBackground::Start()
 	App->particles->Enable(); 	
 	App->collision->Enable();
 	App->enemies->Enable();
-
+	App->player2->Enable();
 	//graphics = App->textures->Load("backgroundlvl1v2.png");
 	BackgroundLvl1 = App->textures->Load("assets/sprites/background_lvl1.png");
 	BackgroundLvl1_extra = App->textures->Load("assets/sprites/background_lvl1_extra.png");
@@ -374,6 +374,7 @@ bool ModuleBackground::CleanUp()
 	//Disable Other Modules
 	App->player->Disable(); 
 	App->particles->Disable(); 
+	App->player2->Disable();
 	//Free all loaded textures
 	App->textures->Unload(BackgroundLvl1);
 	App->textures->Unload(BackgroundLvl1_extra);
@@ -456,6 +457,7 @@ void ModuleBackground::MoveUp()
 {
 	App->render->camera.y += 3;
 	App->player->position.y -= 1;
+	App->player2->position.y -= 1;
 	downscroll = false; 
 	notscrolling = false;
 }
@@ -464,6 +466,7 @@ void ModuleBackground::MoveDown()
 {
 	App->render->camera.y -= 3;
 	App->player->position.y += 1;
+	App->player2->position.y += 1;
 	downscroll = true; 
 	notscrolling = false;
 }

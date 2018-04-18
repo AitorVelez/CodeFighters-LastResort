@@ -2,6 +2,7 @@
 #include "Enemy_Tank.h"
 #include "ModuleCollision.h"
 #include "ModulePlayer.h"
+#include "ModulePlayer2.h"
 Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
 {
 	tank.PushBack({ 16,857,157,64 });

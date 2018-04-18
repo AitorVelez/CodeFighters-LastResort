@@ -105,7 +105,7 @@ ModulePlayer2::~ModulePlayer2()
 // Load assets
 bool ModulePlayer2::Start()
 {
-	LOG("Loading player textures");
+	LOG("Loading player 2 textures");
 	bool ret = true;
 	position.x = 50;                             
 	position.y = 325;
@@ -114,7 +114,7 @@ bool ModulePlayer2::Start()
 	alive = true;
 
 	graphics = App->textures->Load("assets/sprites/SpritesPlayer2.png"); // arcade version
-	PlayerCollider = App->collision->AddCollider({ position.x,position.y, 32, 14 }, COLLIDER_PLAYER, this);
+	PlayerCollider = App->collision->AddCollider({ position.x,position.y, 32, 11 }, COLLIDER_PLAYER, this);
 
 	death_played = false;
 	death.Reset();
@@ -128,7 +128,7 @@ bool ModulePlayer2::Start()
 
 bool ModulePlayer2::CleanUp()
 {
-	LOG("Closing Up Player Module");
+	LOG("Closing Up Player 2 Module");
 	// Free All textures
 	App->textures->Unload(graphics);
 
