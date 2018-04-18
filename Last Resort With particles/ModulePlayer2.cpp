@@ -19,7 +19,7 @@ ModulePlayer2::ModulePlayer2()
 {
 	current_animation = &idle;
 
-/*
+
 	playershowup.PushBack({ 0,11,112,1 });
 	playershowup.PushBack({ 5,37,105,2 });
 	playershowup.PushBack({ 34,59,76,4 });
@@ -68,34 +68,34 @@ ModulePlayer2::ModulePlayer2()
 	death.PushBack({ 394, 115, 50, 21 });
 	death.loop = false;
 	death.speed = 0.15f;
-	/*
+	
 	// idle animation (arcade sprite sheet)
 
-	idle.PushBack({ 64,3,32,14 });
+	idle.PushBack({ 286,8,32,11 });
 
 	// Up animation
-	up.PushBack({ 32,3,32,14 });
-	up.PushBack({ 0,3,32,14 });
+	up.PushBack({ 223,12,32,11 });
+	up.PushBack({ 223,0,32,11 });
 	up.speed = 0.1;
 	up.loop = false;
 
-	re_up.PushBack({ 0,3,32,14 });
-	re_up.PushBack({ 32,3,32,14 });
-	re_up.PushBack({ 64,3,32,14 });
+	re_up.PushBack({ 223,0,32,11 });
+	re_up.PushBack({ 223,12,32,11 });
+	re_up.PushBack({ 286,8,32,11 });
 	re_up.speed = 0.1;
 	re_up.loop = false;
 
 	// Down animation
-	down.PushBack({ 96,3,32,14 });
-	down.PushBack({ 128,3,32,14 });
+	down.PushBack({ 223,36,32,12 });
+	down.PushBack({ 223,49,32,11 });
 	down.speed = 0.1;
 	down.loop = false;
 
-	re_down.PushBack({ 128,3,32,14 });
-	re_down.PushBack({ 96,3,32,14 });
-	re_down.PushBack({ 64,3,32,14 });
+	down.PushBack({ 223,49,32,11 });
+	down.PushBack({ 223,36,32,12 });
+	re_down.PushBack({ 286,8,32,11 });
 	re_down.speed = 0.1;
-	re_down.loop = false;*/
+	re_down.loop = false;
 
 }
 
@@ -255,7 +255,7 @@ update_status ModulePlayer2::Update()
 	// Draw everything --------------------------------------
 	else {
 		/*current_animation = &death;
-		r = current_animation->GetCurrentFrame();*/                          // shoul do death animation for PLAYER 2 
+		r = current_animation->GetCurrentFrame();*/                          // should do death animation for PLAYER 2 
 		if (death_played == false) {
 			App->particles->AddParticle(App->particles->player_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
 			death_played = true;                   
