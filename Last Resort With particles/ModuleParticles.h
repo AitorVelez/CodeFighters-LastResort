@@ -51,7 +51,7 @@ private:
 	SDL_Texture *BulletsAndLaser = nullptr;
 	Particle* active[MAX_ACTIVE_PARTICLES];
 	uint last_particle = 0;
-
+	SDL_Texture * player2Part = nullptr;
 public:
 
 	Particle player_death;
@@ -59,7 +59,7 @@ public:
 	Particle SpaceshipAnim;
 	Particle bullet;
 	Particle bulletEx;
-
+	Particle player2_death;
 
 	Mix_Chunk* shot = nullptr; 
 	Mix_Chunk* player_death_sfx = nullptr; 

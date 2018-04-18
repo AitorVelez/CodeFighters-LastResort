@@ -25,6 +25,7 @@ bool ModuleParticles::Start()
 	playerPart = App->textures->Load("assets/sprites/main_character.png");
 	shot = App->audio->LoadChunk("assets/SFX/shot.wav");							// Shot -> fx = 0 
 	player_death_sfx = App->audio->LoadChunk("assets/SFX/player_death.wav");		// Death -> fx = 1
+	player2Part = App->textures->Load("assets/sprites/SpritesPlayer2.png");
 
 	bulletEx.anim.PushBack({ 278,90,13,12 });
 	bulletEx.anim.PushBack({ 291,90,13,12 });
@@ -93,7 +94,28 @@ bool ModuleParticles::Start()
 
 	// player 2 death
 
-
+	player2_death.anim.PushBack({ 286, 35, 33, 11 });
+	player2_death.anim.PushBack({ 286, 62, 32, 12 });
+	player2_death.anim.PushBack({ 283, 88, 36, 15 });
+	player2_death.anim.PushBack({ 277, 114, 40, 18 });
+	player2_death.anim.PushBack({ 273, 140, 45, 19 });
+	player2_death.anim.PushBack({ 266, 167, 51, 20 });
+	player2_death.anim.PushBack({ 259, 196, 59, 21 });
+	player2_death.anim.PushBack({ 319, 1, 62, 22 });
+	player2_death.anim.PushBack({ 318, 29, 63, 24 });
+	player2_death.anim.PushBack({ 318, 58, 63, 23 });
+	player2_death.anim.PushBack({ 320, 86, 60, 23 });
+	player2_death.anim.PushBack({ 321, 113, 60, 24 });
+	player2_death.anim.PushBack({ 323, 143, 58, 25 });
+	player2_death.anim.PushBack({ 327, 170, 54, 26 });
+	player2_death.anim.PushBack({ 323, 197, 58, 27 });
+	player2_death.anim.PushBack({ 383, 0, 60, 28 });
+	player2_death.anim.PushBack({ 388, 28, 55, 28 });
+	player2_death.anim.PushBack({ 390, 56, 54, 28 });
+	player2_death.anim.PushBack({ 392, 85, 52, 27 });
+	player2_death.anim.PushBack({ 394, 115, 50, 21 });
+	player2_death.anim.loop = false;
+	player2_death.anim.speed = 0.15f;
 
 
 
@@ -133,6 +155,7 @@ bool ModuleParticles::CleanUp()
 	App->textures->Unload(BulletsAndLaser);
 	App->audio->UnloadChunk(shot);
 	App->audio->UnloadChunk(player_death_sfx);
+	App->textures->Unload(player2Part);
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
 		if (active[i] != nullptr)
