@@ -41,7 +41,7 @@ public:
 	fPoint relativeposition;
 	Collider *PlayerCollider = nullptr;
 
-	bool alive = true;
+	bool alive2 = true;
 	bool death_played = false; // different than player one 
 	bool god_mode = false;
 

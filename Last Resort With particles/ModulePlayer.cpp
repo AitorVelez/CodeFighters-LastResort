@@ -4,6 +4,7 @@
 #include "ModuleInput.h"
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
+#include "ModulePlayer2.h"
 #include "ModuleCollision.h"
 #include "ModuleAudio.h"
 #include "ModuleParticles.h"
@@ -138,7 +139,7 @@ void ModulePlayer::OnCollision(Collider * c1, Collider * c2)
 {
 	if (!god_mode) {
 		alive = false;
-		App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage, 2.5f);
+		
 	}
 }
 
