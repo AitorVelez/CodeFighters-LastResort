@@ -13,6 +13,14 @@ Red_Car::Red_Car(int x, int y) : Enemy(x, y)
 	goCarB.speed = 0.1;
 	animation = &goCarB;
 
+	carDeathB.PushBack({ 278,680,21,18 });
+	carDeathB.PushBack({ 299,680,20,18 });
+	carDeathB.PushBack({ 318,680,21,18 });
+	carDeathB.PushBack({ 339,680,21,18 });
+	carDeathB.PushBack({ 359,680,21,18 });
+	carDeathB.PushBack({ 256,699,27,13 });
+	carDeathB.PushBack({ 283,699,28,13 });
+	carDeathB.PushBack({ 314,699,35,13 });
 
 	collider = App->collision->AddCollider({ 0, 0, 18, 11 }, COLLIDER_TYPE::COLLIDER_CAR, (Module*)App->enemies);
 
