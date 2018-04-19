@@ -111,7 +111,7 @@ bool ModulePlayer2::Start()
 	relativeposition.x = position.x;                                                               
 	relativeposition.y = position.y;
 	alive2 = true;
-
+	App->background->activ = true;
 	graphics = App->textures->Load("assets/sprites/SpritesPlayer2.png"); // arcade version
 	PlayerCollider = App->collision->AddCollider({ position.x,position.y, 32, 11 }, COLLIDER_PLAYER, this);
 

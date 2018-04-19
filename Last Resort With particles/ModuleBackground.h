@@ -69,7 +69,7 @@ public:
 	Animation MidBackgroundLights2;
 	Animation MidBackgroundLights3;
 	Animation ships;
-
+	bool activ = false;
 	float background_spaceship_posx = 0;
 	int craterx = 0;
 	int cratery = 0;
