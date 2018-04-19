@@ -24,8 +24,7 @@ void Enemy::Draw(SDL_Texture* sprites)
 		collider->SetPos(position.x, position.y);
 
 	if (animation != nullptr)
-		App->render->Blit(sprites, position.x, position.y, &(animation->GetCurrentFrame()), parallax, true, affected_by_y);
-
+		App->render->Blit(sprites, position.x, position.y, &(animation->GetCurrentFrame()));
 	if (animation2 != nullptr)
 		App->render->Blit(sprites, position.x + Anim2Distance.x, position.y + Anim2Distance.y, &(animation2->GetCurrentFrame()));
 	if (animation3 != nullptr)

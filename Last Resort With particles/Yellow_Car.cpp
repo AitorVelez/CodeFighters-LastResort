@@ -13,8 +13,6 @@ Yellow_Car::Yellow_Car(int x, int y) : Enemy(x, y)
 	goCarC.speed = 0.1;
 	animation = &goCarC;
 
-	affected_by_y = true; 
-	parallax = 0.4875;
 
 	collider = App->collision->AddCollider({ 0, 0, 18, 11 }, COLLIDER_TYPE::COLLIDER_CAR, (Module*)App->enemies);
 
@@ -22,5 +20,5 @@ Yellow_Car::Yellow_Car(int x, int y) : Enemy(x, y)
 
 void Yellow_Car::Move()
 {
-	position.x += 1;
+	position.x += 2;
 }
