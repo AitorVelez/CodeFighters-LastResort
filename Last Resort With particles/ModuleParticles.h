@@ -52,6 +52,7 @@ private:
 	Particle* active[MAX_ACTIVE_PARTICLES];
 	uint last_particle = 0;
 	SDL_Texture * player2Part = nullptr;
+	SDL_Texture* Car_Explosion;
 public:
 
 	Particle player_death;
@@ -60,9 +61,11 @@ public:
 	Particle bullet;
 	Particle bulletEx;
 	Particle player2_death;
+	Particle carExplosion;
 
 	Mix_Chunk* shot = nullptr; 
 	Mix_Chunk* player_death_sfx = nullptr; 
+	Mix_Chunk* common_explosion_sfx = nullptr;
 };
 
 #endif // __MODULEPARTICLES_H__
