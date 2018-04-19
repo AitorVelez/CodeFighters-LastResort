@@ -211,7 +211,7 @@ update_status ModuleBall::Update()
 	if (angle_aiming >= 360) angle_aiming = 0;
 
 	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_REPEAT) {
-															// The aiming angle grows or decreases to 90º dependending on its place 
+														// The aiming angle grows or decreases to 90º dependending on its place 
 		if (angle_aiming <= 270 && angle_aiming > 90)		// Using te shortest way always
 			angle_aiming -= angle_speed;
 		else if (angle_aiming > 270)
@@ -266,7 +266,7 @@ update_status ModuleBall::Update()
 	
 		if (angle_aiming <= 180 && angle_aiming > 0)
 			angle_aiming -= angle_aiming_speed;
-		else if (angle_aiming < 360 && angle_aiming!= 0) 
+		if (angle_aiming > 180 && angle_aiming != 0) 
 			angle_aiming += angle_aiming_speed;
 
 		// -------------
@@ -275,7 +275,7 @@ update_status ModuleBall::Update()
 		{													// The angle grows or decreases to get to 180º depending on its place 
 			if (angle <= 180 && angle > 0)
 				angle -= angle_speed;
-			else if (angle < 360 && angle!=0) {
+			if (angle > 180 && angle != 0) {
 				angle += angle_speed;
 			}
 		}
@@ -286,7 +286,7 @@ update_status ModuleBall::Update()
 		
 		if (angle_aiming > 180)
 			angle_aiming -= angle_aiming_speed;
-		else if (angle_aiming < 180)
+		 if (angle_aiming < 180)
 			angle_aiming += angle_aiming_speed;
 		
 		// -------------
@@ -295,7 +295,7 @@ update_status ModuleBall::Update()
 		{													// The angle grows or decreases to get to 270º depending on its place 
 			if (angle > 180)
 				angle -= angle_speed;
-			else if (angle < 180)
+			if (angle < 180)
 				angle += angle_speed;
 		}
 	}
@@ -342,8 +342,6 @@ update_status ModuleBall::Update()
 		current_animation = &NE;
 	if (angle_aiming > 326.25 && angle_aiming <= 348.75)
 		current_animation = &NEE;
-
-
 	
 	//// Ball in North
 	//if (angle > 250 && angle < 290)			
