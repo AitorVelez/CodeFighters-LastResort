@@ -124,7 +124,7 @@ bool ModuleParticles::Start()
 	player2_death.fx = 1;
 	player2_death.anim.speed = 0.25f;
 
-<<<<<<< HEAD
+
 
 	//   TANK BULLETS 
 
@@ -144,9 +144,7 @@ bool ModuleParticles::Start()
 	SmallTankShot.speed.x = 3;
 	SmallTankShot.life = 1000;
 
-	
-=======
->>>>>>> f4ceb92d7a03d97e8dc61689295069220b87d834
+
 	CommonExplosion.anim.PushBack({ 393,0,0,16 });//													
 	CommonExplosion.anim.PushBack({ 411,0,20,20 });//
 	CommonExplosion.anim.PushBack({ 433,0,30,20 });//

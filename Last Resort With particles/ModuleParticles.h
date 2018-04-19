@@ -61,13 +61,13 @@ public:
 	Particle bullet;
 	Particle bulletEx;
 	Particle player2_death;
-<<<<<<< HEAD
+
 	Particle BigTankShot; 
 	Particle SmallTankShot; 
-=======
+
 	Particle carExplosion;
 
->>>>>>> f4ceb92d7a03d97e8dc61689295069220b87d834
+
 	Mix_Chunk* shot = nullptr; 
 	Mix_Chunk* player_death_sfx = nullptr; 
 	Mix_Chunk* common_explosion_sfx = nullptr;
