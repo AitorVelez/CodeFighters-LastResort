@@ -13,6 +13,12 @@ ModuleParticles::ModuleParticles()
 {
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 		active[i] = nullptr;
+
+	for (uint i = 0; i < MAX_PART_CHUNKS; ++i)
+		chunks[i] = nullptr; 
+
+	for (uint i = 0; i < MAX_PART_TEXTURES; ++i)
+		textures[i] = nullptr;
 }
 
 ModuleParticles::~ModuleParticles()
@@ -22,15 +28,15 @@ ModuleParticles::~ModuleParticles()
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
-	shot = App->audio->LoadChunk("assets/SFX/shot.wav");							// Shot -> fx = 0 
-	player_death_sfx = App->audio->LoadChunk("assets/SFX/player_death.wav");		// Death -> fx = 1
-	common_explosion_sfx = App->audio->LoadChunk("assets/SFX/Explosion1.wav");      // Explosion -> fx = 2
-	player_showup_sfx = App->audio->LoadChunk("assest/SFX/player_showup.WAV");      // Player_showup -> fx = 3
+	chunks[0] = App->audio->LoadChunk("assets/SFX/shot.wav");							// Shot -> fx = 0 
+	chunks[1]= App->audio->LoadChunk("assets/SFX/player_death.wav");					// Death -> fx = 1
+	chunks[2] = App->audio->LoadChunk("assets/SFX/Explosion1.wav");						// Common Explosion -> fx = 2
+	chunks[3] = App->audio->LoadChunk("assest/SFX/player_showup.WAV");					// Player_showup -> fx = 3
 	
 
-	playerPart = App->textures->Load("assets/sprites/main_character.png");			// Texture -> 1
-	player2Part = App->textures->Load("assets/sprites/SpritesPlayer2.png");			// Texture -> 2
-	Car_Explosion = App->textures->Load("assets/sprites/cars_bottom.png");			// Texture -> 3
+	textures[0] = App->textures->Load("assets/sprites/main_character.png");			// Texture -> 0
+	textures[1] = App->textures->Load("assets/sprites/SpritesPlayer2.png");			// Texture -> 1
+	textures[2] = App->textures->Load("assets/sprites/cars_bottom.png");			// Texture -> 2
 
 	bulletEx.anim.PushBack({ 278,90,13,12 });
 	bulletEx.anim.PushBack({ 291,90,13,12 });
@@ -47,7 +53,7 @@ bool ModuleParticles::Start()
 	bullet.speed.x = 8;
 	bullet.life = 1000;
 	bullet.fx = 0;
-	bullet.texture = 1; 
+	bullet.texture = 0; 
 
 	SpaceshipAnim.anim.PushBack({ 0,121,111,25 });
 	SpaceshipAnim.anim.PushBack({ 0,146,111,25 });
@@ -163,6 +169,7 @@ bool ModuleParticles::Start()
 	BigTankShot.anim.speed = 0.3f;
 	BigTankShot.speed.x = 3;
 	BigTankShot.life = 1000;
+	BigTankShot.texture = 0; 
 
 	SmallTankShot.anim.PushBack({ 245, 831, 5, 5 });
 	SmallTankShot.anim.PushBack({ 250, 831, 5, 5 });
@@ -171,7 +178,7 @@ bool ModuleParticles::Start()
 	SmallTankShot.anim.speed = 0.3f;
 	SmallTankShot.speed.x = 3;
 	SmallTankShot.life = 1000;
-
+	SmallTankShot.texture = 0; 
 
 	CommonExplosion.anim.PushBack({ 393,0,0,16 });//													
 	CommonExplosion.anim.PushBack({ 411,0,20,20 });//
@@ -190,7 +197,7 @@ bool ModuleParticles::Start()
 	CommonExplosion.anim.loop = false;
 	CommonExplosion.anim.speed = 0.5f;
 	CommonExplosion.fx = 2;
-	
+	CommonExplosion.texture = 0;
 	return true;
 }
 
@@ -198,20 +205,38 @@ bool ModuleParticles::Start()
 bool ModuleParticles::CleanUp()
 {
 	LOG("Unloading particles");
-	App->textures->Unload(playerPart);
+	/*App->textures->Unload(playerPart);
 	App->textures->Unload(BulletsAndLaser);
-	App->audio->UnloadChunk(shot);
+	App->textures->Unload(player2Part);
+	App->textures->Unload(Car_Explosion);*/
+	/*App->audio->UnloadChunk(shot);
 	App->audio->UnloadChunk(player_death_sfx);
 	App->audio->UnloadChunk(common_explosion_sfx);
-	App->audio->UnloadChunk(player_showup_sfx);
-	App->textures->Unload(player2Part);
-	App->textures->Unload(Car_Explosion);
+	App->audio->UnloadChunk(player_showup_sfx);*/
+	
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
 		if (active[i] != nullptr)
 		{
 			delete active[i];
 			active[i] = nullptr;
+		}
+	}
+
+	for (uint i = 0; i < MAX_PART_CHUNKS; ++i)
+	{
+		if (chunks[i] != nullptr) {
+			App->audio->UnloadChunk(chunks[i]);
+			chunks[i] = nullptr; 
+		}
+			
+	}
+
+	for (uint i = 0; i < MAX_PART_TEXTURES; ++i) 
+	{
+		if (textures[i] != nullptr) {
+			App->textures->Unload(textures[i]);
+			textures[i] = nullptr; 
 		}
 	}
 
@@ -236,19 +261,9 @@ update_status ModuleParticles::Update()
 
 		else if (SDL_GetTicks() >= p->born)
 		{
-			switch (p->texture) {
-			case 1: 
-				App->render->Blit(playerPart, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
-				break; 
-			case 2: 
-				App->render->Blit(player2Part, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
-				break; 
-			case 3: 
-				App->render->Blit(Car_Explosion, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
-				break; 
-			}
-
-			if (p->fx_played == false)
+			App->render->Blit(textures[p->texture], p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
+		
+ 			if (p->fx_played == false)
 			{
 				p->fx_played = true;
 				// Play particle fx here				
@@ -304,7 +319,7 @@ Particle::Particle()
 
 Particle::Particle(const Particle& p) :
 	anim(p.anim), position(p.position), speed(p.speed),
-	fx(p.fx), born(p.born), life(p.life)
+	fx(p.fx), born(p.born), life(p.life), texture(p.texture)
 {}
 
 Particle::~Particle()

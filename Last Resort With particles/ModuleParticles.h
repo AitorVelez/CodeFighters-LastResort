@@ -8,6 +8,8 @@
 #include "ModuleCollision.h"
 
 #define MAX_ACTIVE_PARTICLES 100
+#define MAX_PART_CHUNKS 25
+#define MAX_PART_TEXTURES 10
 
 struct SDL_Texture;
 struct Collider;
@@ -23,7 +25,7 @@ struct Particle
 	iPoint speed;
 	Uint32 born = 0;
 	Uint32 life = 0;
-	uint texture = 0; 
+	uint texture = -1; 
 	bool fx_played = false;
 
 	Particle();
@@ -47,12 +49,10 @@ public:
 
 private:
 
-	SDL_Texture * playerPart = nullptr;
 	SDL_Texture *BulletsAndLaser = nullptr;
 	Particle* active[MAX_ACTIVE_PARTICLES];
 	uint last_particle = 0;
-	SDL_Texture * player2Part = nullptr;
-	SDL_Texture* Car_Explosion;
+	
 public:
 
 	Particle player_death;
@@ -67,11 +67,19 @@ public:
 
 	Particle carExplosion;
 
+	/*SDL_Texture * player2Part = nullptr;
+	SDL_Texture* Car_Explosion;
+	SDL_Texture * playerPart = nullptr;*/
 
-	Mix_Chunk* shot = nullptr; 
-	Mix_Chunk* player_death_sfx = nullptr; 
+
+	/*Mix_Chunk* shot = nullptr;
+	Mix_Chunk* player_death_sfx = nullptr;
 	Mix_Chunk* common_explosion_sfx = nullptr;
-	Mix_Chunk* player_showup_sfx = nullptr;
+	Mix_Chunk* player_showup_sfx = nullptr;*/
+
+	SDL_Texture* textures[MAX_PART_TEXTURES];
+	Mix_Chunk* chunks[MAX_PART_CHUNKS];
+	
 };
 
 #endif // __MODULEPARTICLES_H__
