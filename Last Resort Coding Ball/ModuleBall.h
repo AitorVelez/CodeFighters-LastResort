@@ -11,6 +11,7 @@
 #define VERTICAL_MARGIN 50
 
 struct SDL_Texture; 
+struct Collider;
 
 enum BALL_POSITION {
 
@@ -78,6 +79,7 @@ public:
 
 	Animation* current_animation;
 	Animation test; 
+	Collider* ball_collider = nullptr;
 public:
 
 	bool ball_locked = false; 

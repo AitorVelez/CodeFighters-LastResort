@@ -4,6 +4,8 @@
 #include "ModulePlayer.h"
 #include "ModulePlayer2.h"
 #include "ModuleBackground.h"
+#include "ModuleParticles.h"
+#include "ModuleInput.h"
 
 Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
 {
@@ -24,17 +26,30 @@ Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
 
 void Enemy_Tank::Move()
 {
-	bool arrived = false; 
+	 /*
+	int cont = 0; 
+	if (cont == 0) {
+		if (App->background->bgpos >= position.x) {
+			cont++; 
+			RelToBg = App->background->bgpos; 
+		}
+	}
+	else {
+		if (RelToBg <= position.x && position.x <= RelToBg + SCREEN_WIDTH) {
+			position.x += 2; 
+		}
+	}*/
 	if (App->background->bgpos >= position.x) {
 		position.x += 1;
-		arrived = true;
 	}
-	/*if (position.x >= App->background->bgpos + SCREEN_WIDTH && arrived == true) {
-		position.x += 2;
-	}*/
 }
 
 
 void Enemy_Tank::Shoot() {
-	//App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
+	//if (App->background->bgpos >= position.x) {
+
+	if (App->input->keyboard[SDL_SCANCODE_U] == KEY_STATE::KEY_DOWN) {
+		App->particles->AddParticle(App->particles->BigTankShot, position.x + Anim2Distance.x, position.y + Anim2Distance.y, COLLIDER_ENEMY_SHOT);
+	}
+	//}
 }

@@ -69,6 +69,7 @@ public:
 	Animation MidBackgroundLights2;
 	Animation MidBackgroundLights3;
 	Animation ships;
+
 	bool activ = false;
 	float background_spaceship_posx = 0;
 	int craterx = 0;
@@ -80,7 +81,8 @@ public:
 	float depth_2;
 	float depth_3; 
 	bool downscroll = false; 
-	bool notscrolling = true;
+    bool notscrolling = true;
+	bool upscroll = false;
 	int bgpos; 
 };
 

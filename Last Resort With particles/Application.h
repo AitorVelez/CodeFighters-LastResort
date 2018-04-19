@@ -12,7 +12,7 @@ class ModuleRender;
 class ModuleBackground;
 class ModuleStartingImage;
 class ModuleEnemies; 
-class ModulePlayer;
+class ModulePlayer2;
 class ModuleAudio;
 class ModuleParticles;
 class ModuleFadeToBlack;
@@ -21,7 +21,7 @@ class ModuleStageClear;
 class ModuleLoseImage;
 class ModuleIntroNeoGeo;
 class Module;
-class ModulePlayer2;
+class ModulePlayer;
 
 class Application
 {
@@ -35,7 +35,7 @@ public:
 	ModuleBackground* background = nullptr;
 	ModuleStartingImage* startimage = nullptr;
 	ModuleEnemies* enemies = nullptr; 
-	ModulePlayer* player = nullptr;
+	ModulePlayer2* player2 = nullptr;
 	ModuleStageClear* stageclear = nullptr;
 	ModuleParticles* particles = nullptr;
 	ModuleLoseImage* loseimage = nullptr;
@@ -43,7 +43,7 @@ public:
 	ModuleCollision* collision = nullptr;
 	ModuleAudio* audio = nullptr; 
 	ModuleFadeToBlack* fade=nullptr;
-	ModulePlayer2* player2 = nullptr;
+	ModulePlayer* player = nullptr;
 
 public:
 

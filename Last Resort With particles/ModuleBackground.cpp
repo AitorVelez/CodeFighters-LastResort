@@ -245,8 +245,8 @@ bool ModuleBackground::Start()
 
 	bool ret = true;	
 
-	App->player->Enable();
 	App->player2->Enable();
+	App->player->Enable();
 	App->particles->Enable(); 	
 	App->collision->Enable();
 	App->enemies->Enable();
@@ -363,9 +363,9 @@ bool ModuleBackground::Start()
 
 	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, 55, 200);
 
-	//App->enemies->AddEnemy(ENEMY_TYPES::RED_CAR, 75, 200);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_CAR, 75, 200);
 
-	//App->enemies->AddEnemy(ENEMY_TYPES::YELLOW_CAR, 105, 200);
+	App->enemies->AddEnemy(ENEMY_TYPES::YELLOW_CAR, 105, 200);
 
 	mus = App->audio->LoadMus("assets/SFX/level_1.ogg");
 	App->audio->PlayMus(mus);
@@ -465,8 +465,15 @@ void ModuleBackground::MoveUp()
 	App->render->camera.y += 3;
 	App->player->position.y -= 1;
 	App->player2->position.y -= 1;
-	downscroll = false; 
-	notscrolling = false;
+	if (downscroll != false) {
+		downscroll = false;
+	}
+	if (upscroll != true) {
+		upscroll = true;
+	}
+	if (notscrolling == true) {
+		notscrolling = false;
+	}
 }
 
 void ModuleBackground::MoveDown()
@@ -474,13 +481,22 @@ void ModuleBackground::MoveDown()
 	App->render->camera.y -= 3;
 	App->player->position.y += 1;
 	App->player2->position.y += 1;
-	downscroll = true; 
-	notscrolling = false;
+	if (downscroll != true) {
+		downscroll = true;
+	}
+	if (upscroll != false) {
+		upscroll = false;
+	}
+	if (notscrolling == true) {
+		notscrolling = false; 
+	}
+
 }
 
 void ModuleBackground::NotScrolling(int since, int to) {
-	notscrolling = true;
-	downscroll = false;
+	if (notscrolling == false) {
+		notscrolling = true; 
+	}
 }
 
 void ModuleBackground::CameraOscillation(int since, int to, bool up)
@@ -737,7 +753,7 @@ update_status ModuleBackground::Update()
 		}
 	}
 
-	if (App->player->alive == false && App->player2->alive2 == false) {
+	if (App->player->alive == false && App->player2->alive_p2 == false) {
 		App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage, 2.5f);
 	}
 
