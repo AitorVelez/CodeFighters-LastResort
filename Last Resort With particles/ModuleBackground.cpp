@@ -465,8 +465,15 @@ void ModuleBackground::MoveUp()
 	App->render->camera.y += 3;
 	App->player->position.y -= 1;
 	App->player2->position.y -= 1;
-	downscroll = false; 
-	notscrolling = false;
+	if (downscroll != false) {
+		downscroll = false;
+	}
+	if (upscroll != true) {
+		upscroll = true;
+	}
+	if (notscrolling == true) {
+		notscrolling = false;
+	}
 }
 
 void ModuleBackground::MoveDown()
@@ -474,13 +481,22 @@ void ModuleBackground::MoveDown()
 	App->render->camera.y -= 3;
 	App->player->position.y += 1;
 	App->player2->position.y += 1;
-	downscroll = true; 
-	notscrolling = false;
+	if (downscroll != true) {
+		downscroll = true;
+	}
+	if (upscroll != false) {
+		upscroll = false;
+	}
+	if (notscrolling == true) {
+		notscrolling = false; 
+	}
+
 }
 
 void ModuleBackground::NotScrolling(int since, int to) {
-	notscrolling = true;
-	downscroll = false;
+	if (notscrolling == false) {
+		notscrolling = true; 
+	}
 }
 
 void ModuleBackground::CameraOscillation(int since, int to, bool up)
