@@ -22,13 +22,15 @@ ModuleParticles::~ModuleParticles()
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
-	playerPart = App->textures->Load("assets/sprites/main_character.png");
 	shot = App->audio->LoadChunk("assets/SFX/shot.wav");							// Shot -> fx = 0 
 	player_death_sfx = App->audio->LoadChunk("assets/SFX/player_death.wav");		// Death -> fx = 1
 	common_explosion_sfx = App->audio->LoadChunk("assets/SFX/Explosion1.wav");      // Explosion -> fx = 2
 	player_showup_sfx = App->audio->LoadChunk("assest/SFX/player_showup.WAV");      // Player_showup -> fx = 3
-	player2Part = App->textures->Load("assets/sprites/SpritesPlayer2.png");
-	Car_Explosion = App->textures->Load("assets/sprites/cars_bottom.png");
+	
+
+	playerPart = App->textures->Load("assets/sprites/main_character.png");			// Texture -> 1
+	player2Part = App->textures->Load("assets/sprites/SpritesPlayer2.png");			// Texture -> 2
+	Car_Explosion = App->textures->Load("assets/sprites/cars_bottom.png");			// Texture -> 3
 
 	bulletEx.anim.PushBack({ 278,90,13,12 });
 	bulletEx.anim.PushBack({ 291,90,13,12 });
@@ -37,6 +39,7 @@ bool ModuleParticles::Start()
 	bulletEx.anim.speed = 0.25f;
 	bulletEx.speed.x = 1;
 	bulletEx.life = 100;
+	bulletEx.texture = 1; 
 
 	bullet.anim.PushBack({ 148,127,14,7 });
 	bullet.anim.loop = false;
@@ -44,6 +47,7 @@ bool ModuleParticles::Start()
 	bullet.speed.x = 8;
 	bullet.life = 1000;
 	bullet.fx = 0;
+	bullet.texture = 1; 
 
 	SpaceshipAnim.anim.PushBack({ 0,121,111,25 });
 	SpaceshipAnim.anim.PushBack({ 0,146,111,25 });
@@ -63,7 +67,7 @@ bool ModuleParticles::Start()
 	SpaceshipAnim.speed.x = 1;
 	SpaceshipAnim.fx = 3;
 	SpaceshipAnim.anim.speed = 0.3f;
-
+	SpaceshipAnim.texture = 1; 
 
 	player_death.anim.PushBack({ 18, 20, 37, 16 });
 	player_death.anim.PushBack({ 14, 37, 41, 17 });
@@ -86,6 +90,7 @@ bool ModuleParticles::Start()
 	player_death.anim.loop = false;
 	player_death.anim.speed = 0.25f;
 	player_death.fx = 1; 
+	player_death.texture = 1; 
 
 	carExplosion.anim.PushBack({ 278,680,21,18 });
 	carExplosion.anim.PushBack({ 299,680,20,18 });
@@ -97,7 +102,7 @@ bool ModuleParticles::Start()
 	carExplosion.anim.PushBack({ 314,699,35,13 });
 	carExplosion.anim.loop = false;
 	carExplosion.anim.speed = 0.2;
-
+	carExplosion.texture = 3; 
 	// player 2 death
 
 	player2_death.anim.PushBack({ 286, 35, 33, 11 });
@@ -123,8 +128,8 @@ bool ModuleParticles::Start()
 	player2_death.anim.loop = false;
 	player2_death.fx = 1;
 	player2_death.anim.speed = 0.25f;
-
-
+	player2_death.texture = 2; 
+	
 
 	//   TANK BULLETS 
 
@@ -205,9 +210,21 @@ update_status ModuleParticles::Update()
 			delete p;
 			active[i] = nullptr;
 		}
+
 		else if (SDL_GetTicks() >= p->born)
 		{
-			App->render->Blit(playerPart, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
+			switch (p->texture) {
+			case 1: 
+				App->render->Blit(playerPart, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
+				break; 
+			case 2: 
+				App->render->Blit(player2Part, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
+				break; 
+			case 3: 
+				App->render->Blit(Car_Explosion, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
+				break; 
+			}
+
 			if (p->fx_played == false)
 			{
 				p->fx_played = true;
