@@ -5,6 +5,7 @@
 #include "ModuleTextures.h"
 #include "ModuleInput.h"
 #include "ModuleRender.h"
+#include "ModuleCollision.h"
 
 ModuleBall::ModuleBall()
 {
@@ -76,22 +77,22 @@ ModuleBall::ModuleBall()
 	NNW.loop = true;
 	NNW.speed = 0.3f;
 
-	NW.PushBack({ 205, 61, 21, 21 });
+	NW.PushBack({ 200, 61, 21, 21 });
 	NW.PushBack({ 221, 61, 21, 21 });
 	NW.PushBack({ 0, 84, 21, 21 });
-	NW.PushBack({ 21, 61, 21, 21 });
-	NW.PushBack({ 42, 61, 21, 21 });
-	NW.PushBack({ 63, 61, 21, 21 });
-	NW.PushBack({ 84, 61, 21, 21 });
-	NW.PushBack({ 105, 61, 21, 21 });
+	NW.PushBack({ 21, 84, 21, 21 });
+	NW.PushBack({ 42, 84, 21, 21 });
+	NW.PushBack({ 63, 84, 21, 21 });
+	NW.PushBack({ 84, 84, 21, 21 });
+	NW.PushBack({ 105, 84, 21, 21 });
 	NW.loop = true;
 	NW.speed = 0.3f;
 
-	NWW.PushBack({ 126, 61, 22, 17 });
-	NWW.PushBack({ 148, 61, 22, 17 });
-	NWW.PushBack({ 170, 61, 22, 17 });
-	NWW.PushBack({ 192, 61, 22, 17 });
-	NWW.PushBack({ 214, 61, 22, 17 });
+	NWW.PushBack({ 126, 84, 22, 17 });
+	NWW.PushBack({ 148, 84, 22, 17 });
+	NWW.PushBack({ 170, 84, 22, 17 });
+	NWW.PushBack({ 192, 84, 22, 17 });
+	NWW.PushBack({ 214, 84, 22, 17 });
 	NWW.PushBack({ 0, 105, 22, 17 });
 	NWW.PushBack({ 22, 105, 22, 17 });
 	NWW.PushBack({ 44, 105, 22, 17 });
@@ -194,6 +195,9 @@ bool ModuleBall::Start()
 
 	ball_position.x = App->player->position.x;
 	ball_position.y = App->player->position.y;
+
+
+	ball_collider = App->collision->AddCollider(current_animation->GetCurrentFrame(), COLLIDER_BALL, this);
 
 	return true; 
 }
@@ -379,8 +383,11 @@ update_status ModuleBall::Update()
 	//	ball_position.y = App->player->position.y - CHARACTER_HEIGHT - CHARACTER_HEIGHT / 2;
 	//}
 
+	
 	ball_position.x = center_player.x + 25*cos(angle*PI/180);
 	ball_position.y = center_player.y + 25*sin(angle*PI/180);
+
+	ball_collider->SetPos(ball_position.x, ball_position.y);
 
 	/*switch (App->player->player_direction)
 	{
