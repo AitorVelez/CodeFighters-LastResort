@@ -110,7 +110,7 @@ bool ModulePlayer2::Start()
 	position.y = 175;
 	relativeposition.x = position.x;                                                               
 	relativeposition.y = position.y;
-	alive2 = true;
+	alive_p2 = true;
 	App->background->activ = true;
 	graphics = App->textures->Load("assets/sprites/SpritesPlayer2.png"); // arcade version
 	PlayerCollider = App->collision->AddCollider({ position.x,position.y, 32, 11 }, COLLIDER_PLAYER, this);
@@ -137,7 +137,7 @@ bool ModulePlayer2::CleanUp()
 void ModulePlayer2::OnCollision(Collider * c1, Collider * c2)
 {
 	if (!god_mode) {
-		alive2 = false;
+		alive_p2 = false;
 	}
 }
 
@@ -146,7 +146,7 @@ update_status ModulePlayer2::Update()
 {
 	int scroll_speed = 1;
 	int speed = 2;
-	if (position.x <= 9150 && alive2 == true)
+	if (position.x <= 9150 && alive_p2 == true)
 		position.x += scroll_speed;
 	// player shows up
 	if (App->render->camera.x >= -150) {
@@ -162,7 +162,7 @@ update_status ModulePlayer2::Update()
 	}
 
 	// Input -----
-	else if (alive2) {
+	else if (alive_p2) {
 
 		if (App->input->keyboard[SDL_SCANCODE_I] == KEY_STATE::KEY_REPEAT)
 		{
@@ -245,7 +245,7 @@ update_status ModulePlayer2::Update()
 
 	}
 
-	if (alive2) {
+	if (alive_p2) {
 		SDL_Rect r = current_animation->GetCurrentFrame();
 		PlayerCollider->SetPos(position.x, position.y - r.h);
 		App->render->Blit(graphics, position.x, position.y - r.h, &r);

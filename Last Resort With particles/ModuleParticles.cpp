@@ -131,31 +131,10 @@ bool ModuleParticles::Start()
 	player2_death.anim.PushBack({ 390, 56, 54, 28 });
 	player2_death.anim.PushBack({ 392, 85, 52, 27 });
 	player2_death.anim.PushBack({ 394, 115, 50, 21 });
-
-	/*player2_death.anim.PushBack({ 755, 0, 63, 28 });
-	player2_death.anim.PushBack({ 755, 28, 63, 28 });
-	player2_death.anim.PushBack({ 755, 56, 63, 28 });
-	player2_death.anim.PushBack({ 755, 84, 63, 28 });
-	player2_death.anim.PushBack({ 755, 112, 63, 28 });
-	player2_death.anim.PushBack({ 755, 140, 63, 28 });
-	player2_death.anim.PushBack({ 755, 168, 63, 28 });
-	player2_death.anim.PushBack({ 755, 196, 63, 28 });
-	player2_death.anim.PushBack({ 818, 0, 63, 28 });
-	player2_death.anim.PushBack({ 818, 28, 63, 28 });
-	player2_death.anim.PushBack({ 818, 56, 63, 28 });
-	player2_death.anim.PushBack({ 818, 84, 63, 28 });
-	player2_death.anim.PushBack({ 818, 112, 63, 28 });
-	player2_death.anim.PushBack({ 818, 140, 63, 28 });
-	player2_death.anim.PushBack({ 818, 168, 63, 28 });
-	player2_death.anim.PushBack({ 818, 196, 63, 28 });
-	player2_death.anim.PushBack({ 881, 0, 63, 28 });
-	player2_death.anim.PushBack({ 881, 28, 63, 28 });
-	player2_death.anim.PushBack({ 881, 56, 63, 28 });
-	player2_death.anim.PushBack({ 881, 84, 63, 28 });*/
 	player2_death.anim.loop = false;
 	player2_death.anim.speed = 0.3f;
 	player2_death.fx = 1;
-	player2_death.texture = 2; 
+	player2_death.texture = 1; 
 	
 
 
@@ -301,7 +280,6 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 		if (active[i] != nullptr && active[i]->collider == c1)
 		{
 			AddParticle(CommonExplosion, active[i]->position.x, active[i]->position.y);
-
 			delete active[i];
 			active[i] = nullptr;
 			break;

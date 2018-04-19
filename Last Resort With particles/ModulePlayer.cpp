@@ -231,27 +231,9 @@ update_status ModulePlayer::Update()
 		}
 
 
-
-
 		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
-			/*if (App->background->notscrolling == false) {
-				if (App->background->downscroll == true) {
-					App->particles->bullet.speed.y += 0.1f;
-					App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);
-					//App->particles->bullet.speed.y -= 0.1f;
-				}
-				else {
-					App->particles->bullet.speed.y -= 0.1f;
-					App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);
-					//App->particles->bullet.speed.y += 0.1f;
-				}
-			}
-			else {*/
 			App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);
 			App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
-			//}
 		}
 
 		if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {
