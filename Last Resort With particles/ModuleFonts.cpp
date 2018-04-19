@@ -102,9 +102,5 @@ void ModuleFonts::BlitText(int x, int y, int font_id, const char* text) const
 				x += rect.w;
 			}
 		}
-
-
-
-
 	}
 }

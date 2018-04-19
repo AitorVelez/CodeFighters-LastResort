@@ -737,7 +737,7 @@ update_status ModuleBackground::Update()
 		}
 	}
 
-	if (App->player->alive == false && App->player2->alive2 == false) {
+	if (App->player->alive == false && App->player2->alive_p2 == false) {
 		App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage, 2.5f);
 	}
 
