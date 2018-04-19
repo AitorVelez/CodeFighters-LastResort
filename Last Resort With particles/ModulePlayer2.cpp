@@ -46,26 +46,26 @@ ModulePlayer2::ModulePlayer2()
 
 	// Death Animation 
 
-	death.PushBack({ 286, 35, 33, 11 });
-	death.PushBack({ 286, 62, 32, 12 });
-	death.PushBack({ 283, 88, 36, 15 });
-	death.PushBack({ 277, 114, 40, 18 });
-	death.PushBack({ 273, 140, 45, 19 });
-	death.PushBack({ 266, 167, 51, 20 });
-	death.PushBack({ 259, 196, 59, 21 });
-	death.PushBack({ 319, 1, 62, 22 });
-	death.PushBack({ 318, 29, 63, 24 });
-	death.PushBack({ 318, 58, 63, 23 });
-	death.PushBack({ 320, 86, 60, 23 });
-	death.PushBack({ 321, 113, 60, 24 });
-	death.PushBack({ 323, 143, 58, 25 });
-	death.PushBack({ 327, 170, 54, 26 });
-	death.PushBack({ 323, 197, 58, 27 });
-	death.PushBack({ 383, 0, 60, 28 });
-	death.PushBack({ 388, 28, 55, 28 });
-	death.PushBack({ 390, 56, 54, 28 });
-	death.PushBack({ 392, 85, 52, 27 });
-	death.PushBack({ 394, 115, 50, 21 });
+	death.PushBack({ 255, 0, 63, 28 });
+	death.PushBack({ 255, 28, 63, 28 });
+	death.PushBack({ 255, 56, 63, 28 });
+	death.PushBack({ 255, 84, 63, 28 });
+	death.PushBack({ 255, 112, 63, 28 });
+	death.PushBack({ 255, 140, 63, 28 });
+	death.PushBack({ 255, 168, 63, 28 });
+	death.PushBack({ 255, 196, 63, 28 });
+	death.PushBack({ 318, 0, 63, 28 });
+	death.PushBack({ 318, 28, 63, 28 });
+	death.PushBack({ 318, 56, 63, 28 });
+	death.PushBack({ 318, 84, 63, 28 });
+	death.PushBack({ 318, 112, 63, 28 });
+	death.PushBack({ 318, 140, 63, 28 });
+	death.PushBack({ 318, 168, 63, 28 });
+	death.PushBack({ 318, 196, 63, 28 });
+	death.PushBack({ 381, 0, 63, 28 });
+	death.PushBack({ 381, 28, 63, 28 });
+	death.PushBack({ 381, 56, 63, 28 });
+	death.PushBack({ 381, 84, 63, 28 });
 	death.loop = false;
 	death.speed = 0.15f;
 	
