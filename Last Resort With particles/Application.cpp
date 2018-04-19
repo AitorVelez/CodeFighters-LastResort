@@ -26,7 +26,7 @@ Application::Application()
 	modules[3] = textures = new ModuleTextures();
 	modules[4] = background = new ModuleBackground();
 	modules[5] = enemies = new ModuleEnemies(); 
-	modules[6] = player = new ModulePlayer();
+	modules[6] = player2 = new ModulePlayer2();
 	modules[7] = particles = new ModuleParticles();
 	modules[8] = introneogeo = new ModuleIntroNeoGeo();
 	modules[9] = startimage = new ModuleStartingImage();
@@ -35,7 +35,7 @@ Application::Application()
 	modules[12] = audio = new ModuleAudio(); 
 	modules[13] = collision = new ModuleCollision();
 	modules[14] = fade = new ModuleFadeToBlack();
-	modules[15] = player2 = new ModulePlayer2();
+	modules[15] = player = new ModulePlayer();
 	
 }	
 
