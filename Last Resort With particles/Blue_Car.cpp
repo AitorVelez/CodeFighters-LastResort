@@ -9,7 +9,7 @@ Blue_Car::Blue_Car(int x, int y) : Enemy(x, y)
 	goCarA.PushBack({ 274,512,21,11 });
 	goCarA.PushBack({ 295,512,21,11 });
 	goCarA.PushBack({ 316,512,21,11 });
-
+	goCarA.loop = true; 
 	goCarA.speed = 0.1;
 	animation = &goCarA;
 
