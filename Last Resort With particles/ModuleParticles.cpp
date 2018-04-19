@@ -160,7 +160,7 @@ bool ModuleParticles::Start()
 	BigTankShot.anim.PushBack({ 206, 762, 13, 13 });
 	BigTankShot.anim.PushBack({ 237, 746, 13, 13 });
 	BigTankShot.anim.speed = 0.3f;
-	BigTankShot.speed.x = 3;
+	BigTankShot.speed.y = -3;
 	BigTankShot.life = 1000;
 	BigTankShot.texture = 3; 
 
