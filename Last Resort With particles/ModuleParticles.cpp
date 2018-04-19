@@ -196,7 +196,7 @@ update_status ModuleParticles::Update()
 			{
 				p->fx_played = true;
 				// Play particle fx here				
-				App->audio->PlayChunk(App->audio->chunks[p->fx], 2);
+				App->audio->PlayChunk(App->audio->chunks[p->fx], 1);
 			}
 		}
 	}
