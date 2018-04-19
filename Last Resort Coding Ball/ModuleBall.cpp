@@ -202,7 +202,7 @@ bool ModuleBall::Start()
 update_status ModuleBall::Update()
 {
 	angle_speed = 10;
-	angle_aiming_speed = 30;
+	angle_aiming_speed = 11.25;
 	center_player.x = App->player->position.x + 16;
 	center_player.y = App->player->position.y - 6;
 
