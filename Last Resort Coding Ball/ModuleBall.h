@@ -82,7 +82,11 @@ public:
 
 	bool ball_locked = false; 
 	int angle = 0; 
-	int angle_speed = 5;
+	int angle_speed = 0;
+
+	float angle_aiming = 0;
+	float angle_aiming_speed = 0;
+
 	iPoint ball_position;
 	iPoint center_player;
 	BALL_POSITION _ball; 

@@ -129,7 +129,7 @@ ModuleBall::ModuleBall()
 	SW.PushBack({ 63, 143, 21, 21 });
 	SW.PushBack({ 84, 143, 21, 21 });
 	SW.loop = true;
-	SWW.speed = 0.3f; 
+	SW.speed = 0.3f; 
 
 	SSW.PushBack({ 105, 143, 17, 23 });
 	SSW.PushBack({ 122, 143, 17, 23 });
@@ -162,7 +162,7 @@ ModuleBall::ModuleBall()
 	SSE.PushBack({ 230, 166, 17,23 });
 	SSE.PushBack({ 0, 189, 17,23 });
 	SSE.loop = true;
-	S.speed = 0.3f;
+	SSE.speed = 0.3f;
 
 	SE.PushBack({ 17, 189, 21, 21 });
 	SE.PushBack({ 38, 189, 21, 21 });
@@ -183,8 +183,8 @@ ModuleBall::ModuleBall()
 	SEE.PushBack({ 44, 212, 22, 17 });
 	SEE.PushBack({ 66, 212, 22, 17 });
 	SEE.PushBack({ 88, 212, 22, 17 });
-	SE.loop = true;
-	SE.speed = 0.3f;
+	SEE.loop = true;
+	SEE.speed = 0.3f;
 
 }
 
@@ -201,33 +201,53 @@ bool ModuleBall::Start()
 
 update_status ModuleBall::Update()
 {
-	angle_speed = 10; 
+	angle_speed = 5;
+	angle_aiming_speed = 20;
 	center_player.x = App->player->position.x + 16;
 	center_player.y = App->player->position.y - 6;
 
 
 	if (angle >= 360) angle = 0; 
+	if (angle_aiming >= 360) angle_aiming = 0;
 
 	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_REPEAT) {
+															// The aiming angle grows or decreases to 90º dependending on its place 
+		if (angle_aiming <= 270 && angle_aiming > 90)		// Using te shortest way always
+			angle_aiming -= angle_speed;
+		else if (angle_aiming > 270)
+			angle_aiming += angle_aiming_speed;
+		else if (angle_aiming >= 0 && angle_aiming < 90)
+			angle_aiming += angle_aiming_speed;
+	
+		// -------------
+
 		if (!ball_locked)
 		{													// The angle grows or decreases to get to 90º depending on its place 
-			if (angle <= 270 && angle>90)
+			if (angle <= 270 && angle>90)					// Using the shortest way always
 				angle -= angle_speed;
 			else if (angle > 270)
 				angle += angle_speed; 
 			else if (angle >= 0 && angle < 90) 
 				angle += angle_speed; 
 		}
-		else
-		{
-			ball_aiming = BALL_AIMING::BALL_AIMING_S;
-		}
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_REPEAT) {		
+	
+		if (angle_aiming >= 90 && angle_aiming<270)					// Using the shortest way always
+			angle_aiming += angle_aiming_speed;
+		else if (angle_aiming < 90) {
+			angle_aiming -= angle_aiming_speed;
+			if (angle_aiming <= 0) angle_aiming = 359;
+		}
+		else if (angle_aiming <360 && angle_aiming > 270)
+			angle_aiming -= angle_aiming_speed;
+
+		// -------------
+
 		if (!ball_locked)
 		{													// The angle grows or decreases to get to 270º depending on its place 
-			if (angle >= 90 && angle<270)
+			if (angle >= 90 && angle<270)					// Using the shortest way always
 				angle += angle_speed;
 			else if (angle < 90) {
 				angle -= angle_speed;
@@ -243,6 +263,14 @@ update_status ModuleBall::Update()
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT) {
+	
+		if (angle_aiming <= 180 && angle_aiming > 0)
+			angle_aiming -= angle_aiming_speed;
+		else if (angle_aiming < 360) 
+			angle_aiming += angle_aiming_speed;
+
+		// -------------
+
 		if (!ball_locked)
 		{													// The angle grows or decreases to get to 180º depending on its place 
 			if (angle <= 180 && angle > 0)
@@ -261,7 +289,16 @@ update_status ModuleBall::Update()
 		}
 	}
 
+
 	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT) {
+		
+		if (angle_aiming > 180)
+			angle_aiming -= angle_aiming_speed;
+		else if (angle_aiming < 180)
+			angle_aiming += angle_aiming_speed;
+		
+		// -------------
+
 		if (!ball_locked)
 		{													// The angle grows or decreases to get to 270º depending on its place 
 			if (angle > 180)
@@ -271,41 +308,84 @@ update_status ModuleBall::Update()
 		}
 	}
 
-	
-	// Ball in North
-	if (angle > 250 && angle < 290)			
-	{
-		current_animation = &N;
-		ball_position.x = App->player->position.x + 10;
-		ball_position.y = App->player->position.y - 45;
-	}
+	// ----- BALL AIMING ANIMATIONS -----	(Depends on the angle it is aiming)
 
-	// Ball in East
-	if (angle > 340 || angle < 20)
-	{
+	// First quarter
+	if (angle_aiming <= 11.25 && angle_aiming > 348.75)
 		current_animation = &E;
-		ball_position.x = App->player->position.x + CHARACTER_WIDTH + 10;
-		ball_position.y = App->player->position.y - CHARACTER_HEIGHT - CHARACTER_HEIGHT / 2;
-	}
-	// Ball in South
-	if (angle > 70 && angle < 110) {
+	if (angle_aiming > 11.25 && angle_aiming <= 33.75)
+		current_animation = &SEE;
+	if (angle_aiming > 33.75 && angle_aiming <= 56.25)
+		current_animation = &SE;
+	if (angle_aiming > 56.25 && angle_aiming <= 78.75)
+		current_animation = &SSE;
+	
+	// Second quarter
+	if (angle_aiming > 78.75 && angle_aiming <= 101.25)
 		current_animation = &S;
-		ball_position.x = App->player->position.x + 10;
-		ball_position.y = App->player->position.y + 10;
-	}
+	if (angle_aiming > 101.25 && angle_aiming <= 123.75)
+		current_animation = &SSW;
+	if (angle_aiming > 123.75 && angle_aiming <= 146.25)
+		current_animation = &SW;
+	if (angle_aiming > 146.25 && angle_aiming <= 168.75)
+		current_animation = &SWW;
 
-	// Ball in West
-	if (angle > 160 && angle < 200)
-	{
+
+	// Third quarter
+	if (angle_aiming > 168.75 && angle_aiming <= 191.25)
 		current_animation = &W;
-		ball_position.x = App->player->position.x - CHARACTER_WIDTH;
-		ball_position.y = App->player->position.y - CHARACTER_HEIGHT - CHARACTER_HEIGHT / 2;
-	}
+	if (angle_aiming > 191.25 && angle_aiming <= 213.75)
+		current_animation = &NWW;
+	if (angle_aiming > 213.75 && angle_aiming <= 236.25)
+		current_animation = &NW;
+	if (angle_aiming > 236.25 && angle_aiming <= 258.75)
+		current_animation = &NNW;
 
-	/*current_animation = &N;*/ 
-	/*ball_position.x = center_player.x + 25*cos(angle);
-	ball_position.y = center_player.y + 25*sin(angle);
-*/
+	// Fourth quarter
+	if (angle_aiming > 258.75 && angle_aiming <= 281.25)
+		current_animation = &N;
+	if (angle_aiming > 281.25 && angle_aiming <= 303.75)
+		current_animation = &NNE;
+	if (angle_aiming > 303.75 && angle_aiming <= 326.25)
+		current_animation = &NE;
+	if (angle_aiming > 326.25 && angle_aiming <= 348.75)
+		current_animation = &NEE;
+
+
+	
+	//// Ball in North
+	//if (angle > 250 && angle < 290)			
+	//{
+	//	current_animation = &N;
+	//	ball_position.x = App->player->position.x + 10;
+	//	ball_position.y = App->player->position.y - 45;
+	//}
+
+	//// Ball in East
+	//if (angle > 340 || angle < 20)
+	//{
+	//	current_animation = &E;
+	//	ball_position.x = App->player->position.x + CHARACTER_WIDTH + 10;
+	//	ball_position.y = App->player->position.y - CHARACTER_HEIGHT - CHARACTER_HEIGHT / 2;
+	//}
+	//// Ball in South
+	//if (angle > 70 && angle < 110) {
+	//	current_animation = &S;
+	//	ball_position.x = App->player->position.x + 10;
+	//	ball_position.y = App->player->position.y + 10;
+	//}
+
+	//// Ball in West
+	//if (angle > 160 && angle < 200)
+	//{
+	//	current_animation = &W;
+	//	ball_position.x = App->player->position.x - CHARACTER_WIDTH;
+	//	ball_position.y = App->player->position.y - CHARACTER_HEIGHT - CHARACTER_HEIGHT / 2;
+	//}
+
+	ball_position.x = center_player.x + 25*cos(angle*PI/180);
+	ball_position.y = center_player.y + 25*sin(angle*PI/180);
+
 	/*switch (App->player->player_direction)
 	{
 	case PLAYER_DIRECTION::GOING_UP:
