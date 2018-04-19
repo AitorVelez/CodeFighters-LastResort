@@ -66,6 +66,7 @@ public:
 	Mix_Chunk* shot = nullptr; 
 	Mix_Chunk* player_death_sfx = nullptr; 
 	Mix_Chunk* common_explosion_sfx = nullptr;
+	Mix_Chunk* player_showup_sfx = nullptr;
 };
 
 #endif // __MODULEPARTICLES_H__
