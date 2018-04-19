@@ -118,12 +118,23 @@ bool ModuleParticles::Start()
 	player2_death.anim.speed = 0.25f;
 
 
+	//   TANK BULLETS 
 
+	BigTankShot.anim.PushBack({ 196, 746, 13, 13 });
+	BigTankShot.anim.PushBack({ 184, 746, 13, 13 });
+	BigTankShot.anim.PushBack({ 206, 762, 13, 13 });
+	BigTankShot.anim.PushBack({ 237, 746, 13, 13 });
+	BigTankShot.anim.speed = 0.3f;
+	BigTankShot.speed.x = 3;
+	BigTankShot.life = 1000;
 
-
-
-
-
+	SmallTankShot.anim.PushBack({ 245, 831, 5, 5 });
+	SmallTankShot.anim.PushBack({ 250, 831, 5, 5 });
+	SmallTankShot.anim.PushBack({ 235, 831, 5, 5 });
+	SmallTankShot.anim.PushBack({ 240, 831, 5, 5 });
+	SmallTankShot.anim.speed = 0.3f;
+	SmallTankShot.speed.x = 3;
+	SmallTankShot.life = 1000;
 
 	
 	CommonExplosion.anim.PushBack({ 393,0,0,16 });//													

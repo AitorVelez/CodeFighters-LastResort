@@ -60,7 +60,8 @@ public:
 	Particle bullet;
 	Particle bulletEx;
 	Particle player2_death;
-
+	Particle BigTankShot; 
+	Particle SmallTankShot; 
 	Mix_Chunk* shot = nullptr; 
 	Mix_Chunk* player_death_sfx = nullptr; 
 };

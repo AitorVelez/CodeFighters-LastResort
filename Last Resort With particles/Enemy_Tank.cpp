@@ -4,6 +4,7 @@
 #include "ModulePlayer.h"
 #include "ModulePlayer2.h"
 #include "ModuleBackground.h"
+
 Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
 {
 	Anim2Distance.x = 50; 
@@ -31,4 +32,9 @@ void Enemy_Tank::Move()
 	/*if (position.x >= App->background->bgpos + SCREEN_WIDTH && arrived == true) {
 		position.x += 2;
 	}*/
+}
+
+
+void Enemy_Tank::Shoot() {
+	//App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
 }

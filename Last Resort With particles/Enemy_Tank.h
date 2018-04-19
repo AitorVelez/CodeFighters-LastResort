@@ -14,6 +14,7 @@ public:
 	Enemy_Tank(int x, int y);
 
 	void Move();
+	void Shoot(); 
 };
 
 #endif // __ENEMY_TANK_H__
