@@ -37,6 +37,7 @@ bool ModuleParticles::Start()
 	textures[0] = App->textures->Load("assets/sprites/main_character.png");			// Texture -> 0
 	textures[1] = App->textures->Load("assets/sprites/SpritesPlayer2.png");			// Texture -> 1
 	textures[2] = App->textures->Load("assets/sprites/cars_bottom.png");			// Texture -> 2
+	textures[3] = App->textures->Load("assets/sprites/common_enemies1.png");
 
 	bulletEx.anim.PushBack({ 278,90,13,12 });
 	bulletEx.anim.PushBack({ 291,90,13,12 });
@@ -169,7 +170,7 @@ bool ModuleParticles::Start()
 	BigTankShot.anim.speed = 0.3f;
 	BigTankShot.speed.x = 3;
 	BigTankShot.life = 1000;
-	BigTankShot.texture = 0; 
+	BigTankShot.texture = 3; 
 
 	SmallTankShot.anim.PushBack({ 245, 831, 5, 5 });
 	SmallTankShot.anim.PushBack({ 250, 831, 5, 5 });
@@ -178,7 +179,7 @@ bool ModuleParticles::Start()
 	SmallTankShot.anim.speed = 0.3f;
 	SmallTankShot.speed.x = 3;
 	SmallTankShot.life = 1000;
-	SmallTankShot.texture = 0; 
+	SmallTankShot.texture = 3; 
 
 	CommonExplosion.anim.PushBack({ 393,0,0,16 });//													
 	CommonExplosion.anim.PushBack({ 411,0,20,20 });//
