@@ -202,13 +202,19 @@ bool ModuleBall::Start()
 update_status ModuleBall::Update()
 {
 	angle_speed = 10;
-	angle_aiming_speed = 20;
+	angle_aiming_speed = 30;
 	center_player.x = App->player->position.x + 16;
 	center_player.y = App->player->position.y - 6;
 
 
 	if (angle >= 360) angle = 0; 
 	if (angle_aiming >= 360) angle_aiming = 0;
+	if (App->input->keyboard[SDL_SCANCODE_F] == KEY_DOWN)
+	{
+		if (ball_locked == false) ball_locked = true;
+		else ball_locked = false; 
+	}
+
 
 	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_REPEAT) {
 														// The aiming angle grows or decreases to 90º dependending on its place 
