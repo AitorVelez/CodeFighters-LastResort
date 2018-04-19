@@ -44,13 +44,13 @@ bool ModuleParticles::Start()
 	bullet_propulsion.anim.loop = true;
 	bullet_propulsion.anim.speed = 0.25f;
 	bullet_propulsion.speed.x = 1;
-	bullet_propulsion.life = 100;
+	bullet_propulsion.life = 20;
 	bullet_propulsion.texture = 0; 
 
 	bullet.anim.PushBack({ 148,127,14,7 });
 	bullet.anim.loop = false;
 	bullet.anim.speed = 0.3f;
-	bullet.speed.x = 8;
+	bullet.speed.x = 15;
 	bullet.life = 1000;
 	bullet.fx = 0;
 	bullet.texture = 0; 
