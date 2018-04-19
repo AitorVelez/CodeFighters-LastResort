@@ -731,5 +731,9 @@ update_status ModuleBackground::Update()
 		if (App->fade->FadeToBlack(App->background, App->loseimage, 1.5f))
 			App->audio->FadeMus(750);
 
+	if (App->player->alive == false && App->player2->alive2 == false) {
+		App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage, 2.5f);
+	}
+
 	return UPDATE_CONTINUE;
 }
