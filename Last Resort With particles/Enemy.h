@@ -11,11 +11,14 @@ class Enemy
 {
 protected:
 	Animation* animation = nullptr;
+	Animation* animation2 = nullptr;
+	Animation* animation3 = nullptr;
 	Collider* collider = nullptr;
 
 public:
 	iPoint position;
-
+	iPoint Anim2Distance;
+	iPoint Anim3Distance;
 public:
 	Enemy(int x, int y);
 	virtual ~Enemy();

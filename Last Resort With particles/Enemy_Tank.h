@@ -7,7 +7,8 @@ class Enemy_Tank : public Enemy
 {
 private:
 	Animation tank;
-
+	Animation canon; 
+	Animation canon2;
 public:
 
 	Enemy_Tank(int x, int y);
