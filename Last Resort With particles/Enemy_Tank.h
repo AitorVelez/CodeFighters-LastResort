@@ -15,6 +15,8 @@ public:
 
 	void Move();
 	void Shoot(); 
+
+	int RelToBg; 
 };
 
 #endif // __ENEMY_TANK_H__
