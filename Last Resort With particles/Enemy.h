@@ -14,7 +14,8 @@ protected:
 	Animation* animation2 = nullptr;
 	Animation* animation3 = nullptr;
 	Collider* collider = nullptr;
-
+	bool affected_by_y = false; 
+	float parallax = 1.f; 
 public:
 	iPoint position;
 	iPoint Anim2Distance;
