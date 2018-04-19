@@ -201,7 +201,7 @@ bool ModuleBall::Start()
 
 update_status ModuleBall::Update()
 {
-	angle_speed = 5;
+	angle_speed = 10;
 	angle_aiming_speed = 20;
 	center_player.x = App->player->position.x + 16;
 	center_player.y = App->player->position.y - 6;
@@ -216,7 +216,7 @@ update_status ModuleBall::Update()
 			angle_aiming -= angle_speed;
 		else if (angle_aiming > 270)
 			angle_aiming += angle_aiming_speed;
-		else if (angle_aiming >= 0 && angle_aiming < 90)
+		if (angle_aiming >= 0 && angle_aiming < 90)
 			angle_aiming += angle_aiming_speed;
 	
 		// -------------
@@ -227,7 +227,7 @@ update_status ModuleBall::Update()
 				angle -= angle_speed;
 			else if (angle > 270)
 				angle += angle_speed; 
-			else if (angle >= 0 && angle < 90) 
+			if (angle >= 0 && angle < 90) 
 				angle += angle_speed; 
 		}
 	}
@@ -240,7 +240,7 @@ update_status ModuleBall::Update()
 			angle_aiming -= angle_aiming_speed;
 			if (angle_aiming <= 0) angle_aiming = 359;
 		}
-		else if (angle_aiming <360 && angle_aiming > 270)
+		if (angle_aiming <360 && angle_aiming > 270)
 			angle_aiming -= angle_aiming_speed;
 
 		// -------------
@@ -253,7 +253,7 @@ update_status ModuleBall::Update()
 				angle -= angle_speed;
 				if (angle <= 0) angle = 359; 
 			}
-			else if (angle <360 && angle > 270)
+			if (angle <360 && angle > 270)
 				angle -= angle_speed;
 		}
 		else
@@ -266,7 +266,7 @@ update_status ModuleBall::Update()
 	
 		if (angle_aiming <= 180 && angle_aiming > 0)
 			angle_aiming -= angle_aiming_speed;
-		else if (angle_aiming < 360) 
+		else if (angle_aiming < 360 && angle_aiming!= 0) 
 			angle_aiming += angle_aiming_speed;
 
 		// -------------
@@ -278,14 +278,6 @@ update_status ModuleBall::Update()
 			else if (angle < 360 && angle!=0) {
 				angle += angle_speed;
 			}
-			else
-			{
-				ball_aiming = BALL_AIMING::BALL_AIMING_E;
-			}
-		}
-		else
-		{
-			ball_aiming = BALL_AIMING::BALL_AIMING_W;
 		}
 	}
 
@@ -311,7 +303,7 @@ update_status ModuleBall::Update()
 	// ----- BALL AIMING ANIMATIONS -----	(Depends on the angle it is aiming)
 
 	// First quarter
-	if (angle_aiming <= 11.25 && angle_aiming > 348.75)
+	if (angle_aiming <= 11.25 || angle_aiming > 348.75)
 		current_animation = &E;
 	if (angle_aiming > 11.25 && angle_aiming <= 33.75)
 		current_animation = &SEE;
