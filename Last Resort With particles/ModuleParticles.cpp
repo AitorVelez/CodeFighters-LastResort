@@ -38,14 +38,14 @@ bool ModuleParticles::Start()
 	textures[1] = App->textures->Load("assets/sprites/SpritesPlayer2.png");			// Texture -> 1
 	textures[2] = App->textures->Load("assets/sprites/cars_bottom.png");			// Texture -> 2
 
-	bulletEx.anim.PushBack({ 278,90,13,12 });
-	bulletEx.anim.PushBack({ 291,90,13,12 });
-	bulletEx.anim.PushBack({ 304,90,12,12 });
-	bulletEx.anim.loop = true;
-	bulletEx.anim.speed = 0.25f;
-	bulletEx.speed.x = 1;
-	bulletEx.life = 100;
-	bulletEx.texture = 1; 
+	bullet_propulsion.anim.PushBack({ 278,90,13,12 });
+	bullet_propulsion.anim.PushBack({ 291,90,13,12 });
+	bullet_propulsion.anim.PushBack({ 304,90,12,12 });
+	bullet_propulsion.anim.loop = true;
+	bullet_propulsion.anim.speed = 0.25f;
+	bullet_propulsion.speed.x = 1;
+	bullet_propulsion.life = 100;
+	bullet_propulsion.texture = 1; 
 
 	bullet.anim.PushBack({ 148,127,14,7 });
 	bullet.anim.loop = false;
@@ -54,6 +54,8 @@ bool ModuleParticles::Start()
 	bullet.life = 1000;
 	bullet.fx = 0;
 	bullet.texture = 0; 
+
+	bullet_explosion.anim.PushBack({ 248,7,12,12 });
 
 	SpaceshipAnim.anim.PushBack({ 0,121,111,25 });
 	SpaceshipAnim.anim.PushBack({ 0,146,111,25 });
@@ -96,7 +98,7 @@ bool ModuleParticles::Start()
 	player_death.anim.loop = false;
 	player_death.anim.speed = 0.25f;
 	player_death.fx = 1; 
-	player_death.texture = 1; 
+	player_death.texture = 0; 
 
 	carExplosion.anim.PushBack({ 278,680,21,18 });
 	carExplosion.anim.PushBack({ 299,680,20,18 });

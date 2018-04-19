@@ -59,8 +59,9 @@ public:
 	Particle CommonExplosion;
 	Particle SpaceshipAnim;
 	Particle bullet;
-	Particle bulletEx;
+	Particle bullet_propulsion;
 	Particle player2_death;
+	Particle bullet_explosion; 
 
 	Particle BigTankShot; 
 	Particle SmallTankShot; 

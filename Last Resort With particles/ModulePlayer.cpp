@@ -232,7 +232,7 @@ update_status ModulePlayer::Update()
 
 
 		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
-			App->particles->AddParticle(App->particles->bulletEx, position.x + 31, position.y - 15);
+			App->particles->AddParticle(App->particles->bullet_propulsion, position.x + 31, position.y - 15);
 			App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
 		}
 
