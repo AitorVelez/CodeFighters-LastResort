@@ -7,7 +7,7 @@ class Enemy_Cockroach : public Enemy
 {
 private:
 	Animation fly;
-
+	int y_original;
 public:
 
 	Enemy_Cockroach(int x, int y);
