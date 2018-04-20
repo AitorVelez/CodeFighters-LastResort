@@ -22,5 +22,5 @@ Blue_Car::Blue_Car(int x, int y) : Enemy(x, y)
 
 void Blue_Car::Move()
 {
-	position.x += 0.5;
+	position.x += 1.5;
 }
