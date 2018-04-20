@@ -21,6 +21,11 @@ LaserPowerUp::LaserPowerUp(int x, int y) : Powerup(x, y)
 void LaserPowerUp::OnCollision(Collider *collider)
 {
 
+	if (App->player->bullet_state == BULLET_NO_TYPE) {
+		App->player->bullet_state=LASER1;
+	}
 
+	//si state laser 1 laser 2 
+	//laser 2 no fot re
 
 }

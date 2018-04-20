@@ -13,7 +13,8 @@ protected:
 	Animation* animation = nullptr;
 	Animation* animation2 = nullptr;
 	Animation* animation3 = nullptr;
-
+	/*Animation* animation4 = nullptr;
+	Animation* animation5 = nullptr;*/
 	Collider* collider = nullptr;
 	float parallax = 1.f; 
 
@@ -21,6 +22,8 @@ public:
 	fPoint position; 
 	iPoint Anim2Distance;
 	iPoint Anim3Distance;
+	iPoint Anim4Distance;
+	iPoint Anim5Distance;
 public:
 	Enemy(float x, float y);
 	virtual ~Enemy();

@@ -418,7 +418,7 @@ update_status ModuleBall::Update()
 		if (angle_aiming > 326.25 && angle_aiming <= 348.75)
 			current_animation = &NEE;
 
-		App->particles->ball_bullet.speed.x = (7 * cos(angle_aiming*PI / 180))+3;
+		App->particles->ball_bullet.speed.x = (7 * cos(angle_aiming*PI / 180))+2;
 		App->particles->ball_bullet.speed.y = 7 * sin(angle_aiming*PI / 180);
 
 		ball_position.x = center_player.x + 30 * cos(angle*PI / 180) - BALL_SIZE/2;

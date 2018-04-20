@@ -11,11 +11,15 @@
 #define TANKHEIGHT 64
 Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
 {
-	Anim2Distance.x = 50; 
+	Anim2Distance.x = 52; 
 	Anim2Distance.y = -4; 
-	Anim3Distance.x = 84;
+	Anim3Distance.x = 86;
 	Anim3Distance.y = 2;
 
+/*	Anim4Distance.x = 52;             // RIGHT AND LEFT (BIG) 
+	Anim4Distance.y = -1;              
+	Anim5Distance.x = 86;             // RIGHT AND LEFT (SMALL)
+	Anim5Distance.y = 0; */
 
 	tank.PushBack({ 16,857,157,64 }); 
 	tank.PushBack({ 17,921,157,63 });
@@ -23,9 +27,9 @@ Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
 	animation = &tank;
 
 	canon.PushBack({ 178,779,28,10 });
-	animation2 = &canon;
+	animation2 = &canon;                            // LEFT BIG 
 	canon2.PushBack({ 205,831,15,6 });
-    animation3 = &canon2;
+    animation3 = &canon2;                           // LEFT SMALL
 
 
 	collider = App->collision->AddCollider({ 0, 0, 157, 64 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
@@ -48,17 +52,17 @@ Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
 void Enemy_Tank::Move()
 {
 
-	/*if (App->background->bgpos < original_x) {           // IT SHOULD APPEAR WITH THE SAME SPEED AS BG DEPTH 1 
+	/*if (App->background->bgpos >= original_x - SCREEN_WIDTH -500 && App->background->bgpos < original_x +500 ) {           // IT SHOULD APPEAR WITH THE SAME SPEED AS BG DEPTH 1 
 		position.x += 0.4875f;                        
 	}*/
 	if (App->background->bgpos >= original_x && App->background->bgpos <= original_x + SCREEN_WIDTH) {
 		position.x += 1.5f;
 	}
-	else if(App->background->bgpos > original_x + SCREEN_WIDTH && App->background->bgpos < 9100) {      // CHECK 
+	else if(App->background->bgpos > original_x + SCREEN_WIDTH  && App->background->bgpos < 8350) {      // STAY
 		position.x += 1;
 	}
-	else if (App->background->bgpos >= 9100) {
-		position.x += 0; 
+	else if (App->background->bgpos >= 8350) {
+		position.x += 0.4875f;
 	}
 
 
