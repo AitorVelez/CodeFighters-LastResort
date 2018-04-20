@@ -374,7 +374,7 @@ bool ModuleBackground::Start()
 	// TANK
 
 
-	App->enemies->AddEnemy(ENEMY_TYPES::TANK, 1000, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::TANK, 3500, SCREEN_HEIGHT - 64);
 
 	// CARS
 
@@ -783,7 +783,7 @@ update_status ModuleBackground::Update()
 	}
 
 
-	if (App->render->camera.x == -9100 * SCREEN_SIZE) {
+	if (App->render->camera.x == -9000 * SCREEN_SIZE) {
 		App->fade->FadeToBlack((Module*)App->background, (Module*)App->stageclear, 2.5f);
 	}
 

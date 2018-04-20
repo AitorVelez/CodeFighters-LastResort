@@ -59,6 +59,18 @@ bool ModuleParticles::Start()
 	SpaceshipAnim.speed.x = 1;
 	SpaceshipAnim.anim.speed = 0.3f;
 
+	ball_bullet.anim.PushBack({ 317, 176, 13, 13 });
+	ball_bullet.anim.PushBack({ 332, 176, 13, 13 });
+	ball_bullet.anim.PushBack({ 317, 191, 13, 13 });
+	ball_bullet.anim.PushBack({ 332, 191, 13, 13 });
+	ball_bullet.anim.PushBack({ 317, 206, 13, 13 });
+	ball_bullet.anim.PushBack({ 332, 206, 13, 13 });
+	ball_bullet.anim.PushBack({ 317, 221, 13, 13 });
+	ball_bullet.anim.PushBack({ 332, 221, 13, 13 });
+	ball_bullet.anim.speed = 0.3f;
+	ball_bullet.anim.loop = true;
+	ball_bullet.life = 10000;
+
 
 	player_death.anim.PushBack({ 18, 20, 37, 16 });
 	player_death.anim.PushBack({ 14, 37, 41, 17 });
@@ -159,7 +171,6 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 		// Always destroy particles that collide
 		if (active[i] != nullptr && active[i]->collider == c1)
 		{
-			AddParticle(SpaceshipAnim, active[i]->position.x, active[i]->position.y);
 			delete active[i];
 			active[i] = nullptr;
 			break;

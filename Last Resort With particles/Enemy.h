@@ -16,11 +16,11 @@ protected:
 	Collider* collider = nullptr;
 
 public:
-	iPoint position;
+	fPoint position; 
 	iPoint Anim2Distance;
 	iPoint Anim3Distance;
 public:
-	Enemy(int x, int y);
+	Enemy(float x, float y);
 	virtual ~Enemy();
 
 	const Collider* GetCollider() const;

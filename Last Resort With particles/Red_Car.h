@@ -7,6 +7,7 @@ class Red_Car : public Enemy
 {
 private:
 	Animation goCarB;
+	int original_y; 
 public:
 
 	Red_Car(int x, int y);
