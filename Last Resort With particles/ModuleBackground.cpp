@@ -281,7 +281,7 @@ bool ModuleBackground::Start()
 
 
 	//ENEMY COCKROACH
-
+	/*
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 500 + 300, 40);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 535 + 300, 80);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 570 + 300, 40);
@@ -772,7 +772,7 @@ update_status ModuleBackground::Update()
 		if (App->fade->FadeToBlack(App->background, App->loseimage, 1.5f))
 			App->audio->FadeMus(750);
 
-	if (App->input->keyboard[SDL_SCANCODE_F4] == 1)
+	if (App->input->keyboard[SDL_SCANCODE_2] == 1)
 		App->player2->Enable();
 
 	if (activ == false) {
