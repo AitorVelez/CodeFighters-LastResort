@@ -84,6 +84,7 @@
     <ClInclude Include="Enemy_Rhino.h" />
     <ClInclude Include="Enemy_Tank.h" />
     <ClInclude Include="Globals.h" />
+    <ClInclude Include="LPower.h" />
     <ClInclude Include="ModuleEnemies.h" />
     <ClInclude Include="ModuleFonts.h" />
     <ClInclude Include="ModuleIntroNeoGeo.h" />
@@ -98,6 +99,7 @@
     <ClInclude Include="ModuleParticles.h" />
     <ClInclude Include="ModulePlayer.h" />
     <ClInclude Include="ModulePlayer2.h" />
+    <ClInclude Include="ModulePowerUp.h" />
     <ClInclude Include="ModuleRender.h" />
     <ClInclude Include="ModuleStageClear.h" />
     <ClInclude Include="ModuleStartingImage.h" />
@@ -105,7 +107,7 @@
     <ClInclude Include="ModuleWindow.h" />
     <ClInclude Include="p2Point.h" />
     <ClInclude Include="Path.h" />
-    <ClInclude Include="PowerUpL.h" />
+    <ClInclude Include="Powerup.h" />
     <ClInclude Include="Red_Car.h" />
     <ClInclude Include="Yellow_Car.h" />
   </ItemGroup>
@@ -118,6 +120,7 @@
     <ClCompile Include="Enemy_Rhino.cpp" />
     <ClCompile Include="Enemy_Tank.cpp" />
     <ClCompile Include="Globals.cpp" />
+    <ClCompile Include="LPower.cpp" />
     <ClCompile Include="ModuleEnemies.cpp" />
     <ClCompile Include="ModuleFonts.cpp" />
     <ClCompile Include="ModuleIntroNeoGeo.cpp" />
@@ -131,12 +134,13 @@
     <ClCompile Include="ModuleParticles.cpp" />
     <ClCompile Include="ModulePlayer.cpp" />
     <ClCompile Include="ModulePlayer2.cpp" />
+    <ClCompile Include="ModulePowerUp.cpp" />
     <ClCompile Include="ModuleRender.cpp" />
     <ClCompile Include="ModuleStageClear.cpp" />
     <ClCompile Include="ModuleStartingImage.cpp" />
     <ClCompile Include="ModuleTextures.cpp" />
     <ClCompile Include="ModuleWindow.cpp" />
-    <ClCompile Include="PowerUpL.cpp" />
+    <ClCompile Include="Powerup.cpp" />
     <ClCompile Include="Red_Car.cpp" />
     <ClCompile Include="Yellow_Car.cpp" />
   </ItemGroup>
