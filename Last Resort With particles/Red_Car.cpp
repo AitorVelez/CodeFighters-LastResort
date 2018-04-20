@@ -13,7 +13,7 @@ Red_Car::Red_Car(int x, int y) : Enemy(x, y)
 
 	goCarB.speed = 0.1;
 	animation = &goCarB;
-	original_y = y; 
+	parallax = 0.4875;
 	collider = App->collision->AddCollider({ 0, 0, 18, 11 }, COLLIDER_TYPE::COLLIDER_CAR, (Module*)App->enemies);
 
 }
@@ -21,5 +21,4 @@ Red_Car::Red_Car(int x, int y) : Enemy(x, y)
 void Red_Car::Move()
 {
 	position.x += 2;
-	position.y = original_y - (App->render->camera.y / 3);
 }

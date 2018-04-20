@@ -378,11 +378,11 @@ bool ModuleBackground::Start()
 
 	// CARS
 
-	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, 55, 200);
+	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, 55, 195);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::RED_CAR, 75, 200);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_CAR, 75, 209);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::YELLOW_CAR, 105, 200);
+	App->enemies->AddEnemy(ENEMY_TYPES::YELLOW_CAR, 105, 195);
 
 	mus = App->audio->LoadMus("assets/SFX/level_1.ogg");
 	App->audio->PlayMus(mus);

@@ -8,7 +8,6 @@ class Blue_Car : public Enemy
 private:
 	Animation goCarA;
 	int original_y; 
-
 public:
 
 	Blue_Car(int x, int y);

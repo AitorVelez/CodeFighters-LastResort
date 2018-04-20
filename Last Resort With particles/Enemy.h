@@ -15,6 +15,7 @@ protected:
 	Animation* animation3 = nullptr;
 
 	Collider* collider = nullptr;
+	float parallax = 1.f; 
 
 public:
 	fPoint position; 
