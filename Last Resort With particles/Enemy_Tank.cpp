@@ -23,27 +23,20 @@ Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
 	animation3 = &canon2; 
 	collider = App->collision->AddCollider({ 0, 0, 157, 64 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 	original_y = y;
+	original_x = x; 
+
 }
 
 void Enemy_Tank::Move()
 {
-	 /*
-	int cont = 0; 
-	if (cont == 0) {
-		if (App->background->bgpos >= position.x) {
-			cont++; 
-			RelToBg = App->background->bgpos; 
-		}
+	
+	if (App->background->bgpos >= original_x && App->background->bgpos <= original_x + SCREEN_WIDTH) {
+		position.x += 1.5f;
 	}
-	else {
-		if (RelToBg <= position.x && position.x <= RelToBg + SCREEN_WIDTH) {
-			position.x += 2; 
-		}
-	}*/
-	if (App->background->bgpos >= position.x) {
+	else if(App->background->bgpos > original_x + SCREEN_WIDTH) {
 		position.x += 1;
 	}
-	position.y = original_y - App->render->camera.y; 
+
 }
 
 

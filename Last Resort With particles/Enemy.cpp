@@ -4,7 +4,7 @@
 #include "ModuleParticles.h"
 #include "ModuleRender.h"
 
-Enemy::Enemy(int x, int y) : position(x, y)
+Enemy::Enemy(float x, float y) : position(x, y)
 {}
 
 Enemy::~Enemy()

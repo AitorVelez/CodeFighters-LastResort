@@ -10,6 +10,7 @@ private:
 	Animation canon; 
 	Animation canon2;
 	int original_y; 
+	int original_x; 
 public:
 
 	Enemy_Tank(int x, int y);

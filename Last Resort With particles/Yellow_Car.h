@@ -7,7 +7,7 @@ class Yellow_Car : public Enemy
 {
 private:
 	Animation goCarC;
-
+	int original_y; 
 public:
 
 	Yellow_Car(int x, int y);

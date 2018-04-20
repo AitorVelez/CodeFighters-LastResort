@@ -2,7 +2,6 @@
 #include "Enemy_Cockroach.h"
 #include "ModuleCollision.h"
 #include "ModuleRender.h"
-#include "ModuleBackground.h"
 
 Enemy_Cockroach::Enemy_Cockroach(int x, int y) : Enemy(x, y)
 {
