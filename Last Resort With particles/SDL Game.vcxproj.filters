@@ -125,6 +125,9 @@
     <ClInclude Include="Powerup.h">
       <Filter>Modules\Powerups</Filter>
     </ClInclude>
+    <ClInclude Include="SPower.h">
+      <Filter>Modules\Powerups</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -218,6 +221,9 @@
       <Filter>Modules\Powerups</Filter>
     </ClCompile>
     <ClCompile Include="Powerup.cpp">
+      <Filter>Modules\Powerups</Filter>
+    </ClCompile>
+    <ClCompile Include="SPower.cpp">
       <Filter>Modules\Powerups</Filter>
     </ClCompile>
   </ItemGroup>
