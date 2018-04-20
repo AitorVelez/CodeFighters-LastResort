@@ -1,6 +1,7 @@
 #include "Application.h"
 #include "Enemy_Cockroach.h"
 #include "ModuleCollision.h"
+#include "ModuleRender.h"
 #include "ModuleBackground.h"
 
 Enemy_Cockroach::Enemy_Cockroach(int x, int y) : Enemy(x, y)
@@ -15,7 +16,7 @@ Enemy_Cockroach::Enemy_Cockroach(int x, int y) : Enemy(x, y)
 	fly.speed = 0.1;
 	animation = &fly;
 
-
+	y_original = y;
 	collider = App->collision->AddCollider({ 0, 0, 24, 24 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 }
@@ -23,10 +24,12 @@ Enemy_Cockroach::Enemy_Cockroach(int x, int y) : Enemy(x, y)
 void Enemy_Cockroach::Move()
 {
 	position.x -= 2;
-	if (App->background->downscroll == true && App->background->upscroll == false && App->background->notscrolling == false) {
-		position.y += 1;
+	/*if (App->background->downscroll == true && App->background->upscroll == false && App->background->notscrolling == false) {
+	position.y += 1;
 	}
 	else if (App->background->downscroll == false && App->background->upscroll == true && App->background->notscrolling == false) {
-		position.y -= 1;
-	}
+	position.y -= 1;
+	}*/
+
+	position.y = y_original - (App->render->camera.y / 3);
 }
