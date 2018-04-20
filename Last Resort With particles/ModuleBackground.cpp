@@ -281,7 +281,7 @@ bool ModuleBackground::Start()
 	App->power->AddPowerup(POWERUP_TYPES::SPOWER, 330, 112);
 
 	//ENEMY COCKROACH
-	
+	/*
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 500 + 300, 40);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 535 + 300, 80);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 570 + 300, 40);
@@ -363,7 +363,7 @@ bool ModuleBackground::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 7080, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 8015, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 8040, 112);
-	
+	*/
 
 
 	// TANK
@@ -374,12 +374,13 @@ bool ModuleBackground::Start()
 	// CARS
 
 	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, 55, 195);
-	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, 55, 305);
-	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, 55, 380);
-	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, 55, 420);
-	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, 55, 490);
-	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, 55, 550);
-	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, 55, 700);
+	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, -10, 195);
+	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, 0, 195);
+	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, -130, 195);
+	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, -170, 195);
+	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, -50, 195);
+	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, -210, 195);
+	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, -260, 195);
 
 	App->enemies->AddEnemy(ENEMY_TYPES::RED_CAR, 75, 209);
 
