@@ -34,6 +34,7 @@ public:
 	void RenderDiscoLights(); 
 	void RenderStreetLights(); 
 	void RenderTunnelLights();
+	void RenderPowerUps();
 	
 
 public:
@@ -70,6 +71,7 @@ public:
 	Animation MidBackgroundLights2;
 	Animation MidBackgroundLights3;
 	Animation ships;
+	Animation powerupL;
 
 	bool activ = false;
 	float background_spaceship_posx = 0;

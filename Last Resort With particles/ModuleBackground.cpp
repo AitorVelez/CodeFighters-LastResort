@@ -233,6 +233,10 @@ ModuleBackground::ModuleBackground()
 	ships.PushBack({ 15,0,8,4 });
 	ships.PushBack({ 0,0,8,3 });
 	ships.speed = 0.01f;
+
+	powerupL.PushBack({ 390,297,31,16 });
+	powerupL.PushBack({ 428,297,31,16 });
+	powerupL.speed = 0.05f;
 }
 
 ModuleBackground::~ModuleBackground()
@@ -696,6 +700,13 @@ void ModuleBackground::RenderTunnelLights()
 	App->render->Blit(TunnelLightsTex, 3850, 0, &tunnelLights_2.GetCurrentFrame(), depth_1);
 }
 
+void ModuleBackground::RenderPowerUps()
+{
+	App->render->Blit(PowerupTex, 330, 115, &powerupL.GetCurrentFrame());
+
+
+}
+
 // Update: draw background
 update_status ModuleBackground::Update()
 {
@@ -737,6 +748,7 @@ update_status ModuleBackground::Update()
 
 	RenderStreetLights(); 
 	RenderTunnelLights();
+	RenderPowerUps();
 	
 
 	// Fade to black
