@@ -137,10 +137,7 @@ bool ModulePlayer::CleanUp()
 
 void ModulePlayer::OnCollision(Collider * c1, Collider * c2)
 {
-	if (!god_mode) {
 		alive = false;
-		
-	}
 }
 
 // Update: draw background
@@ -242,6 +239,9 @@ update_status ModulePlayer::Update()
 		}
 
 	}
+
+	if (god_mode == true) PlayerCollider->type = COLLIDER_TYPE::COLLIDER_NONE;
+	else PlayerCollider->type = COLLIDER_TYPE::COLLIDER_PLAYER;
 
 	if (alive) {
 		SDL_Rect r = current_animation->GetCurrentFrame();

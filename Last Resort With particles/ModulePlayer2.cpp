@@ -245,11 +245,15 @@ update_status ModulePlayer2::Update()
 
 	}
 
+	if (god_mode == true) PlayerCollider->type = COLLIDER_TYPE::COLLIDER_NONE;
+	else PlayerCollider->type = COLLIDER_TYPE::COLLIDER_PLAYER;
+
 	if (alive_p2) {
 		SDL_Rect r = current_animation->GetCurrentFrame();
 		PlayerCollider->SetPos(position.x, position.y - r.h);
 		App->render->Blit(graphics, position.x, position.y - r.h, &r);
 	}
+
 	// Draw everything --------------------------------------
 	else {
 		/*current_animation = &death;

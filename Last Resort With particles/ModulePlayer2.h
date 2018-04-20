@@ -39,11 +39,11 @@ public:
 	Animation death;
 	iPoint position;
 	fPoint relativeposition;
-	Collider *PlayerCollider = nullptr;
+	Collider* PlayerCollider = nullptr;
 
 	bool alive_p2 = true;
 	bool death_played = false; // different than player one 
-	bool god_mode = false;
+	bool god_mode = true;
 
 	Mix_Chunk* chunk;
 
