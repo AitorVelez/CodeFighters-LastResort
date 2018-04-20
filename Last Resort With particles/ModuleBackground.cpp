@@ -281,7 +281,7 @@ bool ModuleBackground::Start()
 	App->power->AddPowerup(POWERUP_TYPES::SPOWER, 330, 112);
 
 	//ENEMY COCKROACH
-	/*
+	
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 500 + 300, 40);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 535 + 300, 80);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 570 + 300, 40);
@@ -363,7 +363,7 @@ bool ModuleBackground::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 7080, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 8015, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 8040, 112);
-	*/
+	
 
 
 	// TANK
