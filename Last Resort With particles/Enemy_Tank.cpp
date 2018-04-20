@@ -14,7 +14,7 @@ Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
 	Anim2Distance.x = 50; 
 	Anim2Distance.y = -4; 
 	Anim3Distance.x = 84;
-	Anim3Distance.y = 4;
+	Anim3Distance.y = 2;
 
 
 	tank.PushBack({ 16,857,157,64 }); 
@@ -42,7 +42,7 @@ Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
     canonUpMoreLeft.PushBack({ 252,747,26,13 });
 	canonUpMoreRight.PushBack({ 210,746,26,13 });
 	canonRight.PushBack({ 206,779,29,10 });
-	canon2UpRight.PushBack({ 221,831,14,6 });
+	canon2Right.PushBack({ 221,831,14,6 });
 }
 
 void Enemy_Tank::Move()
@@ -60,6 +60,10 @@ void Enemy_Tank::Move()
 	else if (App->background->bgpos >= 9100) {
 		position.x += 0; 
 	}
+
+
+	
+
 
 	                                                                  // ONLY FOR PLAYER 1
 	if (App->player2->IsEnabled() == false) {
@@ -150,7 +154,7 @@ void Enemy_Tank::Move()
 			animation3 = &canon2Right;
 		}
 	}
-
+	
 }
 
 
