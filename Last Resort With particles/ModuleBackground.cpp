@@ -365,6 +365,7 @@ bool ModuleBackground::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 8040, 112);
 	*/
 
+
 	// TANK
 
 	App->enemies->AddEnemy(ENEMY_TYPES::TANK, 3500, SCREEN_HEIGHT - 64);
@@ -373,15 +374,18 @@ bool ModuleBackground::Start()
 	// CARS
 
 	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, 55, 195);
-	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, -10, 195);
 	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, 0, 195);
-	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, -130, 195);
+	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, -100, 195);
 	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, -170, 195);
-	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, -50, 195);
 	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, -210, 195);
 	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, -260, 195);
 
 	App->enemies->AddEnemy(ENEMY_TYPES::RED_CAR, 75, 209);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_CAR, -30, 209);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_CAR, -95, 209);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_CAR, -145, 209);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_CAR, -220, 209);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_CAR, -275, 209);
 
 	App->enemies->AddEnemy(ENEMY_TYPES::YELLOW_CAR, 105, 195);
 
@@ -399,10 +403,7 @@ bool ModuleBackground::CleanUp()
 	App->player->Disable(); 
 	App->player2->Disable();
 	App->particles->Disable(); 
-	App->collision->Disable();
-	App->enemies->Disable();
-	App->power->Disable(); 
-
+	
 	//Free all loaded textures
 	App->textures->Unload(BackgroundLvl1);
 	App->textures->Unload(BackgroundLvl1_extra);
@@ -418,7 +419,9 @@ bool ModuleBackground::CleanUp()
 
 	//Free Collision
 
-	
+	App->collision->Disable();
+
+	App->enemies->Disable();
 	return true;
 }
 

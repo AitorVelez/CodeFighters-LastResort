@@ -50,7 +50,7 @@ bool ModuleParticles::Start()
 	bullet_propulsion.texture = 0; 
 	
 
-	bullet.anim.PushBack({ 148,127,14,7 });
+	bullet.anim.PushBack({ 148,127,15,7 });
 	bullet.anim.loop = false;
 	bullet.anim.speed = 0.3f;
 	bullet.speed.x = 15;
