@@ -1,18 +1,18 @@
 #ifndef __POWERUPL_H__
 #define __POWERUPL_H__
 
-#include "Enemy.h"
+#include "Powerup.h"
 
-class LaserPowerUp : public Enemy
+class LaserPowerUp : public Powerup
 {
 private:
-	Animation ClrChangePow;
+	Animation PowChangeColor;
 
 public:
 
 	LaserPowerUp(int x, int y);
 
-	
+
 };
 
 #endif // __POWERUPL_H__
