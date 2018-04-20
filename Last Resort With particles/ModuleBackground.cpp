@@ -268,6 +268,15 @@ bool ModuleBackground::Start()
 
 	bgpos = 0; 
 
+
+
+	//POWERUPTEST
+
+	App->enemies->AddEnemy(ENEMY_TYPES::POWERUP, 300, 112);
+
+
+
+
 	//ENEMY COCKROACH
 
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 500 + 300, 40);

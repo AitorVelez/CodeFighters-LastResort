@@ -12,6 +12,8 @@
 #include "Red_Car.h"
 #include "Yellow_Car.h"
 #include "Enemy_Tank.h"
+#include "PowerUpL.h"
+
 #define SPAWN_MARGIN 50
 
 ModuleEnemies::ModuleEnemies()
@@ -155,10 +157,15 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::TANK:
 			enemies[i] = new Enemy_Tank(info.x, info.y);
 			break;
+
+		case ENEMY_TYPES::POWERUP:
+			enemies[i] = new LaserPowerUp(info.x, info.y);
+			break;
 		}
+	}
 	
 	}
-}
+
 
 void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 {
