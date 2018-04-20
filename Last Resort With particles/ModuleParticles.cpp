@@ -89,11 +89,10 @@ bool ModuleParticles::Start()
 	bullet_laser.anim.PushBack({ 447,240,48,3 });
 	bullet_laser.anim.PushBack({ 389,240,56,3 });
 	bullet_laser.anim.PushBack({ 389,245,64,3 });
-
 	bullet_laser.anim.speed = 0.3f;
 	bullet_laser.anim.loop = false;
 	bullet_laser.speed.x = 5;
-	bullet_laser.life = 1000;
+	bullet_laser.life = 1500;
 	bullet_laser.texture = 0;
 
 	
