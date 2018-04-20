@@ -229,8 +229,16 @@ update_status ModulePlayer::Update()
 
 
 		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
-			App->particles->AddParticle(App->particles->bullet_propulsion, position.x + 31, position.y - 15);
-			App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
+			if (bullet_state == BULLET_NO_TYPE) {
+				App->particles->AddParticle(App->particles->bullet_propulsion, position.x + 31, position.y - 15);
+				App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
+			}
+			//App->particles->AddParticle(App->particles->bullet_propulsion, position.x + 31, position.y - 15);
+			if (bullet_state == LASER1) {
+				App->particles->AddParticle(App->particles->bullet_laser, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
+			}
+			
+			
 		}
 
 		if (App->input->keyboard[SDL_SCANCODE_1] == KEY_STATE::KEY_DOWN) {

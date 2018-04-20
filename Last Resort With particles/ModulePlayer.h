@@ -6,9 +6,19 @@
 #include "Globals.h"
 #include "p2Point.h"
 
+
+
+
 struct SDL_Texture;
 struct Collider;
 struct Mix_Chunk;
+
+enum BULLET_STATE
+{
+	BULLET_NO_TYPE=1,
+	LASER1,
+	LASER2,
+};
 
 class ModulePlayer : public Module
 {
@@ -41,6 +51,7 @@ public:
 	iPoint position;
 	fPoint relativeposition;
 	Collider *PlayerCollider = nullptr;
+	BULLET_STATE bullet_state=BULLET_NO_TYPE;
 
 	uint score_p1 = 0;	
 	int lives = 0;
