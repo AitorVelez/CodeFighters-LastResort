@@ -52,18 +52,18 @@ update_status ModuleRender::Update()
 {
 	int speed = 30;
 
-	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_REPEAT) {
+	if (App->input->keyboard[SDL_SCANCODE_8] == KEY_REPEAT) {
 		camera.y += speed;
 		
 	}
-	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_REPEAT) {
+	if (App->input->keyboard[SDL_SCANCODE_5] == KEY_REPEAT) {
 		camera.y -= speed;
 	}
-	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_REPEAT) {
+	if (App->input->keyboard[SDL_SCANCODE_6] == KEY_REPEAT) {
 		camera.x -= speed;
 		App->background->falscamara -= speed;
 	}
-	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_REPEAT) {
+	if (App->input->keyboard[SDL_SCANCODE_4] == KEY_REPEAT) {
 		camera.x += speed;
 		App->background->falscamara += speed;
 	}

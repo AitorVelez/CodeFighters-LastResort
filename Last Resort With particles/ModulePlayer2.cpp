@@ -164,7 +164,7 @@ update_status ModulePlayer2::Update()
 	// Input -----
 	else if (alive_p2) {
 
-		if (App->input->keyboard[SDL_SCANCODE_I] == KEY_STATE::KEY_REPEAT)
+		if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT)
 		{
 			if (relativeposition.y > CHARACTER_HEIGHT + TopLimit) {
 				current_animation = &up;
@@ -179,14 +179,14 @@ update_status ModulePlayer2::Update()
 				re_up.Reset();
 			}
 		}
-		if (App->input->keyboard[SDL_SCANCODE_I] == KEY_STATE::KEY_UP) {
+		if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_UP) {
 
 			up.Reset();
 			current_animation = &re_up;
 		}
 
 
-		if (App->input->keyboard[SDL_SCANCODE_K] == KEY_STATE::KEY_REPEAT)
+		if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT)
 		{
 			if (relativeposition.y < SCREEN_HEIGHT - TopLimit) {
 				current_animation = &down;
@@ -202,14 +202,14 @@ update_status ModulePlayer2::Update()
 			}
 		}
 
-		if (App->input->keyboard[SDL_SCANCODE_K] == KEY_STATE::KEY_UP) {
+		if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_UP) {
 
 			down.Reset();
 			current_animation = &re_down;
 
 		}
 
-		if (App->input->keyboard[SDL_SCANCODE_L] == KEY_STATE::KEY_REPEAT) {
+		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) {
 			if (relativeposition.x < SCREEN_WIDTH - CHARACTER_WIDTH - SideLimit) {
 				relativeposition.x += speed;
 				position.x += speed;
@@ -218,7 +218,7 @@ update_status ModulePlayer2::Update()
 				relativeposition.x = SCREEN_WIDTH - CHARACTER_WIDTH - SideLimit;
 			}
 		}
-		if (App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_REPEAT) {
+		if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) {
 			if (relativeposition.x > SideLimit) {
 				relativeposition.x -= speed;
 				position.x -= speed;
@@ -231,7 +231,7 @@ update_status ModulePlayer2::Update()
 
 
 
-		if (App->input->keyboard[SDL_SCANCODE_B] == KEY_STATE::KEY_DOWN) {
+		if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_STATE::KEY_DOWN) {
 		
 			App->particles->AddParticle(App->particles->bullet_propulsion, position.x + 31, position.y - 12);
 			App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 9, COLLIDER_PLAYER_SHOT);
