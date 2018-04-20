@@ -6,6 +6,7 @@
 #include "ModuleInput.h"
 #include "ModuleRender.h"
 #include "ModuleCollision.h"
+#include "ModuleParticles.h"
 
 ModuleBall::ModuleBall()
 {
@@ -19,8 +20,8 @@ ModuleBall::ModuleBall()
 	E.PushBack({ 110, 0, 22, 16 });
 	E.PushBack({ 132, 0, 22, 16 });
 	E.PushBack({ 154, 0, 22, 16 });
-	E.speed = 0.3f; 
-	E.loop = true; 
+	E.speed = 0.3f;
+	E.loop = true;
 
 	NEE.PushBack({ 176, 0, 22, 17 });
 	NEE.PushBack({ 198, 0, 22, 17 });
@@ -30,8 +31,8 @@ ModuleBall::ModuleBall()
 	NEE.PushBack({ 44, 17, 22, 17 });
 	NEE.PushBack({ 66, 17, 22, 17 });
 	NEE.PushBack({ 88, 17, 22, 17 });
-	NEE.speed = 0.3f; 
-	NEE.loop = true; 
+	NEE.speed = 0.3f;
+	NEE.loop = true;
 
 	NE.PushBack({ 110, 17, 21, 21 });
 	NE.PushBack({ 131, 17, 21, 21 });
@@ -42,9 +43,9 @@ ModuleBall::ModuleBall()
 	NE.PushBack({ 0, 38, 21, 21 });
 	NE.PushBack({ 21, 38, 21, 21 });
 	NE.speed = 0.3f;
-	NE.loop = true; 
+	NE.loop = true;
 
-	NNE.PushBack({ 42, 38, 17, 23 }); 
+	NNE.PushBack({ 42, 38, 17, 23 });
 	NNE.PushBack({ 59, 38, 17, 23 });
 	NNE.PushBack({ 76, 38, 17, 23 });
 	NNE.PushBack({ 93, 38, 17, 23 });
@@ -55,7 +56,7 @@ ModuleBall::ModuleBall()
 	NNE.speed = 0.3f;
 	NNE.loop = true;
 
-	N.PushBack({ 178, 38, 16, 22 });	
+	N.PushBack({ 178, 38, 16, 22 });
 	N.PushBack({ 194, 38, 16, 22 });
 	N.PushBack({ 210, 38, 16, 22 });
 	N.PushBack({ 226, 38, 16, 22 });
@@ -63,7 +64,7 @@ ModuleBall::ModuleBall()
 	N.PushBack({ 16, 61, 16, 22 });
 	N.PushBack({ 32, 61, 16, 22 });
 	N.PushBack({ 48, 61, 16, 22 });
-	N.loop = true; 
+	N.loop = true;
 	N.speed = 0.3f;
 
 	NNW.PushBack({ 64, 61, 17, 23 });
@@ -118,8 +119,8 @@ ModuleBall::ModuleBall()
 	SWW.PushBack({ 110, 122, 22, 17 });
 	SWW.PushBack({ 132, 122, 22, 17 });
 	SWW.PushBack({ 154, 122, 22, 17 });
-	SWW.loop = true; 
-	SWW.speed = 0.3f; 
+	SWW.loop = true;
+	SWW.speed = 0.3f;
 
 	SW.PushBack({ 176, 122, 21, 21 });
 	SW.PushBack({ 197, 122, 21, 21 });
@@ -130,7 +131,7 @@ ModuleBall::ModuleBall()
 	SW.PushBack({ 63, 143, 21, 21 });
 	SW.PushBack({ 84, 143, 21, 21 });
 	SW.loop = true;
-	SW.speed = 0.3f; 
+	SW.speed = 0.3f;
 
 	SSW.PushBack({ 105, 143, 17, 23 });
 	SSW.PushBack({ 122, 143, 17, 23 });
@@ -141,7 +142,7 @@ ModuleBall::ModuleBall()
 	SSW.PushBack({ 207, 143, 17, 23 });
 	SSW.PushBack({ 224, 143, 17, 23 });
 	SSW.loop = true;
-	SSW.speed = 0.3f; 
+	SSW.speed = 0.3f;
 
 	S.PushBack({ 0, 166, 16, 22 });
 	S.PushBack({ 16, 166, 16, 22 });
@@ -202,33 +203,24 @@ bool ModuleBall::Start()
 	return true; 
 }
 
-
-update_status ModuleBall::Update()
+void ModuleBall::Ball_Input_Movement()
 {
-	angle_speed = 10;
-	angle_aiming_speed = 11.25;
-	center_player.x = App->player->position.x + 16;
-	center_player.y = App->player->position.y - 6;
-
-
-	if (angle >= 360) angle = 0; 
-	if (angle_aiming >= 360) angle_aiming = 0;
 	if (App->input->keyboard[SDL_SCANCODE_F] == KEY_DOWN)
 	{
 		if (ball_locked == false) ball_locked = true;
-		else ball_locked = false; 
+		else ball_locked = false;
 	}
 
 
 	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_REPEAT) {
-														// The aiming angle grows or decreases to 90º dependending on its place 
+		// The aiming angle grows or decreases to 90º dependending on its place 
 		if (angle_aiming <= 270 && angle_aiming > 90)		// Using te shortest way always
 			angle_aiming -= angle_speed;
 		else if (angle_aiming > 270)
 			angle_aiming += angle_aiming_speed;
 		if (angle_aiming >= 0 && angle_aiming < 90)
 			angle_aiming += angle_aiming_speed;
-	
+
 		// -------------
 
 		if (!ball_locked)
@@ -236,14 +228,14 @@ update_status ModuleBall::Update()
 			if (angle <= 270 && angle>90)					// Using the shortest way always
 				angle -= angle_speed;
 			else if (angle > 270)
-				angle += angle_speed; 
-			if (angle >= 0 && angle < 90) 
-				angle += angle_speed; 
+				angle += angle_speed;
+			if (angle >= 0 && angle < 90)
+				angle += angle_speed;
 		}
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_REPEAT) {		
-	
+	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_REPEAT) {
+
 		if (angle_aiming >= 90 && angle_aiming<270)					// Using the shortest way always
 			angle_aiming += angle_aiming_speed;
 		else if (angle_aiming < 90) {
@@ -261,7 +253,7 @@ update_status ModuleBall::Update()
 				angle += angle_speed;
 			else if (angle < 90) {
 				angle -= angle_speed;
-				if (angle <= 0) angle = 359; 
+				if (angle <= 0) angle = 359;
 			}
 			if (angle <360 && angle > 270)
 				angle -= angle_speed;
@@ -273,10 +265,10 @@ update_status ModuleBall::Update()
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT) {
-	
+
 		if (angle_aiming <= 180 && angle_aiming > 0)
 			angle_aiming -= angle_aiming_speed;
-		if (angle_aiming > 180 && angle_aiming != 0) 
+		if (angle_aiming > 180 && angle_aiming != 0)
 			angle_aiming += angle_aiming_speed;
 
 		// -------------
@@ -293,12 +285,12 @@ update_status ModuleBall::Update()
 
 
 	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT) {
-		
+
 		if (angle_aiming > 180)
 			angle_aiming -= angle_aiming_speed;
-		 if (angle_aiming < 180)
+		if (angle_aiming < 180)
 			angle_aiming += angle_aiming_speed;
-		
+
 		// -------------
 
 		if (!ball_locked)
@@ -309,11 +301,48 @@ update_status ModuleBall::Update()
 				angle += angle_speed;
 		}
 	}
+}
+
+void ModuleBall::Ball_Input_Attack()
+{
+	
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN)
+	{
+		App->particles->AddParticle(App->particles->ball_bullet, ball_position.x, ball_position.y, COLLIDER_PLAYER_SHOT);
+	}
+
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_REPEAT)
+	{
+		charge += 20; 
+	}
+	if (charge < 1000) charge = 0; 
+}
+
+void ModuleBall::Ball_Launch()
+{
+
+}
+
+
+update_status ModuleBall::Update()
+{
+	angle_speed = 10;
+	angle_aiming_speed = 11.25;
+	center_player.x = App->player->position.x + 16;
+	center_player.y = App->player->position.y - 6;
+
+
+	if (angle >= 360) angle = 0;
+	if (angle_aiming >= 360) angle_aiming = 0;
+
+	// ----- BALL INPUT -----
+
+	Ball_Input_Movement();
 
 	// ----- BALL AIMING ANIMATIONS -----	(Depends on the angle it is aiming)
 
 	// First quarter
-	if (angle_aiming <= 11.25 || angle_aiming > 348.75)
+	if (angle_aiming <= 11.25 || angle_aiming > 348.75) 
 		current_animation = &E;
 	if (angle_aiming > 11.25 && angle_aiming <= 33.75)
 		current_animation = &SEE;
@@ -321,9 +350,9 @@ update_status ModuleBall::Update()
 		current_animation = &SE;
 	if (angle_aiming > 56.25 && angle_aiming <= 78.75)
 		current_animation = &SSE;
-	
+
 	// Second quarter
-	if (angle_aiming > 78.75 && angle_aiming <= 101.25)
+	if (angle_aiming > 78.75 && angle_aiming <= 101.25) 
 		current_animation = &S;
 	if (angle_aiming > 101.25 && angle_aiming <= 123.75)
 		current_animation = &SSW;
@@ -334,7 +363,7 @@ update_status ModuleBall::Update()
 
 
 	// Third quarter
-	if (angle_aiming > 168.75 && angle_aiming <= 191.25)
+	if (angle_aiming > 168.75 && angle_aiming <= 191.25) 
 		current_animation = &W;
 	if (angle_aiming > 191.25 && angle_aiming <= 213.75)
 		current_animation = &NWW;
@@ -344,7 +373,7 @@ update_status ModuleBall::Update()
 		current_animation = &NNW;
 
 	// Fourth quarter
-	if (angle_aiming > 258.75 && angle_aiming <= 281.25)
+	if (angle_aiming > 258.75 && angle_aiming <= 281.25) 
 		current_animation = &N;
 	if (angle_aiming > 281.25 && angle_aiming <= 303.75)
 		current_animation = &NNE;
@@ -352,74 +381,18 @@ update_status ModuleBall::Update()
 		current_animation = &NE;
 	if (angle_aiming > 326.25 && angle_aiming <= 348.75)
 		current_animation = &NEE;
-	
-	//// Ball in North
-	//if (angle > 250 && angle < 290)			
-	//{
-	//	current_animation = &N;
-	//	ball_position.x = App->player->position.x + 10;
-	//	ball_position.y = App->player->position.y - 45;
-	//}
+		
+	App->particles->ball_bullet.speed.x = (7 * cos(angle_aiming*PI / 180))+2;
+	App->particles->ball_bullet.speed.y = 7 * sin(angle_aiming*PI / 180);
 
-	//// Ball in East
-	//if (angle > 340 || angle < 20)
-	//{
-	//	current_animation = &E;
-	//	ball_position.x = App->player->position.x + CHARACTER_WIDTH + 10;
-	//	ball_position.y = App->player->position.y - CHARACTER_HEIGHT - CHARACTER_HEIGHT / 2;
-	//}
-	//// Ball in South
-	//if (angle > 70 && angle < 110) {
-	//	current_animation = &S;
-	//	ball_position.x = App->player->position.x + 10;
-	//	ball_position.y = App->player->position.y + 10;
-	//}
-
-	//// Ball in West
-	//if (angle > 160 && angle < 200)
-	//{
-	//	current_animation = &W;
-	//	ball_position.x = App->player->position.x - CHARACTER_WIDTH;
-	//	ball_position.y = App->player->position.y - CHARACTER_HEIGHT - CHARACTER_HEIGHT / 2;
-	//}
-
-	
 	ball_position.x = center_player.x + 25*cos(angle*PI/180);
 	ball_position.y = center_player.y + 25*sin(angle*PI/180);
 
 	ball_collider->SetPos(ball_position.x, ball_position.y);
 
-	/*switch (App->player->player_direction)
-	{
-	case PLAYER_DIRECTION::GOING_UP:
-		current_animation = &S;
-		if (!ball_locked) {
-			ball_position.x = App->player->position.x + 10;
-			ball_position.y = App->player->position.y + 10;
-		}
-		break;
-	case PLAYER_DIRECTION::GOING_LEFT:
-		current_animation = &E;
-		if (!ball_locked) {
-			ball_position.x = App->player->position.x + CHARACTER_WIDTH + 10;
-			ball_position.y = App->player->position.y - CHARACTER_HEIGHT - CHARACTER_HEIGHT / 2;
-		}
-		break;
-	case PLAYER_DIRECTION::GOING_RIGHT:
-		current_animation = &W;
-		if (!ball_locked) {
-			ball_position.x = App->player->position.x - CHARACTER_WIDTH;
-			ball_position.y = App->player->position.y - CHARACTER_HEIGHT - CHARACTER_HEIGHT / 2;
-		}
-		break;
-	case PLAYER_DIRECTION::GOING_DOWN:
-		current_animation = &N;
-		if (!ball_locked) {
-			ball_position.x = App->player->position.x + 10;
-			ball_position.y = App->player->position.y - 45;
-		}
-		break;
-	}*/
+	Ball_Input_Attack();
+
+
 	SDL_Rect r = current_animation->GetCurrentFrame();
 
 	App->render->Blit(texture, ball_position.x, ball_position.y, &r); 

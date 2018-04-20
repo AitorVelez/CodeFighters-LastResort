@@ -12,6 +12,7 @@
 
 struct SDL_Texture; 
 struct Collider;
+struct Particle; 
 
 enum BALL_POSITION {
 
@@ -55,6 +56,9 @@ public:
 	//~ModuleBall();
 
 	bool Start();
+	void Ball_Input_Movement();
+	void Ball_Input_Attack();	
+	void Ball_Launch(); 
 	update_status Update();
 	bool CleanUp(); 
 	//bool CleanUp();
@@ -82,6 +86,7 @@ public:
 	Collider* ball_collider = nullptr;
 public:
 
+	bool baul_lanched = false; 
 	bool ball_locked = false; 
 	int angle = 0; 
 	int angle_speed = 0;
@@ -89,6 +94,7 @@ public:
 	float angle_aiming = 0;
 	float angle_aiming_speed = 0;
 
+	uint charge = 0; 
 	iPoint ball_position;
 	iPoint center_player;
 	BALL_POSITION _ball; 
