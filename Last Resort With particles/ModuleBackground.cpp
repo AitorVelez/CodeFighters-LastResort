@@ -275,9 +275,9 @@ bool ModuleBackground::Start()
 
 	//POWERUPTEST
 
-	App->enemies->AddEnemy(ENEMY_TYPES::POWERUP, 300, 112);
+	//App->enemies->AddEnemy(ENEMY_TYPES::POWERUP, 300, 112);
 
-
+	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 300, 112);
 
 
 	//ENEMY COCKROACH
@@ -712,12 +712,6 @@ void ModuleBackground::RenderTunnelLights()
 	App->render->Blit(TunnelLightsTex, 3850, 0, &tunnelLights_2.GetCurrentFrame(), depth_1);
 }
 
-void ModuleBackground::RenderPowerUps()
-{
-	App->render->Blit(PowerupTex, 330, 115, &powerupL.GetCurrentFrame());
-
-
-}
 
 // Update: draw background
 update_status ModuleBackground::Update()
@@ -760,7 +754,7 @@ update_status ModuleBackground::Update()
 
 	RenderStreetLights(); 
 	RenderTunnelLights();
-	RenderPowerUps();
+	
 	
 
 	// Fade to black

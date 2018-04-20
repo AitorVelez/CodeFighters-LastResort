@@ -6,6 +6,11 @@ LaserPowerUp::LaserPowerUp(int x, int y) : Powerup(x, y)
 {
 	PowChangeColor.PushBack({ 260,488,31,16 });
 	PowChangeColor.PushBack({ 298,488,31,16 });
+	
+	/*
+	PowChangeColor.PushBack({ 390,297,31,16 });
+	PowChangeColor.PushBack({ 428,297,31,16 });
+	*/
 	PowChangeColor.speed = 0.05f;
 	PowChangeColor.loop = true;
 	animation = &PowChangeColor;
