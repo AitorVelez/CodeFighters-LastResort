@@ -248,10 +248,7 @@ update_status ModulePlayer::Update()
 		PlayerCollider->SetPos(position.x, position.y - r.h);
 		App->render->Blit(graphics, position.x, position.y - r.h, &r);
 	}
-		// Draw everything --------------------------------------
 	else {
-			/*current_animation = &death;
-			r = current_animation->GetCurrentFrame();*/
 		if (death_played == false) {
 			App->particles->AddParticle(App->particles->player_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
 			death_played = true;

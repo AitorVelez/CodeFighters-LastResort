@@ -340,15 +340,18 @@ void ModuleBall::Ball_Launch()
 
 	if (original_position == ball_position) in_place;
 
-	if (ball_position.Negate().x < App->render->camera.x *SCREEN_SIZE ||
-		ball_position.x > App->render->camera.x + (SCREEN_WIDTH *3) ||
+	if (ball_position.x > App->render->camera.x + (SCREEN_WIDTH *3) ||
 		ball_position.y < App->render->camera.y ||
 		ball_position.y > App->render->camera.y + (SCREEN_HEIGHT*SCREEN_SIZE)) {
 		go_back = true; 
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_R] == KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_R] == KEY_DOWN) {
 		ball_launched = false;
+		go_back = false;
+		in_place = false;
+		charge = 0; 
+	}
 }
 
 
@@ -360,7 +363,7 @@ update_status ModuleBall::Update()
 	center_player.y = App->player->position.y - 6;
 
 	if (!ball_launched) {
-
+		
 		if (angle >= 360) angle = 0;
 		if (angle_aiming >= 360) angle_aiming = 0;
 
@@ -420,7 +423,7 @@ update_status ModuleBall::Update()
 		Ball_Input_Attack();
 	}
 
-	if (charge > 50000)
+	if (charge > 500)
    		Ball_Launch(); 
 
 	ball_collider->SetPos(ball_position.x, ball_position.y);
