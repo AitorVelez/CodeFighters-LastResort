@@ -1,14 +1,14 @@
 #include "Application.h"
-#include "Lpower.h"
+#include "SPower.h"
 #include "ModuleCollision.h"
 #include "ModulePlayer.h"
 
-LaserPowerUp::LaserPowerUp(int x, int y) : Powerup(x, y)
+SpeedPowerUp::SpeedPowerUp(int x, int y) : Powerup(x, y)
 {
-	//L powerup sprites
 
-	PowChangeColor.PushBack({ 260,488,31,16 });
-	PowChangeColor.PushBack({ 298,488,31,16 });
+
+	PowChangeColor.PushBack({ 342,483,18,21 });
+
 	PowChangeColor.speed = 0.05f;
 	PowChangeColor.loop = true;
 	animation = &PowChangeColor;
@@ -18,9 +18,9 @@ LaserPowerUp::LaserPowerUp(int x, int y) : Powerup(x, y)
 
 }
 
-void LaserPowerUp::OnCollision(Collider *collider)
+void SpeedPowerUp::OnCollision(Collider *collider)
 {
 
-
+	App->player->speed = 3;
 
 }
