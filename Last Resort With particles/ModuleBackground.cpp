@@ -260,6 +260,7 @@ bool ModuleBackground::Start()
 	BackLights = App->textures->Load("assets/sprites/DeepBackgroundLights.png");
 	BackLights2 = App->textures->Load("assets/sprites/MidBackgroundLights.png");
 	BackLights3 = App->textures->Load("assets/sprites/MidBackgroundLightsExtra.png");
+	PowerupTex = App->textures->Load("assets/sprites/main_character2.png");
 
 	bgpos = 0; 
 
