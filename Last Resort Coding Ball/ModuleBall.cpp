@@ -429,7 +429,7 @@ update_status ModuleBall::Update()
 
 	SDL_Rect r = current_animation->GetCurrentFrame();
 
-	App->render->Blit(texture, ball_position.x -15, ball_position.y -18, &r); 
+	App->render->Blit(texture, ball_position.x, ball_position.y, &r); 
 	return update_status::UPDATE_CONTINUE;
 }
 
