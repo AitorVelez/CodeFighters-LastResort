@@ -308,7 +308,7 @@ void ModuleBall::Ball_Input_Attack()
 	
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN)
 	{
-		App->particles->AddParticle(App->particles->ball_bullet, ball_position.x, ball_position.y, COLLIDER_PLAYER_SHOT);
+		App->particles->AddParticle(App->particles->ball_bullet, center_player.x + 30 * cos(angle*PI / 180) - BALL_SIZE/2, center_player.y + 30 * sin(angle*PI / 180) - BALL_SIZE/2, COLLIDER_PLAYER_SHOT);
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_REPEAT)
@@ -414,13 +414,13 @@ update_status ModuleBall::Update()
 		App->particles->ball_bullet.speed.x = (7 * cos(angle_aiming*PI / 180)) + 2;
 		App->particles->ball_bullet.speed.y = 7 * sin(angle_aiming*PI / 180);
 
-		ball_position.x = center_player.x + 25 * cos(angle*PI / 180);
-		ball_position.y = center_player.y + 25 * sin(angle*PI / 180);
+		ball_position.x = center_player.x + 30 * cos(angle*PI / 180) - BALL_SIZE/2;
+		ball_position.y = center_player.y + 30 * sin(angle*PI / 180) - BALL_SIZE/2;
 
 		Ball_Input_Attack();
 	}
 
-	if (charge > 200)
+	if (charge > 50000)
    		Ball_Launch(); 
 
 	ball_collider->SetPos(ball_position.x, ball_position.y);
