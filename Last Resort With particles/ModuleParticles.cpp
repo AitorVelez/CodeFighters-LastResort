@@ -295,7 +295,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 		// Always destroy particles that collide
 		if (active[i] != nullptr && active[i]->collider == c1)
 		{
-			if (c2->type == COLLIDER_ENEMY && c1->type == COLLIDER_PLAYER_SHOT) App->player->score_p1 += 100;
+			if ((c2->type == COLLIDER_ENEMY || c2->type == COLLIDER_CAR) && c1->type == COLLIDER_PLAYER_SHOT) App->player->score_p1 += 100;
 			LOG("HEY SOMEONE SCORED %i", App->player->score_p1);
 			AddParticle(bullet_explosion, active[i]->position.x, active[i]->position.y -3);
 			delete active[i];
