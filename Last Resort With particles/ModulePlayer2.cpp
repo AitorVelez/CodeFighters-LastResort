@@ -9,6 +9,7 @@
 #include "ModuleParticles.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleBackground.h"
+#include "ModulePlayer.h"
 #include "ModuleStageClear.h"
 
 #define  SideLimit 15
@@ -106,10 +107,20 @@ bool ModulePlayer2::Start()
 {
 	LOG("Loading player 2 textures");
 	bool ret = true;
-	position.x = 50;                             
-	position.y = 175;
-	relativeposition.x = position.x;                                                               
-	relativeposition.y = position.y;
+	int i = App->render->camera.x;
+	position.x = App->player->position.x; //50
+	relativeposition.x = App->player->relativeposition.x;
+
+	if ((App->player->position.y + 20) > (SCREEN_HEIGHT - TopLimit))
+	{
+		position.y = App->player->position.y - 20; //175
+		relativeposition.y = App->player->relativeposition.y - 20;
+	}
+	else
+	{
+		position.y = App->player->position.y + 20; //175
+		relativeposition.y = App->player->relativeposition.y + 20;
+	}
 	alive_p2 = true;
 	App->background->activ = true;
 	graphics = App->textures->Load("assets/sprites/SpritesPlayer2.png"); // arcade version
