@@ -19,7 +19,8 @@ private:
 	Animation canonUpMoreRight;
 	Animation canonRight;
 	Animation canon2Right;
-
+	Animation *AnimationBigCanon; 
+	Animation *AnimationSmallCanon;
 	int original_y; 
 	int original_x; 
 public:
@@ -27,7 +28,7 @@ public:
 	Enemy_Tank(int x, int y);
 
 	void Move();
-	void Shoot(); 
+	void Shoot();
 
 };
 
