@@ -7,6 +7,8 @@
 #include "ModuleParticles.h"
 #include "ModuleInput.h"
 #include "ModuleRender.h"
+#define TANKWIDTH 157
+#define TANKHEIGHT 64
 Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
 {
 	Anim2Distance.x = 50; 
@@ -59,12 +61,26 @@ void Enemy_Tank::Move()
 		position.x += 0; 
 	}
 
-
-
-	if (App->player->position.x >= position.x) {
-		animation2 = &canonRight; 
+	if (App->player->position.x < position.x + TANKWIDTH && App->player->position.y >= SCREEN_HEIGHT - TANKHEIGHT) {              // LEFT BOTTOM
+		animation2 = &canon;
 	}
 
+	if (App->player->position.x > position.x + TANKWIDTH / 2 - 3*CHARACTER_WIDTH / 2  && App->player->position.x <= position.x + TANKWIDTH / 2 - CHARACTER_WIDTH / 2) {
+		animation2 = &canonUpLeft;
+	}
+
+	if (App->player->position.x > position.x + TANKWIDTH/2 - CHARACTER_WIDTH/2 && App->player->position.x <= position.x + TANKWIDTH / 2 + CHARACTER_WIDTH / 2) { // UP
+		animation2 = &canonUp; 
+	}
+	if (App->player->position.x > position.x + TANKWIDTH / 2 + CHARACTER_WIDTH / 2 && App->player->position.x <= position.x + TANKWIDTH / 2 + 3*CHARACTER_WIDTH/2) {
+		animation2 = &canonUpRight; 
+	}
+	if (App->player->position.x > position.x + TANKWIDTH / 2 + 3 * CHARACTER_WIDTH / 2 && App->player->position.y <= SCREEN_HEIGHT - TANKHEIGHT) {
+		animation2 = &canonUpMoreRight;
+	}
+	if (App->player->position.x > position.x + TANKWIDTH && App->player->position.y >= SCREEN_HEIGHT - TANKHEIGHT) {       // RIGHT BOTTOM
+		animation2 = &canonRight; 
+	}
 
 }
 
