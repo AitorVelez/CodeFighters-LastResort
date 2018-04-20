@@ -10,6 +10,7 @@ Yellow_Car::Yellow_Car(int x, int y) : Enemy(x, y)
 	goCarC.PushBack({ 312,547,21,11 });
 	goCarC.PushBack({ 333,547,21,11 });
 	goCarC.PushBack({ 354,547,21,11 });
+	goCarC.loop = true;
 
 	goCarC.speed = 0.1;
 	animation = &goCarC;
@@ -21,5 +22,5 @@ Yellow_Car::Yellow_Car(int x, int y) : Enemy(x, y)
 
 void Yellow_Car::Move()
 {
-	position.x += 2;
+	position.x += 0.5;
 }
