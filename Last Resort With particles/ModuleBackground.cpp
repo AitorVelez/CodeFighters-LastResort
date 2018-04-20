@@ -364,9 +364,9 @@ bool ModuleBackground::Start()
 
 	//ENEMY LAMELLA
 
-	App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 400, 112);
+	/*App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 400, 112);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 550, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 550, 100);*/
 
 	// TANK
 

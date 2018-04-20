@@ -9,6 +9,17 @@ private:
 	Animation tank;
 	Animation canon; 
 	Animation canon2;
+	Animation canonUp;
+	Animation canon2Up;
+	Animation canonUpLeft;
+	Animation canon2UpLeft;
+    Animation canonUpRight;
+	Animation canon2UpRight;
+	Animation canonUpMoreLeft;
+	Animation canonUpMoreRight;
+	Animation canonRight;
+	Animation canon2Right;
+
 	int original_y; 
 	int original_x; 
 public:
@@ -18,7 +29,6 @@ public:
 	void Move();
 	void Shoot(); 
 
-	int RelToBg; 
 };
 
 #endif // __ENEMY_TANK_H__
