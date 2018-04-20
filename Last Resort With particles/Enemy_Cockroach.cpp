@@ -24,12 +24,7 @@ Enemy_Cockroach::Enemy_Cockroach(int x, int y) : Enemy(x, y)
 void Enemy_Cockroach::Move()
 {
 	position.x -= 2;
-	/*if (App->background->downscroll == true && App->background->upscroll == false && App->background->notscrolling == false) {
-	position.y += 1;
-	}
-	else if (App->background->downscroll == false && App->background->upscroll == true && App->background->notscrolling == false) {
-	position.y -= 1;
-	}*/
+	
 
 	position.y = y_original - (App->render->camera.y / 3);
 }

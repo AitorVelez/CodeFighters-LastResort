@@ -371,7 +371,7 @@ bool ModuleBackground::Start()
 	// TANK
 
 
-	App->enemies->AddEnemy(ENEMY_TYPES::TANK, 1000, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::TANK, 7000, SCREEN_HEIGHT - 64);
 
 	// CARS
 

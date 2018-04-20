@@ -6,7 +6,7 @@
 #include "ModuleBackground.h"
 #include "ModuleParticles.h"
 #include "ModuleInput.h"
-
+#include "ModuleRender.h"
 Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
 {
 	Anim2Distance.x = 50; 
@@ -22,6 +22,7 @@ Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
 	animation2 = &canon;
 	animation3 = &canon2; 
 	collider = App->collision->AddCollider({ 0, 0, 157, 64 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	original_y = y;
 }
 
 void Enemy_Tank::Move()
@@ -42,6 +43,7 @@ void Enemy_Tank::Move()
 	if (App->background->bgpos >= position.x) {
 		position.x += 1;
 	}
+	position.y = original_y - App->render->camera.y; 
 }
 
 
