@@ -38,14 +38,17 @@ bool ModuleParticles::Start()
 	textures[1] = App->textures->Load("assets/sprites/SpritesPlayer2.png");			// Texture -> 1
 	textures[2] = App->textures->Load("assets/sprites/cars_bottom.png");			// Texture -> 2
 	textures[3] = App->textures->Load("assets/sprites/common_enemies1.png");
+	textures[4] = App->textures->Load("assets/sprites/falling_man.png");
 
-	bullet_propulsion.anim.PushBack({ 115,124,13,12 });
-	bullet_propulsion.anim.PushBack({ 128,126,11,9 });
-	bullet_propulsion.anim.loop = true;
+	bullet_propulsion.anim.PushBack({ 278, 90,13,12 });
+	bullet_propulsion.anim.PushBack({ 291, 92,10,9 });
+	bullet_propulsion.anim.PushBack({ 304, 92,10,9 });
+	bullet_propulsion.anim.loop = false;
 	bullet_propulsion.anim.speed = 0.25f;
 	bullet_propulsion.speed.x = 1;
 	bullet_propulsion.life = 20;
 	bullet_propulsion.texture = 0; 
+	
 
 	bullet.anim.PushBack({ 148,127,14,7 });
 	bullet.anim.loop = false;
