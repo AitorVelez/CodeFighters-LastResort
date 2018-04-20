@@ -363,18 +363,13 @@ bool ModuleBackground::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 7080, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 8015, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 8040, 112);
+	*/
 
-
-	//ENEMY LAMELLA
-
-	/*App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 400, 112);
-
-	App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 550, 100);*/
 
 	// TANK
 
-
 	App->enemies->AddEnemy(ENEMY_TYPES::TANK, 3500, SCREEN_HEIGHT - 64);
+
 
 	// CARS
 
