@@ -5,10 +5,9 @@
 #include "Globals.h"
 #include "p2Point.h"
 #include "Animation.h"
+#include "Application.h"
 
-
-#define LATERAL_MARGIN 50
-#define VERTICAL_MARGIN 50
+#define BALL_SIZE 30
 
 struct SDL_Texture; 
 struct Collider;
@@ -80,19 +79,22 @@ public:
 	Animation NWW;
 	Animation NW;
 	Animation NNW; 
+	Animation flying; 
 
 	Animation* current_animation;
 	Animation test; 
 	Collider* ball_collider = nullptr;
 public:
-
-	bool baul_lanched = false; 
+	bool go_back = false;
+	bool in_place = false;
+	bool ball_launched = false; 
 	bool ball_locked = false; 
 	int angle = 0; 
 	int angle_speed = 0;
 
 	float angle_aiming = 0;
 	float angle_aiming_speed = 0;
+
 
 	uint charge = 0; 
 	iPoint ball_position;
