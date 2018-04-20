@@ -249,7 +249,7 @@ bool ModuleBackground::Start()
 
 	bool ret = true;	
 
-	App->player2->Enable();
+	//App->player2->Enable();
 	App->player->Enable();
 	App->particles->Enable(); 	
 	App->collision->Enable();
@@ -768,6 +768,9 @@ update_status ModuleBackground::Update()
 	if (App->input->keyboard[SDL_SCANCODE_F3] == 1) 
 		if (App->fade->FadeToBlack(App->background, App->loseimage, 1.5f))
 			App->audio->FadeMus(750);
+
+	if (App->input->keyboard[SDL_SCANCODE_F4] == 1)
+		App->player2->Enable();
 
 	if (activ == false) {
 		if (App->player->alive == false) {
