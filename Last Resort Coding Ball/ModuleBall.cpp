@@ -321,11 +321,11 @@ void ModuleBall::Ball_Launch()
 {
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_UP)
 	{
-		ball_launched = true;
+		ball_launched = true;	
 	}
 	//current_animation = &flying;
-	
-	iPoint original_position = ball_position; 
+	iPoint original_position = ball_position;
+
 	if (!go_back) {
 		ball_position.x = ball_position.x + 5 * cos(angle*PI / 180);
 		ball_position.y = ball_position.y + 5 * sin(angle*PI / 180);
@@ -334,13 +334,21 @@ void ModuleBall::Ball_Launch()
 		ball_position.x = ball_position.x - 5 * cos(angle*PI / 180);
 		ball_position.y = ball_position.y - 5 * sin(angle*PI / 180);
 	}
+	
+	original_position.x = center_player.x + 25 * cos(angle*PI / 180);
+	original_position.x = center_player.x + 25 * sin(angle*PI / 180);
 
-	if (ball_position.x < App->render->camera.x ||
+	if (original_position == ball_position) in_place;
+
+	if (ball_position.Negate().x < App->render->camera.x *SCREEN_SIZE ||
 		ball_position.x > App->render->camera.x + (SCREEN_WIDTH *3) ||
 		ball_position.y < App->render->camera.y ||
 		ball_position.y > App->render->camera.y + (SCREEN_HEIGHT*SCREEN_SIZE)) {
 		go_back = true; 
 	}
+
+	if (App->input->keyboard[SDL_SCANCODE_R] == KEY_DOWN)
+		ball_launched = false;
 }
 
 
