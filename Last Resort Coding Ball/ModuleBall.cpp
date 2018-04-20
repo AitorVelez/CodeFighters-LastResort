@@ -308,7 +308,7 @@ void ModuleBall::Ball_Input_Attack()
 	
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN)
 	{
-		App->particles->AddParticle(App->particles->ball_bullet, ball_position.x, ball_position.y, COLLIDER_PLAYER_SHOT);
+		App->particles->AddParticle(App->particles->ball_bullet, center_player.x + 30 * cos(angle*PI / 180) - BALL_SIZE/2, center_player.y + 30 * sin(angle*PI / 180) - BALL_SIZE/2, COLLIDER_PLAYER_SHOT);
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_REPEAT)
@@ -321,11 +321,11 @@ void ModuleBall::Ball_Launch()
 {
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_UP)
 	{
-		ball_launched = true;
+		ball_launched = true;	
 	}
 	//current_animation = &flying;
-	
-	iPoint original_position = ball_position; 
+	iPoint original_position = ball_position;
+
 	if (!go_back) {
 		ball_position.x = ball_position.x + 5 * cos(angle*PI / 180);
 		ball_position.y = ball_position.y + 5 * sin(angle*PI / 180);
@@ -334,13 +334,21 @@ void ModuleBall::Ball_Launch()
 		ball_position.x = ball_position.x - 5 * cos(angle*PI / 180);
 		ball_position.y = ball_position.y - 5 * sin(angle*PI / 180);
 	}
+	
+	original_position.x = center_player.x + 25 * cos(angle*PI / 180);
+	original_position.x = center_player.x + 25 * sin(angle*PI / 180);
 
-	if (ball_position.x < App->render->camera.x ||
+	if (original_position == ball_position) in_place;
+
+	if (ball_position.Negate().x < App->render->camera.x *SCREEN_SIZE ||
 		ball_position.x > App->render->camera.x + (SCREEN_WIDTH *3) ||
 		ball_position.y < App->render->camera.y ||
 		ball_position.y > App->render->camera.y + (SCREEN_HEIGHT*SCREEN_SIZE)) {
 		go_back = true; 
 	}
+
+	if (App->input->keyboard[SDL_SCANCODE_R] == KEY_DOWN)
+		ball_launched = false;
 }
 
 
@@ -406,13 +414,13 @@ update_status ModuleBall::Update()
 		App->particles->ball_bullet.speed.x = (7 * cos(angle_aiming*PI / 180)) + 2;
 		App->particles->ball_bullet.speed.y = 7 * sin(angle_aiming*PI / 180);
 
-		ball_position.x = center_player.x + 25 * cos(angle*PI / 180);
-		ball_position.y = center_player.y + 25 * sin(angle*PI / 180);
+		ball_position.x = center_player.x + 30 * cos(angle*PI / 180) - BALL_SIZE/2;
+		ball_position.y = center_player.y + 30 * sin(angle*PI / 180) - BALL_SIZE/2;
 
 		Ball_Input_Attack();
 	}
 
-	if (charge > 200)
+	if (charge > 50000)
    		Ball_Launch(); 
 
 	ball_collider->SetPos(ball_position.x, ball_position.y);
