@@ -11,6 +11,7 @@ Blue_Car::Blue_Car(int x, int y) : Enemy(x, y)
 	goCarA.PushBack({ 295,512,21,11 });
 	goCarA.PushBack({ 316,512,21,11 });
 	goCarA.loop = true; 
+
 	goCarA.speed = 0.1;
 	animation = &goCarA;
 	parallax = 0.4875; 
@@ -21,5 +22,5 @@ Blue_Car::Blue_Car(int x, int y) : Enemy(x, y)
 
 void Blue_Car::Move()
 {
-	position.x += 0.7;
+	position.x += 0.5;
 }
