@@ -44,8 +44,8 @@ public:
 	int lives = 0;
 	bool alive = true; 
 	bool death_played = false;
-	bool god_mode = true; 
-
+	bool god_mode = false; 
+	int speed = 2;
 	Mix_Chunk* chunk;
 
 };

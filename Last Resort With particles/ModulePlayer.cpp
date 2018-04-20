@@ -144,7 +144,7 @@ void ModulePlayer::OnCollision(Collider * c1, Collider * c2)
 update_status ModulePlayer::Update()
 {
 	int scroll_speed = 1;
-	int speed = 2;
+//	int speed = 2;
 	if (position.x <= 9150 && alive == true)
 		position.x += scroll_speed;
 	// player shows up

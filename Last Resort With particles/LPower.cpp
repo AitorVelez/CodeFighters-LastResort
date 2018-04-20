@@ -1,6 +1,7 @@
 #include "Application.h"
 #include "Lpower.h"
 #include "ModuleCollision.h"
+#include "ModulePlayer.h"
 
 LaserPowerUp::LaserPowerUp(int x, int y) : Powerup(x, y)
 {
@@ -20,3 +21,9 @@ LaserPowerUp::LaserPowerUp(int x, int y) : Powerup(x, y)
 
 }
 
+void LaserPowerUp::OnCollision(Collider *collider)
+{
+
+	App->player->speed = 3;
+
+}

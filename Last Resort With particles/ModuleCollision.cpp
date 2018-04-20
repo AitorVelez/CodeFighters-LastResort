@@ -15,7 +15,7 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_NONE][COLLIDER_CAR] = false;
 	matrix[COLLIDER_NONE][COLLIDER_PLAYER_SHOT] = false;
 	matrix[COLLIDER_NONE][COLLIDER_ENEMY_SHOT] = false;
-	matrix[COLLIDER_NONE][COLLIDER_POWERUP] = false;				// IF it's set to true the game crashes :)
+	matrix[COLLIDER_NONE][COLLIDER_POWERUP] = false;				// IF it's set to true the game crashes :) XD
 
 	matrix[COLLIDER_WALL][COLLIDER_WALL] = false;
 	matrix[COLLIDER_WALL][COLLIDER_PLAYER] = true;
