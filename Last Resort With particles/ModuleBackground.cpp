@@ -12,8 +12,10 @@
 #include "ModuleLoseImage.h"
 #include "ModuleParticles.h"
 #include "ModuleEnemies.h"
+#include "PowerUp.h"
 #include "SDL/include/SDL_timer.h"
 #include "ModulePlayer2.h"
+#include "ModulePowerUp.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
@@ -254,6 +256,7 @@ bool ModuleBackground::Start()
 	App->particles->Enable(); 	
 	App->collision->Enable();
 	App->enemies->Enable();
+	App->power->Enable();
 
 	//graphics = App->textures->Load("backgroundlvl1v2.png");
 	BackgroundLvl1 = App->textures->Load("assets/sprites/background_lvl1.png");
@@ -364,9 +367,9 @@ bool ModuleBackground::Start()
 
 	//ENEMY LAMELLA
 
-	App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 400, 112);
+	/*App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 400, 112);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 550, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 550, 100);*/
 
 	// TANK
 

@@ -17,6 +17,7 @@
 #include "ModuleLoseImage.h"
 #include "Module.h"
 #include "ModulePlayer2.h"
+#include "ModulePowerUp.h"
 
 Application::Application()
 {
@@ -36,6 +37,7 @@ Application::Application()
 	modules[13] = collision = new ModuleCollision();
 	modules[14] = fade = new ModuleFadeToBlack();
 	modules[15] = player = new ModulePlayer();
+	modules[16] = power = new ModulePowerUp();					
 	
 }	
 
@@ -58,6 +60,7 @@ bool Application::Init()
 	loseimage->Disable();
 	collision->Disable();
 	enemies->Disable();
+	power->Disable();
 
 
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)

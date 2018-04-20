@@ -15,6 +15,9 @@
     <Filter Include="Modules\Enemies">
       <UniqueIdentifier>{3839f19d-f7fa-4f5a-ada7-623a90d276b2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Modules\Powerups">
+      <UniqueIdentifier>{5b13be9b-2053-4a3d-8231-d38bc033978e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -113,8 +116,14 @@
     <ClInclude Include="ModuleFonts.h">
       <Filter>Modules</Filter>
     </ClInclude>
-    <ClInclude Include="PowerUpL.h">
-      <Filter>Modules\Enemies</Filter>
+    <ClInclude Include="ModulePowerUp.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="LPower.h">
+      <Filter>Modules\Powerups</Filter>
+    </ClInclude>
+    <ClInclude Include="Powerup.h">
+      <Filter>Modules\Powerups</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -202,8 +211,14 @@
     <ClCompile Include="ModuleFonts.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
-    <ClCompile Include="PowerUpL.cpp">
-      <Filter>Modules\Enemies</Filter>
+    <ClCompile Include="ModulePowerUp.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="LPower.cpp">
+      <Filter>Modules\Powerups</Filter>
+    </ClCompile>
+    <ClCompile Include="Powerup.cpp">
+      <Filter>Modules\Powerups</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
