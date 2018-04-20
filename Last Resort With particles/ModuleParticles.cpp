@@ -69,6 +69,19 @@ bool ModuleParticles::Start()
 	bullet_explosion.anim.loop = false; 
 	bullet_explosion.texture = 0; 
 	
+	
+	//PowerUp Laser Particle
+
+	bullet_laser.anim.PushBack({ 389,240,56,3 });
+	bullet_laser.anim.PushBack({ 447,240,48,3 });
+	bullet_laser.anim.PushBack({ 389,245,64,3 });
+	bullet_laser.anim.PushBack({ 455,245,40,3 });
+	bullet_laser.anim.PushBack({ 389,250,24,3 });
+	bullet_laser.anim.PushBack({ 415,250,16,3 });
+	bullet_laser.anim.PushBack({ 433,250,32,3 });
+	bullet_laser.anim.speed = 0.1f;
+	bullet_laser.anim.loop = false;
+	bullet_laser.texture = 0;
 
 
 	SpaceshipAnim.anim.PushBack({ 0,121,111,25 });
