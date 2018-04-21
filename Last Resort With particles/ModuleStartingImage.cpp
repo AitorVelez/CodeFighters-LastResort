@@ -30,7 +30,7 @@ ModuleStartingImage::ModuleStartingImage()
 	Press.PushBack({ 0,27,138,10 });
 	Press.PushBack({ 0,13,138,10 });
 	Press.speed = 0.09;*/
-	
+	/*
 	int cont = 0;
 
 	Title1.PushBack({ 0,  0,304,224 });
@@ -49,7 +49,7 @@ ModuleStartingImage::ModuleStartingImage()
 	Title1.loop = false;
 	cont = 1;
 
-	if (cont == 1) {
+	if () {
 	Title2.PushBack({ 0,  0,304,224 });
 	Title2.PushBack({ 304,0,304,224 });
 	Title2.PushBack({ 608,0,304,224 });
@@ -321,7 +321,7 @@ ModuleStartingImage::ModuleStartingImage()
 		Title17.loop = false;
 		cont = 17;
 	}
-
+	*/
 }
 
 ModuleStartingImage::~ModuleStartingImage()
