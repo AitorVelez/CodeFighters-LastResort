@@ -287,11 +287,11 @@ bool ModuleBackground::Start()
 
 
 	//ENEMY COCKROACH
-	
+	/*
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 500 + 300, 40);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 535 + 300, 80);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 570 + 300, 40);
-	/*App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 570 + 300, 130);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 570 + 300, 130);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 620 + 300 + 20, 20);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 650 + 300 + 25, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 640 + 300 + 30, 20);
@@ -409,7 +409,7 @@ bool ModuleBackground::CleanUp()
 	App->player->Disable(); 
 	App->player2->Disable();
 	App->particles->Disable(); 
-	
+	App->UI->ready = false;
 	//Free all loaded textures
 	App->textures->Unload(BackgroundLvl1);
 	App->textures->Unload(BackgroundLvl1_extra);
