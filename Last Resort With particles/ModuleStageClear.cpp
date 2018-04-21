@@ -12,6 +12,7 @@
 #include "ModuleIntroNeoGeo.h"
 #include "Application.h"
 #include "ModulePlayer2.h"
+#include "ModuleUI.h"
 
 
 ModuleStageClear::ModuleStageClear()
@@ -34,7 +35,7 @@ bool ModuleStageClear::Start()
 
 	ClearMus = App->audio->LoadMus("assets/SFX/stage_clear.ogg");
 	App->audio->PlayMus(ClearMus);
-
+	App->UI->Enable();
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 	App->player->Disable();
@@ -48,6 +49,7 @@ bool ModuleStageClear::CleanUp()
 	LOG("Unloading Intro Scene");
 	App->textures->Unload(TexStageImage);
 	App->audio->UnloadMus(ClearMus);
+	App->UI->Disable();
 
 	return true;
 }
