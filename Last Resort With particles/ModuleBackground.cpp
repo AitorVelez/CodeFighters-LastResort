@@ -290,8 +290,8 @@ bool ModuleBackground::Start()
 	*/
 
 	//ENEMY COCKROACH
-	/*
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 500 + 300, 40);
+	
+	/*App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 500 + 300, 40);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 535 + 300, 80);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 570 + 300, 40);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 570 + 300, 130);
