@@ -447,11 +447,6 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, COLLID
 
 void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 {
-	int number;
-	srand(time(NULL));
-	number = rand() % 2;
-	if (number == 1) CommonExplosion.fx = 8;
-	else { CommonExplosion.fx = 2; }
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
 		// Always destroy particles that collide
