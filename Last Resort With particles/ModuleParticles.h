@@ -63,6 +63,7 @@ public:
 	Particle player2_death;
 	Particle bullet_explosion; 
 	Particle bullet_laser;
+	Particle firing_laser;
 
 	Particle BigTankShot; 
 	Particle SmallTankShot; 
