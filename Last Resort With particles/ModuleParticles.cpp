@@ -121,19 +121,32 @@ bool ModuleParticles::Start()
 	bullet_laser.life = 1500;
 	bullet_laser.texture = 0;
 
-	firing_laser.anim.PushBack({ 145,259,31,15 });
-	firing_laser.anim.PushBack({ 176,259,31,15 });
-	firing_laser.anim.PushBack({ 207,259,31,15 });
-	firing_laser.anim.PushBack({ 238,259,31,15 });
-	firing_laser.anim.PushBack({ 269,259,31,15 });
-	firing_laser.anim.PushBack({ 300,274,31,15 });
-	firing_laser.anim.PushBack({ 176,274,31,15 });
-	firing_laser.anim.PushBack({ 207,274,31,15 });
+	firing_laser.anim.PushBack({ 165,80,33,13 });
+	firing_laser.anim.PushBack({ 165,93,33,13 });
+	firing_laser.anim.PushBack({ 165,105,33,13 });
+	firing_laser.anim.PushBack({ 165,118,33,13 });
+	firing_laser.anim.PushBack({ 198,131,33,13 });
+	firing_laser.anim.PushBack({ 198,80,33,13 });
+	firing_laser.anim.PushBack({ 198,92,33,13 });
+	firing_laser.anim.PushBack({ 198,105,33,13 });
 	firing_laser.anim.speed = 0.3f;
 	firing_laser.speed.x = 1;
 	firing_laser.anim.loop = false;
-	firing_laser.life = 1000;
+	firing_laser.life = 500;
 	firing_laser.texture = 0;
+
+	bullet_laser2_1.anim.PushBack({ 415,250,16,3 });
+	bullet_laser2_1.anim.PushBack({ 389,250,24,3 });
+	bullet_laser2_1.anim.PushBack({ 433,250,32,3 });
+	bullet_laser2_1.anim.PushBack({ 455,245,40,3 });
+	bullet_laser2_1.anim.PushBack({ 447,240,48,3 });
+	bullet_laser2_1.anim.PushBack({ 389,240,56,3 });
+	bullet_laser2_1.anim.PushBack({ 389,245,64,3 });
+	bullet_laser2_1.anim.speed = 0.3f;
+	bullet_laser2_1.speed.x = 5;
+	bullet_laser2_1.anim.loop = false;
+	bullet_laser2_1.life = 500;
+	bullet_laser2_1.texture = 0;
 
 	bullet_laser2.anim.PushBack({ 209,209,13,31 });
 	bullet_laser2.anim.PushBack({ 222,209,13,31 });
