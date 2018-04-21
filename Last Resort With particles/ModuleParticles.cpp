@@ -1,4 +1,6 @@
 #include <math.h>
+#include <stdlib.h>
+#include <time.h>
 #include "Globals.h"
 #include "Application.h"
 #include "ModuleTextures.h"
@@ -36,6 +38,7 @@ bool ModuleParticles::Start()
 	chunks[5] = App->audio->LoadChunk("assets/SFX/showup_sound.wav");
 	chunks[6] = App->audio->LoadChunk("assets/SFX/Laser_2.wav");
 	chunks[7] = App->audio->LoadChunk("assets/SFX/TankShot.wav");
+	chunks[8] = App->audio->LoadChunk("assets/SFX/Explosion2.wav");
 
 	textures[0] = App->textures->Load("assets/sprites/main_character.png");			// Texture -> 0
 	textures[1] = App->textures->Load("assets/sprites/SpritesPlayer2.png");			// Texture -> 1
@@ -50,8 +53,8 @@ bool ModuleParticles::Start()
 	bullet_propulsion.anim.speed = 0.25f;
 	bullet_propulsion.speed.x = 1;
 	bullet_propulsion.life = 20;
-	bullet_propulsion.texture = 0; 
-	
+	bullet_propulsion.texture = 0;
+
 
 	bullet.anim.PushBack({ 148,127,15,7 });
 	bullet.anim.loop = false;
@@ -59,7 +62,7 @@ bool ModuleParticles::Start()
 	bullet.speed.x = 15;
 	bullet.life = 1000;
 	bullet.fx = 0;
-	bullet.texture = 0; 
+	bullet.texture = 0;
 
 	bullet_explosion.anim.PushBack({ 248,7,12,12 });
 	bullet_explosion.anim.PushBack({ 262,7,13,13 });
@@ -68,15 +71,15 @@ bool ModuleParticles::Start()
 	bullet_explosion.anim.PushBack({ 248,23,14,14 });
 	bullet_explosion.anim.PushBack({ 264,23,16,16 });
 	bullet_explosion.anim.PushBack({ 282,23,14,14 });
-	bullet_explosion.anim.speed = 0.3f; 
-	bullet_explosion.anim.loop = false; 
-	bullet_explosion.texture = 0; 
-	
+	bullet_explosion.anim.speed = 0.3f;
+	bullet_explosion.anim.loop = false;
+	bullet_explosion.texture = 0;
+
 	BigTankShot.anim.PushBack({ 196, 746, 13, 13 });
 	BigTankShot.anim.PushBack({ 184, 746, 13, 13 });
 	BigTankShot.anim.PushBack({ 206, 762, 13, 13 });
 	BigTankShot.anim.PushBack({ 237, 746, 13, 13 });
-	BigTankShot.anim.speed = 0.3f; 
+	BigTankShot.anim.speed = 0.3f;
 	BigTankShot.life = 10000;
 	BigTankShot.texture = 3;
 	BigTankShot.fx = 7;
@@ -91,7 +94,7 @@ bool ModuleParticles::Start()
 	SmallTankShot.texture = 3;
 	SmallTankShot.fx = 7;
 
-	
+
 	//PowerUp Laser Particle
 
 	/*bullet_laser.anim.PushBack({ 389,240,56,3 });
@@ -103,7 +106,7 @@ bool ModuleParticles::Start()
 	bullet_laser.anim.PushBack({ 433,250,32,3 });*/
 
 
-	
+
 	bullet_laser.anim.PushBack({ 415,250,16,3 });
 	bullet_laser.anim.PushBack({ 389,250,24,3 });
 	bullet_laser.anim.PushBack({ 433,250,32,3 });
@@ -118,7 +121,7 @@ bool ModuleParticles::Start()
 	bullet_laser.life = 1500;
 	bullet_laser.texture = 0;
 
-	firing_laser.anim.PushBack({145,259,31,15});
+	firing_laser.anim.PushBack({ 145,259,31,15 });
 	firing_laser.anim.PushBack({ 176,259,31,15 });
 	firing_laser.anim.PushBack({ 207,259,31,15 });
 	firing_laser.anim.PushBack({ 238,259,31,15 });
@@ -166,7 +169,7 @@ bool ModuleParticles::Start()
 	pilot_dying.anim.speed = 0.2f;
 	pilot_dying.speed.x = 2;
 	pilot_dying.life = 8000;
-	pilot_dying.speed.y = 1 + pilot_dying.life/8000;
+	pilot_dying.speed.y = 1 + pilot_dying.life / 8000;
 	pilot_dying.texture = 3;
 	pilot_dying.anim.loop = false;
 
@@ -189,7 +192,7 @@ bool ModuleParticles::Start()
 	SpaceshipAnim.speed.x = 1;
 	SpaceshipAnim.fx = 3;
 	SpaceshipAnim.anim.speed = 0.3f;
-	SpaceshipAnim.texture = 1; 
+	SpaceshipAnim.texture = 1;
 
 	player_death.anim.PushBack({ 18, 20, 37, 16 });
 	player_death.anim.PushBack({ 14, 37, 41, 17 });
@@ -211,8 +214,8 @@ bool ModuleParticles::Start()
 	player_death.anim.PushBack({ 128, 108, 37, 10 });
 	player_death.anim.loop = false;
 	player_death.anim.speed = 0.25f;
-	player_death.fx = 1; 
-	player_death.texture = 0; 
+	player_death.fx = 1;
+	player_death.texture = 0;
 
 	Blue_Car_Explosion.anim.PushBack({ 390,510,38,32 });
 	Blue_Car_Explosion.anim.PushBack({ 428,510,38,32 });
@@ -313,8 +316,8 @@ bool ModuleParticles::Start()
 	player2_death.anim.loop = false;
 	player2_death.anim.speed = 0.3f;
 	player2_death.fx = 1;
-	player2_death.texture = 1; 
-	
+	player2_death.texture = 1;
+
 
 
 
@@ -336,7 +339,6 @@ bool ModuleParticles::Start()
 	CommonExplosion.anim.PushBack({ 393,127,32,32 });//
 	CommonExplosion.anim.loop = false;
 	CommonExplosion.anim.speed = 0.5f;
-	CommonExplosion.fx = 2;
 	CommonExplosion.texture = 0;
 
 	ball_bullet.anim.PushBack({ 317, 176, 13, 13 });
@@ -445,6 +447,11 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, COLLID
 
 void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 {
+	int number;
+	srand(time(NULL));
+	number = rand() % 2;
+	if (number == 1) CommonExplosion.fx = 8;
+	else { CommonExplosion.fx = 2; }
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
 		// Always destroy particles that collide
