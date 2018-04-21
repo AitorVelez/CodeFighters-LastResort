@@ -407,12 +407,11 @@ bool ModuleBackground::CleanUp()
 {
 	LOG("Cleaning Up background");
 	//Disable Other Modules
+	App->particles->Disable(); 
 	App->player->Disable(); 
 	App->player2->Disable();
-	App->particles->Disable(); 
-
+	App->collision->Disable();
 	App->UI->ready = false;
-
 	App->enemies->Disable();
 	App->Fonts->Disable();
 	App->UI->Disable();
@@ -435,7 +434,6 @@ bool ModuleBackground::CleanUp()
 
 	//Free Collision
 
-	App->collision->Disable();
 
 
 	return true;

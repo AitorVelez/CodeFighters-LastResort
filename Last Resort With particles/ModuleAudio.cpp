@@ -131,7 +131,17 @@ Mix_Chunk * ModuleAudio::LoadChunk(const char * path)
 
 void ModuleAudio::PlayChunk(Mix_Chunk * chunk, int times)
 {
-	Mix_PlayChannel(-1, chunk, times-1);
+	if (chunk == nullptr)
+		return; 
+	bool played = false; 
+
+	for (int i = 0; i < MAX_CHUNKS && !played; ++i) {
+		if (chunks[i] == chunk) {
+			Mix_PlayChannel(-1, chunks[i], times - 1);
+			played = true; 
+		}
+
+	}
 }
 
 bool ModuleAudio::UnloadChunk(Mix_Chunk* chunk)

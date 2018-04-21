@@ -21,29 +21,45 @@ ModulePlayer2::ModulePlayer2()
 	current_animation = &idle;
 
 
-	playershowup.PushBack({ 0,11,112,1 });
-	playershowup.PushBack({ 5,37,105,2 });
-	playershowup.PushBack({ 34,59,76,4 });
-	playershowup.loop = false;
-	playershowup.speed = 0.1f;
-	playershowup2.PushBack({ 57,82,54,18 });
-	playershowup2.PushBack({ 49,103,62,15 }); //player shows up
-	playershowup2.PushBack({ 49,131,62,15 });
-	playershowup2.PushBack({ 60,153,51,16 });
-	playershowup2.PushBack({ 60,180,51,16 });
-	playershowup2.PushBack({ 157,4,64,16 });
-	playershowup2.PushBack({ 158,25,64,25 });
-	playershowup2.loop = false;
-	playershowup2.speed = 0.15f;
-	playershowup3.PushBack({ 164,49,57,25 });
-	playershowup3.PushBack({ 166,75,56,25 });
-	playershowup3.PushBack({ 186,103,36,19 });
-	playershowup3.PushBack({ 190,130,32,15 });
-	playershowup3.PushBack({ 286,8,32,11 });
-	playershowup3.loop = false;
-	playershowup3.speed = 0.2f;
+	//playershowup.PushBack({ 0,11,112,1 });
+	//playershowup.PushBack({ 5,37,105,2 });
+	//playershowup.PushBack({ 34,59,76,4 });
+	//playershowup.loop = false;
+	//playershowup.speed = 0.1f;
+	//playershowup2.PushBack({ 57,82,54,18 });
+	//playershowup2.PushBack({ 49,103,62,15 }); //player shows up
+	//playershowup2.PushBack({ 49,131,62,15 });
+	//playershowup2.PushBack({ 60,153,51,16 });
+	//playershowup2.PushBack({ 60,180,51,16 });
+	//playershowup2.PushBack({ 157,4,64,16 });
+	//playershowup2.PushBack({ 158,25,64,25 });
+	//playershowup2.loop = false;
+	//playershowup2.speed = 0.15f;
+	//playershowup3.PushBack({ 164,49,57,25 });
+	//playershowup3.PushBack({ 166,75,56,25 });
+	//playershowup3.PushBack({ 186,103,36,19 });
+	//playershowup3.PushBack({ 190,130,32,15 });
+	//playershowup3.PushBack({ 286,8,32,11 });
+	//playershowup3.loop = false;
+	//playershowup3.speed = 0.2f;
 
-	
+	playershowup.PushBack({ 0,130,111,16 });
+	playershowup.PushBack({ 6,155,105,16 });
+	playershowup.PushBack({ 32,180,79,16 });
+	playershowup.PushBack({ 34,204,77,17 });
+	playershowup.PushBack({ 46,224,65,22 }); //player shows up
+	playershowup.PushBack({ 46,252,65,19 });
+	playershowup.PushBack({ 57,274,56,22 });
+	playershowup.PushBack({ 57,300,56,21 });
+	playershowup.PushBack({ 44,325,67,21 });
+	playershowup.PushBack({ 44,346,67,25 });
+	playershowup.PushBack({ 51,371,60,25 });
+	playershowup.PushBack({ 52,396,59,25 });
+	playershowup.PushBack({ 72,425,39,18 });
+	playershowup.PushBack({ 76,452,35,15 });
+	playershowup.PushBack({ 64,3,32,14 });
+	playershowup.loop = false;
+	playershowup.speed = 0.2f;
 
 	// Death Animation 
 	death.PushBack({ 255, 0, 63, 28 });
@@ -121,17 +137,20 @@ bool ModulePlayer2::Start()
 		position.y = App->player->position.y + 20; //175
 		relativeposition.y = App->player->relativeposition.y + 20;
 	}
-	alive_p2 = true;
-	App->background->activ = true;
+
 	graphics = App->textures->Load("assets/sprites/SpritesPlayer2.png"); // arcade version
 	PlayerCollider = App->collision->AddCollider({ position.x,position.y, 32, 11 }, COLLIDER_PLAYER, this);
+	current_animation = &playershowup;
+	show_up_chunk = App->audio->LoadChunk("assets/SFX/player_showup.WAV");
+	App->audio->PlayChunk(show_up_chunk, 1);
 
+
+
+	App->background->activ = true;
+	alive_p2 = true;
 	bullet_state_2 = BULLET_NO_TYPE_2;
 	death_played = false;
 	death.Reset();
-	playershowup.Reset();
-	playershowup2.Reset();
-	playershowup3.Reset();
 
 	return ret;
 }
@@ -143,6 +162,10 @@ bool ModulePlayer2::CleanUp()
 	// Free All textures
 	App->textures->Unload(graphics);
 
+	playershowup.Reset();
+	playershowup2.Reset();
+	playershowup3.Reset();
+	
 	return true;
 }
 
@@ -161,7 +184,7 @@ update_status ModulePlayer2::Update()
 	if (position.x <= 9150 && alive_p2 == true)
 		position.x += scroll_speed;
 	// player shows up
-	if (App->render->camera.x >= -150) {
+	/*if (App->render->camera.x >= -150) {
 		if (App->render->camera.x >= -40) {
 			current_animation = &playershowup;
 		}
@@ -172,9 +195,9 @@ update_status ModulePlayer2::Update()
 			current_animation = &playershowup3;
 		}
 	}
-
+*/
 	// Input -----
-	else if (alive_p2) {
+	if (alive_p2 && playershowup.Finished()) {
 
 		if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT)
 		{

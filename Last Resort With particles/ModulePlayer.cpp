@@ -21,29 +21,46 @@ ModulePlayer::ModulePlayer()
 	current_animation = &idle;
 
 
+	//playershowup.PushBack({ 0,130,111,16 });
+	//playershowup.PushBack({ 6,155,105,16 });
+	//playershowup.PushBack({ 32,180,79,16 });
+	//playershowup.loop = false;
+	//playershowup.speed = 0.1f;
+	//playershowup2.PushBack({ 34,204,77,17 });
+	//playershowup2.PushBack({ 46,224,65,22 }); //player shows up
+	//playershowup2.PushBack({ 46,252,65,19 });
+	//playershowup2.PushBack({ 57,274,56,22 });
+	//playershowup2.PushBack({ 57,300,56,21 });
+	//playershowup2.PushBack({ 44,325,67,21 });
+	//playershowup2.PushBack({ 44,346,67,25 });
+	//playershowup2.loop = false;
+	//playershowup2.speed = 0.15f;
+	//playershowup3.PushBack({ 51,371,60,25 });
+	//playershowup3.PushBack({ 52,396,59,25 });
+	//playershowup3.PushBack({ 72,425,39,18 });
+	//playershowup3.PushBack({ 76,452,35,15 });
+	//playershowup3.PushBack({ 64,3,32,14 });
+	//playershowup3.loop = false;
+	//playershowup3.speed = 0.2f;
+	//playershowup3.anim.fx = 3;
+	
 	playershowup.PushBack({ 0,130,111,16 });
 	playershowup.PushBack({ 6,155,105,16 });
 	playershowup.PushBack({ 32,180,79,16 });
+	playershowup.PushBack({ 34,204,77,17 });
+	playershowup.PushBack({ 46,224,65,22 }); //player shows up
+	playershowup.PushBack({ 46,252,65,19 });
+	playershowup.PushBack({ 57,274,56,22 });
+	playershowup.PushBack({ 57,300,56,21 });
+	playershowup.PushBack({ 44,325,67,21 });
+	playershowup.PushBack({ 44,346,67,25 });
+	playershowup.PushBack({ 51,371,60,25 });
+	playershowup.PushBack({ 52,396,59,25 });
+	playershowup.PushBack({ 72,425,39,18 });
+	playershowup.PushBack({ 76,452,35,15 });
+	playershowup.PushBack({ 64,3,32,14 });
 	playershowup.loop = false;
-	playershowup.speed = 0.1f;
-	playershowup2.PushBack({ 34,204,77,17 });
-	playershowup2.PushBack({ 46,224,65,22 }); //player shows up
-	playershowup2.PushBack({ 46,252,65,19 });
-	playershowup2.PushBack({ 57,274,56,22 });
-	playershowup2.PushBack({ 57,300,56,21 });
-	playershowup2.PushBack({ 44,325,67,21 });
-	playershowup2.PushBack({ 44,346,67,25 });
-	playershowup2.loop = false;
-	playershowup2.speed = 0.15f;
-	playershowup3.PushBack({ 51,371,60,25 });
-	playershowup3.PushBack({ 52,396,59,25 });
-	playershowup3.PushBack({ 72,425,39,18 });
-	playershowup3.PushBack({ 76,452,35,15 });
-	playershowup3.PushBack({ 64,3,32,14 });
-	playershowup3.loop = false;
-	playershowup3.speed = 0.2f;
-	//playershowup3.anim.fx = 3;
-
+	playershowup.speed = 0.3f;
 
 
 	// Death Animation 
@@ -115,7 +132,10 @@ bool ModulePlayer::Start()
 
 	graphics = App->textures->Load("assets/sprites/main_character.png"); // arcade version
 	PlayerCollider = App->collision->AddCollider({ position.x,position.y, 32, 14 }, COLLIDER_PLAYER, this);
-	
+	current_animation = &playershowup;
+	show_up_chunk = App->audio->LoadChunk("assets/SFX/player_showup.WAV");				
+	App->audio->PlayChunk(show_up_chunk, 1);
+
 	bullet_state = BULLET_STATE::BULLET_NO_TYPE; 
 	death_played = false; 
 	death.Reset();
@@ -132,7 +152,7 @@ bool ModulePlayer::CleanUp()
 	LOG("Closing Up Player Module");
 	// Free All textures
 	App->textures->Unload(graphics);
-
+	App->audio->UnloadChunk(show_up_chunk);
 	return true; 
 }
 
@@ -146,10 +166,11 @@ update_status ModulePlayer::Update()
 {
 	int scroll_speed = 1;
 //	int speed = 2;
+
 	if (position.x <= 9150 && alive == true)
 		position.x += scroll_speed;
 	// player shows up
-	if (App->render->camera.x >= -150) {
+	/*if (App->render->camera.x >= -150) {
 		if (App->render->camera.x >= -40) {
 			current_animation = &playershowup;
 		}
@@ -159,10 +180,9 @@ update_status ModulePlayer::Update()
 		else if (App->render->camera.x >= -149) {
 			current_animation = &playershowup3;
 		}
-	}
-
+	}*/
 	// Input -----
-	else if (alive) {
+	if (alive && playershowup.Finished()) {
 		
 		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
 		{
