@@ -58,6 +58,8 @@ public:
 	void Ball_Input_Movement();
 	void Ball_Input_Attack();
 	void Ball_Launch();
+	void Ball_Set_Angle();
+	void Ball_Set_Position(); 
 	update_status Update();
 	bool CleanUp();
 	//bool CleanUp();

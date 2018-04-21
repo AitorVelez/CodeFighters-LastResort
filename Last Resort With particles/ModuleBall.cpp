@@ -361,6 +361,68 @@ void ModuleBall::Ball_Launch()
 	}
 }
 
+void ModuleBall::Ball_Set_Angle()
+{
+	if (angle >= 360) angle = 0;
+	if (angle_aiming >= 360) angle_aiming = 0;
+
+	// ----- BALL INPUT -----
+
+	Ball_Input_Movement();
+
+	// ----- BALL AIMING ANIMATIONS -----	(Depends on the angle it is aiming)
+
+	// First quarter
+	if (angle_aiming <= 11.25 || angle_aiming > 348.75)
+		current_animation = &E;
+	if (angle_aiming > 11.25 && angle_aiming <= 33.75)
+		current_animation = &SEE;
+	if (angle_aiming > 33.75 && angle_aiming <= 56.25)
+		current_animation = &SE;
+	if (angle_aiming > 56.25 && angle_aiming <= 78.75)
+		current_animation = &SSE;
+
+	// Second quarter
+	if (angle_aiming > 78.75 && angle_aiming <= 101.25)
+		current_animation = &S;
+	if (angle_aiming > 101.25 && angle_aiming <= 123.75)
+		current_animation = &SSW;
+	if (angle_aiming > 123.75 && angle_aiming <= 146.25)
+		current_animation = &SW;
+	if (angle_aiming > 146.25 && angle_aiming <= 168.75)
+		current_animation = &SWW;
+
+
+	// Third quarter
+	if (angle_aiming > 168.75 && angle_aiming <= 191.25)
+		current_animation = &W;
+	if (angle_aiming > 191.25 && angle_aiming <= 213.75)
+		current_animation = &NWW;
+	if (angle_aiming > 213.75 && angle_aiming <= 236.25)
+		current_animation = &NW;
+	if (angle_aiming > 236.25 && angle_aiming <= 258.75)
+		current_animation = &NNW;
+
+	// Fourth quarter
+	if (angle_aiming > 258.75 && angle_aiming <= 281.25)
+		current_animation = &N;
+	if (angle_aiming > 281.25 && angle_aiming <= 303.75)
+		current_animation = &NNE;
+	if (angle_aiming > 303.75 && angle_aiming <= 326.25)
+		current_animation = &NE;
+	if (angle_aiming > 326.25 && angle_aiming <= 348.75)
+		current_animation = &NEE;
+}
+
+void ModuleBall::Ball_Set_Position()
+{
+	App->particles->ball_bullet.speed.x = (7 * cos(angle_aiming*PI / 180)) + 2;
+	App->particles->ball_bullet.speed.y = 7 * sin(angle_aiming*PI / 180);
+
+	ball_position.x = center_player.x + 30 * cos(angle*PI / 180) - BALL_SIZE / 2;
+	ball_position.y = center_player.y + 30 * sin(angle*PI / 180) - BALL_SIZE / 2;
+}
+
 
 update_status ModuleBall::Update()
 {
@@ -369,62 +431,9 @@ update_status ModuleBall::Update()
 
 	if (!ball_launched) {
 
-		if (angle >= 360) angle = 0;
-		if (angle_aiming >= 360) angle_aiming = 0;
-
-		// ----- BALL INPUT -----
-
-		Ball_Input_Movement();
-
-		// ----- BALL AIMING ANIMATIONS -----	(Depends on the angle it is aiming)
-
-		// First quarter
-		if (angle_aiming <= 11.25 || angle_aiming > 348.75)
-			current_animation = &E;
-		if (angle_aiming > 11.25 && angle_aiming <= 33.75)
-			current_animation = &SEE;
-		if (angle_aiming > 33.75 && angle_aiming <= 56.25)
-			current_animation = &SE;
-		if (angle_aiming > 56.25 && angle_aiming <= 78.75)
-			current_animation = &SSE;
-
-		// Second quarter
-		if (angle_aiming > 78.75 && angle_aiming <= 101.25)
-			current_animation = &S;
-		if (angle_aiming > 101.25 && angle_aiming <= 123.75)
-			current_animation = &SSW;
-		if (angle_aiming > 123.75 && angle_aiming <= 146.25)
-			current_animation = &SW;
-		if (angle_aiming > 146.25 && angle_aiming <= 168.75)
-			current_animation = &SWW;
-
-
-		// Third quarter
-		if (angle_aiming > 168.75 && angle_aiming <= 191.25)
-			current_animation = &W;
-		if (angle_aiming > 191.25 && angle_aiming <= 213.75)
-			current_animation = &NWW;
-		if (angle_aiming > 213.75 && angle_aiming <= 236.25)
-			current_animation = &NW;
-		if (angle_aiming > 236.25 && angle_aiming <= 258.75)
-			current_animation = &NNW;
-
-		// Fourth quarter
-		if (angle_aiming > 258.75 && angle_aiming <= 281.25)
-			current_animation = &N;
-		if (angle_aiming > 281.25 && angle_aiming <= 303.75)
-			current_animation = &NNE;
-		if (angle_aiming > 303.75 && angle_aiming <= 326.25)
-			current_animation = &NE;
-		if (angle_aiming > 326.25 && angle_aiming <= 348.75)
-			current_animation = &NEE;
-
-		App->particles->ball_bullet.speed.x = (7 * cos(angle_aiming*PI / 180)) + 2;
-		App->particles->ball_bullet.speed.y = 7 * sin(angle_aiming*PI / 180);
-
-		ball_position.x = center_player.x + 30 * cos(angle*PI / 180) - BALL_SIZE / 2;
-		ball_position.y = center_player.y + 30 * sin(angle*PI / 180) - BALL_SIZE / 2;
-
+		Ball_Set_Angle();
+		
+		Ball_Set_Position();
 		Ball_Input_Attack();
 	}
 
@@ -432,8 +441,6 @@ update_status ModuleBall::Update()
 		Ball_Launch();
 
 	ball_collider->SetPos(ball_position.x, ball_position.y);
-
-
 
 	SDL_Rect r = current_animation->GetCurrentFrame();
 

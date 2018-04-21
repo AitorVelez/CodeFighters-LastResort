@@ -184,19 +184,8 @@ update_status ModulePlayer::Update()
 
 	if (position.x <= 9150 && alive_p1 == true)
 		position.x += scroll_speed;
-	// player shows up
-	/*if (App->render->camera.x >= -150) {
-		if (App->render->camera.x >= -40) {
-			current_animation = &playershowup;
-		}
-		else if (App->render->camera.x >= -100) {
-			current_animation = &playershowup2;
-		}
-		else if (App->render->camera.x >= -149) {
-			current_animation = &playershowup3;
-		}
-	}*/
-	// Input -----
+
+
 	if (alive_p1 && playershowup.Finished()) {
 		
 		current_animation = &idle;
