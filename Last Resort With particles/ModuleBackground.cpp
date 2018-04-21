@@ -254,8 +254,8 @@ bool ModuleBackground::Start()
 	bool ret = true;	
 
 	//App->player2->Enable();
+	App->particles->Enable(); 		
 	App->player->Enable();
-	App->particles->Enable(); 	
 	App->collision->Enable();
 	App->enemies->Enable();
 	App->power->Enable();

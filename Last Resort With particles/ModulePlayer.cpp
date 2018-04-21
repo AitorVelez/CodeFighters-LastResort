@@ -133,8 +133,7 @@ bool ModulePlayer::Start()
 	graphics = App->textures->Load("assets/sprites/main_character.png"); // arcade version
 	PlayerCollider = App->collision->AddCollider({ position.x,position.y, 32, 14 }, COLLIDER_PLAYER, this);
 	current_animation = &playershowup;
-	show_up_chunk = App->audio->LoadChunk("assets/SFX/player_showup.WAV");				
-	App->audio->PlayChunk(show_up_chunk, 1);
+	App->audio->PlayChunk(App->particles->chunks[5], 1);
 
 	bullet_state = BULLET_STATE::BULLET_NO_TYPE; 
 	death_played = false; 
@@ -152,7 +151,6 @@ bool ModulePlayer::CleanUp()
 	LOG("Closing Up Player Module");
 	// Free All textures
 	App->textures->Unload(graphics);
-	App->audio->UnloadChunk(show_up_chunk);
 	return true; 
 }
 
