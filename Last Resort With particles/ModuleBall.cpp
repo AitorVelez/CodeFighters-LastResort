@@ -187,7 +187,8 @@ ModuleBall::ModuleBall()
 	SEE.PushBack({ 210, 240, 30, 30 });
 	SEE.loop = true;
 	SEE.speed = 0.3f;
-
+	
+	
 }
 
 bool ModuleBall::Start()
@@ -197,6 +198,8 @@ bool ModuleBall::Start()
 	ball_position.x = App->player->position.x;
 	ball_position.y = App->player->position.y;
 
+	angle = 0;
+	angle_aiming = 0; 
 
 	ball_collider = App->collision->AddCollider(current_animation->GetCurrentFrame(), COLLIDER_BALL, this);
 
@@ -361,8 +364,6 @@ void ModuleBall::Ball_Launch()
 
 update_status ModuleBall::Update()
 {
-	angle_speed = 10;
-	angle_aiming_speed = 11.25;
 	center_player.x = App->player->position.x + 16;
 	center_player.y = App->player->position.y - 6;
 

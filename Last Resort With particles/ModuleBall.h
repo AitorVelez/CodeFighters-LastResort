@@ -90,10 +90,10 @@ public:
 	bool ball_launched = false;
 	bool ball_locked = false;
 	int angle = 0;
-	int angle_speed = 0;
+	int angle_speed = 10;
 
 	float angle_aiming = 0;
-	float angle_aiming_speed = 0;
+	float angle_aiming_speed = 11.25;
 
 
 	uint charge = 0;

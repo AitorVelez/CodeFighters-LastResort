@@ -53,12 +53,10 @@ public:
 
 	int score_p1 = 0;	
 	int lives = 0;
-	bool alive = true; 
+	bool alive_p1 = true; 
 	bool death_played = false;
 	bool god_mode = false; 
 	int speed = 2;
-	Mix_Chunk* show_up_chunk;
-
 };
 
 #endif

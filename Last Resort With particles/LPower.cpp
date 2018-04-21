@@ -3,6 +3,7 @@
 #include "ModuleCollision.h"
 #include "ModulePlayer.h"
 #include "ModulePlayer2.h"
+#include "ModuleBall.h"
 
 LaserPowerUp::LaserPowerUp(int x, int y) : Powerup(x, y)
 {
@@ -21,24 +22,15 @@ LaserPowerUp::LaserPowerUp(int x, int y) : Powerup(x, y)
 
 void LaserPowerUp::OnCollision(Collider *collider)
 {
+	if (collider->type == COLLIDER_TYPE::COLLIDER_PLAYER)
+	{
+		if(App->ball->IsEnabled() == false)
+			App->ball->Enable();
 
-	if (App->player->bullet_state == BULLET_NO_TYPE) {
-		App->player->bullet_state=LASER1;
+		if (App->player->bullet_state == BULLET_STATE::BULLET_NO_TYPE)
+			App->player->bullet_state = BULLET_STATE::LASER1;
+
+		else if (App->player->bullet_state == BULLET_STATE::LASER1)
+			App->player->bullet_state = BULLET_STATE::LASER2;
 	}
-
-	else if (App->player->bullet_state == LASER1) {
-		App->player->bullet_state = LASER2;
-	}
-
-	if (App->player2->bullet_state_2 == BULLET_NO_TYPE_2) {
-		App->player2->bullet_state_2 = LASER1_2;
-	}
-
-	else if (App->player2->bullet_state_2 == LASER1_2) {
-		App->player2->bullet_state_2 = LASER2_2;
-	}
-	
-
-	//si state laser 1 laser 2 
-	//laser 2 no fot re
 }
