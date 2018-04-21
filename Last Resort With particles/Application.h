@@ -3,7 +3,7 @@
 
 #include "Globals.h"
 
-#define NUM_MODULES 17
+#define NUM_MODULES 19
 
 class ModuleWindow;
 class ModuleInput;
@@ -23,6 +23,8 @@ class ModuleIntroNeoGeo;
 class Module;
 class ModulePlayer;
 class ModulePowerUp;
+class ModuleUI;
+class ModuleFonts;
 
 
 class Application
@@ -47,6 +49,8 @@ public:
 	ModuleFadeToBlack* fade=nullptr;
 	ModulePlayer* player = nullptr;
 	ModulePowerUp* power = nullptr;
+	ModuleUI* UI = nullptr;
+	ModuleFonts* Fonts = nullptr;
 
 public:
 
