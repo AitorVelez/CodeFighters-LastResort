@@ -39,4 +39,5 @@ void Enemy::Draw(SDL_Texture* sprites)
 void Enemy::OnCollision(Collider* collider)
 {
 	App->particles->AddParticle(App->particles->CommonExplosion, position.x, position.y);			//this function is repeated in Moduleparticles cpp line 176, if this is not commented
-}																									//when an enemy is killed there will be shown 2 explosions
+	App->particles->AddParticle(App->particles->pilot_dying, position.x, position.y);
+}																									

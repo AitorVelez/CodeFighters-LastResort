@@ -139,6 +139,20 @@ bool ModuleParticles::Start()
 	bullet_laser2.life = 700;
 	bullet_laser2.texture = 0;
 
+	pilot_dying.anim.PushBack({ 243,571,12,16 });
+	pilot_dying.anim.PushBack({ 260,574,13,16 });
+	pilot_dying.anim.PushBack({ 278,573,14,16 });
+	pilot_dying.anim.PushBack({ 297,572,13,16 });
+	pilot_dying.anim.PushBack({ 315,576,15,16 });
+	pilot_dying.anim.PushBack({ 335,573,12,16 });
+	pilot_dying.anim.PushBack({ 352,571,11,16 });
+	pilot_dying.anim.PushBack({ 368,571,12,16 });
+	pilot_dying.anim.speed = 0.1f;
+	pilot_dying.speed.y = 2;
+	pilot_dying.life = 500;
+	pilot_dying.texture = 3;
+
+
 	SpaceshipAnim.anim.PushBack({ 0,121,111,25 });
 	SpaceshipAnim.anim.PushBack({ 0,146,111,25 });
 	SpaceshipAnim.anim.PushBack({ 0,171,111,25 });
