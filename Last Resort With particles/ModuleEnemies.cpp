@@ -4,6 +4,7 @@
 #include "ModuleEnemies.h"
 #include "ModuleParticles.h"
 #include "ModuleTextures.h"
+#include "ModulePlayer.h"
 #include "Enemy.h"
 #include "Enemy_Cockroach.h"
 #include "Enemy_Rhino.h"
@@ -63,6 +64,9 @@ update_status ModuleEnemies::Update()
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 		if (enemies[i] != nullptr) enemies[i]->Draw(sprites);
+
+	for (uint i = 0; i < MAX_ENEMIES; ++i)
+		if (enemies[i] != nullptr) enemies[i]->Shoot();
 
 	return UPDATE_CONTINUE;
 }

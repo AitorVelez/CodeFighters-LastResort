@@ -21,6 +21,7 @@ private:
 	Animation canon2Right;
 	Animation *AnimationBigCanon; 
 	Animation *AnimationSmallCanon;
+
 	int original_y; 
 	int original_x; 
 	int BigBulletDirx; 
@@ -28,6 +29,9 @@ private:
 	int speed; 
 	int SmallBulletDirx;
 	int SmallBulletDiry;
+
+	uint current_time = 0;
+	uint last_time = 0;
 public:
 
 	Enemy_Tank(int x, int y);
