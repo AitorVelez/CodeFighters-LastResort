@@ -7,6 +7,7 @@
 #include "ModuleParticles.h"
 #include "ModuleInput.h"
 #include "ModuleRender.h"
+#include "SDL\include\SDL_timer.h"
 #include "Enemy.h"
 #define TANKWIDTH 157
 #define TANKHEIGHT 64
@@ -210,9 +211,13 @@ void Enemy_Tank::Shoot() {                     // player 1 big canon
 	speed = 2; 
 	BigBulletDirx = App->player->position.x - (position.x+Anim2Distance.x); 
 	BigBulletDiry = App->player->position.y - (position.y + Anim2Distance.y);
+	App->particles->BigTankShot.speed.x = 0.01*BigBulletDirx;
+	App->particles->BigTankShot.speed.y = 0.01*BigBulletDiry;
 
-	if (App->player->position.x >= position.x - SCREEN_WIDTH) {
+	current_time = SDL_GetTicks(); 
+	if (current_time> last_time+ 1000) {
 		App->particles->AddParticle(App->particles->BigTankShot, position.x + Anim2Distance.x, position.y + Anim2Distance.y, COLLIDER_ENEMY_SHOT);
+		last_time = current_time; 
 	}
 }
 

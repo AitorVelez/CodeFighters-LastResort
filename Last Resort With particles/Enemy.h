@@ -33,10 +33,11 @@ public:
 	virtual void Move() {};
 	virtual void Draw(SDL_Texture* sprites);
 	virtual void OnCollision(Collider* collider);
-    virtual void ShootStraightPlayerDirX(int PlayerPosX, int EnemyPosX, int SpeedX);
+	virtual void Shoot(); 
+  /*  virtual void ShootStraightPlayerDirX(int PlayerPosX, int EnemyPosX, int SpeedX);
 	int StoredShotDirX; 
 	virtual void ShootStraightPlayerDirY(int PlayerPosY, int EnemyPosY, int SpeedY);
-	int StoredShotDirY;
+	int StoredShotDirY;*/
 };
 
 #endif // __ENEMY_H__
