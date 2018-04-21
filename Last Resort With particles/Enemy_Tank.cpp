@@ -259,14 +259,21 @@ void Enemy_Tank::Shoot() {                     // two player
 			App->particles->SmallTankShot.speed.y = 0.01*SmallBulletDiry;
 
 			current_time = SDL_GetTicks();
-
-			if (current_time > last_time + 1000) {
+			int cont = 0; 
+			int delay = 0; 
+			if (current_time > last_time + 500 + delay) {
 				App->particles->AddParticle(App->particles->BigTankShot, position.x + Anim2Distance.x, position.y + Anim2Distance.y, COLLIDER_ENEMY_SHOT);
 				last_time = current_time;
+				cont++; 
+				delay = 0; 
+				if (cont == 3) {
+					delay = 300;
+					cont = 0; 
+				}
 			}
 			current_time2 = SDL_GetTicks();
 
-			if (current_time2 > last_time2 + 1000) {
+			if (current_time2 > last_time2 + 500) {
 				App->particles->AddParticle(App->particles->SmallTankShot, position.x + Anim3Distance.x, position.y + Anim3Distance.y, COLLIDER_ENEMY_SHOT);
 				last_time2 = current_time2;
 			}
