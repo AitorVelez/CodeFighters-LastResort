@@ -161,9 +161,6 @@ bool ModulePlayer2::CleanUp()
 	App->textures->Unload(graphics);
 
 	playershowup.Reset();
-	playershowup2.Reset();
-	playershowup3.Reset();
-	
 	return true;
 }
 
