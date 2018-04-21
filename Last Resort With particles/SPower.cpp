@@ -2,6 +2,7 @@
 #include "SPower.h"
 #include "ModuleCollision.h"
 #include "ModulePlayer.h"
+#include "ModulePlayer2.h"
 
 SpeedPowerUp::SpeedPowerUp(int x, int y) : Powerup(x, y)
 {
@@ -22,5 +23,5 @@ void SpeedPowerUp::OnCollision(Collider *collider)
 {
 
 	App->player->speed = 3;
-
+	App->player2->speed = 3;
 }
