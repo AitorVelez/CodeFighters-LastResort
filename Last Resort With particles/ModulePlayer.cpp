@@ -11,6 +11,8 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleBackground.h"
 #include "ModuleStageClear.h"
+#include "ModuleBall.h"
+#include "ModulePowerUp.h"
 
 #define  SideLimit 15
 #define  TopLimit 2
@@ -128,13 +130,14 @@ bool ModulePlayer::Start()
 	position.y = 125;
 	relativeposition.x = position.x;
 	relativeposition.y = position.y;
-	alive = true; 	
+	alive_p1 = true; 	
 
 	graphics = App->textures->Load("assets/sprites/main_character.png"); // arcade version
 	PlayerCollider = App->collision->AddCollider({ position.x,position.y, 32, 14 }, COLLIDER_PLAYER, this);
 	current_animation = &playershowup;
 	App->audio->PlayChunk(App->particles->chunks[5], 1);
 
+	score_p1 = 0; 
 	bullet_state = BULLET_STATE::BULLET_NO_TYPE; 
 	death_played = false; 
 	death.Reset();
@@ -148,13 +151,29 @@ bool ModulePlayer::CleanUp()
 	LOG("Closing Up Player Module");
 	// Free All textures
 	App->textures->Unload(graphics);
+	App->ball->Disable(); 
 	playershowup.Reset();
 	return true; 
 }
 
 void ModulePlayer::OnCollision(Collider * c1, Collider * c2)
 {
-		alive = false;
+		if (c2->type == COLLIDER_TYPE::COLLIDER_POWERUP)
+		{
+			if (App->ball->IsEnabled() == false)
+				App->ball->Enable(); 
+
+			if (bullet_state == BULLET_STATE::BULLET_NO_TYPE)
+				bullet_state = BULLET_STATE::LASER1;
+
+			else if (bullet_state == BULLET_STATE::LASER1)
+				bullet_state = BULLET_STATE::LASER2; 
+		}
+
+		if (c2->type == COLLIDER_TYPE::COLLIDER_ENEMY || c2->type == COLLIDER_TYPE::COLLIDER_ENEMY)
+		{
+			alive_p1 = false; 
+		}
 }
 
 // Update: draw background
@@ -163,22 +182,11 @@ update_status ModulePlayer::Update()
 	int scroll_speed = 1;
 //	int speed = 2;
 
-	if (position.x <= 9150 && alive == true)
+	if (position.x <= 9150 && alive_p1 == true)
 		position.x += scroll_speed;
-	// player shows up
-	/*if (App->render->camera.x >= -150) {
-		if (App->render->camera.x >= -40) {
-			current_animation = &playershowup;
-		}
-		else if (App->render->camera.x >= -100) {
-			current_animation = &playershowup2;
-		}
-		else if (App->render->camera.x >= -149) {
-			current_animation = &playershowup3;
-		}
-	}*/
-	// Input -----
-	if (alive && playershowup.Finished()) {
+
+
+	if (alive_p1 && playershowup.Finished()) {
 		
 		current_animation = &idle;
 
@@ -275,7 +283,7 @@ update_status ModulePlayer::Update()
 	if (god_mode == true) PlayerCollider->type = COLLIDER_TYPE::COLLIDER_NONE;
 	else PlayerCollider->type = COLLIDER_TYPE::COLLIDER_PLAYER;
 
-	if (alive) {
+	if (alive_p1) {
 		SDL_Rect r = current_animation->GetCurrentFrame();
 		PlayerCollider->SetPos(position.x, position.y - r.h);
 		App->render->Blit(graphics, position.x, position.y - r.h, &r);

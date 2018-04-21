@@ -262,7 +262,6 @@ bool ModuleBackground::Start()
 	App->power->Enable();
 	App->UI->Enable();
 	App->Fonts->Enable();
-	App->ball->Enable();
 
 	//graphics = App->textures->Load("backgroundlvl1v2.png");
 	BackgroundLvl1 = App->textures->Load("assets/sprites/background_lvl1.png");
@@ -274,7 +273,6 @@ bool ModuleBackground::Start()
 	BackLights2 = App->textures->Load("assets/sprites/MidBackgroundLights.png");
 	BackLights3 = App->textures->Load("assets/sprites/MidBackgroundLightsExtra.png");
 	PowerupTex = App->textures->Load("assets/sprites/main_character2.png");
-	App->player->score_p1 = 0;
 	activ = false;
 	bgpos = 0; 
 	App->UI->ready = true;
@@ -288,6 +286,7 @@ bool ModuleBackground::Start()
 	App->power->AddPowerup(POWERUP_TYPES::SPOWER, 330, 112);
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 360, 112);
 	*/
+	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 300, 112);
 
 	//ENEMY COCKROACH
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 500 + 300, 40);
@@ -369,12 +368,6 @@ bool ModuleBackground::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 3150 +20, 100);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 3200 +40, 100);
 
-
-
-
-	
-
-
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 4200+600+1000, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 4250+600 + 1000, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 4300+600 + 1000, 112);
@@ -383,7 +376,6 @@ bool ModuleBackground::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 4450+600 + 1000, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 4500 + 600 + 1000, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 4550 + 600 + 1000, 112);
-
 
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 4950 + 600 + 1000, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 5150 + 600 + 1000, 112);
@@ -490,7 +482,6 @@ bool ModuleBackground::CleanUp()
 	App->Fonts->Disable();
 	App->UI->Disable();
 	App->power->Disable();
-	App->ball->Disable();
 
 	//graphics = App->textures->Load("backgroundlvl1v2.png");
 
@@ -864,12 +855,12 @@ update_status ModuleBackground::Update()
 		App->player2->Enable();
 
 	if (activ == false) {
-		if (App->player->alive == false) {
+		if (App->player->alive_p1 == false) {
 			App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage, 2.5f);
 		}
 	}
 
-	if (App->player->alive == false && App->player2->alive_p2 == false) {
+	if (App->player->alive_p1 == false && App->player2->alive_p2 == false) {
 		App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage, 2.5f);
 	}
 

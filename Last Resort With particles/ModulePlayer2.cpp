@@ -156,14 +156,27 @@ bool ModulePlayer2::CleanUp()
 	LOG("Closing Up Player 2 Module");
 	// Free All textures
 	App->textures->Unload(graphics);
-
+	
 	playershowup.Reset();
 	return true;
 }
 
 void ModulePlayer2::OnCollision(Collider * c1, Collider * c2)
 {
-	if (!god_mode) {
+	/*if (c2->type == COLLIDER_TYPE::COLLIDER_POWERUP)
+	{
+		if (App->ball->IsEnabled() == false)
+			App->ball->Enable();
+
+		if (bullet_state == BULLET_STATE::BULLET_NO_TYPE)
+			bullet_state = BULLET_STATE::LASER1;
+
+		else if (bullet_state == BULLET_STATE::LASER1)
+			bullet_state = BULLET_STATE::LASER2;
+	}*/
+
+	if (c2->type == COLLIDER_TYPE::COLLIDER_ENEMY || c2->type == COLLIDER_TYPE::COLLIDER_ENEMY)
+	{
 		alive_p2 = false;
 	}
 }
