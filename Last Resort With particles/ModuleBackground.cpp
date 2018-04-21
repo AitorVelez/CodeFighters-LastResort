@@ -274,7 +274,7 @@ bool ModuleBackground::Start()
 	BackLights2 = App->textures->Load("assets/sprites/MidBackgroundLights.png");
 	BackLights3 = App->textures->Load("assets/sprites/MidBackgroundLightsExtra.png");
 	PowerupTex = App->textures->Load("assets/sprites/main_character2.png");
-
+	App->player->score_p1 = 0;
 	activ = false;
 	bgpos = 0; 
 	App->UI->ready = true;
