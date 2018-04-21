@@ -182,6 +182,8 @@ update_status ModulePlayer::Update()
 	// Input -----
 	if (alive && playershowup.Finished()) {
 		
+		current_animation = &idle;
+
 		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
 		{
 			if (relativeposition.y > CHARACTER_HEIGHT + TopLimit) {
@@ -202,6 +204,9 @@ update_status ModulePlayer::Update()
 			up.Reset();
 			current_animation = &re_up;
 		}
+		
+
+
 
 
 		if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
