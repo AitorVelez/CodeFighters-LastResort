@@ -16,21 +16,11 @@ LaserPowerUp::LaserPowerUp(int x, int y) : Powerup(x, y)
 	animation = &PowChangeColor;
 
 
-	collider = App->collision->AddCollider({ 0, 0, 18, 21 }, COLLIDER_TYPE::COLLIDER_POWERUP, (Module*)App->power);
+	collider = App->collision->AddCollider({ 0, 0, 18, 21 }, COLLIDER_TYPE::COLLIDER_POWERUP_L, (Module*)App->power);
 
 }
 
 void LaserPowerUp::OnCollision(Collider *collider)
 {
-	if (collider->type == COLLIDER_TYPE::COLLIDER_PLAYER)
-	{
-		if(App->ball->IsEnabled() == false)
-			App->ball->Enable();
-
-		if (App->player->bullet_state == BULLET_STATE::BULLET_NO_TYPE)
-			App->player->bullet_state = BULLET_STATE::LASER1;
-
-		else if (App->player->bullet_state == BULLET_STATE::LASER1)
-			App->player->bullet_state = BULLET_STATE::LASER2;
-	}
+	
 }

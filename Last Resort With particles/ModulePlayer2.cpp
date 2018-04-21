@@ -140,7 +140,6 @@ bool ModulePlayer2::Start()
 	current_animation = &playershowup;
 	App->audio->PlayChunk(App->particles->chunks[5], 1);
 
-
 	App->background->activ = true;
 	alive_p2 = true;
 	bullet_state_2 = BULLET_NO_TYPE_2;
@@ -163,17 +162,17 @@ bool ModulePlayer2::CleanUp()
 
 void ModulePlayer2::OnCollision(Collider * c1, Collider * c2)
 {
-	/*if (c2->type == COLLIDER_TYPE::COLLIDER_POWERUP)
+	if (c2->type == COLLIDER_TYPE::COLLIDER_POWERUP_L)
 	{
-		if (App->ball->IsEnabled() == false)
-			App->ball->Enable();
+		if (bullet_state_2 == BULLET_STATE_2::BULLET_NO_TYPE_2)
+			bullet_state_2 = BULLET_STATE_2::LASER1_2;
 
-		if (bullet_state == BULLET_STATE::BULLET_NO_TYPE)
-			bullet_state = BULLET_STATE::LASER1;
+		else if (bullet_state_2 == BULLET_STATE_2::LASER1_2)
+			bullet_state_2 = BULLET_STATE_2::LASER2_2;
+	}
 
-		else if (bullet_state == BULLET_STATE::LASER1)
-			bullet_state = BULLET_STATE::LASER2;
-	}*/
+	if (c2->type == COLLIDER_TYPE::COLLIDER_POWERUP_S)
+		if (speed != 3) speed = 3; 
 
 	if (c2->type == COLLIDER_TYPE::COLLIDER_ENEMY || c2->type == COLLIDER_TYPE::COLLIDER_ENEMY)
 	{

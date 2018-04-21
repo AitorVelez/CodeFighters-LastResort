@@ -287,6 +287,8 @@ bool ModuleBackground::Start()
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 360, 112);
 	*/
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 300, 112);
+	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 500, 112);
+	App->power->AddPowerup(POWERUP_TYPES::SPOWER, 700, 112);
 
 	//ENEMY COCKROACH
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 500 + 300, 40);
@@ -483,8 +485,6 @@ bool ModuleBackground::CleanUp()
 	App->UI->Disable();
 	App->power->Disable();
 
-	//graphics = App->textures->Load("backgroundlvl1v2.png");
-
 	//Free all loaded textures
 	App->textures->Unload(BackgroundLvl1);
 	App->textures->Unload(BackgroundLvl1_extra);
@@ -495,6 +495,7 @@ bool ModuleBackground::CleanUp()
 	App->textures->Unload(BackLights2);
 	App->textures->Unload(BackLights3);
 	App->textures->Unload(PowerupTex);
+
 	//Free all audio material
 	App->audio->UnloadMus(mus); 
 

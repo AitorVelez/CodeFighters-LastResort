@@ -53,7 +53,7 @@ public:
 	int speed = 2;
 	bool alive_p2 = true;
 	bool death_played = false; // different than player one 
-	bool god_mode = true;
+	bool god_mode = false;
 
 	Mix_Chunk* show_up_chunk;
 

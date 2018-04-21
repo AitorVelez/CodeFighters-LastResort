@@ -13,12 +13,10 @@ SpeedPowerUp::SpeedPowerUp(int x, int y) : Powerup(x, y)
 	animation = &PowChangeColor;
 
 
-	collider = App->collision->AddCollider({ 0, 0, 18, 21 }, COLLIDER_TYPE::COLLIDER_POWERUP, (Module*)App->power);
+	collider = App->collision->AddCollider({ 0, 0, 18, 21 }, COLLIDER_TYPE::COLLIDER_POWERUP_S, (Module*)App->power);
 
 }
 
 void SpeedPowerUp::OnCollision(Collider *collider)
 {
-	App->player->speed = 3;
-	App->player2->speed = 3;
 }
