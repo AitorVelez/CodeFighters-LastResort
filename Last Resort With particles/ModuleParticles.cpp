@@ -85,7 +85,7 @@ bool ModuleParticles::Start()
 	SmallTankShot.anim.PushBack({ 240, 831, 5, 5 });
 	SmallTankShot.anim.speed = 0.3f;
 	SmallTankShot.speed.x = 2;
-	SmallTankShot.life = 1000;
+	SmallTankShot.life = 10000;
 	SmallTankShot.texture = 3;
 	
 	//PowerUp Laser Particle
