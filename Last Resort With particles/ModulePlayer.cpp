@@ -158,7 +158,7 @@ bool ModulePlayer::CleanUp()
 
 void ModulePlayer::OnCollision(Collider * c1, Collider * c2)
 {
-		if (c2->type == COLLIDER_TYPE::COLLIDER_POWERUP)
+		if (c2->type == COLLIDER_TYPE::COLLIDER_POWERUP_L)
 		{
 			if (App->ball->IsEnabled() == false)
 				App->ball->Enable(); 
@@ -170,7 +170,10 @@ void ModulePlayer::OnCollision(Collider * c1, Collider * c2)
 				bullet_state = BULLET_STATE::LASER2; 
 		}
 
-		if (c2->type == COLLIDER_TYPE::COLLIDER_ENEMY || c2->type == COLLIDER_TYPE::COLLIDER_ENEMY)
+		if (c2->type == COLLIDER_TYPE::COLLIDER_POWERUP_S)
+			if(speed!=3) speed = 3; 
+
+		if (c2->type == COLLIDER_TYPE::COLLIDER_ENEMY || c2->type == COLLIDER_TYPE::COLLIDER_ENEMY_SHOT)
 		{
 			alive_p1 = false; 
 		}

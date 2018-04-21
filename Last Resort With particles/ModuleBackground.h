@@ -34,8 +34,6 @@ public:
 	void RenderDiscoLights(); 
 	void RenderStreetLights(); 
 	void RenderTunnelLights();
-	void RenderPowerUps();
-	
 
 public:
 	
