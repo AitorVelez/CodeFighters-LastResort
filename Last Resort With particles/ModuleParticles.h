@@ -65,6 +65,7 @@ public:
 	Particle bullet_laser;
 	Particle firing_laser;
 	Particle bullet_laser2;
+	Particle pilot_dying;
 
 	Particle BigTankShot; 
 	Particle SmallTankShot; 
