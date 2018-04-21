@@ -6,6 +6,7 @@
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
 #include "ModuleBackground.h"
+#include "ModulePlayer2.h"
 #include <string.h>
 #include <sstream>
 
@@ -67,9 +68,12 @@ update_status ModuleUI::Update()
 	/*Tenemos la variable "App->Player->score_p1" que es un int, y tenemos la variable "score"
 	que es un char* necesitamos transformar ese int en un char* o algo asi para que se pueda printear*/
 	char score[10];
+	char score2[10];
 	App->player->score_p1;
-	int a;
+	int a, b;
+	b = App->player2->score_p2 + 1000;
 	a = App->player->score_p1 + 1000;
+	sprintf_s(score2, "%d", App->player2->score_p2);
 	sprintf_s(score, "%d", App->player->score_p1);
 
 	if (ready == true || stgclr == true) {
@@ -82,10 +86,19 @@ update_status ModuleUI::Update()
 		App->render->Blit(P2, 210, 20, &Player2.GetCurrentFrame(), 0, false);
 	if ((ready == true && App->background->activ == true) || (stgclr == true && pl2 == true)) {
 		App->render->Blit(P22, 260, 15, &Pl2.GetCurrentFrame(), 0, false);
+		
 		App->render->Blit(P22, 200, 208, &Punit2.GetCurrentFrame(), 0, false);
 
 	}
-	
+	if (ready == true && App->background->activ == true)
+		App->Fonts->BlitText(255, 15, 0, score2);
+
+
+	if (stgclr == true && pl2 == true) {
+		sprintf_s(score2, "%d", b);
+		App->Fonts->BlitText(255, 15, 0, score2);
+
+	}
 
 	if (stgclr) {
 		sprintf_s(score, "%d", a);
