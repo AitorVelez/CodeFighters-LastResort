@@ -69,6 +69,24 @@ bool ModuleParticles::Start()
 	bullet_explosion.anim.loop = false; 
 	bullet_explosion.texture = 0; 
 	
+	BigTankShot.anim.PushBack({ 196, 746, 13, 13 });
+	BigTankShot.anim.PushBack({ 184, 746, 13, 13 });
+	BigTankShot.anim.PushBack({ 206, 762, 13, 13 });
+	BigTankShot.anim.PushBack({ 237, 746, 13, 13 });
+	BigTankShot.anim.speed = 0.3f;
+	BigTankShot.speed.x = -5;
+	BigTankShot.speed.x = 0;
+	BigTankShot.life = 1000;
+	BigTankShot.texture = 3;
+
+	SmallTankShot.anim.PushBack({ 245, 831, 5, 5 });
+	SmallTankShot.anim.PushBack({ 250, 831, 5, 5 });
+	SmallTankShot.anim.PushBack({ 235, 831, 5, 5 });
+	SmallTankShot.anim.PushBack({ 240, 831, 5, 5 });
+	SmallTankShot.anim.speed = 0.3f;
+	SmallTankShot.speed.x = 2;
+	SmallTankShot.life = 1000;
+	SmallTankShot.texture = 3;
 	
 	//PowerUp Laser Particle
 
@@ -259,23 +277,7 @@ bool ModuleParticles::Start()
 
 	//   TANK BULLETS 
 
-	BigTankShot.anim.PushBack({ 196, 746, 13, 13 });
-	BigTankShot.anim.PushBack({ 184, 746, 13, 13 });
-	BigTankShot.anim.PushBack({ 206, 762, 13, 13 });
-	BigTankShot.anim.PushBack({ 237, 746, 13, 13 });
-	BigTankShot.anim.speed = 0.3f;
-	BigTankShot.speed.x = 5;
-	BigTankShot.life = 1000;
-	BigTankShot.texture = 3; 
 
-	SmallTankShot.anim.PushBack({ 245, 831, 5, 5 });
-	SmallTankShot.anim.PushBack({ 250, 831, 5, 5 });
-	SmallTankShot.anim.PushBack({ 235, 831, 5, 5 });
-	SmallTankShot.anim.PushBack({ 240, 831, 5, 5 });
-	SmallTankShot.anim.speed = 0.3f;
-	SmallTankShot.speed.x = 2;
-	SmallTankShot.life = 1000;
-	SmallTankShot.texture = 3; 
 
 	CommonExplosion.anim.PushBack({ 393,0,0,16 });//													
 	CommonExplosion.anim.PushBack({ 411,0,20,20 });//
