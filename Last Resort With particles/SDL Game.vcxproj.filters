@@ -100,6 +100,9 @@
     <ClCompile Include="SPower.cpp">
       <Filter>Modules\Powerups</Filter>
     </ClCompile>
+    <ClCompile Include="ModuleBall.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Blue_Car.h">
@@ -212,6 +215,9 @@
     </ClInclude>
     <ClInclude Include="SPower.h">
       <Filter>Modules\Powerups</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleBall.h">
+      <Filter>Modules</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

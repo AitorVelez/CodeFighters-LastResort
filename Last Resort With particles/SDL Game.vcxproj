@@ -85,6 +85,7 @@
     <ClInclude Include="Enemy_Tank.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="LPower.h" />
+    <ClInclude Include="ModuleBall.h" />
     <ClInclude Include="ModuleEnemies.h" />
     <ClInclude Include="ModuleFonts.h" />
     <ClInclude Include="ModuleIntroNeoGeo.h" />
@@ -123,6 +124,7 @@
     <ClCompile Include="Enemy_Tank.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="LPower.cpp" />
+    <ClCompile Include="ModuleBall.cpp" />
     <ClCompile Include="ModuleEnemies.cpp" />
     <ClCompile Include="ModuleFonts.cpp" />
     <ClCompile Include="ModuleIntroNeoGeo.cpp" />

@@ -65,8 +65,9 @@ public:
 	Particle bullet_laser;
 	Particle firing_laser;
 	Particle bullet_laser2;
-	Particle pilot_dying;
+	Particle ball_bullet; 
 
+	Particle pilot_dying;
 	Particle BigTankShot; 
 	Particle SmallTankShot; 
 
@@ -74,6 +75,7 @@ public:
 	Particle Blue_Car_Explosion;
 	Particle Yellow_Car_Explosion;
 
+	
 	/*SDL_Texture * player2Part = nullptr;
 	SDL_Texture* Car_Explosion;
 	SDL_Texture * playerPart = nullptr;*/

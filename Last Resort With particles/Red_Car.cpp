@@ -14,7 +14,6 @@ Red_Car::Red_Car(int x, int y, int HP) : Enemy(x, y, HP)
 
 	goCarB.speed = 0.1;
 	animation = &goCarB;
-	parallax = 0.4875;
 	collider = App->collision->AddCollider({ 0, 0, 18, 11 }, COLLIDER_TYPE::COLLIDER_CAR, (Module*)App->enemies);
 
 }

@@ -18,6 +18,7 @@
 #include "ModulePowerUp.h"
 #include "ModuleUI.h"
 #include "ModuleFonts.h"
+#include "ModuleBall.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
@@ -261,6 +262,7 @@ bool ModuleBackground::Start()
 	App->power->Enable();
 	App->UI->Enable();
 	App->Fonts->Enable();
+	App->ball->Enable();
 
 	//graphics = App->textures->Load("backgroundlvl1v2.png");
 	BackgroundLvl1 = App->textures->Load("assets/sprites/background_lvl1.png");
@@ -416,7 +418,7 @@ bool ModuleBackground::CleanUp()
 	App->Fonts->Disable();
 	App->UI->Disable();
 	App->power->Disable();
-
+	App->ball->Disable();
 
 	//graphics = App->textures->Load("backgroundlvl1v2.png");
 

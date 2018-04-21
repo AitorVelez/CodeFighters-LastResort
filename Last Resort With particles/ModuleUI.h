@@ -24,12 +24,15 @@ public:
 public:
 
 	Animation Player2;
+	Animation Pl2;
+	Animation Punit2;
 	int font_score = -1;
 	char score_text[10];
 	SDL_Texture * P2 = nullptr;
 	SDL_Texture * UIS = nullptr;
 	bool ready = false;
 	SDL_Rect UIstable;
+	SDL_Texture * P22 = nullptr;
 	char * score;
 	int sflag;
 
