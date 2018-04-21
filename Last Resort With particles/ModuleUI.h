@@ -35,6 +35,7 @@ public:
 	SDL_Texture * P22 = nullptr;
 	char * score;
 	int sflag;
+	bool pl2 = false;
 	bool stgclr = false;
 
 

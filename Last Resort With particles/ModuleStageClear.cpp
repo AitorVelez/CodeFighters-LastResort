@@ -52,6 +52,7 @@ bool ModuleStageClear::CleanUp()
 	App->audio->UnloadMus(ClearMus);
 	App->UI->Disable();
 	App->UI->stgclr = false;
+	App->UI->pl2 = false;
 
 	return true;
 }
