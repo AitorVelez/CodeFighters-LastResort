@@ -34,7 +34,7 @@ bool ModuleUI::Start(){
 	LOG("Loading UI");
 
 	font_score = App->Fonts->Load("assets/sprites/chars2.png", "0123456789A", 1);
-
+	P22 = App->textures->Load("assets/sprites/Player2.png");
 	P2 = App->textures->Load("assets/sprites/Player2ready.png");
 	UIS = App->textures->Load("assets/sprites/UIsprite1.png");
 
@@ -47,6 +47,7 @@ bool ModuleUI::CleanUp()
 	LOG("Unloading player");
 
 	App->textures->Unload(P2);
+	App->textures->Unload(P22);
 	App->textures->Unload(UIS);
 	App->Fonts->UnLoad(font_score);
 	
@@ -59,8 +60,9 @@ update_status ModuleUI::Update()
 {
 	/*Tenemos la variable "App->Player->score_p1" que es un int, y tenemos la variable "score"
 	que es un char* necesitamos transformar ese int en un char* o algo asi para que se pueda printear*/
+	char score[10];
 	App->player->score_p1;
-
+	sprintf_s(score, "%d", App->player->score_p1);
 
 	if (ready == true) {
 		App->render->Blit(UIS, 0, 0, &UIstable, 0, false);
@@ -68,6 +70,8 @@ update_status ModuleUI::Update()
 	}
 	if (ready == true && App->background->activ == false)
 		App->render->Blit(P2, 210, 20, &Player2.GetCurrentFrame(), 0, false);
-
+	if (ready == true && App->background->activ == true) {
+		App
+	}
 	return UPDATE_CONTINUE;
 }

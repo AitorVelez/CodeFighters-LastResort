@@ -30,6 +30,7 @@ public:
 	SDL_Texture * UIS = nullptr;
 	bool ready = false;
 	SDL_Rect UIstable;
+	SDL_Texture * P22 = nullptr;
 	char * score;
 	int sflag;
 
