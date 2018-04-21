@@ -68,6 +68,7 @@ void Enemy_Tank::Move()
 	}
 	else if(App->background->bgpos > original_x + SCREEN_WIDTH*2 && App->background->bgpos < 8350) {      // STAY
 		position.x += 1; 
+		ReadyToShoot = true; 
 	}
 	else if (App->background->bgpos >= 8350) {
 		position.x += 0.4875f;
@@ -214,29 +215,98 @@ void Enemy_Tank::Move()
 
 void Enemy_Tank::Shoot() {                     // two player
 	
+	if (ReadyToShoot == true) {
+		if (App->player->IsEnabled() == true && App->player2->IsEnabled() == true) {
+			BigBulletDirx = (App->player->relativeposition.x + CHARACTER_WIDTH * 4) - (RelPosx + Anim2Distance.x);
+			BigBulletDiry = (App->player->relativeposition.y) - (RelPosy + Anim2Distance.y);
+			SmallBulletDirx = (App->player2->relativeposition.x + CHARACTER_WIDTH * 4) - (RelPosx + Anim3Distance.x);
+			SmallBulletDiry = (App->player2->relativeposition.y) - (RelPosy + Anim3Distance.y);
 
-	if (App->player->IsEnabled() == true && App->player2->IsEnabled() == true) {
-		BigBulletDirx = (App->player->relativeposition.x + CHARACTER_WIDTH*2) - (RelPosx + Anim2Distance.x);
-		BigBulletDiry = (App->player->relativeposition.y) - (RelPosy + Anim2Distance.y);
-		SmallBulletDirx = (App->player2->relativeposition.x + CHARACTER_WIDTH*2) - (RelPosx + Anim3Distance.x);
-		SmallBulletDiry = (App->player2->relativeposition.y) - (RelPosy + Anim3Distance.y);
+			App->particles->BigTankShot.speed.x = 0.01*BigBulletDirx;
+			App->particles->BigTankShot.speed.y = 0.01*BigBulletDiry;
+			App->particles->SmallTankShot.speed.x = 0.01*SmallBulletDirx;
+			App->particles->SmallTankShot.speed.y = 0.01*SmallBulletDiry;
 
-		App->particles->BigTankShot.speed.x = 0.01*BigBulletDirx;
-		App->particles->BigTankShot.speed.y = 0.01*BigBulletDiry;
-		App->particles->SmallTankShot.speed.x = 0.01*SmallBulletDirx;
-		App->particles->SmallTankShot.speed.y = 0.01*SmallBulletDiry;
+			current_time = SDL_GetTicks();
 
-		current_time = SDL_GetTicks();
-	
-		if (current_time > last_time + 1000) {
-			App->particles->AddParticle(App->particles->BigTankShot, position.x + Anim2Distance.x, position.y + Anim2Distance.y, COLLIDER_ENEMY_SHOT);
-			last_time = current_time;
+			if (current_time > last_time + 1000) {
+				App->particles->AddParticle(App->particles->BigTankShot, position.x + Anim2Distance.x, position.y + Anim2Distance.y, COLLIDER_ENEMY_SHOT);
+				last_time = current_time;
+			}
+			current_time2 = SDL_GetTicks();
+
+			if (current_time2 > last_time2 + 1000) {
+				App->particles->AddParticle(App->particles->SmallTankShot, position.x + Anim3Distance.x, position.y + Anim3Distance.y, COLLIDER_ENEMY_SHOT);
+				last_time2 = current_time2;
+			}
 		}
-		current_time2 = SDL_GetTicks();
 
-		if (current_time2 > last_time2 + 1000) {
-			App->particles->AddParticle(App->particles->SmallTankShot, position.x + Anim3Distance.x, position.y + Anim3Distance.y, COLLIDER_ENEMY_SHOT);
-			last_time2 = current_time2;
+
+		// PLAYER ONE ALIVE
+
+
+
+		if (App->player->IsEnabled() == true && App->player2->IsEnabled() == false) {
+			BigBulletDirx = (App->player->relativeposition.x + CHARACTER_WIDTH * 4) - (RelPosx + Anim2Distance.x);
+			if (BigBulletDirx >= -50 && BigBulletDirx <= 50 ) {
+				BigBulletDirx = 100; 
+			}
+			BigBulletDiry = (App->player->relativeposition.y) - (RelPosy + Anim2Distance.y); 
+			if (BigBulletDiry >= -50 && BigBulletDiry <= 50) {
+					BigBulletDiry = 100;
+			}
+
+			SmallBulletDirx = (App->player->relativeposition.x + CHARACTER_WIDTH * 4) - (RelPosx + Anim3Distance.x);
+			SmallBulletDiry = (App->player->relativeposition.y) - (RelPosy + Anim3Distance.y);
+
+			App->particles->BigTankShot.speed.x = 0.01*BigBulletDirx;
+			App->particles->BigTankShot.speed.y = 0.01*BigBulletDiry;
+			App->particles->SmallTankShot.speed.x = 0.01*SmallBulletDirx;
+			App->particles->SmallTankShot.speed.y = 0.01*SmallBulletDiry;
+
+			current_time = SDL_GetTicks();
+
+			if (current_time > last_time + 1000) {
+				App->particles->AddParticle(App->particles->BigTankShot, position.x + Anim2Distance.x, position.y + Anim2Distance.y, COLLIDER_ENEMY_SHOT);
+				last_time = current_time;
+			}
+			current_time2 = SDL_GetTicks();
+
+			if (current_time2 > last_time2 + 1000) {
+				App->particles->AddParticle(App->particles->SmallTankShot, position.x + Anim3Distance.x, position.y + Anim3Distance.y, COLLIDER_ENEMY_SHOT);
+				last_time2 = current_time2;
+			}
+		}
+
+
+
+
+		// PLAYER 2 ALIVE
+
+
+		if (App->player2->IsEnabled() == true && App->player->IsEnabled() == false) {
+			BigBulletDirx = (App->player2->relativeposition.x + CHARACTER_WIDTH * 4) - (RelPosx + Anim2Distance.x);
+			BigBulletDiry = (App->player2->relativeposition.y) - (RelPosy + Anim2Distance.y);
+			SmallBulletDirx = (App->player2->relativeposition.x + CHARACTER_WIDTH * 4) - (RelPosx + Anim3Distance.x);
+			SmallBulletDiry = (App->player2->relativeposition.y) - (RelPosy + Anim3Distance.y);
+
+			App->particles->BigTankShot.speed.x = 0.01*BigBulletDirx;
+			App->particles->BigTankShot.speed.y = 0.01*BigBulletDiry;
+			App->particles->SmallTankShot.speed.x = 0.01*SmallBulletDirx;
+			App->particles->SmallTankShot.speed.y = 0.01*SmallBulletDiry;
+
+			current_time = SDL_GetTicks();
+
+			if (current_time > last_time + 1000) {
+				App->particles->AddParticle(App->particles->BigTankShot, position.x + Anim2Distance.x, position.y + Anim2Distance.y, COLLIDER_ENEMY_SHOT);
+				last_time = current_time;
+			}
+			current_time2 = SDL_GetTicks();
+
+			if (current_time2 > last_time2 + 1000) {
+				App->particles->AddParticle(App->particles->SmallTankShot, position.x + Anim3Distance.x, position.y + Anim3Distance.y, COLLIDER_ENEMY_SHOT);
+				last_time2 = current_time2;
+			}
 		}
 	}
 

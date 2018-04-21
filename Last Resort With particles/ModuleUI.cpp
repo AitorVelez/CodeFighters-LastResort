@@ -47,6 +47,7 @@ bool ModuleUI::CleanUp()
 	LOG("Unloading player");
 
 	App->textures->Unload(P2);
+	App->textures->Unload(UIS);
 	App->Fonts->UnLoad(font_score);
 	
 
