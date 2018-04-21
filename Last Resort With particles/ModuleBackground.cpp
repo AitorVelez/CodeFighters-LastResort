@@ -286,9 +286,7 @@ bool ModuleBackground::Start()
 	App->power->AddPowerup(POWERUP_TYPES::SPOWER, 330, 112);
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 360, 112);
 	*/
-	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 300, 112);
-	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 500, 112);
-	App->power->AddPowerup(POWERUP_TYPES::SPOWER, 700, 112);
+	
 
 	//ENEMY COCKROACH
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 500 + 300, 40);
@@ -447,7 +445,7 @@ bool ModuleBackground::Start()
 
 
 	// CARS
-
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 500, 125);
 	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, 55, 195);
 	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, 0, 195);
 	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, -100, 195);
