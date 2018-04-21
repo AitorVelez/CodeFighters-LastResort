@@ -16,6 +16,7 @@
 #include "SDL/include/SDL_timer.h"
 #include "ModulePlayer2.h"
 #include "ModulePowerUp.h"
+#include "ModuleUI.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
@@ -270,7 +271,7 @@ bool ModuleBackground::Start()
 	PowerupTex = App->textures->Load("assets/sprites/main_character2.png");
 
 	bgpos = 0; 
-
+	App->UI->ready = true;
 
 
 	//POWERUPTEST

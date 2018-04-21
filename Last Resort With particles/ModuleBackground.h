@@ -73,6 +73,7 @@ public:
 	Animation ships;
 	Animation powerupL;
 
+	
 	bool activ = false;
 	float background_spaceship_posx = 0;
 	int craterx = 0;
