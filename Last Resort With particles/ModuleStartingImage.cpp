@@ -317,6 +317,24 @@ bool ModuleStartingImage::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
+	// we do this to reset the animation
+	Title1.Reset();
+	Title2.Reset();
+	Title3.Reset();
+	Title4.Reset();
+	Title5.Reset();
+	Title6.Reset();
+	Title7.Reset();
+	Title8.Reset();
+	Title9.Reset();
+	Title10.Reset();
+	Title11.Reset();
+	Title12.Reset();
+	Title13.Reset();
+	Title14.Reset();
+	Title15.Reset();
+	Title16.Reset();
+	Title17.Reset();
 
 	//TexStImage = App->textures->Load("assets/sprites/StartingTitle2.png");
 
