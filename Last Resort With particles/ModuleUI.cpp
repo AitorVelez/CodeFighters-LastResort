@@ -57,7 +57,11 @@ bool ModuleUI::CleanUp()
 
 update_status ModuleUI::Update()
 {
-	
+	/*Tenemos la variable "App->Player->score_p1" que es un int, y tenemos la variable "score"
+	que es un char* necesitamos transformar ese int en un char* o algo asi para que se pueda printear*/
+	App->player->score_p1;
+
+
 	if (ready == true) {
 		App->render->Blit(UIS, 0, 0, &UIstable, 0, false);
 		App->Fonts->BlitText(45, 15, 0, score);
