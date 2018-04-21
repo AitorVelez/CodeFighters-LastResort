@@ -263,9 +263,6 @@ update_status ModulePlayer::Update()
 				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 45, position.y - 24, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 59, position.y - 24, COLLIDER_PLAYER_SHOT);
 			}
-
-			
-			
 		}
 
 		if (App->input->keyboard[SDL_SCANCODE_1] == KEY_STATE::KEY_DOWN) {
