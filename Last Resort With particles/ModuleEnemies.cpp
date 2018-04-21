@@ -145,10 +145,6 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::RHINO:
 			enemies[i] = new Enemy_Rhino(info.x, info.y, info.HP);
 			break;
-
-		case ENEMY_TYPES::LAMELLA:
-			enemies[i] = new Enemy_Lamella(info.x, info.y, info.HP);
-			break;
 		case ENEMY_TYPES::BLUE_CAR:
 			enemies[i] = new Blue_Car(info.x, info.y, info.HP);
 			break;
@@ -161,11 +157,10 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::TANK:
 			enemies[i] = new Enemy_Tank(info.x, info.y, info.HP);
 			break;
-
 		}
 	}
 	
-	}
+}
 
 
 void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
@@ -175,8 +170,10 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
 		{
 			enemies[i]->OnCollision(c2);
+			if (enemies[i]->hp <= 0) {
 				delete enemies[i];                                   // IF HP <= 0 DELETE
-			enemies[i] = nullptr;
+				enemies[i] = nullptr;
+			}
 			break;
 		}
 	}

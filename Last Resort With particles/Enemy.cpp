@@ -41,14 +41,18 @@ void Enemy::Draw(SDL_Texture* sprites)
 
 void Enemy::OnCollision(Collider* collider)
 {
-	int number;
-	srand(time(NULL));
-	number = rand() % 2;
-	if (number == 1) App->particles->CommonExplosion.fx = 8;
-	else { App->particles->CommonExplosion.fx = 2; }
-	App->particles->AddParticle(App->particles->CommonExplosion, position.x, position.y);			//this function is repeated in Moduleparticles cpp line 176, if this is not commented
-
-	App->particles->AddParticle(App->particles->pilot_dying, position.x, position.y);
+	hp--;
+	if (hp <= 0) {
+		int number;
+		srand(time(NULL));
+		number = rand() % 2;
+		if (number == 1)
+			App->particles->CommonExplosion.fx = 8;
+		else
+			App->particles->CommonExplosion.fx = 2;
+		App->particles->AddParticle(App->particles->CommonExplosion, position.x, position.y);			//this function is repeated in Moduleparticles cpp line 176, if this is not commented
+		App->particles->AddParticle(App->particles->pilot_dying, position.x, position.y);
+	}
 }																									
 
 void Enemy::Shoot()
