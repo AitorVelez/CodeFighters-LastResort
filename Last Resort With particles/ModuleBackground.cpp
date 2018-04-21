@@ -254,8 +254,8 @@ bool ModuleBackground::Start()
 	bool ret = true;	
 
 	//App->player2->Enable();
+	App->particles->Enable(); 		
 	App->player->Enable();
-	App->particles->Enable(); 	
 	App->collision->Enable();
 	App->enemies->Enable();
 	App->power->Enable();
@@ -407,12 +407,11 @@ bool ModuleBackground::CleanUp()
 {
 	LOG("Cleaning Up background");
 	//Disable Other Modules
+	App->particles->Disable(); 
 	App->player->Disable(); 
 	App->player2->Disable();
-	App->particles->Disable(); 
-
+	App->collision->Disable();
 	App->UI->ready = false;
-
 	App->enemies->Disable();
 	App->Fonts->Disable();
 	App->UI->Disable();
@@ -435,7 +434,6 @@ bool ModuleBackground::CleanUp()
 
 	//Free Collision
 
-	App->collision->Disable();
 
 
 	return true;

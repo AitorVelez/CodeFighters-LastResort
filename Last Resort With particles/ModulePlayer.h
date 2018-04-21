@@ -40,8 +40,6 @@ public:
 	Animation idle;
 	Animation up;
 	Animation down; 
-	Animation forward;
-	Animation backward;
 	Animation playershowup; 
 	Animation playershowup2;
 	Animation playershowup3;
@@ -59,7 +57,7 @@ public:
 	bool death_played = false;
 	bool god_mode = false; 
 	int speed = 2;
-	Mix_Chunk* chunk;
+	Mix_Chunk* show_up_chunk;
 
 };
 
