@@ -3,6 +3,7 @@
 #include "ModuleCollision.h"
 #include "ModuleParticles.h"
 #include "ModuleRender.h"
+#include "ModuleRender.h"
 
 Enemy::Enemy(float x, float y) : position(x, y)
 {}
@@ -39,4 +40,14 @@ void Enemy::Draw(SDL_Texture* sprites)
 void Enemy::OnCollision(Collider* collider)
 {
 	App->particles->AddParticle(App->particles->CommonExplosion, position.x, position.y);			//this function is repeated in Moduleparticles cpp line 176, if this is not commented
-}																									//when an enemy is killed there will be shown 2 explosions
+}		
+																							//when an enemy is killed there will be shown 2 explosions
+
+
+
+void Enemy::ShootStraightPlayerDirX(int PlayerPosX, int EnemyPosX, int SpeedX) {
+	StoredShotDirX = (PlayerPosX - EnemyPosX)*SpeedX;
+}
+void Enemy::ShootStraightPlayerDirY(int PlayerPosY, int EnemyPosY, int SpeedY) {
+	StoredShotDirY = (PlayerPosY- EnemyPosY)*SpeedY;
+}

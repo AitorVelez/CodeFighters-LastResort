@@ -23,13 +23,17 @@ private:
 	Animation *AnimationSmallCanon;
 	int original_y; 
 	int original_x; 
+	int BigBulletDirx; 
+	int BigBulletDiry;
+	int speed; 
+	int SmallBulletDirx;
+	int SmallBulletDiry;
 public:
 
 	Enemy_Tank(int x, int y);
 
 	void Move();
 	void Shoot();
-
 };
 
 #endif // __ENEMY_TANK_H__
