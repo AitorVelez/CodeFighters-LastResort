@@ -19,6 +19,7 @@
 #include "ModulePlayer2.h"
 #include "ModulePowerUp.h"
 #include "ModuleFonts.h"
+#include "ModuleBall.h"
 #include "ModuleUI.h"
 
 Application::Application()
@@ -42,7 +43,7 @@ Application::Application()
 	modules[16] = power = new ModulePowerUp();			
 	modules[17] = UI = new ModuleUI();
 	modules[18] = Fonts = new ModuleFonts();
-	
+	modules[19] = ball = new ModuleBall(); 
 }	
 
 Application::~Application()
@@ -67,7 +68,7 @@ bool Application::Init()
 	power->Disable();
 	Fonts->Disable();
 	UI->Disable();
-
+	ball->Disable(); 
 
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)
 		ret = modules[i]->Init();

@@ -33,4 +33,5 @@ typedef unsigned int uint;
 #define REN_VSYNC 1
 #define CHARACTER_HEIGHT 11 
 #define CHARACTER_WIDTH 32
+#define PI 3.1416
 #endif // __GLOBALS_H__
