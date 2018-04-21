@@ -25,10 +25,6 @@ void Powerup::Draw(SDL_Texture* sprites)
 
 	if (animation != nullptr)
 		App->render->Blit(sprites, position.x, position.y, &(animation->GetCurrentFrame()));
-	if (animation2 != nullptr)
-		App->render->Blit(sprites, position.x + Anim2Distance.x, position.y + Anim2Distance.y, &(animation2->GetCurrentFrame()));
-	if (animation3 != nullptr)
-		App->render->Blit(sprites, position.x + Anim3Distance.x, position.y + Anim3Distance.y, &(animation3->GetCurrentFrame()));
 }
 
 void Powerup::OnCollision(Collider* collider)

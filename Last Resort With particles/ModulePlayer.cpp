@@ -116,6 +116,7 @@ bool ModulePlayer::Start()
 	graphics = App->textures->Load("assets/sprites/main_character.png"); // arcade version
 	PlayerCollider = App->collision->AddCollider({ position.x,position.y, 32, 14 }, COLLIDER_PLAYER, this);
 	
+	bullet_state = BULLET_STATE::BULLET_NO_TYPE; 
 	death_played = false; 
 	death.Reset();
 	playershowup.Reset();

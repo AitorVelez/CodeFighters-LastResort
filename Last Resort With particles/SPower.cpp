@@ -9,8 +9,6 @@ SpeedPowerUp::SpeedPowerUp(int x, int y) : Powerup(x, y)
 
 
 	PowChangeColor.PushBack({ 342,483,18,21 });
-
-	PowChangeColor.speed = 0.05f;
 	PowChangeColor.loop = false;
 	animation = &PowChangeColor;
 
@@ -21,7 +19,6 @@ SpeedPowerUp::SpeedPowerUp(int x, int y) : Powerup(x, y)
 
 void SpeedPowerUp::OnCollision(Collider *collider)
 {
-
 	App->player->speed = 3;
 	App->player2->speed = 3;
 }
