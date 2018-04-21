@@ -6,7 +6,7 @@
 #include "ModuleParticles.h"
 #include "ModuleCollision.h"
 #include "ModuleAudio.h"
-
+#include "ModulePlayer.h"
 #include "SDL/include/SDL_timer.h"
 
 ModuleParticles::ModuleParticles()
@@ -50,7 +50,7 @@ bool ModuleParticles::Start()
 	bullet_propulsion.texture = 0; 
 	
 
-	bullet.anim.PushBack({ 148,127,14,7 });
+	bullet.anim.PushBack({ 148,127,15,7 });
 	bullet.anim.loop = false;
 	bullet.anim.speed = 0.3f;
 	bullet.speed.x = 15;
@@ -69,7 +69,33 @@ bool ModuleParticles::Start()
 	bullet_explosion.anim.loop = false; 
 	bullet_explosion.texture = 0; 
 	
+	
+	//PowerUp Laser Particle
 
+	/*bullet_laser.anim.PushBack({ 389,240,56,3 });
+	bullet_laser.anim.PushBack({ 447,240,48,3 });
+	bullet_laser.anim.PushBack({ 389,245,64,3 });
+	bullet_laser.anim.PushBack({ 455,245,40,3 });
+	bullet_laser.anim.PushBack({ 389,250,24,3 });
+	bullet_laser.anim.PushBack({ 415,250,16,3 });
+	bullet_laser.anim.PushBack({ 433,250,32,3 });*/
+
+
+	
+	bullet_laser.anim.PushBack({ 415,250,16,3 });
+	bullet_laser.anim.PushBack({ 389,250,24,3 });
+	bullet_laser.anim.PushBack({ 433,250,32,3 });
+	bullet_laser.anim.PushBack({ 455,245,40,3 });
+	bullet_laser.anim.PushBack({ 447,240,48,3 });
+	bullet_laser.anim.PushBack({ 389,240,56,3 });
+	bullet_laser.anim.PushBack({ 389,245,64,3 });
+	bullet_laser.anim.speed = 0.3f;
+	bullet_laser.anim.loop = false;
+	bullet_laser.speed.x = 5;
+	bullet_laser.life = 1500;
+	bullet_laser.texture = 0;
+
+	
 
 	SpaceshipAnim.anim.PushBack({ 0,121,111,25 });
 	SpaceshipAnim.anim.PushBack({ 0,146,111,25 });
@@ -295,6 +321,8 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 		// Always destroy particles that collide
 		if (active[i] != nullptr && active[i]->collider == c1)
 		{
+			if ((c2->type == COLLIDER_ENEMY || c2->type == COLLIDER_CAR) && c1->type == COLLIDER_PLAYER_SHOT) App->player->score_p1 += 100;
+			LOG("HEY SOMEONE SCORED %i", App->player->score_p1);
 			AddParticle(bullet_explosion, active[i]->position.x, active[i]->position.y -3);
 			delete active[i];
 			active[i] = nullptr;

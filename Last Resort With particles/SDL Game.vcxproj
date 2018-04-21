@@ -110,6 +110,7 @@
     <ClInclude Include="Path.h" />
     <ClInclude Include="Powerup.h" />
     <ClInclude Include="Red_Car.h" />
+    <ClInclude Include="SPower.h" />
     <ClInclude Include="Yellow_Car.h" />
   </ItemGroup>
   <ItemGroup>
@@ -144,6 +145,7 @@
     <ClCompile Include="ModuleWindow.cpp" />
     <ClCompile Include="Powerup.cpp" />
     <ClCompile Include="Red_Car.cpp" />
+    <ClCompile Include="SPower.cpp" />
     <ClCompile Include="Yellow_Car.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

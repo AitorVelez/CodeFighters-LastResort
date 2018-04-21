@@ -545,7 +545,7 @@ update_status ModuleBackground::Update()
 		scroll = false; 
 
 	// Up and down Conditions 
-	//CameraUpDown();
+	CameraUpDown();
 
 	// Draw everything --------------------------------------
 	

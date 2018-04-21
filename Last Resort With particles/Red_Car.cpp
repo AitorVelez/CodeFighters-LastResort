@@ -10,16 +10,16 @@ Red_Car::Red_Car(int x, int y) : Enemy(x, y)
 	goCarB.PushBack({ 334,666,21,11 });
 	goCarB.PushBack({ 355,666,21,11 });
 	goCarB.PushBack({ 256,681,21,11 });
+	goCarB.loop = true;
 
 	goCarB.speed = 0.1;
 	animation = &goCarB;
-	original_y = y; 
+	parallax = 0.4875;
 	collider = App->collision->AddCollider({ 0, 0, 18, 11 }, COLLIDER_TYPE::COLLIDER_CAR, (Module*)App->enemies);
 
 }
 
 void Red_Car::Move()
 {
-	position.x += 2;
-	position.y = original_y - (App->render->camera.y / 3);
+	position.x += 1;
 }

@@ -19,7 +19,6 @@ Enemy_Rhino::Enemy_Rhino(int x, int y) : Enemy(x, y)
 	fly.PushBack({ 105,385,50,47 });
 	fly.PushBack({ 155,385,48,49 });
 
-
 	fly.speed = 0.05f;
 
 	animation = &fly;

@@ -275,13 +275,13 @@ bool ModuleBackground::Start()
 
 	//POWERUPTEST
 
-	App->enemies->AddEnemy(ENEMY_TYPES::POWERUP, 300, 112);
+	//App->enemies->AddEnemy(ENEMY_TYPES::POWERUP, 300, 112);
 
-
-
+	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 300, 112);
+	App->power->AddPowerup(POWERUP_TYPES::SPOWER, 330, 112);
 
 	//ENEMY COCKROACH
-
+	/*
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 500 + 300, 40);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 535 + 300, 80);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 570 + 300, 40);
@@ -363,26 +363,31 @@ bool ModuleBackground::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 7080, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 8015, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 8040, 112);
+	*/
 
-
-	//ENEMY LAMELLA
-
-	/*App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 400, 112);
-
-	App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 550, 100);*/
 
 	// TANK
 
-
 	App->enemies->AddEnemy(ENEMY_TYPES::TANK, 3500, SCREEN_HEIGHT - 64);
+
 
 	// CARS
 
-	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, 55, 200);
+	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, 55, 195);
+	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, 0, 195);
+	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, -100, 195);
+	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, -170, 195);
+	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, -210, 195);
+	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, -260, 195);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::RED_CAR, 75, 200);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_CAR, 75, 209);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_CAR, -30, 209);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_CAR, -95, 209);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_CAR, -145, 209);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_CAR, -220, 209);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_CAR, -275, 209);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::YELLOW_CAR, 105, 200);
+	App->enemies->AddEnemy(ENEMY_TYPES::YELLOW_CAR, 105, 195);
 
 	mus = App->audio->LoadMus("assets/SFX/level_1.ogg");
 	App->audio->PlayMus(mus);
@@ -712,12 +717,6 @@ void ModuleBackground::RenderTunnelLights()
 	App->render->Blit(TunnelLightsTex, 3850, 0, &tunnelLights_2.GetCurrentFrame(), depth_1);
 }
 
-void ModuleBackground::RenderPowerUps()
-{
-	App->render->Blit(PowerupTex, 330, 115, &powerupL.GetCurrentFrame());
-
-
-}
 
 // Update: draw background
 update_status ModuleBackground::Update()
@@ -760,7 +759,7 @@ update_status ModuleBackground::Update()
 
 	RenderStreetLights(); 
 	RenderTunnelLights();
-	RenderPowerUps();
+	
 	
 
 	// Fade to black
@@ -772,7 +771,7 @@ update_status ModuleBackground::Update()
 		if (App->fade->FadeToBlack(App->background, App->loseimage, 1.5f))
 			App->audio->FadeMus(750);
 
-	if (App->input->keyboard[SDL_SCANCODE_F4] == 1)
+	if (App->input->keyboard[SDL_SCANCODE_2] == 1)
 		App->player2->Enable();
 
 	if (activ == false) {

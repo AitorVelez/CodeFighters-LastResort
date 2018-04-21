@@ -5,7 +5,8 @@
 #include "ModuleParticles.h"
 #include "ModuleTextures.h"
 #include "Powerup.h"
-
+#include "LPower.h"
+#include "Spower.h"
 
 #define SPAWN_MARGIN 50
 
@@ -127,9 +128,13 @@ void ModulePowerUp::SpawnPowerup(const PowerupInfo& info)
 	{
 		switch (info.type)
 		{
-		/*case POWERUP_TYPES::LPOWER:
-			powerups[i] = new L_Power(info.x, info.y);
-			break;*/
+		case POWERUP_TYPES::LPOWER:
+			powerups[i] = new LaserPowerUp(info.x, info.y);
+			break;
+
+		case POWERUP_TYPES::SPOWER:
+			powerups[i] = new SpeedPowerUp(info.x, info.y);
+			break;
 		}
 	}
 

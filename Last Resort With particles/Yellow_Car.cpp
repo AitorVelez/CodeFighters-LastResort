@@ -10,10 +10,11 @@ Yellow_Car::Yellow_Car(int x, int y) : Enemy(x, y)
 	goCarC.PushBack({ 312,547,21,11 });
 	goCarC.PushBack({ 333,547,21,11 });
 	goCarC.PushBack({ 354,547,21,11 });
+	goCarC.loop = true;
 
 	goCarC.speed = 0.1;
 	animation = &goCarC;
-	original_y = y; 
+	parallax = 0.4875;
 
 	collider = App->collision->AddCollider({ 0, 0, 18, 11 }, COLLIDER_TYPE::COLLIDER_CAR, (Module*)App->enemies);
 
@@ -21,6 +22,5 @@ Yellow_Car::Yellow_Car(int x, int y) : Enemy(x, y)
 
 void Yellow_Car::Move()
 {
-	position.x += 2;
-	position.y = original_y - (App->render->camera.y / 3);
+	position.x += 1.5;
 }

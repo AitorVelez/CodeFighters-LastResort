@@ -7,13 +7,19 @@
 #include "ModuleParticles.h"
 #include "ModuleInput.h"
 #include "ModuleRender.h"
+#define TANKWIDTH 157
+#define TANKHEIGHT 64
 Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
 {
-	Anim2Distance.x = 50; 
-	Anim2Distance.y = -2; 
-	Anim3Distance.x = 84;
-	Anim3Distance.y = 4;
+	Anim2Distance.x = 52; 
+	Anim2Distance.y = -4; 
+	Anim3Distance.x = 86;
+	Anim3Distance.y = 2;
 
+/*	Anim4Distance.x = 52;             // RIGHT AND LEFT (BIG) 
+	Anim4Distance.y = -1;              
+	Anim5Distance.x = 86;             // RIGHT AND LEFT (SMALL)
+	Anim5Distance.y = 0; */
 
 	tank.PushBack({ 16,857,157,64 }); 
 	tank.PushBack({ 17,921,157,63 });
@@ -21,9 +27,9 @@ Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
 	animation = &tank;
 
 	canon.PushBack({ 178,779,28,10 });
-	animation2 = &canon;
+	animation2 = &canon;                            // LEFT BIG 
 	canon2.PushBack({ 205,831,15,6 });
-    animation3 = &canon2;
+    animation3 = &canon2;                           // LEFT SMALL
 
 
 	collider = App->collision->AddCollider({ 0, 0, 157, 64 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
@@ -40,32 +46,119 @@ Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
     canonUpMoreLeft.PushBack({ 252,747,26,13 });
 	canonUpMoreRight.PushBack({ 210,746,26,13 });
 	canonRight.PushBack({ 206,779,29,10 });
-	canon2UpRight.PushBack({ 221,831,14,6 });
+	canon2Right.PushBack({ 221,831,14,6 });
 }
 
 void Enemy_Tank::Move()
 {
 
-	/*if (App->background->bgpos < original_x) {           // IT SHOULD APPEAR WITH THE SAME SPEED AS BG DEPTH 1 
+	/*if (App->background->bgpos >= original_x - SCREEN_WIDTH -500 && App->background->bgpos < original_x +500 ) {           // IT SHOULD APPEAR WITH THE SAME SPEED AS BG DEPTH 1 
 		position.x += 0.4875f;                        
 	}*/
 	if (App->background->bgpos >= original_x && App->background->bgpos <= original_x + SCREEN_WIDTH) {
 		position.x += 1.5f;
 	}
-	else if(App->background->bgpos > original_x + SCREEN_WIDTH && App->background->bgpos < 9100) {      // CHECK 
+	else if(App->background->bgpos > original_x + SCREEN_WIDTH  && App->background->bgpos < 8350) {      // STAY
 		position.x += 1;
 	}
-	else if (App->background->bgpos >= 9100) {
-		position.x += 0; 
+	else if (App->background->bgpos >= 8350) {
+		position.x += 0.4875f;
 	}
 
 
+	
 
-	if (App->player->position.x >= position.x) {
-		animation2 = &canonRight; 
+
+	                                                                  // ONLY FOR PLAYER 1
+	if (App->player2->IsEnabled() == false) {
+		if (App->player->position.x < position.x + TANKWIDTH && App->player->position.y >= SCREEN_HEIGHT - TANKHEIGHT) {              // LEFT BOTTOM
+			animation2 = &canon;
+			animation3 = &canon2;
+		}
+
+		if (App->player->position.y < SCREEN_HEIGHT - TANKHEIGHT && App->player->position.x <= position.x + TANKWIDTH / 2 - 3 * CHARACTER_WIDTH / 2) {
+			animation2 = &canonUpMoreLeft;
+			animation3 = &canon2UpLeft;
+		}
+
+		if (App->player->position.x > position.x + TANKWIDTH / 2 - 3 * CHARACTER_WIDTH / 2 && App->player->position.x <= position.x + TANKWIDTH / 2 - CHARACTER_WIDTH / 2) {
+			animation2 = &canonUpLeft;
+			animation3 = &canon2UpLeft;
+		}
+
+		if (App->player->position.x > position.x + TANKWIDTH / 2 - CHARACTER_WIDTH / 2 && App->player->position.x <= position.x + TANKWIDTH / 2 + CHARACTER_WIDTH / 2) { // UP
+			animation2 = &canonUp;
+			animation3 = &canon2Up;
+		}
+		if (App->player->position.x > position.x + TANKWIDTH / 2 + CHARACTER_WIDTH / 2 && App->player->position.x <= position.x + TANKWIDTH / 2 + 3 * CHARACTER_WIDTH / 2) {
+			animation2 = &canonUpRight;
+			animation3 = &canon2UpRight;
+		}
+		if (App->player->position.x > position.x + TANKWIDTH / 2 + 3 * CHARACTER_WIDTH / 2 && App->player->position.y <= SCREEN_HEIGHT - TANKHEIGHT) {
+			animation2 = &canonUpMoreRight;
+			animation3 = &canon2UpRight;
+		}
+		if (App->player->position.x > position.x + TANKWIDTH && App->player->position.y >= SCREEN_HEIGHT - TANKHEIGHT) {       // RIGHT BOTTOM
+			animation2 = &canonRight;
+			animation3 = &canon2Right;
+		}
 	}
 
 
+	           // Two player 
+	else {                                                   // BIG CANON FOLLOWS PLAYER 1
+		if (App->player->position.x < position.x + TANKWIDTH && App->player->position.y >= SCREEN_HEIGHT - TANKHEIGHT) {              // LEFT BOTTOM
+			animation2 = &canon;
+		}
+
+		if (App->player->position.y < SCREEN_HEIGHT - TANKHEIGHT && App->player->position.x <= position.x + TANKWIDTH / 2 - 3 * CHARACTER_WIDTH / 2) {
+			animation2 = &canonUpMoreLeft;
+		}
+
+		if (App->player->position.x > position.x + TANKWIDTH / 2 - 3 * CHARACTER_WIDTH / 2 && App->player->position.x <= position.x + TANKWIDTH / 2 - CHARACTER_WIDTH / 2) {
+			animation2 = &canonUpLeft;
+		}
+
+		if (App->player->position.x > position.x + TANKWIDTH / 2 - CHARACTER_WIDTH / 2 && App->player->position.x <= position.x + TANKWIDTH / 2 + CHARACTER_WIDTH / 2) { // UP
+			animation2 = &canonUp;
+		}
+		if (App->player->position.x > position.x + TANKWIDTH / 2 + CHARACTER_WIDTH / 2 && App->player->position.x <= position.x + TANKWIDTH / 2 + 3 * CHARACTER_WIDTH / 2) {
+			animation2 = &canonUpRight;
+		}
+		if (App->player->position.x > position.x + TANKWIDTH / 2 + 3 * CHARACTER_WIDTH / 2 && App->player->position.y <= SCREEN_HEIGHT - TANKHEIGHT) {
+			animation2 = &canonUpMoreRight;
+		}
+		if (App->player->position.x > position.x + TANKWIDTH && App->player->position.y >= SCREEN_HEIGHT - TANKHEIGHT) {       // RIGHT BOTTOM
+			animation2 = &canonRight;
+		}
+		                                                       // SMALL CANON FOLLOWS PLAYER 2
+
+		if (App->player2->position.x < position.x + TANKWIDTH && App->player2->position.y >= SCREEN_HEIGHT - TANKHEIGHT) {              // LEFT BOTTOM
+			animation3 = &canon2;
+		}
+
+		if (App->player2->position.y < SCREEN_HEIGHT - TANKHEIGHT && App->player2->position.x <= position.x + TANKWIDTH / 2 - 3 * CHARACTER_WIDTH / 2) {
+			animation3 = &canon2UpLeft;
+		}
+
+		if (App->player2->position.x > position.x + TANKWIDTH / 2 - 3 * CHARACTER_WIDTH / 2 && App->player2->position.x <= position.x + TANKWIDTH / 2 - CHARACTER_WIDTH / 2) {
+			animation3 = &canon2UpLeft;
+		}
+
+		if (App->player2->position.x > position.x + TANKWIDTH / 2 - CHARACTER_WIDTH / 2 && App->player2->position.x <= position.x + TANKWIDTH / 2 + CHARACTER_WIDTH / 2) { // UP
+			animation3 = &canon2Up;
+		}
+		if (App->player2->position.x > position.x + TANKWIDTH / 2 + CHARACTER_WIDTH / 2 && App->player2->position.x <= position.x + TANKWIDTH / 2 + 3 * CHARACTER_WIDTH / 2) {
+			animation3 = &canon2UpRight;
+		}
+		if (App->player2->position.x > position.x + TANKWIDTH / 2 + 3 * CHARACTER_WIDTH / 2 && App->player2->position.y <= SCREEN_HEIGHT - TANKHEIGHT) {
+			animation3 = &canon2UpRight;
+		}
+		if (App->player2->position.x > position.x + TANKWIDTH && App->player2->position.y >= SCREEN_HEIGHT - TANKHEIGHT) {       // RIGHT BOTTOM
+			animation3 = &canon2Right;
+		}
+	}
+	
 }
 
 

@@ -23,7 +23,5 @@ Enemy_Cockroach::Enemy_Cockroach(int x, int y) : Enemy(x, y)
 void Enemy_Cockroach::Move()
 {
 	position.x -= 2;
-	
-
 	position.y = y_original - (App->render->camera.y / 3);
 }

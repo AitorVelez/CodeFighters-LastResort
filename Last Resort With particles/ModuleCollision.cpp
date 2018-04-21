@@ -8,6 +8,15 @@ ModuleCollision::ModuleCollision()
 	for (uint i = 0; i < MAX_COLLIDERS; ++i)
 		colliders[i] = nullptr;
 
+	matrix[COLLIDER_NONE][COLLIDER_NONE] = false;
+	matrix[COLLIDER_NONE][COLLIDER_WALL] = false;
+	matrix[COLLIDER_NONE][COLLIDER_PLAYER] = false;
+	matrix[COLLIDER_NONE][COLLIDER_ENEMY] = false;
+	matrix[COLLIDER_NONE][COLLIDER_CAR] = false;
+	matrix[COLLIDER_NONE][COLLIDER_PLAYER_SHOT] = false;
+	matrix[COLLIDER_NONE][COLLIDER_ENEMY_SHOT] = false;
+	matrix[COLLIDER_NONE][COLLIDER_POWERUP] = false;				// IF it's set to true the game crashes :) XD
+
 	matrix[COLLIDER_WALL][COLLIDER_WALL] = false;
 	matrix[COLLIDER_WALL][COLLIDER_PLAYER] = true;
 	matrix[COLLIDER_WALL][COLLIDER_ENEMY] = true;
@@ -20,6 +29,7 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_PLAYER][COLLIDER_CAR] = false;
 	matrix[COLLIDER_PLAYER][COLLIDER_PLAYER_SHOT] = false;
 	matrix[COLLIDER_PLAYER][COLLIDER_ENEMY_SHOT] = true;
+	matrix[COLLIDER_PLAYER][COLLIDER_NONE] = false;
 
 	matrix[COLLIDER_ENEMY][COLLIDER_WALL] = true;
 	matrix[COLLIDER_ENEMY][COLLIDER_PLAYER] = true;
@@ -27,6 +37,8 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_ENEMY][COLLIDER_PLAYER_SHOT] = true;
 	matrix[COLLIDER_ENEMY][COLLIDER_ENEMY_SHOT] = false;
 	matrix[COLLIDER_ENEMY][COLLIDER_CAR] = false;
+	matrix[COLLIDER_ENEMY][COLLIDER_POWERUP] = false;
+	matrix[COLLIDER_ENEMY][COLLIDER_NONE] = false;
 
 	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_WALL] = true;
 	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_PLAYER] = false;
@@ -34,12 +46,16 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_CAR] = true;
 	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_PLAYER_SHOT] = false;
 	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_ENEMY_SHOT] = false;
+	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_POWERUP] = false;
+	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_NONE] = false;
 
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_WALL] = true;
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_PLAYER] = true;
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_ENEMY] = false;
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_PLAYER_SHOT] = false;
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_ENEMY_SHOT] = false;
+	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_POWERUP] = false;
+	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_NONE] = false;
 
 	matrix[COLLIDER_CAR][COLLIDER_CAR] = false; 
 	matrix[COLLIDER_CAR][COLLIDER_WALL] = false;
@@ -47,16 +63,16 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_CAR][COLLIDER_ENEMY] = false;
 	matrix[COLLIDER_CAR][COLLIDER_PLAYER_SHOT] = true;
 	matrix[COLLIDER_CAR][COLLIDER_ENEMY_SHOT] = false;
+	matrix[COLLIDER_CAR][COLLIDER_POWERUP] = false;
+	matrix[COLLIDER_CAR][COLLIDER_NONE] = false;
 
 	matrix[COLLIDER_POWERUP][COLLIDER_POWERUP] = false;
 	matrix[COLLIDER_POWERUP][COLLIDER_CAR] = false;
 	matrix[COLLIDER_POWERUP][COLLIDER_WALL] = false;
 	matrix[COLLIDER_POWERUP][COLLIDER_PLAYER] = true;
 	matrix[COLLIDER_POWERUP][COLLIDER_ENEMY] = false;
-	matrix[COLLIDER_POWERUP][COLLIDER_PLAYER_SHOT] = true;
+	matrix[COLLIDER_POWERUP][COLLIDER_PLAYER_SHOT] = false;
 	matrix[COLLIDER_POWERUP][COLLIDER_ENEMY_SHOT] = false;
-	
-
 
 }
 
@@ -157,7 +173,7 @@ void ModuleCollision::DebugDraw()
 			App->render->DrawQuad(colliders[i]->rect, 0, 255, 255, alpha);
 			break;
 		case COLLIDER_CAR: // black
-			App->render->DrawQuad(colliders[i]->rect, 0, 0, 0, alpha);
+			App->render->DrawQuad(colliders[i]->rect, 0, 0, 0, alpha, true, 0.4875);
 			break;
 		case COLLIDER_POWERUP: // pink
 			App->render->DrawQuad(colliders[i]->rect, 255, 0, 255, alpha);

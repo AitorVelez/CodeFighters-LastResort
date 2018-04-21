@@ -125,8 +125,13 @@
     <ClInclude Include="Powerup.h">
       <Filter>Modules\Powerups</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="ModuleUI.h">
       <Filter>Modules</Filter>
+=======
+    <ClInclude Include="SPower.h">
+      <Filter>Modules\Powerups</Filter>
+>>>>>>> 7220f7ecb586dfc92dd15ddd0f37a2e7c222740b
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -223,8 +228,13 @@
     <ClCompile Include="Powerup.cpp">
       <Filter>Modules\Powerups</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="ModuleUI.cpp">
       <Filter>Modules</Filter>
+=======
+    <ClCompile Include="SPower.cpp">
+      <Filter>Modules\Powerups</Filter>
+>>>>>>> 7220f7ecb586dfc92dd15ddd0f37a2e7c222740b
     </ClCompile>
   </ItemGroup>
 </Project>
