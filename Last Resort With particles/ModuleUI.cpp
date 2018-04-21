@@ -91,12 +91,12 @@ update_status ModuleUI::Update()
 
 	}
 	if (ready == true && App->background->activ == true)
-		App->Fonts->BlitText(250, 15, 0, score2);
+		App->Fonts->BlitText(240, 15, 0, score2);
 
 
 	if (stgclr == true && pl2 == true) {
 		sprintf_s(score2, "%d", b);
-		App->Fonts->BlitText(250, 15, 0, score2);
+		App->Fonts->BlitText(240, 15, 0, score2);
 
 	}
 
