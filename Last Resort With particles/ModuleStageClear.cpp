@@ -40,6 +40,7 @@ bool ModuleStageClear::Start()
 	App->render->camera.y = 0;
 	App->player->Disable();
 	App->player2->Disable();
+	App->UI->stgclr = true;
 	return ret;
 }
 
@@ -50,6 +51,7 @@ bool ModuleStageClear::CleanUp()
 	App->textures->Unload(TexStageImage);
 	App->audio->UnloadMus(ClearMus);
 	App->UI->Disable();
+	App->UI->stgclr = false;
 
 	return true;
 }

@@ -70,13 +70,13 @@ update_status ModuleUI::Update()
 	App->player->score_p1;
 	sprintf_s(score, "%d", App->player->score_p1);
 
-	if (ready == true) {
+	if (ready == true || stgclr == true) {
 		App->render->Blit(UIS, 0, 0, &UIstable, 0, false);
 		App->Fonts->BlitText(45, 15, 0, score);
 	}
 	if (ready == true && App->background->activ == false)
 		App->render->Blit(P2, 210, 20, &Player2.GetCurrentFrame(), 0, false);
-	if (ready == true && App->background->activ == true) {
+	if ((ready == true && App->background->activ == true)) {
 		App->render->Blit(P22, 260, 15, &Pl2.GetCurrentFrame(), 0, false);
 		App->render->Blit(P22, 200, 208, &Punit2.GetCurrentFrame(), 0, false);
 	}
