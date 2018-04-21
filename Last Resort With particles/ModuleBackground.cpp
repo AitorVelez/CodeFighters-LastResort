@@ -290,30 +290,25 @@ bool ModuleBackground::Start()
 	*/
 
 	//ENEMY COCKROACH
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 500 + 300, 120);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 535 + 300, 120);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 500 + 300, 120);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 535 + 300, 120);
-
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 500 + 300, 40);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 535 + 300, 40);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 535 + 300, 80);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 570 + 300, 40);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 570 + 300, 40);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1050, 20);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1050 + 35, 20);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1050 + 35*2, 20);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1050 + 35*3, 20);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1050 + 35*4, 20);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1050 + 35*5, 20);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1050 + 35*6, 150);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1050 + 35*7, 150);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1050 + 35*8, 150);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1050 + 35*9, 150);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1250, 120);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1285, 120);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1920, 120);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1955, 120);
-	/*App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1335, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 570 + 300, 130);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 620 + 300 + 20, 20);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 650 + 300 + 25, 112);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 640 + 300 + 30, 20);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 670 + 300 + 35, 20);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 700 + 300 + 40, 20);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 730 + 300 + 45, 20);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 760 + 300 + 50, 150);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 790 + 300 + 55, 150);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 820 + 300 + 60, 150);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 850 + 300 + 65, 150);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1250, 150);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1265, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1300, 120);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1300, 60);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1335, 100);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1340, 80);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1370, 60);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1410, 80);
@@ -326,48 +321,18 @@ bool ModuleBackground::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1605 - 50, 20);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1610 - 50, 150);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1640 - 50, 20);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1645 - 50, 150);*/
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1800, 30);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1835, 30);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1870, 30);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1905, 90);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1940, 90);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1975, 90);
-
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2200, 60);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1645 - 50, 150);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2200, 30);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2235, 60);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2270, 60);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2305, 130);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2270, 90);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2305, 120);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2320, 130);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2355 - 10, 130);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2390 - 20, 130);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2425 - 30, 130);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2460 - 40, 130);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2495 - 50, 130);
-
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2500, 30);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2535, 30);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2570, 30);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2605, 30);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2640, 30);
-
-
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2500, 130);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2535, 130);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2570, 130);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2605, 130);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2640, 130);
-
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3050, 60);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3085, 60);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3915, 60);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3050, 150);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3085, 150);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3115, 150);
-
-
-
-/*	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3400, 90);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3400, 90);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3435, 40);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3437, 80);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3440, 130);
@@ -375,33 +340,39 @@ bool ModuleBackground::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3473, 90);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3475, 120);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3505, 40);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3509, 130);*/
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 7800, 130);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 7800 + 35, 90);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 7800 + 70, 60);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 7800 + 105, 35);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 7800 + 120, 30);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 7800 + 155, 30);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 7800 + 190, 30);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 7800 + 225, 30);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3509, 130);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800, 130);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800 + 35, 90);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800 + 70, 60);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800 + 105, 35);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800 + 120, 30);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800 + 155, 30);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800 + 190, 30);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800 + 225, 30);
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800 + 260, 30);
+
+
+
 	
-	
+
 	//ENEMY RHINO
 	
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 2700, 100);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 2750, 100);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 2800, 100);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 2850, 100);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 2900, 100);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 2950, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 2700-200+20, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 2750 - 200+40, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 2800 - 200+60, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 2850 - 200+80, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 2900 - 200+100, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 2950 - 200+120, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 3000 - 200+140, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 3050 - 200+180, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 3100 , 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 3150 +20, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 3200 +40, 100);
 
 
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 1330, 112);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 1360, 112);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 1390, 112);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 1420, 112);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 1450, 112);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 1480, 112);
+/*
+
+	
 
 
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 3330, 112);
@@ -466,7 +437,7 @@ bool ModuleBackground::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 5400, 112); 
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 5500, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 5600, 112);
-/*	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 7000, 112);
+	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 7000, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 7080, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 8015, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 8040, 112);*/
