@@ -9,6 +9,7 @@
 #include "ModuleCollision.h"
 #include "ModuleAudio.h"
 #include "ModulePlayer.h"
+#include "ModulePlayer2.h"
 #include "SDL/include/SDL_timer.h"
 
 ModuleParticles::ModuleParticles()
@@ -466,6 +467,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 		if (active[i] != nullptr && active[i]->collider == c1)
 		{
 			if ((c2->type == COLLIDER_ENEMY || c2->type == COLLIDER_CAR) && c1->type == COLLIDER_PLAYER_SHOT) App->player->score_p1 += 100;
+			else if ((c2->type == COLLIDER_ENEMY || c2->type == COLLIDER_CAR) && c1->type == COLLIDER_PLAYER2_SHOT) App->player2->score_p2 += 100; 
 			LOG("HEY SOMEONE SCORED %i", App->player->score_p1);
 			AddParticle(bullet_explosion, active[i]->position.x, active[i]->position.y -3);
 			delete active[i];

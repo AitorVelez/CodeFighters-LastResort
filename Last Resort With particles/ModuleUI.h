@@ -34,6 +34,7 @@ public:
 	SDL_Rect UIstable;
 	SDL_Texture * P22 = nullptr;
 	char * score;
+	char * score2;
 	int sflag;
 	bool pl2 = false;
 	bool stgclr = false;
