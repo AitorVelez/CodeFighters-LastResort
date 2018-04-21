@@ -40,11 +40,11 @@ void Enemy::Draw(SDL_Texture* sprites)
 void Enemy::OnCollision(Collider* collider)
 {
 	App->particles->AddParticle(App->particles->CommonExplosion, position.x, position.y);			//this function is repeated in Moduleparticles cpp line 176, if this is not commented
-<<<<<<< HEAD
+
 	App->particles->AddParticle(App->particles->pilot_dying, position.x, position.y);
 }																									
-=======
-}		
+
+		
 																							//when an enemy is killed there will be shown 2 explosions
 
 
@@ -55,4 +55,4 @@ void Enemy::ShootStraightPlayerDirX(int PlayerPosX, int EnemyPosX, int SpeedX) {
 void Enemy::ShootStraightPlayerDirY(int PlayerPosY, int EnemyPosY, int SpeedY) {
 	StoredShotDirY = (PlayerPosY- EnemyPosY)*SpeedY;
 }
->>>>>>> 0979c765e9041caeb2b99fb77da45058c4a3d0c6
+
