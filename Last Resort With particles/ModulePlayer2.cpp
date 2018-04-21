@@ -21,45 +21,41 @@ ModulePlayer2::ModulePlayer2()
 	current_animation = &idle;
 
 
-	//playershowup.PushBack({ 0,11,112,1 });
-	//playershowup.PushBack({ 5,37,105,2 });
-	//playershowup.PushBack({ 34,59,76,4 });
-	//playershowup.loop = false;
-	//playershowup.speed = 0.1f;
-	//playershowup2.PushBack({ 57,82,54,18 });
-	//playershowup2.PushBack({ 49,103,62,15 }); //player shows up
-	//playershowup2.PushBack({ 49,131,62,15 });
-	//playershowup2.PushBack({ 60,153,51,16 });
-	//playershowup2.PushBack({ 60,180,51,16 });
-	//playershowup2.PushBack({ 157,4,64,16 });
-	//playershowup2.PushBack({ 158,25,64,25 });
-	//playershowup2.loop = false;
-	//playershowup2.speed = 0.15f;
-	//playershowup3.PushBack({ 164,49,57,25 });
-	//playershowup3.PushBack({ 166,75,56,25 });
-	//playershowup3.PushBack({ 186,103,36,19 });
-	//playershowup3.PushBack({ 190,130,32,15 });
-	//playershowup3.PushBack({ 286,8,32,11 });
-	//playershowup3.loop = false;
-	//playershowup3.speed = 0.2f;
-
-	playershowup.PushBack({ 0,130,111,16 });
-	playershowup.PushBack({ 6,155,105,16 });
-	playershowup.PushBack({ 32,180,79,16 });
-	playershowup.PushBack({ 34,204,77,17 });
-	playershowup.PushBack({ 46,224,65,22 }); //player shows up
-	playershowup.PushBack({ 46,252,65,19 });
-	playershowup.PushBack({ 57,274,56,22 });
-	playershowup.PushBack({ 57,300,56,21 });
-	playershowup.PushBack({ 44,325,67,21 });
-	playershowup.PushBack({ 44,346,67,25 });
-	playershowup.PushBack({ 51,371,60,25 });
-	playershowup.PushBack({ 52,396,59,25 });
-	playershowup.PushBack({ 72,425,39,18 });
-	playershowup.PushBack({ 76,452,35,15 });
-	playershowup.PushBack({ 64,3,32,14 });
+	playershowup.PushBack({ 0,11,112,1 });
+	playershowup.PushBack({ 5,37,105,2 });
+	playershowup.PushBack({ 34,59,76,4 });
+	playershowup.PushBack({ 57,82,54,18 });
+	playershowup.PushBack({ 49,103,62,15 }); //player shows up
+	playershowup.PushBack({ 49,131,62,15 });
+	playershowup.PushBack({ 60,153,51,16 });
+	playershowup.PushBack({ 60,180,51,16 });
+	playershowup.PushBack({ 157,4,64,16 });
+	playershowup.PushBack({ 158,25,64,25 });
+	playershowup.PushBack({ 164,49,57,25 });
+	playershowup.PushBack({ 166,75,56,25 });
+	playershowup.PushBack({ 186,103,36,19 });
+	playershowup.PushBack({ 190,130,32,15 });
+	playershowup.PushBack({ 286,8,32,11 });
 	playershowup.loop = false;
 	playershowup.speed = 0.2f;
+
+	//playershowup.PushBack({ 0,130,111,16 });
+	//playershowup.PushBack({ 6,155,105,16 });
+	//playershowup.PushBack({ 32,180,79,16 });
+	//playershowup.PushBack({ 34,204,77,17 });
+	//playershowup.PushBack({ 46,224,65,22 }); //player shows up
+	//playershowup.PushBack({ 46,252,65,19 });
+	//playershowup.PushBack({ 57,274,56,22 });
+	//playershowup.PushBack({ 57,300,56,21 });
+	//playershowup.PushBack({ 44,325,67,21 });
+	//playershowup.PushBack({ 44,346,67,25 });
+	//playershowup.PushBack({ 51,371,60,25 });
+	//playershowup.PushBack({ 52,396,59,25 });
+	//playershowup.PushBack({ 72,425,39,18 });
+	//playershowup.PushBack({ 76,452,35,15 });
+	//playershowup.PushBack({ 64,3,32,14 });
+	//playershowup.loop = false;
+	//playershowup.speed = 0.2f;
 
 	// Death Animation 
 	death.PushBack({ 255, 0, 63, 28 });
