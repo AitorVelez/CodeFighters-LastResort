@@ -18,6 +18,8 @@
 #include "Module.h"
 #include "ModulePlayer2.h"
 #include "ModulePowerUp.h"
+#include "ModuleFonts.h"
+#include "ModuleUI.h"
 
 Application::Application()
 {
@@ -37,7 +39,9 @@ Application::Application()
 	modules[13] = collision = new ModuleCollision();
 	modules[14] = fade = new ModuleFadeToBlack();
 	modules[15] = player = new ModulePlayer();
-	modules[16] = power = new ModulePowerUp();					
+	modules[16] = power = new ModulePowerUp();			
+	modules[17] = UI = new ModuleUI();
+	modules[18] = Fonts = new ModuleFonts();
 	
 }	
 

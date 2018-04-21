@@ -19,8 +19,9 @@ public:
 	bool CleanUp();
 
 public:
-
+	SDL_Texture* Starts = nullptr;
 	SDL_Texture * TexStImage = nullptr;
+	Animation Press;
 	SDL_Rect StImage;
 	Mix_Music* mus = nullptr;
 
