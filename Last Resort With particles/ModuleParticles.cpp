@@ -163,11 +163,10 @@ bool ModuleParticles::Start()
 	pilot_dying.anim.PushBack({ 335,576,12,64 });
 	pilot_dying.anim.PushBack({ 352,576,11,64 });
 	pilot_dying.anim.PushBack({ 368,576,12,64 });
-	pilot_dying.anim.speed = 0.15f;
+	pilot_dying.anim.speed = 0.2f;
 	pilot_dying.speed.x = 2;
 	pilot_dying.life = 8000;
 	pilot_dying.speed.y = 1 + pilot_dying.life/8000;
-	pilot_dying.life = 8000;
 	pilot_dying.texture = 3;
 	pilot_dying.anim.loop = false;
 
