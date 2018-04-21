@@ -34,6 +34,7 @@ bool ModuleParticles::Start()
 	chunks[3] = App->audio->LoadChunk("assets/SFX/Showup_sound.wav");					// Player_showup -> fx = 3
 	chunks[4] = App->audio->LoadChunk("assets/SFX/Laser_1.wav");                        // Laser_1 -> fx = 4
 	chunks[5] = App->audio->LoadChunk("assets/SFX/showup_sound.wav");
+	chunks[6] = App->audio->LoadChunk("assets/SFX/Laser_2.wav");
 
 	textures[0] = App->textures->Load("assets/sprites/main_character.png");			// Texture -> 0
 	textures[1] = App->textures->Load("assets/sprites/SpritesPlayer2.png");			// Texture -> 1
@@ -127,16 +128,28 @@ bool ModuleParticles::Start()
 	firing_laser.life = 1000;
 	firing_laser.texture = 0;
 
-
-	bullet_laser2.anim.PushBack({ 441,129,16,47 });
+	bullet_laser2.anim.PushBack({ 209,209,13,31 });
+	bullet_laser2.anim.PushBack({ 222,209,13,31 });
+	bullet_laser2.anim.PushBack({ 235,209,13,31 });
+	bullet_laser2.anim.PushBack({ 235,209,13,31 });
+	bullet_laser2.anim.PushBack({ 235,209,13,31 });
+	bullet_laser2.anim.PushBack({ 235,209,13,31 });
+	bullet_laser2.anim.PushBack({ 235,209,13,31 });
+	bullet_laser2.anim.PushBack({ 235,209,13,31 });
+	bullet_laser2.anim.PushBack({ 235,209,13,31 });
+	bullet_laser2.anim.PushBack({ 235,209,13,31 });
+	bullet_laser2.anim.PushBack({ 235,209,13,31 });
+	bullet_laser2.anim.PushBack({ 235,209,13,31 });
+	/*bullet_laser2.anim.PushBack({ 441,129,16,47 });
 	bullet_laser2.anim.PushBack({ 459,129,17,47 });
 	bullet_laser2.anim.PushBack({ 478,129,17,47 });
 	bullet_laser2.anim.PushBack({ 441,178,18,47 });
-	bullet_laser2.anim.PushBack({ 461,178,18,47 });
-	bullet_laser2.anim.speed = 0.3f;
+	bullet_laser2.anim.PushBack({ 461,178,18,47 });*/
+	bullet_laser2.anim.speed = 0.15f;
 	bullet_laser2.speed.x = 5;
 	bullet_laser2.life = 1500;
 	bullet_laser2.texture = 0;
+	bullet_laser2.fx = 6;
 
 	pilot_dying.anim.PushBack({ 243,571,12,16 });
 	pilot_dying.anim.PushBack({ 260,574,13,16 });
