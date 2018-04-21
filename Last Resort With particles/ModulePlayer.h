@@ -53,7 +53,7 @@ public:
 	Collider *PlayerCollider = nullptr;
 	BULLET_STATE bullet_state=BULLET_NO_TYPE;
 
-	uint score_p1 = 0;	
+	int score_p1 = 0;	
 	int lives = 0;
 	bool alive = true; 
 	bool death_played = false;
