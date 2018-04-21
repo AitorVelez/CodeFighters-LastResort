@@ -7,6 +7,7 @@
 #include "ModuleParticles.h"
 #include "ModuleInput.h"
 #include "ModuleRender.h"
+#include "Enemy.h"
 #define TANKWIDTH 157
 #define TANKHEIGHT 64
 Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
@@ -52,13 +53,13 @@ Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
 void Enemy_Tank::Move()
 {
 
-	/*if (App->background->bgpos >= original_x - SCREEN_WIDTH -500 && App->background->bgpos < original_x +500 ) {           // IT SHOULD APPEAR WITH THE SAME SPEED AS BG DEPTH 1 
+	if (App->background->bgpos < original_x + SCREEN_WIDTH) {           // IT SHOULD APPEAR WITH THE SAME SPEED AS BG DEPTH 1 
 		position.x += 0.4875f;                        
-	}*/
-	if (App->background->bgpos >= original_x && App->background->bgpos <= original_x + SCREEN_WIDTH) {
+	}
+	else if (App->background->bgpos >= original_x + 300 && App->background->bgpos <= original_x + SCREEN_WIDTH*2) {
 		position.x += 1.5f;
 	}
-	else if(App->background->bgpos > original_x + SCREEN_WIDTH  && App->background->bgpos < 8350) {      // STAY
+	else if(App->background->bgpos > original_x + SCREEN_WIDTH*2 && App->background->bgpos < 8350) {      // STAY
 		position.x += 1;
 	}
 	else if (App->background->bgpos >= 8350) {
@@ -113,7 +114,7 @@ void Enemy_Tank::Move()
 			animation3 = &canon2;
 		}
 
-		if (App->player2->position.x >= 0 && App->player->position.y < SCREEN_HEIGHT - TANKHEIGHT && App->player2->position.x <= position.x + TANKWIDTH / 2 - 3 * CHARACTER_WIDTH / 2 - 70) {
+		if (App->player2->position.x >= 0 && App->player2->position.y < SCREEN_HEIGHT - TANKHEIGHT && App->player2->position.x <= position.x + TANKWIDTH / 2 - 3 * CHARACTER_WIDTH / 2 - 70) {
 			animation2 = &canonUpMoreLeft;
 			animation3 = &canon2UpLeft;
 		}
@@ -203,9 +204,23 @@ void Enemy_Tank::Move()
 }
 
 
-void Enemy_Tank::Shoot() {
+void Enemy_Tank::Shoot() {                     // player 1 big canon 
+	speed = 2; 
+	BigBulletDirx = App->player->position.x - (position.x+Anim2Distance.x); 
+	BigBulletDiry = App->player->position.y - (position.y + Anim2Distance.y);
 
 	if (App->player->position.x >= position.x - SCREEN_WIDTH) {
 		App->particles->AddParticle(App->particles->BigTankShot, position.x + Anim2Distance.x, position.y + Anim2Distance.y, COLLIDER_ENEMY_SHOT);
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
