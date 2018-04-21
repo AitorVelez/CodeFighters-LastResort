@@ -25,7 +25,11 @@ void LaserPowerUp::OnCollision(Collider *collider)
 		App->player->bullet_state=LASER1;
 	}
 
+	if (App->player->bullet_state == LASER1) {
+		App->player->bullet_state = LASER2;
+	}
+	
+
 	//si state laser 1 laser 2 
 	//laser 2 no fot re
-
 }

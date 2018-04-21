@@ -283,6 +283,8 @@ bool ModuleBackground::Start()
 
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 300, 112);
 	App->power->AddPowerup(POWERUP_TYPES::SPOWER, 330, 112);
+	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 360, 112);
+
 
 	//ENEMY COCKROACH
 	

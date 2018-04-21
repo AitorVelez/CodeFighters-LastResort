@@ -128,6 +128,17 @@ bool ModuleParticles::Start()
 	firing_laser.life = 1000;
 	firing_laser.texture = 0;
 
+
+	bullet_laser2.anim.PushBack({ 441,129,16,47 });
+	bullet_laser2.anim.PushBack({ 459,129,17,47 });
+	bullet_laser2.anim.PushBack({ 478,129,17,47 });
+	bullet_laser2.anim.PushBack({ 441,178,18,47 });
+	bullet_laser2.anim.PushBack({ 461,178,18,47 });
+	bullet_laser2.anim.speed = 0.3f;
+	bullet_laser2.speed.x = 5;
+	bullet_laser2.life = 700;
+	bullet_laser2.texture = 0;
+
 	SpaceshipAnim.anim.PushBack({ 0,121,111,25 });
 	SpaceshipAnim.anim.PushBack({ 0,146,111,25 });
 	SpaceshipAnim.anim.PushBack({ 0,171,111,25 });
@@ -304,14 +315,18 @@ bool ModuleParticles::Start()
 bool ModuleParticles::CleanUp()
 {
 	LOG("Unloading particles");
-	/*App->textures->Unload(playerPart);
+	
 	App->textures->Unload(BulletsAndLaser);
+
+	/*App->textures->Unload(playerPart);
 	App->textures->Unload(player2Part);
-	App->textures->Unload(Car_Explosion);*/
-	/*App->audio->UnloadChunk(shot);
+	App->textures->Unload(Car_Explosion);
+	App->audio->UnloadChunk(shot);
 	App->audio->UnloadChunk(player_death_sfx);
 	App->audio->UnloadChunk(common_explosion_sfx);
-	App->audio->UnloadChunk(player_showup_sfx);*/
+	App->audio->UnloadChunk(player_showup_sfx);
+
+	*/
 	
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{

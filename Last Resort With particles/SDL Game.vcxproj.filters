@@ -28,9 +28,6 @@
     <ClCompile Include="Globals.cpp">
       <Filter>Core</Filter>
     </ClCompile>
-    <ClCompile Include="LPower.cpp">
-      <Filter>Modules</Filter>
-    </ClCompile>
     <ClCompile Include="ModuleAudio.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
@@ -94,11 +91,14 @@
     <ClCompile Include="Yellow_Car.cpp">
       <Filter>Modules\enemies</Filter>
     </ClCompile>
+    <ClCompile Include="LPower.cpp">
+      <Filter>Modules\Powerups</Filter>
+    </ClCompile>
     <ClCompile Include="Powerup.cpp">
-      <Filter>Modules</Filter>
+      <Filter>Modules\Powerups</Filter>
     </ClCompile>
     <ClCompile Include="SPower.cpp">
-      <Filter>Modules</Filter>
+      <Filter>Modules\Powerups</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -137,9 +137,6 @@
     </ClInclude>
     <ClInclude Include="Path.h">
       <Filter>Containers</Filter>
-    </ClInclude>
-    <ClInclude Include="LPower.h">
-      <Filter>Modules</Filter>
     </ClInclude>
     <ClInclude Include="Module.h">
       <Filter>Modules</Filter>
@@ -207,11 +204,14 @@
     <ClInclude Include="Yellow_Car.h">
       <Filter>Modules\enemies</Filter>
     </ClInclude>
+    <ClInclude Include="LPower.h">
+      <Filter>Modules\Powerups</Filter>
+    </ClInclude>
     <ClInclude Include="Powerup.h">
-      <Filter>Modules</Filter>
+      <Filter>Modules\Powerups</Filter>
     </ClInclude>
     <ClInclude Include="SPower.h">
-      <Filter>Modules</Filter>
+      <Filter>Modules\Powerups</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -226,6 +226,9 @@
     </Filter>
     <Filter Include="Modules\enemies">
       <UniqueIdentifier>{b483b194-13e9-4b65-8163-5fb812ed8a96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Powerups">
+      <UniqueIdentifier>{b81b5089-d277-4b5a-aed3-c2ba95a59e97}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
