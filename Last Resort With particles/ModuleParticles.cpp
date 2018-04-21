@@ -146,7 +146,7 @@ bool ModuleParticles::Start()
 	bullet_laser2_1.anim.speed = 0.3f;
 	bullet_laser2_1.speed.x = 5;
 	bullet_laser2_1.anim.loop = false;
-	bullet_laser2_1.life = 500;
+	bullet_laser2_1.life = 1500;
 	bullet_laser2_1.texture = 0;
 
 	bullet_laser2.anim.PushBack({ 209,209,13,31 });
