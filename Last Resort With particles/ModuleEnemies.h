@@ -17,12 +17,10 @@ enum ENEMY_TYPES
 	NO_TYPE,
 	COCKROACH,
 	RHINO,	
-	LAMELLA,
 	BLUE_CAR,
 	RED_CAR,
 	YELLOW_CAR,
 	TANK,
-	POWERUP,
 };
 
 class Enemy;

@@ -13,11 +13,10 @@ protected:
 	Animation* animation = nullptr;
 	Animation* animation2 = nullptr;
 	Animation* animation3 = nullptr;
-	/*Animation* animation4 = nullptr;
-	Animation* animation5 = nullptr;*/
+	
 	Collider* collider = nullptr;
-
 public:
+	uint hp = 1;
 	fPoint position; 
 	iPoint Anim2Distance;
 	iPoint Anim3Distance;
@@ -33,10 +32,6 @@ public:
 	virtual void Draw(SDL_Texture* sprites);
 	virtual void OnCollision(Collider* collider);
 	virtual void Shoot(); 
-  /*  virtual void ShootStraightPlayerDirX(int PlayerPosX, int EnemyPosX, int SpeedX);
-	int StoredShotDirX; 
-	virtual void ShootStraightPlayerDirY(int PlayerPosY, int EnemyPosY, int SpeedY);
-	int StoredShotDirY;*/
 };
 
 #endif // __ENEMY_H__
