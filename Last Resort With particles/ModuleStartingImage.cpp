@@ -24,7 +24,7 @@ ModuleStartingImage::ModuleStartingImage()
 	
 	currentTime = SDL_GetTicks();
 
-	
+	/*
 	Press.PushBack({ 0,0,138,10 });
 	Press.PushBack({ 0,13,138,10 });
 	Press.PushBack({ 0,27,138,10 });
@@ -36,7 +36,7 @@ ModuleStartingImage::ModuleStartingImage()
 	Press.PushBack({ 0,27,138,10 });
 	Press.PushBack({ 0,13,138,10 });
 	Press.speed = 0.5f;
-	
+	*/
 
 
 	Title1.PushBack({ 0,  0,304,224 });
@@ -51,6 +51,7 @@ ModuleStartingImage::ModuleStartingImage()
 	Title1.PushBack({ 0,  672,304,224 });
 	Title1.PushBack({ 304,672,304,224 });
 	Title1.PushBack({ 608,672,304,224 });
+	Title1.PushBack({ 708,200,304,224 });
 	Title1.speed = 0.5f;
 	Title1.loop = false;
 	
@@ -68,6 +69,7 @@ ModuleStartingImage::ModuleStartingImage()
 	Title2.PushBack({ 0,  672,304,224 });
 	Title2.PushBack({ 304,672,304,224 });
 	Title2.PushBack({ 608,672,304,224 });
+	Title2.PushBack({ 164,809,304,224 });
 	Title2.speed = 0.5f;
 	Title2.loop = false;
 	
@@ -437,7 +439,7 @@ update_status ModuleStartingImage::Update()
 
 
 
-	if (currentTime > lastTime + 5000) {
+	if (currentTime > lastTime + 15000) {
 		if (App->fade->FadeToBlack(App->startimage, App->background, 1.5f))
 			App->audio->FadeMus(750);
 	}
