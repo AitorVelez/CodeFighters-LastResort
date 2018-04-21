@@ -29,12 +29,13 @@ bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
 	chunks[0] = App->audio->LoadChunk("assets/SFX/shot.wav");							// Shot -> fx = 0 
-	chunks[1]= App->audio->LoadChunk("assets/SFX/player_death.wav");					// Death -> fx = 1
+	chunks[1] = App->audio->LoadChunk("assets/SFX/player_death.wav");					// Death -> fx = 1
 	chunks[2] = App->audio->LoadChunk("assets/SFX/Explosion1.wav");						// Common Explosion -> fx = 2
 	chunks[3] = App->audio->LoadChunk("assets/SFX/Showup_sound.wav");					// Player_showup -> fx = 3
 	chunks[4] = App->audio->LoadChunk("assets/SFX/Laser_1.wav");                        // Laser_1 -> fx = 4
 	chunks[5] = App->audio->LoadChunk("assets/SFX/showup_sound.wav");
 	chunks[6] = App->audio->LoadChunk("assets/SFX/Laser_2.wav");
+	chunks[7] = App->audio->LoadChunk("assets/SFX/TankShot.wav");
 
 	textures[0] = App->textures->Load("assets/sprites/main_character.png");			// Texture -> 0
 	textures[1] = App->textures->Load("assets/sprites/SpritesPlayer2.png");			// Texture -> 1
@@ -78,6 +79,7 @@ bool ModuleParticles::Start()
 	BigTankShot.anim.speed = 0.3f; 
 	BigTankShot.life = 10000;
 	BigTankShot.texture = 3;
+	BigTankShot.fx = 7;
 
 	SmallTankShot.anim.PushBack({ 245, 831, 5, 5 });
 	SmallTankShot.anim.PushBack({ 250, 831, 5, 5 });
@@ -87,6 +89,8 @@ bool ModuleParticles::Start()
 	SmallTankShot.speed.x = 2;
 	SmallTankShot.life = 10000;
 	SmallTankShot.texture = 3;
+	SmallTankShot.fx = 7;
+
 	
 	//PowerUp Laser Particle
 

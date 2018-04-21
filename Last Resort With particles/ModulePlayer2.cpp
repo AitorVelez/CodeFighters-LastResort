@@ -11,6 +11,7 @@
 #include "ModuleBackground.h"
 #include "ModulePlayer.h"
 #include "ModuleStageClear.h"
+#include "ModuleUI.h"
 
 #define  SideLimit 15
 #define  TopLimit 2
@@ -122,7 +123,7 @@ bool ModulePlayer2::Start()
 	int i = App->render->camera.x;
 	position.x = App->player->position.x; //50
 	relativeposition.x = App->player->relativeposition.x;
-
+	App->UI->pl2 = true;
 	if ((App->player->position.y + 20) > (SCREEN_HEIGHT - TopLimit))
 	{
 		position.y = App->player->position.y - 20; //175
