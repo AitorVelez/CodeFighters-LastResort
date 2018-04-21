@@ -11,6 +11,8 @@
 #include "ModuleStageClear.h"
 #include "Application.h"
 #include "ModulePlayer2.h"
+#include "Animation.h"
+#include "SDL\include\SDL_timer.h"
 
 ModuleStartingImage::ModuleStartingImage()
 {
@@ -19,7 +21,11 @@ ModuleStartingImage::ModuleStartingImage()
 	StImage.w = SCREEN_WIDTH;
 	StImage.h = SCREEN_HEIGHT;
 
-	/*Press.PushBack({ 0,0,138,10 });
+	
+	currentTime = SDL_GetTicks();
+
+	
+	Press.PushBack({ 0,0,138,10 });
 	Press.PushBack({ 0,13,138,10 });
 	Press.PushBack({ 0,27,138,10 });
 	Press.PushBack({ 0,41,138,10 });
@@ -29,9 +35,9 @@ ModuleStartingImage::ModuleStartingImage()
 	Press.PushBack({ 0,41,138,10 });
 	Press.PushBack({ 0,27,138,10 });
 	Press.PushBack({ 0,13,138,10 });
-	Press.speed = 0.09;*/
-	/*
-	int cont = 0;
+	Press.speed = 0.5f;
+	
+
 
 	Title1.PushBack({ 0,  0,304,224 });
 	Title1.PushBack({ 304,0,304,224 });
@@ -47,9 +53,9 @@ ModuleStartingImage::ModuleStartingImage()
 	Title1.PushBack({ 608,672,304,224 });
 	Title1.speed = 0.5f;
 	Title1.loop = false;
-	cont = 1;
+	
 
-	if () {
+
 	Title2.PushBack({ 0,  0,304,224 });
 	Title2.PushBack({ 304,0,304,224 });
 	Title2.PushBack({ 608,0,304,224 });
@@ -64,10 +70,10 @@ ModuleStartingImage::ModuleStartingImage()
 	Title2.PushBack({ 608,672,304,224 });
 	Title2.speed = 0.5f;
 	Title2.loop = false;
-	cont = 2;
-	}
-
-	if (cont == 2) {
+	
+	
+	
+	
 		Title3.PushBack({ 0,  0,304,224 });
 		Title3.PushBack({ 304,0,304,224 });
 		Title3.PushBack({ 608,0,304,224 });
@@ -82,9 +88,7 @@ ModuleStartingImage::ModuleStartingImage()
 		Title3.PushBack({ 608,672,304,224 });
 		Title3.speed = 0.5f;
 		Title3.loop = false;
-		cont = 3;
-	}
-	if (cont == 3) {
+	
 		Title4.PushBack({ 0,  0,304,224 });
 		Title4.PushBack({ 304,0,304,224 });
 		Title4.PushBack({ 608,0,304,224 });
@@ -99,9 +103,7 @@ ModuleStartingImage::ModuleStartingImage()
 		Title4.PushBack({ 608,672,304,224 });
 		Title4.speed = 0.5f;
 		Title4.loop = false;
-		cont = 4;
-	}
-	if (cont == 4) {
+
 		Title5.PushBack({ 0,  0,304,224 });
 		Title5.PushBack({ 304,0,304,224 });
 		Title5.PushBack({ 608,0,304,224 });
@@ -116,9 +118,7 @@ ModuleStartingImage::ModuleStartingImage()
 		Title5.PushBack({ 608,672,304,224 });
 		Title5.speed = 0.5f;
 		Title5.loop = false;
-		cont = 5;
-	}
-	if (cont == 5) {
+
 		Title6.PushBack({ 0,  0,304,224 });
 		Title6.PushBack({ 304,0,304,224 });
 		Title6.PushBack({ 608,0,304,224 });
@@ -133,9 +133,7 @@ ModuleStartingImage::ModuleStartingImage()
 		Title6.PushBack({ 608,672,304,224 });
 		Title6.speed = 0.5f;
 		Title6.loop = false;
-		cont = 6;
-	}
-	if (cont == 6) {
+
 		Title7.PushBack({ 0,  0,304,224 });
 		Title7.PushBack({ 304,0,304,224 });
 		Title7.PushBack({ 608,0,304,224 });
@@ -150,9 +148,7 @@ ModuleStartingImage::ModuleStartingImage()
 		Title7.PushBack({ 608,672,304,224 });
 		Title7.speed = 0.5f;
 		Title7.loop = false;
-		cont = 7;
-	}
-	if (cont == 7) {
+
 		Title8.PushBack({ 0,  0,304,224 });
 		Title8.PushBack({ 304,0,304,224 });
 		Title8.PushBack({ 608,0,304,224 });
@@ -167,9 +163,7 @@ ModuleStartingImage::ModuleStartingImage()
 		Title8.PushBack({ 608,672,304,224 });
 		Title8.speed = 0.5f;
 		Title8.loop = false;
-		cont = 8;
-	}
-	if (cont == 8) {
+	
 		Title9.PushBack({ 0,  0,304,224 });
 		Title9.PushBack({ 304,0,304,224 });
 		Title9.PushBack({ 608,0,304,224 });
@@ -184,9 +178,7 @@ ModuleStartingImage::ModuleStartingImage()
 		Title9.PushBack({ 608,672,304,224 });
 		Title9.speed = 0.5f;
 		Title9.loop = false;
-		cont = 9;
-	}
-	if (cont == 9) {
+	
 		Title10.PushBack({ 0,  0,304,224 });
 		Title10.PushBack({ 304,0,304,224 });
 		Title10.PushBack({ 608,0,304,224 });
@@ -201,9 +193,7 @@ ModuleStartingImage::ModuleStartingImage()
 		Title10.PushBack({ 608,672,304,224 });
 		Title10.speed = 0.5f;
 		Title10.loop = false;
-		cont = 10;
-	}
-	if (cont == 10) {
+
 		Title11.PushBack({ 0,  0,304,224 });
 		Title11.PushBack({ 304,0,304,224 });
 		Title11.PushBack({ 608,0,304,224 });
@@ -218,9 +208,7 @@ ModuleStartingImage::ModuleStartingImage()
 		Title11.PushBack({ 608,672,304,224 });
 		Title11.speed = 0.5f;
 		Title11.loop = false;
-		cont = 2;
-	}
-	if (cont == 11) {
+	
 		Title12.PushBack({ 0,  0,304,224 });
 		Title12.PushBack({ 304,0,304,224 });
 		Title12.PushBack({ 608,0,304,224 });
@@ -235,9 +223,7 @@ ModuleStartingImage::ModuleStartingImage()
 		Title12.PushBack({ 608,672,304,224 });
 		Title12.speed = 0.5f;
 		Title12.loop = false;
-		cont = 2;
-	}
-	if (cont == 12) {
+
 		Title13.PushBack({ 0,  0,304,224 });
 		Title13.PushBack({ 304,0,304,224 });
 		Title13.PushBack({ 608,0,304,224 });
@@ -252,9 +238,7 @@ ModuleStartingImage::ModuleStartingImage()
 		Title13.PushBack({ 608,672,304,224 });
 		Title13.speed = 0.5f;
 		Title13.loop = false;
-		cont = 2;
-	}
-	if (cont == 13) {
+	
 		Title14.PushBack({ 0,  0,304,224 });
 		Title14.PushBack({ 304,0,304,224 });
 		Title14.PushBack({ 608,0,304,224 });
@@ -269,9 +253,8 @@ ModuleStartingImage::ModuleStartingImage()
 		Title14.PushBack({ 608,672,304,224 });
 		Title14.speed = 0.5f;
 		Title14.loop = false;
-		cont = 14;
-	}
-	if (cont == 14) {
+	
+
 		Title15.PushBack({ 0,  0,304,224 });
 		Title15.PushBack({ 304,0,304,224 });
 		Title15.PushBack({ 608,0,304,224 });
@@ -286,9 +269,9 @@ ModuleStartingImage::ModuleStartingImage()
 		Title15.PushBack({ 608,672,304,224 });
 		Title15.speed = 0.5f;
 		Title15.loop = false;
-		cont = 15;
-	}
-	if (cont == 15) {
+		
+	
+	
 		Title16.PushBack({ 0,  0,304,224 });
 		Title16.PushBack({ 304,0,304,224 });
 		Title16.PushBack({ 608,0,304,224 });
@@ -303,9 +286,9 @@ ModuleStartingImage::ModuleStartingImage()
 		Title16.PushBack({ 608,672,304,224 });
 		Title16.speed = 0.5f;
 		Title16.loop = false;
-		cont = 16;
-	}
-	if (cont == 16) {
+	
+	
+	
 		Title17.PushBack({ 0,  0,304,224 });
 		Title17.PushBack({ 304,0,304,224 });
 		Title17.PushBack({ 608,0,304,224 });
@@ -319,9 +302,9 @@ ModuleStartingImage::ModuleStartingImage()
 		Title17.PushBack({ 304,672,304,224 });
 		Title17.speed = 0.5f;
 		Title17.loop = false;
-		cont = 17;
-	}
-	*/
+	
+	
+	
 }
 
 ModuleStartingImage::~ModuleStartingImage()
@@ -399,23 +382,67 @@ update_status ModuleStartingImage::Update()
 	// Draw everything --------------------------------------	
 	App->render->Blit(TexStImage, 0, 0, &StImage);
 	//App->render->Blit(Starts, 130, 170, &Press.GetCurrentFrame(), 0, false);
-	App->render->Blit(TitleTex1, 0, 0, &Title1.GetCurrentFrame(), 2, false);
-	App->render->Blit(TitleTex2, 0, 0, &Title2.GetCurrentFrame(), 2, false);
-	App->render->Blit(TitleTex3, 0, 0, &Title3.GetCurrentFrame(), 2, false);
-	App->render->Blit(TitleTex4, 0, 0, &Title4.GetCurrentFrame(), 2, false);
-	App->render->Blit(TitleTex5, 0, 0, &Title5.GetCurrentFrame(), 2, false);
-	App->render->Blit(TitleTex6, 0, 0, &Title6.GetCurrentFrame(), 2, false);
-	App->render->Blit(TitleTex7, 0, 0, &Title7.GetCurrentFrame(), 2, false);
-	App->render->Blit(TitleTex8, 0, 0, &Title8.GetCurrentFrame(), 2, false);
-	App->render->Blit(TitleTex9, 0, 0, &Title9.GetCurrentFrame(), 2, false);
-	App->render->Blit(TitleTex10, 0, 0, &Title10.GetCurrentFrame(), 2, false);
-	App->render->Blit(TitleTex11, 0, 0, &Title11.GetCurrentFrame(), 2, false);
-	App->render->Blit(TitleTex12, 0, 0, &Title12.GetCurrentFrame(), 2, false);
-	App->render->Blit(TitleTex13, 0, 0, &Title13.GetCurrentFrame(), 2, false);
-	App->render->Blit(TitleTex14, 0, 0, &Title14.GetCurrentFrame(), 2, false);
-	App->render->Blit(TitleTex15, 0, 0, &Title15.GetCurrentFrame(), 2, false);
-	App->render->Blit(TitleTex16, 0, 0, &Title16.GetCurrentFrame(), 2, false);
-	App->render->Blit(TitleTex16, 0, 0, &Title17.GetCurrentFrame(), 2, false);
+
+
+	if(currentTime>lastTime+200)
+	App->render->Blit(TitleTex1, 0, 0, &Title1.GetCurrentFrame(), 1, false);
+
+	if (Title1.Finished() && Title2.Finished() != true);
+	App->render->Blit(TitleTex2, 0, 0, &Title2.GetCurrentFrame(), 1, false);
+	
+	if (Title2.Finished() && Title3.Finished() != true)
+	App->render->Blit(TitleTex3, 0, 0, &Title3.GetCurrentFrame(), 1, false);
+	
+	if (Title3.Finished() && Title4.Finished() != true)
+	App->render->Blit(TitleTex4, 0, 0, &Title4.GetCurrentFrame(), 1, false);
+	
+	if (Title4.Finished() && Title5.Finished() != true)
+	App->render->Blit(TitleTex5, 0, 0, &Title5.GetCurrentFrame(), 1, false);
+	
+	if (Title5.Finished() && Title6.Finished() != true)
+	App->render->Blit(TitleTex6, 0, 0, &Title6.GetCurrentFrame(), 1, false);
+	
+	if (Title6.Finished() && Title7.Finished() != true)
+	App->render->Blit(TitleTex7, 0, 0, &Title7.GetCurrentFrame(), 1, false);
+	
+	if (Title7.Finished() && Title8.Finished() != true)
+	App->render->Blit(TitleTex8, 0, 0, &Title8.GetCurrentFrame(), 1, false);
+	
+	if (Title8.Finished() && Title9.Finished() != true)
+	App->render->Blit(TitleTex9, 0, 0, &Title9.GetCurrentFrame(), 1, false);
+	
+	if (Title9.Finished() && Title10.Finished() != true)
+	App->render->Blit(TitleTex10, 0, 0, &Title10.GetCurrentFrame(), 1, false);
+	
+	if (Title10.Finished() && Title11.Finished() != true)
+	App->render->Blit(TitleTex11, 0, 0, &Title11.GetCurrentFrame(), 1, false);
+	
+	if (Title11.Finished() && Title12.Finished() != true)
+	App->render->Blit(TitleTex12, 0, 0, &Title12.GetCurrentFrame(), 1, false);
+
+	if (Title12.Finished() && Title13.Finished() != true)
+	App->render->Blit(TitleTex13, 0, 0, &Title13.GetCurrentFrame(), 1, false);
+	
+	if (Title13.Finished() && Title14.Finished() != true)
+	App->render->Blit(TitleTex14, 0, 0, &Title14.GetCurrentFrame(), 1, false);
+	
+	if (Title14.Finished() && Title15.Finished() != true)
+	App->render->Blit(TitleTex15, 0, 0, &Title15.GetCurrentFrame(), 1, false);
+	
+	if (Title15.Finished() && Title16.Finished() != true)
+	App->render->Blit(TitleTex16, 0, 0, &Title16.GetCurrentFrame(), 1, false);
+	
+	if (Title16.Finished() && Title17.Finished() != true)
+	App->render->Blit(TitleTex16, 0, 0, &Title17.GetCurrentFrame(), 1, false);
+
+
+
+	if (currentTime > lastTime + 5000) {
+		if (App->fade->FadeToBlack(App->startimage, App->background, 1.5f))
+			App->audio->FadeMus(750);
+	}
+
+
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
 		if (App->fade->FadeToBlack(App->startimage, App->background, 1.5f))

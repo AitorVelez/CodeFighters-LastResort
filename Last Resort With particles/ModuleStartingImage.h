@@ -8,6 +8,8 @@
 struct SDL_Texture;
 struct Mix_Music;
 
+
+
 class ModuleStartingImage : public Module
 {
 public:
@@ -17,6 +19,10 @@ public:
 	bool Start();
 	update_status Update();
 	bool CleanUp();
+	unsigned int lastTime = 0;
+	unsigned int currentTime=0;
+	
+
 
 public:
 	SDL_Texture* Starts = nullptr;
@@ -41,7 +47,7 @@ public:
 	SDL_Texture* TitleTex17 = nullptr;
 
 
-	//Animation Press;
+	Animation Press;
 	Animation Title1;
 	Animation Title2;
 	Animation Title3;
