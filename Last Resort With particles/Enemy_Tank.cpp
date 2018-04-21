@@ -178,7 +178,7 @@ void Enemy_Tank::Move()
 			animation3 = &canon2;
 		}
 
-		if (App->player2->position.x >= 0 && App->player->position.y < SCREEN_HEIGHT - TANKHEIGHT && App->player2->position.x <= position.x + TANKWIDTH / 2 - 3 * CHARACTER_WIDTH / 2 - 70) {
+		if (App->player2->position.x >= 0 && App->player2->position.y < SCREEN_HEIGHT - TANKHEIGHT && App->player2->position.x <= position.x + TANKWIDTH / 2 - 3 * CHARACTER_WIDTH / 2 - 70) {
 			animation3 = &canon2UpLeft;
 		}
 
@@ -205,7 +205,7 @@ void Enemy_Tank::Move()
 
 void Enemy_Tank::Shoot() {
 
-	if (App->input->keyboard[SDL_SCANCODE_U] == KEY_STATE::KEY_DOWN) {
+	if (App->player->position.x >= position.x - SCREEN_WIDTH) {
 		App->particles->AddParticle(App->particles->BigTankShot, position.x + Anim2Distance.x, position.y + Anim2Distance.y, COLLIDER_ENEMY_SHOT);
 	}
 }
