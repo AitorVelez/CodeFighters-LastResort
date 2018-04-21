@@ -255,14 +255,13 @@ update_status ModulePlayer::Update()
 			App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
 			//App->particles->AddParticle(App->particles->bullet_propulsion, position.x + 31, position.y - 15);
 			if (bullet_state == LASER1) {
- 				App->particles->AddParticle(App->particles->bullet_laser, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
+ 				App->particles->AddParticle(App->particles->bullet_laser, position.x + 31, position.y - 10, COLLIDER_PLAYER_SHOT);
 			}
 			if (bullet_state == LASER2) {
-				App->particles->AddParticle(App->particles->bullet_laser, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 31, position.y - 32, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 45, position.y - 32, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 59, position.y - 32, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 73, position.y - 32, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->bullet_laser, position.x + 31, position.y - 10, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 31, position.y - 24, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 45, position.y - 24, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 59, position.y - 24, COLLIDER_PLAYER_SHOT);
 			}
 
 			
