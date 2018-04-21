@@ -155,18 +155,19 @@ bool ModuleParticles::Start()
 	bullet_laser2.texture = 0;
 	bullet_laser2.fx = 6;
 
-	pilot_dying.anim.PushBack({ 243,571,12,16 });
-	pilot_dying.anim.PushBack({ 260,574,13,16 });
-	pilot_dying.anim.PushBack({ 278,573,14,16 });
-	pilot_dying.anim.PushBack({ 297,572,13,16 });
-	pilot_dying.anim.PushBack({ 315,576,15,16 });
-	pilot_dying.anim.PushBack({ 335,573,12,16 });
-	pilot_dying.anim.PushBack({ 352,571,11,16 });
-	pilot_dying.anim.PushBack({ 368,571,12,16 });
-	pilot_dying.anim.speed = 0.1f;
-	pilot_dying.speed.y = 2;
-	pilot_dying.life = 500;
+	pilot_dying.anim.PushBack({ 243,576,12,64 });
+	pilot_dying.anim.PushBack({ 260,576,13,64 });
+	pilot_dying.anim.PushBack({ 278,576,14,64 });
+	pilot_dying.anim.PushBack({ 297,576,13,64 });
+	pilot_dying.anim.PushBack({ 315,576,15,64 });
+	pilot_dying.anim.PushBack({ 335,576,12,64 });
+	pilot_dying.anim.PushBack({ 352,576,11,64 });
+	pilot_dying.anim.PushBack({ 368,576,12,64 });
+	pilot_dying.anim.speed = 0.15f;
+	pilot_dying.speed.x = 2;
+	pilot_dying.life = 900;
 	pilot_dying.texture = 3;
+	pilot_dying.anim.loop = false;
 
 
 	SpaceshipAnim.anim.PushBack({ 0,121,111,25 });
