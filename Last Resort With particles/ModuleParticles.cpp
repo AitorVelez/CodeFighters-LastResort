@@ -31,7 +31,7 @@ bool ModuleParticles::Start()
 	chunks[0] = App->audio->LoadChunk("assets/SFX/shot.wav");							// Shot -> fx = 0 
 	chunks[1]= App->audio->LoadChunk("assets/SFX/player_death.wav");					// Death -> fx = 1
 	chunks[2] = App->audio->LoadChunk("assets/SFX/Explosion1.wav");						// Common Explosion -> fx = 2
-	chunks[3] = App->audio->LoadChunk("assets/SFX/player_showup.WAV");					// Player_showup -> fx = 3
+	chunks[3] = App->audio->LoadChunk("assets/SFX/Showup_sound.wav");					// Player_showup -> fx = 3
 	chunks[4] = App->audio->LoadChunk("assets/SFX/Laser_1.wav");                        // Laser_1 -> fx = 4
 
 	textures[0] = App->textures->Load("assets/sprites/main_character.png");			// Texture -> 0
@@ -98,20 +98,20 @@ bool ModuleParticles::Start()
 
 	
 
-	SpaceshipAnim.anim.PushBack({ 0,121,111,25 });
-	SpaceshipAnim.anim.PushBack({ 0,146,111,25 });
-	SpaceshipAnim.anim.PushBack({ 0,171,111,25 });
-	SpaceshipAnim.anim.PushBack({ 0,196,111,25 });
-	SpaceshipAnim.anim.PushBack({ 0,221,111,25 });
-	SpaceshipAnim.anim.PushBack({ 0,246,111,25 });
-	SpaceshipAnim.anim.PushBack({ 0,271,111,25 });
-	SpaceshipAnim.anim.PushBack({ 0,296,111,25 });
-	SpaceshipAnim.anim.PushBack({ 0,321,111,25 });
-	SpaceshipAnim.anim.PushBack({ 0,346,111,25 });
-	SpaceshipAnim.anim.PushBack({ 0,371,111,25 });
-	SpaceshipAnim.anim.PushBack({ 0,396,111,25 });
-	SpaceshipAnim.anim.PushBack({ 0,421,111,25 });
-	SpaceshipAnim.anim.PushBack({ 0,446,111,25 });
+	//SpaceshipAnim.anim.PushBack({ 0,121,111,25 });
+	//SpaceshipAnim.anim.PushBack({ 0,146,111,25 });
+	//SpaceshipAnim.anim.PushBack({ 0,171,111,25 });
+	//SpaceshipAnim.anim.PushBack({ 0,196,111,25 });
+	//SpaceshipAnim.anim.PushBack({ 0,221,111,25 });
+	//SpaceshipAnim.anim.PushBack({ 0,246,111,25 });
+	//SpaceshipAnim.anim.PushBack({ 0,271,111,25 });
+	//SpaceshipAnim.anim.PushBack({ 0,296,111,25 });
+	//SpaceshipAnim.anim.PushBack({ 0,321,111,25 });
+	//SpaceshipAnim.anim.PushBack({ 0,346,111,25 });
+	//SpaceshipAnim.anim.PushBack({ 0,371,111,25 });
+	//SpaceshipAnim.anim.PushBack({ 0,396,111,25 });
+	//SpaceshipAnim.anim.PushBack({ 0,421,111,25 });
+	//SpaceshipAnim.anim.PushBack({ 0,446,111,25 });
 	SpaceshipAnim.anim.loop = false;
 	SpaceshipAnim.speed.x = 1;
 	SpaceshipAnim.fx = 3;
