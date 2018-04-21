@@ -67,7 +67,9 @@ public:
 	Particle BigTankShot; 
 	Particle SmallTankShot; 
 
-	Particle carExplosion;
+	Particle Red_Car_Explosion;
+	Particle Blue_Car_Explosion;
+	Particle Yellow_Car_Explosion;
 
 	/*SDL_Texture * player2Part = nullptr;
 	SDL_Texture* Car_Explosion;
