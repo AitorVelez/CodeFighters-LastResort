@@ -17,6 +17,7 @@
 #include "ModulePlayer2.h"
 #include "ModulePowerUp.h"
 #include "ModuleUI.h"
+#include "ModuleFonts.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
@@ -258,6 +259,8 @@ bool ModuleBackground::Start()
 	App->collision->Enable();
 	App->enemies->Enable();
 	App->power->Enable();
+	App->UI->Enable();
+	App->Fonts->Enable();
 
 	//graphics = App->textures->Load("backgroundlvl1v2.png");
 	BackgroundLvl1 = App->textures->Load("assets/sprites/background_lvl1.png");
@@ -423,6 +426,8 @@ bool ModuleBackground::CleanUp()
 	App->collision->Disable();
 
 	App->enemies->Disable();
+	App->Fonts->Disable();
+	App->UI->Disable();
 	return true;
 }
 
