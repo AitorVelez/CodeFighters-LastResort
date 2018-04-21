@@ -337,8 +337,6 @@ bool ModuleParticles::Start()
 	CommonExplosion.anim.speed = 0.5f;
 	CommonExplosion.fx = 2;
 	CommonExplosion.texture = 0;
-	return true;
-
 
 	ball_bullet.anim.PushBack({ 317, 176, 13, 13 });
 	ball_bullet.anim.PushBack({ 332, 176, 13, 13 });
@@ -353,6 +351,7 @@ bool ModuleParticles::Start()
 	ball_bullet.life = 2000;
 	ball_bullet.texture = 0;
 
+	return true; 
 }
 
 // Unload assets
