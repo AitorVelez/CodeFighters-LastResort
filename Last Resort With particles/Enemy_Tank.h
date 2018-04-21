@@ -28,10 +28,13 @@ private:
 	int BigBulletDiry;
 	int speed; 
 	int SmallBulletDirx;
-	int SmallBulletDiry;
-
+	int SmallBulletDiry; 
+	float RelPosx; 
+	float RelPosy;
 	uint current_time = 0;
 	uint last_time = 0;
+	uint current_time2 = 0;
+	uint last_time2 = 0;
 public:
 
 	Enemy_Tank(int x, int y, int HP);

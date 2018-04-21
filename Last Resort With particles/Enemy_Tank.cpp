@@ -14,6 +14,8 @@
 Enemy_Tank::Enemy_Tank(int x, int y, int HP) : Enemy(x, y, HP)
 {
 	HP = 5; 
+	RelPosx = SCREEN_WIDTH; 
+	RelPosy = SCREEN_HEIGHT - TANKHEIGHT;
 
 	Anim2Distance.x = 52; 
 	Anim2Distance.y = -4; 
@@ -57,16 +59,19 @@ void Enemy_Tank::Move()
 {
 
 	if (App->background->bgpos < original_x + SCREEN_WIDTH) {           // IT SHOULD APPEAR WITH THE SAME SPEED AS BG DEPTH 1 
-		position.x += 0.4875f;                        
+		position.x += 0.4875f; 
+		RelPosx -= 0.5125f;
 	}
-	else if (App->background->bgpos >= original_x + 300 && App->background->bgpos <= original_x + SCREEN_WIDTH*2) {
+	else if (App->background->bgpos >= original_x + SCREEN_WIDTH && App->background->bgpos <= original_x + SCREEN_WIDTH*2) {
 		position.x += 1.5f;
+		RelPosx += 0.5f;
 	}
 	else if(App->background->bgpos > original_x + SCREEN_WIDTH*2 && App->background->bgpos < 8350) {      // STAY
-		position.x += 1;
+		position.x += 1; 
 	}
 	else if (App->background->bgpos >= 8350) {
 		position.x += 0.4875f;
+		//RelPosx += 0.4875f;
 	}
 
 
@@ -207,18 +212,42 @@ void Enemy_Tank::Move()
 }
 
 
-void Enemy_Tank::Shoot() {                     // player 1 big canon 
-	speed = 2; 
-	BigBulletDirx = App->player->position.x - (position.x+Anim2Distance.x); 
-	BigBulletDiry = App->player->position.y - (position.y + Anim2Distance.y);
-	App->particles->BigTankShot.speed.x = 0.01*BigBulletDirx;
-	App->particles->BigTankShot.speed.y = 0.01*BigBulletDiry;
+void Enemy_Tank::Shoot() {                     // two player
+	
 
-	current_time = SDL_GetTicks(); 
-	if (current_time> last_time+ 1000) {
-		App->particles->AddParticle(App->particles->BigTankShot, position.x + Anim2Distance.x, position.y + Anim2Distance.y, COLLIDER_ENEMY_SHOT);
-		last_time = current_time; 
+	if (App->player->IsEnabled() == true && App->player2->IsEnabled() == true) {
+		BigBulletDirx = (App->player->relativeposition.x + CHARACTER_WIDTH*2) - (RelPosx + Anim2Distance.x);
+		BigBulletDiry = (App->player->relativeposition.y) - (RelPosy + Anim2Distance.y);
+		SmallBulletDirx = (App->player2->relativeposition.x + CHARACTER_WIDTH*2) - (RelPosx + Anim3Distance.x);
+		SmallBulletDiry = (App->player2->relativeposition.y) - (RelPosy + Anim3Distance.y);
+
+		App->particles->BigTankShot.speed.x = 0.01*BigBulletDirx;
+		App->particles->BigTankShot.speed.y = 0.01*BigBulletDiry;
+		App->particles->SmallTankShot.speed.x = 0.01*SmallBulletDirx;
+		App->particles->SmallTankShot.speed.y = 0.01*SmallBulletDiry;
+
+		current_time = SDL_GetTicks();
+	
+		if (current_time > last_time + 1000) {
+			App->particles->AddParticle(App->particles->BigTankShot, position.x + Anim2Distance.x, position.y + Anim2Distance.y, COLLIDER_ENEMY_SHOT);
+			last_time = current_time;
+		}
+		current_time2 = SDL_GetTicks();
+
+		if (current_time2 > last_time2 + 1000) {
+			App->particles->AddParticle(App->particles->SmallTankShot, position.x + Anim3Distance.x, position.y + Anim3Distance.y, COLLIDER_ENEMY_SHOT);
+			last_time2 = current_time2;
+		}
 	}
+
+
+
+
+
+
+
+
+
 }
 
 
