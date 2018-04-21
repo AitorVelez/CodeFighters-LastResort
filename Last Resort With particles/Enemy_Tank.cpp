@@ -10,8 +10,10 @@
 #include "Enemy.h"
 #define TANKWIDTH 157
 #define TANKHEIGHT 64
-Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
+Enemy_Tank::Enemy_Tank(int x, int y, int HP) : Enemy(x, y, HP)
 {
+	HP = 5; 
+
 	Anim2Distance.x = 52; 
 	Anim2Distance.y = -4; 
 	Anim3Distance.x = 86;

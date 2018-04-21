@@ -10,7 +10,7 @@ private:
 	int original_y; 
 public:
 
-	Blue_Car(int x, int y);
+	Blue_Car(int x, int y, int HP);
 
 	void Move();
 };

@@ -10,7 +10,7 @@ private:
 	int y_original;
 public:
 
-	Enemy_Cockroach(int x, int y);
+	Enemy_Cockroach(int x, int y, int HP);
 
 	void Move();
 };

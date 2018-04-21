@@ -13,7 +13,7 @@ private:
 
 public:
 
-	Enemy_Rhino(int x, int y);
+	Enemy_Rhino(int x, int y, int HP);
 
 	void Move();
 };

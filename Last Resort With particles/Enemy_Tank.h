@@ -30,7 +30,7 @@ private:
 	int SmallBulletDiry;
 public:
 
-	Enemy_Tank(int x, int y);
+	Enemy_Tank(int x, int y, int HP);
 
 	void Move();
 	void Shoot();
