@@ -70,6 +70,7 @@ void Enemy_Tank::Move()
 
 
 	                                                                  // ONLY FOR PLAYER 1
+
 	if (App->player2->IsEnabled() == false && App->player->IsEnabled() == true) {
 		if (App->player->position.x <= position.x + TANKWIDTH / 2 - 3 * CHARACTER_WIDTH / 2 - 70 && App->player->position.y >= SCREEN_HEIGHT - TANKHEIGHT) {              // LEFT BOTTOM
 			animation2 = &canon;
@@ -102,25 +103,27 @@ void Enemy_Tank::Move()
 			animation2 = &canonRight;
 			animation3 = &canon2Right;
 		}
-	}                                                                      // ONLY FOR PLAYER 2
+	}                                                                
+	
+																	// ONLY FOR PLAYER 2
 
-	else if (App->player2->IsEnabled() == true && App->player->IsEnabled() == false) {
-		if (App->player2->position.x < position.x + TANKWIDTH && App->player2->position.y >= SCREEN_HEIGHT - TANKHEIGHT) {              // LEFT BOTTOM
+	if (App->player2->IsEnabled() == true && App->player->IsEnabled() == false) {
+		if (App->player2->position.x <= position.x + TANKWIDTH / 2 - 3 * CHARACTER_WIDTH / 2 - 70 && App->player2->position.y >= SCREEN_HEIGHT - TANKHEIGHT) {              // LEFT BOTTOM
 			animation2 = &canon;
 			animation3 = &canon2;
 		}
 
-		if (App->player2->position.y < SCREEN_HEIGHT - TANKHEIGHT && App->player2->position.x <= position.x + TANKWIDTH / 2 - 3 * CHARACTER_WIDTH / 2) {
+		if (App->player2->position.x >= 0 && App->player->position.y < SCREEN_HEIGHT - TANKHEIGHT && App->player2->position.x <= position.x + TANKWIDTH / 2 - 3 * CHARACTER_WIDTH / 2 - 70) {
 			animation2 = &canonUpMoreLeft;
 			animation3 = &canon2UpLeft;
 		}
 
-		if (App->player2->position.x > position.x + TANKWIDTH / 2 - 3 * CHARACTER_WIDTH / 2 && App->player2->position.x <= position.x + TANKWIDTH / 2 - CHARACTER_WIDTH / 2) {
+		if (App->player2->position.x > position.x + TANKWIDTH / 2 - 3 * CHARACTER_WIDTH - 70 / 2 && App->player2->position.x <= position.x + TANKWIDTH / 2 - CHARACTER_WIDTH / 2 - 40) {
 			animation2 = &canonUpLeft;
 			animation3 = &canon2UpLeft;
 		}
 
-		if (App->player2->position.x > position.x + TANKWIDTH / 2 - CHARACTER_WIDTH / 2 && App->player2->position.x <= position.x + TANKWIDTH / 2 + CHARACTER_WIDTH / 2) { // UP
+		if (App->player2->position.x > position.x + TANKWIDTH / 2 - CHARACTER_WIDTH - 20 / 2 && App->player2->position.x <= position.x + TANKWIDTH / 2 + CHARACTER_WIDTH / 2) { // UP
 			animation2 = &canonUp;
 			animation3 = &canon2Up;
 		}
@@ -138,21 +141,26 @@ void Enemy_Tank::Move()
 		}
 	}
 
-	           // Two player 
-	else if(App->player->IsEnabled() ==true && App->player2->IsEnabled() == true) {                                                   // BIG CANON FOLLOWS PLAYER 1
-		if (App->player->position.x < position.x + TANKWIDTH && App->player->position.y >= SCREEN_HEIGHT - TANKHEIGHT) {              // LEFT BOTTOM
+	                                                                              
+																			// Two player 
+
+
+
+
+	if(App->player->IsEnabled() ==true && App->player2->IsEnabled() == true) {   // BIG CANON FOLLOWS PLAYER 1
+		if (App->player->position.x <= position.x + TANKWIDTH / 2 - 3 * CHARACTER_WIDTH / 2 - 70 && App->player->position.y >= SCREEN_HEIGHT - TANKHEIGHT) {              // LEFT BOTTOM
 			animation2 = &canon;
 		}
 
-		if (App->player->position.y < SCREEN_HEIGHT - TANKHEIGHT && App->player->position.x <= position.x + TANKWIDTH / 2 - 3 * CHARACTER_WIDTH / 2) {
+		if (App->player->position.x >= 0 && App->player->position.y < SCREEN_HEIGHT - TANKHEIGHT && App->player->position.x <= position.x + TANKWIDTH / 2 - 3 * CHARACTER_WIDTH / 2 - 70) {
 			animation2 = &canonUpMoreLeft;
 		}
 
-		if (App->player->position.x > position.x + TANKWIDTH / 2 - 3 * CHARACTER_WIDTH / 2 && App->player->position.x <= position.x + TANKWIDTH / 2 - CHARACTER_WIDTH / 2) {
+		if (App->player->position.x > position.x + TANKWIDTH / 2 - 3 * CHARACTER_WIDTH - 70 / 2 && App->player->position.x <= position.x + TANKWIDTH / 2 - CHARACTER_WIDTH / 2 - 40) {
 			animation2 = &canonUpLeft;
 		}
 
-		if (App->player->position.x > position.x + TANKWIDTH / 2 - CHARACTER_WIDTH / 2 && App->player->position.x <= position.x + TANKWIDTH / 2 + CHARACTER_WIDTH / 2) { // UP
+		if (App->player->position.x > position.x + TANKWIDTH / 2 - CHARACTER_WIDTH - 20 / 2 && App->player->position.x <= position.x + TANKWIDTH / 2 + CHARACTER_WIDTH / 2) { // UP
 			animation2 = &canonUp;
 		}
 		if (App->player->position.x > position.x + TANKWIDTH / 2 + CHARACTER_WIDTH / 2 && App->player->position.x <= position.x + TANKWIDTH / 2 + 3 * CHARACTER_WIDTH / 2) {
@@ -164,21 +172,21 @@ void Enemy_Tank::Move()
 		if (App->player->position.x > position.x + TANKWIDTH && App->player->position.y >= SCREEN_HEIGHT - TANKHEIGHT) {       // RIGHT BOTTOM
 			animation2 = &canonRight;
 		}
-		                                                       // SMALL CANON FOLLOWS PLAYER 2
 
-		if (App->player2->position.x < position.x + TANKWIDTH && App->player2->position.y >= SCREEN_HEIGHT - TANKHEIGHT) {              // LEFT BOTTOM
+		                                                       // SMALL CANON FOLLOWS PLAYER 2
+		if (App->player2->position.x <= position.x + TANKWIDTH / 2 - 3 * CHARACTER_WIDTH / 2 - 70 && App->player2->position.y >= SCREEN_HEIGHT - TANKHEIGHT) {              // LEFT BOTTOM
 			animation3 = &canon2;
 		}
 
-		if (App->player2->position.y < SCREEN_HEIGHT - TANKHEIGHT && App->player2->position.x <= position.x + TANKWIDTH / 2 - 3 * CHARACTER_WIDTH / 2) {
+		if (App->player2->position.x >= 0 && App->player->position.y < SCREEN_HEIGHT - TANKHEIGHT && App->player2->position.x <= position.x + TANKWIDTH / 2 - 3 * CHARACTER_WIDTH / 2 - 70) {
 			animation3 = &canon2UpLeft;
 		}
 
-		if (App->player2->position.x > position.x + TANKWIDTH / 2 - 3 * CHARACTER_WIDTH / 2 && App->player2->position.x <= position.x + TANKWIDTH / 2 - CHARACTER_WIDTH / 2) {
+		if (App->player2->position.x > position.x + TANKWIDTH / 2 - 3 * CHARACTER_WIDTH - 70 / 2 && App->player2->position.x <= position.x + TANKWIDTH / 2 - CHARACTER_WIDTH / 2 - 40) {
 			animation3 = &canon2UpLeft;
 		}
 
-		if (App->player2->position.x > position.x + TANKWIDTH / 2 - CHARACTER_WIDTH / 2 && App->player2->position.x <= position.x + TANKWIDTH / 2 + CHARACTER_WIDTH / 2) { // UP
+		if (App->player2->position.x > position.x + TANKWIDTH / 2 - CHARACTER_WIDTH - 20 / 2 && App->player2->position.x <= position.x + TANKWIDTH / 2 + CHARACTER_WIDTH / 2) { // UP
 			animation3 = &canon2Up;
 		}
 		if (App->player2->position.x > position.x + TANKWIDTH / 2 + CHARACTER_WIDTH / 2 && App->player2->position.x <= position.x + TANKWIDTH / 2 + 3 * CHARACTER_WIDTH / 2) {
