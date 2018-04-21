@@ -56,12 +56,4 @@ void Enemy::Shoot()
 	
 }
 		
-																							//when an enemy is killed there will be shown 2 explosions
-
-//void Enemy::ShootStraightPlayerDirX(int PlayerPosX, int EnemyPosX, int SpeedX) {
-//	StoredShotDirX = (PlayerPosX - EnemyPosX)*SpeedX;
-//}
-//void Enemy::ShootStraightPlayerDirY(int PlayerPosY, int EnemyPosY, int SpeedY) {
-//	StoredShotDirY = (PlayerPosY- EnemyPosY)*SpeedY;
-//}
-//
+	

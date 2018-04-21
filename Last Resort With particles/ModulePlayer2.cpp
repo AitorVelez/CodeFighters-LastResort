@@ -141,6 +141,7 @@ bool ModulePlayer2::Start()
 	App->audio->PlayChunk(App->particles->chunks[5], 1);
 
 	App->background->activ = true;
+	score_p2 = 0; 
 	alive_p2 = true;
 	bullet_state_2 = BULLET_NO_TYPE_2;
 	death_played = false;
@@ -274,14 +275,14 @@ update_status ModulePlayer2::Update()
 			App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
 			App->particles->AddParticle(App->particles->bullet_propulsion, position.x + 31, position.y - 15);
 			if (bullet_state_2 == LASER1_2) {
-				App->particles->AddParticle(App->particles->bullet_laser, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->bullet_laser, position.x + 31, position.y - 12, COLLIDER_PLAYER2_SHOT);
 			}
 			if (bullet_state_2 == LASER2_2) {
-				App->particles->AddParticle(App->particles->bullet_laser, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 45, position.y - 12, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 59, position.y - 12, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 73, position.y - 12, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->bullet_laser, position.x + 31, position.y - 12, COLLIDER_PLAYER2_SHOT);
+				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 26, position.y - 24, COLLIDER_PLAYER2_SHOT);
+				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 40, position.y - 24, COLLIDER_PLAYER2_SHOT);
+				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 54, position.y - 24, COLLIDER_PLAYER2_SHOT);
+				//App->particles->AddParticle(App->particles->bullet_laser2, position.x + 73, position.y - 24, COLLIDER_PLAYER2_SHOT);
 			}
 		}
 
