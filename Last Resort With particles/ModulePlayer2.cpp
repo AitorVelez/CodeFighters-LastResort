@@ -141,9 +141,7 @@ bool ModulePlayer2::Start()
 	graphics = App->textures->Load("assets/sprites/SpritesPlayer2.png"); // arcade version
 	PlayerCollider = App->collision->AddCollider({ position.x,position.y, 32, 11 }, COLLIDER_PLAYER, this);
 	current_animation = &playershowup;
-	show_up_chunk = App->audio->LoadChunk("assets/SFX/player_showup.WAV");
-	App->audio->PlayChunk(show_up_chunk, 1);
-
+	App->audio->PlayChunk(App->particles->chunks[5], 1);
 
 
 	App->background->activ = true;
