@@ -344,15 +344,7 @@ bool ModuleParticles::CleanUp()
 	
 	App->textures->Unload(BulletsAndLaser);
 
-	/*App->textures->Unload(playerPart);
-	App->textures->Unload(player2Part);
-	App->textures->Unload(Car_Explosion);
-	App->audio->UnloadChunk(shot);
-	App->audio->UnloadChunk(player_death_sfx);
-	App->audio->UnloadChunk(common_explosion_sfx);
-	App->audio->UnloadChunk(player_showup_sfx);
 
-	*/
 	
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
