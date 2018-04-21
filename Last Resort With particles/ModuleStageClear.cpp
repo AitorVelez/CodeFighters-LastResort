@@ -30,7 +30,7 @@ bool ModuleStageClear::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	TexStageImage = App->textures->Load("assets/sprites/Stage1Clear.png");
+	TexStageImage = App->textures->Load("assets/sprites/Stage1Clear1.png");
 
 	ClearMus = App->audio->LoadMus("assets/SFX/stage_clear.ogg");
 	App->audio->PlayMus(ClearMus);
