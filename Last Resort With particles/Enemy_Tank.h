@@ -31,6 +31,7 @@ private:
 	int SmallBulletDiry; 
 	float RelPosx; 
 	float RelPosy;
+	bool ReadyToShoot = false; 
 	uint current_time = 0;
 	uint last_time = 0;
 	uint current_time2 = 0;

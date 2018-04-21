@@ -428,7 +428,7 @@ bool ModuleBackground::CleanUp()
 	App->textures->Unload(BackLights);
 	App->textures->Unload(BackLights2);
 	App->textures->Unload(BackLights3);
-
+	App->textures->Unload(PowerupTex);
 	//Free all audio material
 	App->audio->UnloadMus(mus); 
 
