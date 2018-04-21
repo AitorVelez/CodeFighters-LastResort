@@ -31,8 +31,8 @@ bool ModuleParticles::Start()
 	chunks[0] = App->audio->LoadChunk("assets/SFX/shot.wav");							// Shot -> fx = 0 
 	chunks[1]= App->audio->LoadChunk("assets/SFX/player_death.wav");					// Death -> fx = 1
 	chunks[2] = App->audio->LoadChunk("assets/SFX/Explosion1.wav");						// Common Explosion -> fx = 2
-	chunks[3] = App->audio->LoadChunk("assest/SFX/player_showup.WAV");					// Player_showup -> fx = 3
-	
+	chunks[3] = App->audio->LoadChunk("assets/SFX/player_showup.WAV");					// Player_showup -> fx = 3
+	chunks[4] = App->audio->LoadChunk("assets/SFX/Laser_1.wav");                        // Laser_1 -> fx = 4
 
 	textures[0] = App->textures->Load("assets/sprites/main_character.png");			// Texture -> 0
 	textures[1] = App->textures->Load("assets/sprites/SpritesPlayer2.png");			// Texture -> 1
@@ -92,6 +92,7 @@ bool ModuleParticles::Start()
 	bullet_laser.anim.speed = 0.3f;
 	bullet_laser.anim.loop = false;
 	bullet_laser.speed.x = 5;
+	bullet_laser.fx = 4;
 	bullet_laser.life = 1500;
 	bullet_laser.texture = 0;
 
