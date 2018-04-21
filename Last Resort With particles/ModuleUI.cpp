@@ -68,6 +68,8 @@ update_status ModuleUI::Update()
 	que es un char* necesitamos transformar ese int en un char* o algo asi para que se pueda printear*/
 	char score[10];
 	App->player->score_p1;
+	int a;
+	a = App->player->score_p1 + 1000;
 	sprintf_s(score, "%d", App->player->score_p1);
 
 	if (ready == true || stgclr == true) {
@@ -79,6 +81,11 @@ update_status ModuleUI::Update()
 	if ((ready == true && App->background->activ == true) || (stgclr == true && pl2 == true)) {
 		App->render->Blit(P22, 260, 15, &Pl2.GetCurrentFrame(), 0, false);
 		App->render->Blit(P22, 200, 208, &Punit2.GetCurrentFrame(), 0, false);
+
+	}
+
+	if (stgclr) {
+		App->Fonts->BlitText(160, 88, 0, "1000");
 	}
 	return UPDATE_CONTINUE;
 }
