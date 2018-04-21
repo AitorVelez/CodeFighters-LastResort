@@ -65,6 +65,8 @@ bool Application::Init()
 	collision->Disable();
 	enemies->Disable();
 	power->Disable();
+	Fonts->Disable();
+	UI->Disable();
 
 
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)
