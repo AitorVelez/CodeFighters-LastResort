@@ -2,6 +2,7 @@
 #include "Lpower.h"
 #include "ModuleCollision.h"
 #include "ModulePlayer.h"
+#include "ModulePlayer2.h"
 
 LaserPowerUp::LaserPowerUp(int x, int y) : Powerup(x, y)
 {
@@ -27,6 +28,14 @@ void LaserPowerUp::OnCollision(Collider *collider)
 
 	else if (App->player->bullet_state == LASER1) {
 		App->player->bullet_state = LASER2;
+	}
+
+	if (App->player2->bullet_state_2 == BULLET_NO_TYPE_2) {
+		App->player2->bullet_state_2 = LASER1_2;
+	}
+
+	else if (App->player2->bullet_state_2 == LASER1_2) {
+		App->player2->bullet_state_2 = LASER2_2;
 	}
 	
 
