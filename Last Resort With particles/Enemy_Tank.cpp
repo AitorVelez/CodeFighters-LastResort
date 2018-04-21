@@ -248,12 +248,12 @@ void Enemy_Tank::Shoot() {                     // two player
 
 		if (App->player->IsEnabled() == true && App->player2->IsEnabled() == false) {
 			BigBulletDirx = (App->player->relativeposition.x + CHARACTER_WIDTH * 4) - (RelPosx + Anim2Distance.x);
-			if (BigBulletDirx == 0) {
+			if (BigBulletDirx >= -50 && BigBulletDirx <= 50 ) {
 				BigBulletDirx = 100; 
 			}
 			BigBulletDiry = (App->player->relativeposition.y) - (RelPosy + Anim2Distance.y); 
-			if (BigBulletDiry == 0) {
-					BigBulletDirx = 100;
+			if (BigBulletDiry >= -50 && BigBulletDiry <= 50) {
+					BigBulletDiry = 100;
 			}
 
 			SmallBulletDirx = (App->player->relativeposition.x + CHARACTER_WIDTH * 4) - (RelPosx + Anim3Distance.x);
