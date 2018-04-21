@@ -314,8 +314,6 @@ bool ModuleParticles::Start()
 
 	//   TANK BULLETS 
 
-
-
 	CommonExplosion.anim.PushBack({ 393,0,0,16 });//													
 	CommonExplosion.anim.PushBack({ 411,0,20,20 });//
 	CommonExplosion.anim.PushBack({ 433,0,30,20 });//
@@ -335,6 +333,21 @@ bool ModuleParticles::Start()
 	CommonExplosion.fx = 2;
 	CommonExplosion.texture = 0;
 	return true;
+
+
+	ball_bullet.anim.PushBack({ 317, 176, 13, 13 });
+	ball_bullet.anim.PushBack({ 332, 176, 13, 13 });
+	ball_bullet.anim.PushBack({ 317, 191, 13, 13 });
+	ball_bullet.anim.PushBack({ 332, 191, 13, 13 });
+	ball_bullet.anim.PushBack({ 317, 206, 13, 13 });
+	ball_bullet.anim.PushBack({ 332, 206, 13, 13 });
+	ball_bullet.anim.PushBack({ 317, 221, 13, 13 });
+	ball_bullet.anim.PushBack({ 332, 221, 13, 13 });
+	ball_bullet.anim.speed = 0.3f;
+	ball_bullet.anim.loop = true;
+	ball_bullet.life = 2000;
+	ball_bullet.texture = 0;
+
 }
 
 // Unload assets
