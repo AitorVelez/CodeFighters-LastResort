@@ -156,7 +156,7 @@ void ModulePlayer2::OnCollision(Collider * c1, Collider * c2)
 update_status ModulePlayer2::Update()
 {
 	int scroll_speed = 1;
-	int speed = 2;
+
 	if (position.x <= 9150 && alive_p2 == true)
 		position.x += scroll_speed;
 	// player shows up
@@ -243,10 +243,18 @@ update_status ModulePlayer2::Update()
 
 
 		if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_STATE::KEY_DOWN) {
-		
-			App->particles->AddParticle(App->particles->bullet_propulsion, position.x + 31, position.y - 12);
-			App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 9, COLLIDER_PLAYER_SHOT);
-
+			App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
+			//App->particles->AddParticle(App->particles->bullet_propulsion, position.x + 31, position.y - 15);
+			if (bullet_state_2 == LASER1_2) {
+				App->particles->AddParticle(App->particles->bullet_laser, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
+			}
+			if (bullet_state_2 == LASER2_2) {
+				App->particles->AddParticle(App->particles->bullet_laser, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 45, position.y - 12, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 59, position.y - 12, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 73, position.y - 12, COLLIDER_PLAYER_SHOT);
+			}
 		}
 
 		if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {

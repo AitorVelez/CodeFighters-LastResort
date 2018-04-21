@@ -16,7 +16,7 @@ private:
 
 public:
 
-	Enemy_Lamella(int x, int y);
+	Enemy_Lamella(int x, int y, int HP);
 
 	void Move();
 };

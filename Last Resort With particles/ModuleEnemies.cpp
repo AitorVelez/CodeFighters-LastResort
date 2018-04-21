@@ -139,27 +139,27 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		switch (info.type)
 		{
 		case ENEMY_TYPES::COCKROACH:
-			enemies[i] = new Enemy_Cockroach(info.x, info.y);
+			enemies[i] = new Enemy_Cockroach(info.x, info.y, info.HP);
 			break;
 
 		case ENEMY_TYPES::RHINO:
-			enemies[i] = new Enemy_Rhino(info.x, info.y);
+			enemies[i] = new Enemy_Rhino(info.x, info.y, info.HP);
 			break;
 
 		case ENEMY_TYPES::LAMELLA:
-			enemies[i] = new Enemy_Lamella(info.x, info.y);
+			enemies[i] = new Enemy_Lamella(info.x, info.y, info.HP);
 			break;
 		case ENEMY_TYPES::BLUE_CAR:
-			enemies[i] = new Blue_Car(info.x, info.y);
+			enemies[i] = new Blue_Car(info.x, info.y, info.HP);
 			break;
 		case ENEMY_TYPES::RED_CAR:
-			enemies[i] = new Red_Car(info.x, info.y);
+			enemies[i] = new Red_Car(info.x, info.y, info.HP);
 			break;
 		case ENEMY_TYPES::YELLOW_CAR:
-			enemies[i] = new Yellow_Car(info.x, info.y);
+			enemies[i] = new Yellow_Car(info.x, info.y, info.HP);
 			break;
 		case ENEMY_TYPES::TANK:
-			enemies[i] = new Enemy_Tank(info.x, info.y);
+			enemies[i] = new Enemy_Tank(info.x, info.y, info.HP);
 			break;
 
 		}
@@ -175,7 +175,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
 		{
 			enemies[i]->OnCollision(c2);
-			delete enemies[i];
+				delete enemies[i];                                   // IF HP <= 0 DELETE
 			enemies[i] = nullptr;
 			break;
 		}

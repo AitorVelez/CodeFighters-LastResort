@@ -5,7 +5,7 @@
 #include "ModuleRender.h"
 #include "ModuleRender.h"
 
-Enemy::Enemy(float x, float y) : position(x, y)
+Enemy::Enemy(float x, float y, int HP) : position(x, y)
 {}
 
 Enemy::~Enemy()

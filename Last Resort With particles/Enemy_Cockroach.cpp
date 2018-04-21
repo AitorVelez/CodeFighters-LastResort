@@ -3,7 +3,7 @@
 #include "ModuleCollision.h"
 #include "ModuleRender.h"
 
-Enemy_Cockroach::Enemy_Cockroach(int x, int y) : Enemy(x, y)
+Enemy_Cockroach::Enemy_Cockroach(int x, int y, int HP) : Enemy(x, y, HP)
 {
 
 	fly.PushBack({ 9,443,32,16 });

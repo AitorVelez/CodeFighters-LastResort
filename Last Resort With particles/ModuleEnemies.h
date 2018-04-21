@@ -31,6 +31,7 @@ struct EnemyInfo
 {
 	ENEMY_TYPES type = ENEMY_TYPES::NO_TYPE;
 	int x, y;
+	int HP; 
 };
 
 class ModuleEnemies : public Module

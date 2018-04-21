@@ -410,7 +410,12 @@ bool ModuleBackground::CleanUp()
 	App->player->Disable(); 
 	App->player2->Disable();
 	App->particles->Disable(); 
-	
+	App->enemies->Disable();
+	App->Fonts->Disable();
+	App->UI->Disable();
+	App->power->Disable();
+
+
 	//Free all loaded textures
 	App->textures->Unload(BackgroundLvl1);
 	App->textures->Unload(BackgroundLvl1_extra);
@@ -428,9 +433,7 @@ bool ModuleBackground::CleanUp()
 
 	App->collision->Disable();
 
-	App->enemies->Disable();
-	App->Fonts->Disable();
-	App->UI->Disable();
+
 	return true;
 }
 

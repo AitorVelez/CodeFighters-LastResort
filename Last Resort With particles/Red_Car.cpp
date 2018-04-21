@@ -3,7 +3,7 @@
 #include "ModuleCollision.h"
 #include "ModuleRender.h"
 
-Red_Car::Red_Car(int x, int y) : Enemy(x, y)
+Red_Car::Red_Car(int x, int y, int HP) : Enemy(x, y, HP)
 {
 
 	goCarB.PushBack({ 313,666,21,11 });

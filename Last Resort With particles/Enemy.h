@@ -25,7 +25,7 @@ public:
 	iPoint Anim4Distance;
 	iPoint Anim5Distance;
 public:
-	Enemy(float x, float y);
+	Enemy(float x, float y, int HP);
 	virtual ~Enemy();
 
 	const Collider* GetCollider() const;

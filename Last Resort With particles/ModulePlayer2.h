@@ -10,6 +10,15 @@ struct SDL_Texture;
 struct Collider;
 struct Mix_Chunk;
 
+enum BULLET_STATE_2
+{
+	BULLET_NO_TYPE_2 = 1,
+	LASER1_2,
+	LASER2_2,
+};
+
+
+
 class ModulePlayer2 : public Module
 {
 public:
@@ -40,7 +49,10 @@ public:
 	iPoint position;
 	fPoint relativeposition;
 	Collider* PlayerCollider = nullptr;
+	BULLET_STATE_2 bullet_state_2 = BULLET_NO_TYPE_2;
 
+
+	int speed = 2;
 	bool alive_p2 = true;
 	bool death_played = false; // different than player one 
 	bool god_mode = true;

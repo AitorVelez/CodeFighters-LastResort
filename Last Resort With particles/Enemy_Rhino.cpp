@@ -2,7 +2,7 @@
 #include "Enemy_Rhino.h"
 #include "ModuleCollision.h"
 
-Enemy_Rhino::Enemy_Rhino(int x, int y) : Enemy(x, y)
+Enemy_Rhino::Enemy_Rhino(int x, int y, int HP) : Enemy(x, y, HP)
 {
 	fly.PushBack({ 9,290,48,46 });
 	fly.PushBack({ 57,290,48,46 });
