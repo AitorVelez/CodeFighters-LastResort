@@ -297,6 +297,7 @@ update_status ModulePlayer2::Update()
 	// Draw everything --------------------------------------
 	else {
 		if (death_played == false) {
+			App->ball_p2->Disable();
 			App->particles->AddParticle(App->particles->player2_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
 			death_played = true;                   
 		}

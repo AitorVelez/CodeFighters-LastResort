@@ -171,11 +171,10 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
 		{
 			enemies[i]->OnCollision(c2);
-			if (enemies[i]->hp <= 0) {
+			if (enemies[i]->hp <= 0) {			// IF HP <= 0 DELETE
 				delete enemies[i];    
-				if (c2->type == COLLIDER_PLAYER_SHOT) App->player->score_p1 += 100;
-				else if (c2->type == COLLIDER_BALL) App->player->score_p1 += 100;
-				else if (c2->type == COLLIDER_PLAYER2_SHOT) App->player2->score_p2 += 100;// IF HP <= 0 DELETE
+				if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_BALL) App->player->score_p1 += 100;
+				else if (c2->type == COLLIDER_PLAYER2_SHOT || c2->type == COLLIDER_BALL2) App->player2->score_p2 += 100; 
 				enemies[i] = nullptr;
 			}
 			break;
