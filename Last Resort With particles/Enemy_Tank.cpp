@@ -222,6 +222,246 @@ void Enemy_Tank::Shoot() {                     // two player
 			SmallBulletDirx = (App->player2->relativeposition.x + CHARACTER_WIDTH * 4) - (RelPosx + Anim3Distance.x);
 			SmallBulletDiry = (App->player2->relativeposition.y) - (RelPosy + Anim3Distance.y);
 
+			if (BigBulletDirx < 100 && BigBulletDirx > 90) {
+				BigBulletDirx = 210;
+			}
+			if (BigBulletDirx <= 90 && BigBulletDirx > 80) {
+				BigBulletDirx = 200;
+			}
+			if (BigBulletDirx <= 80 && BigBulletDirx > 70) {
+				BigBulletDirx = 190;
+			}
+			if (BigBulletDirx <= 70 && BigBulletDirx > 60) {
+				BigBulletDirx = 180;
+			}
+			if (BigBulletDirx <= 60 && BigBulletDirx > 50) {
+				BigBulletDirx = 170;
+			}
+			if (BigBulletDirx <= 50 && BigBulletDirx > 40) {
+				BigBulletDirx = 160;
+			}
+			if (BigBulletDirx <= 40 && BigBulletDirx > 30) {
+				BigBulletDirx = 150;
+			}
+			if (BigBulletDirx <= 30 && BigBulletDirx > 20) {
+				BigBulletDirx = 130;
+			}
+			if (BigBulletDirx <= 20 && BigBulletDirx >0) {
+				BigBulletDirx = 100;
+			}
+
+			if (BigBulletDirx <= 0 && BigBulletDirx > -10) {
+				BigBulletDirx = -100;
+			}
+			if (BigBulletDirx <= -10 && BigBulletDirx > -20) {
+				BigBulletDirx = -130;
+			}
+			if (BigBulletDirx <= -20 && BigBulletDirx > -30) {
+				BigBulletDirx = -150;
+			}
+			if (BigBulletDirx <= -30 && BigBulletDirx > -40) {
+				BigBulletDirx = -160;
+			}
+			if (BigBulletDirx <= -40 && BigBulletDirx > -50) {
+				BigBulletDirx = -170;
+			}
+			if (BigBulletDirx <= -50 && BigBulletDirx > -60) {
+				BigBulletDirx = -180;
+			}
+			if (BigBulletDirx <= -60 && BigBulletDirx > -70) {
+				BigBulletDirx = -190;
+			}
+			if (BigBulletDirx <= -70 && BigBulletDirx > -80) {
+				BigBulletDirx = -200;
+			}
+			if (BigBulletDirx <= -90) {
+				BigBulletDirx = -210;
+			}
+
+
+			if (BigBulletDiry < 100 && BigBulletDiry > 90) {
+				BigBulletDiry = 210;
+			}
+			if (BigBulletDiry <= 90 && BigBulletDiry > 80) {
+				BigBulletDiry = 200;
+			}
+			if (BigBulletDiry <= 80 && BigBulletDiry > 70) {
+				BigBulletDiry = 190;
+			}
+			if (BigBulletDiry <= 70 && BigBulletDiry > 60) {
+				BigBulletDiry = 180;
+			}
+			if (BigBulletDiry <= 60 && BigBulletDiry > 50) {
+				BigBulletDiry = 170;
+			}
+			if (BigBulletDiry <= 50 && BigBulletDiry > 40) {
+				BigBulletDiry = 160;
+			}
+			if (BigBulletDiry <= 40 && BigBulletDiry > 30) {
+				BigBulletDiry = 150;
+			}
+			if (BigBulletDiry <= 30 && BigBulletDiry > 20) {
+				BigBulletDiry = 130;
+			}
+			if (BigBulletDiry <= 20 && BigBulletDiry >0) {
+				BigBulletDiry = 100;
+			}
+
+			if (BigBulletDiry <= 0 && BigBulletDiry > -10) {
+				BigBulletDiry = -100;
+			}
+			if (BigBulletDiry <= -10 && BigBulletDiry > -20) {
+				BigBulletDiry = -130;
+			}
+			if (BigBulletDiry <= -20 && BigBulletDiry > -30) {
+				BigBulletDiry = -150;
+			}
+			if (BigBulletDiry <= -30 && BigBulletDiry > -40) {
+				BigBulletDiry = -160;
+			}
+			if (BigBulletDiry <= -40 && BigBulletDiry > -50) {
+				BigBulletDiry = -170;
+			}
+			if (BigBulletDiry <= -50 && BigBulletDiry > -60) {
+				BigBulletDiry = -180;
+			}
+			if (BigBulletDiry <= -60 && BigBulletDiry > -70) {
+				BigBulletDiry = -190;
+			}
+			if (BigBulletDiry <= -70 && BigBulletDiry > -80) {
+				BigBulletDiry = -200;
+			}
+			if (BigBulletDiry <= -90) {
+				BigBulletDiry = -210;
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			if (SmallBulletDirx < 100 && SmallBulletDirx > 90) {
+				SmallBulletDirx = 210;
+			}
+			if (SmallBulletDirx <= 90 && SmallBulletDirx > 80) {
+				SmallBulletDirx = 200;
+			}
+			if (SmallBulletDirx <= 80 && SmallBulletDirx > 70) {
+				SmallBulletDirx = 190;
+			}
+			if (SmallBulletDirx <= 70 && SmallBulletDirx > 60) {
+				SmallBulletDirx = 180;
+			}
+			if (SmallBulletDirx <= 60 && SmallBulletDirx > 50) {
+				SmallBulletDirx = 170;
+			}
+			if (SmallBulletDirx <= 50 && SmallBulletDirx > 40) {
+				SmallBulletDirx = 160;
+			}
+			if (SmallBulletDirx <= 40 && SmallBulletDirx > 30) {
+				SmallBulletDirx = 150;
+			}
+			if (SmallBulletDirx <= 30 && SmallBulletDirx > 20) {
+				SmallBulletDirx = 130;
+			}
+			if (SmallBulletDirx <= 20 && SmallBulletDirx >0) {
+				SmallBulletDirx = 100;
+			}
+
+			if (SmallBulletDirx <= 0 && SmallBulletDirx > -10) {
+				SmallBulletDirx = -100;
+			}
+			if (SmallBulletDirx <= -10 && SmallBulletDirx > -20) {
+				SmallBulletDirx = -130;
+			}
+			if (SmallBulletDirx <= -20 && SmallBulletDirx > -30) {
+				SmallBulletDirx = -150;
+			}
+			if (SmallBulletDirx <= -30 && SmallBulletDirx > -40) {
+				SmallBulletDirx = -160;
+			}
+			if (SmallBulletDirx <= -40 && SmallBulletDirx > -50) {
+				SmallBulletDirx = -170;
+			}
+			if (SmallBulletDirx <= -50 && SmallBulletDirx > -60) {
+				SmallBulletDirx = -180;
+			}
+			if (SmallBulletDirx <= -60 && SmallBulletDirx > -70) {
+				SmallBulletDirx = -190;
+			}
+			if (SmallBulletDirx <= -70 && SmallBulletDirx > -80) {
+				SmallBulletDirx = -200;
+			}
+			if (SmallBulletDirx <= -90) {
+				SmallBulletDirx = -210;
+			}
+
+
+			if (SmallBulletDiry < 100 && SmallBulletDiry > 90) {
+				SmallBulletDiry = 210;
+			}
+			if (SmallBulletDiry <= 90 && SmallBulletDiry > 80) {
+				SmallBulletDiry = 200;
+			}
+			if (SmallBulletDiry <= 80 && SmallBulletDiry > 70) {
+				SmallBulletDiry = 190;
+			}
+			if (SmallBulletDiry <= 70 && SmallBulletDiry > 60) {
+				SmallBulletDiry = 180;
+			}
+			if (SmallBulletDiry <= 60 && SmallBulletDiry > 50) {
+				SmallBulletDiry = 170;
+			}
+			if (SmallBulletDiry <= 50 && SmallBulletDiry > 40) {
+				SmallBulletDiry = 160;
+			}
+			if (SmallBulletDiry <= 40 && SmallBulletDiry > 30) {
+				SmallBulletDiry = 150;
+			}
+			if (SmallBulletDiry <= 30 && SmallBulletDiry > 20) {
+				SmallBulletDiry = 130;
+			}
+			if (SmallBulletDiry <= 20 && SmallBulletDiry >0) {
+				SmallBulletDiry = 100;
+			}
+
+			if (SmallBulletDiry <= 0 && SmallBulletDiry > -10) {
+				SmallBulletDiry = -100;
+			}
+			if (SmallBulletDiry <= -10 && SmallBulletDiry > -20) {
+				SmallBulletDiry = -130;
+			}
+			if (SmallBulletDiry <= -20 && SmallBulletDiry > -30) {
+				SmallBulletDiry = -150;
+			}
+			if (SmallBulletDiry <= -30 && SmallBulletDiry > -40) {
+				SmallBulletDiry = -160;
+			}
+			if (SmallBulletDiry <= -40 && SmallBulletDiry > -50) {
+				SmallBulletDiry = -170;
+			}
+			if (SmallBulletDiry <= -50 && SmallBulletDiry > -60) {
+				SmallBulletDiry = -180;
+			}
+			if (SmallBulletDiry <= -60 && SmallBulletDiry > -70) {
+				SmallBulletDiry = -190;
+			}
+			if (SmallBulletDiry <= -70 && SmallBulletDiry > -80) {
+				SmallBulletDiry = -200;
+			}
+			if (SmallBulletDiry <= -90) {
+				SmallBulletDiry = -210;
+			}
+
+
 			App->particles->BigTankShot.speed.x = 0.01*BigBulletDirx;
 			App->particles->BigTankShot.speed.y = 0.01*BigBulletDiry;
 			App->particles->SmallTankShot.speed.x = 0.01*SmallBulletDirx;
@@ -249,9 +489,249 @@ void Enemy_Tank::Shoot() {                     // two player
 		if (App->player->IsEnabled() == true && App->player2->IsEnabled() == false) {
 			BigBulletDirx = (App->player->relativeposition.x + CHARACTER_WIDTH * 4) - (RelPosx + Anim2Distance.x);
 			BigBulletDiry = (App->player->relativeposition.y) - (RelPosy + Anim2Distance.y); 
-
-			SmallBulletDirx = (App->player->relativeposition.x + CHARACTER_WIDTH * 4) - (RelPosx + Anim3Distance.x);
+            SmallBulletDirx = (App->player->relativeposition.x + CHARACTER_WIDTH * 4) - (RelPosx + Anim3Distance.x);
 			SmallBulletDiry = (App->player->relativeposition.y) - (RelPosy + Anim3Distance.y);
+
+			if (BigBulletDirx < 100 && BigBulletDirx > 90) {
+				BigBulletDirx = 210;
+			}
+			if (BigBulletDirx <= 90 && BigBulletDirx > 80) {
+				BigBulletDirx = 200;
+			}
+			if (BigBulletDirx <= 80 && BigBulletDirx > 70) {
+				BigBulletDirx = 190;
+			}
+			if (BigBulletDirx <= 70 && BigBulletDirx > 60) {
+				BigBulletDirx = 180;
+			}
+			if (BigBulletDirx <= 60 && BigBulletDirx > 50) {
+				BigBulletDirx = 170;
+			}
+			if (BigBulletDirx <= 50 && BigBulletDirx > 40) {
+				BigBulletDirx = 160;
+			}
+			if (BigBulletDirx <= 40 && BigBulletDirx > 30) {
+				BigBulletDirx = 150;
+			}
+			if (BigBulletDirx <= 30 && BigBulletDirx > 20) {
+				BigBulletDirx = 130;
+			}
+			if (BigBulletDirx <= 20 && BigBulletDirx >0) {
+				BigBulletDirx = 100;
+			}
+
+			if (BigBulletDirx <= 0 && BigBulletDirx > -10) {
+				BigBulletDirx = -100;
+			}
+			if (BigBulletDirx <= -10 && BigBulletDirx > -20) {
+				BigBulletDirx = -130;
+			}
+			if (BigBulletDirx <= -20 && BigBulletDirx > -30) {
+				BigBulletDirx = -150;
+			}
+			if (BigBulletDirx <= -30 && BigBulletDirx > -40) {
+				BigBulletDirx = -160;
+			}
+			if (BigBulletDirx <= -40 && BigBulletDirx > -50) {
+				BigBulletDirx = -170;
+			}
+			if (BigBulletDirx <= -50 && BigBulletDirx > -60) {
+				BigBulletDirx = -180;
+			}
+			if (BigBulletDirx <= -60 && BigBulletDirx > -70) {
+				BigBulletDirx = -190;
+			}
+			if (BigBulletDirx <= -70 && BigBulletDirx > -80) {
+				BigBulletDirx = -200;
+			}
+			if (BigBulletDirx <= -90) {
+				BigBulletDirx = -210;
+			}
+
+
+			if (BigBulletDiry < 100 && BigBulletDiry > 90) {
+				BigBulletDiry = 210;
+			}
+			if (BigBulletDiry <= 90 && BigBulletDiry > 80) {
+				BigBulletDiry = 200;
+			}
+			if (BigBulletDiry <= 80 && BigBulletDiry > 70) {
+				BigBulletDiry = 190;
+			}
+			if (BigBulletDiry <= 70 && BigBulletDiry > 60) {
+				BigBulletDiry = 180;
+			}
+			if (BigBulletDiry <= 60 && BigBulletDiry > 50) {
+				BigBulletDiry = 170;
+			}
+			if (BigBulletDiry <= 50 && BigBulletDiry > 40) {
+				BigBulletDiry = 160;
+			}
+			if (BigBulletDiry <= 40 && BigBulletDiry > 30) {
+				BigBulletDiry = 150;
+			}
+			if (BigBulletDiry <= 30 && BigBulletDiry > 20) {
+				BigBulletDiry = 130;
+			}
+			if (BigBulletDiry <= 20 && BigBulletDiry >0) {
+				BigBulletDiry = 100;
+			}
+
+			if (BigBulletDiry <= 0 && BigBulletDiry > -10) {
+				BigBulletDiry = -100;
+			}
+			if (BigBulletDiry <= -10 && BigBulletDiry > -20) {
+				BigBulletDiry = -130;
+			}
+			if (BigBulletDiry <= -20 && BigBulletDiry > -30) {
+				BigBulletDiry = -150;
+			}
+			if (BigBulletDiry <= -30 && BigBulletDiry > -40) {
+				BigBulletDiry = -160;
+			}
+			if (BigBulletDiry <= -40 && BigBulletDiry > -50) {
+				BigBulletDiry = -170;
+			}
+			if (BigBulletDiry <= -50 && BigBulletDiry > -60) {
+				BigBulletDiry = -180;
+			}
+			if (BigBulletDiry <= -60 && BigBulletDiry > -70) {
+				BigBulletDiry = -190;
+			}
+			if (BigBulletDiry <= -70 && BigBulletDiry > -80) {
+				BigBulletDiry = -200;
+			}
+			if (BigBulletDiry <= -90) {
+				BigBulletDiry = -210;
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			if (SmallBulletDirx < 100 && SmallBulletDirx > 90) {
+				SmallBulletDirx = 210;
+			}
+			if (SmallBulletDirx <= 90 && SmallBulletDirx > 80) {
+				SmallBulletDirx = 200;
+			}
+			if (SmallBulletDirx <= 80 && SmallBulletDirx > 70) {
+				SmallBulletDirx = 190;
+			}
+			if (SmallBulletDirx <= 70 && SmallBulletDirx > 60) {
+				SmallBulletDirx = 180;
+			}
+			if (SmallBulletDirx <= 60 && SmallBulletDirx > 50) {
+				SmallBulletDirx = 170;
+			}
+			if (SmallBulletDirx <= 50 && SmallBulletDirx > 40) {
+				SmallBulletDirx = 160;
+			}
+			if (SmallBulletDirx <= 40 && SmallBulletDirx > 30) {
+				SmallBulletDirx = 150;
+			}
+			if (SmallBulletDirx <= 30 && SmallBulletDirx > 20) {
+				SmallBulletDirx = 130;
+			}
+			if (SmallBulletDirx <= 20 && SmallBulletDirx >0) {
+				SmallBulletDirx = 100;
+			}
+
+			if (SmallBulletDirx <= 0 && SmallBulletDirx > -10) {
+				SmallBulletDirx = -100;
+			}
+			if (SmallBulletDirx <= -10 && SmallBulletDirx > -20) {
+				SmallBulletDirx = -130;
+			}
+			if (SmallBulletDirx <= -20 && SmallBulletDirx > -30) {
+				SmallBulletDirx = -150;
+			}
+			if (SmallBulletDirx <= -30 && SmallBulletDirx > -40) {
+				SmallBulletDirx = -160;
+			}
+			if (SmallBulletDirx <= -40 && SmallBulletDirx > -50) {
+				SmallBulletDirx = -170;
+			}
+			if (SmallBulletDirx <= -50 && SmallBulletDirx > -60) {
+				SmallBulletDirx = -180;
+			}
+			if (SmallBulletDirx <= -60 && SmallBulletDirx > -70) {
+				SmallBulletDirx = -190;
+			}
+			if (SmallBulletDirx <= -70 && SmallBulletDirx > -80) {
+				SmallBulletDirx = -200;
+			}
+			if (SmallBulletDirx <= -90) {
+				SmallBulletDirx = -210;
+			}
+
+
+			if (SmallBulletDiry < 100 && SmallBulletDiry > 90) {
+				SmallBulletDiry = 210;
+			}
+			if (SmallBulletDiry <= 90 && SmallBulletDiry > 80) {
+				SmallBulletDiry = 200;
+			}
+			if (SmallBulletDiry <= 80 && SmallBulletDiry > 70) {
+				SmallBulletDiry = 190;
+			}
+			if (SmallBulletDiry <= 70 && SmallBulletDiry > 60) {
+				SmallBulletDiry = 180;
+			}
+			if (SmallBulletDiry <= 60 && SmallBulletDiry > 50) {
+				SmallBulletDiry = 170;
+			}
+			if (SmallBulletDiry <= 50 && SmallBulletDiry > 40) {
+				SmallBulletDiry = 160;
+			}
+			if (SmallBulletDiry <= 40 && SmallBulletDiry > 30) {
+				SmallBulletDiry = 150;
+			}
+			if (SmallBulletDiry <= 30 && SmallBulletDiry > 20) {
+				SmallBulletDiry = 130;
+			}
+			if (SmallBulletDiry <= 20 && SmallBulletDiry >0) {
+				SmallBulletDiry = 100;
+			}
+
+			if (SmallBulletDiry <= 0 && SmallBulletDiry > -10) {
+				SmallBulletDiry = -100;
+			}
+			if (SmallBulletDiry <= -10 && SmallBulletDiry > -20) {
+				SmallBulletDiry = -130;
+			}
+			if (SmallBulletDiry <= -20 && SmallBulletDiry > -30) {
+				SmallBulletDiry = -150;
+			}
+			if (SmallBulletDiry <= -30 && SmallBulletDiry > -40) {
+				SmallBulletDiry = -160;
+			}
+			if (SmallBulletDiry <= -40 && SmallBulletDiry > -50) {
+				SmallBulletDiry = -170;
+			}
+			if (SmallBulletDiry <= -50 && SmallBulletDiry > -60) {
+				SmallBulletDiry = -180;
+			}
+			if (SmallBulletDiry <= -60 && SmallBulletDiry > -70) {
+				SmallBulletDiry = -190;
+			}
+			if (SmallBulletDiry <= -70 && SmallBulletDiry > -80) {
+				SmallBulletDiry = -200;
+			}
+			if (SmallBulletDiry <= -90) {
+				SmallBulletDiry = -210;
+			}
+
+
 
 			App->particles->BigTankShot.speed.x = 0.01*BigBulletDirx;
 			App->particles->BigTankShot.speed.y = 0.01*BigBulletDiry;
@@ -283,6 +763,246 @@ void Enemy_Tank::Shoot() {                     // two player
 			SmallBulletDirx = (App->player2->relativeposition.x + CHARACTER_WIDTH * 4) - (RelPosx + Anim3Distance.x);
 			SmallBulletDiry = (App->player2->relativeposition.y) - (RelPosy + Anim3Distance.y);
 
+			if (BigBulletDirx < 100 && BigBulletDirx > 90) {
+				BigBulletDirx = 210;
+			}
+			if (BigBulletDirx <= 90 && BigBulletDirx > 80) {
+				BigBulletDirx = 200;
+			}
+			if (BigBulletDirx <= 80 && BigBulletDirx > 70) {
+				BigBulletDirx = 190;
+			}
+			if (BigBulletDirx <= 70 && BigBulletDirx > 60) {
+				BigBulletDirx = 180;
+			}
+			if (BigBulletDirx <= 60 && BigBulletDirx > 50) {
+				BigBulletDirx = 170;
+			}
+			if (BigBulletDirx <= 50 && BigBulletDirx > 40) {
+				BigBulletDirx = 160;
+			}
+			if (BigBulletDirx <= 40 && BigBulletDirx > 30) {
+				BigBulletDirx = 150;
+			}
+			if (BigBulletDirx <= 30 && BigBulletDirx > 20) {
+				BigBulletDirx = 130;
+			}
+			if (BigBulletDirx <= 20 && BigBulletDirx >0) {
+				BigBulletDirx = 100;
+			}
+
+			if (BigBulletDirx <= 0 && BigBulletDirx > -10) {
+				BigBulletDirx = -100;
+			}
+			if (BigBulletDirx <= -10 && BigBulletDirx > -20) {
+				BigBulletDirx = -130;
+			}
+			if (BigBulletDirx <= -20 && BigBulletDirx > -30) {
+				BigBulletDirx = -150;
+			}
+			if (BigBulletDirx <= -30 && BigBulletDirx > -40) {
+				BigBulletDirx = -160;
+			}
+			if (BigBulletDirx <= -40 && BigBulletDirx > -50) {
+				BigBulletDirx = -170;
+			}
+			if (BigBulletDirx <= -50 && BigBulletDirx > -60) {
+				BigBulletDirx = -180;
+			}
+			if (BigBulletDirx <= -60 && BigBulletDirx > -70) {
+				BigBulletDirx = -190;
+			}
+			if (BigBulletDirx <= -70 && BigBulletDirx > -80) {
+				BigBulletDirx = -200;
+			}
+			if (BigBulletDirx <= -90) {
+				BigBulletDirx = -210;
+			}
+
+
+			if (BigBulletDiry < 100 && BigBulletDiry > 90) {
+				BigBulletDiry = 210;
+			}
+			if (BigBulletDiry <= 90 && BigBulletDiry > 80) {
+				BigBulletDiry = 200;
+			}
+			if (BigBulletDiry <= 80 && BigBulletDiry > 70) {
+				BigBulletDiry = 190;
+			}
+			if (BigBulletDiry <= 70 && BigBulletDiry > 60) {
+				BigBulletDiry = 180;
+			}
+			if (BigBulletDiry <= 60 && BigBulletDiry > 50) {
+				BigBulletDiry = 170;
+			}
+			if (BigBulletDiry <= 50 && BigBulletDiry > 40) {
+				BigBulletDiry = 160;
+			}
+			if (BigBulletDiry <= 40 && BigBulletDiry > 30) {
+				BigBulletDiry = 150;
+			}
+			if (BigBulletDiry <= 30 && BigBulletDiry > 20) {
+				BigBulletDiry = 130;
+			}
+			if (BigBulletDiry <= 20 && BigBulletDiry >0) {
+				BigBulletDiry = 100;
+			}
+
+			if (BigBulletDiry <= 0 && BigBulletDiry > -10) {
+				BigBulletDiry = -100;
+			}
+			if (BigBulletDiry <= -10 && BigBulletDiry > -20) {
+				BigBulletDiry = -130;
+			}
+			if (BigBulletDiry <= -20 && BigBulletDiry > -30) {
+				BigBulletDiry = -150;
+			}
+			if (BigBulletDiry <= -30 && BigBulletDiry > -40) {
+				BigBulletDiry = -160;
+			}
+			if (BigBulletDiry <= -40 && BigBulletDiry > -50) {
+				BigBulletDiry = -170;
+			}
+			if (BigBulletDiry <= -50 && BigBulletDiry > -60) {
+				BigBulletDiry = -180;
+			}
+			if (BigBulletDiry <= -60 && BigBulletDiry > -70) {
+				BigBulletDiry = -190;
+			}
+			if (BigBulletDiry <= -70 && BigBulletDiry > -80) {
+				BigBulletDiry = -200;
+			}
+			if (BigBulletDiry <= -90) {
+				BigBulletDiry = -210;
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			if (SmallBulletDirx < 100 && SmallBulletDirx > 90) {
+				SmallBulletDirx = 210;
+			}
+			if (SmallBulletDirx <= 90 && SmallBulletDirx > 80) {
+				SmallBulletDirx = 200;
+			}
+			if (SmallBulletDirx <= 80 && SmallBulletDirx > 70) {
+				SmallBulletDirx = 190;
+			}
+			if (SmallBulletDirx <= 70 && SmallBulletDirx > 60) {
+				SmallBulletDirx = 180;
+			}
+			if (SmallBulletDirx <= 60 && SmallBulletDirx > 50) {
+				SmallBulletDirx = 170;
+			}
+			if (SmallBulletDirx <= 50 && SmallBulletDirx > 40) {
+				SmallBulletDirx = 160;
+			}
+			if (SmallBulletDirx <= 40 && SmallBulletDirx > 30) {
+				SmallBulletDirx = 150;
+			}
+			if (SmallBulletDirx <= 30 && SmallBulletDirx > 20) {
+				SmallBulletDirx = 130;
+			}
+			if (SmallBulletDirx <= 20 && SmallBulletDirx >0) {
+				SmallBulletDirx = 100;
+			}
+
+			if (SmallBulletDirx <= 0 && SmallBulletDirx > -10) {
+				SmallBulletDirx = -100;
+			}
+			if (SmallBulletDirx <= -10 && SmallBulletDirx > -20) {
+				SmallBulletDirx = -130;
+			}
+			if (SmallBulletDirx <= -20 && SmallBulletDirx > -30) {
+				SmallBulletDirx = -150;
+			}
+			if (SmallBulletDirx <= -30 && SmallBulletDirx > -40) {
+				SmallBulletDirx = -160;
+			}
+			if (SmallBulletDirx <= -40 && SmallBulletDirx > -50) {
+				SmallBulletDirx = -170;
+			}
+			if (SmallBulletDirx <= -50 && SmallBulletDirx > -60) {
+				SmallBulletDirx = -180;
+			}
+			if (SmallBulletDirx <= -60 && SmallBulletDirx > -70) {
+				SmallBulletDirx = -190;
+			}
+			if (SmallBulletDirx <= -70 && SmallBulletDirx > -80) {
+				SmallBulletDirx = -200;
+			}
+			if (SmallBulletDirx <= -90) {
+				SmallBulletDirx = -210;
+			}
+
+
+			if (SmallBulletDiry < 100 && SmallBulletDiry > 90) {
+				SmallBulletDiry = 210;
+			}
+			if (SmallBulletDiry <= 90 && SmallBulletDiry > 80) {
+				SmallBulletDiry = 200;
+			}
+			if (SmallBulletDiry <= 80 && SmallBulletDiry > 70) {
+				SmallBulletDiry = 190;
+			}
+			if (SmallBulletDiry <= 70 && SmallBulletDiry > 60) {
+				SmallBulletDiry = 180;
+			}
+			if (SmallBulletDiry <= 60 && SmallBulletDiry > 50) {
+				SmallBulletDiry = 170;
+			}
+			if (SmallBulletDiry <= 50 && SmallBulletDiry > 40) {
+				SmallBulletDiry = 160;
+			}
+			if (SmallBulletDiry <= 40 && SmallBulletDiry > 30) {
+				SmallBulletDiry = 150;
+			}
+			if (SmallBulletDiry <= 30 && SmallBulletDiry > 20) {
+				SmallBulletDiry = 130;
+			}
+			if (SmallBulletDiry <= 20 && SmallBulletDiry >0) {
+				SmallBulletDiry = 100;
+			}
+
+			if (SmallBulletDiry <= 0 && SmallBulletDiry > -10) {
+				SmallBulletDiry = -100;
+			}
+			if (SmallBulletDiry <= -10 && SmallBulletDiry > -20) {
+				SmallBulletDiry = -130;
+			}
+			if (SmallBulletDiry <= -20 && SmallBulletDiry > -30) {
+				SmallBulletDiry = -150;
+			}
+			if (SmallBulletDiry <= -30 && SmallBulletDiry > -40) {
+				SmallBulletDiry = -160;
+			}
+			if (SmallBulletDiry <= -40 && SmallBulletDiry > -50) {
+				SmallBulletDiry = -170;
+			}
+			if (SmallBulletDiry <= -50 && SmallBulletDiry > -60) {
+				SmallBulletDiry = -180;
+			}
+			if (SmallBulletDiry <= -60 && SmallBulletDiry > -70) {
+				SmallBulletDiry = -190;
+			}
+			if (SmallBulletDiry <= -70 && SmallBulletDiry > -80) {
+				SmallBulletDiry = -200;
+			}
+			if (SmallBulletDiry <= -90) {
+				SmallBulletDiry = -210;
+			}
+
+
 			App->particles->BigTankShot.speed.x = 0.01*BigBulletDirx;
 			App->particles->BigTankShot.speed.y = 0.01*BigBulletDiry;
 			App->particles->SmallTankShot.speed.x = 0.01*SmallBulletDirx;
@@ -302,14 +1022,6 @@ void Enemy_Tank::Shoot() {                     // two player
 			}
 		}
 	}
-
-
-
-
-
-
-
-
 
 }
 
