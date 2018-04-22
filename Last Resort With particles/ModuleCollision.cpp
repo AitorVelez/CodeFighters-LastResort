@@ -129,7 +129,6 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_BALL][COLLIDER_BALL] = false; 
 	matrix[COLLIDER_BALL][COLLIDER_GOD] = false;
 
-	matrix[COLLIDER_GOD][COLLIDER_GOD] = false;
 	matrix[COLLIDER_GOD][COLLIDER_PLAYER] = false;
 	matrix[COLLIDER_GOD][COLLIDER_WALL] = true;
 	matrix[COLLIDER_GOD][COLLIDER_ENEMY] = false;
@@ -140,6 +139,7 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_GOD][COLLIDER_POWERUP_L] = true;
 	matrix[COLLIDER_GOD][COLLIDER_POWERUP_S] = true;
 	matrix[COLLIDER_GOD][COLLIDER_BALL] = false;
+	matrix[COLLIDER_GOD][COLLIDER_GOD] = false;
 
 }
 

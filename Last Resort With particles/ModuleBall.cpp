@@ -188,7 +188,16 @@ ModuleBall::ModuleBall()
 	SEE.loop = true;
 	SEE.speed = 0.3f;
 	
-	
+	flying.PushBack({ 244, 246, 22, 22 });
+	flying.PushBack({ 269, 245, 24, 24 });
+	flying.PushBack({ 294, 244, 26, 26 });
+	flying.PushBack({ 321, 245, 24, 24 });
+	flying.PushBack({ 348, 246, 22, 22 });
+	flying.PushBack({ 375, 247, 20, 20 });
+	flying.PushBack({ 402, 248, 18, 18 });
+	flying.loop = true;
+	flying.speed = 0.3f; 
+
 }
 
 bool ModuleBall::Start()
@@ -330,8 +339,7 @@ void ModuleBall::Ball_Launch()
 	{
 		ball_launched = true;
 	}
-	//current_animation = &flying;
-	iPoint original_position = ball_position;
+	current_animation = &flying;
 
 	if (!go_back) {
 		ball_position.x = ball_position.x + 5 * cos(angle*PI / 180);
