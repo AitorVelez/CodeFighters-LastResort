@@ -20,6 +20,7 @@ LaserPowerUp::LaserPowerUp(int x, int y) : Powerup(x, y)
 
 }
 
+
 void LaserPowerUp::OnCollision(Collider *collider)
 {
 	
