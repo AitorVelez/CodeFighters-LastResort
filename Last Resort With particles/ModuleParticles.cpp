@@ -56,8 +56,8 @@ bool ModuleParticles::Start()
 	Releasing_Ball.anim.PushBack({ 331,244,30,30 });
 	Releasing_Ball.anim.PushBack({ 361,244,30,30 });
 	Releasing_Ball.anim.PushBack({ 391,244,30,30 });
-	Releasing_Ball.anim.PushBack({ 221,244,30,30 });
-	Releasing_Ball.anim.PushBack({ 251,244,30,30 });
+	Releasing_Ball.anim.PushBack({ 421,244,30,30 });
+	Releasing_Ball.anim.PushBack({ 451,244,30,30 });
 	Releasing_Ball.anim.speed = 0.3f;
 	Releasing_Ball.anim.loop = true;
 	Releasing_Ball.texture = 5;
