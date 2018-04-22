@@ -97,7 +97,7 @@ bool ModuleParticles::Start()
 	BigTankShot.anim.PushBack({ 206, 762, 13, 13 });
 	BigTankShot.anim.PushBack({ 237, 746, 13, 13 });
 	BigTankShot.anim.speed = 0.3f;
-	BigTankShot.life = 10000;
+	BigTankShot.life = 3000;
 	BigTankShot.texture = 3;
 	BigTankShot.fx = 7;
 
@@ -107,7 +107,7 @@ bool ModuleParticles::Start()
 	SmallTankShot.anim.PushBack({ 240, 831, 5, 5 });
 	SmallTankShot.anim.speed = 0.3f;
 	SmallTankShot.speed.x = 2;
-	SmallTankShot.life = 10000;
+	SmallTankShot.life = 3000;
 	SmallTankShot.texture = 3;
 	SmallTankShot.fx = 7;
 
