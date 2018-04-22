@@ -30,10 +30,7 @@ public:
 	
 public: 
 	Mix_Music* musics[MAX_MUSICS];
-	int last_music = 0;
 	Mix_Chunk* chunks[MAX_CHUNKS];
-	int last_chunk = 0; 
-
 };
 
 #endif //_MODULEAUDIO_H__
