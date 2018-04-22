@@ -50,9 +50,9 @@ public:
 	ModuleFadeToBlack* fade=nullptr;
 	ModulePlayer* player = nullptr;
 	ModulePowerUp* power = nullptr;
+	ModuleBall* ball = nullptr;
 	ModuleUI* UI = nullptr;
 	ModuleFonts* Fonts = nullptr;
-	ModuleBall* ball = nullptr; 
 
 public:
 
