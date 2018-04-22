@@ -357,7 +357,7 @@ bool ModuleStartingImage::Start()
 	TitleTex16 = App->textures->Load("assets/sprites/LastResortTitle/Last_Resort_Title_16.png");
 	TitleTex17 = App->textures->Load("assets/sprites/LastResortTitle/Last_Resort_Title_17.png");
 
-	mus = App->audio->LoadMus("assets/SFX/last_resort_tittle.ogg");
+	//mus = App->audio->LoadMus("assets/SFX/last_resort_tittle.ogg");
 	App->audio->PlayMus(mus);
 	Starts = App->textures->Load("assets/sprites/Start.png");
 

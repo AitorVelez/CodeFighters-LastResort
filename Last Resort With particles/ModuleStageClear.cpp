@@ -33,7 +33,7 @@ bool ModuleStageClear::Start()
 	bool ret = true;
 	TexStageImage = App->textures->Load("assets/sprites/Stage1Clear1.png");
 
-	ClearMus = App->audio->LoadMus("assets/SFX/stage_clear.ogg");
+	//ClearMus = App->audio->LoadMus("assets/SFX/stage_clear.ogg");
 	App->audio->PlayMus(ClearMus);
 	App->UI->Enable();
 	App->render->camera.x = 0;
