@@ -13,40 +13,6 @@ struct SDL_Texture;
 struct Collider;
 struct Particle;
 
-enum BALL_POSITION {
-
-	BALL_POSITION_N = 1,
-	BALL_POSITION_NNE,
-	BALL_POSITION_NE,
-	BALL_POSITION_NEE,
-	BALL_POSITION_E,
-	BALL_POSITION_SEE,
-	BALL_POSITION_SE,
-	BALL_POSITION_SSE,
-	BALL_POSITION_S,
-	BALL_POSITION_SSW,
-	BALL_POSITION_SW,
-	BALL_POSITION_SWW,
-	BALL_POSITION_W,
-	BALL_POSITION_NWW,
-	BALL_POSITION_NW,
-	BALL_POSITION_NNW,
-
-};
-
-enum BALL_AIMING {
-
-	BALL_AIMING_N = 1,
-	BALL_AIMING_NE,
-	BALL_AIMING_E,
-	BALL_AIMING_SE,
-	BALL_AIMING_S,
-	BALL_AIMING_SW,
-	BALL_AIMING_W,
-	BALL_AIMING_NW,
-
-};
-
 class ModuleBall : public Module {
 
 public:
@@ -101,8 +67,6 @@ public:
 	uint charge = 0;
 	iPoint ball_position;
 	iPoint center_player;
-	BALL_POSITION _ball;
-	BALL_AIMING ball_aiming;
 	SDL_Texture* texture;
 };
 

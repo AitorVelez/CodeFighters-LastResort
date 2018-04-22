@@ -7,6 +7,7 @@
 #include "ModuleRender.h"
 #include "ModuleCollision.h"
 #include "ModuleParticles.h"
+#include "ModuleAudio.h"
 
 ModuleBall::ModuleBall()
 {
@@ -270,10 +271,6 @@ void ModuleBall::Ball_Input_Movement()
 			if (angle <360 && angle > 270)
 				angle -= angle_speed;
 		}
-		else
-		{
-			ball_aiming = BALL_AIMING::BALL_AIMING_N;
-		}
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT) {
@@ -338,6 +335,7 @@ void ModuleBall::Ball_Launch()
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_UP)
 	{
 		ball_launched = true;
+		App->audio->PlayChunk(App->particles->chunks[10], 1);
 	}
 	current_animation = &flying;
 
