@@ -177,7 +177,7 @@ bool ModuleIntroNeoGeo::Start()
 	NeoGeoTex9 = App->textures->Load("assets/sprites/NeoGeoTitle/Neo_Geo_Title_9.png");
 	
 	*/
-	mus = App->audio->LoadMus("assets/SFX/musicInit.ogg");
+	mus = App->audio->LoadMus("assets/SFX/musicInit1.ogg");
 	App->audio->PlayMus(mus);
 
 	App->render->camera.x = 0;

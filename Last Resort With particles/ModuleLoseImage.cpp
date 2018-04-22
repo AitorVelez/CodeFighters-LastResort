@@ -31,7 +31,7 @@ bool ModuleLoseImage::Start()
 	bool ret = true;
 	TexLoseImage = App->textures->Load("assets/sprites/GameOver.png");
 
-	LoseMus = App->audio->LoadMus("assets/SFX/game_over.ogg");
+	LoseMus = App->audio->LoadMus("assets/SFX/game_over1.ogg");
 	App->audio->PlayMus(LoseMus);
 
 	App->render->camera.x = 0;
