@@ -337,23 +337,27 @@ bool ModuleParticles::Start()
 
 	//   TANK BULLETS 
 
-	CommonExplosion.anim.PushBack({ 393,0,0,16 });//													
-	CommonExplosion.anim.PushBack({ 411,0,20,20 });//
-	CommonExplosion.anim.PushBack({ 433,0,30,20 });//
-	CommonExplosion.anim.PushBack({ 465,0,26,26 });//
-	CommonExplosion.anim.PushBack({ 393,28,32,22 });//
-	CommonExplosion.anim.PushBack({ 427,28,22,29 });//
-	CommonExplosion.anim.PushBack({ 461,28,32,29 });//
-	CommonExplosion.anim.PushBack({ 393,59,32,30 });//
-	CommonExplosion.anim.PushBack({ 427,59,32,32 });//
-	CommonExplosion.anim.PushBack({ 461,59,32,32 });//
-	CommonExplosion.anim.PushBack({ 393,93,32,30 });//
-	CommonExplosion.anim.PushBack({ 427,93,32,32 });//
-	CommonExplosion.anim.PushBack({ 461,93,32,32 });//
-	CommonExplosion.anim.PushBack({ 393,127,32,32 });//
+	CommonExplosion.anim.PushBack({ 224,928,32,32 });//													
+	CommonExplosion.anim.PushBack({ 256,928,32,32 });//	
+	CommonExplosion.anim.PushBack({ 288,928,32,32 });//	
+	CommonExplosion.anim.PushBack({ 320,928,32,32 });//	
+	CommonExplosion.anim.PushBack({ 352,928,32,32 });//	
+	CommonExplosion.anim.PushBack({ 384,928,32,32 });//	
+	CommonExplosion.anim.PushBack({ 416,928,32,32 });//	
+	CommonExplosion.anim.PushBack({ 448,928,32,32 });//	
+	CommonExplosion.anim.PushBack({ 480,928,32,32 });//	
+	CommonExplosion.anim.PushBack({ 224,960,32,32 });//	
+	CommonExplosion.anim.PushBack({ 256,960,32,32 });//	
+	CommonExplosion.anim.PushBack({ 288,960,32,32 });//	
+	CommonExplosion.anim.PushBack({ 320,960,32,32 });//	
+	CommonExplosion.anim.PushBack({ 352,960,32,32 });//	
+	CommonExplosion.anim.PushBack({ 384,960,32,32 });//	
+	CommonExplosion.anim.PushBack({ 416,960,32,32 });//	
+	CommonExplosion.anim.PushBack({ 448,960,32,32 });//	
+	CommonExplosion.anim.PushBack({ 480,960,32,32 });//		
 	CommonExplosion.anim.loop = false;
 	CommonExplosion.anim.speed = 0.5f;
-	CommonExplosion.texture = 0;
+	CommonExplosion.texture = 3;
 
 	ball_bullet.anim.PushBack({ 317, 176, 13, 13 });
 	ball_bullet.anim.PushBack({ 332, 176, 13, 13 });
