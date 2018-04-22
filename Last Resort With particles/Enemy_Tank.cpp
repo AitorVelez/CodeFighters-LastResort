@@ -58,7 +58,7 @@ Enemy_Tank::Enemy_Tank(int x, int y, int HP) : Enemy(x, y, HP)
 void Enemy_Tank::Move()
 {
 
-	if (App->background->bgpos < original_x + SCREEN_WIDTH) {           // IT SHOULD APPEAR WITH THE SAME SPEED AS BG DEPTH 1 
+	if (App->background->bgpos < original_x + SCREEN_WIDTH) {           
 		position.x += 0.4875f; 
 		RelPosx -= 0.5125f;
 	}
@@ -72,7 +72,7 @@ void Enemy_Tank::Move()
 	}
 	else if (App->background->bgpos >= 8350) {
 		position.x += 0.4875f;
-		//RelPosx += 0.4875f;
+		RelPosx -= 0.5125f;
 	}
 
 
@@ -229,13 +229,13 @@ void Enemy_Tank::Shoot() {                     // two player
 
 			current_time = SDL_GetTicks();
 
-			if (current_time > last_time + 1000) {
+			if (current_time > last_time + 800) {
 				App->particles->AddParticle(App->particles->BigTankShot, position.x + Anim2Distance.x, position.y + Anim2Distance.y, COLLIDER_ENEMY_SHOT);
 				last_time = current_time;
 			}
 			current_time2 = SDL_GetTicks();
 
-			if (current_time2 > last_time2 + 1000) {
+			if (current_time2 > last_time2 + 800) {
 				App->particles->AddParticle(App->particles->SmallTankShot, position.x + Anim3Distance.x, position.y + Anim3Distance.y, COLLIDER_ENEMY_SHOT);
 				last_time2 = current_time2;
 			}
@@ -259,21 +259,13 @@ void Enemy_Tank::Shoot() {                     // two player
 			App->particles->SmallTankShot.speed.y = 0.01*SmallBulletDiry;
 
 			current_time = SDL_GetTicks();
-			int cont = 0; 
-			int delay = 0; 
-			if (current_time > last_time + 500 + delay) {
+			if (current_time > last_time + 800) {
 				App->particles->AddParticle(App->particles->BigTankShot, position.x + Anim2Distance.x, position.y + Anim2Distance.y, COLLIDER_ENEMY_SHOT);
 				last_time = current_time;
-				cont++; 
-				delay = 0; 
-				if (cont == 3) {
-					delay = 300;
-					cont = 0; 
-				}
 			}
 			current_time2 = SDL_GetTicks();
 
-			if (current_time2 > last_time2 + 500) {
+			if (current_time2 > last_time2 + 800) {
 				App->particles->AddParticle(App->particles->SmallTankShot, position.x + Anim3Distance.x, position.y + Anim3Distance.y, COLLIDER_ENEMY_SHOT);
 				last_time2 = current_time2;
 			}
@@ -298,13 +290,13 @@ void Enemy_Tank::Shoot() {                     // two player
 
 			current_time = SDL_GetTicks();
 
-			if (current_time > last_time + 1000) {
+			if (current_time > last_time + 800) {
 				App->particles->AddParticle(App->particles->BigTankShot, position.x + Anim2Distance.x, position.y + Anim2Distance.y, COLLIDER_ENEMY_SHOT);
 				last_time = current_time;
 			}
 			current_time2 = SDL_GetTicks();
 
-			if (current_time2 > last_time2 + 1000) {
+			if (current_time2 > last_time2 + 800) {
 				App->particles->AddParticle(App->particles->SmallTankShot, position.x + Anim3Distance.x, position.y + Anim3Distance.y, COLLIDER_ENEMY_SHOT);
 				last_time2 = current_time2;
 			}
