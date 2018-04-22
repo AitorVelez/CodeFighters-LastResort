@@ -46,8 +46,7 @@ bool ModuleParticles::Start()
 	textures[0] = App->textures->Load("assets/sprites/main_character.png");			// Texture -> 0
 	textures[1] = App->textures->Load("assets/sprites/SpritesPlayer2.png");			// Texture -> 1
 	textures[2] = App->textures->Load("assets/sprites/common_enemies1.png");
-	textures[3] = App->textures->Load("assets/sprites/falling_man.png");
-	textures[4] = App->textures->Load("assets/sprites/blue_ball_axis.png");
+	textures[3] = App->textures->Load("assets/sprites/blue_ball_axis.png");
 
 	Releasing_Ball.anim.PushBack({ 241,244,30,30 });
 	Releasing_Ball.anim.PushBack({ 271,244,30,30 });
@@ -59,7 +58,7 @@ bool ModuleParticles::Start()
 	Releasing_Ball.anim.PushBack({ 451,244,30,30 });
 	Releasing_Ball.anim.speed = 0.3f;
 	Releasing_Ball.anim.loop = true;
-	Releasing_Ball.texture = 4;
+	Releasing_Ball.texture = 3;
 	Releasing_Ball.fx = 10;
 
 	bullet_propulsion.anim.PushBack({ 278, 90,13,12 });
