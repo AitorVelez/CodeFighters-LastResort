@@ -7,7 +7,7 @@
 #include "p2Point.h"
 #include "ModuleCollision.h"
 
-#define MAX_ACTIVE_PARTICLES 100
+#define MAX_ACTIVE_PARTICLES 5500
 #define MAX_PART_CHUNKS 25
 #define MAX_PART_TEXTURES 10
 
@@ -77,16 +77,6 @@ public:
 	Particle Red_Car_Explosion;
 	Particle Blue_Car_Explosion;
 	Particle Yellow_Car_Explosion;
-
-	/*SDL_Texture * player2Part = nullptr;
-	SDL_Texture* Car_Explosion;
-	SDL_Texture * playerPart = nullptr;*/
-
-
-	/*Mix_Chunk* shot = nullptr;
-	Mix_Chunk* player_death_sfx = nullptr;
-	Mix_Chunk* common_explosion_sfx = nullptr;
-	Mix_Chunk* player_showup_sfx = nullptr;*/
 
 	SDL_Texture* textures[MAX_PART_TEXTURES];
 	Mix_Chunk* chunks[MAX_PART_CHUNKS];

@@ -112,18 +112,15 @@ bool ModuleParticles::Start()
 	SmallTankShot.fx = 7;
 
 
-	//PowerUp Laser Particle
+	////PowerUp Laser Particle
 
-	/*bullet_laser.anim.PushBack({ 389,240,56,3 });
+	bullet_laser.anim.PushBack({ 389,240,56,3 });
 	bullet_laser.anim.PushBack({ 447,240,48,3 });
 	bullet_laser.anim.PushBack({ 389,245,64,3 });
 	bullet_laser.anim.PushBack({ 455,245,40,3 });
 	bullet_laser.anim.PushBack({ 389,250,24,3 });
 	bullet_laser.anim.PushBack({ 415,250,16,3 });
-	bullet_laser.anim.PushBack({ 433,250,32,3 });*/
-
-
-
+	bullet_laser.anim.PushBack({ 433,250,32,3 });
 	bullet_laser.anim.PushBack({ 415,250,16,3 });
 	bullet_laser.anim.PushBack({ 389,250,24,3 });
 	bullet_laser.anim.PushBack({ 433,250,32,3 });
@@ -137,6 +134,7 @@ bool ModuleParticles::Start()
 	bullet_laser.fx = 4;
 	bullet_laser.life = 1500;
 	bullet_laser.texture = 0;
+
 
 	firing_laser.anim.PushBack({ 165,80,33,13 });
 	firing_laser.anim.PushBack({ 165,93,33,13 });
@@ -177,11 +175,6 @@ bool ModuleParticles::Start()
 	bullet_laser2.anim.PushBack({ 235,209,13,31 });
 	bullet_laser2.anim.PushBack({ 235,209,13,31 });
 	bullet_laser2.anim.PushBack({ 235,209,13,31 });
-	/*bullet_laser2.anim.PushBack({ 441,129,16,47 });
-	bullet_laser2.anim.PushBack({ 459,129,17,47 });
-	bullet_laser2.anim.PushBack({ 478,129,17,47 });
-	bullet_laser2.anim.PushBack({ 441,178,18,47 });
-	bullet_laser2.anim.PushBack({ 461,178,18,47 });*/
 	bullet_laser2.anim.speed = 0.15f;
 	bullet_laser2.speed.x = 5;
 	bullet_laser2.life = 1500;
@@ -247,7 +240,7 @@ bool ModuleParticles::Start()
 	player_death.fx = 1;
 	player_death.texture = 0;
 
-	Blue_Car_Explosion.anim.PushBack({ 390,510,38,32 });
+	/*Blue_Car_Explosion.anim.PushBack({ 390,510,38,32 });
 	Blue_Car_Explosion.anim.PushBack({ 428,510,38,32 });
 	Blue_Car_Explosion.anim.PushBack({ 466,510,38,32 });
 	Blue_Car_Explosion.anim.PushBack({ 390,542,38,32 });
@@ -321,7 +314,7 @@ bool ModuleParticles::Start()
 	Red_Car_Explosion.anim.loop = false;
 	Red_Car_Explosion.anim.speed = 0.2;
 	Red_Car_Explosion.texture = 3;
-	// player 2 death
+	 player 2 death*/
 
 	player2_death.anim.PushBack({ 286, 35, 33, 11 });
 	player2_death.anim.PushBack({ 286, 62, 32, 12 });

@@ -479,6 +479,7 @@ bool ModuleBackground::CleanUp()
 	App->player->Disable(); 
 	App->player2->Disable();
 	App->collision->Disable();
+	App->collision->CleanUp();
 	App->enemies->Disable();
 	App->Fonts->Disable();
 	App->UI->Disable();
