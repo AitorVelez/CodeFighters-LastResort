@@ -364,17 +364,17 @@ ModuleParticles::~ModuleParticles()
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
-	//chunks[0] = App->audio->LoadChunk("assets/SFX/shot.wav");							// Shot -> fx = 0 
-	//chunks[1] = App->audio->LoadChunk("assets/SFX/player_death.wav");					// Death -> fx = 1
-	//chunks[2] = App->audio->LoadChunk("assets/SFX/Explosion1.wav");						// Common Explosion -> fx = 2
-	//chunks[3] = App->audio->LoadChunk("assets/SFX/Showup_sound.wav");					// Player_showup -> fx = 3
-	//chunks[4] = App->audio->LoadChunk("assets/SFX/Laser_1.wav");                        // Laser_1 -> fx = 4
-	//chunks[5] = App->audio->LoadChunk("assets/SFX/showup_sound.wav");
-	//chunks[6] = App->audio->LoadChunk("assets/SFX/Laser_2.wav");
-	//chunks[7] = App->audio->LoadChunk("assets/SFX/TankShot.wav");
-	//chunks[8] = App->audio->LoadChunk("assets/SFX/Explosion2.wav");
-	//chunks[9] = App->audio->LoadChunk("assets/SFX/Charging shot.wav");
-	//chunks[10] = App->audio->LoadChunk("assets/SFX/Releasing charged shot.wav");
+	chunks[0] = App->audio->LoadChunk("assets/SFX/shot.wav");							// Shot -> fx = 0 
+	chunks[1] = App->audio->LoadChunk("assets/SFX/player_death.wav");					// Death -> fx = 1
+	chunks[2] = App->audio->LoadChunk("assets/SFX/Explosion1.wav");						// Common Explosion -> fx = 2
+	chunks[3] = App->audio->LoadChunk("assets/SFX/Showup_sound.wav");					// Player_showup -> fx = 3
+	chunks[4] = App->audio->LoadChunk("assets/SFX/Laser_1.wav");                        // Laser_1 -> fx = 4
+	chunks[5] = App->audio->LoadChunk("assets/SFX/showup_sound.wav");
+	chunks[6] = App->audio->LoadChunk("assets/SFX/Laser_2.wav");
+	chunks[7] = App->audio->LoadChunk("assets/SFX/TankShot.wav");
+	chunks[8] = App->audio->LoadChunk("assets/SFX/Explosion2.wav");
+	chunks[9] = App->audio->LoadChunk("assets/SFX/Charging shot.wav");
+	chunks[10] = App->audio->LoadChunk("assets/SFX/Releasing charged shot.wav");
 
 	textures[0] = App->textures->Load("assets/sprites/main_character.png");			// Texture -> 0
 	textures[1] = App->textures->Load("assets/sprites/SpritesPlayer2.png");			// Texture -> 1
