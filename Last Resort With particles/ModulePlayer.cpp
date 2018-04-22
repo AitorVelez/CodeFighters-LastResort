@@ -141,7 +141,7 @@ bool ModulePlayer::Start()
 	bullet_state = BULLET_STATE::BULLET_NO_TYPE; 
 	death_played = false; 
 	death.Reset();
-
+	god_mode = false;
 	return ret;
 }
 
@@ -176,6 +176,7 @@ void ModulePlayer::OnCollision(Collider * c1, Collider * c2)
 		if (c2->type == COLLIDER_TYPE::COLLIDER_ENEMY || c2->type == COLLIDER_TYPE::COLLIDER_ENEMY_SHOT)
 		{
 			alive_p1 = false; 
+
 		}
 }
 

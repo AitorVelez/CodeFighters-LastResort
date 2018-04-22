@@ -845,14 +845,18 @@ update_status ModuleBackground::Update()
 	
 
 	// Fade to black
-	if (App->input->keyboard[SDL_SCANCODE_F2] == 1)
-		if(App->fade->FadeToBlack(App->background, App->stageclear, 1.5f))
+	if (App->input->keyboard[SDL_SCANCODE_F2] == 1) {
+		App->player->god_mode = true;
+		App->player2->god_mode = true;
+		if (App->fade->FadeToBlack(App->background, App->stageclear, 1.5f))
 			App->audio->FadeMus(750);
-
-	if (App->input->keyboard[SDL_SCANCODE_F3] == 1) 
+	}
+	if (App->input->keyboard[SDL_SCANCODE_F3] == 1) {
+		App->player->god_mode = true;
+		App->player2->god_mode = true;
 		if (App->fade->FadeToBlack(App->background, App->loseimage, 1.5f))
 			App->audio->FadeMus(750);
-
+	}
 	if (App->input->keyboard[SDL_SCANCODE_2] == 1)
 		App->player2->Enable();
 
@@ -864,6 +868,7 @@ update_status ModuleBackground::Update()
 
 	if (App->player->alive_p1 == false && App->player2->alive_p2 == false) {
 		App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage, 2.5f);
+
 	}
 
 
