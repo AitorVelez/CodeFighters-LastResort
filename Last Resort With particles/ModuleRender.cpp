@@ -60,11 +60,11 @@ update_status ModuleRender::Update()
 		camera.y -= speed;
 	}
 	if (App->input->keyboard[SDL_SCANCODE_L] == KEY_REPEAT) {
-		camera.x -= speed;
+		camera.x += speed;
 		App->background->falscamara -= speed;
 	}
 	if (App->input->keyboard[SDL_SCANCODE_J] == KEY_REPEAT) {
-		camera.x += speed;
+		camera.x -= speed;
 		App->background->falscamara += speed;
 	}
 
@@ -105,8 +105,8 @@ bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, SDL_Rect* section, f
 	SDL_Rect rect;
 	if (use_camera)
 	{
-		rect.x = (int)(camera.x * speed) + x * SCREEN_SIZE;
-		rect.y = (int)(camera.y * speed) + y * SCREEN_SIZE;
+		rect.x = (int)(- camera.x * speed) + x * SCREEN_SIZE;
+		rect.y = (int)(- camera.y * speed) + y * SCREEN_SIZE;
 	}
 	else
 	{
@@ -145,8 +145,8 @@ bool ModuleRender::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uin
 	SDL_Rect rec(rect);
 	if (use_camera)
 	{
-		rec.x = (int)((camera.x * parallax) + rect.x * SCREEN_SIZE);
-		rec.y = (int)((camera.y * parallax) + rect.y * SCREEN_SIZE);
+		rec.x = (int)((- camera.x * parallax) + rect.x * SCREEN_SIZE);
+		rec.y = (int)((- camera.y * parallax) + rect.y * SCREEN_SIZE);
 		rec.w *= SCREEN_SIZE;
 		rec.h *= SCREEN_SIZE;
 	}

@@ -37,7 +37,7 @@ update_status ModulePowerUp::PreUpdate()
 	{
 		if (queue[i].type != POWERUP_TYPES::NO_POWER_TYPE)
 		{
-			if (-queue[i].x * SCREEN_SIZE > App->render->camera.x - (App->render->camera.w * SCREEN_SIZE) - SPAWN_MARGIN)
+			if (queue[i].x * SCREEN_SIZE < App->render->camera.x + (App->render->camera.w * SCREEN_SIZE) + SPAWN_MARGIN)
 			{
 				SpawnPowerup(queue[i]);
 				queue[i].type = POWERUP_TYPES::NO_POWER_TYPE;
@@ -68,7 +68,7 @@ update_status ModulePowerUp::PostUpdate()
 	{
 		if (powerups[i] != nullptr)
 		{
-			if (- powerups[i]->position.x * SCREEN_SIZE >(App->render->camera.x) + SPAWN_MARGIN * 2)
+			if (powerups[i]->position.x * SCREEN_SIZE < (App->render->camera.x) - SPAWN_MARGIN)
 			{
 				LOG("DeSpawning enemy at %d", powerups[i]->position.x * SCREEN_SIZE);
 				delete powerups[i];

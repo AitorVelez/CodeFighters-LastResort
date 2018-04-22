@@ -349,10 +349,6 @@ bool ModuleBackground::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800 + 225, 30);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800 + 260, 30);
 
-
-
-	
-
 	//ENEMY RHINO
 	
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 2700-200+20, 100);
@@ -397,44 +393,6 @@ bool ModuleBackground::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8620, 60);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8610 , 120);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8575 , 135);
-
-
-	/*
-
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 4000 + 35, 90);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 4000 + 70, 60);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 4000 + 105, 90);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 4000 + 120, 60);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 4000 + 155, 90);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 4000 + 190, 60);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 4000 + 225, 90);
-
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 4400, 130);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 4400 + 35, 130);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 4400 + 70, 130);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 4400 + 105, 130);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 4400 + 120, 30);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 4400 + 155, 30);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 4400 + 190, 30);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 4400 + 225, 30);
-
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 4800 + 35, 150);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 4800 + 70, 150);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 4800 + 105, 150);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 4800 + 120, 150);
-
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 5000, 112);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 5100, 112);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 5200, 112);						//THESE RHINOS DONT SPAWN
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 5300, 112);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 5400, 112); 
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 5500, 112);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 5600, 112);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 7000, 112);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 7080, 112);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 8015, 112);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 8040, 112);*/
-	
 
 	// TANK
 
@@ -597,7 +555,7 @@ void ModuleBackground::NotScrolling(int since, int to) {
 
 void ModuleBackground::CameraOscillation(int since, int to, bool up)
 {
-	if (App->render->camera.x >= -to && App->render->camera.x <= -since)
+	if (App->render->camera.x <= to && App->render->camera.x >= since)
 	{
 		if (up) MoveUp();
 		if (!up) MoveDown();
@@ -606,13 +564,13 @@ void ModuleBackground::CameraOscillation(int since, int to, bool up)
 
 void ModuleBackground::RenderCrater()
 {
-	if (App->render->camera.x <= -7500 * SCREEN_SIZE)
+	if (App->render->camera.x <= 7500 * SCREEN_SIZE)
 		App->render->Blit(BackgroundLvl1_extra, craterx, cratery, &crater, 0);
 }
 
 void ModuleBackground::RenderBackgroundSpaceships()
 {
-	if (App->render->camera.x >= -4000 * SCREEN_SIZE) {
+	if (App->render->camera.x <= 4000 * SCREEN_SIZE) {
 		background_spaceship_posx += 1.46;
 		
 		App->render->Blit(BackgroundSpaceshipLvl1, background_spaceship_posx, 90 - 10, &ships.GetCurrentFrame(), depth_2);
@@ -801,11 +759,11 @@ update_status ModuleBackground::Update()
 	falscamara -= scroll_speed;
 
 	if (scroll) {
-		App->render->camera.x -= scroll_speed;
+		App->render->camera.x += scroll_speed;
 		bgpos += 1; 
 	}
 
-	if (App->render->camera.x <= -9100 * SCREEN_SIZE)
+	if (App->render->camera.x >= 9100 * SCREEN_SIZE)
 		scroll = false; 
 
 	// Up and down Conditions 
@@ -864,7 +822,7 @@ update_status ModuleBackground::Update()
 	}
 
 
-	if (App->render->camera.x == -9000 * SCREEN_SIZE) {
+	if (App->render->camera.x == 9000 * SCREEN_SIZE) {
 		App->fade->FadeToBlack((Module*)App->background, (Module*)App->stageclear, 2.5f);
 	}
 

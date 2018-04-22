@@ -4,7 +4,7 @@
 #include "Module.h"
 //#include "Enemy_Cockroach.h"
 
-#define MAX_ENEMIES 8000
+#define MAX_ENEMIES 100
 
 // TODO 2: Add a new enemy: Brown Cookies!
 
