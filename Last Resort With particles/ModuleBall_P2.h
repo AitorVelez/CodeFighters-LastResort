@@ -20,7 +20,7 @@ class ModuleBall_P2 : public Module {
 public:
 
 	ModuleBall_P2();
-	//~ModuleBall();
+	~ModuleBall_P2();
 
 	bool Start();
 	void Ball_Input_Movement();

@@ -18,7 +18,7 @@ class ModuleBall : public Module {
 public:
 
 	ModuleBall();
-	//~ModuleBall();
+	~ModuleBall();
 
 	bool Start();
 	void Ball_Input_Movement();

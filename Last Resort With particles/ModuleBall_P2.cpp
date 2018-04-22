@@ -202,6 +202,10 @@ ModuleBall_P2::ModuleBall_P2()
 
 }
 
+ModuleBall_P2::~ModuleBall_P2()
+{
+}
+
 bool ModuleBall_P2::Start()
 {
 	texture = App->textures->Load("assets/sprites/blue_ball_axis.png");

@@ -74,6 +74,7 @@ void ModuleFonts::UnLoad(int font_id)
 	}
 }
 
+
 // Render text using a bitmap font
 void ModuleFonts::BlitText(int x, int y, int font_id, const char* text) const
 {

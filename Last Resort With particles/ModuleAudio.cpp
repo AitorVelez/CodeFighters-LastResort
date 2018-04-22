@@ -40,7 +40,7 @@ bool ModuleAudio::CleanUp()
 {	
 	Mix_CloseAudio();
 	Mix_Quit(); 
-	return false;
+	return true;
 }
 
 Mix_Music* ModuleAudio::LoadMus(const char * path)

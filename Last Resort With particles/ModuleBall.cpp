@@ -201,6 +201,10 @@ ModuleBall::ModuleBall()
 	flying.loop = true; 
 }
 
+ModuleBall::~ModuleBall()
+{
+}
+
 bool ModuleBall::Start()
 {
 	texture = App->textures->Load("assets/sprites/blue_ball_axis.png");

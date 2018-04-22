@@ -363,8 +363,7 @@ bool ModuleStartingImage::Start()
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
-	App->player->Disable(); 
-	App->player2->Disable();
+
 	return ret;
 }
 
