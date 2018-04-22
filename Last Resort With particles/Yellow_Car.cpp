@@ -14,7 +14,8 @@ Yellow_Car::Yellow_Car(int x, int y, int HP) : Enemy(x, y, HP)
 
 	goCarC.speed = 0.1;
 	animation = &goCarC;
-
+	
+	is_a_car = 3;
 	collider = App->collision->AddCollider({ 0, 0, 18, 11 }, COLLIDER_TYPE::COLLIDER_CAR, (Module*)App->enemies);
 
 }

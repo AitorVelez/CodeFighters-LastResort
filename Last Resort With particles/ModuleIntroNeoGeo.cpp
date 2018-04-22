@@ -209,6 +209,7 @@ bool ModuleIntroNeoGeo::CleanUp()
 // Update: draw background
 update_status ModuleIntroNeoGeo::Update()
 {
+	/*
 	App->render->Blit(NeoGeoTex9, 0, 0, &NeoGeo1.GetCurrentFrame(), 1, false);
 
 	if (NeoGeo9.Finished() && NeoGeo8.Finished() != true);
@@ -233,7 +234,7 @@ update_status ModuleIntroNeoGeo::Update()
 	App->render->Blit(NeoGeoTex2, 0, 0, &NeoGeo2.GetCurrentFrame(), 1, false);
 
 	if (NeoGeo2.Finished() && NeoGeo1.Finished() != true);
-	App->render->Blit(NeoGeoTex1, 0, 0, &NeoGeo1.GetCurrentFrame(), 1, false);
+	App->render->Blit(NeoGeoTex1, 0, 0, &NeoGeo1.GetCurrentFrame(), 1, false);*/
 
 	
 
@@ -242,7 +243,7 @@ update_status ModuleIntroNeoGeo::Update()
 
 
 	// Draw everything --------------------------------------	
-	//App->render->Blit(TexNeoGeoImage, 0, 0, &StImage);
+	App->render->Blit(TexNeoGeoImage, 0, 0, &StImage);
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
 		if (App->fade->FadeToBlack(this, App->startimage, 1.5f))

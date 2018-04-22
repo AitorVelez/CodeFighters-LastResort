@@ -13,8 +13,8 @@ protected:
 	Animation* animation = nullptr;
 	Animation* animation2 = nullptr;
 	Animation* animation3 = nullptr;
-	
 	Collider* collider = nullptr;
+	uint is_a_car = 0; 
 public:
 	uint hp = 1;
 	uint original_hp = 1;
