@@ -214,7 +214,7 @@ ModuleParticles::ModuleParticles()
 	player_death.fx = 1;
 	player_death.texture = 0;
 
-	/*Blue_Car_Explosion.anim.PushBack({ 390,510,38,32 });
+	Blue_Car_Explosion.anim.PushBack({ 390,510,38,32 });
 	Blue_Car_Explosion.anim.PushBack({ 428,510,38,32 });
 	Blue_Car_Explosion.anim.PushBack({ 466,510,38,32 });
 	Blue_Car_Explosion.anim.PushBack({ 390,542,38,32 });
@@ -288,7 +288,7 @@ ModuleParticles::ModuleParticles()
 	Red_Car_Explosion.anim.loop = false;
 	Red_Car_Explosion.anim.speed = 0.2;
 	Red_Car_Explosion.texture = 3;
-	*/
+	
 
 
 	player2_death.anim.PushBack({ 286, 35, 33, 11 });
