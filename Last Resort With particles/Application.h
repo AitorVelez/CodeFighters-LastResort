@@ -3,7 +3,7 @@
 
 #include "Globals.h"
 
-#define NUM_MODULES 20
+#define NUM_MODULES 21
 
 class ModuleWindow;
 class ModuleInput;
@@ -25,6 +25,7 @@ class ModulePlayer;
 class ModulePowerUp;
 class ModuleUI;
 class ModuleBall; 
+class ModuleBall_P2;  
 class ModuleFonts;
 
 
@@ -51,6 +52,7 @@ public:
 	ModulePlayer* player = nullptr;
 	ModulePowerUp* power = nullptr;
 	ModuleBall* ball = nullptr;
+	ModuleBall_P2* ball_p2 = nullptr; 
 	ModuleUI* UI = nullptr;
 	ModuleFonts* Fonts = nullptr;
 

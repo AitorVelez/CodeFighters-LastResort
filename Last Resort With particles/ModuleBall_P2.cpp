@@ -1,6 +1,6 @@
-#include "ModuleBall_2.h"
+#include "ModuleBall_P2.h"
 #include "Application.h"
-#include "ModulePlayer.h"
+#include "ModulePlayer2.h"
 #include "ModuleBackground.h"
 #include "ModuleTextures.h"
 #include "ModuleInput.h"
@@ -8,7 +8,7 @@
 #include "ModuleCollision.h"
 #include "ModuleParticles.h"
 
-ModuleBall::ModuleBall_2()
+ModuleBall_P2::ModuleBall_P2()
 {
 	current_animation = &E;
 
@@ -191,12 +191,12 @@ ModuleBall::ModuleBall_2()
 
 }
 
-bool ModuleBall::Start()
+bool ModuleBall_P2::Start()
 {
 	texture = App->textures->Load("assets/sprites/blue_ball_axis.png");
 
-	ball_position.x = App->player->position.x;
-	ball_position.y = App->player->position.y;
+	ball_position.x = App->player2->position.x;
+	ball_position.y = App->player2->position.y;
 
 	angle = 0;
 	angle_aiming = 0;
@@ -206,7 +206,7 @@ bool ModuleBall::Start()
 	return true;
 }
 
-void ModuleBall::Ball_Input_Movement()
+void ModuleBall_P2::Ball_Input_Movement()
 {
 	if (App->input->keyboard[SDL_SCANCODE_F] == KEY_DOWN)
 	{
@@ -261,10 +261,6 @@ void ModuleBall::Ball_Input_Movement()
 			if (angle <360 && angle > 270)
 				angle -= angle_speed;
 		}
-		else
-		{
-			ball_aiming = BALL_AIMING::BALL_AIMING_N;
-		}
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT) {
@@ -306,7 +302,7 @@ void ModuleBall::Ball_Input_Movement()
 	}
 }
 
-void ModuleBall::Ball_Input_Attack()
+void ModuleBall_P2::Ball_Input_Attack()
 {
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN)
@@ -324,7 +320,7 @@ void ModuleBall::Ball_Input_Attack()
 	}
 }
 
-void ModuleBall::Ball_Launch()
+void ModuleBall_P2::Ball_Launch()
 {
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_UP)
 	{
@@ -359,7 +355,7 @@ void ModuleBall::Ball_Launch()
 	}
 }
 
-void ModuleBall::Ball_Set_Angle()
+void ModuleBall_P2::Ball_Set_Angle()
 {
 	if (angle >= 360) angle = 0;
 	if (angle_aiming >= 360) angle_aiming = 0;
@@ -412,7 +408,7 @@ void ModuleBall::Ball_Set_Angle()
 		current_animation = &NEE;
 }
 
-void ModuleBall::Ball_Set_Position()
+void ModuleBall_P2::Ball_Set_Position()
 {
 	App->particles->ball_bullet.speed.x = (7 * cos(angle_aiming*PI / 180)) + 2;
 	App->particles->ball_bullet.speed.y = 7 * sin(angle_aiming*PI / 180);
@@ -422,10 +418,10 @@ void ModuleBall::Ball_Set_Position()
 }
 
 
-update_status ModuleBall::Update()
+update_status ModuleBall_P2::Update()
 {
-	center_player.x = App->player->position.x + 16;
-	center_player.y = App->player->position.y - 6;
+	center_player.x = App->player2->position.x + 16;
+	center_player.y = App->player2->position.y - 6;
 
 	if (!ball_launched) {
 
@@ -446,7 +442,7 @@ update_status ModuleBall::Update()
 	return update_status::UPDATE_CONTINUE;
 }
 
-bool ModuleBall::CleanUp()
+bool ModuleBall_P2::CleanUp()
 {
 	App->textures->Unload(texture);
 	return true;

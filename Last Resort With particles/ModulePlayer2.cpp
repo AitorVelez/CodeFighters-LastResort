@@ -11,6 +11,7 @@
 #include "ModuleBackground.h"
 #include "ModulePlayer.h"
 #include "ModuleStageClear.h"
+#include "ModuleBall_P2.h"
 #include "ModuleUI.h"
 
 #define  SideLimit 15
@@ -156,7 +157,7 @@ bool ModulePlayer2::CleanUp()
 	LOG("Closing Up Player 2 Module");
 	// Free All textures
 	App->textures->Unload(graphics);
-	
+	App->ball_p2->Disable(); 
 	playershowup.Reset();
 	return true;
 }
@@ -165,6 +166,9 @@ void ModulePlayer2::OnCollision(Collider * c1, Collider * c2)
 {
 	if (c2->type == COLLIDER_TYPE::COLLIDER_POWERUP_L)
 	{
+		if(App->ball_p2->IsEnabled() == false)
+			App->ball_p2->Enable(); 
+
 		if (bullet_state_2 == BULLET_STATE_2::BULLET_NO_TYPE_2)
 			bullet_state_2 = BULLET_STATE_2::LASER1_2;
 
@@ -188,19 +192,7 @@ update_status ModulePlayer2::Update()
 
 	if (position.x <= 9150 && alive_p2 == true)
 		position.x += scroll_speed;
-	// player shows up
-	/*if (App->render->camera.x >= -150) {
-		if (App->render->camera.x >= -40) {
-			current_animation = &playershowup;
-		}
-		else if (App->render->camera.x >= -100) {
-			current_animation = &playershowup2;
-		}
-		else if (App->render->camera.x >= -149) {
-			current_animation = &playershowup3;
-		}
-	}
-*/
+
 	// Input -----
 	if (alive_p2 && playershowup.Finished()) {
 

@@ -18,8 +18,9 @@
 #include "Module.h"
 #include "ModulePlayer2.h"
 #include "ModulePowerUp.h"
-#include "ModuleFonts.h"
 #include "ModuleBall.h"
+#include "ModuleBall_P2.h"
+#include "ModuleFonts.h"
 #include "ModuleUI.h"
 
 Application::Application()
@@ -42,8 +43,9 @@ Application::Application()
 	modules[15] = player = new ModulePlayer();
 	modules[16] = power = new ModulePowerUp();		
 	modules[17] = ball = new ModuleBall();
-	modules[18] = UI = new ModuleUI();
-	modules[19] = Fonts = new ModuleFonts();
+	modules[18] = ball_p2 = new ModuleBall_P2();
+	modules[19] = UI = new ModuleUI();
+	modules[20] = Fonts = new ModuleFonts();
 }	
 
 Application::~Application()
@@ -66,9 +68,10 @@ bool Application::Init()
 	collision->Disable();
 	enemies->Disable();
 	power->Disable();
+	ball->Disable();
+	ball_p2->Disable(); 
 	Fonts->Disable();
 	UI->Disable();
-	ball->Disable(); 
 
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)
 		ret = modules[i]->Init();

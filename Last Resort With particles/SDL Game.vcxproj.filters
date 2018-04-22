@@ -103,7 +103,7 @@
     <ClCompile Include="ModuleBall.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
-    <ClCompile Include="ModuleBall_2.cpp">
+    <ClCompile Include="ModuleBall_P2.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
   </ItemGroup>
@@ -222,7 +222,7 @@
     <ClInclude Include="ModuleBall.h">
       <Filter>Modules</Filter>
     </ClInclude>
-    <ClInclude Include="ModuleBall_2.h">
+    <ClInclude Include="ModuleBall_P2.h">
       <Filter>Modules</Filter>
     </ClInclude>
   </ItemGroup>
