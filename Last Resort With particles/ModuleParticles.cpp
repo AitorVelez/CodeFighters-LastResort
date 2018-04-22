@@ -397,6 +397,12 @@ bool ModuleParticles::CleanUp()
 	LOG("Unloading particles");
 	
 	App->textures->Unload(BulletsAndLaser);
+	App->textures->Unload(textures[0]);
+	App->textures->Unload(textures[1]);
+	App->textures->Unload(textures[2]);
+	App->textures->Unload(textures[3]);
+	App->textures->Unload(textures[4]);
+	App->textures->Unload(textures[5]);
 
 
 	

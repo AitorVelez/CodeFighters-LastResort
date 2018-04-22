@@ -480,12 +480,12 @@ bool ModuleBackground::CleanUp()
 	App->player->Disable(); 
 	App->player2->Disable();
 	App->collision->Disable();
-	App->UI->ready = false;
 	App->enemies->Disable();
 	App->Fonts->Disable();
 	App->UI->Disable();
 	App->power->Disable();
 
+	App->UI->ready = false;
 	//Free all loaded textures
 	App->textures->Unload(BackgroundLvl1);
 	App->textures->Unload(BackgroundLvl1_extra);

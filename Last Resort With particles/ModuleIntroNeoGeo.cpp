@@ -166,7 +166,7 @@ bool ModuleIntroNeoGeo::Start()
 	LOG("Loading background assets");
 	bool ret = true;
 	TexNeoGeoImage = App->textures->Load("assets/sprites/Neogeo.png");
-	NeoGeoTex1 = App->textures->Load("assets/sprites/NeoGeoTitle/Neo_Geo_Title_1.png");
+	/*NeoGeoTex1 = App->textures->Load("assets/sprites/NeoGeoTitle/Neo_Geo_Title_1.png");
 	NeoGeoTex2 = App->textures->Load("assets/sprites/NeoGeoTitle/Neo_Geo_Title_2.png");
 	NeoGeoTex3 = App->textures->Load("assets/sprites/NeoGeoTitle/Neo_Geo_Title_3.png");
 	NeoGeoTex4 = App->textures->Load("assets/sprites/NeoGeoTitle/Neo_Geo_Title_4.png");
@@ -176,7 +176,7 @@ bool ModuleIntroNeoGeo::Start()
 	NeoGeoTex8 = App->textures->Load("assets/sprites/NeoGeoTitle/Neo_Geo_Title_8.png");
 	NeoGeoTex9 = App->textures->Load("assets/sprites/NeoGeoTitle/Neo_Geo_Title_9.png");
 	
-
+	*/
 	mus = App->audio->LoadMus("assets/SFX/musicInit.ogg");
 	App->audio->PlayMus(mus);
 
@@ -192,7 +192,7 @@ bool ModuleIntroNeoGeo::CleanUp()
 {
 	LOG("Unloading Intro Scene");
 	//App->textures->Unload(TexNeoGeoImage);
-	App->textures->Unload(NeoGeoTex1);
+	/*App->textures->Unload(NeoGeoTex1);
 	App->textures->Unload(NeoGeoTex2);
 	App->textures->Unload(NeoGeoTex3);
 	App->textures->Unload(NeoGeoTex4);
@@ -200,7 +200,7 @@ bool ModuleIntroNeoGeo::CleanUp()
 	App->textures->Unload(NeoGeoTex6);
 	App->textures->Unload(NeoGeoTex7);
 	App->textures->Unload(NeoGeoTex8);
-	App->textures->Unload(NeoGeoTex9);
+	App->textures->Unload(NeoGeoTex9);*/
 	App->audio->UnloadMus(mus);
 
 	return true;
