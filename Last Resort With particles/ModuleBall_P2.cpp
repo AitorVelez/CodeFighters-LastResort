@@ -7,6 +7,7 @@
 #include "ModuleRender.h"
 #include "ModuleCollision.h"
 #include "ModuleParticles.h"
+#include "ModuleAudio.h"
 
 ModuleBall_P2::ModuleBall_P2()
 {
@@ -188,6 +189,16 @@ ModuleBall_P2::ModuleBall_P2()
 	SEE.loop = true;
 	SEE.speed = 0.3f;
 
+	flying.PushBack({ 241,244,30,30 });
+	flying.PushBack({ 271,244,30,30 });
+	flying.PushBack({ 301,244,30,30 });
+	flying.PushBack({ 331,244,30,30 });
+	flying.PushBack({ 361,244,30,30 });
+	flying.PushBack({ 391,244,30,30 });
+	flying.PushBack({ 421,244,30,30 });
+	flying.PushBack({ 451,244,30,30 });
+	flying.speed = 0.3f;
+	flying.loop = true;
 
 }
 
@@ -325,9 +336,9 @@ void ModuleBall_P2::Ball_Launch()
 	if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_UP)
 	{
 		ball_launched = true;
+		App->audio->PlayChunk(App->particles->chunks[10], 1);
 	}
-	//current_animation = &flying;
-	iPoint original_position = ball_position;
+	current_animation = &flying;
 
 	if (!go_back) {
 		ball_position.x = ball_position.x + 5 * cos(angle*PI / 180);

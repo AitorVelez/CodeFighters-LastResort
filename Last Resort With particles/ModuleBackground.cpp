@@ -448,8 +448,6 @@ bool ModuleBackground::Start()
 	App->power->AddPowerup(POWERUP_TYPES::SPOWER, 2100, 195);
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 5000, 195);
 
-	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 300, 175);
-
 	// CARS
 	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, 55, 195);
 	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, 0, 195);
