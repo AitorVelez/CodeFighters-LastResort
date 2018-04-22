@@ -21,7 +21,7 @@ Enemy_Rhino::Enemy_Rhino(int x, int y, int HP) : Enemy(x, y, HP)
 	fly.speed = 0.05f;
 
 
-	hp = 6; 
+	hp = original_hp = 6; 
 	animation = &fly;
 
 	collider = App->collision->AddCollider({ 0, 0, 48, 48 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);

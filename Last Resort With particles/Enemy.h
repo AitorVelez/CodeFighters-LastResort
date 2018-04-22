@@ -17,6 +17,7 @@ protected:
 	Collider* collider = nullptr;
 public:
 	uint hp = 1;
+	uint original_hp = 1;
 	fPoint position; 
 	iPoint Anim2Distance;
 	iPoint Anim3Distance;
