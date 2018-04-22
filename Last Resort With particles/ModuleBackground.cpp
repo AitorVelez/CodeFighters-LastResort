@@ -401,8 +401,8 @@ bool ModuleBackground::Start()
 
 
 	// POWER UPS
-	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 3500, 70);
-	App->power->AddPowerup(POWERUP_TYPES::SPOWER, 2100, 195);
+	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 2100, 70);
+	App->power->AddPowerup(POWERUP_TYPES::SPOWER, 3500, 195);
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 5000, 195);
 
 	// CARS

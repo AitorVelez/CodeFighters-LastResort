@@ -121,7 +121,7 @@ ModuleParticles::ModuleParticles()
 	firing_laser.anim.speed = 0.3f;
 	firing_laser.speed.x = 1;
 	firing_laser.anim.loop = false;
-	firing_laser.life = 500;
+	firing_laser.life = 200;
 	firing_laser.texture = 0;
 
 	bullet_laser2_1.anim.PushBack({ 415,250,16,3 });

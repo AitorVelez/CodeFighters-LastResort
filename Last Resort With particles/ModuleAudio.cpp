@@ -32,7 +32,7 @@ bool ModuleAudio::Init()
 		ret = false;
 	}
 
-	Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, 2, 2049);
+	Mix_OpenAudio(16000, MIX_DEFAULT_FORMAT, 2, 2049);
 	return ret;
 }
 
