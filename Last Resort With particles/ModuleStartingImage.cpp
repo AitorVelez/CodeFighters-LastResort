@@ -317,7 +317,7 @@ bool ModuleStartingImage::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	// we do this to reset the animation
+	// we do this to reset the animation   
 	Title1.Reset();
 	Title2.Reset();
 	Title3.Reset();
