@@ -22,7 +22,7 @@ public:
 
 	SDL_Texture * TexStageImage = nullptr;
 	SDL_Rect StageImage;
-	Mix_Music* ClearMus;
+	Mix_Music* ClearMus = nullptr;
 };
 
 #endif // __MODULESTAGECLEAR_H__

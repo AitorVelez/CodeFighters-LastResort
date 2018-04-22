@@ -49,7 +49,7 @@ public:
 	Animation NNW;
 	Animation flying;
 
-	Animation* current_animation;
+	Animation* current_animation = nullptr;
 	Animation test;
 	Collider* ball_collider = nullptr;
 public:
@@ -67,7 +67,7 @@ public:
 	uint charge = 0;
 	iPoint ball_position;
 	iPoint center_player;
-	SDL_Texture* texture;
+	SDL_Texture* texture = nullptr;
 };
 
 

@@ -56,8 +56,8 @@ private:
 
 	EnemyInfo queue[MAX_ENEMIES];
 	Enemy* enemies[MAX_ENEMIES];
-	SDL_Texture* sprites;
-	SDL_Texture* sprites2;
+	SDL_Texture* sprites = nullptr;
+	SDL_Texture* sprites2 = nullptr;
 };
 
 #endif // __ModuleEnemies_H__
