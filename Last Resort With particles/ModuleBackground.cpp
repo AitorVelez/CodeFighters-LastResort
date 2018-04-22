@@ -461,55 +461,55 @@ bool ModuleBackground::CleanUp()
 void ModuleBackground::CameraUpDown()
 {
 	int  scrolltime = 190; int waittime = 443;
-	CameraOscillation(100, 190, false);
+	CameraOscillation(100, 190, true);
 
 	NotScrolling(190, 190 + waittime);
 
-	CameraOscillation(190 + waittime, 190 + waittime + scrolltime, true);
+	CameraOscillation(190 + waittime, 190 + waittime + scrolltime, false);
 
 	NotScrolling(190 + waittime + scrolltime, 190 + waittime * 2 + scrolltime);
 
-	CameraOscillation(190 + waittime * 2 + scrolltime, 190 + waittime * 2 + scrolltime * 2, false);
+	CameraOscillation(190 + waittime * 2 + scrolltime, 190 + waittime * 2 + scrolltime * 2, true);
 
 	NotScrolling(190 + waittime * 2 + scrolltime * 2, 190 + waittime * 3 + scrolltime * 2);
 
-	CameraOscillation(190 + waittime * 3 + scrolltime * 2, 190 + waittime * 3 + scrolltime * 3, true);
+	CameraOscillation(190 + waittime * 3 + scrolltime * 2, 190 + waittime * 3 + scrolltime * 3, false);
 
 	NotScrolling(190 + waittime * 3 + scrolltime * 3, 190 + waittime * 4 + scrolltime * 3);
 
-	CameraOscillation(190 + waittime * 4 + scrolltime * 3, 190 + waittime * 4 + scrolltime * 4, false);
+	CameraOscillation(190 + waittime * 4 + scrolltime * 3, 190 + waittime * 4 + scrolltime * 4, true);
 
 	NotScrolling(190 + waittime * 4 + scrolltime * 4, 190 + waittime * 5 + scrolltime * 4);
 
-	CameraOscillation(190 + waittime * 5 + scrolltime * 4, 190 + waittime * 5 + scrolltime * 5, true);
+	CameraOscillation(190 + waittime * 5 + scrolltime * 4, 190 + waittime * 5 + scrolltime * 5, false);
 
 	NotScrolling(190 + waittime * 5 + scrolltime * 5, 190 + waittime * 6 + scrolltime * 5);
 
-	CameraOscillation(190 + waittime * 6 + scrolltime * 5, 190 + waittime * 6 + scrolltime * 6, false);
+	CameraOscillation(190 + waittime * 6 + scrolltime * 5, 190 + waittime * 6 + scrolltime * 6, true);
 
 	NotScrolling(190 + waittime * 6 + scrolltime * 6, 190 + waittime * 7 + scrolltime * 6);
 
-	CameraOscillation(190 + waittime * 7 + scrolltime * 6, 190 + waittime * 7 + scrolltime * 7, true);
+	CameraOscillation(190 + waittime * 7 + scrolltime * 6, 190 + waittime * 7 + scrolltime * 7, false);
 
 	NotScrolling(190 + waittime * 7 + scrolltime * 7, 190 + waittime * 8 + scrolltime * 7);
 
-	CameraOscillation(190 + waittime * 8 + scrolltime * 7, 190 + waittime * 8 + scrolltime * 8, false);
+	CameraOscillation(190 + waittime * 8 + scrolltime * 7, 190 + waittime * 8 + scrolltime * 8, true);
 
 	NotScrolling(190 + waittime * 8 + scrolltime * 8, 190 + waittime * 9 + scrolltime * 8);
 
-	CameraOscillation(190 + waittime * 9 + scrolltime * 8, 190 + waittime * 9 + scrolltime * 9, true);
+	CameraOscillation(190 + waittime * 9 + scrolltime * 8, 190 + waittime * 9 + scrolltime * 9, false);
 
 	NotScrolling(190 + waittime * 9 + scrolltime * 9, 190 + waittime * 10 + scrolltime * 9);
 
-	CameraOscillation(190 + waittime * 10 + scrolltime * 9, 190 + waittime * 10 + scrolltime * 10, false);
+	CameraOscillation(190 + waittime * 10 + scrolltime * 9, 190 + waittime * 10 + scrolltime * 10, true);
 
 	NotScrolling(190 + waittime * 10 + scrolltime * 10, 190 + waittime * 11 + scrolltime * 10);
 
-	CameraOscillation(190 + waittime * 11 + scrolltime * 10, 190 + waittime * 11 + scrolltime * 11, true);
+	CameraOscillation(190 + waittime * 11 + scrolltime * 10, 190 + waittime * 11 + scrolltime * 11, false);
 
 	NotScrolling(190 + waittime * 11 + scrolltime * 11, 190 + waittime * 12 + scrolltime * 11);
 
-	CameraOscillation(190 + waittime * 12 + scrolltime * 11, 190 + waittime * 12 + scrolltime * 11 + 100, false);
+	CameraOscillation(190 + waittime * 12 + scrolltime * 11, 190 + waittime * 12 + scrolltime * 11 + 100, true);
 
 	NotScrolling(190 + waittime * 12 + scrolltime * 11 + 100, 100000);
 }
