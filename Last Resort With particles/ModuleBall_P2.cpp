@@ -208,14 +208,14 @@ bool ModuleBall_P2::Start()
 
 void ModuleBall_P2::Ball_Input_Movement()
 {
-	if (App->input->keyboard[SDL_SCANCODE_F] == KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_RSHIFT] == KEY_DOWN)
 	{
 		if (ball_locked == false) ball_locked = true;
 		else ball_locked = false;
 	}
 
 
-	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_REPEAT) {
+	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_REPEAT) {
 		// The aiming angle grows or decreases to 90º dependending on its place 
 		if (angle_aiming <= 270 && angle_aiming > 90)		// Using te shortest way always
 			angle_aiming -= angle_speed;
@@ -237,7 +237,7 @@ void ModuleBall_P2::Ball_Input_Movement()
 		}
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_REPEAT) {
+	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_REPEAT) {
 
 		if (angle_aiming >= 90 && angle_aiming<270)					// Using the shortest way always
 			angle_aiming += angle_aiming_speed;
@@ -263,7 +263,7 @@ void ModuleBall_P2::Ball_Input_Movement()
 		}
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT) {
+	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_REPEAT) {
 
 		if (angle_aiming <= 180 && angle_aiming > 0)
 			angle_aiming -= angle_aiming_speed;
@@ -283,7 +283,7 @@ void ModuleBall_P2::Ball_Input_Movement()
 	}
 
 
-	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT) {
+	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_REPEAT) {
 
 		if (angle_aiming > 180)
 			angle_aiming -= angle_aiming_speed;
@@ -305,16 +305,16 @@ void ModuleBall_P2::Ball_Input_Movement()
 void ModuleBall_P2::Ball_Input_Attack()
 {
 
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_DOWN)
 	{
 		App->particles->AddParticle(App->particles->ball_bullet, ball_position.x + 8, ball_position.y + 10, COLLIDER_PLAYER_SHOT);
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_REPEAT)
+	if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_REPEAT)
 	{
 		charge += 20;
 	}
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_UP)
+	if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_UP)
 	{
 		if (charge < 500) charge = 0;
 	}
@@ -322,7 +322,7 @@ void ModuleBall_P2::Ball_Input_Attack()
 
 void ModuleBall_P2::Ball_Launch()
 {
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_UP)
+	if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_UP)
 	{
 		ball_launched = true;
 	}
