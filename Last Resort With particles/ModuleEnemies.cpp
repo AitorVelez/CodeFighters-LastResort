@@ -11,6 +11,7 @@
 #include "Enemy_Lamella.h"
 #include "Blue_Car.h"
 #include "Red_Car.h"
+#include "ModulePlayer2.h"
 #include "Yellow_Car.h"
 #include "Enemy_Tank.h"
 
@@ -171,7 +172,9 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 		{
 			enemies[i]->OnCollision(c2);
 			if (enemies[i]->hp <= 0) {
-				delete enemies[i];                                   // IF HP <= 0 DELETE
+				delete enemies[i];    
+				if (c2->type == COLLIDER_PLAYER_SHOT) App->player->score_p1 += 100;
+				else if (c2->type == COLLIDER_PLAYER2_SHOT) App->player2->score_p2 += 100;// IF HP <= 0 DELETE
 				enemies[i] = nullptr;
 			}
 			break;
