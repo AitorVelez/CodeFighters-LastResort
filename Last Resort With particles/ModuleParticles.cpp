@@ -48,16 +48,16 @@ bool ModuleParticles::Start()
 	textures[2] = App->textures->Load("assets/sprites/cars_bottom.png");			// Texture -> 2
 	textures[3] = App->textures->Load("assets/sprites/common_enemies1.png");
 	textures[4] = App->textures->Load("assets/sprites/falling_man.png");
-	textures[5] = App->textures->Load("assets/sprites/blueUnitMoveAndTrail.png");
+	textures[5] = App->textures->Load("assets/sprites/blue_ball_axis.png");
 
-	Releasing_Ball.anim.PushBack({ 0,163,26,26 });
-	Releasing_Ball.anim.PushBack({ 26,163,26,26 });
-	Releasing_Ball.anim.PushBack({ 52,163,26,26 });
-	Releasing_Ball.anim.PushBack({ 78,163,26,26 });
-	Releasing_Ball.anim.PushBack({ 104,163,26,26 });
-	Releasing_Ball.anim.PushBack({ 130,163,26,26 });
-	Releasing_Ball.anim.PushBack({ 156,163,26,26 });
-	Releasing_Ball.anim.PushBack({ 182,163,26,26 });
+	Releasing_Ball.anim.PushBack({ 242,244,26,26 });
+	Releasing_Ball.anim.PushBack({ 268,244,26,26 });
+	Releasing_Ball.anim.PushBack({ 294,244,26,26 });
+	Releasing_Ball.anim.PushBack({ 320,244,26,26 });
+	Releasing_Ball.anim.PushBack({ 346,244,26,26 });
+	Releasing_Ball.anim.PushBack({ 372,244,26,26 });
+	Releasing_Ball.anim.PushBack({ 398,244,26,26 });
+	Releasing_Ball.anim.PushBack({ 423,244,26,26 });
 	Releasing_Ball.anim.speed = 0.3f;
 	Releasing_Ball.anim.loop = true;
 	Releasing_Ball.texture = 5;
