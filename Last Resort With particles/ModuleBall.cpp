@@ -349,7 +349,7 @@ void ModuleBall::Ball_Launch()
 		ball_position.y - (BALL_SIZE / 2) == center_player.y)
 		in_place;
 
-	if (ball_position.y < -50 || ball_position.y > SCREEN_HEIGHT) {
+	if (ball_position.x < App->background->bgpos || ball_position.x > App->background->bgpos + SCREEN_WIDTH || ball_position.y < -50 || ball_position.y > SCREEN_HEIGHT) {
 		go_back = true;
 	}
 

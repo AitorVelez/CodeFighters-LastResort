@@ -438,7 +438,7 @@ bool ModuleBackground::Start()
 	
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 500, 125);
 	App->enemies->AddEnemy(ENEMY_TYPES::TANK, 800, 150);
-
+	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 300, 140);
 	// TANK
 
 	//App->enemies->AddEnemy(ENEMY_TYPES::TANK, 3500, SCREEN_HEIGHT - 64);
