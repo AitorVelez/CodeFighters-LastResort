@@ -40,12 +40,28 @@ bool ModuleParticles::Start()
 	chunks[6] = App->audio->LoadChunk("assets/SFX/Laser_2.wav");
 	chunks[7] = App->audio->LoadChunk("assets/SFX/TankShot.wav");
 	chunks[8] = App->audio->LoadChunk("assets/SFX/Explosion2.wav");
+	chunks[9] = App->audio->LoadChunk("assets/SFX/Charging shot.wav");
+	chunks[10] = App->audio->LoadChunk("assets/SFX/Releasing charged shot.wav");
 
 	textures[0] = App->textures->Load("assets/sprites/main_character.png");			// Texture -> 0
 	textures[1] = App->textures->Load("assets/sprites/SpritesPlayer2.png");			// Texture -> 1
 	textures[2] = App->textures->Load("assets/sprites/cars_bottom.png");			// Texture -> 2
 	textures[3] = App->textures->Load("assets/sprites/common_enemies1.png");
 	textures[4] = App->textures->Load("assets/sprites/falling_man.png");
+	textures[5] = App->textures->Load("assets/sprites/blueUnitMoveAndTrail.png");
+
+	Releasing_Ball.anim.PushBack({ 0,163,26,26 });
+	Releasing_Ball.anim.PushBack({ 26,163,26,26 });
+	Releasing_Ball.anim.PushBack({ 52,163,26,26 });
+	Releasing_Ball.anim.PushBack({ 78,163,26,26 });
+	Releasing_Ball.anim.PushBack({ 104,163,26,26 });
+	Releasing_Ball.anim.PushBack({ 130,163,26,26 });
+	Releasing_Ball.anim.PushBack({ 156,163,26,26 });
+	Releasing_Ball.anim.PushBack({ 182,163,26,26 });
+	Releasing_Ball.anim.speed = 0.3f;
+	Releasing_Ball.anim.loop = true;
+	Releasing_Ball.texture = 5;
+	Releasing_Ball.fx = 10;
 
 	bullet_propulsion.anim.PushBack({ 278, 90,13,12 });
 	bullet_propulsion.anim.PushBack({ 291, 92,10,9 });
@@ -72,7 +88,7 @@ bool ModuleParticles::Start()
 	bullet_explosion.anim.PushBack({ 248,23,14,14 });
 	bullet_explosion.anim.PushBack({ 264,23,16,16 });
 	bullet_explosion.anim.PushBack({ 282,23,14,14 });
-	bullet_explosion.anim.speed = 0.3f;
+	bullet_explosion.anim.speed = 0.4f;
 	bullet_explosion.anim.loop = false;
 	bullet_explosion.texture = 0;
 
