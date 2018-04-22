@@ -48,8 +48,8 @@ private:
 
 	PowerupInfo queue[MAX_POWERUPS];
 	Powerup* powerups[MAX_POWERUPS];
-	SDL_Texture* sprites;
-	SDL_Texture* sprites2;
+	SDL_Texture* sprites = nullptr;
+	SDL_Texture* sprites2 = nullptr;
 };
 
 #endif // __ModulePowerUp_H__
