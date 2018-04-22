@@ -281,8 +281,8 @@ bool ModuleBackground::Start()
 	//POWERUPTEST
 
 	//App->enemies->AddEnemy(ENEMY_TYPES::POWERUP, 300, 112);
-
-	/*App->power->AddPowerup(POWERUP_TYPES::LPOWER, 300, 112);
+	/*
+	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 300, 112);
 	App->power->AddPowerup(POWERUP_TYPES::SPOWER, 330, 112);
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 360, 112);
 	*/
@@ -436,7 +436,8 @@ bool ModuleBackground::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 8015, 112);
 	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 8040, 112);*/
 	
-
+	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 500, 125);
+	App->enemies->AddEnemy(ENEMY_TYPES::TANK, 800, 150);
 
 	// TANK
 
@@ -445,7 +446,6 @@ bool ModuleBackground::Start()
 
 
 	// CARS
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 500, 125);
 	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, 55, 195);
 	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, 0, 195);
 	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, -100, 195);
