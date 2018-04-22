@@ -38,23 +38,6 @@ bool ModuleAudio::Init()
 
 bool ModuleAudio::CleanUp()
 {	
-
-	for (int i = 0; i < MAX_MUSICS; ++i)
-	{
-		if (musics[i] != nullptr) {
-			Mix_FreeMusic(musics[i]);
-			musics[i] = nullptr; 
-		}
-	}
-
-	for (int i = 0; i < MAX_CHUNKS; ++i)
-	{
-		if (chunks[i] != nullptr) {
-			Mix_FreeChunk(chunks[i]);
-			chunks[i] = nullptr;
-		}
-	}
-
 	Mix_CloseAudio();
 	Mix_Quit(); 
 	return true;
@@ -163,7 +146,12 @@ void ModuleAudio::PlayChunk(Mix_Chunk * chunk, int times)
 
 bool ModuleAudio::UnloadChunk(Mix_Chunk* chunk)
 {
-	
+	/*bool ret = true; 
+
+	Mix_FreeChunk(chunk);
+
+	return ret; */
+
 	bool ret = false;
 	if (chunk != nullptr) {
 		for (int i = 0; i < MAX_MUSICS; ++i)
