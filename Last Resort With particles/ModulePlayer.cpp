@@ -196,7 +196,7 @@ update_status ModulePlayer::Update()
 
 		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
 		{
-			if (relativeposition.y > CHARACTER_HEIGHT + TopLimit) {
+			if (relativeposition.y > CHARACTER_HEIGHT + TopLimit + 4) {
 				current_animation = &up;
 				relativeposition.y -= speed;
 				position.y -= speed;
@@ -204,7 +204,7 @@ update_status ModulePlayer::Update()
 				re_down.Reset();
 			}
 			else {
-				relativeposition.y = CHARACTER_HEIGHT + TopLimit;
+				relativeposition.y = CHARACTER_HEIGHT + TopLimit + 4;
 				current_animation = &up;			
 				re_up.Reset();
 			}
