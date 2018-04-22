@@ -35,7 +35,7 @@ ModuleStartingImage::ModuleStartingImage()
 	Press.PushBack({ 0,41,138,10 });
 	Press.PushBack({ 0,27,138,10 });
 	Press.PushBack({ 0,13,138,10 });
-	Press.speed = 0.25f;
+	Press.speed = 0.125f;
 	
 
 
