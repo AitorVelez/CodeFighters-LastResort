@@ -40,12 +40,28 @@ bool ModuleParticles::Start()
 	chunks[6] = App->audio->LoadChunk("assets/SFX/Laser_2.wav");
 	chunks[7] = App->audio->LoadChunk("assets/SFX/TankShot.wav");
 	chunks[8] = App->audio->LoadChunk("assets/SFX/Explosion2.wav");
+	chunks[9] = App->audio->LoadChunk("assets/SFX/Charging shot.wav");
+	chunks[10] = App->audio->LoadChunk("assets/SFX/Releasing charged shot.wav");
 
 	textures[0] = App->textures->Load("assets/sprites/main_character.png");			// Texture -> 0
 	textures[1] = App->textures->Load("assets/sprites/SpritesPlayer2.png");			// Texture -> 1
 	textures[2] = App->textures->Load("assets/sprites/cars_bottom.png");			// Texture -> 2
 	textures[3] = App->textures->Load("assets/sprites/common_enemies1.png");
 	textures[4] = App->textures->Load("assets/sprites/falling_man.png");
+	textures[5] = App->textures->Load("assets/sprites/blueUnitMoveAndTrail.png");
+
+	Releasing_Ball.anim.PushBack({ 0,163,26,26 });
+	Releasing_Ball.anim.PushBack({ 26,163,26,26 });
+	Releasing_Ball.anim.PushBack({ 52,163,26,26 });
+	Releasing_Ball.anim.PushBack({ 78,163,26,26 });
+	Releasing_Ball.anim.PushBack({ 104,163,26,26 });
+	Releasing_Ball.anim.PushBack({ 130,163,26,26 });
+	Releasing_Ball.anim.PushBack({ 156,163,26,26 });
+	Releasing_Ball.anim.PushBack({ 182,163,26,26 });
+	Releasing_Ball.anim.speed = 0.3f;
+	Releasing_Ball.anim.loop = true;
+	Releasing_Ball.texture = 5;
+	Releasing_Ball.fx = 10;
 
 	bullet_propulsion.anim.PushBack({ 278, 90,13,12 });
 	bullet_propulsion.anim.PushBack({ 291, 92,10,9 });
@@ -72,7 +88,7 @@ bool ModuleParticles::Start()
 	bullet_explosion.anim.PushBack({ 248,23,14,14 });
 	bullet_explosion.anim.PushBack({ 264,23,16,16 });
 	bullet_explosion.anim.PushBack({ 282,23,14,14 });
-	bullet_explosion.anim.speed = 0.3f;
+	bullet_explosion.anim.speed = 0.4f;
 	bullet_explosion.anim.loop = false;
 	bullet_explosion.texture = 0;
 
@@ -337,23 +353,27 @@ bool ModuleParticles::Start()
 
 	//   TANK BULLETS 
 
-	CommonExplosion.anim.PushBack({ 393,0,0,16 });//													
-	CommonExplosion.anim.PushBack({ 411,0,20,20 });//
-	CommonExplosion.anim.PushBack({ 433,0,30,20 });//
-	CommonExplosion.anim.PushBack({ 465,0,26,26 });//
-	CommonExplosion.anim.PushBack({ 393,28,32,22 });//
-	CommonExplosion.anim.PushBack({ 427,28,22,29 });//
-	CommonExplosion.anim.PushBack({ 461,28,32,29 });//
-	CommonExplosion.anim.PushBack({ 393,59,32,30 });//
-	CommonExplosion.anim.PushBack({ 427,59,32,32 });//
-	CommonExplosion.anim.PushBack({ 461,59,32,32 });//
-	CommonExplosion.anim.PushBack({ 393,93,32,30 });//
-	CommonExplosion.anim.PushBack({ 427,93,32,32 });//
-	CommonExplosion.anim.PushBack({ 461,93,32,32 });//
-	CommonExplosion.anim.PushBack({ 393,127,32,32 });//
+	CommonExplosion.anim.PushBack({ 224,928,32,32 });//													
+	CommonExplosion.anim.PushBack({ 256,928,32,32 });//	
+	CommonExplosion.anim.PushBack({ 288,928,32,32 });//	
+	CommonExplosion.anim.PushBack({ 320,928,32,32 });//	
+	CommonExplosion.anim.PushBack({ 352,928,32,32 });//	
+	CommonExplosion.anim.PushBack({ 384,928,32,32 });//	
+	CommonExplosion.anim.PushBack({ 416,928,32,32 });//	
+	CommonExplosion.anim.PushBack({ 448,928,32,32 });//	
+	CommonExplosion.anim.PushBack({ 480,928,32,32 });//	
+	CommonExplosion.anim.PushBack({ 224,960,32,32 });//	
+	CommonExplosion.anim.PushBack({ 256,960,32,32 });//	
+	CommonExplosion.anim.PushBack({ 288,960,32,32 });//	
+	CommonExplosion.anim.PushBack({ 320,960,32,32 });//	
+	CommonExplosion.anim.PushBack({ 352,960,32,32 });//	
+	CommonExplosion.anim.PushBack({ 384,960,32,32 });//	
+	CommonExplosion.anim.PushBack({ 416,960,32,32 });//	
+	CommonExplosion.anim.PushBack({ 448,960,32,32 });//	
+	CommonExplosion.anim.PushBack({ 480,960,32,32 });//		
 	CommonExplosion.anim.loop = false;
 	CommonExplosion.anim.speed = 0.5f;
-	CommonExplosion.texture = 0;
+	CommonExplosion.texture = 3;
 
 	ball_bullet.anim.PushBack({ 317, 176, 13, 13 });
 	ball_bullet.anim.PushBack({ 332, 176, 13, 13 });
