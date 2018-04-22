@@ -293,7 +293,7 @@ update_status ModulePlayer2::Update()
 
 	}
 
-	if (god_mode == true) PlayerCollider->type = COLLIDER_TYPE::COLLIDER_NONE;
+	if (god_mode == true) PlayerCollider->type = COLLIDER_TYPE::COLLIDER_GOD;
 	else PlayerCollider->type = COLLIDER_TYPE::COLLIDER_PLAYER;
 
 	if (alive_p2) {
