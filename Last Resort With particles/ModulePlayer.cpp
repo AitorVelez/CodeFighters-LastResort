@@ -295,6 +295,7 @@ update_status ModulePlayer::Update()
 	}
 	else {
 		if (death_played == false) {
+			App->ball->Disable(); 
 			App->particles->AddParticle(App->particles->player_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
 			death_played = true;
 		}

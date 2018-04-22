@@ -201,7 +201,7 @@ bool ModuleBall_P2::Start()
 	angle = 0;
 	angle_aiming = 0;
 
-	ball_collider = App->collision->AddCollider(current_animation->GetCurrentFrame(), COLLIDER_BALL, this);
+	ball_collider = App->collision->AddCollider(current_animation->GetCurrentFrame(), COLLIDER_BALL2, this);
 
 	return true;
 }
