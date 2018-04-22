@@ -338,22 +338,20 @@ void ModuleBall::Ball_Launch()
 		ball_position.y = ball_position.y + 5 * sin(angle*PI / 180);
 	}
 	else if (!in_place) {
-		ball_position.x = ball_position.x - 5 * cos(angle*PI / 180);
-		ball_position.y = ball_position.y - 5 * sin(angle*PI / 180);
+		ball_position.x = ball_position.x + 0.08* (center_player.x - ball_position.x); 
+		ball_position.y = ball_position.y + 0.08* (center_player.y - ball_position.y);
 	}
 
-	original_position.x = center_player.x + 25 * cos(angle*PI / 180);
-	original_position.x = center_player.x + 25 * sin(angle*PI / 180);
-
-	if (ball_position.x - (BALL_SIZE / 2) == center_player.x &&
-		ball_position.y - (BALL_SIZE / 2) == center_player.y)
-		in_place;
+	//original_position.x = center_player.x + 25 * cos(angle*PI / 180);
+	//original_position.x = center_player.x + 25 * sin(angle*PI / 180);
+	if ((ball_position.x <  center_player.x +30  && ball_position.x > center_player.x - 30) &&
+		(ball_position.y < center_player.y +30 && ball_position.y > center_player.y - 30) && go_back) in_place = true; 
 
 	if (ball_position.x < App->background->bgpos || ball_position.x > App->background->bgpos + SCREEN_WIDTH || ball_position.y < -50 || ball_position.y > SCREEN_HEIGHT) {
 		go_back = true;
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_R] == KEY_DOWN) {
+	if (in_place) {
 		ball_launched = false;
 		go_back = false;
 		in_place = false;
