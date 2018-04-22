@@ -50,14 +50,14 @@ bool ModuleParticles::Start()
 	textures[4] = App->textures->Load("assets/sprites/falling_man.png");
 	textures[5] = App->textures->Load("assets/sprites/blue_ball_axis.png");
 
-	Releasing_Ball.anim.PushBack({ 242,244,26,26 });
-	Releasing_Ball.anim.PushBack({ 268,244,26,26 });
-	Releasing_Ball.anim.PushBack({ 294,244,26,26 });
-	Releasing_Ball.anim.PushBack({ 320,244,26,26 });
-	Releasing_Ball.anim.PushBack({ 346,244,26,26 });
-	Releasing_Ball.anim.PushBack({ 372,244,26,26 });
-	Releasing_Ball.anim.PushBack({ 398,244,26,26 });
-	Releasing_Ball.anim.PushBack({ 423,244,26,26 });
+	Releasing_Ball.anim.PushBack({ 241,244,30,30 });
+	Releasing_Ball.anim.PushBack({ 271,244,30,30 });
+	Releasing_Ball.anim.PushBack({ 301,244,30,30 });
+	Releasing_Ball.anim.PushBack({ 331,244,30,30 });
+	Releasing_Ball.anim.PushBack({ 361,244,30,30 });
+	Releasing_Ball.anim.PushBack({ 391,244,30,30 });
+	Releasing_Ball.anim.PushBack({ 221,244,30,30 });
+	Releasing_Ball.anim.PushBack({ 251,244,30,30 });
 	Releasing_Ball.anim.speed = 0.3f;
 	Releasing_Ball.anim.loop = true;
 	Releasing_Ball.texture = 5;
