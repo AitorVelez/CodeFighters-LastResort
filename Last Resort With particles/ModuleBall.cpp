@@ -188,16 +188,16 @@ ModuleBall::ModuleBall()
 	SEE.loop = true;
 	SEE.speed = 0.3f;
 	
-	flying.PushBack({ 245, 248, 22, 22 });
-	flying.PushBack({ 274, 247, 24, 24 });
-	flying.PushBack({ 303, 246, 26, 26 });
-	flying.PushBack({ 334, 247, 24, 24 });
-	flying.PushBack({ 365, 248, 22, 22 });
-	flying.PushBack({ 396, 249, 20, 20 });
-	flying.PushBack({ 427, 250, 18, 18 });
-	flying.loop = true;
+	flying.PushBack({ 241,244,30,30 });
+	flying.PushBack({ 271,244,30,30 });
+	flying.PushBack({ 301,244,30,30 });
+	flying.PushBack({ 331,244,30,30 });
+	flying.PushBack({ 361,244,30,30 });
+	flying.PushBack({ 391,244,30,30 });
+	flying.PushBack({ 421,244,30,30 });
+	flying.PushBack({ 451,244,30,30 });
 	flying.speed = 0.3f; 
-
+	flying.loop = true; 
 }
 
 bool ModuleBall::Start()
