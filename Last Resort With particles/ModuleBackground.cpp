@@ -450,17 +450,9 @@ bool ModuleBackground::Start()
 	// CARS
 	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, 55, 195);
 	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, 0, 195);
-	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, -100, 195);
-	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, -170, 195);
-	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, -210, 195);
-	App->enemies->AddEnemy(ENEMY_TYPES::BLUE_CAR, -260, 195);
 
 	App->enemies->AddEnemy(ENEMY_TYPES::RED_CAR, 75, 209);
 	App->enemies->AddEnemy(ENEMY_TYPES::RED_CAR, -30, 209);
-	App->enemies->AddEnemy(ENEMY_TYPES::RED_CAR, -95, 209);
-	App->enemies->AddEnemy(ENEMY_TYPES::RED_CAR, -145, 209);
-	App->enemies->AddEnemy(ENEMY_TYPES::RED_CAR, -220, 209);
-	App->enemies->AddEnemy(ENEMY_TYPES::RED_CAR, -275, 209);
 
 	App->enemies->AddEnemy(ENEMY_TYPES::YELLOW_CAR, 105, 195);
 

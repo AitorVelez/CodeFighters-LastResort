@@ -45,10 +45,8 @@ bool ModuleParticles::Start()
 
 	textures[0] = App->textures->Load("assets/sprites/main_character.png");			// Texture -> 0
 	textures[1] = App->textures->Load("assets/sprites/SpritesPlayer2.png");			// Texture -> 1
-	textures[2] = App->textures->Load("assets/sprites/cars_bottom.png");			// Texture -> 2
-	textures[3] = App->textures->Load("assets/sprites/common_enemies1.png");
-	textures[4] = App->textures->Load("assets/sprites/falling_man.png");
-	textures[5] = App->textures->Load("assets/sprites/blue_ball_axis.png");
+	textures[2] = App->textures->Load("assets/sprites/common_enemies1.png");
+	textures[3] = App->textures->Load("assets/sprites/blue_ball_axis.png");
 
 	Releasing_Ball.anim.PushBack({ 241,244,30,30 });
 	Releasing_Ball.anim.PushBack({ 271,244,30,30 });
@@ -60,7 +58,7 @@ bool ModuleParticles::Start()
 	Releasing_Ball.anim.PushBack({ 451,244,30,30 });
 	Releasing_Ball.anim.speed = 0.3f;
 	Releasing_Ball.anim.loop = true;
-	Releasing_Ball.texture = 5;
+	Releasing_Ball.texture = 3;
 	Releasing_Ball.fx = 10;
 
 	bullet_propulsion.anim.PushBack({ 278, 90,13,12 });
@@ -98,7 +96,7 @@ bool ModuleParticles::Start()
 	BigTankShot.anim.PushBack({ 237, 746, 13, 13 });
 	BigTankShot.anim.speed = 0.3f;
 	BigTankShot.life = 3000;
-	BigTankShot.texture = 3;
+	BigTankShot.texture = 2;
 	BigTankShot.fx = 7;
 
 	SmallTankShot.anim.PushBack({ 245, 831, 5, 5 });
@@ -108,7 +106,7 @@ bool ModuleParticles::Start()
 	SmallTankShot.anim.speed = 0.3f;
 	SmallTankShot.speed.x = 2;
 	SmallTankShot.life = 3000;
-	SmallTankShot.texture = 3;
+	SmallTankShot.texture = 2;
 	SmallTankShot.fx = 7;
 
 
@@ -193,7 +191,7 @@ bool ModuleParticles::Start()
 	pilot_dying.speed.x = 2;
 	pilot_dying.life = 8000;
 	pilot_dying.speed.y = 1 + pilot_dying.life / 8000;
-	pilot_dying.texture = 3;
+	pilot_dying.texture = 2;
 	pilot_dying.anim.loop = false;
 
 
@@ -263,7 +261,7 @@ bool ModuleParticles::Start()
 	Blue_Car_Explosion.anim.PushBack({ 466,702,38,32 });
 	Blue_Car_Explosion.anim.loop = false;
 	Blue_Car_Explosion.anim.speed = 0.2;
-	Blue_Car_Explosion.texture = 3;
+	Blue_Car_Explosion.texture = 2;
 
 	Yellow_Car_Explosion.anim.PushBack({ 466,798,38,32 });
 	Yellow_Car_Explosion.anim.PushBack({ 390,830,38,32 });
@@ -288,7 +286,7 @@ bool ModuleParticles::Start()
 	Yellow_Car_Explosion.anim.PushBack({ 466,702,38,32 });
 	Yellow_Car_Explosion.anim.loop = false;
 	Yellow_Car_Explosion.anim.speed = 0.2;
-	Yellow_Car_Explosion.texture = 3;
+	Yellow_Car_Explosion.texture = 2;
 
 	Red_Car_Explosion.anim.PushBack({ 390,734,38,32 });
 	Red_Car_Explosion.anim.PushBack({ 428,734,38,32 });
@@ -314,7 +312,8 @@ bool ModuleParticles::Start()
 	Red_Car_Explosion.anim.loop = false;
 	Red_Car_Explosion.anim.speed = 0.2;
 	Red_Car_Explosion.texture = 3;
-	 player 2 death*/
+*/
+
 
 	player2_death.anim.PushBack({ 286, 35, 33, 11 });
 	player2_death.anim.PushBack({ 286, 62, 32, 12 });
@@ -366,7 +365,7 @@ bool ModuleParticles::Start()
 	CommonExplosion.anim.PushBack({ 480,960,32,32 });//		
 	CommonExplosion.anim.loop = false;
 	CommonExplosion.anim.speed = 0.5f;
-	CommonExplosion.texture = 3;
+	CommonExplosion.texture = 2;
 
 	ball_bullet.anim.PushBack({ 317, 176, 13, 13 });
 	ball_bullet.anim.PushBack({ 332, 176, 13, 13 });
