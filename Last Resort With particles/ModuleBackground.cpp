@@ -753,7 +753,7 @@ void ModuleBackground::RenderTunnelLights()
 // Update: draw background
 update_status ModuleBackground::Update()
 {
-    int scroll_speed = 3; 
+    int scroll_speed = 1; 
 
 	// Camera Movement Conditions
 	falscamara -= scroll_speed;

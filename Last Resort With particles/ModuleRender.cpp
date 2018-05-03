@@ -71,7 +71,7 @@ update_status ModuleRender::Update()
 	/*SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 	SDL_RenderPresent(renderer);*/
 
-
+	SDL_RenderSetLogicalSize(renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
 
 	return update_status::UPDATE_CONTINUE;
 
