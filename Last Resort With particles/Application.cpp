@@ -22,6 +22,7 @@
 #include "ModuleBall_P2.h"
 #include "ModuleFonts.h"
 #include "ModuleUI.h"
+#include "ModuleReady.h"
 
 Application::Application()
 {
@@ -46,6 +47,7 @@ Application::Application()
 	modules[18] = ball_p2 = new ModuleBall_P2();
 	modules[19] = UI = new ModuleUI();
 	modules[20] = Fonts = new ModuleFonts();
+	modules[21] = Ready = new ModuleReady();
 }	
 
 Application::~Application()
@@ -72,6 +74,7 @@ bool Application::Init()
 	ball_p2->Disable(); 
 	Fonts->Disable();
 	UI->Disable();
+	Ready->Disable();
 
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)
 		ret = modules[i]->Init();

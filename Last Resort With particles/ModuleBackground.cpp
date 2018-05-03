@@ -809,19 +809,28 @@ update_status ModuleBackground::Update()
 	}
 	if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN)
 		App->player2->Enable();
+	    App->player2->lives=2;
 
 	if (activ == false) {
-		if (App->player->alive_p1 == false) {
-			App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage, 2.5f);
+		if (App->player->alive_p1 == false){
+			if (App->player->lives == 0) {
+				App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage, 2.5f);
+			}
+			else {
+					App->fade->FadeToBlack((Module*)App->background, (Module*)App->Ready, 0.0f);
+					if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
+						App->fade->FadeToBlack((Module*)App->Ready, (Module*)App->background, 0.0f);
+					}
+			}
 		}
+		/*
+		if (App->player->alive_p1 == false && App->player2->alive_p2 == false && App->player->lives == 0 && App->player2->lives == 0) {
+			App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage, 2.5f);
+		}*/
 	}
 
-	if (App->player->alive_p1 == false && App->player2->alive_p2 == false) {
-		App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage, 2.5f);
 
-	}
-
-
+	
 	if (App->render->camera.x == 9000 * SCREEN_SIZE) {
 		App->fade->FadeToBlack((Module*)App->background, (Module*)App->stageclear, 2.5f);
 	}

@@ -52,11 +52,11 @@ public:
 	BULLET_STATE bullet_state=BULLET_NO_TYPE;
 
 	int score_p1 = 0;	
-	int lives = 0;
 	bool alive_p1 = true; 
 	bool death_played = false;
 	bool god_mode = false; 
 	int speed = 2;
+	int lives = 5; 
 };
 
 #endif
