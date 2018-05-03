@@ -56,7 +56,7 @@ public:
 	bool death_played = false;
 	bool god_mode = false; 
 	int speed = 2;
-	int lives = 5; 
+	int lives = 3; 
 };
 
 #endif

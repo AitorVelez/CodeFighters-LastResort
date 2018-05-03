@@ -131,7 +131,7 @@ bool ModulePlayer::Start()
 	relativeposition.x = position.x;
 	relativeposition.y = position.y;
 	alive_p1 = true; 	
-	lives--;
+	lives-=1;
 
 	graphics = App->textures->Load("assets/sprites/main_character.png"); // arcade version
 	PlayerCollider = App->collision->AddCollider({ position.x,position.y, 32, 14 }, COLLIDER_PLAYER, this);
