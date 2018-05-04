@@ -460,8 +460,8 @@ bool ModuleBackground::CleanUp()
 
 void ModuleBackground::CameraUpDown()
 {
-	int  scrolltime = 190; int waittime = 443;
-	CameraOscillation(100, 190, true);
+	int  scrolltime = 65; int waittime = 443;
+	CameraOscillation(100, 130, true);
 
 	NotScrolling(190, 190 + waittime);
 
@@ -516,7 +516,7 @@ void ModuleBackground::CameraUpDown()
 
 void ModuleBackground::MoveUp()
 {
-	App->render->camera.y += 3;
+	App->render->camera.y += 1;
 	App->player->position.y += 1;
 	App->player2->position.y += 1;
 	if (downscroll != false) {
@@ -532,7 +532,7 @@ void ModuleBackground::MoveUp()
 
 void ModuleBackground::MoveDown()
 {
-	App->render->camera.y -= 3;
+	App->render->camera.y -= 1;
 	App->player->position.y -= 1;
 	App->player2->position.y -= 1;
 	if (downscroll != true) {
