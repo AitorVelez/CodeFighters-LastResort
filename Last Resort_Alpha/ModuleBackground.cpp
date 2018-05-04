@@ -19,7 +19,7 @@
 #include "ModuleUI.h"
 #include "ModuleFonts.h"
 #include "ModuleBall.h"
-
+#include "ModuleBackground2.h"
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
 ModuleBackground::ModuleBackground()
@@ -801,6 +801,7 @@ update_status ModuleBackground::Update()
 		if (App->fade->FadeToBlack(App->background, App->stageclear, 1.5f))
 			App->audio->FadeMus(750);
 	}
+
 	if (App->input->keyboard[SDL_SCANCODE_F3] == KEY_STATE::KEY_DOWN) {
 		App->player->god_mode = true;
 		App->player2->god_mode = true;

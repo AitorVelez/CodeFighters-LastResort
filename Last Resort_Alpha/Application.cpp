@@ -23,6 +23,7 @@
 #include "ModuleFonts.h"
 #include "ModuleUI.h"
 #include "ModuleReady.h"
+#include "ModuleBackground2.h"
 
 Application::Application()
 {
@@ -48,6 +49,7 @@ Application::Application()
 	modules[19] = UI = new ModuleUI();
 	modules[20] = Fonts = new ModuleFonts();
 	modules[21] = Ready = new ModuleReady();
+	modules[22] = background2 = new ModuleBackground2();
 }	
 
 Application::~Application()
@@ -75,6 +77,7 @@ bool Application::Init()
 	Fonts->Disable();
 	UI->Disable();
 	Ready->Disable();
+	background2->Disable();
 
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)
 		ret = modules[i]->Init();

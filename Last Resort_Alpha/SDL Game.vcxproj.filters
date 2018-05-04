@@ -109,6 +109,9 @@
     <ClCompile Include="ModuleReady.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
+    <ClCompile Include="ModuleBackground2.cpp">
+      <Filter>Modules\Level 2</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Blue_Car.h">
@@ -231,6 +234,9 @@
     <ClInclude Include="ModuleReady.h">
       <Filter>Modules</Filter>
     </ClInclude>
+    <ClInclude Include="ModuleBackground2.h">
+      <Filter>Modules\Level 2</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Core">
@@ -247,6 +253,9 @@
     </Filter>
     <Filter Include="Modules\Enemies">
       <UniqueIdentifier>{b483b194-13e9-4b65-8163-5fb812ed8a96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Level 2">
+      <UniqueIdentifier>{0ca6c19e-17e9-4912-b1c4-f6f09611a950}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

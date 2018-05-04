@@ -13,7 +13,7 @@
 #include "Application.h"
 #include "ModulePlayer2.h"
 #include "ModuleUI.h"
-
+#include "ModuleBackground2.h"
 
 ModuleStageClear::ModuleStageClear()
 {
@@ -64,14 +64,15 @@ update_status ModuleStageClear::Update()
 	App->render->Blit(TexStageImage, 0, 0, &StageImage);
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
-		if (App->fade->FadeToBlack(App->stageclear, App->background, 1.5f))
-			App->audio->FadeMus(750);
+			if (App->fade->FadeToBlack(App->stageclear, App->background2, 1.5f))
+				App->audio->FadeMus(750);
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_STATE::KEY_DOWN)
 	{
-		if (App->fade->FadeToBlack(this, App->background, 1.5f))
-			App->audio->FadeMus(750);
+		
+			if (App->fade->FadeToBlack(this, App->background2, 1.5f))
+				App->audio->FadeMus(750);
 	}
 
 	return UPDATE_CONTINUE;
