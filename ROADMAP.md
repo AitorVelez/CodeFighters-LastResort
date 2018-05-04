@@ -10,7 +10,7 @@ V 0.8: New spiderTank,and enemy bee,red lamella,Gustav,saltarin,underground hunt
 
 V 0.9: Add all other powerups and boss,all audio effects,UI polish,add damage sprites. 24/05
 
-v 1.0: Qa testing and fixing bugs,animations for polish. 30/05
+v 1.0: Qa testing and fixing bugs,animations for polish, website and gameplay. 30/05
 
 v 1.1: Fix Level 1
 
