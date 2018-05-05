@@ -42,14 +42,15 @@ Application::Application()
 	modules[12] = audio = new ModuleAudio(); 
 	modules[13] = collision = new ModuleCollision();
 	modules[14] = fade = new ModuleFadeToBlack();
-	modules[15] = player = new ModulePlayer();
-	modules[16] = power = new ModulePowerUp();		
-	modules[17] = ball = new ModuleBall();
-	modules[18] = ball_p2 = new ModuleBall_P2();
-	modules[19] = UI = new ModuleUI();
-	modules[20] = Fonts = new ModuleFonts();
-	modules[21] = Ready = new ModuleReady();
-	modules[22] = background2 = new ModuleBackground2();
+	modules[15] = background2 = new ModuleBackground2();
+	modules[16] = player = new ModulePlayer();
+	modules[17] = power = new ModulePowerUp();		
+	modules[18] = ball = new ModuleBall();
+	modules[19] = ball_p2 = new ModuleBall_P2();
+	modules[20] = UI = new ModuleUI();
+	modules[21] = Fonts = new ModuleFonts();
+	modules[22] = Ready = new ModuleReady();
+
 }	
 
 Application::~Application()
