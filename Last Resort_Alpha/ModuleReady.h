@@ -21,6 +21,8 @@ public:
 
 	SDL_Texture * TextReadyImage = nullptr;
 	SDL_Rect ReadyImage;
+	uint last_time = 0;
+	uint current_time = 0;
 };
 
 #endif // __MODULEREADY_H__

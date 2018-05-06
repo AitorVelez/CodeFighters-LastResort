@@ -13,6 +13,7 @@
 #include "Application.h"
 #include "ModulePlayer2.h"
 #include "ModuleBackground2.h"
+#include "SDL/include/SDL_timer.h"
 
 ModuleReady::ModuleReady()
 {
@@ -53,15 +54,19 @@ update_status ModuleReady::Update()
 {
 	// Draw everything --------------------------------------	
 	App->render->Blit(TextReadyImage, 0, 0, &ReadyImage);
-
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
+	current_time = SDL_GetTicks(); 
+	//if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
+	if (current_time > last_time + 1100) {
 		if (App->background->BgLevel2Active == false) {
 			App->fade->FadeToBlack(App->Ready, App->background, 1.5f);
+			last_time = current_time; 
 		}
 		else {
 			App->fade->FadeToBlack(App->Ready, App->background2, 1.5f);
+			last_time = current_time;
 		}
 	}
+	//}
 
 	return UPDATE_CONTINUE;
 }
