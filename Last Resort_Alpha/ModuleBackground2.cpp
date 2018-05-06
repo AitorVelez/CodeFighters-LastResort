@@ -19,6 +19,7 @@
 #include "ModuleUI.h"
 #include "ModuleFonts.h"
 #include "ModuleBall.h"
+#include "ModuleBackground.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
@@ -43,7 +44,7 @@ bool ModuleBackground2::Start()
 	LOG("Loading background assets");
 
 	bool ret = true;
-
+	App->background->BgLevel2Active = true; 
 	App->particles->Enable();
 	App->player->Enable();
 	App->collision->Enable();
@@ -76,6 +77,7 @@ bool ModuleBackground2::CleanUp()
 	App->Fonts->Disable();
 	App->UI->Disable();
 	App->power->Disable();
+	App->background2->Disable();
 
 	App->UI->ready = false;
 	//Free all loaded textures

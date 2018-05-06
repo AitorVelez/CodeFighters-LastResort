@@ -86,6 +86,9 @@ public:
     bool notscrolling = true;
 	bool upscroll = false;
 	int bgpos; 
+    bool BgLevel2Active = true; 
+	uint last_time = 0; 
+	uint current_time = 0; 
 };
 
 #endif

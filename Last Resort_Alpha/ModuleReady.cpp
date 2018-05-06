@@ -12,6 +12,7 @@
 #include "ModuleStageClear.h"
 #include "Application.h"
 #include "ModulePlayer2.h"
+#include "ModuleBackground2.h"
 
 ModuleReady::ModuleReady()
 {
@@ -54,7 +55,12 @@ update_status ModuleReady::Update()
 	App->render->Blit(TextReadyImage, 0, 0, &ReadyImage);
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
-		App->fade->FadeToBlack(App->Ready, App->background, 1.5f); 
+		if (App->background->BgLevel2Active == false) {
+			App->fade->FadeToBlack(App->Ready, App->background, 1.5f);
+		}
+		else {
+			App->fade->FadeToBlack(App->Ready, App->background2, 1.5f);
+		}
 	}
 
 	return UPDATE_CONTINUE;
