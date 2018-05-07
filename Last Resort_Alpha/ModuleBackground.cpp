@@ -286,7 +286,7 @@ bool ModuleBackground::Start()
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 360, 112);
 	*/
 	
-	/*
+	
 	//ENEMY COCKROACH
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 500 + 300, 40);
 	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 535 + 300, 80);
@@ -412,7 +412,7 @@ bool ModuleBackground::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::RED_CAR, 75, 209);
 	App->enemies->AddEnemy(ENEMY_TYPES::RED_CAR, -30, 209);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::YELLOW_CAR, 105, 195);*/
+	App->enemies->AddEnemy(ENEMY_TYPES::YELLOW_CAR, 105, 195);
 
 App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 205, 195);
 
@@ -817,7 +817,7 @@ update_status ModuleBackground::Update()
 	if (activ == false) {
 		if (App->player->alive_p1 == false) {
 			if (App->player->lives == 0) {
-				App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage, 2.5f);
+			               	App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage, 2.5f);
 			}
 			else {
 				App->fade->FadeToBlack((Module*)App->background, (Module*)App->Ready, 0.0f);
