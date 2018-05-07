@@ -820,7 +820,7 @@ update_status ModuleBackground::Update()
 			               	App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage, 2.5f);
 			}
 			else {
-				App->fade->FadeToBlack((Module*)App->background, (Module*)App->Ready, 0.0f);
+				App->fade->FadeToBlack((Module*)App->background, (Module*)App->Ready, 1.5f);
 			}
 		}
 	}
