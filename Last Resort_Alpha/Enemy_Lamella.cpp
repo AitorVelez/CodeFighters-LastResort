@@ -2,10 +2,11 @@
 #include "Enemy_Lamella.h"
 #include "ModuleCollision.h"
 #include "ModulePlayer.h"
-
+#include "SDL\include\SDL_timer.h"
 
 Enemy_Lamella::Enemy_Lamella(int x, int y, int HP) : Enemy(x, y, HP)
 {
+	original_hp = 1; 
 	fly.PushBack({ 4,513,28,28 });
 	fly.PushBack({ 34,512,32,32 });
 	fly.PushBack({ 68,513,30,30 });
@@ -38,13 +39,14 @@ Enemy_Lamella::Enemy_Lamella(int x, int y, int HP) : Enemy(x, y, HP)
 	fly.PushBack({ 38,667,32,30 });
 	fly.PushBack({ 72,665,31,30 });
 	fly.PushBack({ 106,665,32,32 });
-	fly.PushBack({ 140,665,31,30 });
-
+	
+	fly.loop = false; 
 
 	fly.speed = 0.5f;
 
 	animation = &fly;
 
+	Moving.PushBack({ 140,665,31,30 });
 
 	collider = App->collision->AddCollider({ 0, 0, 31, 30 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
@@ -55,8 +57,26 @@ Enemy_Lamella::Enemy_Lamella(int x, int y, int HP) : Enemy(x, y, HP)
 
 void Enemy_Lamella::Move()
 {
-	/*dirx = App->player->position.x + position.x; 
-	diry = App->player->position.y + position.y;*/
-	position.x += /*dirx **/ speed; 
-	//position.y += diry * speed;
+	if (fly.Finished())
+	{
+		LOG("Animation has finished");
+		animation = &Moving;
+	}
+
+	if (animation == &Moving) {
+		speed = 1.8f;
+	}
+	else {
+		speed = 0; 
+	}
+
+	dirx = App->player->position.x - position.x; 
+	diry = App->player->position.y - position.y;
+	hyp = sqrt(dirx*dirx + diry*diry);
+
+	dirx /= hyp;
+	diry /= hyp;
+
+	position.x += dirx * speed; 
+	position.y += diry * speed;
 }

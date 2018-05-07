@@ -158,6 +158,9 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::TANK:
 			enemies[i] = new Enemy_Tank(info.x, info.y, info.HP);
 			break;
+		case ENEMY_TYPES::LAMELLA:
+			enemies[i] = new Enemy_Lamella(info.x, info.y, info.HP);
+			break;
 		}
 	}
 	

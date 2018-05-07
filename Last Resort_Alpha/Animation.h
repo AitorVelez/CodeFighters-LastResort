@@ -35,6 +35,16 @@ public:
 		return frames[(int)current_frame];
 	}
 
+	int GetCurrentFrameNum()
+	{
+		return current_frame;
+	}
+
+	int GetLastFrameNum()
+	{
+		return last_frame;
+	}
+
 	bool Finished() const
 	{
 		return loops > 0;
