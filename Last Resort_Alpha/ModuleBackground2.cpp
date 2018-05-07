@@ -48,7 +48,7 @@ bool ModuleBackground2::Start()
 	App->particles->Enable();
 	App->player->Enable();
 	App->collision->Enable();
-	App->enemies->Enable();
+	App->background->Disable();
 	App->power->Enable();
 	App->UI->Enable();
 	App->Fonts->Enable();
@@ -77,7 +77,6 @@ bool ModuleBackground2::CleanUp()
 	App->Fonts->Disable();
 	App->UI->Disable();
 	App->power->Disable();
-	App->background2->Disable();
 
 	App->UI->ready = false;
 	//Free all loaded textures
