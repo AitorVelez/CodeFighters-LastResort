@@ -14,7 +14,7 @@
     <ProjectGuid>{746CC4C3-787F-4B0E-AA66-E388FE3FF4F6}</ProjectGuid>
     <RootNamespace>SDLGame</RootNamespace>
     <ProjectName>Last Resort</ProjectName>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -81,6 +81,7 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Enemy_Cockroach.h" />
     <ClInclude Include="Enemy_Lamella.h" />
+    <ClInclude Include="Enemy_RedLamella.h" />
     <ClInclude Include="Enemy_Rhino.h" />
     <ClInclude Include="Enemy_Tank.h" />
     <ClInclude Include="Globals.h" />
@@ -123,6 +124,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Enemy_Cockroach.cpp" />
     <ClCompile Include="Enemy_Lamella.cpp" />
+    <ClCompile Include="Enemy_RedLamella.cpp" />
     <ClCompile Include="Enemy_Rhino.cpp" />
     <ClCompile Include="Enemy_Tank.cpp" />
     <ClCompile Include="Globals.cpp" />

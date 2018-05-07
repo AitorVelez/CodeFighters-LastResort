@@ -22,6 +22,7 @@ enum ENEMY_TYPES
 	YELLOW_CAR,
 	TANK,
 	LAMELLA,
+	RED_LAMELLA,
 };
 
 class Enemy;

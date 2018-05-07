@@ -14,7 +14,7 @@
 #include "ModulePlayer2.h"
 #include "Yellow_Car.h"
 #include "Enemy_Tank.h"
-
+#include "Enemy_RedLamella.h"
 
 #define SPAWN_MARGIN 50
 
@@ -33,7 +33,7 @@ bool ModuleEnemies::Start()
 {
 	// Create a prototype for each enemy available so we can copy them around
 	sprites = App->textures->Load("assets/sprites/common_enemies1.png");
-
+	sprites2 = App->textures->Load("assets/sprites/CommonEnemies2.png");
 
 	return true;
 }
@@ -63,9 +63,10 @@ update_status ModuleEnemies::Update()
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 		if (enemies[i] != nullptr) enemies[i]->Move();
 
-	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr) enemies[i]->Draw(sprites);
-
+	for (uint i = 0; i < MAX_ENEMIES; ++i) {
+		if (enemies[i] != nullptr) { enemies[i]->Draw(sprites); }
+		if (enemies[i] != nullptr) { enemies[i]->Draw2(sprites2); }
+	}
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 		if (enemies[i] != nullptr) enemies[i]->Shoot();
 
@@ -97,6 +98,7 @@ bool ModuleEnemies::CleanUp()
 	LOG("Freeing all enemies");
 
 	App->textures->Unload(sprites);
+	App->textures->Unload(sprites2);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
@@ -160,6 +162,10 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			break;
 		case ENEMY_TYPES::LAMELLA:
 			enemies[i] = new Enemy_Lamella(info.x, info.y, info.HP);
+			break;
+	
+		case ENEMY_TYPES::RED_LAMELLA:
+			enemies[i] = new Enemy_RedLamella(info.x, info.y, info.HP);
 			break;
 		}
 	}
