@@ -22,9 +22,13 @@ public:
 public:
 
 	SDL_Texture * BackgroundLvl2 = nullptr;
+	SDL_Texture * Rain = nullptr;
+
 	Mix_Music* mus = nullptr;
 
 	SDL_Rect background2;
+
+	Animation Rainlvl2;
 
 	bool activ = false;
 	bool scroll = true;
