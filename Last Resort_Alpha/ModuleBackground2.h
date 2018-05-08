@@ -22,11 +22,15 @@ public:
 public:
 
 	SDL_Texture * BackgroundLvl2 = nullptr;
+	SDL_Texture * ForegroundLvl2 = nullptr;
+	SDL_Texture * Extra_ForegroundLvl2 = nullptr;
 	SDL_Texture * Rain = nullptr;
 
 	Mix_Music* mus = nullptr;
 
 	SDL_Rect background2;
+	SDL_Rect foreground2;
+	SDL_Rect extra_foreground;
 
 	Animation Rainlvl2;
 

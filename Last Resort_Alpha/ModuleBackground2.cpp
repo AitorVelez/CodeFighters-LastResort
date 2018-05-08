@@ -34,6 +34,16 @@ ModuleBackground2::ModuleBackground2()
 	background2.w = 3896;
 	background2.h = 224;
 
+	foreground2.x = 0;
+	foreground2.y = 0;
+	foreground2.w = 4825;
+	foreground2.h = 224;
+
+	extra_foreground.x = 0;
+	extra_foreground.y = 0;
+	extra_foreground.w = 80;
+	extra_foreground.h = 68;
+
 	Rainlvl2.PushBack({ 0,0,32,32 });
 	Rainlvl2.PushBack({ 32,0,32,32 });
 	Rainlvl2.PushBack({ 64,0,32,32 });
@@ -68,6 +78,8 @@ bool ModuleBackground2::Start()
 	BackgroundLvl2 = App->textures->Load("assets/sprites/Background_2.png");
 	Rain = App->textures->Load("assets/sprites/MinimunRainTest.png");
 	mus = App->audio->LoadMus("assets/SFX/level2.ogg");
+	ForegroundLvl2 = App->textures->Load("assets/sprites/Foreground_2.png");
+	Extra_ForegroundLvl2 = App->textures->Load("assets/sprites/ForegroundExtra.png");
 	App->audio->PlayMus(mus);
 
 	activ = false;
@@ -94,6 +106,8 @@ bool ModuleBackground2::CleanUp()
 	//Free all loaded textures
 	App->textures->Unload(BackgroundLvl2);
 	App->textures->Unload(Rain);
+	App->textures->Unload(ForegroundLvl2);
+	App->textures->Unload(Extra_ForegroundLvl2);
 	//Free all audio material
 	App->audio->UnloadMus(mus);
 
@@ -127,6 +141,8 @@ update_status ModuleBackground2::Update()
 	// Draw everything --------------------------------------
 
 	App->render->Blit(BackgroundLvl2, 0, 0, &background2, depth_1);
+	App->render->Blit(ForegroundLvl2, 1000, 0, &foreground2, depth_1);
+	App->render->Blit(Extra_ForegroundLvl2, 300, 156, &extra_foreground, depth_1);
 	App->render->Blit(Rain, 50, 50, &Rainlvl2.GetCurrentFrame(), depth_1);
 
 
