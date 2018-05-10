@@ -419,9 +419,9 @@ App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 205, 195);*/
 
 //App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195); 
 
-App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 205, 195);
-App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 225, 225);
-App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 255, 15);
+App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 605, 195);
+App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 625, 225);
+App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 655, 15);
 App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 275, 75);
 
 	mus = App->audio->LoadMus("assets/SFX/level_1_1.ogg");
@@ -470,7 +470,7 @@ bool ModuleBackground::CleanUp()
 
 void ModuleBackground::CameraUpDown()
 {
-	int  scrolltime = 65; int waittime = 443;
+	int  scrolltime = 65; int waittime = 165;
 	CameraOscillation(100, 130, true);
 
 	NotScrolling(190, 190 + waittime);
@@ -519,9 +519,9 @@ void ModuleBackground::CameraUpDown()
 
 	NotScrolling(190 + waittime * 11 + scrolltime * 11, 190 + waittime * 12 + scrolltime * 11);
 
-	CameraOscillation(190 + waittime * 12 + scrolltime * 11, 190 + waittime * 12 + scrolltime * 11 + 100, true);
+	CameraOscillation(190 + waittime * 12 + scrolltime * 11, 190 + waittime * 12 + scrolltime * 11 + 32, true);
 
-	NotScrolling(190 + waittime * 12 + scrolltime * 11 + 100, 100000);
+	NotScrolling(190 + waittime * 12 + scrolltime * 11 + 32, 100000);
 }
 
 void ModuleBackground::MoveUp()
