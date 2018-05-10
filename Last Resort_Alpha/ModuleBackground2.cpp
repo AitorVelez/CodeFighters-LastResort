@@ -73,7 +73,7 @@ bool ModuleBackground2::Start()
 	App->power->Enable();
 	App->UI->Enable();
 	App->Fonts->Enable();
-
+	App->enemies->Enable();
 	
 	BackgroundLvl2 = App->textures->Load("assets/sprites/Background_2.png");
 	Rain = App->textures->Load("assets/sprites/MinimunRainTest.png");
@@ -125,6 +125,7 @@ bool ModuleBackground2::CleanUp()
 // Update: draw background
 update_status ModuleBackground2::Update()
 {
+	
 	int scroll_speed = 1;
 
 	// Camera Movement Conditions
