@@ -80,10 +80,13 @@ bool ModuleBackground2::Start()
 	mus = App->audio->LoadMus("assets/SFX/level2.ogg");
 	ForegroundLvl2 = App->textures->Load("assets/sprites/Foreground_2.png");
 	Extra_ForegroundLvl2 = App->textures->Load("assets/sprites/ForegroundExtra.png");
-	App->audio->PlayMus(mus);
+	//App->audio->PlayMus(mus);
 
 
 	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);
+	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 205, 100);
+	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 255, 100);
+
 	activ = false;
 	App->UI->ready = true;
 

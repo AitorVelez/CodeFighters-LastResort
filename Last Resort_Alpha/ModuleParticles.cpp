@@ -124,6 +124,7 @@ ModuleParticles::ModuleParticles()
 	firing_laser.life = 200;
 	firing_laser.texture = 0;
 
+	bullet_laser2_1.anim.PushBack({ 960,1021,64,3 });
 	bullet_laser2_1.anim.PushBack({ 415,250,16,3 });
 	bullet_laser2_1.anim.PushBack({ 389,250,24,3 });
 	bullet_laser2_1.anim.PushBack({ 433,250,32,3 });
