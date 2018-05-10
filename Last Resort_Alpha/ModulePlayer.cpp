@@ -274,8 +274,8 @@ update_status ModulePlayer::Update()
 			if (bullet_state == LASER2) {
 				App->particles->AddParticle(App->particles->bullet_laser2_1, position.x , position.y - 10, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->bullet_laser2, position.x, position.y - 24, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 45, position.y - 24, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 59, position.y - 24, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 14, position.y - 24, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 28, position.y - 24, COLLIDER_PLAYER_SHOT);
 				//App->particles->AddParticle(App->particles->firing_laser, position.x + 32, position.y -16);
 			}
 		}
