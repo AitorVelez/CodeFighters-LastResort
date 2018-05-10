@@ -40,6 +40,7 @@ bool ModuleStageClear::Start()
 	App->render->camera.y = 0;
 	App->player->Disable();
 	App->player2->Disable();
+	App->background->Disable();
 	App->UI->stgclr = true;
 	return ret;
 }

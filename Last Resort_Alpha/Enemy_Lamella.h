@@ -15,6 +15,9 @@ private:
 	Animation fly;
 	Animation Moving; 
 	int hyp; 
+	bool aimed = false;
+	uint last_time = 0; 
+	uint current_time = 0;
 
 public:
 

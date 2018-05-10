@@ -62,21 +62,32 @@ void Enemy_Lamella::Move()
 		LOG("Animation has finished");
 		animation = &Moving;
 	}
-
+	current_time = SDL_GetTicks();
 	if (animation == &Moving) {
-		speed = 1.8f;
+		 
+		if (current_time > last_time + 1000) { // revisar
+			speed = 1.8f;
+		}
 	}
 	else {
 		speed = 0; 
 	}
+	
+	if (aimed == false) {
+		dirx = App->player->position.x - position.x;
+		diry = App->player->position.y - position.y;
+		hyp = sqrt(dirx*dirx + diry*diry);
 
-	dirx = App->player->position.x - position.x; 
-	diry = App->player->position.y - position.y;
-	hyp = sqrt(dirx*dirx + diry*diry);
+		dirx /= hyp;
+		diry /= hyp;
 
-	dirx /= hyp;
-	diry /= hyp;
-
-	position.x += dirx * speed; 
-	position.y += diry * speed;
+		position.x += dirx * speed;
+		position.y += diry * speed;; 
+		aimed = true; 
+	}
+	else {
+		position.x += dirx * speed;
+		position.y += diry * speed;
+	}
+	
 }

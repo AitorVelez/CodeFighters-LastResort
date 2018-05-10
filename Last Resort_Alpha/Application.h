@@ -40,6 +40,7 @@ public:
 	ModuleInput* input = nullptr;
 	ModuleTextures* textures = nullptr;
 	ModuleBackground* background = nullptr;
+	ModuleBackground2* background2 = nullptr;
 	ModuleStartingImage* startimage = nullptr;
 	ModuleEnemies* enemies = nullptr; 
 	ModulePlayer2* player2 = nullptr;
@@ -57,7 +58,7 @@ public:
 	ModuleUI* UI = nullptr;
 	ModuleFonts* Fonts = nullptr;
 	ModuleReady* Ready = nullptr;
-	ModuleBackground2* background2 = nullptr;
+	
 public:
 
 	Application();

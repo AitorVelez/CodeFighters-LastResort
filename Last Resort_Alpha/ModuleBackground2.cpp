@@ -82,6 +82,9 @@ bool ModuleBackground2::Start()
 	Extra_ForegroundLvl2 = App->textures->Load("assets/sprites/ForegroundExtra.png");
 	App->audio->PlayMus(mus);
 
+
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);
+
 	activ = false;
 	App->UI->ready = true;
 
@@ -96,7 +99,6 @@ bool ModuleBackground2::CleanUp()
 	App->player->Disable();
 	App->player2->Disable();
 	App->collision->Disable();
-	App->collision->CleanUp();
 	App->enemies->Disable();
 	App->Fonts->Disable();
 	App->UI->Disable();
@@ -139,11 +141,12 @@ update_status ModuleBackground2::Update()
 
 
 	// Draw everything --------------------------------------
-
+	int separation = 32; 
 	App->render->Blit(BackgroundLvl2, 0, 0, &background2, depth_1);
 	App->render->Blit(ForegroundLvl2, 1000, 0, &foreground2, depth_1);
 	App->render->Blit(Extra_ForegroundLvl2, 300, 156, &extra_foreground, depth_1);
-	App->render->Blit(Rain, 50, 50, &Rainlvl2.GetCurrentFrame(), depth_1);
+	App->render->Blit(Rain, 0, 50, &Rainlvl2.GetCurrentFrame(), depth_1);
+
 
 
 	// Fade to black
