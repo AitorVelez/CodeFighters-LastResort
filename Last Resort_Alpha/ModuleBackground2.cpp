@@ -39,20 +39,21 @@ ModuleBackground2::ModuleBackground2()
 	foreground2.w = 4825;
 	foreground2.h = 224;
 
-	extra_foreground.x = 0;
-	extra_foreground.y = 0;
-	extra_foreground.w = 80;
-	extra_foreground.h = 68;
+	hangar_body.x = 0;
+	hangar_body.y = 0;
+	hangar_body.w = 80;
+	hangar_body.h = 68;
 
-	Rainlvl2.PushBack({ 0,0,32,32 });
-	Rainlvl2.PushBack({ 32,0,32,32 });
-	Rainlvl2.PushBack({ 64,0,32,32 });
-	Rainlvl2.PushBack({ 86,0,32,32 });
-	Rainlvl2.PushBack({ 118,0,32,32 });
-	Rainlvl2.PushBack({ 150,0,32,32 });
-	Rainlvl2.PushBack({ 182,0,32,32 });
-	Rainlvl2.PushBack({ 214,0,32,32 });
-	Rainlvl2.speed = 0.1f;
+	rain_anim.PushBack({ 0,0,32,32 });
+	rain_anim.PushBack({ 32,0,32,32 });
+	rain_anim.PushBack({ 64,0,32,32 });
+	rain_anim.PushBack({ 86,0,32,32 });
+	rain_anim.PushBack({ 118,0,32,32 });
+	rain_anim.PushBack({ 150,0,32,32 });
+	rain_anim.PushBack({ 182,0,32,32 });
+	rain_anim.PushBack({ 214,0,32,32 });
+	rain_anim.speed = 0.15f;
+	rain_anim.loop = true; 
 
 }
 
@@ -76,10 +77,10 @@ bool ModuleBackground2::Start()
 	App->enemies->Enable();
 
 	BackgroundLvl2 = App->textures->Load("assets/sprites/Background_2.png");
-	Rain = App->textures->Load("assets/sprites/MinimunRainTest.png");
+	rain = App->textures->Load("assets/sprites/MinimunRainTest.png");
 	mus = App->audio->LoadMus("assets/SFX/level2.ogg");
 	ForegroundLvl2 = App->textures->Load("assets/sprites/Foreground_2.png");
-	Extra_ForegroundLvl2 = App->textures->Load("assets/sprites/ForegroundExtra.png");
+	hangar_texture = App->textures->Load("assets/sprites/hangar_body.png");
 	//App->audio->PlayMus(mus);
 
 
@@ -109,9 +110,9 @@ bool ModuleBackground2::CleanUp()
 	App->UI->ready = false;
 	//Free all loaded textures
 	App->textures->Unload(BackgroundLvl2);
-	App->textures->Unload(Rain);
+	App->textures->Unload(rain);
 	App->textures->Unload(ForegroundLvl2);
-	App->textures->Unload(Extra_ForegroundLvl2);
+	App->textures->Unload(hangar_texture);
 	//Free all audio material
 	App->audio->UnloadMus(mus);
 
@@ -145,10 +146,22 @@ update_status ModuleBackground2::Update()
 
 	// Draw everything --------------------------------------
 	int separation = 32; 
-	App->render->Blit(BackgroundLvl2, 0, 0, &background2, depth_1);
-	App->render->Blit(ForegroundLvl2, 1000, 0, &foreground2, depth_1);
-	App->render->Blit(Extra_ForegroundLvl2, 300, 156, &extra_foreground, depth_1);
-	App->render->Blit(Rain, 0, 50, &Rainlvl2.GetCurrentFrame(), depth_1);
+
+		// Background  
+	App->render->Blit(BackgroundLvl2, 0, 0, &background2, 0.25f);
+
+		// Foreground
+	App->render->Blit(ForegroundLvl2, 1000, 0, &foreground2, 0.6f);
+
+		// Hangars 
+	App->render->Blit(hangar_texture, 300, 156, &hangar_body, 0.6f);
+
+		// Rain
+	App->render->Blit(rain, 50, 50, &rain_anim.GetCurrentFrame(), 0.6f);
+	App->render->Blit(rain, 50, 50, &rain_anim.GetCurrentFrame(), 0.6f);
+
+
+
 
 
 

@@ -23,16 +23,16 @@ public:
 
 	SDL_Texture * BackgroundLvl2 = nullptr;
 	SDL_Texture * ForegroundLvl2 = nullptr;
-	SDL_Texture * Extra_ForegroundLvl2 = nullptr;
-	SDL_Texture * Rain = nullptr;
+	SDL_Texture * hangar_texture = nullptr;
+	SDL_Texture * rain = nullptr;
 
 	Mix_Music* mus = nullptr;
 
 	SDL_Rect background2;
 	SDL_Rect foreground2;
-	SDL_Rect extra_foreground;
+	SDL_Rect hangar_body;
 
-	Animation Rainlvl2;
+	Animation rain_anim;
 
 	bool activ = false;
 	bool scroll = true;
