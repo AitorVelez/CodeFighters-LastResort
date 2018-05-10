@@ -65,7 +65,7 @@ bool ModuleBackground2::Start()
 	LOG("Loading background assets");
 
 	bool ret = true;
-	App->background->BgLevel2Active = true; 
+	App->background->BgLevel2Active = true;
 	App->particles->Enable();
 	App->player->Enable();
 	App->collision->Enable();
@@ -74,7 +74,7 @@ bool ModuleBackground2::Start()
 	App->UI->Enable();
 	App->Fonts->Enable();
 	App->enemies->Enable();
-	
+
 	BackgroundLvl2 = App->textures->Load("assets/sprites/Background_2.png");
 	Rain = App->textures->Load("assets/sprites/MinimunRainTest.png");
 	mus = App->audio->LoadMus("assets/SFX/level2.ogg");
@@ -84,7 +84,6 @@ bool ModuleBackground2::Start()
 
 
 	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);
-
 	activ = false;
 	App->UI->ready = true;
 

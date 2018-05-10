@@ -9,6 +9,7 @@
 #include "ModuleAudio.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleBackground.h"
+#include "ModuleBackground2.h"
 #include "ModuleStageClear.h"
 #include "ModuleIntroNeoGeo.h"
 #include "Application.h"
@@ -252,7 +253,7 @@ update_status ModuleIntroNeoGeo::Update()
 	
 	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_STATE::KEY_DOWN)
 	{
-		if (App->fade->FadeToBlack(this, App->background, 1.5f))
+		if (App->fade->FadeToBlack(this, App->background2, 1.5f))
 			App->audio->FadeMus(750);
 	}
 
