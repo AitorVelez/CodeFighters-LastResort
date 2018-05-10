@@ -3,7 +3,7 @@
 #include "ModuleCollision.h"
 #include "ModulePlayer.h"
 #include "SDL\include\SDL_timer.h"
-
+#include "ModuleParticles.h"
 Enemy_Lamella::Enemy_Lamella(int x, int y, int HP) : Enemy(x, y, HP)
 {
 	original_hp = 1; 
@@ -57,16 +57,14 @@ Enemy_Lamella::Enemy_Lamella(int x, int y, int HP) : Enemy(x, y, HP)
 
 void Enemy_Lamella::Move()
 {
+	
 	if (fly.Finished())
 	{
-		LOG("Animation has finished");
+		current_time = SDL_GetTicks();
 		animation = &Moving;
-	}
-	current_time = SDL_GetTicks();
-	if (animation == &Moving) {
-		 
-		if (current_time > last_time + 1000) { // revisar
-			speed = 1.8f;
+
+		if (animation == &Moving) {
+			speed = 1.4f;
 		}
 	}
 	else {
@@ -90,4 +88,13 @@ void Enemy_Lamella::Move()
 		position.y += diry * speed;
 	}
 	
+
+	if (position.x < App->player->position.x) {
+	      collider = App->collision->AddCollider({ 0, 0, 31, 30 }, COLLIDER_TYPE::COLLIDER_NONE, (Module*)App->enemies);
+		  animation = &None; 
+		  if (ExplosionCounter == 0) {
+			  App->particles->AddParticle(App->particles->CommonExplosion, position.x, position.y);
+			  ExplosionCounter++;
+		  }
+	}
 }

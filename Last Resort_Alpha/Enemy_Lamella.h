@@ -14,10 +14,12 @@ private:
 	int original_x = 0; 
 	Animation fly;
 	Animation Moving; 
+	Animation None;
 	int hyp; 
 	bool aimed = false;
 	uint last_time = 0; 
 	uint current_time = 0;
+	int ExplosionCounter = 0; 
 
 public:
 
