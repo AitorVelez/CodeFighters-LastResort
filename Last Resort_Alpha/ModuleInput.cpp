@@ -19,7 +19,8 @@ bool ModuleInput::Init()
 {
 	LOG("Init SDL input event system");
 	bool ret = true;
-	SDL_Init(0);
+
+	SDL_Init(SDL_INIT_GAMECONTROLLER);
 
 	if (SDL_InitSubSystem(SDL_INIT_EVENTS) < 0)
 	{
@@ -40,6 +41,22 @@ update_status ModuleInput::PreUpdate()
 		return update_status::UPDATE_STOP;
 	}
 
+
+	for (int i = 0; i < SDL_NumJoysticks(); ++i) {
+		if (SDL_IsGameController(i)) {
+			controller = SDL_GameControllerOpen(i);
+			if (controller) {
+				LOG("THERE IS A MF CONTROLLER");
+				break;
+			}
+			else {
+				LOG("Could not open gamecontroller %i: %s\n", i, SDL_GetError());
+			}
+		}
+	}
+
+
+	
 
 	const Uint8* keys = SDL_GetKeyboardState(NULL);
 

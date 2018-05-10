@@ -262,6 +262,8 @@ update_status ModulePlayer::Update()
 			}
 		}
 
+		if (SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTX) > 100)
+			position.x += speed; 
 
 		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
 			App->particles->AddParticle(App->particles->bullet_propulsion, position.x + 31, position.y - 15);

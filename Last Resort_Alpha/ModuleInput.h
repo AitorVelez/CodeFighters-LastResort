@@ -4,8 +4,10 @@
 #include "Module.h"
 #include "Globals.h"
 #include "SDL\include\SDL_scancode.h"
-
+#include "SDL/include/SDL_gamecontroller.h"
 #define MAX_KEYS 300
+
+struct _SDL_GameController;
 
 enum KEY_STATE
 {
@@ -28,6 +30,7 @@ public:
 
 public:
 	KEY_STATE keyboard[MAX_KEYS];
+	_SDL_GameController* controller = nullptr; 
 };
 
 #endif // __ModuleInput_H__
