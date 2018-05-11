@@ -84,9 +84,10 @@ bool ModuleBackground2::Start()
 	//App->audio->PlayMus(mus);
 
 
-	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);
+	/*App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);*/
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 205, 100);
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 255, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 205, 195);
 
 	activ = false;
 	App->UI->ready = true;

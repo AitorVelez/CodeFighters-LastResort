@@ -90,7 +90,7 @@ void Enemy_Lamella::Move()
 	
 
 	if (position.x < App->player->position.x) {
-	      collider = App->collision->AddCollider({ 0, 0, 31, 30 }, COLLIDER_TYPE::COLLIDER_NONE, (Module*)App->enemies);
+	 
 		  animation = &None; 
 		  if (ExplosionCounter == 0) {
 			  App->particles->AddParticle(App->particles->CommonExplosion, position.x, position.y);
