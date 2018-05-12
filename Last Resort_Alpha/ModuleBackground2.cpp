@@ -102,7 +102,7 @@ bool ModuleBackground2::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 660, TopTurretPosY);
 
 
-
+	App->collision->AddCollider({300,156,80,68}, COLLIDER_WALL);
 	
 
 	activ = false;

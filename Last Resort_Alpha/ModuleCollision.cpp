@@ -281,6 +281,7 @@ void ModuleCollision::DebugDraw()
 		case COLLIDER_GOD:
 			App->render->DrawQuad(colliders[i]->rect, 127, 255, 0, alpha);
 			break;
+		
 		}
 	}
 }
