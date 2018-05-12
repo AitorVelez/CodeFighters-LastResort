@@ -82,6 +82,7 @@
     <ClInclude Include="Enemy_RedLamella.h" />
     <ClInclude Include="Enemy_Rhino.h" />
     <ClInclude Include="Enemy_Tank.h" />
+    <ClInclude Include="Enemy_Turret.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="LPower.h" />
     <ClInclude Include="ModuleBackground2.h" />
@@ -125,6 +126,7 @@
     <ClCompile Include="Enemy_RedLamella.cpp" />
     <ClCompile Include="Enemy_Rhino.cpp" />
     <ClCompile Include="Enemy_Tank.cpp" />
+    <ClCompile Include="Enemy_Turret.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="LPower.cpp" />
     <ClCompile Include="ModuleBackground2.cpp" />
