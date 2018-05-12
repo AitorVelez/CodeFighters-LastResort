@@ -38,6 +38,10 @@ public:
 	bool scroll = true;
 	int bgpos;
 	float depth_1;
+
+
+	int TopTurretPosY = 16; 
+	int BottomTurretPosY = 175;
 };
 
 #endif

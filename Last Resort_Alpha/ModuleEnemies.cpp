@@ -15,6 +15,7 @@
 #include "Yellow_Car.h"
 #include "Enemy_Tank.h"
 #include "Enemy_RedLamella.h"
+#include "Enemy_Turret.h"
 
 #define SPAWN_MARGIN 50
 
@@ -166,6 +167,9 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 	
 		case ENEMY_TYPES::RED_LAMELLA:
 			enemies[i] = new Enemy_RedLamella(info.x, info.y, info.HP);
+			break;
+		case ENEMY_TYPES::TURRET:
+			enemies[i] = new Enemy_Turret(info.x, info.y, info.HP);
 			break;
 		}
 	}

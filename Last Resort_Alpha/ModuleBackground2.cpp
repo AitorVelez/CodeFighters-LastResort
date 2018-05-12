@@ -21,6 +21,7 @@
 #include "ModuleBall.h"
 #include "ModuleBackground.h"
 
+
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
 ModuleBackground2::ModuleBackground2()
@@ -88,6 +89,21 @@ bool ModuleBackground2::Start()
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 205, 100);
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 255, 100);
 	App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 205, 195);
+	
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 300, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 340, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 380, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 420, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 460, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 500, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 540, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 580, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 620, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 660, TopTurretPosY);
+
+
+
+	
 
 	activ = false;
 	App->UI->ready = true;

@@ -23,6 +23,7 @@ enum ENEMY_TYPES
 	TANK,
 	LAMELLA,
 	RED_LAMELLA,
+	TURRET,
 };
 
 class Enemy;

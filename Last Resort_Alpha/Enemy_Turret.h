@@ -31,11 +31,14 @@ private:
 	int hyp;
 	float dirx;
 	float diry;
+	bool aimed = false; 
+	int BulletSpeed; 
 	uint current_time = 0;
 	uint last_time = 0;
 public:
 
 	Enemy_Turret(int x, int y, int HP);
+	void Move();
 	void Shoot();
 };
 
