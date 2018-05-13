@@ -108,8 +108,10 @@ bool ModuleBackground2::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 660, TopTurretPosY);
 
 
-	App->collision->AddCollider({300,156,80,68}, COLLIDER_WALL);
-	
+	App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);
+	App->collision->AddCollider({ 2000,156,80,68 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 2200,0,80,35 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 2400,156,80,68 }, COLLIDER_WALL);
 
 	activ = false;
 	App->UI->ready = true;
@@ -158,6 +160,7 @@ update_status ModuleBackground2::Update()
 	// Camera Movement Conditions
 	
 
+
 	if (scroll) {
 		App->render->camera.x += scroll_speed;
 		bgpos += 1;
@@ -169,21 +172,27 @@ update_status ModuleBackground2::Update()
 
 
 	// Draw everything --------------------------------------
-	int separation = 32; 
+
 
 		// Background  
-	App->render->Blit(BackgroundLvl2, 0, 0, &background2, 0.25f);
+	App->render->Blit(BackgroundLvl2, 0, 0, &background2, 0.416);						
 
 		// Foreground
-	App->render->Blit(ForegroundLvl2, 1432, 0, &foreground2, 0.344f);
+	App->render->Blit(ForegroundLvl2, 1700, 0, &foreground2, 0.5733f);
 
 		// Hangars 
-	App->render->Blit(hangar_texture, 1000, 156, &hangar_body, 0.6f);
-	App->render->Blit(hangar_2_texture, 300, 0, &hangar_2_body, 0.6f);
+	/*App->render->Blit(hangar_texture, 1000, 156, &hangar_body, 1.0f);
+	App->render->Blit(hangar_2_texture, 300, 0, &hangar_2_body, 1.0f);*/
+
+	App->render->Blit(hangar_texture, 500, 156, &hangar_body, 1.0f);
+	App->render->Blit(hangar_texture, 2000, 156, &hangar_body, 1.0f);
+	App->render->Blit(hangar_2_texture, 2200, 0, &hangar_2_body, 1.0f);
+	App->render->Blit(hangar_texture, 2400, 156, &hangar_body, 1.0f);
 
 		// Rain
-	App->render->Blit(rain, 50, 50, &rain_anim.GetCurrentFrame(), 0.6f);
-	App->render->Blit(rain, 50, 50, &rain_anim.GetCurrentFrame(), 0.6f);
+	App->render->Blit(rain, 50, 50, &rain_anim.GetCurrentFrame(), 1.0f);
+	App->render->Blit(rain, 50, 50, &rain_anim.GetCurrentFrame(), 1.0f);
+
 
 
 
