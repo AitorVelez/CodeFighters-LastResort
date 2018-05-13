@@ -78,6 +78,7 @@ update_status ModuleUI::Update()
 
 	if (ready == true || stgclr == true) {
 		App->render->Blit(UIS, 0, 0, &UIstable, 0, false);
+		App->Fonts->BlitText(280, 216, 0, "30");
 	}
 	if (ready)
 		App->Fonts->BlitText(45, 15, 0, score);
