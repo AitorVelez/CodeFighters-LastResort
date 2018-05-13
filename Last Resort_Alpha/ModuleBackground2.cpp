@@ -45,6 +45,11 @@ ModuleBackground2::ModuleBackground2()
 	hangar_body.w = 80;
 	hangar_body.h = 68;
 
+	hangar_2_body.x = 0;
+	hangar_2_body.y = 0;
+	hangar_2_body.w = 80;
+	hangar_2_body.h = 35;
+
 	rain_anim.PushBack({ 0,0,32,32 });
 	rain_anim.PushBack({ 32,0,32,32 });
 	rain_anim.PushBack({ 64,0,32,32 });
@@ -82,6 +87,7 @@ bool ModuleBackground2::Start()
 	mus = App->audio->LoadMus("assets/SFX/level2.ogg");
 	ForegroundLvl2 = App->textures->Load("assets/sprites/Foreground_2.png");
 	hangar_texture = App->textures->Load("assets/sprites/hangar_body.png");
+	hangar_2_texture = App->textures->Load("assets/sprites/Foreground_part_3.png");
 	//App->audio->PlayMus(mus);
 
 
@@ -130,6 +136,7 @@ bool ModuleBackground2::CleanUp()
 	App->textures->Unload(rain);
 	App->textures->Unload(ForegroundLvl2);
 	App->textures->Unload(hangar_texture);
+	App->textures->Unload(hangar_2_texture);
 	//Free all audio material
 	App->audio->UnloadMus(mus);
 
@@ -171,7 +178,8 @@ update_status ModuleBackground2::Update()
 	App->render->Blit(ForegroundLvl2, 1432, 0, &foreground2, 0.344f);
 
 		// Hangars 
-	App->render->Blit(hangar_texture, 300, 156, &hangar_body, 0.6f);
+	App->render->Blit(hangar_texture, 1000, 156, &hangar_body, 0.6f);
+	App->render->Blit(hangar_2_texture, 300, 0, &hangar_2_body, 0.6f);
 
 		// Rain
 	App->render->Blit(rain, 50, 50, &rain_anim.GetCurrentFrame(), 0.6f);
