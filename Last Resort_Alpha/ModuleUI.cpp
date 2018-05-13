@@ -69,6 +69,7 @@ update_status ModuleUI::Update()
 	que es un char* necesitamos transformar ese int en un char* o algo asi para que se pueda printear*/
 	char score[10];
 	char score2[10];
+	char coins[10];
 	App->player->score_p1;
 	int a, b;
 	b = App->player2->score_p2 + 1000;
@@ -78,6 +79,7 @@ update_status ModuleUI::Update()
 
 	if (ready == true || stgclr == true) {
 		App->render->Blit(UIS, 0, 0, &UIstable, 0, false);
+		App->Fonts->BlitText(280, 216, 0, "0" );
 	}
 	if (ready)
 		App->Fonts->BlitText(45, 15, 0, score);
