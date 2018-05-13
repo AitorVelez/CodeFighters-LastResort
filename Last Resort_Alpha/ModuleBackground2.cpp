@@ -178,8 +178,8 @@ update_status ModuleBackground2::Update()
 	App->render->Blit(ForegroundLvl2, 1432, 0, &foreground2, 0.344f);
 
 		// Hangars 
-	App->render->Blit(hangar_texture, 1000, 156, &hangar_body, 0.6f);
-	App->render->Blit(hangar_2_texture, 300, 0, &hangar_2_body, 0.6f);
+	App->render->Blit(hangar_texture, 300, 156, &hangar_body, 0.6f);
+	App->render->Blit(hangar_2_texture, 1300, 0, &hangar_2_body, 0.6f);
 
 		// Rain
 	App->render->Blit(rain, 50, 50, &rain_anim.GetCurrentFrame(), 0.6f);
