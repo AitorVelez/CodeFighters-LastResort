@@ -2,6 +2,7 @@
 #include "Application.h"
 #include "ModulePlayer.h"
 #include "ModuleBackground.h"
+#include "ModuleBackground2.h"
 #include "ModuleTextures.h"
 #include "ModuleInput.h"
 #include "ModuleRender.h"
@@ -357,7 +358,7 @@ void ModuleBall::Ball_Launch()
 	if ((ball_position.x <  center_player.x +30  && ball_position.x > center_player.x - 30) &&
 		(ball_position.y < center_player.y +30 && ball_position.y > center_player.y - 30) && go_back) in_place = true; 
 
-	if (ball_position.x < App->background->bgpos || ball_position.x > App->background->bgpos + SCREEN_WIDTH || ball_position.y < -50 || ball_position.y > SCREEN_HEIGHT) {
+	if (ball_position.x < App->background2->bgpos || ball_position.x > App->background2->bgpos + SCREEN_WIDTH || ball_position.y < -50 || ball_position.y > SCREEN_HEIGHT) {
 		go_back = true;
 	}
 
