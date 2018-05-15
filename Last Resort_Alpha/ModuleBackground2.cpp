@@ -50,15 +50,25 @@ ModuleBackground2::ModuleBackground2()
 	hangar_2_body.w = 80;
 	hangar_2_body.h = 35;
 
-	rain_anim.PushBack({ 0,0,32,32 });
+	/*rain_anim.PushBack({ 0,0,32,32 });
 	rain_anim.PushBack({ 32,0,32,32 });
 	rain_anim.PushBack({ 64,0,32,32 });
 	rain_anim.PushBack({ 86,0,32,32 });
 	rain_anim.PushBack({ 118,0,32,32 });
 	rain_anim.PushBack({ 150,0,32,32 });
 	rain_anim.PushBack({ 182,0,32,32 });
-	rain_anim.PushBack({ 214,0,32,32 });
-	rain_anim.speed = 0.15f;
+	rain_anim.PushBack({ 214,0,32,32 });*/
+
+	
+	rain_anim.PushBack({ 720, 192, 240,192 });
+	rain_anim.PushBack({ 480, 192, 240,192 });	
+	rain_anim.PushBack({ 240, 192, 240,192 });	
+	rain_anim.PushBack({ 0, 192, 240,192 });	
+	rain_anim.PushBack({ 720, 0, 240,192 });
+	rain_anim.PushBack({ 480, 0, 240,192 });
+	rain_anim.PushBack({ 240, 0, 240,192 });
+	rain_anim.PushBack({ 0, 0, 240,192 });
+	rain_anim.speed = 0.007f;
 	rain_anim.loop = true; 
 
 }
@@ -176,6 +186,12 @@ update_status ModuleBackground2::Update()
 
 		// Background  
 	App->render->Blit(BackgroundLvl2, 0, 0, &background2, 0.416);						
+		
+	
+		// Rain
+	for(int cont = 0; cont <= background2.w * 3; cont+=240)
+	App->render->Blit(rain, cont, 0, &rain_anim.GetCurrentFrame(), 1.f);
+
 
 		// Foreground
 	App->render->Blit(ForegroundLvl2, 1700, 0, &foreground2, 0.5733f);
@@ -191,10 +207,8 @@ update_status ModuleBackground2::Update()
 	App->render->Blit(hangar_texture, 2400, 156, &hangar_body, 1.0f);
 
 
-		// Rain
-	App->render->Blit(rain, 50, 50, &rain_anim.GetCurrentFrame(), 1.0f);
-	App->render->Blit(rain, 50, 50, &rain_anim.GetCurrentFrame(), 1.0f);
-
+		
+	
 
 
 
