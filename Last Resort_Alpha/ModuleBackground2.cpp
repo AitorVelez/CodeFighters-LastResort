@@ -126,6 +126,9 @@ bool ModuleBackground2::Start()
 	activ = false;
 	App->UI->ready = true;
 
+	mus = App->audio->LoadMus("assets/SFX/level_2.ogg");
+	App->audio->PlayMus(mus);
+
 	return ret;
 }
 
