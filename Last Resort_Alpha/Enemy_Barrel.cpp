@@ -23,5 +23,5 @@ Enemy_Barrel::Enemy_Barrel(int x, int y, int HP) : Enemy(x, y, HP)
 void Enemy_Barrel::Move()
 {
 
-	position.y = sin(90);
+
 }
