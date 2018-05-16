@@ -118,6 +118,9 @@
     <ClCompile Include="Enemy_Turret.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy_Barrel.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Blue_Car.h">
@@ -247,6 +250,9 @@
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Turret.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Barrel.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
