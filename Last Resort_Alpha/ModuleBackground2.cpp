@@ -101,7 +101,7 @@ bool ModuleBackground2::Start()
 	//App->audio->PlayMus(mus);
 
 
-	/*App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);*/
+/*
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 205, 100);
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 255, 100);
 	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);
@@ -117,7 +117,7 @@ bool ModuleBackground2::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 620, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 660, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 660, TopTurretPosY);
-
+	*/
 
 	App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);
 	App->collision->AddCollider({ 2000,156,80,68 }, COLLIDER_WALL);

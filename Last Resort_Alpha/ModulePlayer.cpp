@@ -105,6 +105,12 @@ ModulePlayer::ModulePlayer()
 	re_up.speed = 0.1;
 	re_up.loop = false;
 
+	re_WaterUp.PushBack({ 787, 277, 32, 11 });
+	re_WaterUp.PushBack({ 819, 277, 32, 12 });
+	re_WaterUp.PushBack({ 851, 277, 32, 12 });
+	re_WaterUp.speed = 0.1;
+	re_WaterUp.loop = false;
+
 	// Down animation
 	down.PushBack({ 96,3,32,14 });
 	down.PushBack({ 128,3,32,14 });
@@ -116,6 +122,24 @@ ModulePlayer::ModulePlayer()
 	re_down.PushBack({ 64,3,32,14 });
 	re_down.speed = 0.1;
 	re_down.loop = false;
+
+	re_WaterDown.PushBack({ 915, 275, 32, 13 });
+	re_WaterDown.PushBack({ 883, 276, 32, 13 });
+	re_WaterDown.PushBack({ 851, 277, 32, 12 });
+	re_WaterDown.speed = 0.1;
+	re_WaterDown.loop = false;
+
+	WaterDown.PushBack({ 883, 276, 32, 13 });
+	WaterDown.PushBack({ 915, 275, 32, 13 });
+	WaterDown.speed = 0.1;
+	WaterDown.loop = false;
+	WaterUp.PushBack({ 819, 277, 32, 12 });
+	WaterUp.PushBack({ 787, 277, 32, 11 });
+	WaterUp.speed = 0.1;
+	WaterUp.loop = false;
+	Water.PushBack({ 851, 277, 32, 12 });
+	Water.speed = 0.1;
+	Water.loop = false;
 
 }
 
@@ -186,131 +210,216 @@ void ModulePlayer::OnCollision(Collider * c1, Collider * c2)
 update_status ModulePlayer::Update()
 {
 	int scroll_speed = 1;
-//	int speed = 2;
+	//	int speed = 2;
 
 	if (position.x <= 9150 && alive_p1 == true)
 		position.x += scroll_speed;
 
 
 	if (alive_p1 && playershowup.Finished()) {
-		
-		current_animation = &idle;
+		if (App->background2->IsEnabled() == true) {
+			if (position.y > 202) {
+				current_animation = &Water;
+			}
+			else {
+				current_animation = &idle;
+			}
+		}
+		else {
+			current_animation = &idle;
+		}
 
 		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
 		{
 			if (relativeposition.y > CHARACTER_HEIGHT + TopLimit + 4) {
-				current_animation = &up;
+				if (App->background2->IsEnabled() == true) {
+					if (position.y > 202) {
+						current_animation = &WaterUp;
+						re_WaterUp.Reset();
+						re_WaterDown.Reset();
+					}
+					else {
+						current_animation = &up;
+						re_up.Reset();
+						re_down.Reset();
+					}
+				}
+				else {
+					current_animation = &up;
+					re_up.Reset();
+					re_down.Reset();
+				}
 				relativeposition.y -= speed;
 				position.y -= speed;
-				re_up.Reset();
-				re_down.Reset();
+
 			}
 			else {
 				relativeposition.y = CHARACTER_HEIGHT + TopLimit + 4;
-				current_animation = &up;			
-				re_up.Reset();
-			}
-		}
-		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP) {
-
-			up.Reset();
-			current_animation = &re_up;
-		}
-		
-
-
-
-
-		if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
-		{
-			if (relativeposition.y < SCREEN_HEIGHT - TopLimit) {
-				current_animation = &down;
-				relativeposition.y += speed;
-				position.y += speed;
-				re_up.Reset();
-				re_down.Reset();
-			}
-			else {
-				relativeposition.y = SCREEN_HEIGHT - TopLimit;
-				current_animation = &down;
-				re_down.Reset();
-			}
-		}
-
-		if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_UP) {
-
-			down.Reset();
-			current_animation = &re_down;
-
-		}
-
-		if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT) {
-			if (relativeposition.x < SCREEN_WIDTH - CHARACTER_WIDTH - SideLimit) {
-				relativeposition.x += speed;
-				position.x += speed;
-			}
-			else {
-				relativeposition.x = SCREEN_WIDTH - CHARACTER_WIDTH - SideLimit;
-			}
-		}
-		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT) {
-			if (relativeposition.x > SideLimit) {
-				relativeposition.x -= speed;
-				position.x -= speed;
-			}
-			else {
-				relativeposition.x = SideLimit;
-			}
-		}
-
-		if (SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTX) > 100)
-			position.x += speed; 
-
-		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
-			App->particles->AddParticle(App->particles->bullet_propulsion, position.x + 31, position.y - 15);
-			App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
-			App->particles->AddParticle(App->particles->bullet_propulsion, position.x + 31, position.y - 15);
-			if (bullet_state == LASER1) {
-				App->particles->AddParticle(App->particles->bullet_laser2_1, position.x, position.y - 10, COLLIDER_PLAYER_SHOT);
-				//App->particles->AddParticle(App->particles->firing_laser, position.x + 32, position.y-16);
-			}
-			if (bullet_state == LASER2) {
-				App->particles->AddParticle(App->particles->bullet_laser2_1, position.x , position.y - 10, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->bullet_laser2, position.x, position.y - 24, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 14, position.y - 24, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 28, position.y - 24, COLLIDER_PLAYER_SHOT);
-				//App->particles->AddParticle(App->particles->firing_laser, position.x + 32, position.y -16);
-			}
-		}
-
-		if (App->input->keyboard[SDL_SCANCODE_1] == KEY_STATE::KEY_DOWN) {
-			if (god_mode == true) god_mode = false;
-			else god_mode = true; 
-		}
-
-	}
-
-	if (god_mode == true) PlayerCollider->type = COLLIDER_TYPE::COLLIDER_GOD;
-	else PlayerCollider->type = COLLIDER_TYPE::COLLIDER_PLAYER;
-
-	if (alive_p1) {
-		SDL_Rect r = current_animation->GetCurrentFrame();
-		PlayerCollider->SetPos(position.x, position.y - r.h);
-		App->render->Blit(graphics, position.x, position.y - r.h, &r);
-	}
-	else {
-		if (death_played == false) {
-			App->ball->Disable(); 
-			App->particles->AddParticle(App->particles->player_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
-			death_played = true;
-			lives -= 1;
-			if (SwitchToBg2 == false) {
 				if (App->background2->IsEnabled() == true) {
-					lives = 2;
-					SwitchToBg2 = true;
+					if (position.y > 202) {
+						current_animation = &WaterUp;
+						re_WaterUp.Reset();
+					}
+					else {
+						current_animation = &up;
+						re_up.Reset();
+					}
+				}
+				else {
+					current_animation = &up;
+					re_up.Reset();
 				}
 			}
 		}
+			if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP) {
+				if (App->background2->IsEnabled() == true) {
+					if (position.y > 202) {
+						WaterUp.Reset();
+						current_animation = &re_WaterUp;
+					}
+					else {
+						up.Reset();
+						current_animation = &re_up;
+					}
+				}
+				else {
+					up.Reset();
+					current_animation = &re_up;
+				}
+			}
+
+
+
+
+
+			if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
+			{
+				if (relativeposition.y < SCREEN_HEIGHT - TopLimit) {
+					if (App->background2->IsEnabled() == true) {
+						if (position.y > 202) {
+							current_animation = &WaterDown;
+							re_WaterUp.Reset();
+							re_WaterDown.Reset();
+						}
+						else {
+							current_animation = &down;
+							re_up.Reset();
+							re_down.Reset();
+						}
+					}
+					else {
+						current_animation = &down;
+						re_up.Reset();
+						re_down.Reset();
+					}
+					relativeposition.y += speed;
+					position.y += speed;
+
+				}
+				else {
+					relativeposition.y = SCREEN_HEIGHT - TopLimit;
+					if (App->background2->IsEnabled() == true) {
+						if (position.y > 202) {
+							current_animation = &WaterDown;
+							re_WaterDown.Reset();
+						}
+						else {
+							current_animation = &down;
+							re_down.Reset();
+						}
+					}
+					else {
+						current_animation = &down;
+						re_down.Reset();
+					}
+				}
+			}
+
+			if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_UP) {
+				if (App->background2->IsEnabled() == true) {
+					if (position.y > 202) {
+						WaterDown.Reset();
+						current_animation = &re_WaterDown;
+					}
+					else {
+						down.Reset();
+						current_animation = &re_down;
+					}
+				}
+				else {
+					down.Reset();
+					current_animation = &re_down;
+				}
+			}
+
+			if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT) {
+				if (relativeposition.x < SCREEN_WIDTH - CHARACTER_WIDTH - SideLimit) {
+					relativeposition.x += speed;
+					position.x += speed;
+				}
+				else {
+					relativeposition.x = SCREEN_WIDTH - CHARACTER_WIDTH - SideLimit;
+				}
+			}
+			if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT) {
+				if (relativeposition.x > SideLimit) {
+					relativeposition.x -= speed;
+					position.x -= speed;
+				}
+				else {
+					relativeposition.x = SideLimit;
+				}
+			}
+
+			if (SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTX) > 100)
+				position.x += speed;
+
+			if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
+				App->particles->AddParticle(App->particles->bullet_propulsion, position.x + 31, position.y - 15);
+				App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->bullet_propulsion, position.x + 31, position.y - 15);
+				if (bullet_state == LASER1) {
+					App->particles->AddParticle(App->particles->bullet_laser2_1, position.x, position.y - 10, COLLIDER_PLAYER_SHOT);
+					//App->particles->AddParticle(App->particles->firing_laser, position.x + 32, position.y-16);
+				}
+				if (bullet_state == LASER2) {
+					App->particles->AddParticle(App->particles->bullet_laser2_1, position.x, position.y - 10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->bullet_laser2, position.x, position.y - 24, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->bullet_laser2, position.x + 14, position.y - 24, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->bullet_laser2, position.x + 28, position.y - 24, COLLIDER_PLAYER_SHOT);
+					//App->particles->AddParticle(App->particles->firing_laser, position.x + 32, position.y -16);
+				}
+			}
+
+			if (App->input->keyboard[SDL_SCANCODE_1] == KEY_STATE::KEY_DOWN) {
+				if (god_mode == true) god_mode = false;
+				else god_mode = true;
+			}
+
+		}
+
+		if (god_mode == true) PlayerCollider->type = COLLIDER_TYPE::COLLIDER_GOD;
+		else PlayerCollider->type = COLLIDER_TYPE::COLLIDER_PLAYER;
+
+		if (alive_p1) {
+			SDL_Rect r = current_animation->GetCurrentFrame();
+			PlayerCollider->SetPos(position.x, position.y - r.h);
+			App->render->Blit(graphics, position.x, position.y - r.h, &r);
+		}
+		else {
+			if (death_played == false) {
+				App->ball->Disable();
+				App->particles->AddParticle(App->particles->player_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
+				death_played = true;
+				lives -= 1;
+				if (SwitchToBg2 == false) {
+					if (App->background2->IsEnabled() == true) {
+						lives = 2;
+						SwitchToBg2 = true;
+					}
+				}
+			}
+		}
+		return UPDATE_CONTINUE;
 	}
-	return UPDATE_CONTINUE;
-}
+

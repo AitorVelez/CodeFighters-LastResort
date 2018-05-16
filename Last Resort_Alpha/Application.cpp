@@ -72,7 +72,7 @@ bool Application::Init()
 	stageclear->Disable();
 	loseimage->Disable();
 	collision->Disable();
-//	enemies->Disable();
+    enemies->Disable();
 	power->Disable();
 	ball->Disable();
 	ball_p2->Disable(); 
