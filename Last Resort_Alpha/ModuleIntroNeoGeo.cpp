@@ -199,7 +199,7 @@ bool ModuleIntroNeoGeo::CleanUp()
 	App->textures->Unload(NeoGeoTex6);
 	App->textures->Unload(NeoGeoTex7);
 	App->textures->Unload(NeoGeoTex8);
-	App->textures->Unload(NeoGeoTex9);
+	
 	App->audio->UnloadMus(mus);
 
 	return true;
