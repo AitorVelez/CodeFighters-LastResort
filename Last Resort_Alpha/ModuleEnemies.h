@@ -24,6 +24,7 @@ enum ENEMY_TYPES
 	LAMELLA,
 	RED_LAMELLA,
 	TURRET,
+	BARREL
 };
 
 class Enemy;

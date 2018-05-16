@@ -15,4 +15,4 @@ public:
 	void Move();
 };
 
-#endif // __ENEMY_COCKROACH_H__
+#endif //__ENEMY_BARREL_H__

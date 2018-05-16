@@ -16,6 +16,7 @@
 #include "Enemy_Tank.h"
 #include "Enemy_RedLamella.h"
 #include "Enemy_Turret.h"
+#include "Enemy_Barrel.h"
 
 #define SPAWN_MARGIN 50
 
@@ -170,6 +171,10 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			break;
 		case ENEMY_TYPES::TURRET:
 			enemies[i] = new Enemy_Turret(info.x, info.y, info.HP);
+			break;
+
+		case ENEMY_TYPES::BARREL:
+			enemies[i] = new Enemy_Barrel(info.x, info.y, info.HP);
 			break;
 		}
 	}

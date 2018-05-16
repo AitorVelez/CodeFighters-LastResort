@@ -6,11 +6,11 @@
 Enemy_Barrel::Enemy_Barrel(int x, int y, int HP) : Enemy(x, y, HP)
 {
 
-	fly.PushBack({ 9,443,32,16 });
-	fly.PushBack({ 9,474,32,15 });
-	fly.PushBack({ 9,490,32,15 });
-	fly.PushBack({ 9,474,32,15 });
-	fly.PushBack({ 9,459,32,15 });
+	fly.PushBack({ 198,853,20,22 });
+	fly.PushBack({ 228,853,20,22 });
+	fly.PushBack({ 258,853,20,22 });
+	fly.PushBack({ 288,853,20,22 });
+	
 
 	fly.speed = 0.1;
 	animation = &fly;
@@ -22,6 +22,6 @@ Enemy_Barrel::Enemy_Barrel(int x, int y, int HP) : Enemy(x, y, HP)
 
 void Enemy_Barrel::Move()
 {
-	position.x -= 2;
-	position.y = y_original + (App->render->camera.y / 3);
+
+	position.y = sin(90);
 }
