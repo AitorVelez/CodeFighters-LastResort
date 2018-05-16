@@ -104,7 +104,7 @@ bool ModuleBackground2::Start()
 	/*App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);*/
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 205, 100);
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 255, 100);
-	App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 205, 195);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);
 	
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 300, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 340, TopTurretPosY);
@@ -243,7 +243,7 @@ update_status ModuleBackground2::Update()
 				App->fade->FadeToBlack((Module*)App->background2, (Module*)App->loseimage, 2.5f);
 			}
 			else {
-				App->fade->FadeToBlack((Module*)App->background2, (Module*)App->Ready, 0.0f);
+				App->fade->FadeToBlack((Module*)App->background2, (Module*)App->Ready, 1.5f);
 				if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
 					App->fade->FadeToBlack((Module*)App->Ready, (Module*)App->background2, 0.0f);
 				}

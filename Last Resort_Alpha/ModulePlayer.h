@@ -57,6 +57,7 @@ public:
 	bool god_mode = false; 
 	int speed = 2;
 	int lives = 3; 
+	bool SwitchToBg2 = false; 
 };
 
 #endif

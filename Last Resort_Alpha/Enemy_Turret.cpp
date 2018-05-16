@@ -38,6 +38,8 @@ Enemy_Turret::Enemy_Turret(int x, int y, int HP) : Enemy(x, y, HP)
 
 void Enemy_Turret::Move()
 {
+	position.x += 0.416f; // stay as foreground
+
 	if (App->player->position.y < position.y) {                                  // above superior limit 
 		if (App->player->position.x < position.x + TurretWidth*2) {
 			anim2ndLevel = &UpLeft;
@@ -73,15 +75,21 @@ void Enemy_Turret::Move()
 }
 
 void Enemy_Turret::Shoot()
-{/*
-	BulletSpeed = 0.2f; 
+{
+/*
+	BulletSpeed = 1.5f; 
 	dirx = App->player->position.x - position.x;
 	diry = App->player->position.y - position.y;
 	hyp = sqrt(dirx*dirx + diry * diry);
 	dirx /= hyp;
 	diry /= hyp;
-	App->particles->SmallTankShot.speed.x = dirx* BulletSpeed; 
-	App->particles->SmallTankShot.speed.y = diry* BulletSpeed;
+
+	alpha = diry/hyp *180 / PI;
+
+	
+	App->particles->SmallTankShot.speed.x = sin(alpha) * BulletSpeed; 
+	App->particles->SmallTankShot.speed.y = cos(alpha) * BulletSpeed;
+
 	current_time = SDL_GetTicks();
 	if (current_time > last_time + 800) {
 			App->particles->AddParticle(App->particles->SmallTankShot, position.x, position.y, COLLIDER_ENEMY_SHOT);	

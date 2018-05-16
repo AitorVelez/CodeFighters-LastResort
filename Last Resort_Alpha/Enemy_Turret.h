@@ -28,11 +28,12 @@ private:
 
 	int original_y;
 	int original_x;
-	int hyp;
+	float hyp;
 	float dirx;
 	float diry;
 	bool aimed = false; 
-	int BulletSpeed; 
+    float BulletSpeed; 
+	float alpha; 
 	uint current_time = 0;
 	uint last_time = 0;
 public:

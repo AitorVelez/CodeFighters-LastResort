@@ -63,7 +63,7 @@ bool Application::Init()
 {
 	bool ret = true;
 
-	//introneogeo->Disable();
+	// introneogeo->Disable();
 	startimage->Disable();
 	player->Disable();
 	player2->Disable();
@@ -72,7 +72,7 @@ bool Application::Init()
 	stageclear->Disable();
 	loseimage->Disable();
 	collision->Disable();
-	enemies->Disable();
+//	enemies->Disable();
 	power->Disable();
 	ball->Disable();
 	ball_p2->Disable(); 
