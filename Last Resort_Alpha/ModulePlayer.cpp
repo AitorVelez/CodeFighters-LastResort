@@ -141,6 +141,13 @@ ModulePlayer::ModulePlayer()
 	Water.speed = 0.1;
 	Water.loop = false;
 
+	Bubbles.PushBack({ 386,414,15,15 });
+	Bubbles.PushBack({ 401,414,15,15 });
+	Bubbles.PushBack({ 416,414,15,15 });
+	Bubbles.PushBack({ 431,414,15,15 });
+	Bubbles.loop = false;
+	Bubbles.speed = 0.1;
+
 }
 
 ModulePlayer::~ModulePlayer()
@@ -299,6 +306,7 @@ update_status ModulePlayer::Update()
 					if (App->background2->IsEnabled() == true) {
 						if (position.y > 202) {
 							current_animation = &WaterDown;
+							App->render->Blit(graphics, position.x-15, position.y-11, &Bubbles.GetCurrentFrame(), 1.f);
 							re_WaterUp.Reset();
 							re_WaterDown.Reset();
 						}
