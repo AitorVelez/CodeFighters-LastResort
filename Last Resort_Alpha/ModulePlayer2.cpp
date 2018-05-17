@@ -14,6 +14,7 @@
 #include "ModuleBall_P2.h"
 #include "ModuleUI.h"
 #include "ModuleBackground2.h"
+#include "SDL\include\SDL_timer.h"
 
 #define  SideLimit 15
 #define  TopLimit 2
@@ -123,19 +124,32 @@ bool ModulePlayer2::Start()
 	LOG("Loading player 2 textures");
 	bool ret = true;
 	int i = App->render->camera.x;
-	position.x = App->player->position.x; //50
-	relativeposition.x = App->player->relativeposition.x;
+
+	if (death_played == true) {
+		if (App->background->IsEnabled() == true) {
+			position.x = App->background->bgpos + 50;
+			position.y = 125;
+		}
+		else if (App->background2->IsEnabled() == true) {
+			position.x = App->background2->bgpos + 50;
+			position.y = 125;
+		}
+	}
+	else {
+		position.x = App->player->position.x; //50
+		relativeposition.x = App->player->relativeposition.x;
+		if ((App->player->position.y + 20) > (SCREEN_HEIGHT - TopLimit))
+		{
+			position.y = App->player->position.y - 20; //175
+			relativeposition.y = App->player->relativeposition.y - 20;
+		}
+		else
+		{
+			position.y = App->player->position.y + 20; //175
+			relativeposition.y = App->player->relativeposition.y + 20;
+		}
+	}
 	App->UI->pl2 = true;
-	if ((App->player->position.y + 20) > (SCREEN_HEIGHT - TopLimit))
-	{
-		position.y = App->player->position.y - 20; //175
-		relativeposition.y = App->player->relativeposition.y - 20;
-	}
-	else
-	{
-		position.y = App->player->position.y + 20; //175
-		relativeposition.y = App->player->relativeposition.y + 20;
-	}
 
 	graphics = App->textures->Load("assets/sprites/SpritesPlayer2.png"); // arcade version
 	PlayerCollider = App->collision->AddCollider({ position.x,position.y, 32, 11 }, COLLIDER_PLAYER, this);
@@ -144,7 +158,7 @@ bool ModulePlayer2::Start()
 
 	lives--;
 	App->background->activ = true;
-	score_p2 = 0; 
+	score_p2 = 0;
 	alive_p2 = true;
 	bullet_state_2 = BULLET_NO_TYPE_2;
 	death_played = false;
@@ -152,6 +166,25 @@ bool ModulePlayer2::Start()
 	god_mode = false;
 	return ret;
 }
+	/*
+	if (App->player2->IsEnabled() == true) {
+	if (death_played == true) {
+	if (App->background->IsEnabled() == true) {
+	position.x = App->background->bgpos + 50;
+	position.y = 125;
+	}
+	else if (App->background2->IsEnabled() == true) {
+	position.x = App->background2->bgpos + 50;
+	position.y = 125;
+	}
+	}
+	}
+	else {
+	position.x = 50;
+	position.y = 125;
+	}
+	*/
+
 
 
 bool ModulePlayer2::CleanUp()
@@ -304,6 +337,14 @@ update_status ModulePlayer2::Update()
 			App->particles->AddParticle(App->particles->player2_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
 			death_played = true;
 			lives -= 1;
+			now = SDL_GetTicks();
+			if (App->player->IsEnabled() == true) {
+				App->player2->Disable();
+				if (now > last + 1000) {
+					App->player2->Enable();
+				}
+				last = now;
+			}
 			if (SwitchToBg2 == false) {
 				if (App->background2->IsEnabled() == true) {
 					lives = 2;

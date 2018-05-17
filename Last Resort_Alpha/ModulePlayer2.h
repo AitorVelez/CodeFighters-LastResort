@@ -57,6 +57,8 @@ public:
 	bool god_mode = false;
 	int lives = 3;
 	bool SwitchToBg2 = false;
+	uint now = 0;
+	uint last = 0;
 };
 
 #endif

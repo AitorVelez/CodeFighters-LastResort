@@ -14,6 +14,7 @@
 #include "ModuleBall.h"
 #include "ModulePowerUp.h"
 #include "ModuleBackground2.h"
+#include "SDL\include\SDL_timer.h"
 
 #define  SideLimit 15
 #define  TopLimit 2
@@ -158,8 +159,22 @@ bool ModulePlayer::Start()
 {
 	LOG("Loading player textures");
 	bool ret = true; 
-	position.x = 50;
-	position.y = 125;
+	if (App->player2->IsEnabled() == true) {
+		if (death_played == true) {
+			if (App->background->IsEnabled() == true) {
+				position.x = App->background->bgpos + 50;
+				position.y = 125;
+			}
+			else if (App->background2->IsEnabled() == true) {
+				position.x = App->background2->bgpos + 50;
+				position.y = 125;
+			}
+		}
+	}
+	else {
+		position.x = 50;
+		position.y = 125;
+	}
 
 	relativeposition.x = position.x;
 	relativeposition.y = position.y;
@@ -421,6 +436,14 @@ update_status ModulePlayer::Update()
 				App->particles->AddParticle(App->particles->player_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
 				death_played = true;
 				lives -= 1;
+				now = SDL_GetTicks(); 
+				if (App->player2->IsEnabled() == true) {
+					App->player->Disable();
+					if (now > last + 1000) {
+						App->player->Enable();
+					}
+					last = now;
+				}
 				if (SwitchToBg2 == false) {
 					if (App->background2->IsEnabled() == true) {
 						lives = 2;

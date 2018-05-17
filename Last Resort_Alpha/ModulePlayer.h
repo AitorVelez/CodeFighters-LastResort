@@ -64,6 +64,8 @@ public:
 	int speed = 2;
 	int lives = 3; 
 	bool SwitchToBg2 = false; 
+	uint now = 0; 
+	uint last = 0; 
 };
 
 #endif
