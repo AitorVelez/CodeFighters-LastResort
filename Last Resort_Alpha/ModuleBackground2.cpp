@@ -101,13 +101,13 @@ bool ModuleBackground2::Start()
 	//App->audio->PlayMus(mus);
 
 
-/*
+
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 205, 100);
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 255, 100);
 	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);
 	
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 300, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 340, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3150, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3190, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 380, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 420, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 460, TopTurretPosY);
@@ -117,7 +117,7 @@ bool ModuleBackground2::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 620, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 660, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 660, TopTurretPosY);
-	*/
+	
 
 	App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);
 	App->collision->AddCollider({ 2000,156,80,68 }, COLLIDER_WALL);
@@ -237,7 +237,7 @@ update_status ModuleBackground2::Update()
 		App->player2->Enable();
 
 
-	if (App->player->IsEnabled() == true && App->player2->IsEnabled() == false) {
+//	if (App->player->IsEnabled() == true && App->player2->IsEnabled() == false) {         // When player 1 is active and dies, ready appears
 		if (activ == false) {
 			if (App->player->alive_p1 == false) {
 				if (App->player->lives == 0) {
@@ -248,22 +248,10 @@ update_status ModuleBackground2::Update()
 				}
 			}
 		}
-	}
+	// }
+	
 	/*
-	else if (App->player->IsEnabled() == false && App->player2->IsEnabled() == true) {
-	if (activ == false) {
-	if (App->player2->alive_p2 == false) {
-	if (App->player2->lives == 0) {
-	App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage, 2.5f);
-	}
-	else {
-	App->fade->FadeToBlack((Module*)App->background, (Module*)App->Ready, 1.5f);
-	}
-	}
-	}
-	}*/
-
-	else if (App->player->IsEnabled() == true && App->player2->IsEnabled() == true) {
+	else if (App->player->IsEnabled() == true && App->player2->IsEnabled() == true) {       // when both players active, they can respawn 
 		if (activ == false) {
 			if (App->player2->alive_p2 == false) {
 				if (App->player->lives == 0 && App->player2->lives == 0) {
@@ -272,7 +260,7 @@ update_status ModuleBackground2::Update()
 			}
 		}
 	}
-
+	*/
 
 
 	if (App->render->camera.x == 9000 * SCREEN_SIZE) {

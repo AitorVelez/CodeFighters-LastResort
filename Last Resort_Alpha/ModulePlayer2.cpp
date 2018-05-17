@@ -125,9 +125,9 @@ bool ModulePlayer2::Start()
 	bool ret = true;
 	int i = App->render->camera.x;
 
-	if (death_played == true) {
+/*	if (death_played == true) {
 		if (App->background->IsEnabled() == true) {
-			position.x = App->background->bgpos + 50;
+			position.x = App->background->bgpos + 50;       IF BOTH PLAYERS ENABLED, RESPAWN
 			position.y = 125;
 		}
 		else if (App->background2->IsEnabled() == true) {
@@ -135,7 +135,7 @@ bool ModulePlayer2::Start()
 			position.y = 125;
 		}
 	}
-	else {
+	else {*/
 		position.x = App->player->position.x; //50
 		relativeposition.x = App->player->relativeposition.x;
 		if ((App->player->position.y + 20) > (SCREEN_HEIGHT - TopLimit))
@@ -148,7 +148,7 @@ bool ModulePlayer2::Start()
 			position.y = App->player->position.y + 20; //175
 			relativeposition.y = App->player->relativeposition.y + 20;
 		}
-	}
+	//}
 	App->UI->pl2 = true;
 
 	graphics = App->textures->Load("assets/sprites/SpritesPlayer2.png"); // arcade version
@@ -166,24 +166,7 @@ bool ModulePlayer2::Start()
 	god_mode = false;
 	return ret;
 }
-	/*
-	if (App->player2->IsEnabled() == true) {
-	if (death_played == true) {
-	if (App->background->IsEnabled() == true) {
-	position.x = App->background->bgpos + 50;
-	position.y = 125;
-	}
-	else if (App->background2->IsEnabled() == true) {
-	position.x = App->background2->bgpos + 50;
-	position.y = 125;
-	}
-	}
-	}
-	else {
-	position.x = 50;
-	position.y = 125;
-	}
-	*/
+	
 
 
 
@@ -337,14 +320,16 @@ update_status ModulePlayer2::Update()
 			App->particles->AddParticle(App->particles->player2_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
 			death_played = true;
 			lives -= 1;
-			now = SDL_GetTicks();
+			/*now = SDL_GetTicks();
 			if (App->player->IsEnabled() == true) {
 				App->player2->Disable();
 				if (now > last + 1000) {
-					App->player2->Enable();
+					if (lives != 0) {
+						App->player2->Enable();
+					}
 				}
 				last = now;
-			}
+			}*/
 			if (SwitchToBg2 == false) {
 				if (App->background2->IsEnabled() == true) {
 					lives = 2;

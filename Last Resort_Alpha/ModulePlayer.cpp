@@ -159,10 +159,10 @@ bool ModulePlayer::Start()
 {
 	LOG("Loading player textures");
 	bool ret = true; 
-	if (App->player2->IsEnabled() == true) {
+/*	if (App->player2->IsEnabled() == true) {
 		if (death_played == true) {
 			if (App->background->IsEnabled() == true) {
-				position.x = App->background->bgpos + 50;
+				position.x = App->background->bgpos + 50;                     IF BOTH PLAYERS ENABLED, RESPAWN
 				position.y = 125;
 			}
 			else if (App->background2->IsEnabled() == true) {
@@ -171,10 +171,10 @@ bool ModulePlayer::Start()
 			}
 		}
 	}
-	else {
+	else {*/
 		position.x = 50;
 		position.y = 125;
-	}
+	// }
 
 	relativeposition.x = position.x;
 	relativeposition.y = position.y;
@@ -436,14 +436,16 @@ update_status ModulePlayer::Update()
 				App->particles->AddParticle(App->particles->player_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
 				death_played = true;
 				lives -= 1;
-				now = SDL_GetTicks(); 
-				if (App->player2->IsEnabled() == true) {
-					App->player->Disable();
+			/*	if (App->player2->IsEnabled() == true) {
+				    App->player->Disable();
+					now = SDL_GetTicks();
 					if (now > last + 1000) {
-						App->player->Enable();
+						if (lives != 0) {
+							App->player->Enable();
+						}
 					}
 					last = now;
-				}
+				}*/
 				if (SwitchToBg2 == false) {
 					if (App->background2->IsEnabled() == true) {
 						lives = 2;

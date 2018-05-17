@@ -87,6 +87,7 @@ public:
 	bool upscroll = false;
 	int bgpos; 
     bool BgLevel2Active = true; 
+	bool EnemiesSpawned = false; 
 };
 
 #endif
