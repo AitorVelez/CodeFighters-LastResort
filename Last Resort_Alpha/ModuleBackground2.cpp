@@ -106,16 +106,23 @@ bool ModuleBackground2::Start()
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 255, 100);
 	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);
 	
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3150, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3190, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 380, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 420, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 460, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 500, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 540, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 580, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 620, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 660, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3060, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3100, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3140, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3180, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3220, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3260, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3300, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3340, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3380, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3420, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3460, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3480, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3520, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3560, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3600, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3640, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3680, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 660, TopTurretPosY);
 	
 
@@ -195,7 +202,6 @@ update_status ModuleBackground2::Update()
 		// Rain
 	for(int cont = 0; cont <= background2.w * 3; cont+=240)
 	App->render->Blit(rain, cont, 0, &rain_anim.GetCurrentFrame(), 1.f);
-
 
 		// Foreground
 	App->render->Blit(ForegroundLvl2, 1700, 0, &foreground2, 0.5733f);

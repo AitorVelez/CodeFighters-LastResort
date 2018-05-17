@@ -51,7 +51,6 @@ public:
 	Animation Water;
 	Animation re_WaterUp;
 	Animation re_WaterDown;
-	Animation Bubbles;
 	iPoint position;
 	fPoint relativeposition;
 	Collider *PlayerCollider = nullptr;

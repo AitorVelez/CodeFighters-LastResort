@@ -44,12 +44,13 @@ public:
 	update_status Update();
 	bool CleanUp();
 	void OnCollision(Collider* c1, Collider* c2);
-
+	void UnderWater();
 	void AddParticle(const Particle& particle, int x, int y, COLLIDER_TYPE collider_type = COLLIDER_NONE, Uint32 delay = 0);
 
 private:
 
 	SDL_Texture *BulletsAndLaser = nullptr;
+	/*SDL_Texture *bubbles = nullptr;*/
 	Particle* active[MAX_ACTIVE_PARTICLES];
 	uint last_particle = 0;
 	
@@ -69,6 +70,7 @@ public:
 	Particle bullet_laser2_1;
 	Particle Charging_Ball;
 	Particle Releasing_Ball;
+	Particle Bubbles;
 
 	Particle pilot_dying;
 	Particle BigTankShot; 
