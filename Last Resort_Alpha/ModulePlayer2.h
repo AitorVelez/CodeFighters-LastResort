@@ -56,6 +56,7 @@ public:
 	bool death_played = false; // different than player one 
 	bool god_mode = false;
 	int lives = 3;
+	bool SwitchToBg2 = false;
 };
 
 #endif

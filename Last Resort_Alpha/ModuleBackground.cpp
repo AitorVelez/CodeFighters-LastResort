@@ -822,20 +822,42 @@ update_status ModuleBackground::Update()
 		App->player2->Enable();
 	App->player2->lives = 2;
 
-	if (activ == false) {
-		if (App->player->alive_p1 == false) {
-			if (App->player->lives == 0) {
-			               	App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage, 2.5f);
-			}
-			else {
-				App->fade->FadeToBlack((Module*)App->background, (Module*)App->Ready, 1.5f);
+	if (App->player->IsEnabled() == true && App->player2->IsEnabled() == false) {
+		if (activ == false) {
+			if (App->player->alive_p1 == false) {
+				if (App->player->lives == 0) {
+					App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage, 2.5f);
+				}
+				else {
+					App->fade->FadeToBlack((Module*)App->background, (Module*)App->Ready, 1.5f);
+				}
 			}
 		}
 	}
 	/*
-	if (App->player->alive_p1 == false && App->player2->alive_p2 == false && App->player->lives == 0 && App->player2->lives == 0) {
-		App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage, 2.5f);
+    else if (App->player->IsEnabled() == false && App->player2->IsEnabled() == true) {
+		if (activ == false) {
+			if (App->player2->alive_p2 == false) {
+				if (App->player2->lives == 0) {
+					App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage, 2.5f);
+				}
+				else {
+					App->fade->FadeToBlack((Module*)App->background, (Module*)App->Ready, 1.5f);
+				}
+			}
+		}
 	}*/
+
+	else if (App->player->IsEnabled() == true && App->player2->IsEnabled() == true) {
+		if (activ == false) {
+			if (App->player2->alive_p2 == false) {
+				if (App->player->lives == 0 && App->player2->lives == 0) {
+					App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage, 2.5f);
+				}
+			}
+		}
+	}
+
 
 
 

@@ -13,6 +13,7 @@
 #include "ModuleStageClear.h"
 #include "ModuleBall_P2.h"
 #include "ModuleUI.h"
+#include "ModuleBackground2.h"
 
 #define  SideLimit 15
 #define  TopLimit 2
@@ -302,6 +303,13 @@ update_status ModulePlayer2::Update()
 			App->ball_p2->Disable();
 			App->particles->AddParticle(App->particles->player2_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
 			death_played = true;
+			lives -= 1;
+			if (SwitchToBg2 == false) {
+				if (App->background2->IsEnabled() == true) {
+					lives = 2;
+					SwitchToBg2 = true;
+				}
+			}
 		}
 	}
 	return UPDATE_CONTINUE;
