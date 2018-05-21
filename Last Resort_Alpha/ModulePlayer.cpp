@@ -152,7 +152,7 @@ bool ModulePlayer::Start()
 {
 	LOG("Loading player textures");
 	bool ret = true; 
-	/*if (App->player2->IsEnabled() == true) {
+	if (App->player2->IsEnabled() == true) {
 		if (death_played == true) {
 			now = SDL_GetTicks();
 			if (now > last + 1000) {
@@ -160,20 +160,24 @@ bool ModulePlayer::Start()
 				if (App->background->IsEnabled() == true) {
 				position.x = App->background->bgpos + 50;                  //   IF BOTH PLAYERS ENABLED, RESPAWN
 				position.y = 125;
-			}
+				relativeposition.x = position.x;
+				relativeposition.y = position.y;
+			} 
 			else if (App->background2->IsEnabled() == true) {
 				position.x = App->background2->bgpos + 50;
 			 	position.y = 125;
+				relativeposition.x = position.x;
+				relativeposition.y = position.y;
 			  }
 			}
 		 }
 			last = now;
 		}
 	}
-	else {*/
+	else {
 		position.x = 50;
 		position.y = 125;
-	// }
+	 }
 
 	relativeposition.x = position.x;
 	relativeposition.y = position.y;
