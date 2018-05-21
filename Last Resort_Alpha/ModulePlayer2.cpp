@@ -125,17 +125,21 @@ bool ModulePlayer2::Start()
 	bool ret = true;
 	int i = App->render->camera.x;
 
-  /*  if (death_played == true) {
+    if (death_played == true) {
 		if (App->background->IsEnabled() == true) {
 			position.x = App->background->bgpos + 50;      // IF BOTH PLAYERS ENABLED, RESPAWN
 			position.y = 125;
+			relativeposition.x = position.x; 
+			relativeposition.y = position.y;
 		}
 		else if (App->background2->IsEnabled() == true) {
 			position.x = App->background2->bgpos + 50;
 			position.y = 125;
+			relativeposition.x = position.x;
+			relativeposition.y = position.y;
 		}
 	}
-	else {*/
+	else {
 		position.x = App->player->position.x; //50
 		relativeposition.x = App->player->relativeposition.x;
 		if ((App->player->position.y + 20) > (SCREEN_HEIGHT - TopLimit))
@@ -148,7 +152,7 @@ bool ModulePlayer2::Start()
 			position.y = App->player->position.y + 20; //175
 			relativeposition.y = App->player->relativeposition.y + 20;
 		}
-	//}
+	}
 	App->UI->pl2 = true;
 
 	graphics = App->textures->Load("assets/sprites/SpritesPlayer2.png"); // arcade version
