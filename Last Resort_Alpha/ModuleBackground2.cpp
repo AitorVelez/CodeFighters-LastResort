@@ -130,6 +130,14 @@ bool ModuleBackground2::Start()
 	App->collision->AddCollider({ 2000,156,80,68 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 2200,0,80,35 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 2400,156,80,68 }, COLLIDER_WALL);
+	
+
+	//COLLIDERS GRANS
+
+	App->collision->AddCollider({ 2700,156,160,68 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 2700,0,160,51 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 2860,156,419,37 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 2860,0,415,19 }, COLLIDER_WALL);
 
 	activ = false;
 	App->UI->ready = true;
@@ -204,7 +212,7 @@ update_status ModuleBackground2::Update()
 	App->render->Blit(rain, cont, 0, &rain_anim.GetCurrentFrame(), 1.f);
 
 		// Foreground
-	App->render->Blit(ForegroundLvl2, 1700, 0, &foreground2, 0.5733f);
+	App->render->Blit(ForegroundLvl2, 2700, 0, &foreground2, 1.0f);
 
 		// Hangars 
 
