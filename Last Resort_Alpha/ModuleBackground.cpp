@@ -765,6 +765,7 @@ void ModuleBackground::RenderTunnelLights()
 update_status ModuleBackground::Update()
 {
 	int scroll_speed = 1;
+	App->enemies->Balance -= 100;
 
 	// Camera Movement Conditions
 	falscamara -= scroll_speed;

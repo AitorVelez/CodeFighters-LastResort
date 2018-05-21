@@ -186,9 +186,10 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 {
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
-		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
+		if ((enemies[i] != nullptr && enemies[i]->GetCollider() == c1) && Balance <= 0);
 		{
 			enemies[i]->OnCollision(c2);
+			Balance = 500;
 			if (enemies[i]->hp <= 0) {			// IF HP <= 0 DELETE
 				delete enemies[i];    
 				if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_BALL) App->player->score_p1 += 100;
