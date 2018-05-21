@@ -15,7 +15,7 @@
 #include "ModulePowerUp.h"
 #include "ModuleBackground2.h"
 #include "SDL\include\SDL_timer.h"
-
+#define MAX_LIVES 3 
 #define  SideLimit 15
 #define  TopLimit 2
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
@@ -152,16 +152,22 @@ bool ModulePlayer::Start()
 {
 	LOG("Loading player textures");
 	bool ret = true; 
-/*	if (App->player2->IsEnabled() == true) {
+	/*if (App->player2->IsEnabled() == true) {
 		if (death_played == true) {
-			if (App->background->IsEnabled() == true) {
-				position.x = App->background->bgpos + 50;                     IF BOTH PLAYERS ENABLED, RESPAWN
+			now = SDL_GetTicks();
+			if (now > last + 1000) {
+				if (lives != 0) {
+				if (App->background->IsEnabled() == true) {
+				position.x = App->background->bgpos + 50;                  //   IF BOTH PLAYERS ENABLED, RESPAWN
 				position.y = 125;
 			}
 			else if (App->background2->IsEnabled() == true) {
 				position.x = App->background2->bgpos + 50;
-				position.y = 125;
+			 	position.y = 125;
+			  }
 			}
+		 }
+			last = now;
 		}
 	}
 	else {*/
@@ -195,6 +201,8 @@ bool ModulePlayer::CleanUp()
 	App->textures->Unload(graphics);
 	App->ball->Disable(); 
 	playershowup.Reset();
+	current_animation = &none; 
+	PlayerCollider = nullptr; 
 	return true; 
 }
 
@@ -428,16 +436,10 @@ update_status ModulePlayer::Update()
 				App->particles->AddParticle(App->particles->player_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
 				death_played = true;
 				lives -= 1;
-			/*	if (App->player2->IsEnabled() == true) {
+				if (App->player2->IsEnabled() == true) {
 				    App->player->Disable();
-					now = SDL_GetTicks();
-					if (now > last + 1000) {
-						if (lives != 0) {
-							App->player->Enable();
-						}
-					}
-					last = now;
-				}*/
+					App->player->Enable();
+				}
 				if (SwitchToBg2 == false) {
 					if (App->background2->IsEnabled() == true) {
 						lives = 2;

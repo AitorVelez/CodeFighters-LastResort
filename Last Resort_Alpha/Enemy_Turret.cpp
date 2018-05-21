@@ -76,24 +76,17 @@ void Enemy_Turret::Move()
 
 void Enemy_Turret::Shoot()
 {
-/*
+
 	BulletSpeed = 1.5f; 
 	dirx = App->player->position.x - position.x;
 	diry = App->player->position.y - position.y;
-	hyp = sqrt(dirx*dirx + diry * diry);
-	dirx /= hyp;
-	diry /= hyp;
-
-	alpha = diry/hyp *180 / PI;
-
 	
-	App->particles->SmallTankShot.speed.x = sin(alpha) * BulletSpeed; 
-	App->particles->SmallTankShot.speed.y = cos(alpha) * BulletSpeed;
+	proportion = dirx / diry; 
 
 	current_time = SDL_GetTicks();
 	if (current_time > last_time + 800) {
 			App->particles->AddParticle(App->particles->SmallTankShot, position.x, position.y, COLLIDER_ENEMY_SHOT);	
 		last_time = current_time;
 	}
-	*/
+	
 }

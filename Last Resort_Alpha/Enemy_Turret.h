@@ -33,7 +33,7 @@ private:
 	float diry;
 	bool aimed = false; 
     float BulletSpeed; 
-	float alpha; 
+	float proportion; 
 	uint current_time = 0;
 	uint last_time = 0;
 public:

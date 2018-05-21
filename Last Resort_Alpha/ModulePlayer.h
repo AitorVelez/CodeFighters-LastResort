@@ -51,6 +51,7 @@ public:
 	Animation Water;
 	Animation re_WaterUp;
 	Animation re_WaterDown;
+	Animation none; 
 	iPoint position;
 	fPoint relativeposition;
 	Collider *PlayerCollider = nullptr;

@@ -823,7 +823,7 @@ update_status ModuleBackground::Update()
 		App->player2->Enable();
 	App->player2->lives = 2;
 
-//	if (App->player->IsEnabled() == true && App->player2->IsEnabled() == false) {     // When player 1 is active and dies, ready appears
+	if (App->player->IsEnabled() == true && App->player2->IsEnabled() == false) {     // When player 1 is active and dies, ready appears
 		if (activ == false) {
 			if (App->player->alive_p1 == false) {
 				if (App->player->lives == 0) {
@@ -834,8 +834,8 @@ update_status ModuleBackground::Update()
 				}
 			}
 		}
-	//}
-/*
+	}
+
 	else if (App->player->IsEnabled() == true && App->player2->IsEnabled() == true) {    // when both players active, they can respawn 
 		if (activ == false) {
 			if (App->player2->alive_p2 == false) {
@@ -844,7 +844,7 @@ update_status ModuleBackground::Update()
 				}
 			}
 		}
-	}*/
+	}
 
 
 

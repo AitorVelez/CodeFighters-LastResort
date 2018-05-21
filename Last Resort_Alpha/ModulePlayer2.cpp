@@ -125,9 +125,9 @@ bool ModulePlayer2::Start()
 	bool ret = true;
 	int i = App->render->camera.x;
 
-/*	if (death_played == true) {
+  /*  if (death_played == true) {
 		if (App->background->IsEnabled() == true) {
-			position.x = App->background->bgpos + 50;       IF BOTH PLAYERS ENABLED, RESPAWN
+			position.x = App->background->bgpos + 50;      // IF BOTH PLAYERS ENABLED, RESPAWN
 			position.y = 125;
 		}
 		else if (App->background2->IsEnabled() == true) {
@@ -320,7 +320,7 @@ update_status ModulePlayer2::Update()
 			App->particles->AddParticle(App->particles->player2_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
 			death_played = true;
 			lives -= 1;
-			/*now = SDL_GetTicks();
+			now = SDL_GetTicks();
 			if (App->player->IsEnabled() == true) {
 				App->player2->Disable();
 				if (now > last + 1000) {
@@ -329,7 +329,7 @@ update_status ModulePlayer2::Update()
 					}
 				}
 				last = now;
-			}*/
+			}
 			if (SwitchToBg2 == false) {
 				if (App->background2->IsEnabled() == true) {
 					lives = 2;
