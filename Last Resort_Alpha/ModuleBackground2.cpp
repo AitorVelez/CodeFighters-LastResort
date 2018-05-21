@@ -136,10 +136,21 @@ bool ModuleBackground2::Start()
 
 	//COLLIDERS GRANS
 
-	App->collision->AddCollider({ 2700,156,160,68 }, COLLIDER_WALL);
-	App->collision->AddCollider({ 2700,0,160,51 }, COLLIDER_WALL);
-	App->collision->AddCollider({ 2860,156,419,37 }, COLLIDER_WALL);
-	App->collision->AddCollider({ 2860,0,415,19 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 2700,156,160,68 }, COLLIDER_WALL);			//baix
+	App->collision->AddCollider({ 2700,0,160,51 }, COLLIDER_WALL);				//dalt
+	App->collision->AddCollider({ 2860,187,419,37 }, COLLIDER_WALL);			//llarg baix
+	App->collision->AddCollider({ 2860,0,415,19 }, COLLIDER_WALL);				//llarg dalt	
+	App->collision->AddCollider({ 3272,140,100,100 }, COLLIDER_WALL);			//cuadrat baix
+	App->collision->AddCollider({ 3272,0,96,68 }, COLLIDER_WALL);				//cuadrat dalt
+	
+	App->collision->AddCollider({ 3368,187,736,37 }, COLLIDER_WALL);			//llarg baix
+	App->collision->AddCollider({ 3368,0,736,19 }, COLLIDER_WALL);				//larg baix
+	App->collision->AddCollider({ 4104,140,100,100 }, COLLIDER_WALL);			//cuadrat baix
+	App->collision->AddCollider({ 4104,0,96,68 }, COLLIDER_WALL);				//cuadrat dalt
+	App->collision->AddCollider({ 3368,187,130,37 }, COLLIDER_WALL);			//llarg baix
+	App->collision->AddCollider({ 3368,0,130,19 }, COLLIDER_WALL);				//larg baix
+
+
 
 	activ = false;
 	App->UI->ready = true;
