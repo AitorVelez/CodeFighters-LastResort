@@ -201,7 +201,7 @@ void ModulePlayer2::OnCollision(Collider * c1, Collider * c2)
 	if (c2->type == COLLIDER_TYPE::COLLIDER_POWERUP_S)
 		if (speed != 3) speed = 3; 
 
-	if (c2->type == COLLIDER_TYPE::COLLIDER_ENEMY || c2->type == COLLIDER_TYPE::COLLIDER_ENEMY)
+	if (c2->type == COLLIDER_TYPE::COLLIDER_ENEMY || c2->type == COLLIDER_TYPE::COLLIDER_ENEMY || c2->type == COLLIDER_TYPE::COLLIDER_WALL)
 	{
 		alive_p2 = false;
 
