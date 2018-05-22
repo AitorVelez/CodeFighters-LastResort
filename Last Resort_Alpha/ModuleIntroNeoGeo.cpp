@@ -25,41 +25,40 @@ ModuleIntroNeoGeo::ModuleIntroNeoGeo()
 
 
 
-	NeoGeo1.PushBack({ 708,200,304,224 });
-	NeoGeo1.PushBack({ 608,672,304,224 });
-	NeoGeo1.PushBack({ 304,672,304,224 });
-	NeoGeo1.PushBack({ 0,  672,304,224 });
-	NeoGeo1.PushBack({ 608,448,304,224 });
-	NeoGeo1.PushBack({ 304,448,304,224 });
-	NeoGeo1.PushBack({ 0,  448,304,224 });
-	NeoGeo1.PushBack({ 608,224,304,224 });
-	NeoGeo1.PushBack({ 304,224,304,224 });
-	NeoGeo1.PushBack({ 0,  224,304,224 });
-	NeoGeo1.PushBack({ 608,0,304,224 });
-	NeoGeo1.PushBack({ 304,0,304,224 });
-	NeoGeo1.PushBack({ 0,  0,304,224 });
-	NeoGeo1.PushBack({ 773,  871,251,153 });
-	NeoGeo1.speed = 0.25f;
+
+	//NeoGeo1.PushBack({ 608,672,304,224 });
+	//NeoGeo1.PushBack({ 304,672,304,224 });
+	//NeoGeo1.PushBack({ 0,  672,304,224 });
+	//NeoGeo1.PushBack({ 608,448,304,224 });
+//	NeoGeo1.PushBack({ 304,448,304,224 });
+	//NeoGeo1.PushBack({ 0,  448,304,224 });
+	//NeoGeo1.PushBack({ 608,224,304,224 });
+	//NeoGeo1.PushBack({ 304,224,304,224 });
+	//NeoGeo1.PushBack({ 0,  224,304,224 });
+	//NeoGeo1.PushBack({ 608,0,304,224 });
+	//NeoGeo1.PushBack({ 304,0,304,224 });
+	//NeoGeo1.PushBack({ 0,  0,304,224 });
+	//NeoGeo1.PushBack({ 773,  871,251,153 });
+	//NeoGeo1.speed = 0.25f;
 	NeoGeo1.loop = false;
 
-	NeoGeo2.PushBack({ 708,200,304,224 });
-	NeoGeo2.PushBack({ 608,672,304,224 });
-	NeoGeo2.PushBack({ 304,672,304,224 });
-	NeoGeo2.PushBack({ 0,  672,304,224 });
-	NeoGeo2.PushBack({ 608,448,304,224 });
-	NeoGeo2.PushBack({ 304,448,304,224 });
-	NeoGeo2.PushBack({ 0,  448,304,224 });
+	//NeoGeo2.PushBack({ 608,672,304,224 });
+	//NeoGeo2.PushBack({ 304,672,304,224 });
+	//NeoGeo2.PushBack({ 0,  672,304,224 });
+	//NeoGeo2.PushBack({ 608,448,304,224 });
+	//NeoGeo2.PushBack({ 304,448,304,224 });
+	//NeoGeo2.PushBack({ 0,  448,304,224 });
 	NeoGeo2.PushBack({ 608,224,304,224 });
 	NeoGeo2.PushBack({ 304,224,304,224 });
 	NeoGeo2.PushBack({ 0,  224,304,224 });
-	NeoGeo2.PushBack({ 608,0,304,224 });
-	NeoGeo2.PushBack({ 304,0,304,224 });
-	NeoGeo2.PushBack({ 0,  0,304,224 });
-	NeoGeo2.PushBack({ 773,  871,251,153 });
+	//NeoGeo2.PushBack({ 608,0,304,224 });
+	//NeoGeo2.PushBack({ 304,0,304,224 });
+	//NeoGeo2.PushBack({ 0,  0,304,224 });
+	//NeoGeo2.PushBack({ 773,  871,251,153 });
 	NeoGeo2.speed = 0.25f;
 	NeoGeo2.loop = false;
 
-	NeoGeo3.PushBack({ 708,200,304,224 });
+
 	NeoGeo3.PushBack({ 608,672,304,224 });
 	NeoGeo3.PushBack({ 304,672,304,224 });
 	NeoGeo3.PushBack({ 0,  672,304,224 });
@@ -76,7 +75,7 @@ ModuleIntroNeoGeo::ModuleIntroNeoGeo()
 	NeoGeo3.speed = 0.25f;
 	NeoGeo3.loop = false;
 
-	NeoGeo4.PushBack({ 708,200,304,224 });
+	
 	NeoGeo4.PushBack({ 608,672,304,224 });
 	NeoGeo4.PushBack({ 304,672,304,224 });
 	NeoGeo4.PushBack({ 0,  672,304,224 });
@@ -93,7 +92,7 @@ ModuleIntroNeoGeo::ModuleIntroNeoGeo()
 	NeoGeo4.speed = 0.25f;
 	NeoGeo4.loop = false;
 
-	NeoGeo5.PushBack({ 708,200,304,224 });
+
 	NeoGeo5.PushBack({ 608,672,304,224 });
 	NeoGeo5.PushBack({ 304,672,304,224 });
 	NeoGeo5.PushBack({ 0,  672,304,224 });
@@ -110,7 +109,7 @@ ModuleIntroNeoGeo::ModuleIntroNeoGeo()
 	NeoGeo5.speed = 0.25f;
 	NeoGeo5.loop = false;
 
-	NeoGeo6.PushBack({ 708,200,304,224 });
+
 	NeoGeo6.PushBack({ 608,672,304,224 });
 	NeoGeo6.PushBack({ 304,672,304,224 });
 	NeoGeo6.PushBack({ 0,  672,304,224 });
@@ -127,7 +126,7 @@ ModuleIntroNeoGeo::ModuleIntroNeoGeo()
 	NeoGeo6.speed = 0.25f;
 	NeoGeo6.loop = false;
 
-	NeoGeo7.PushBack({ 708,200,304,224 });
+
 	NeoGeo7.PushBack({ 608,672,304,224 });
 	NeoGeo7.PushBack({ 304,672,304,224 });
 	NeoGeo7.PushBack({ 0,  672,304,224 });
@@ -144,7 +143,7 @@ ModuleIntroNeoGeo::ModuleIntroNeoGeo()
 	NeoGeo7.speed = 0.25f;
 	NeoGeo7.loop = false;
 
-	NeoGeo8.PushBack({ 708,200,304,224 });
+
 	NeoGeo8.PushBack({ 608,672,304,224 });
 	NeoGeo8.PushBack({ 304,672,304,224 });
 	NeoGeo8.PushBack({ 0,  672,304,224 });
