@@ -38,6 +38,7 @@ ModuleIntroNeoGeo::ModuleIntroNeoGeo()
 	NeoGeo1.PushBack({ 608,0,304,224 });
 	NeoGeo1.PushBack({ 304,0,304,224 });
 	NeoGeo1.PushBack({ 0,  0,304,224 });
+	NeoGeo1.PushBack({ 773,  871,251,153 });
 	NeoGeo1.speed = 0.25f;
 	NeoGeo1.loop = false;
 
@@ -54,6 +55,7 @@ ModuleIntroNeoGeo::ModuleIntroNeoGeo()
 	NeoGeo2.PushBack({ 608,0,304,224 });
 	NeoGeo2.PushBack({ 304,0,304,224 });
 	NeoGeo2.PushBack({ 0,  0,304,224 });
+	NeoGeo2.PushBack({ 773,  871,251,153 });
 	NeoGeo2.speed = 0.25f;
 	NeoGeo2.loop = false;
 
@@ -70,6 +72,7 @@ ModuleIntroNeoGeo::ModuleIntroNeoGeo()
 	NeoGeo3.PushBack({ 608,0,304,224 });
 	NeoGeo3.PushBack({ 304,0,304,224 });
 	NeoGeo3.PushBack({ 0,  0,304,224 });
+	NeoGeo3.PushBack({ 773,  871,251,153 });
 	NeoGeo3.speed = 0.25f;
 	NeoGeo3.loop = false;
 
@@ -86,6 +89,7 @@ ModuleIntroNeoGeo::ModuleIntroNeoGeo()
 	NeoGeo4.PushBack({ 608,0,304,224 });
 	NeoGeo4.PushBack({ 304,0,304,224 });
 	NeoGeo4.PushBack({ 0,  0,304,224 });
+	NeoGeo4.PushBack({ 773,  871,251,153 });
 	NeoGeo4.speed = 0.25f;
 	NeoGeo4.loop = false;
 
@@ -102,6 +106,7 @@ ModuleIntroNeoGeo::ModuleIntroNeoGeo()
 	NeoGeo5.PushBack({ 608,0,304,224 });
 	NeoGeo5.PushBack({ 304,0,304,224 });
 	NeoGeo5.PushBack({ 0,  0,304,224 });
+	NeoGeo5.PushBack({ 773,  871,251,153 });
 	NeoGeo5.speed = 0.25f;
 	NeoGeo5.loop = false;
 
@@ -118,6 +123,7 @@ ModuleIntroNeoGeo::ModuleIntroNeoGeo()
 	NeoGeo6.PushBack({ 608,0,304,224 });
 	NeoGeo6.PushBack({ 304,0,304,224 });
 	NeoGeo6.PushBack({ 0,  0,304,224 });
+	NeoGeo6.PushBack({ 773,  871,251,153 });
 	NeoGeo6.speed = 0.25f;
 	NeoGeo6.loop = false;
 
@@ -134,6 +140,7 @@ ModuleIntroNeoGeo::ModuleIntroNeoGeo()
 	NeoGeo7.PushBack({ 608,0,304,224 });
 	NeoGeo1.PushBack({ 304,0,304,224 });
 	NeoGeo7.PushBack({ 0,  0,304,224 });
+	NeoGeo7.PushBack({ 773,  871,251,153 });
 	NeoGeo7.speed = 0.25f;
 	NeoGeo7.loop = false;
 
@@ -150,6 +157,7 @@ ModuleIntroNeoGeo::ModuleIntroNeoGeo()
 	NeoGeo8.PushBack({ 608,0,304,224 });
 	NeoGeo8.PushBack({ 304,0,304,224 });
 	NeoGeo8.PushBack({ 0,  0,304,224 });
+	NeoGeo8.PushBack({ 773,  871,251,153 });
 	NeoGeo8.speed = 0.25f;
 	NeoGeo8.loop = false;
 }
