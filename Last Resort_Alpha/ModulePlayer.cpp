@@ -160,13 +160,13 @@ bool ModulePlayer::Start()
 				if (App->background->IsEnabled() == true) {
 				position.x = App->background->bgpos + 50;                  //   IF BOTH PLAYERS ENABLED, RESPAWN
 				position.y = 125;
-				relativeposition.x = position.x;
+				relativeposition.x = 50;
 				relativeposition.y = position.y;
 			} 
 			else if (App->background2->IsEnabled() == true) {
 				position.x = App->background2->bgpos + 50;
 			 	position.y = 125;
-				relativeposition.x = position.x;
+				relativeposition.x = 50;
 				relativeposition.y = position.y;
 			  }
 			}
@@ -177,10 +177,11 @@ bool ModulePlayer::Start()
 	else {
 		position.x = 50;
 		position.y = 125;
+		relativeposition.x = position.x;
+		relativeposition.y = position.y;
 	 }
 
-	relativeposition.x = position.x;
-	relativeposition.y = position.y;
+
 	alive_p1 = true; 	
 
 
@@ -422,7 +423,9 @@ update_status ModulePlayer::Update()
 				if (god_mode == true) god_mode = false;
 				else god_mode = true;
 			}
-
+			if (App->input->keyboard[SDL_SCANCODE_7] == KEY_STATE::KEY_DOWN) {
+				alive_p1 = false;
+			}
 		}
 
 		if (god_mode == true) PlayerCollider->type = COLLIDER_TYPE::COLLIDER_GOD;

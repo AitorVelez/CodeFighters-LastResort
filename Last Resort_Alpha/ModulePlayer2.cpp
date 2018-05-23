@@ -125,34 +125,19 @@ bool ModulePlayer2::Start()
 	bool ret = true;
 	int i = App->render->camera.x;
 
-    if (death_played == true) {
 		if (App->background->IsEnabled() == true) {
 			position.x = App->background->bgpos + 50;      // IF BOTH PLAYERS ENABLED, RESPAWN
 			position.y = 125;
-			relativeposition.x = position.x; 
+			relativeposition.x = 50; 
 			relativeposition.y = position.y;
 		}
 		else if (App->background2->IsEnabled() == true) {
 			position.x = App->background2->bgpos + 50;
 			position.y = 125;
-			relativeposition.x = position.x;
+			relativeposition.x = 50;
 			relativeposition.y = position.y;
 		}
-	}
-	else {
-		position.x = App->player->position.x; //50
-		relativeposition.x = App->player->relativeposition.x;
-		if ((App->player->position.y + 20) > (SCREEN_HEIGHT - TopLimit))
-		{
-			position.y = App->player->position.y - 20; //175
-			relativeposition.y = App->player->relativeposition.y - 20;
-		}
-		else
-		{
-			position.y = App->player->position.y + 20; //175
-			relativeposition.y = App->player->relativeposition.y + 20;
-		}
-	}
+
 	App->UI->pl2 = true;
 
 	graphics = App->textures->Load("assets/sprites/SpritesPlayer2.png"); // arcade version
@@ -305,7 +290,9 @@ update_status ModulePlayer2::Update()
 			if (god_mode == true) god_mode = false;
 			else god_mode = true;
 		}
-
+		if (App->input->keyboard[SDL_SCANCODE_8] == KEY_STATE::KEY_DOWN) {
+			alive_p2 = false;
+		}
 	}
 
 	if (god_mode == true) PlayerCollider->type = COLLIDER_TYPE::COLLIDER_GOD;
