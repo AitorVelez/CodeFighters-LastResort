@@ -152,7 +152,7 @@ bool ModulePlayer::Start()
 {
 	LOG("Loading player textures");
 	bool ret = true; 
-	if (App->player2->IsEnabled() == true) {
+	if (App->player2->TwoPlayers == true) {
 		if (death_played == true) {
 			now = SDL_GetTicks();
 			if (now > last + 1000) {

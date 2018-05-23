@@ -57,6 +57,7 @@ public:
 	bool god_mode = false;
 	int lives = 3;
 	bool SwitchToBg2 = false;
+	bool TwoPlayers = false; 
 	uint now = 0;
 	uint last = 0;
 };

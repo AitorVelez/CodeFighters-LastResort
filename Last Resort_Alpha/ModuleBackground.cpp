@@ -819,9 +819,10 @@ update_status ModuleBackground::Update()
 		if (App->fade->FadeToBlack(App->background, App->loseimage, 1.5f))
 			App->audio->FadeMus(750);
 	}
-	if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN) {
 		App->player2->Enable();
-	App->player2->lives = 2;
+		App->player2->TwoPlayers = true;
+	}
 
 	if (App->player->IsEnabled() == true && App->player2->IsEnabled() == false) {     // When player 1 is active and dies, ready appears
 		if (activ == false) {
