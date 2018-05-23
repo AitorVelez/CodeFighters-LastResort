@@ -381,5 +381,7 @@ update_status ModuleBackground2::Update()
 
 
 
+	if (App->input->keyboard[SDL_SCANCODE_KP_7] == KEY_DOWN)
+		App->power->AddPowerup(LPOWER, App->render->camera.x + 200, 150);
 	return UPDATE_CONTINUE;
 }

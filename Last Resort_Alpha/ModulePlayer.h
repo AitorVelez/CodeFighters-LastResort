@@ -65,7 +65,9 @@ public:
 	int lives = 3; 
 	bool SwitchToBg2 = false; 
 	uint now = 0; 
-	uint last = 0; 
+	uint last = 0;
+	uint current_time = 0;
+	uint last_time = 0; 
 };
 
 #endif
