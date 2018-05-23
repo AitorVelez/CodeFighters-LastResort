@@ -353,7 +353,9 @@ update_status ModuleBackground2::Update()
 		if (activ == false) {
 			if (App->player->alive_p1 == false) {
 				if (App->player->lives == 0) {
+					
 					App->fade->FadeToBlack((Module*)App->background2, (Module*)App->loseimage, 2.5f);
+					
 				}
 				else {
 					App->fade->FadeToBlack((Module*)App->background2, (Module*)App->Ready, 1.5f);
@@ -367,7 +369,9 @@ update_status ModuleBackground2::Update()
 		if (activ == false) {
 			if (App->player2->alive_p2 == false) {
 				if (App->player->lives == 0 && App->player2->lives == 0) {
+					
 					App->fade->FadeToBlack((Module*)App->background2, (Module*)App->loseimage, 2.5f);
+					
 				}
 			}
 		}
