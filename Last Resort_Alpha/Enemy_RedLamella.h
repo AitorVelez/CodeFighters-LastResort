@@ -24,4 +24,4 @@ public:
 	void Move();
 };
 
-#endif // __ENEMY_LAMEL
+#endif // __ENEMY_REDLAMELLA 
