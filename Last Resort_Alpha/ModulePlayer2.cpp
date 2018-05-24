@@ -125,34 +125,19 @@ bool ModulePlayer2::Start()
 	bool ret = true;
 	int i = App->render->camera.x;
 
-    if (death_played == true) {
 		if (App->background->IsEnabled() == true) {
 			position.x = App->background->bgpos + 50;      // IF BOTH PLAYERS ENABLED, RESPAWN
 			position.y = 125;
-			relativeposition.x = position.x; 
+			relativeposition.x = 50; 
 			relativeposition.y = position.y;
 		}
 		else if (App->background2->IsEnabled() == true) {
 			position.x = App->background2->bgpos + 50;
 			position.y = 125;
-			relativeposition.x = position.x;
+			relativeposition.x = 50;
 			relativeposition.y = position.y;
 		}
-	}
-	else {
-		position.x = App->player->position.x; //50
-		relativeposition.x = App->player->relativeposition.x;
-		if ((App->player->position.y + 20) > (SCREEN_HEIGHT - TopLimit))
-		{
-			position.y = App->player->position.y - 20; //175
-			relativeposition.y = App->player->relativeposition.y - 20;
-		}
-		else
-		{
-			position.y = App->player->position.y + 20; //175
-			relativeposition.y = App->player->relativeposition.y + 20;
-		}
-	}
+
 	App->UI->pl2 = true;
 
 	graphics = App->textures->Load("assets/sprites/SpritesPlayer2.png"); // arcade version
@@ -284,20 +269,22 @@ update_status ModulePlayer2::Update()
 		}
 
 
-
+		current_time = SDL_GetTicks();
 
 		if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_STATE::KEY_DOWN) {
 			App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER2_SHOT);
 			App->particles->AddParticle(App->particles->bullet_propulsion, position.x + 31, position.y - 15);
-			if (bullet_state_2 == LASER1_2) {
-				App->particles->AddParticle(App->particles->bullet_laser, position.x + 31, position.y - 12, COLLIDER_PLAYER2_SHOT);
+			if (bullet_state_2 == LASER1_2 && current_time > last_time + 500) {
+				App->particles->AddParticle(App->particles->bullet_laser, position.x, position.y - 10, COLLIDER_PLAYER2_SHOT);
+				last_time = current_time; 
 			}
-			if (bullet_state_2 == LASER2_2) {
-				App->particles->AddParticle(App->particles->bullet_laser, position.x + 31, position.y - 12, COLLIDER_PLAYER2_SHOT);
-				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 26, position.y - 24, COLLIDER_PLAYER2_SHOT);
-				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 40, position.y - 24, COLLIDER_PLAYER2_SHOT);
-				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 54, position.y - 24, COLLIDER_PLAYER2_SHOT);
+			if (bullet_state_2 == LASER2_2 && current_time > last_time + 700) {
+				App->particles->AddParticle(App->particles->bullet_laser2_1, position.x, position.y - 10, COLLIDER_PLAYER2_SHOT);
+				App->particles->AddParticle(App->particles->bullet_laser2, position.x, position.y - 24, COLLIDER_PLAYER2_SHOT);
+				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 14, position.y - 24, COLLIDER_PLAYER2_SHOT);
+				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 28, position.y - 24, COLLIDER_PLAYER2_SHOT);
 				//App->particles->AddParticle(App->particles->bullet_laser2, position.x + 73, position.y - 24, COLLIDER_PLAYER2_SHOT);
+				last_time = current_time; 
 			}
 		}
 
@@ -305,7 +292,9 @@ update_status ModulePlayer2::Update()
 			if (god_mode == true) god_mode = false;
 			else god_mode = true;
 		}
-
+		if (App->input->keyboard[SDL_SCANCODE_8] == KEY_STATE::KEY_DOWN) {
+			alive_p2 = false;
+		}
 	}
 
 	if (god_mode == true) PlayerCollider->type = COLLIDER_TYPE::COLLIDER_GOD;

@@ -819,15 +819,18 @@ update_status ModuleBackground::Update()
 		if (App->fade->FadeToBlack(App->background, App->loseimage, 1.5f))
 			App->audio->FadeMus(750);
 	}
-	if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN) {
 		App->player2->Enable();
-	App->player2->lives = 2;
+		App->player2->TwoPlayers = true;
+	}
+
 
 	if (App->player->IsEnabled() == true && App->player2->IsEnabled() == false) {     // When player 1 is active and dies, ready appears
 		if (activ == false) {
 			if (App->player->alive_p1 == false) {
 				if (App->player->lives == 0) {
 					App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage, 2.5f);
+					App->UI->coin -= 1;
 				}
 				else {
 					App->fade->FadeToBlack((Module*)App->background, (Module*)App->Ready, 1.5f);
@@ -841,6 +844,7 @@ update_status ModuleBackground::Update()
 			if (App->player2->alive_p2 == false) {
 				if (App->player->lives == 0 && App->player2->lives == 0) {
 					App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage, 2.5f);
+					App->UI->coin -= 1;
 				}
 			}
 		}

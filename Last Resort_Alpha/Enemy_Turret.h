@@ -43,5 +43,5 @@ public:
 	void Shoot();
 };
 
-#endif // __ENEMY_TANK_H__
+#endif // __ENEMY_TURRET_H__
 

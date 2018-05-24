@@ -3,6 +3,7 @@
 #include "ModuleCollision.h"
 #include "ModulePlayer.h"
 #include "SDL\include\SDL_timer.h"
+#include "ModulePlayer2.h"
 
 Enemy_RedLamella::Enemy_RedLamella(int x, int y, int HP) : Enemy(x, y, HP)
 {
