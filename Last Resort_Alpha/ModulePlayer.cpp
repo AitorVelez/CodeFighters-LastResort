@@ -156,7 +156,7 @@ bool ModulePlayer::Start()
 		if (death_played == true) {
 			now = SDL_GetTicks();
 			if (now > last + 1000) {
-				if (lives != 0) {
+				if (lives > 0) {
 				if (App->background->IsEnabled() == true) {
 				position.x = App->background->bgpos + 50;                  //   IF BOTH PLAYERS ENABLED, RESPAWN
 				position.y = 125;
@@ -188,7 +188,9 @@ bool ModulePlayer::Start()
 	graphics = App->textures->Load("assets/sprites/main_character.png"); // arcade version
 	PlayerCollider = App->collision->AddCollider({ position.x,position.y, 32, 14 }, COLLIDER_PLAYER, this);
 	current_animation = &playershowup;
-	App->audio->PlayChunk(App->particles->chunks[5], 1);
+	
+		App->audio->PlayChunk(App->particles->chunks[5], 1);
+	
 
 	score_p1 = 0; 
 	bullet_state = BULLET_STATE::BULLET_NO_TYPE; 
@@ -442,7 +444,7 @@ update_status ModulePlayer::Update()
 				App->particles->AddParticle(App->particles->player_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
 				death_played = true;
 				lives -= 1;
-				if (App->player2->IsEnabled() == true) {
+				if (App->player2->TwoPlayers == true) {
 				    App->player->Disable();
 					App->player->Enable();
 				}

@@ -349,7 +349,7 @@ update_status ModuleBackground2::Update()
 	}
 
 
-	if (App->player->IsEnabled() == true && App->player2->IsEnabled() == false) {         // When player 1 is active and dies, ready appears
+	if (App->player2->TwoPlayers == false) {         // When player 1 is active and dies, ready appears
 		if (activ == false) {
 			if (App->player->alive_p1 == false) {
 				if (App->player->lives == 0) {
@@ -363,9 +363,9 @@ update_status ModuleBackground2::Update()
 	 }
 	
 	
-	else if (App->player->IsEnabled() == true && App->player2->IsEnabled() == true) {       // when both players active, they can respawn 
+	else {       // when both players active, they can respawn 
 		if (activ == false) {
-			if (App->player2->alive_p2 == false) {
+			if (App->player2->alive_p2 == false && App->player2->alive_p2 == false) {
 				if (App->player->lives == 0 && App->player2->lives == 0) {
 					App->fade->FadeToBlack((Module*)App->background2, (Module*)App->loseimage, 2.5f);
 				}

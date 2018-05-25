@@ -143,9 +143,10 @@ bool ModulePlayer2::Start()
 	graphics = App->textures->Load("assets/sprites/SpritesPlayer2.png"); // arcade version
 	PlayerCollider = App->collision->AddCollider({ position.x,position.y, 32, 11 }, COLLIDER_PLAYER, this);
 	current_animation = &playershowup;
-	App->audio->PlayChunk(App->particles->chunks[5], 1);
-
-	lives--;
+	if (lives > 0) {
+		App->audio->PlayChunk(App->particles->chunks[5], 1);
+	}
+	
 	App->background->activ = true;
 	score_p2 = 0;
 	alive_p2 = true;
@@ -312,7 +313,7 @@ update_status ModulePlayer2::Update()
 			death_played = true;
 			lives -= 1;
 			now = SDL_GetTicks();
-			if (App->player->IsEnabled() == true) {
+			if (TwoPlayers == true) {
 				App->player2->Disable();
 				if (now > last + 1000) {
 					if (lives != 0) {
