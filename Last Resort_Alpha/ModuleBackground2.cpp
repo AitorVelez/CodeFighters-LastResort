@@ -126,6 +126,9 @@ bool ModuleBackground2::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3640, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3680, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 660, TopTurretPosY);*/
+
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 500, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);
 	
 
 	App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);
@@ -353,7 +356,9 @@ update_status ModuleBackground2::Update()
 		if (activ == false) {
 			if (App->player->alive_p1 == false) {
 				if (App->player->lives == 0) {
+					
 					App->fade->FadeToBlack((Module*)App->background2, (Module*)App->loseimage, 2.5f);
+					
 				}
 				else {
 					App->fade->FadeToBlack((Module*)App->background2, (Module*)App->Ready, 1.5f);
@@ -367,7 +372,9 @@ update_status ModuleBackground2::Update()
 		if (activ == false) {
 			if (App->player2->alive_p2 == false && App->player2->alive_p2 == false) {
 				if (App->player->lives == 0 && App->player2->lives == 0) {
+					
 					App->fade->FadeToBlack((Module*)App->background2, (Module*)App->loseimage, 2.5f);
+					
 				}
 			}
 		}
@@ -381,5 +388,7 @@ update_status ModuleBackground2::Update()
 
 
 
+	if (App->input->keyboard[SDL_SCANCODE_KP_7] == KEY_DOWN)
+		App->power->AddPowerup(LPOWER, App->render->camera.x + 200, 150);
 	return UPDATE_CONTINUE;
 }

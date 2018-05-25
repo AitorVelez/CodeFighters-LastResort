@@ -60,6 +60,8 @@ public:
 	bool TwoPlayers = false; 
 	uint now = 0;
 	uint last = 0;
+	uint current_time = 0;
+	uint last_time = 0;
 };
 
 #endif

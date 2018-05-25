@@ -270,20 +270,22 @@ update_status ModulePlayer2::Update()
 		}
 
 
-
+		current_time = SDL_GetTicks();
 
 		if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_STATE::KEY_DOWN) {
 			App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER2_SHOT);
 			App->particles->AddParticle(App->particles->bullet_propulsion, position.x + 31, position.y - 15);
-			if (bullet_state_2 == LASER1_2) {
-				App->particles->AddParticle(App->particles->bullet_laser, position.x + 31, position.y - 12, COLLIDER_PLAYER2_SHOT);
+			if (bullet_state_2 == LASER1_2 && current_time > last_time + 500) {
+				App->particles->AddParticle(App->particles->bullet_laser, position.x, position.y - 10, COLLIDER_PLAYER2_SHOT);
+				last_time = current_time; 
 			}
-			if (bullet_state_2 == LASER2_2) {
-				App->particles->AddParticle(App->particles->bullet_laser, position.x + 31, position.y - 12, COLLIDER_PLAYER2_SHOT);
-				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 26, position.y - 24, COLLIDER_PLAYER2_SHOT);
-				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 40, position.y - 24, COLLIDER_PLAYER2_SHOT);
-				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 54, position.y - 24, COLLIDER_PLAYER2_SHOT);
+			if (bullet_state_2 == LASER2_2 && current_time > last_time + 700) {
+				App->particles->AddParticle(App->particles->bullet_laser2_1, position.x, position.y - 10, COLLIDER_PLAYER2_SHOT);
+				App->particles->AddParticle(App->particles->bullet_laser2, position.x, position.y - 24, COLLIDER_PLAYER2_SHOT);
+				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 14, position.y - 24, COLLIDER_PLAYER2_SHOT);
+				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 28, position.y - 24, COLLIDER_PLAYER2_SHOT);
 				//App->particles->AddParticle(App->particles->bullet_laser2, position.x + 73, position.y - 24, COLLIDER_PLAYER2_SHOT);
+				last_time = current_time; 
 			}
 		}
 
