@@ -33,6 +33,7 @@ public:
 	virtual void Move() {};
 	virtual void Draw(SDL_Texture* sprites);
 	virtual void Draw2(SDL_Texture* sprites2);
+	virtual void Draw3(SDL_Texture* sprites3);
 	virtual void OnCollision(Collider* collider);
 	virtual void Shoot(); 
 };
