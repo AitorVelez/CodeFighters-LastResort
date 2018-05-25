@@ -128,6 +128,7 @@ bool ModuleBackground2::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 660, TopTurretPosY);*/
 
 	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 500, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);
 	
 
 	App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);

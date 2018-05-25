@@ -7,11 +7,12 @@ class Enemy_Hunter : public Enemy
 {
 private:
 	Animation fly;
+	Animation appear;
 	int y_original;
 public:
 
 	Enemy_Hunter(int x, int y, int HP);
-
+	void Appear();
 	void Move();
 };
 
