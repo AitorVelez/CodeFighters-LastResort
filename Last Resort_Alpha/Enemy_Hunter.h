@@ -9,6 +9,8 @@ private:
 	Animation fly;
 	Animation appear;
 	int y_original;
+	int speed = 0; 
+	bool ArrivedLeft = false; 
 public:
 
 	Enemy_Hunter(int x, int y, int HP);

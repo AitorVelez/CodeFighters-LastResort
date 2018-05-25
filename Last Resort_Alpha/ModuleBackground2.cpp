@@ -91,7 +91,7 @@ bool ModuleBackground2::Start()
 	App->UI->Enable();
 	App->Fonts->Enable();
 	App->enemies->Enable();
-
+	bgpos = 0; 
 	BackgroundLvl2 = App->textures->Load("assets/sprites/Background_2.png");
 	rain = App->textures->Load("assets/sprites/MinimunRainTest.png");
 	mus = App->audio->LoadMus("assets/SFX/level2.ogg");
@@ -127,8 +127,8 @@ bool ModuleBackground2::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3680, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 660, TopTurretPosY);*/
 
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 500, 100);
-	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 200, 100);
+	/*App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);*/
 	
 
 	App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);

@@ -2,6 +2,7 @@
 #include "Enemy_Hunter.h"
 #include "ModuleCollision.h"
 #include "ModuleRender.h"
+#include "ModuleBackground2.h"
 
 Enemy_Hunter::Enemy_Hunter(int x, int y, int HP) : Enemy(x, y, HP)
 {
@@ -39,7 +40,7 @@ Enemy_Hunter::Enemy_Hunter(int x, int y, int HP) : Enemy(x, y, HP)
 	appear.PushBack({ 64,514,32,15 });
 	appear.PushBack({ 32,514,32,15 });
 	appear.PushBack({ 0,514,32,15 });
-	appear.speed = 0.3;
+	appear.speed = 0.2;
 
 	anim2ndLevel = &appear;
 
@@ -69,15 +70,33 @@ Enemy_Hunter::Enemy_Hunter(int x, int y, int HP) : Enemy(x, y, HP)
 
 void Enemy_Hunter::Move()
 {
-	position.x -= 0;
+
+	position.y = y_original + (App->render->camera.y / 3);
+
 	if (appear.Finished())
 	{
+		speed = -3; 
 		anim2ndLevel = &fly;
-		position.x -= 2;
-		position.y = y_original + (App->render->camera.y / 3);
+		
 		collider = App->collision->AddCollider({ 0, 19, 32, 14 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 	}
+	else {
+		if (position.x < App->background2->bgpos) {
+			ArrivedLeft = true;
+		}
+		else {
+			speed = -3; 
+		}
+		if (ArrivedLeft) {
+			speed = 3;
+		}
+	}
 
+		
+
+
+
+	position.x += speed;
 }
 
 void Enemy_Hunter::Appear()
