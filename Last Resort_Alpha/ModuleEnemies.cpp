@@ -19,6 +19,9 @@
 #include "Enemy_Barrel.h"
 #include "Enemy_Hunter.h"
 #include "Enemy_Metal_Bee.h"
+#include "Enemy_Jumpy.h"
+
+
 #define SPAWN_MARGIN 50
 
 ModuleEnemies::ModuleEnemies()
@@ -179,9 +182,16 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::HUNTER:
 			enemies[i] = new Enemy_Hunter(info.x, info.y, info.HP);
 			break;
+
 		case ENEMY_TYPES::METAL_BEE:
 			enemies[i] = new Enemy_Metal_Bee(info.x, info.y, info.HP);
 			break;
+
+		case ENEMY_TYPES::JUMPY:
+			enemies[i] = new Enemy_Jumpy(info.x, info.y, info.HP);
+			break;
+
+
 		}
 	}
 	

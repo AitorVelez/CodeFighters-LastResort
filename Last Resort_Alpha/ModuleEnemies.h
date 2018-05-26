@@ -26,7 +26,9 @@ enum ENEMY_TYPES
 	TURRET,
 	BARREL,
 	HUNTER,
-	METAL_BEE
+	METAL_BEE,
+	JUMPY
+
 };
 
 class Enemy;
