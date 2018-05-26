@@ -18,7 +18,7 @@
 #include "Enemy_Turret.h"
 #include "Enemy_Barrel.h"
 #include "Enemy_Hunter.h"
-
+#include "Enemy_Hunter_ZigZag.h"
 #define SPAWN_MARGIN 50
 
 ModuleEnemies::ModuleEnemies()
@@ -178,6 +178,10 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			break;
 		case ENEMY_TYPES::HUNTER:
 			enemies[i] = new Enemy_Hunter(info.x, info.y, info.HP);
+			break;
+
+		case ENEMY_TYPES::HUNTER_ZIGZAG:
+			enemies[i] = new Enemy_Hunter_ZigZag(info.x, info.y, info.HP);
 			break;
 		}
 	}
