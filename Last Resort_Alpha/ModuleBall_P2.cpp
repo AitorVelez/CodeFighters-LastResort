@@ -216,7 +216,7 @@ bool ModuleBall_P2::Start()
 	angle = 0;
 	angle_aiming = 0;
 
-	ball_collider = App->collision->AddCollider(current_animation->GetCurrentFrame(), COLLIDER_BALL2, this);
+	ball_collider = App->collision->AddCollider({ ball_position.x + 5, ball_position.y + 5, 20, 20}, COLLIDER_BALL2, this);
 
 	return true;
 }
@@ -449,7 +449,7 @@ update_status ModuleBall_P2::Update()
 	if (charge > 500)
 		Ball_Launch();
 
-	ball_collider->SetPos(ball_position.x, ball_position.y);
+	ball_collider->SetPos(ball_position.x + 5, ball_position.y + 5);
 
 	SDL_Rect r = current_animation->GetCurrentFrame();
 
