@@ -25,7 +25,8 @@ enum ENEMY_TYPES
 	RED_LAMELLA,
 	TURRET,
 	BARREL,
-	HUNTER
+	HUNTER,
+	JUMPY
 };
 
 class Enemy;

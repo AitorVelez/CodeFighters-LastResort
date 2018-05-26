@@ -124,8 +124,9 @@ bool ModuleBackground2::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3560, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3600, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3640, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3680, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 660, TopTurretPosY);*/
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3680, TopTurretPosY);*/
+	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 660, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::JUMPY, 700, TopTurretPosY);
 
 	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 200, 100);
 	/*App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);*/

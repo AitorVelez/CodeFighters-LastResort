@@ -14,21 +14,21 @@
     <ProjectGuid>{746CC4C3-787F-4B0E-AA66-E388FE3FF4F6}</ProjectGuid>
     <RootNamespace>SDLGame</RootNamespace>
     <ProjectName>Last Resort</ProjectName>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -80,6 +80,7 @@
     <ClInclude Include="Enemy_Barrel.h" />
     <ClInclude Include="Enemy_Cockroach.h" />
     <ClInclude Include="Enemy_Hunter.h" />
+    <ClInclude Include="Enemy_Jumpy.h" />
     <ClInclude Include="Enemy_Lamella.h" />
     <ClInclude Include="Enemy_RedLamella.h" />
     <ClInclude Include="Enemy_Rhino.h" />
@@ -126,6 +127,7 @@
     <ClCompile Include="Enemy_Barrel.cpp" />
     <ClCompile Include="Enemy_Cockroach.cpp" />
     <ClCompile Include="Enemy_Hunter.cpp" />
+    <ClCompile Include="Enemy_Jumpy.cpp" />
     <ClCompile Include="Enemy_Lamella.cpp" />
     <ClCompile Include="Enemy_RedLamella.cpp" />
     <ClCompile Include="Enemy_Rhino.cpp" />
