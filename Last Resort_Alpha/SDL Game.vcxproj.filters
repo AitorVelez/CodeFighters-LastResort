@@ -3,20 +3,7 @@
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Blue_Car.cpp" />
-    <ClCompile Include="Enemy.cpp" />
-    <ClCompile Include="Enemy_Barrel.cpp" />
-    <ClCompile Include="Enemy_Cockroach.cpp" />
-    <ClCompile Include="Enemy_Hunter.cpp" />
-    <ClCompile Include="Enemy_Jumpy.cpp" />
-    <ClCompile Include="Enemy_Lamella.cpp" />
-    <ClCompile Include="Enemy_Metal_Bee.cpp" />
-    <ClCompile Include="Enemy_RedLamella.cpp" />
-    <ClCompile Include="Enemy_Rhino.cpp" />
-    <ClCompile Include="Enemy_Tank.cpp" />
-    <ClCompile Include="Enemy_Turret.cpp" />
     <ClCompile Include="Globals.cpp" />
-    <ClCompile Include="LPower.cpp" />
-    <ClCompile Include="ModuleBackground2.cpp" />
     <ClCompile Include="ModuleBall.cpp" />
     <ClCompile Include="ModuleBall_P2.cpp" />
     <ClCompile Include="ModuleEnemies.cpp" />
@@ -40,29 +27,59 @@
     <ClCompile Include="ModuleTextures.cpp" />
     <ClCompile Include="ModuleUI.cpp" />
     <ClCompile Include="ModuleWindow.cpp" />
-    <ClCompile Include="Powerup.cpp" />
     <ClCompile Include="Red_Car.cpp" />
-    <ClCompile Include="SPower.cpp" />
     <ClCompile Include="Yellow_Car.cpp" />
+    <ClCompile Include="Enemy_Barrel.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Cockroach.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Hunter.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Jumpy.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Lamella.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Metal_Bee.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_RedLamella.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Rhino.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Tank.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Turret.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleBackground2.cpp">
+      <Filter>Level 2</Filter>
+    </ClCompile>
+    <ClCompile Include="Powerup.cpp">
+      <Filter>Powerups</Filter>
+    </ClCompile>
+    <ClCompile Include="SPower.cpp">
+      <Filter>Powerups</Filter>
+    </ClCompile>
+    <ClCompile Include="LPower.cpp">
+      <Filter>Powerups</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="Blue_Car.h" />
-    <ClInclude Include="Enemy.h" />
-    <ClInclude Include="Enemy_Barrel.h" />
-    <ClInclude Include="Enemy_Cockroach.h" />
-    <ClInclude Include="Enemy_Hunter.h" />
-    <ClInclude Include="Enemy_Jumpy.h" />
-    <ClInclude Include="Enemy_Lamella.h" />
-    <ClInclude Include="Enemy_Metal_Bee.h" />
-    <ClInclude Include="Enemy_RedLamella.h" />
-    <ClInclude Include="Enemy_Rhino.h" />
-    <ClInclude Include="Enemy_Tank.h" />
-    <ClInclude Include="Enemy_Turret.h" />
     <ClInclude Include="Globals.h" />
-    <ClInclude Include="LPower.h" />
-    <ClInclude Include="ModuleBackground2.h" />
     <ClInclude Include="ModuleBall.h" />
     <ClInclude Include="ModuleBall_P2.h" />
     <ClInclude Include="ModuleEnemies.h" />
@@ -89,9 +106,63 @@
     <ClInclude Include="ModuleWindow.h" />
     <ClInclude Include="p2Point.h" />
     <ClInclude Include="Path.h" />
-    <ClInclude Include="Powerup.h" />
     <ClInclude Include="Red_Car.h" />
-    <ClInclude Include="SPower.h" />
     <ClInclude Include="Yellow_Car.h" />
+    <ClInclude Include="Enemy.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Barrel.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Cockroach.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Hunter.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Jumpy.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Lamella.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Metal_Bee.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Rhino.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_RedLamella.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Tank.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Turret.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleBackground2.h">
+      <Filter>Level 2</Filter>
+    </ClInclude>
+    <ClInclude Include="Powerup.h">
+      <Filter>Powerups</Filter>
+    </ClInclude>
+    <ClInclude Include="SPower.h">
+      <Filter>Powerups</Filter>
+    </ClInclude>
+    <ClInclude Include="LPower.h">
+      <Filter>Powerups</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Enemies">
+      <UniqueIdentifier>{418ba732-4b9b-469b-bba7-b78a31e84bb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level 2">
+      <UniqueIdentifier>{71f9fffa-8956-4be6-88fb-22f9642c9bcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Powerups">
+      <UniqueIdentifier>{88440312-2319-427a-af75-8a83704745fb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

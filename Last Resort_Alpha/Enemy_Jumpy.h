@@ -7,7 +7,9 @@ class Enemy_Jumpy : public Enemy
 {
 private:
 	Animation fly;
-	int y_original;
+	float wave = -1.0f;
+	bool going_up = true;
+	int original_y = 0;
 public:
 
 	Enemy_Jumpy(int x, int y, int HP);
