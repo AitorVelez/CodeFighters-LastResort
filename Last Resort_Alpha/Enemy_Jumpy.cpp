@@ -15,7 +15,7 @@ Enemy_Jumpy::Enemy_Jumpy(int x, int y, int HP) : Enemy(x, y, HP)
 	animation = &fly;
 
 	original_y = y;
-	collider = App->collision->AddCollider({ 0, 0, 24, 24 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 32, 26 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 }
 
