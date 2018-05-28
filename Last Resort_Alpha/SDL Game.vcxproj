@@ -81,7 +81,9 @@
     <ClInclude Include="Enemy_Cockroach.h" />
     <ClInclude Include="Enemy_Hunter.h" />
     <ClInclude Include="Enemy_Hunter_ZigZag.h" />
+    <ClInclude Include="Enemy_Jumpy.h" />
     <ClInclude Include="Enemy_Lamella.h" />
+    <ClInclude Include="Enemy_Metal_Bee.h" />
     <ClInclude Include="Enemy_RedLamella.h" />
     <ClInclude Include="Enemy_Rhino.h" />
     <ClInclude Include="Enemy_Tank.h" />
@@ -128,7 +130,9 @@
     <ClCompile Include="Enemy_Cockroach.cpp" />
     <ClCompile Include="Enemy_Hunter.cpp" />
     <ClCompile Include="Enemy_Hunter_ZigZag.cpp" />
+    <ClCompile Include="Enemy_Jumpy.cpp" />
     <ClCompile Include="Enemy_Lamella.cpp" />
+    <ClCompile Include="Enemy_Metal_Bee.cpp" />
     <ClCompile Include="Enemy_RedLamella.cpp" />
     <ClCompile Include="Enemy_Rhino.cpp" />
     <ClCompile Include="Enemy_Tank.cpp" />

@@ -18,147 +18,145 @@
 
 ModuleIntroNeoGeo::ModuleIntroNeoGeo()
 {
-	StImage.x = 0;
-	StImage.y = 0;
-	StImage.w = SCREEN_WIDTH;
-	StImage.h = SCREEN_HEIGHT;
+	NeoGeoImage.x = 0;
+	NeoGeoImage.y = 0;
+	NeoGeoImage.w = SCREEN_WIDTH;
+	NeoGeoImage.h = SCREEN_HEIGHT;
 
 
 
 
-	NeoGeo1.PushBack({ 608,672,304,224 });
-	NeoGeo1.PushBack({ 304,672,304,224 });
-	NeoGeo1.PushBack({ 0,  672,304,224 });
-	NeoGeo1.PushBack({ 608,448,304,224 });
-	NeoGeo1.PushBack({ 304,448,304,224 });
-	NeoGeo1.PushBack({ 0,  448,304,224 });
-	NeoGeo1.PushBack({ 608,224,304,224 });
-	NeoGeo1.PushBack({ 304,224,304,224 });
-	NeoGeo1.PushBack({ 0,  224,304,224 });
-	NeoGeo1.PushBack({ 608,0,304,224 });
-	NeoGeo1.PushBack({ 304,0,304,224 });
-	NeoGeo1.PushBack({ 0,  0,304,224 });
-	NeoGeo1.PushBack({ 773,  871,251,153 });
-	NeoGeo1.speed = 0.25f;
-	NeoGeo1.loop = false;
-
-	NeoGeo2.PushBack({ 608,672,304,224 });
-	NeoGeo2.PushBack({ 304,672,304,224 });
-	NeoGeo2.PushBack({ 0,  672,304,224 });
-	NeoGeo2.PushBack({ 608,448,304,224 });
-	NeoGeo2.PushBack({ 304,448,304,224 });
-	NeoGeo2.PushBack({ 0,  448,304,224 });
-	NeoGeo2.PushBack({ 608,224,304,224 });
-	NeoGeo2.PushBack({ 304,224,304,224 });
-	NeoGeo2.PushBack({ 0,  224,304,224 });
-	NeoGeo2.PushBack({ 608,0,304,224 });
-	NeoGeo2.PushBack({ 304,0,304,224 });
-	NeoGeo2.PushBack({ 0,  0,304,224 });
-	NeoGeo2.PushBack({ 773,  871,251,153 });
-	NeoGeo2.speed = 0.25f;
-	NeoGeo2.loop = false;
+	Title1.PushBack({ 0,  0,304,224 });
+	Title1.PushBack({ 304,0,304,224 });
+	Title1.PushBack({ 608,0,304,224 });
+	Title1.PushBack({ 0,  224,304,224 });
+	Title1.PushBack({ 304,224,304,224 });
+	Title1.PushBack({ 608,224,304,224 });
+	Title1.PushBack({ 0,  448,304,224 });
+	Title1.PushBack({ 304,448,304,224 });
+	Title1.PushBack({ 608,448,304,224 });
+	Title1.PushBack({ 0,  672,304,224 });
+	Title1.PushBack({ 304,672,304,224 });
+	Title1.PushBack({ 608,672,304,224 });
+	Title1.PushBack({ 708,200,304,224 });
+	Title1.speed = 0.25f;
+	Title1.loop = false;
 
 
-	NeoGeo3.PushBack({ 608,672,304,224 });
-	NeoGeo3.PushBack({ 304,672,304,224 });
-	NeoGeo3.PushBack({ 0,  672,304,224 });
-	NeoGeo3.PushBack({ 608,448,304,224 });
-	NeoGeo3.PushBack({ 304,448,304,224 });
-	NeoGeo3.PushBack({ 0,  448,304,224 });
-	NeoGeo3.PushBack({ 608,224,304,224 });
-	NeoGeo3.PushBack({ 304,224,304,224 });
-	NeoGeo3.PushBack({ 0,  224,304,224 });
-	NeoGeo3.PushBack({ 608,0,304,224 });
-	NeoGeo3.PushBack({ 304,0,304,224 });
-	NeoGeo3.PushBack({ 0,  0,304,224 });
-	NeoGeo3.PushBack({ 773,  871,251,153 });
-	NeoGeo3.speed = 0.25f;
-	NeoGeo3.loop = false;
 
-	
-	NeoGeo4.PushBack({ 608,672,304,224 });
-	NeoGeo4.PushBack({ 304,672,304,224 });
-	NeoGeo4.PushBack({ 0,  672,304,224 });
-	NeoGeo4.PushBack({ 608,448,304,224 });
-	NeoGeo4.PushBack({ 304,448,304,224 });
-	NeoGeo4.PushBack({ 0,  448,304,224 });
-	NeoGeo4.PushBack({ 608,224,304,224 });
-	NeoGeo4.PushBack({ 304,224,304,224 });
-	NeoGeo4.PushBack({ 0,  224,304,224 });
-	NeoGeo4.PushBack({ 608,0,304,224 });
-	NeoGeo4.PushBack({ 304,0,304,224 });
-	NeoGeo4.PushBack({ 0,  0,304,224 });
-	NeoGeo4.PushBack({ 773,  871,251,153 });
-	NeoGeo4.speed = 0.25f;
-	NeoGeo4.loop = false;
+	Title2.PushBack({ 0,  0,304,224 });
+	Title2.PushBack({ 304,0,304,224 });
+	Title2.PushBack({ 608,0,304,224 });
+	Title2.PushBack({ 0,  224,304,224 });
+	Title2.PushBack({ 304,224,304,224 });
+	Title2.PushBack({ 608,224,304,224 });
+	Title2.PushBack({ 0,  448,304,224 });
+	Title2.PushBack({ 304,448,304,224 });
+	Title2.PushBack({ 608,448,304,224 });
+	Title2.PushBack({ 0,  672,304,224 });
+	Title2.PushBack({ 304,672,304,224 });
+	Title2.PushBack({ 608,672,304,224 });
+	Title2.PushBack({ 164,809,304,224 });
+	Title2.speed = 0.25f;
+	Title2.loop = false;
 
 
-	NeoGeo5.PushBack({ 608,672,304,224 });
-	NeoGeo5.PushBack({ 304,672,304,224 });
-	NeoGeo5.PushBack({ 0,  672,304,224 });
-	NeoGeo5.PushBack({ 608,448,304,224 });
-	NeoGeo5.PushBack({ 304,448,304,224 });
-	NeoGeo5.PushBack({ 0,  448,304,224 });
-	NeoGeo5.PushBack({ 608,224,304,224 });
-	NeoGeo5.PushBack({ 304,224,304,224 });
-	NeoGeo5.PushBack({ 0,  224,304,224 });
-	NeoGeo5.PushBack({ 608,0,304,224 });
-	NeoGeo5.PushBack({ 304,0,304,224 });
-	NeoGeo5.PushBack({ 0,  0,304,224 });
-	NeoGeo5.PushBack({ 773,  871,251,153 });
-	NeoGeo5.speed = 0.25f;
-	NeoGeo5.loop = false;
 
 
-	NeoGeo6.PushBack({ 608,672,304,224 });
-	NeoGeo6.PushBack({ 304,672,304,224 });
-	NeoGeo6.PushBack({ 0,  672,304,224 });
-	NeoGeo6.PushBack({ 608,448,304,224 });
-	NeoGeo6.PushBack({ 304,448,304,224 });
-	NeoGeo6.PushBack({ 0,  448,304,224 });
-	NeoGeo6.PushBack({ 608,224,304,224 });
-	NeoGeo6.PushBack({ 304,224,304,224 });
-	NeoGeo6.PushBack({ 0,  224,304,224 });
-	NeoGeo6.PushBack({ 608,0,304,224 });
-	NeoGeo6.PushBack({ 304,0,304,224 });
-	NeoGeo6.PushBack({ 0,  0,304,224 });
-	NeoGeo6.PushBack({ 773,  871,251,153 });
-	NeoGeo6.speed = 0.25f;
-	NeoGeo6.loop = false;
+	Title3.PushBack({ 0,  0,304,224 });
+	Title3.PushBack({ 304,0,304,224 });
+	Title3.PushBack({ 608,0,304,224 });
+	Title3.PushBack({ 0,  224,304,224 });
+	Title3.PushBack({ 304,224,304,224 });
+	Title3.PushBack({ 608,224,304,224 });
+	Title3.PushBack({ 0,  448,304,224 });
+	Title3.PushBack({ 304,448,304,224 });
+	Title3.PushBack({ 608,448,304,224 });
+	Title3.PushBack({ 0,  672,304,224 });
+	Title3.PushBack({ 304,672,304,224 });
+	Title3.PushBack({ 608,672,304,224 });
+	Title3.speed = 0.25f;
+	Title3.loop = false;
 
+	Title4.PushBack({ 0,  0,304,224 });
+	Title4.PushBack({ 304,0,304,224 });
+	Title4.PushBack({ 608,0,304,224 });
+	Title4.PushBack({ 0,  224,304,224 });
+	Title4.PushBack({ 304,224,304,224 });
+	Title4.PushBack({ 608,224,304,224 });
+	Title4.PushBack({ 0,  448,304,224 });
+	Title4.PushBack({ 304,448,304,224 });
+	Title4.PushBack({ 608,448,304,224 });
+	Title4.PushBack({ 0,  672,304,224 });
+	Title4.PushBack({ 304,672,304,224 });
+	Title4.PushBack({ 608,672,304,224 });
+	Title4.speed = 0.25f;
+	Title4.loop = false;
 
-	NeoGeo7.PushBack({ 608,672,304,224 });
-	NeoGeo7.PushBack({ 304,672,304,224 });
-	NeoGeo7.PushBack({ 0,  672,304,224 });
-	NeoGeo7.PushBack({ 608,448,304,224 });
-	NeoGeo7.PushBack({ 304,448,304,224 });
-	NeoGeo7.PushBack({ 0,  448,304,224 });
-	NeoGeo7.PushBack({ 608,224,304,224 });
-	NeoGeo7.PushBack({ 304,224,304,224 });
-	NeoGeo7.PushBack({ 0,  224,304,224 });
-	NeoGeo7.PushBack({ 608,0,304,224 });
-	NeoGeo1.PushBack({ 304,0,304,224 });
-	NeoGeo7.PushBack({ 0,  0,304,224 });
-	NeoGeo7.PushBack({ 773,  871,251,153 });
-	NeoGeo7.speed = 0.25f;
-	NeoGeo7.loop = false;
+	Title5.PushBack({ 0,  0,304,224 });
+	Title5.PushBack({ 304,0,304,224 });
+	Title5.PushBack({ 608,0,304,224 });
+	Title5.PushBack({ 0,  224,304,224 });
+	Title5.PushBack({ 304,224,304,224 });
+	Title5.PushBack({ 608,224,304,224 });
+	Title5.PushBack({ 0,  448,304,224 });
+	Title5.PushBack({ 304,448,304,224 });
+	Title5.PushBack({ 608,448,304,224 });
+	Title5.PushBack({ 0,  672,304,224 });
+	Title5.PushBack({ 304,672,304,224 });
+	Title5.PushBack({ 608,672,304,224 });
+	Title5.speed = 0.25f;
+	Title5.loop = false;
 
+	Title6.PushBack({ 0,  0,304,224 });
+	Title6.PushBack({ 304,0,304,224 });
+	Title6.PushBack({ 608,0,304,224 });
+	Title6.PushBack({ 0,  224,304,224 });
+	Title6.PushBack({ 304,224,304,224 });
+	Title6.PushBack({ 608,224,304,224 });
+	Title6.PushBack({ 0,  448,304,224 });
+	Title6.PushBack({ 304,448,304,224 });
+	Title6.PushBack({ 608,448,304,224 });
+	Title6.PushBack({ 0,  672,304,224 });
+	Title6.PushBack({ 304,672,304,224 });
+	Title6.PushBack({ 608,672,304,224 });
+	Title6.speed = 0.25f;
+	Title6.loop = false;
 
-	NeoGeo8.PushBack({ 608,672,304,224 });
-	NeoGeo8.PushBack({ 304,672,304,224 });
-	NeoGeo8.PushBack({ 0,  672,304,224 });
-	NeoGeo8.PushBack({ 608,448,304,224 });
-	NeoGeo8.PushBack({ 304,448,304,224 });
-	NeoGeo8.PushBack({ 0,  448,304,224 });
-	NeoGeo8.PushBack({ 608,224,304,224 });
-	NeoGeo8.PushBack({ 304,224,304,224 });
-	NeoGeo8.PushBack({ 0,  224,304,224 });
-	NeoGeo8.PushBack({ 608,0,304,224 });
-	NeoGeo8.PushBack({ 304,0,304,224 });
-	NeoGeo8.PushBack({ 0,  0,304,224 });
-	NeoGeo8.PushBack({ 773,  871,251,153 });
-	NeoGeo8.speed = 0.25f;
-	NeoGeo8.loop = false;
+	Title7.PushBack({ 0,  0,304,224 });
+	Title7.PushBack({ 304,0,304,224 });
+	Title7.PushBack({ 608,0,304,224 });
+	Title7.PushBack({ 0,  224,304,224 });
+	Title7.PushBack({ 304,224,304,224 });
+	Title7.PushBack({ 608,224,304,224 });
+	Title7.PushBack({ 0,  448,304,224 });
+	Title7.PushBack({ 304,448,304,224 });
+	Title7.PushBack({ 608,448,304,224 });
+	Title7.PushBack({ 0,  672,304,224 });
+	Title7.PushBack({ 304,672,304,224 });
+	Title7.PushBack({ 608,672,304,224 });
+	Title7.speed = 0.25f;
+	Title7.loop = false;
+
+	Title8.PushBack({ 0,  0,304,224 });
+	Title8.PushBack({ 304,0,304,224 });
+	Title8.PushBack({ 608,0,304,224 });
+	Title8.PushBack({ 0,  224,304,224 });
+	Title8.PushBack({ 304,224,304,224 });
+	Title8.PushBack({ 608,224,304,224 });
+	Title8.PushBack({ 0,  448,304,224 });
+	Title8.PushBack({ 304,448,304,224 });
+	Title8.PushBack({ 608,448,304,224 });
+	Title8.PushBack({ 0,  672,304,224 });
+	Title8.PushBack({ 304,672,304,224 });
+	Title8.PushBack({ 608,672,304,224 });
+	Title8.speed = 0.25f;
+	Title8.loop = false;
+
+	Title9.PushBack({ 0,  0,304,224 });
+	Title9.PushBack({ 304,0,304,224 });
+	Title9.speed = 0.25f;
+	Title9.loop = false;
 }
 
 ModuleIntroNeoGeo::~ModuleIntroNeoGeo()
@@ -169,17 +167,18 @@ bool ModuleIntroNeoGeo::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	//TexNeoGeoImage = App->textures->Load("assets/sprites/Neogeo.png");
+	TexNeoGeoImage = App->textures->Load("assets/sprites/NeogeoImage.png");
 	
 	
-	NeoGeoTex1 = App->textures->Load("assets/sprites/NeoGeoTitle/1Neo_Geo_Title.png");
-	NeoGeoTex2 = App->textures->Load("assets/sprites/NeoGeoTitle/2Neo_Geo_Title.png");
-	NeoGeoTex3 = App->textures->Load("assets/sprites/NeoGeoTitle/3Neo_Geo_Title.png");
-	NeoGeoTex4 = App->textures->Load("assets/sprites/NeoGeoTitle/4Neo_Geo_Title.png");
-	NeoGeoTex5 = App->textures->Load("assets/sprites/NeoGeoTitle/5Neo_Geo_Title.png");
-	NeoGeoTex6 = App->textures->Load("assets/sprites/NeoGeoTitle/6Neo_Geo_Title.png");
-	NeoGeoTex7 = App->textures->Load("assets/sprites/NeoGeoTitle/7Neo_Geo_Title.png");
-	NeoGeoTex8 = App->textures->Load("assets/sprites/NeoGeoTitle/8Neo_Geo_Title.png");
+	NeoGeoTex1 = App->textures->Load("assets/sprites/NeoGeoTitleGood/Neo_Geo_Title_Good1.png");
+	NeoGeoTex2 = App->textures->Load("assets/sprites/NeoGeoTitleGood/Neo_Geo_Title_Good2.png");
+	NeoGeoTex3 = App->textures->Load("assets/sprites/NeoGeoTitleGood/Neo_Geo_Title_Good3.png");
+	NeoGeoTex4 = App->textures->Load("assets/sprites/NeoGeoTitleGood/Neo_Geo_Title_Good4.png");
+	NeoGeoTex5 = App->textures->Load("assets/sprites/NeoGeoTitleGood/Neo_Geo_Title_Good5.png");
+	NeoGeoTex6 = App->textures->Load("assets/sprites/NeoGeoTitleGood/Neo_Geo_Title_Good6.png");
+	NeoGeoTex7 = App->textures->Load("assets/sprites/NeoGeoTitleGood/Neo_Geo_Title_Good7.png");
+	NeoGeoTex8 = App->textures->Load("assets/sprites/NeoGeoTitleGood/Neo_Geo_Title_Good8.png");
+	NeoGeoTex9 = App->textures->Load("assets/sprites/NeoGeoTitleGood/Neo_Geo_Title_Good9.png");
 
 	
 	
@@ -206,6 +205,8 @@ bool ModuleIntroNeoGeo::CleanUp()
 	App->textures->Unload(NeoGeoTex6);
 	App->textures->Unload(NeoGeoTex7);
 	App->textures->Unload(NeoGeoTex8);
+	App->textures->Unload(NeoGeoTex9);
+	App->textures->Unload(TexNeoGeoImage);
 	
 	App->audio->UnloadMus(mus);
 
@@ -217,30 +218,34 @@ update_status ModuleIntroNeoGeo::Update()
 {
 	
 	
-	App->render->Blit(NeoGeoTex1, 0, 0, &NeoGeo1.GetCurrentFrame(), 1, false);
+	App->render->Blit(NeoGeoTex1, 0, 0, &Title1.GetCurrentFrame(), 1, false);
 
-	if (NeoGeo1.Finished() && NeoGeo2.Finished() != true);
-	App->render->Blit(NeoGeoTex2, 0, 0, &NeoGeo2.GetCurrentFrame(), 1, false);
+	if (Title1.Finished() && Title2.Finished() != true);
+	App->render->Blit(NeoGeoTex2, 0, 0, &Title2.GetCurrentFrame(), 1, false);
 
-	if (NeoGeo2.Finished() && NeoGeo3.Finished() != true)
-		App->render->Blit(NeoGeoTex3, 0, 0, &NeoGeo3.GetCurrentFrame(), 1, false);
+	if (Title2.Finished() && Title3.Finished() != true)
+		App->render->Blit(NeoGeoTex3, 0, 0, &Title3.GetCurrentFrame(), 1, false);
 
-	if (NeoGeo3.Finished() && NeoGeo4.Finished() != true)
-		App->render->Blit(NeoGeoTex4, 0, 0, &NeoGeo4.GetCurrentFrame(), 1, false);
+	if (Title3.Finished() && Title4.Finished() != true)
+		App->render->Blit(NeoGeoTex4, 0, 0, &Title4.GetCurrentFrame(), 1, false);
 
-	if (NeoGeo4.Finished() && NeoGeo5.Finished() != true)
-		App->render->Blit(NeoGeoTex5, 0, 0, &NeoGeo5.GetCurrentFrame(), 1, false);
+	if (Title4.Finished() && Title5.Finished() != true)
+		App->render->Blit(NeoGeoTex5, 0, 0, &Title5.GetCurrentFrame(), 1, false);
 
-	if (NeoGeo5.Finished() && NeoGeo6.Finished() != true)
-		App->render->Blit(NeoGeoTex6, 0, 0, &NeoGeo6.GetCurrentFrame(), 1, false);
+	if (Title5.Finished() && Title6.Finished() != true)
+		App->render->Blit(NeoGeoTex6, 0, 0, &Title6.GetCurrentFrame(), 1, false);
 
-	if (NeoGeo6.Finished() && NeoGeo7.Finished() != true)
-		App->render->Blit(NeoGeoTex7, 0, 0, &NeoGeo7.GetCurrentFrame(), 1, false);
+	if (Title6.Finished() && Title7.Finished() != true)
+		App->render->Blit(NeoGeoTex7, 0, 0, &Title7.GetCurrentFrame(), 1, false);
 
-	if (NeoGeo7.Finished() && NeoGeo8.Finished() != true)
-		App->render->Blit(NeoGeoTex8, 0, 0, &NeoGeo8.GetCurrentFrame(), 1, false);
+	if (Title7.Finished() && Title8.Finished() != true)
+		App->render->Blit(NeoGeoTex8, 0, 0, &Title8.GetCurrentFrame(), 1, false);
+
+	if (Title8.Finished() && Title9.Finished() != true)
+		App->render->Blit(NeoGeoTex9, 0, 0, &Title9.GetCurrentFrame(), 1, false);
 	
-
+	if (Title9.Finished())
+		App->render->Blit(TexNeoGeoImage, 0, 0, &NeoGeoImage);
 	
 
 

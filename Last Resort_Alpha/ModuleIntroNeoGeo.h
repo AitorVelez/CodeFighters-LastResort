@@ -33,18 +33,18 @@ public:
 	SDL_Texture* NeoGeoTex8 = nullptr;
 	SDL_Texture* NeoGeoTex9 = nullptr;
 
-	Animation NeoGeo1;
-	Animation NeoGeo2;
-	Animation NeoGeo3;
-	Animation NeoGeo4;
-	Animation NeoGeo5;
-	Animation NeoGeo6;
-	Animation NeoGeo7;
-	Animation NeoGeo8;
-	Animation NeoGeo9;
+	Animation Title1;
+	Animation Title2;
+	Animation Title3;
+	Animation Title4;
+	Animation Title5;
+	Animation Title6;
+	Animation Title7;
+	Animation Title8;
+	Animation Title9;
 
 
-	SDL_Rect StImage;
+	SDL_Rect NeoGeoImage;
 	Mix_Music* mus = nullptr;
 
 };

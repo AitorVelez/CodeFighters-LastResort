@@ -69,7 +69,7 @@ ModuleBackground2::ModuleBackground2()
 	rain_anim.PushBack({ 240, 0, 240,192 });
 	rain_anim.PushBack({ 0, 0, 240,192 });
 	rain_anim.speed = 0.007f;
-	rain_anim.loop = true; 
+	rain_anim.loop = true;
 
 }
 
@@ -100,13 +100,14 @@ bool ModuleBackground2::Start()
 	hangar_2_texture = App->textures->Load("assets/sprites/Foreground_part_3.png");
 	//App->audio->PlayMus(mus);
 
+	
 
 
 	/*App->power->AddPowerup(POWERUP_TYPES::LPOWER, 205, 100);
-	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 255, 100);
+	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 255, 100);*/
 	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);
 	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 805, 195);
-	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 1505, 195);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 1505, 195);/*
 	
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3060, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3100, TopTurretPosY);
@@ -126,9 +127,9 @@ bool ModuleBackground2::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3640, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3680, TopTurretPosY);*/
 	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 660, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::JUMPY, 700, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::JUMPY, 700, 100);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 200, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::METAL_BEE, 200, 100);
 	/*App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);*/
 	
 
@@ -356,6 +357,7 @@ update_status ModuleBackground2::Update()
 	if (App->player2->TwoPlayers == false) {         // When player 1 is active and dies, ready appears
 		if (activ == false) {
 			if (App->player->alive_p1 == false) {
+				LOG("PLAYER 1 LIVES: %i", App->player->lives);
 				if (App->player->lives == 0) {
 					
 					App->fade->FadeToBlack((Module*)App->background2, (Module*)App->loseimage, 2.5f);
@@ -371,13 +373,13 @@ update_status ModuleBackground2::Update()
 	
 	else {       // when both players active, they can respawn 
 		if (activ == false) {
-			if (App->player2->alive_p2 == false && App->player2->alive_p2 == false) {
+			LOG("PLAYER 1 LIVES: %i    Player 2 lives: %i, ready to loseimage?????", App->player->lives, App->player2->lives);
+		//	if (App->player2->alive_p2 == false && App->player2->alive_p2 == false) {
 				if (App->player->lives == 0 && App->player2->lives == 0) {
-					
 					App->fade->FadeToBlack((Module*)App->background2, (Module*)App->loseimage, 2.5f);
 					
 				}
-			}
+			//}
 		}
 	}
 	

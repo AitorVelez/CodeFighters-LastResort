@@ -55,7 +55,7 @@ public:
 	bool alive_p2 = true;
 	bool death_played = false; // different than player one 
 	bool god_mode = false;
-	int lives = 3;
+	int lives = 0;
 	bool SwitchToBg2 = false;
 	bool TwoPlayers = false; 
 	uint now = 0;

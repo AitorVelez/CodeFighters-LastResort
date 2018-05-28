@@ -15,6 +15,8 @@
 #include "ModulePowerUp.h"
 #include "ModuleBackground2.h"
 #include "SDL\include\SDL_timer.h"
+
+
 #define MAX_LIVES 3 
 #define  SideLimit 15
 #define  TopLimit 2
@@ -184,6 +186,14 @@ bool ModulePlayer::Start()
 
 	alive_p1 = true; 	
 
+	/*if (SwitchToBg2 == false) {
+		if (App->background2->IsEnabled() == true && App->background->IsEnabled() == false) {
+			if (lives != 3) {
+				lives = 3;
+			}
+		}
+		SwitchToBg2 = true; 
+	}*/
 
 	graphics = App->textures->Load("assets/sprites/main_character.png"); // arcade version
 	PlayerCollider = App->collision->AddCollider({ position.x,position.y, 32, 14 }, COLLIDER_PLAYER, this);
@@ -447,17 +457,23 @@ update_status ModulePlayer::Update()
 				App->ball->Disable();
 				App->particles->AddParticle(App->particles->player_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
 				death_played = true;
-				lives -= 1;
+				//lives -= 1;
+				lives--;
 				if (App->player2->TwoPlayers == true) {
+					LOG("PLAYER 1 LIVES BEFORE ENABLE: %i", lives); 
 				    App->player->Disable();
-					App->player->Enable();
-				}
-				if (SwitchToBg2 == false) {
-					if (App->background2->IsEnabled() == true) {
-						lives = 2;
-						SwitchToBg2 = true;
+					if (lives != 0) {
+						App->player->Enable();
+						LOG("PLAYER 1 LIVES AFTER ENABLE: %i", lives);
 					}
 				}
+				/*
+				if (SwitchToBg2 == false) {
+					if (App->background2->IsEnabled() == true) {
+						lives = 3;
+						SwitchToBg2 = true;
+					}
+				}*/
 			}
 		}
 		return UPDATE_CONTINUE;
