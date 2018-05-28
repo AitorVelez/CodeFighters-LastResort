@@ -106,10 +106,9 @@ bool ModuleBackground2::Start()
 	hangar_1 = App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);
 	/*App->power->AddPowerup(POWERUP_TYPES::LPOWER, 205, 100);
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 255, 100);*/
-	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);
 	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 805, 195);
-	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 1505, 195);/*
-	
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 1505, 195);
+	/*
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3060, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3100, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3140, TopTurretPosY);
@@ -129,8 +128,6 @@ bool ModuleBackground2::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3680, TopTurretPosY);*/
 	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 660, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::JUMPY, 700, 100);
-
-	App->enemies->AddEnemy(ENEMY_TYPES::METAL_BEE, 200, 100);
 	/*App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);*/
 	
 
@@ -320,10 +317,10 @@ update_status ModuleBackground2::Update()
 	App->render->Blit(hangar_texture, 1000, 156, &hangar_body,1.0f);
 	App->render->Blit(hangar_2_texture, 300, 0, &hangar_2_body, 1.0f);
 
-	App->render->Blit(hangar_texture, 500, 156, &hangar_body, 0.1f);
-	App->render->Blit(hangar_texture, 2000, 156, &hangar_body, 0.1f);
-	App->render->Blit(hangar_2_texture, 2200, 0, &hangar_2_body, 0.1f);
-	App->render->Blit(hangar_texture, 2400, 156, &hangar_body, 0.1f);
+	App->render->Blit(hangar_texture, 500, 156, &hangar_body, 1.0f);
+	App->render->Blit(hangar_texture, 2000, 156, &hangar_body, 1.0f);
+	App->render->Blit(hangar_2_texture, 2200, 0, &hangar_2_body, 1.0f);
+	App->render->Blit(hangar_texture, 2400, 156, &hangar_body, 1.0f);
 
 
 		
