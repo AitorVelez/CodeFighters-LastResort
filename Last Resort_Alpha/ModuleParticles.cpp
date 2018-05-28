@@ -365,6 +365,8 @@ ModuleParticles::ModuleParticles()
 	Bubbles.anim.speed = 0.1;
 	Bubbles.life = 100;
 	Bubbles.texture = 4;
+
+	 
 }
 
 ModuleParticles::~ModuleParticles()
@@ -385,6 +387,7 @@ bool ModuleParticles::Start()
 	chunks[8] = App->audio->LoadChunk("assets/SFX/Explosion2.wav");
 	chunks[9] = App->audio->LoadChunk("assets/SFX/Charging shot.wav");
 	chunks[10] = App->audio->LoadChunk("assets/SFX/Releasing charged shot.wav");
+	chunks[11] = App->audio->LoadChunk("assets/SFX/BOOM_ALLAHU.wav");
 
 	textures[0] = App->textures->Load("assets/sprites/main_character.png");			// Texture -> 0
 	textures[1] = App->textures->Load("assets/sprites/SpritesPlayer2.png");			// Texture -> 1

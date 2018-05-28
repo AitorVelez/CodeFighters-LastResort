@@ -35,7 +35,7 @@ Enemy_RedLamella::Enemy_RedLamella(int x, int y, int HP) : Enemy(x, y, HP)
 void Enemy_RedLamella::Move()
 {
 	// if()
-	speed = 1.0f;
+	speed = 1.2f;
 
 	if (App->player->position.x < position.x) {
 		anim2ndLevel = &Left;
