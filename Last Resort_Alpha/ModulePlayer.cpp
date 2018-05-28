@@ -16,6 +16,8 @@
 #include "ModuleBackground2.h"
 #include "SDL\include\SDL_timer.h"
 
+
+#define MAX_LIVES 3 
 #define  SideLimit 15
 #define  TopLimit 2
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
@@ -142,13 +144,6 @@ ModulePlayer::ModulePlayer()
 	Water.speed = 0.1;
 	Water.loop = false;
 
-	Bubbles.PushBack({ 386,414,15,15 });
-	Bubbles.PushBack({ 401,414,15,15 });
-	Bubbles.PushBack({ 416,414,15,15 });
-	Bubbles.PushBack({ 431,414,15,15 });
-	Bubbles.loop = false;
-	Bubbles.speed = 0.1;
-
 }
 
 ModulePlayer::~ModulePlayer()
@@ -159,32 +154,53 @@ bool ModulePlayer::Start()
 {
 	LOG("Loading player textures");
 	bool ret = true; 
-	if (App->player2->IsEnabled() == true) {
+	if (App->player2->TwoPlayers == true) {
 		if (death_played == true) {
-			if (App->background->IsEnabled() == true) {
-				position.x = App->background->bgpos + 50;
+			now = SDL_GetTicks();
+			if (now > last + 1000) {
+				if (lives > 0) {
+				if (App->background->IsEnabled() == true) {
+				position.x = App->background->bgpos + 50;                  //   IF BOTH PLAYERS ENABLED, RESPAWN
 				position.y = 125;
-			}
+				relativeposition.x = 50;
+				relativeposition.y = position.y;
+			} 
 			else if (App->background2->IsEnabled() == true) {
 				position.x = App->background2->bgpos + 50;
-				position.y = 125;
+			 	position.y = 125;
+				relativeposition.x = 50;
+				relativeposition.y = position.y;
+			  }
 			}
+		 }
+			last = now;
 		}
 	}
 	else {
 		position.x = 50;
 		position.y = 125;
-	}
+		relativeposition.x = position.x;
+		relativeposition.y = position.y;
+	 }
 
-	relativeposition.x = position.x;
-	relativeposition.y = position.y;
+
 	alive_p1 = true; 	
 
+	/*if (SwitchToBg2 == false) {
+		if (App->background2->IsEnabled() == true && App->background->IsEnabled() == false) {
+			if (lives != 3) {
+				lives = 3;
+			}
+		}
+		SwitchToBg2 = true; 
+	}*/
 
 	graphics = App->textures->Load("assets/sprites/main_character.png"); // arcade version
 	PlayerCollider = App->collision->AddCollider({ position.x,position.y, 32, 14 }, COLLIDER_PLAYER, this);
 	current_animation = &playershowup;
-	App->audio->PlayChunk(App->particles->chunks[5], 1);
+	
+		App->audio->PlayChunk(App->particles->chunks[5], 1);
+	
 
 	score_p1 = 0; 
 	bullet_state = BULLET_STATE::BULLET_NO_TYPE; 
@@ -202,6 +218,8 @@ bool ModulePlayer::CleanUp()
 	App->textures->Unload(graphics);
 	App->ball->Disable(); 
 	playershowup.Reset();
+	current_animation = &none; 
+	PlayerCollider = nullptr; 
 	return true; 
 }
 
@@ -222,10 +240,9 @@ void ModulePlayer::OnCollision(Collider * c1, Collider * c2)
 		if (c2->type == COLLIDER_TYPE::COLLIDER_POWERUP_S)
 			if(speed!=3) speed = 3; 
 
-		if (c2->type == COLLIDER_TYPE::COLLIDER_ENEMY || c2->type == COLLIDER_TYPE::COLLIDER_ENEMY_SHOT)
+		if (c2->type == COLLIDER_TYPE::COLLIDER_ENEMY || c2->type == COLLIDER_TYPE::COLLIDER_ENEMY_SHOT || c2->type == COLLIDER_TYPE::COLLIDER_WALL)
 		{
 			alive_p1 = false; 
-
 		}
 
 		if (c2->type == COLLIDER_TYPE::COLLIDER_WALL)
@@ -324,7 +341,6 @@ update_status ModulePlayer::Update()
 					if (App->background2->IsEnabled() == true) {
 						if (position.y > 202) {
 							current_animation = &WaterDown;
-							App->render->Blit(graphics, position.x-15, position.y-11, &Bubbles.GetCurrentFrame(), 1.f);
 							re_WaterUp.Reset();
 							re_WaterDown.Reset();
 						}
@@ -398,20 +414,25 @@ update_status ModulePlayer::Update()
 				}
 			}
 
+
+			current_time = SDL_GetTicks();
+
 			if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
 				App->particles->AddParticle(App->particles->bullet_propulsion, position.x + 31, position.y - 15);
 				App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->bullet_propulsion, position.x + 31, position.y - 15);
-				if (bullet_state == LASER1) {
+				if (bullet_state == LASER1 && current_time > last_time + 500) {
 					App->particles->AddParticle(App->particles->bullet_laser2_1, position.x, position.y - 10, COLLIDER_PLAYER_SHOT);
 					//App->particles->AddParticle(App->particles->firing_laser, position.x + 32, position.y-16);
+					last_time = current_time; 
 				}
-				if (bullet_state == LASER2) {
+				if (bullet_state == LASER2 && current_time > last_time + 700) {
 					App->particles->AddParticle(App->particles->bullet_laser2_1, position.x, position.y - 10, COLLIDER_PLAYER_SHOT);
 					App->particles->AddParticle(App->particles->bullet_laser2, position.x, position.y - 24, COLLIDER_PLAYER_SHOT);
 					App->particles->AddParticle(App->particles->bullet_laser2, position.x + 14, position.y - 24, COLLIDER_PLAYER_SHOT);
 					App->particles->AddParticle(App->particles->bullet_laser2, position.x + 28, position.y - 24, COLLIDER_PLAYER_SHOT);
 					//App->particles->AddParticle(App->particles->firing_laser, position.x + 32, position.y -16);
+					last_time = current_time; 
 				}
 			}
 
@@ -419,7 +440,9 @@ update_status ModulePlayer::Update()
 				if (god_mode == true) god_mode = false;
 				else god_mode = true;
 			}
-
+			if (App->input->keyboard[SDL_SCANCODE_7] == KEY_STATE::KEY_DOWN) {
+				alive_p1 = false;
+			}
 		}
 
 		if (god_mode == true) PlayerCollider->type = COLLIDER_TYPE::COLLIDER_GOD;
@@ -435,21 +458,23 @@ update_status ModulePlayer::Update()
 				App->ball->Disable();
 				App->particles->AddParticle(App->particles->player_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
 				death_played = true;
-				lives -= 1;
-				now = SDL_GetTicks(); 
-				if (App->player2->IsEnabled() == true) {
-					App->player->Disable();
-					if (now > last + 1000) {
+				//lives -= 1;
+				lives--;
+				if (App->player2->TwoPlayers == true) {
+					LOG("PLAYER 1 LIVES BEFORE ENABLE: %i", lives); 
+				    App->player->Disable();
+					if (lives != 0) {
 						App->player->Enable();
+						LOG("PLAYER 1 LIVES AFTER ENABLE: %i", lives);
 					}
-					last = now;
 				}
+				/*
 				if (SwitchToBg2 == false) {
 					if (App->background2->IsEnabled() == true) {
-						lives = 2;
+						lives = 3;
 						SwitchToBg2 = true;
 					}
-				}
+				}*/
 			}
 		}
 		return UPDATE_CONTINUE;

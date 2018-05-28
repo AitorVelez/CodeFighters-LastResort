@@ -24,7 +24,11 @@ enum ENEMY_TYPES
 	LAMELLA,
 	RED_LAMELLA,
 	TURRET,
-	BARREL
+	BARREL,
+	HUNTER,
+	HUNTER_ZIGZAG,
+	METAL_BEE,
+	JUMPY
 };
 
 class Enemy;
@@ -62,6 +66,7 @@ private:
 	Enemy* enemies[MAX_ENEMIES];
 	SDL_Texture* sprites = nullptr;
 	SDL_Texture* sprites2 = nullptr;
+	SDL_Texture* sprites3 = nullptr;
 };
 
 #endif // __ModuleEnemies_H__

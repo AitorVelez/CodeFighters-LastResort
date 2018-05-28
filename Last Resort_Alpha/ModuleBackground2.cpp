@@ -69,7 +69,7 @@ ModuleBackground2::ModuleBackground2()
 	rain_anim.PushBack({ 240, 0, 240,192 });
 	rain_anim.PushBack({ 0, 0, 240,192 });
 	rain_anim.speed = 0.007f;
-	rain_anim.loop = true; 
+	rain_anim.loop = true;
 
 }
 
@@ -91,7 +91,7 @@ bool ModuleBackground2::Start()
 	App->UI->Enable();
 	App->Fonts->Enable();
 	App->enemies->Enable();
-
+	bgpos = 0; 
 	BackgroundLvl2 = App->textures->Load("assets/sprites/Background_2.png");
 	rain = App->textures->Load("assets/sprites/MinimunRainTest.png");
 	mus = App->audio->LoadMus("assets/SFX/level2.ogg");
@@ -100,11 +100,146 @@ bool ModuleBackground2::Start()
 	hangar_2_texture = App->textures->Load("assets/sprites/Foreground_part_3.png");
 	//App->audio->PlayMus(mus);
 
+	
+
 
 	hangar_1 = App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);
+	/*App->power->AddPowerup(POWERUP_TYPES::LPOWER, 205, 100);
+	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 255, 100);*/
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 805, 195);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 1505, 195);/*
+	
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3060, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3100, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3140, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3180, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3220, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3260, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3300, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3340, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3380, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3420, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3460, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3480, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3520, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3560, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3600, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3640, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3680, TopTurretPosY);*/
+	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 660, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::JUMPY, 700, 100);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::METAL_BEE, 200, 100);
+	/*App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);*/
+	
+
+	App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);
 	App->collision->AddCollider({ 2000,156,80,68 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 2200,0,80,35 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 2400,156,80,68 }, COLLIDER_WALL);
+	
+
+	//COLLIDERS GRANS
+
+	App->collision->AddCollider({ 2700,156,160,68 }, COLLIDER_WALL);			//baix
+	App->collision->AddCollider({ 2700,0,160,51 }, COLLIDER_WALL);				//dalt
+	App->collision->AddCollider({ 2860,187,419,37 }, COLLIDER_WALL);			//llarg baix
+	App->collision->AddCollider({ 2860,0,415,19 }, COLLIDER_WALL);				//llarg dalt	
+	App->collision->AddCollider({ 3272,140,100,100 }, COLLIDER_WALL);			//cuadrat baix
+	App->collision->AddCollider({ 3272,0,96,68 }, COLLIDER_WALL);				//cuadrat dalt
+	
+	App->collision->AddCollider({ 3368,187,736,37 }, COLLIDER_WALL);			//llarg baix
+	App->collision->AddCollider({ 3368,0,736,19 }, COLLIDER_WALL);				//larg dalt
+	App->collision->AddCollider({ 4104,140,100,100 }, COLLIDER_WALL);			//cuadrat baix
+	App->collision->AddCollider({ 4104,0,96,68 }, COLLIDER_WALL);				//cuadrat dalt
+	App->collision->AddCollider({ 4200,187,130,37 }, COLLIDER_WALL);			//llarg baix
+	App->collision->AddCollider({ 4200,0,130,19 }, COLLIDER_WALL);				//larg dalt
+
+	App->collision->AddCollider({ 4330,172,65,52 }, COLLIDER_WALL);				//petit baix
+	App->collision->AddCollider({ 4330,0,65,34 }, COLLIDER_WALL);				//petit dalt
+
+	App->collision->AddCollider({ 4395,187,192,37 }, COLLIDER_WALL);			//llarg baix
+	App->collision->AddCollider({ 4395,0,192,19 }, COLLIDER_WALL);				//larg dalt
+
+	App->collision->AddCollider({ 4587,172,65,52 }, COLLIDER_WALL);				//petit baix
+	App->collision->AddCollider({ 4587,0,65,19 }, COLLIDER_WALL);				//estret dalt
+
+	App->collision->AddCollider({ 4652,187,192,37 }, COLLIDER_WALL);			//llarg baix
+	App->collision->AddCollider({ 4652,0,192,19 }, COLLIDER_WALL);				//larg dalt
+
+
+	App->collision->AddCollider({ 4844,187,65,52 }, COLLIDER_WALL);				//petit baix
+	App->collision->AddCollider({ 4844,0,65,34 }, COLLIDER_WALL);				//petit dalt
+
+	App->collision->AddCollider({ 4909,187,192,37 }, COLLIDER_WALL);			//llarg baix
+	App->collision->AddCollider({ 4909,0,192,19 }, COLLIDER_WALL);				//larg dalt
+
+
+	App->collision->AddCollider({ 5101,172,65,52 }, COLLIDER_WALL);				//petit baix
+	App->collision->AddCollider({ 5101,0,65,19 }, COLLIDER_WALL);				//estret dalt
+
+	App->collision->AddCollider({ 5166,187,192,37 }, COLLIDER_WALL);			//llarg baix
+	App->collision->AddCollider({ 5166,0,192,19 }, COLLIDER_WALL);				//larg dalt
+
+
+	App->collision->AddCollider({ 5358,187,65,52 }, COLLIDER_WALL);				//petit baix
+	App->collision->AddCollider({ 5358,0,65,34 }, COLLIDER_WALL);				//petit dalt
+
+	App->collision->AddCollider({ 5423,187,192,37 }, COLLIDER_WALL);			//llarg baix
+	App->collision->AddCollider({ 5423,0,192,19 }, COLLIDER_WALL);				//larg dalt
+
+	App->collision->AddCollider({ 5615,172,65,52 }, COLLIDER_WALL);				//petit baix
+	App->collision->AddCollider({ 5615,0,65,19 }, COLLIDER_WALL);				//estret dalt
+
+	App->collision->AddCollider({ 5680,187,192,37 }, COLLIDER_WALL);			//llarg baix
+	App->collision->AddCollider({ 5680,0,192,19 }, COLLIDER_WALL);				//larg dalt
+
+
+	App->collision->AddCollider({ 5872,187,65,52 }, COLLIDER_WALL);				//petit baix
+	App->collision->AddCollider({ 5872,0,65,34 }, COLLIDER_WALL);				//petit dalt
+
+	App->collision->AddCollider({ 5937,187,192,37 }, COLLIDER_WALL);			//llarg baix
+	App->collision->AddCollider({ 5937,0,192,19 }, COLLIDER_WALL);				//larg dalt
+
+	App->collision->AddCollider({ 6129,172,65,52 }, COLLIDER_WALL);				//petit baix
+	App->collision->AddCollider({ 6129,0,65,19 }, COLLIDER_WALL);				//estret dalt
+
+	App->collision->AddCollider({ 6194,187,192,37 }, COLLIDER_WALL);			//llarg baix
+	App->collision->AddCollider({ 6194,0,192,19 }, COLLIDER_WALL);				//larg dalt
+
+	App->collision->AddCollider({ 6386,187,65,52 }, COLLIDER_WALL);				//petit baix
+	App->collision->AddCollider({ 6386,0,65,34 }, COLLIDER_WALL);				//petit dalt
+
+	App->collision->AddCollider({ 6451,187,192,37 }, COLLIDER_WALL);			//llarg baix
+	App->collision->AddCollider({ 6451,0,192,19 }, COLLIDER_WALL);				//larg dalt
+
+	App->collision->AddCollider({ 6643,172,65,52 }, COLLIDER_WALL);				//petit baix
+	App->collision->AddCollider({ 6643,0,65,19 }, COLLIDER_WALL);				//estret dalt
+
+	App->collision->AddCollider({ 6708,187,192,37 }, COLLIDER_WALL);			//llarg baix
+	App->collision->AddCollider({ 6708,0,192,19 }, COLLIDER_WALL);				//larg dalt
+
+
+	App->collision->AddCollider({ 6900,187,65,52 }, COLLIDER_WALL);				//petit baix
+	App->collision->AddCollider({ 6900,0,65,34 }, COLLIDER_WALL);				//petit dalt
+
+	App->collision->AddCollider({ 6965,187,192,37 }, COLLIDER_WALL);			//llarg baix
+	App->collision->AddCollider({ 6965,0,192,19 }, COLLIDER_WALL);				//larg dalt
+
+	App->collision->AddCollider({ 7157,172,65,52 }, COLLIDER_WALL);				//petit baix
+	App->collision->AddCollider({ 7157,0,65,19 }, COLLIDER_WALL);				//estret dalt
+
+	App->collision->AddCollider({ 7222,187,192,37 }, COLLIDER_WALL);			//llarg baix
+	App->collision->AddCollider({ 7222,0,192,19 }, COLLIDER_WALL);				//larg dalt
+
+
+
+	
+
+
+
+
 
 	activ = false;
 	App->UI->ready = true;
@@ -176,20 +311,19 @@ update_status ModuleBackground2::Update()
 	
 		// Rain
 	for(int cont = 0; cont <= background2.w * 3; cont+=240)
-	App->render->Blit(rain, cont, 0, &rain_anim.GetCurrentFrame(), 0.6f);
-
+	App->render->Blit(rain, cont, 0, &rain_anim.GetCurrentFrame(), 1.0f);
 
 		// Foreground
-	App->render->Blit(ForegroundLvl2, 1700, 0, &foreground2, 0.5733f);
+	App->render->Blit(ForegroundLvl2, 2700, 0, &foreground2, 1.0f);
 		// Hangars 
 
-	App->render->Blit(hangar_texture, 1000, 156, &hangar_body,0.6f);
-	App->render->Blit(hangar_2_texture, 300, 0, &hangar_2_body, 0.6f);
+	App->render->Blit(hangar_texture, 1000, 156, &hangar_body,1.0f);
+	App->render->Blit(hangar_2_texture, 300, 0, &hangar_2_body, 1.0f);
 
-	App->render->Blit(hangar_texture, 500, 156, &hangar_body, 0.6f);
-	App->render->Blit(hangar_texture, 2000, 156, &hangar_body, 0.6f);
-	App->render->Blit(hangar_2_texture, 2200, 0, &hangar_2_body, 0.6f);
-	App->render->Blit(hangar_texture, 2400, 156, &hangar_body, 0.6f);
+	App->render->Blit(hangar_texture, 500, 156, &hangar_body, 0.1f);
+	App->render->Blit(hangar_texture, 2000, 156, &hangar_body, 0.1f);
+	App->render->Blit(hangar_2_texture, 2200, 0, &hangar_2_body, 0.1f);
+	App->render->Blit(hangar_texture, 2400, 156, &hangar_body, 0.1f);
 
 
 		
@@ -209,46 +343,41 @@ update_status ModuleBackground2::Update()
 		if (App->fade->FadeToBlack(App->background2, App->loseimage, 1.5f))
 			App->audio->FadeMus(750);
 	}
-	if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN) {
 		App->player2->Enable();
+		App->player2->TwoPlayers = true;
+	}
 
 
-	if (App->player->IsEnabled() == true && App->player2->IsEnabled() == false) {
+	if (App->player2->TwoPlayers == false) {         // When player 1 is active and dies, ready appears
 		if (activ == false) {
 			if (App->player->alive_p1 == false) {
+				LOG("PLAYER 1 LIVES: %i", App->player->lives);
 				if (App->player->lives == 0) {
+					
 					App->fade->FadeToBlack((Module*)App->background2, (Module*)App->loseimage, 2.5f);
+					
 				}
 				else {
 					App->fade->FadeToBlack((Module*)App->background2, (Module*)App->Ready, 1.5f);
 				}
 			}
 		}
-	}
-	/*
-	else if (App->player->IsEnabled() == false && App->player2->IsEnabled() == true) {
-	if (activ == false) {
-	if (App->player2->alive_p2 == false) {
-	if (App->player2->lives == 0) {
-	App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage, 2.5f);
-	}
-	else {
-	App->fade->FadeToBlack((Module*)App->background, (Module*)App->Ready, 1.5f);
-	}
-	}
-	}
-	}*/
-
-	else if (App->player->IsEnabled() == true && App->player2->IsEnabled() == true) {
+	 }
+	
+	
+	else {       // when both players active, they can respawn 
 		if (activ == false) {
-			if (App->player2->alive_p2 == false) {
+			LOG("PLAYER 1 LIVES: %i    Player 2 lives: %i, ready to loseimage?????", App->player->lives, App->player2->lives);
+		//	if (App->player2->alive_p2 == false && App->player2->alive_p2 == false) {
 				if (App->player->lives == 0 && App->player2->lives == 0) {
 					App->fade->FadeToBlack((Module*)App->background2, (Module*)App->loseimage, 2.5f);
+					
 				}
-			}
+			//}
 		}
 	}
-
+	
 
 
 	if (App->render->camera.x == 9000 * SCREEN_SIZE) {

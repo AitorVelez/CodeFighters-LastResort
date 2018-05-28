@@ -464,14 +464,14 @@ update_status ModuleStartingImage::Update()
 	
 
 	if (currentTime > lastTime + 5000) {
-		if (App->fade->FadeToBlack(App->startimage, App->background, 1.5f))
+		if (App->fade->FadeToBlack(App->startimage, App->background2, 1.5f))
 			App->audio->FadeMus(750);
 	}
 
 
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
-		if (App->fade->FadeToBlack(App->startimage, App->background, 1.5f))
+		if (App->fade->FadeToBlack(App->startimage, App->background2, 1.5f))
 			App->audio->FadeMus(750);
 	}
 

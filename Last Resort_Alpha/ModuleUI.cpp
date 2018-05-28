@@ -7,6 +7,7 @@
 #include "ModulePlayer.h"
 #include "ModuleBackground.h"
 #include "ModulePlayer2.h"
+#include "ModuleInput.h"
 #include <string.h>
 #include <sstream>
 
@@ -65,8 +66,7 @@ bool ModuleUI::CleanUp()
 
 update_status ModuleUI::Update()
 {
-	/*Tenemos la variable "App->Player->score_p1" que es un int, y tenemos la variable "score"
-	que es un char* necesitamos transformar ese int en un char* o algo asi para que se pueda printear*/
+	
 	char score[10];
 	char score2[10];
 	char coins[10];
@@ -76,10 +76,11 @@ update_status ModuleUI::Update()
 	a = App->player->score_p1 + 1000;
 	sprintf_s(score2, "%d", App->player2->score_p2);
 	sprintf_s(score, "%d", App->player->score_p1);
+	sprintf_s(coins, "%d", coin);
 
 	if (ready == true || stgclr == true) {
 		App->render->Blit(UIS, 0, 0, &UIstable, 0, false);
-		App->Fonts->BlitText(280, 216, 0, "0" );
+		App->Fonts->BlitText(280, 216, 0, coins);
 	}
 	if (ready)
 		App->Fonts->BlitText(45, 15, 0, score);
@@ -106,6 +107,29 @@ update_status ModuleUI::Update()
 		sprintf_s(score, "%d", a);
 		App->Fonts->BlitText(45, 15, 0, score);
 		App->Fonts->BlitText(160, 88, 0, "1000");
+	}
+	
+	if ((App->player->lives == 0 && App->player2->lives == 0) && lflag == true) {
+		if (coin >> 0) {
+			coin -= 1;
+			lflag = false;
+		}
+		else lflag = false;
+
+	}
+
+	if (App->player->lives == 0 && lflag == true) {
+		if (coin >> 0) {
+			coin -= 1;
+			lflag = false;
+		}
+		else lflag = false;
+		
+
+	}
+
+	if (App->input->keyboard[SDL_SCANCODE_C] == KEY_STATE::KEY_DOWN) {
+		App->UI->coin += 1;
 	}
 	return UPDATE_CONTINUE;
 }

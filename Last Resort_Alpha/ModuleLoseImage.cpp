@@ -6,6 +6,7 @@
 #include "ModulePlayer.h"
 #include "ModuleInput.h"
 #include "ModuleAudio.h"
+#include "ModuleUI.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleBackground.h"
 #include "ModuleBackground2.h"
@@ -40,6 +41,7 @@ bool ModuleLoseImage::Start()
 	App->player->Disable();
 	App->player2->Disable();
 	return ret;
+	App->UI->lflag = true;
 }
 
 // Load assets

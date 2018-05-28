@@ -16,12 +16,15 @@
 #include "ModuleBackground2.h"
 #include "SDL\include\SDL_timer.h"
 
+
 #define  SideLimit 15
 #define  TopLimit 2
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
 ModulePlayer2::ModulePlayer2()
 {
+	lives = 3;
+
 	current_animation = &idle;
 
 
@@ -125,38 +128,37 @@ bool ModulePlayer2::Start()
 	bool ret = true;
 	int i = App->render->camera.x;
 
-	if (death_played == true) {
 		if (App->background->IsEnabled() == true) {
-			position.x = App->background->bgpos + 50;
+			position.x = App->background->bgpos + 50;      // IF BOTH PLAYERS ENABLED, RESPAWN
 			position.y = 125;
+			relativeposition.x = 50; 
+			relativeposition.y = position.y;
 		}
 		else if (App->background2->IsEnabled() == true) {
 			position.x = App->background2->bgpos + 50;
 			position.y = 125;
+			relativeposition.x = 50;
+			relativeposition.y = position.y;
 		}
-	}
-	else {
-		position.x = App->player->position.x; //50
-		relativeposition.x = App->player->relativeposition.x;
-		if ((App->player->position.y + 20) > (SCREEN_HEIGHT - TopLimit))
-		{
-			position.y = App->player->position.y - 20; //175
-			relativeposition.y = App->player->relativeposition.y - 20;
-		}
-		else
-		{
-			position.y = App->player->position.y + 20; //175
-			relativeposition.y = App->player->relativeposition.y + 20;
-		}
-	}
+
 	App->UI->pl2 = true;
 
 	graphics = App->textures->Load("assets/sprites/SpritesPlayer2.png"); // arcade version
 	PlayerCollider = App->collision->AddCollider({ position.x,position.y, 32, 11 }, COLLIDER_PLAYER, this);
 	current_animation = &playershowup;
-	App->audio->PlayChunk(App->particles->chunks[5], 1);
+	if (lives > 0) {
+		App->audio->PlayChunk(App->particles->chunks[5], 1);
+	}
+	
+	/*if (SwitchToBg2 == false) {
+		if (App->background2->IsEnabled() == true && App->background->IsEnabled() == false) {
+			if (lives != 3) {
+				lives = 3;
+			}
+		}
+		SwitchToBg2 = true;
+	}*/
 
-	lives--;
 	App->background->activ = true;
 	score_p2 = 0;
 	alive_p2 = true;
@@ -166,24 +168,7 @@ bool ModulePlayer2::Start()
 	god_mode = false;
 	return ret;
 }
-	/*
-	if (App->player2->IsEnabled() == true) {
-	if (death_played == true) {
-	if (App->background->IsEnabled() == true) {
-	position.x = App->background->bgpos + 50;
-	position.y = 125;
-	}
-	else if (App->background2->IsEnabled() == true) {
-	position.x = App->background2->bgpos + 50;
-	position.y = 125;
-	}
-	}
-	}
-	else {
-	position.x = 50;
-	position.y = 125;
-	}
-	*/
+	
 
 
 
@@ -214,7 +199,7 @@ void ModulePlayer2::OnCollision(Collider * c1, Collider * c2)
 	if (c2->type == COLLIDER_TYPE::COLLIDER_POWERUP_S)
 		if (speed != 3) speed = 3; 
 
-	if (c2->type == COLLIDER_TYPE::COLLIDER_ENEMY || c2->type == COLLIDER_TYPE::COLLIDER_ENEMY)
+	if (c2->type == COLLIDER_TYPE::COLLIDER_ENEMY || c2->type == COLLIDER_TYPE::COLLIDER_ENEMY || c2->type == COLLIDER_TYPE::COLLIDER_WALL)
 	{
 		alive_p2 = false;
 
@@ -297,20 +282,22 @@ update_status ModulePlayer2::Update()
 		}
 
 
-
+		current_time = SDL_GetTicks();
 
 		if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_STATE::KEY_DOWN) {
 			App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER2_SHOT);
 			App->particles->AddParticle(App->particles->bullet_propulsion, position.x + 31, position.y - 15);
-			if (bullet_state_2 == LASER1_2) {
-				App->particles->AddParticle(App->particles->bullet_laser, position.x + 31, position.y - 12, COLLIDER_PLAYER2_SHOT);
+			if (bullet_state_2 == LASER1_2 && current_time > last_time + 500) {
+				App->particles->AddParticle(App->particles->bullet_laser, position.x, position.y - 10, COLLIDER_PLAYER2_SHOT);
+				last_time = current_time; 
 			}
-			if (bullet_state_2 == LASER2_2) {
-				App->particles->AddParticle(App->particles->bullet_laser, position.x + 31, position.y - 12, COLLIDER_PLAYER2_SHOT);
-				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 26, position.y - 24, COLLIDER_PLAYER2_SHOT);
-				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 40, position.y - 24, COLLIDER_PLAYER2_SHOT);
-				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 54, position.y - 24, COLLIDER_PLAYER2_SHOT);
+			if (bullet_state_2 == LASER2_2 && current_time > last_time + 700) {
+				App->particles->AddParticle(App->particles->bullet_laser2_1, position.x, position.y - 10, COLLIDER_PLAYER2_SHOT);
+				App->particles->AddParticle(App->particles->bullet_laser2, position.x, position.y - 24, COLLIDER_PLAYER2_SHOT);
+				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 14, position.y - 24, COLLIDER_PLAYER2_SHOT);
+				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 28, position.y - 24, COLLIDER_PLAYER2_SHOT);
 				//App->particles->AddParticle(App->particles->bullet_laser2, position.x + 73, position.y - 24, COLLIDER_PLAYER2_SHOT);
+				last_time = current_time; 
 			}
 		}
 
@@ -318,7 +305,9 @@ update_status ModulePlayer2::Update()
 			if (god_mode == true) god_mode = false;
 			else god_mode = true;
 		}
-
+		if (App->input->keyboard[SDL_SCANCODE_8] == KEY_STATE::KEY_DOWN) {
+			alive_p2 = false;
+		}
 	}
 
 	if (god_mode == true) PlayerCollider->type = COLLIDER_TYPE::COLLIDER_GOD;
@@ -336,21 +325,24 @@ update_status ModulePlayer2::Update()
 			App->ball_p2->Disable();
 			App->particles->AddParticle(App->particles->player2_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
 			death_played = true;
-			lives -= 1;
-			now = SDL_GetTicks();
-			if (App->player->IsEnabled() == true) {
-				App->player2->Disable();
-				if (now > last + 1000) {
-					App->player2->Enable();
-				}
-				last = now;
+			LOG("PLAYER 2 LIVES BEFORE DYING: %i", lives);
+			lives --;
+			LOG("PLAYER 2 LIVES AFTER DYING : %i", lives);
+			if (TwoPlayers == true) {
+				LOG("PLAYER 2 LIVES BEFORE ENABLE: %i", lives);
+				App->player2->Disable(); LOG("PLAYER 2 HAS BEEN DISABLED"); 
+					if (lives != 0) {
+						App->player2->Enable();
+						LOG("PLAYER 2 LIVES AFTER ENABLE: %i", lives);
+					}
 			}
+			/*
 			if (SwitchToBg2 == false) {
 				if (App->background2->IsEnabled() == true) {
-					lives = 2;
+					lives = 4;
 					SwitchToBg2 = true;
 				}
-			}
+			}*/
 		}
 	}
 	return UPDATE_CONTINUE;

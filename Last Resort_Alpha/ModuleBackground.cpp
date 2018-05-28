@@ -286,119 +286,120 @@ bool ModuleBackground::Start()
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 360, 112);
 	*/
 	
- 
-	//ENEMY COCKROACH
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 500 + 300, 40);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 535 + 300, 80);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 570 + 300, 40);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 570 + 300, 130);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 620 + 300 + 20, 20);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 650 + 300 + 25, 112);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 640 + 300 + 30, 20);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 670 + 300 + 35, 20);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 700 + 300 + 40, 20);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 730 + 300 + 45, 20);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 760 + 300 + 50, 150);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 790 + 300 + 55, 150);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 820 + 300 + 60, 150);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 850 + 300 + 65, 150);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1250, 150);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1265, 100);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1300, 120);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1300, 60);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1335, 100);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1340, 80);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1370, 60);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1410, 80);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1500 - 50, 20);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1505 - 50, 150);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1535 - 50, 20);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1540 - 50, 150);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1570 - 50, 20);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1575 - 50, 150);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1605 - 50, 20);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1610 - 50, 150);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1640 - 50, 20);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1645 - 50, 150);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2200, 30);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2235, 60);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2270, 90);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2305, 120);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2320, 130);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2355 - 10, 130);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2390 - 20, 130);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2425 - 30, 130);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2460 - 40, 130);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2495 - 50, 130);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3400, 90);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3435, 40);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3437, 80);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3440, 130);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3470, 50);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3473, 90);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3475, 120);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3505, 40);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3509, 130);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800, 130);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800 + 35, 90);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800 + 70, 60);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800 + 105, 35);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800 + 120, 30);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800 + 155, 30);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800 + 190, 30);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800 + 225, 30);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800 + 260, 30);
+	if (EnemiesSpawned == false) {
+		//ENEMY COCKROACH
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 500 + 300, 40);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 535 + 300, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 570 + 300, 40);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 570 + 300, 130);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 620 + 300 + 20, 20);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 650 + 300 + 25, 112);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 640 + 300 + 30, 20);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 670 + 300 + 35, 20);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 700 + 300 + 40, 20);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 730 + 300 + 45, 20);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 760 + 300 + 50, 150);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 790 + 300 + 55, 150);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 820 + 300 + 60, 150);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 850 + 300 + 65, 150);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1250, 150);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1265, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1300, 120);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1300, 60);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1335, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1340, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1370, 60);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1410, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1500 - 50, 20);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1505 - 50, 150);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1535 - 50, 20);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1540 - 50, 150);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1570 - 50, 20);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1575 - 50, 150);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1605 - 50, 20);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1610 - 50, 150);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1640 - 50, 20);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 1645 - 50, 150);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2200, 30);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2235, 60);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2270, 90);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2305, 120);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2320, 130);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2355 - 10, 130);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2390 - 20, 130);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2425 - 30, 130);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2460 - 40, 130);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 2495 - 50, 130);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3400, 90);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3435, 40);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3437, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3440, 130);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3470, 50);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3473, 90);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3475, 120);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3505, 40);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3509, 130);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800, 130);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800 + 35, 90);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800 + 70, 60);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800 + 105, 35);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800 + 120, 30);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800 + 155, 30);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800 + 190, 30);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800 + 225, 30);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 3800 + 260, 30);
 
-	//ENEMY RHINO
-	
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 2700-200+20, 100);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 2750 - 200+40, 100);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 2800 - 200+60, 100);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 2850 - 200+80, 100);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 2900 - 200+100, 100);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 2950 - 200+120, 100);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 3000 - 200+140, 100);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 3050 - 200+180, 100);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 3100 , 100);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 3150 +20, 100);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 3200 +40, 100);
+		//ENEMY RHINO
 
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 4200+600+1000, 112);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 4250+600 + 1000, 112);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 4300+600 + 1000, 112);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 4350+600 + 1000, 112);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 4400+600 + 1000, 112);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 4450+600 + 1000, 112);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 4500 + 600 + 1000, 112);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 4550 + 600 + 1000, 112);
+		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 2700 - 200 + 20, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 2750 - 200 + 40, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 2800 - 200 + 60, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 2850 - 200 + 80, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 2900 - 200 + 100, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 2950 - 200 + 120, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 3000 - 200 + 140, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 3050 - 200 + 180, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 3100, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 3150 + 20, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 3200 + 40, 100);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 4950 + 600 + 1000, 112);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 5150 + 600 + 1000, 112);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 5350 + 600 + 1000, 112);
-	App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 5550 + 600 + 1000, 112);
-	
+		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 4200 + 600 + 1000, 112);
+		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 4250 + 600 + 1000, 112);
+		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 4300 + 600 + 1000, 112);
+		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 4350 + 600 + 1000, 112);
+		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 4400 + 600 + 1000, 112);
+		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 4450 + 600 + 1000, 112);
+		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 4500 + 600 + 1000, 112);
+		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 4550 + 600 + 1000, 112);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8335, 70);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8370, 130);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8405, 80);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8300 , 110);
+		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 4950 + 600 + 1000, 112);
+		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 5150 + 600 + 1000, 112);
+		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 5350 + 600 + 1000, 112);
+		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, 5550 + 600 + 1000, 112);
 
 
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8500, 90);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8535, 90);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8570, 90);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8605, 90);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8640, 90);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8670 , 130);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8620, 60);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8610 , 120);
-	App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8575 , 135);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8335, 70);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8370, 130);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8405, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8300, 110);
 
-	// TANK
 
-	//App->enemies->AddEnemy(ENEMY_TYPES::TANK, 3500, SCREEN_HEIGHT - 64);
-	App->enemies->AddEnemy(ENEMY_TYPES::TANK, 6500, SCREEN_HEIGHT - 64);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8500, 90);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8535, 90);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8570, 90);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8605, 90);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8640, 90);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8670, 130);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8620, 60);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8610, 120);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, 8575, 135);
 
+		// TANK
+
+		//App->enemies->AddEnemy(ENEMY_TYPES::TANK, 3500, SCREEN_HEIGHT - 64);
+		App->enemies->AddEnemy(ENEMY_TYPES::TANK, 6500, SCREEN_HEIGHT - 64);
+		EnemiesSpawned = true; 
+	}
 
 	// POWER UPS
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 2100, 70);
@@ -808,86 +809,86 @@ update_status ModuleBackground::Update()
 		if (App->fade->FadeToBlack(App->background, App->loseimage, 1.5f))
 			App->audio->FadeMus(750);
 	}
-	if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN) {
 		App->player2->Enable();
-		
-	App->player2->lives = 2;
 
-	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_STATE::KEY_DOWN)
-	{
-		App->fade->FadeToBlack((Module*)App->background, (Module*)App->background2, 1.5f);
-	}
+		App->player2->lives = 2;
 
-	if (App->player->IsEnabled() == true && App->player2->IsEnabled() == false) {
-		if (activ == false) {
-			if (App->player->alive_p1 == false) {
-				if (App->player->lives == 0) {
-					App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage, 2.5f);
-				}
-				else {
-					App->fade->FadeToBlack((Module*)App->background, (Module*)App->Ready, 1.5f);
+		if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_STATE::KEY_DOWN)
+		{
+			App->fade->FadeToBlack((Module*)App->background, (Module*)App->background2, 1.5f);
+		}
+
+		if (App->player->IsEnabled() == true && App->player2->IsEnabled() == false) {
+			if (App->player2->TwoPlayers != true) {
+				App->player2->TwoPlayers = true;
+			}
+		}
+
+
+
+		if (App->player2->TwoPlayers == false) {         // When player 1 is active and dies, ready appears
+			if (activ == false) {
+				if (App->player->alive_p1 == false) {
+					LOG("PLAYER 1 LIVES: %i", App->player->lives);
+					if (App->player->lives == 0) {
+
+						App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage, 2.5f);
+
+					}
+					else {
+						App->fade->FadeToBlack((Module*)App->background, (Module*)App->Ready, 1.5f);
+					}
 				}
 			}
 		}
-	}
-	/*
-    else if (App->player->IsEnabled() == false && App->player2->IsEnabled() == true) {
-		if (activ == false) {
-			if (App->player2->alive_p2 == false) {
-				if (App->player2->lives == 0) {
-					App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage, 2.5f);
-				}
-				else {
-					App->fade->FadeToBlack((Module*)App->background, (Module*)App->Ready, 1.5f);
-				}
-			}
-		}
-	}*/
 
-	else if (App->player->IsEnabled() == true && App->player2->IsEnabled() == true) {
-		if (activ == false) {
-			if (App->player2->alive_p2 == false) {
+
+		else {       // when both players active, they can respawn 
+			if (activ == false) {
+				LOG("PLAYER 1 LIVES: %i    Player 2 lives: %i, ready to loseimage?????", App->player->lives, App->player2->lives);
+				//	if (App->player2->alive_p2 == false && App->player2->alive_p2 == false) {
 				if (App->player->lives == 0 && App->player2->lives == 0) {
 					App->fade->FadeToBlack((Module*)App->background, (Module*)App->loseimage, 2.5f);
+
 				}
+				//}
 			}
 		}
+
+
+
+
+
+
+		if (App->render->camera.x == 9000 * SCREEN_SIZE) {
+			App->fade->FadeToBlack((Module*)App->background, (Module*)App->stageclear, 2.5f);
+		}
+
+		if (App->input->keyboard[SDL_SCANCODE_KP_1] == KEY_DOWN)
+			App->enemies->AddEnemy(ENEMY_TYPES::TURRET, App->render->camera.x + 300, 175);
+
+		if (App->input->keyboard[SDL_SCANCODE_KP_2] == KEY_DOWN)
+			App->enemies->AddEnemy(ENEMY_TYPES::BARREL, App->render->camera.x + 300, 100);
+
+		if (App->input->keyboard[SDL_SCANCODE_KP_3] == KEY_DOWN)
+			App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, App->render->camera.x + 300, 100);
+
+		if (App->input->keyboard[SDL_SCANCODE_KP_4] == KEY_DOWN)
+			App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, App->render->camera.x + 300, 100);
+
+		if (App->input->keyboard[SDL_SCANCODE_KP_5] == KEY_DOWN)
+			App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, App->render->camera.x + 300, 100);
+
+		if (App->input->keyboard[SDL_SCANCODE_KP_6] == KEY_DOWN)
+			App->enemies->AddEnemy(ENEMY_TYPES::RHINO, App->render->camera.x + 300, 100);
+
+		if (App->input->keyboard[SDL_SCANCODE_KP_7] == KEY_DOWN)
+			App->power->AddPowerup(POWERUP_TYPES::LPOWER, App->render->camera.x + 300, 100);
+
+		if (App->input->keyboard[SDL_SCANCODE_KP_8] == KEY_DOWN)
+			App->power->AddPowerup(POWERUP_TYPES::SPOWER, App->render->camera.x + 300, 100);
+
+		return UPDATE_CONTINUE;
 	}
-
-
-
-
-
-	if (App->render->camera.x == 9000 * SCREEN_SIZE) {
-		App->fade->FadeToBlack((Module*)App->background, (Module*)App->stageclear, 2.5f);
-	}
-
-
-
-
-	if (App->input->keyboard[SDL_SCANCODE_KP_1] == KEY_DOWN)
-		App->enemies->AddEnemy(ENEMY_TYPES::TURRET, App->render->camera.x + 300, 175);
-
-	if (App->input->keyboard[SDL_SCANCODE_KP_2] == KEY_DOWN)
-		App->enemies->AddEnemy(ENEMY_TYPES::BARREL, App->render->camera.x + 300, 100);
-
-	if (App->input->keyboard[SDL_SCANCODE_KP_3] == KEY_DOWN)
-		App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, App->render->camera.x + 300, 100);
-
-	if (App->input->keyboard[SDL_SCANCODE_KP_4] == KEY_DOWN)
-		App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, App->render->camera.x + 300, 100);
-
-	if (App->input->keyboard[SDL_SCANCODE_KP_5] == KEY_DOWN)
-		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, App->render->camera.x + 300, 100);
-
-	if (App->input->keyboard[SDL_SCANCODE_KP_6] == KEY_DOWN)
-		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, App->render->camera.x + 300, 100);
-
-	if (App->input->keyboard[SDL_SCANCODE_KP_7] == KEY_DOWN)
-		App->power->AddPowerup(POWERUP_TYPES::LPOWER, App->render->camera.x + 300, 100);
-
-	if (App->input->keyboard[SDL_SCANCODE_KP_8] == KEY_DOWN)
-		App->power->AddPowerup(POWERUP_TYPES::SPOWER, App->render->camera.x + 300, 100);
-
-	return UPDATE_CONTINUE;
 }

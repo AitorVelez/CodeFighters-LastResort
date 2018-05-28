@@ -63,7 +63,8 @@ bool Application::Init()
 {
 	bool ret = true;
 
-	// introneogeo->Disable();
+	//introneogeo->Disable();
+	startimage->Disable();
 	player->Disable();
 	player2->Disable();
 	particles->Disable(); 
@@ -79,7 +80,6 @@ bool Application::Init()
 	UI->Disable();
 	Ready->Disable();
 	background2->Disable(); 
-	introneogeo->Disable(); 
 
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)
 		ret = modules[i]->Init();

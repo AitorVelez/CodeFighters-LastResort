@@ -33,7 +33,7 @@ private:
 	float diry;
 	bool aimed = false; 
     float BulletSpeed; 
-	float alpha; 
+	float proportion; 
 	uint current_time = 0;
 	uint last_time = 0;
 public:
@@ -43,5 +43,5 @@ public:
 	void Shoot();
 };
 
-#endif // __ENEMY_TANK_H__
+#endif // __ENEMY_TURRET_H__
 

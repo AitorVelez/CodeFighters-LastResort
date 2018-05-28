@@ -17,6 +17,10 @@
 #include "Enemy_RedLamella.h"
 #include "Enemy_Turret.h"
 #include "Enemy_Barrel.h"
+#include "Enemy_Hunter.h"
+#include "Enemy_Hunter_ZigZag.h"
+#include "Enemy_Metal_Bee.h"
+#include "Enemy_Jumpy.h"
 
 #define SPAWN_MARGIN 50
 
@@ -36,7 +40,6 @@ bool ModuleEnemies::Start()
 	// Create a prototype for each enemy available so we can copy them around
 	sprites = App->textures->Load("assets/sprites/common_enemies1.png");
 	sprites2 = App->textures->Load("assets/sprites/CommonEnemies2.png");
-
 	return true;
 }
 
@@ -165,16 +168,28 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::LAMELLA:
 			enemies[i] = new Enemy_Lamella(info.x, info.y, info.HP);
 			break;
-	
 		case ENEMY_TYPES::RED_LAMELLA:
 			enemies[i] = new Enemy_RedLamella(info.x, info.y, info.HP);
 			break;
 		case ENEMY_TYPES::TURRET:
 			enemies[i] = new Enemy_Turret(info.x, info.y, info.HP);
 			break;
-
 		case ENEMY_TYPES::BARREL:
 			enemies[i] = new Enemy_Barrel(info.x, info.y, info.HP);
+			break;
+		case ENEMY_TYPES::HUNTER:
+			enemies[i] = new Enemy_Hunter(info.x, info.y, info.HP);
+			break;
+
+		case ENEMY_TYPES::HUNTER_ZIGZAG:
+			enemies[i] = new Enemy_Hunter_ZigZag(info.x, info.y, info.HP);
+			break;
+		case ENEMY_TYPES::METAL_BEE:
+			enemies[i] = new Enemy_Metal_Bee(info.x, info.y, info.HP);
+			break;
+
+		case ENEMY_TYPES::JUMPY:
+			enemies[i] = new Enemy_Jumpy(info.x, info.y, info.HP);
 			break;
 		}
 	}

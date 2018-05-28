@@ -356,6 +356,15 @@ ModuleParticles::ModuleParticles()
 	ball_bullet.anim.loop = true;
 	ball_bullet.life = 2000;
 	ball_bullet.texture = 0;
+
+	Bubbles.anim.PushBack({ 0,0,15,15 });
+	Bubbles.anim.PushBack({ 15,0,15,15 });
+	Bubbles.anim.PushBack({ 30,0,15,15 });
+	Bubbles.anim.PushBack({ 45,0,15,15 });
+	Bubbles.anim.loop = false;
+	Bubbles.anim.speed = 0.1;
+	Bubbles.life = 100;
+	Bubbles.texture = 4;
 }
 
 ModuleParticles::~ModuleParticles()
@@ -381,6 +390,7 @@ bool ModuleParticles::Start()
 	textures[1] = App->textures->Load("assets/sprites/SpritesPlayer2.png");			// Texture -> 1
 	textures[2] = App->textures->Load("assets/sprites/common_enemies1.png");
 	textures[3] = App->textures->Load("assets/sprites/blue_ball_axis.png");
+	textures[4] = App->textures->Load("Ship_Underwater_Perticles.png");
 
 
 	return true; 
@@ -489,6 +499,11 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 }
 // -------------------------------------------------------------
 // -------------------------------------------------------------
+//void ModuleParticles::UnderWater() {
+//	if (App->player->position.y == 100) {
+//		AddParticle(Bubbles, position.x - 15, position.y - 11);
+//	}
+//}
 
 Particle::Particle()
 {

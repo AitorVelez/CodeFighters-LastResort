@@ -75,5 +75,23 @@ update_status ModuleStageClear::Update()
 				App->audio->FadeMus(750);
 	}
 
+	bool PlayerLifeReset = false;
+	bool Player2LifeReset = false;
+
+	if (PlayerLifeReset == false) {
+		LOG("------------------------------------------------------------------- PLAYER 1 LIFES BEFORE LIVE RESET: %i", App->player->lives);
+		if (App->player->lives != 3) {
+			App->player->lives = 3; LOG("-----------------------------------------------------------------PLAYER 1 LIFES AFTER LIVE RESET: %i", App->player->lives);
+		}
+		PlayerLifeReset = true;
+	}
+
+	if (Player2LifeReset == false) {
+		if (App->player2->lives != 3) {
+			App->player2->lives = 3;
+		}
+		Player2LifeReset = true;
+	}
+
 	return UPDATE_CONTINUE;
 }
