@@ -16,12 +16,15 @@
 #include "ModuleBackground2.h"
 #include "SDL\include\SDL_timer.h"
 
+
 #define  SideLimit 15
 #define  TopLimit 2
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
 ModulePlayer2::ModulePlayer2()
 {
+	lives = 3;
+
 	current_animation = &idle;
 
 
@@ -147,6 +150,15 @@ bool ModulePlayer2::Start()
 		App->audio->PlayChunk(App->particles->chunks[5], 1);
 	}
 	
+	/*if (SwitchToBg2 == false) {
+		if (App->background2->IsEnabled() == true && App->background->IsEnabled() == false) {
+			if (lives != 3) {
+				lives = 3;
+			}
+		}
+		SwitchToBg2 = true;
+	}*/
+
 	App->background->activ = true;
 	score_p2 = 0;
 	alive_p2 = true;
@@ -313,23 +325,24 @@ update_status ModulePlayer2::Update()
 			App->ball_p2->Disable();
 			App->particles->AddParticle(App->particles->player2_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
 			death_played = true;
-			lives -= 1;
-			now = SDL_GetTicks();
+			LOG("PLAYER 2 LIVES BEFORE DYING: %i", lives);
+			lives --;
+			LOG("PLAYER 2 LIVES AFTER DYING : %i", lives);
 			if (TwoPlayers == true) {
-				App->player2->Disable();
-				if (now > last + 1000) {
+				LOG("PLAYER 2 LIVES BEFORE ENABLE: %i", lives);
+				App->player2->Disable(); LOG("PLAYER 2 HAS BEEN DISABLED"); 
 					if (lives != 0) {
 						App->player2->Enable();
+						LOG("PLAYER 2 LIVES AFTER ENABLE: %i", lives);
 					}
-				}
-				last = now;
 			}
+			/*
 			if (SwitchToBg2 == false) {
 				if (App->background2->IsEnabled() == true) {
-					lives = 2;
+					lives = 4;
 					SwitchToBg2 = true;
 				}
-			}
+			}*/
 		}
 	}
 	return UPDATE_CONTINUE;
