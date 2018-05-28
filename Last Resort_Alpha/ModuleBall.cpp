@@ -230,7 +230,7 @@ void ModuleBall::Ball_Input_Movement()
 	}
 
 
-	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_REPEAT) {
+	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_REPEAT || SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTY) < -10000) {
 		// The aiming angle grows or decreases to 90º dependending on its place 
 		if (angle_aiming <= 270 && angle_aiming > 90)		// Using te shortest way always
 			angle_aiming -= angle_speed;
@@ -252,7 +252,7 @@ void ModuleBall::Ball_Input_Movement()
 		}
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_REPEAT) {
+	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_REPEAT || SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTY) > 10000) {
 
 		if (angle_aiming >= 90 && angle_aiming<270)					// Using the shortest way always
 			angle_aiming += angle_aiming_speed;
@@ -278,7 +278,7 @@ void ModuleBall::Ball_Input_Movement()
 		}
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT) {
+	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT || SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTX) < -10000) {
 
 		if (angle_aiming <= 180 && angle_aiming > 0)
 			angle_aiming -= angle_aiming_speed;
@@ -298,7 +298,7 @@ void ModuleBall::Ball_Input_Movement()
 	}
 
 
-	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT) {
+	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT || SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTX) > 10000) {
 
 		if (angle_aiming > 180)
 			angle_aiming -= angle_aiming_speed;

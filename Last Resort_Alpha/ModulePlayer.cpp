@@ -227,6 +227,9 @@ void ModulePlayer::OnCollision(Collider * c1, Collider * c2)
 			alive_p1 = false; 
 
 		}
+
+		if (c2->type == COLLIDER_TYPE::COLLIDER_WALL)
+			alive_p1 = false; 
 }
 
 // Update: draw background
@@ -252,7 +255,7 @@ update_status ModulePlayer::Update()
 			current_animation = &idle;
 		}
 
-		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
+		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT || SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTY) < -10000)
 		{
 			if (relativeposition.y > CHARACTER_HEIGHT + TopLimit + 4) {
 				if (App->background2->IsEnabled() == true) {
@@ -315,7 +318,7 @@ update_status ModulePlayer::Update()
 
 
 
-			if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
+			if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT || SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTY) > 10000)
 			{
 				if (relativeposition.y < SCREEN_HEIGHT - TopLimit) {
 					if (App->background2->IsEnabled() == true) {
@@ -376,7 +379,7 @@ update_status ModulePlayer::Update()
 				}
 			}
 
-			if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT) {
+			if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT || SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTX) > 10000) {
 				if (relativeposition.x < SCREEN_WIDTH - CHARACTER_WIDTH - SideLimit) {
 					relativeposition.x += speed;
 					position.x += speed;
@@ -385,7 +388,7 @@ update_status ModulePlayer::Update()
 					relativeposition.x = SCREEN_WIDTH - CHARACTER_WIDTH - SideLimit;
 				}
 			}
-			if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT) {
+			if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT || SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTX) < -10000) {
 				if (relativeposition.x > SideLimit) {
 					relativeposition.x -= speed;
 					position.x -= speed;
@@ -394,9 +397,6 @@ update_status ModulePlayer::Update()
 					relativeposition.x = SideLimit;
 				}
 			}
-
-			if (SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTX) > 100)
-				position.x += speed;
 
 			if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
 				App->particles->AddParticle(App->particles->bullet_propulsion, position.x + 31, position.y - 15);
@@ -415,7 +415,7 @@ update_status ModulePlayer::Update()
 				}
 			}
 
-			if (App->input->keyboard[SDL_SCANCODE_1] == KEY_STATE::KEY_DOWN) {
+			if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {
 				if (god_mode == true) god_mode = false;
 				else god_mode = true;
 			}

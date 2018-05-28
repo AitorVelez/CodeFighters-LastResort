@@ -3,6 +3,7 @@
 
 #include "p2Point.h"
 #include "Animation.h"
+#include "Path.h"
 #define MAX_ANIM 10
 struct SDL_Texture;
 struct Collider;
@@ -19,7 +20,7 @@ protected:
 public:
 	uint hp = 1;
 	uint original_hp = 1;
-	fPoint position; 
+	iPoint position; 
 	iPoint Anim2Distance;
 	iPoint Anim3Distance;
 	iPoint Anim4Distance;

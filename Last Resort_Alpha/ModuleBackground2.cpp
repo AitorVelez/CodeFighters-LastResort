@@ -101,25 +101,7 @@ bool ModuleBackground2::Start()
 	//App->audio->PlayMus(mus);
 
 
-/*
-	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 205, 100);
-	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 255, 100);
-	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);
-	
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 300, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 340, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 380, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 420, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 460, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 500, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 540, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 580, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 620, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 660, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 660, TopTurretPosY);
-	*/
-
-	App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);
+	hangar_1 = App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);
 	App->collision->AddCollider({ 2000,156,80,68 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 2200,0,80,35 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 2400,156,80,68 }, COLLIDER_WALL);
@@ -189,45 +171,39 @@ update_status ModuleBackground2::Update()
 
 
 		// Background  
-	App->render->Blit(BackgroundLvl2, 0, 0, &background2, 0.416);						
+	App->render->Blit(BackgroundLvl2, 0, 0, &background2, 0.25);						
 		
 	
 		// Rain
 	for(int cont = 0; cont <= background2.w * 3; cont+=240)
-	App->render->Blit(rain, cont, 0, &rain_anim.GetCurrentFrame(), 1.f);
+	App->render->Blit(rain, cont, 0, &rain_anim.GetCurrentFrame(), 0.6f);
 
 
 		// Foreground
 	App->render->Blit(ForegroundLvl2, 1700, 0, &foreground2, 0.5733f);
-
 		// Hangars 
 
-	/*App->render->Blit(hangar_texture, 1000, 156, &hangar_body, 1.0f);
-	App->render->Blit(hangar_2_texture, 300, 0, &hangar_2_body, 1.0f);*/
+	App->render->Blit(hangar_texture, 1000, 156, &hangar_body,0.6f);
+	App->render->Blit(hangar_2_texture, 300, 0, &hangar_2_body, 0.6f);
 
-	App->render->Blit(hangar_texture, 500, 156, &hangar_body, 1.0f);
-	App->render->Blit(hangar_texture, 2000, 156, &hangar_body, 1.0f);
-	App->render->Blit(hangar_2_texture, 2200, 0, &hangar_2_body, 1.0f);
-	App->render->Blit(hangar_texture, 2400, 156, &hangar_body, 1.0f);
+	App->render->Blit(hangar_texture, 500, 156, &hangar_body, 0.6f);
+	App->render->Blit(hangar_texture, 2000, 156, &hangar_body, 0.6f);
+	App->render->Blit(hangar_2_texture, 2200, 0, &hangar_2_body, 0.6f);
+	App->render->Blit(hangar_texture, 2400, 156, &hangar_body, 0.6f);
 
 
 		
 	
 
-
-
-
-
-
 	// Fade to black
-	if (App->input->keyboard[SDL_SCANCODE_T] == KEY_STATE::KEY_DOWN) {
+	if (App->input->keyboard[SDL_SCANCODE_F2] == KEY_STATE::KEY_DOWN) {
 		App->player->god_mode = true;
 		App->player2->god_mode = true;
 		if (App->fade->FadeToBlack(App->background2, App->stageclear, 1.5f))
 			App->audio->FadeMus(750);
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_Y] == KEY_STATE::KEY_DOWN) {
+	if (App->input->keyboard[SDL_SCANCODE_F3] == KEY_STATE::KEY_DOWN) {
 		App->player->god_mode = true;
 		App->player2->god_mode = true;
 		if (App->fade->FadeToBlack(App->background2, App->loseimage, 1.5f))
@@ -280,6 +256,30 @@ update_status ModuleBackground2::Update()
 	}
 
 
+
+	if (App->input->keyboard[SDL_SCANCODE_KP_1] == KEY_DOWN)
+		App->enemies->AddEnemy(ENEMY_TYPES::TURRET, App->render->camera.x + 300, BottomTurretPosY);
+
+	if (App->input->keyboard[SDL_SCANCODE_KP_2] == KEY_DOWN)
+		App->enemies->AddEnemy(ENEMY_TYPES::BARREL, App->render->camera.x + 300, 100);
+
+	if (App->input->keyboard[SDL_SCANCODE_KP_3] == KEY_DOWN)
+		App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, App->render->camera.x + 300, 100);
+
+	if (App->input->keyboard[SDL_SCANCODE_KP_4] == KEY_DOWN)
+		App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, App->render->camera.x + 300, 100);
+
+	if (App->input->keyboard[SDL_SCANCODE_KP_5] == KEY_DOWN)
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, App->render->camera.x + 300, 100);
+
+	if (App->input->keyboard[SDL_SCANCODE_KP_6] == KEY_DOWN)
+		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, App->render->camera.x + 300, 100);
+
+	if (App->input->keyboard[SDL_SCANCODE_KP_7] == KEY_DOWN)
+		App->power->AddPowerup(POWERUP_TYPES::LPOWER, App->render->camera.x + 300, 100);
+
+	if (App->input->keyboard[SDL_SCANCODE_KP_8] == KEY_DOWN)
+		App->power->AddPowerup(POWERUP_TYPES::SPOWER, App->render->camera.x + 300, 100);
 
 	return UPDATE_CONTINUE;
 }

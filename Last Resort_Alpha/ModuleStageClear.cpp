@@ -71,7 +71,6 @@ update_status ModuleStageClear::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_STATE::KEY_DOWN)
 	{
-		
 			if (App->fade->FadeToBlack(this, App->background2, 1.5f))
 				App->audio->FadeMus(750);
 	}

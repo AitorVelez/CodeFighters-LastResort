@@ -414,16 +414,6 @@ bool ModuleBackground::Start()
 
 	App->enemies->AddEnemy(ENEMY_TYPES::YELLOW_CAR, 105, 195);
 
-App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 205, 195);     
-
-
-//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195); 
-
-App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 205, 195);
-App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 225, 225);
-App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 255, 15);
-App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 275, 75);
-
 	mus = App->audio->LoadMus("assets/SFX/level_1_1.ogg");
 	App->audio->PlayMus(mus);
 	background_spaceship_posx = -200;
@@ -805,14 +795,14 @@ update_status ModuleBackground::Update()
 
 
 	// Fade to black
-	if (App->input->keyboard[SDL_SCANCODE_T] == KEY_STATE::KEY_DOWN) {
+	if (App->input->keyboard[SDL_SCANCODE_F2] == KEY_STATE::KEY_DOWN) {
 		App->player->god_mode = true;
 		App->player2->god_mode = true;
 		if (App->fade->FadeToBlack(App->background, App->stageclear, 1.5f))
 			App->audio->FadeMus(750);
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_Y] == KEY_STATE::KEY_DOWN) {
+	if (App->input->keyboard[SDL_SCANCODE_F3] == KEY_STATE::KEY_DOWN) {
 		App->player->god_mode = true;
 		App->player2->god_mode = true;
 		if (App->fade->FadeToBlack(App->background, App->loseimage, 1.5f))
@@ -820,7 +810,13 @@ update_status ModuleBackground::Update()
 	}
 	if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN)
 		App->player2->Enable();
+		
 	App->player2->lives = 2;
+
+	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_STATE::KEY_DOWN)
+	{
+		App->fade->FadeToBlack((Module*)App->background, (Module*)App->background2, 1.5f);
+	}
 
 	if (App->player->IsEnabled() == true && App->player2->IsEnabled() == false) {
 		if (activ == false) {
@@ -867,6 +863,31 @@ update_status ModuleBackground::Update()
 	}
 
 
+
+
+	if (App->input->keyboard[SDL_SCANCODE_KP_1] == KEY_DOWN)
+		App->enemies->AddEnemy(ENEMY_TYPES::TURRET, App->render->camera.x + 300, 175);
+
+	if (App->input->keyboard[SDL_SCANCODE_KP_2] == KEY_DOWN)
+		App->enemies->AddEnemy(ENEMY_TYPES::BARREL, App->render->camera.x + 300, 100);
+
+	if (App->input->keyboard[SDL_SCANCODE_KP_3] == KEY_DOWN)
+		App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, App->render->camera.x + 300, 100);
+
+	if (App->input->keyboard[SDL_SCANCODE_KP_4] == KEY_DOWN)
+		App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, App->render->camera.x + 300, 100);
+
+	if (App->input->keyboard[SDL_SCANCODE_KP_5] == KEY_DOWN)
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, App->render->camera.x + 300, 100);
+
+	if (App->input->keyboard[SDL_SCANCODE_KP_6] == KEY_DOWN)
+		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, App->render->camera.x + 300, 100);
+
+	if (App->input->keyboard[SDL_SCANCODE_KP_7] == KEY_DOWN)
+		App->power->AddPowerup(POWERUP_TYPES::LPOWER, App->render->camera.x + 300, 100);
+
+	if (App->input->keyboard[SDL_SCANCODE_KP_8] == KEY_DOWN)
+		App->power->AddPowerup(POWERUP_TYPES::SPOWER, App->render->camera.x + 300, 100);
 
 	return UPDATE_CONTINUE;
 }

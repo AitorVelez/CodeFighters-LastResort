@@ -7,7 +7,8 @@ class Enemy_Barrel : public Enemy
 {
 private:
 	Animation fly;
-	int y_original;
+	iPoint original_position;
+	Path path;
 public:
 
 	Enemy_Barrel(int x, int y, int HP);

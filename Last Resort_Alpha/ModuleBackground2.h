@@ -34,6 +34,8 @@ public:
 	SDL_Rect hangar_body;
 	SDL_Rect hangar_2_body;
 
+	Collider* hangar_1 = nullptr; 
+
 	Animation rain_anim;
 
 	bool activ = false;
