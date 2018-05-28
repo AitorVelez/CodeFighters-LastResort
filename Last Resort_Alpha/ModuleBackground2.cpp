@@ -314,8 +314,8 @@ update_status ModuleBackground2::Update()
 	App->render->Blit(ForegroundLvl2, 2700, 0, &foreground2, 1.0f);
 		// Hangars 
 
-	App->render->Blit(hangar_texture, 1000, 156, &hangar_body,1.0f);
-	App->render->Blit(hangar_2_texture, 300, 0, &hangar_2_body, 1.0f);
+	/*App->render->Blit(hangar_texture, 1000, 156, &hangar_body,1.0f);
+	App->render->Blit(hangar_2_texture, 300, 0, &hangar_2_body, 1.0f);*/
 
 	App->render->Blit(hangar_texture, 500, 156, &hangar_body, 1.0f);
 	App->render->Blit(hangar_texture, 2000, 156, &hangar_body, 1.0f);
