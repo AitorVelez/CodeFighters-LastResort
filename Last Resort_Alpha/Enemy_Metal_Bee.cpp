@@ -147,7 +147,7 @@ Enemy_Metal_Bee::Enemy_Metal_Bee(int x, int y, int HP) : Enemy(x, y, HP)
 void Enemy_Metal_Bee::Move()
 {
 	// if()
-	speed = 1.0f;
+	speed = 1.2f;
 
 
 	Animation *Current;
@@ -184,6 +184,7 @@ void Enemy_Metal_Bee::Move()
 	}
 
 	
+
 	dirx = App->player->position.x - position.x;
 	diry = App->player->relativeposition.y - position.y;
 	hyp = sqrt(dirx*dirx + diry * diry);

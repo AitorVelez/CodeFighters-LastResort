@@ -9,7 +9,7 @@
 
 #define MAX_ACTIVE_PARTICLES 50
 #define MAX_PART_CHUNKS 25
-#define MAX_PART_TEXTURES 10
+#define MAX_PART_TEXTURES 11
 
 struct SDL_Texture;
 struct Collider;
@@ -75,10 +75,13 @@ public:
 	Particle pilot_dying;
 	Particle BigTankShot; 
 	Particle SmallTankShot; 
+	Particle SmallTurretShot;
 
 	Particle Red_Car_Explosion;
 	Particle Blue_Car_Explosion;
 	Particle Yellow_Car_Explosion;
+
+
 
 	SDL_Texture* textures[MAX_PART_TEXTURES];
 	Mix_Chunk* chunks[MAX_PART_CHUNKS];

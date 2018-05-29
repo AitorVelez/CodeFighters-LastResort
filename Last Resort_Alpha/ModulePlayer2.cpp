@@ -307,6 +307,7 @@ update_status ModulePlayer2::Update()
 		}
 		if (App->input->keyboard[SDL_SCANCODE_8] == KEY_STATE::KEY_DOWN) {
 			alive_p2 = false;
+			App->audio->PlayChunk(App->particles->chunks[11], 1);
 		}
 	}
 
@@ -324,6 +325,8 @@ update_status ModulePlayer2::Update()
 		if (death_played == false) {
 			App->ball_p2->Disable();
 			App->particles->AddParticle(App->particles->player2_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
+
+
 			death_played = true;
 			LOG("PLAYER 2 LIVES BEFORE DYING: %i", lives);
 			lives --;

@@ -5,7 +5,7 @@
 #include "Globals.h"
 
 #define MAX_MUSICS 5
-#define MAX_CHUNKS 20
+#define MAX_CHUNKS 35 // 20
 
 struct Mix_Music;
 struct Mix_Chunk;

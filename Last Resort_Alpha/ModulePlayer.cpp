@@ -200,7 +200,6 @@ bool ModulePlayer::Start()
 	current_animation = &playershowup;
 	
 		App->audio->PlayChunk(App->particles->chunks[5], 1);
-	
 
 	score_p1 = 0; 
 	bullet_state = BULLET_STATE::BULLET_NO_TYPE; 
@@ -441,7 +440,8 @@ update_status ModulePlayer::Update()
 				else god_mode = true;
 			}
 			if (App->input->keyboard[SDL_SCANCODE_7] == KEY_STATE::KEY_DOWN) {
-				alive_p1 = false;
+				App->audio->PlayChunk(App->particles->chunks[11], 1);
+				alive_p1 = false; 
 			}
 		}
 
@@ -457,6 +457,7 @@ update_status ModulePlayer::Update()
 			if (death_played == false) {
 				App->ball->Disable();
 				App->particles->AddParticle(App->particles->player_death, position.x - CHARACTER_WIDTH / 2 + 10, position.y - CHARACTER_HEIGHT - 5);
+
 				death_played = true;
 				//lives -= 1;
 				lives--;

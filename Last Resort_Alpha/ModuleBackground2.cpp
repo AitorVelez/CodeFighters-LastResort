@@ -106,7 +106,7 @@ bool ModuleBackground2::Start()
 	hangar_1 = App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);
 	/*App->power->AddPowerup(POWERUP_TYPES::LPOWER, 205, 100);
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 255, 100);*/
-	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 805, 195);
+	App->enemies->AddEnemy(ENEMY_TYPES::METAL_BEE, 805, 195);
 	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 1505, 195);
 	/*
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3060, TopTurretPosY);
@@ -406,6 +406,9 @@ update_status ModuleBackground2::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_KP_8] == KEY_DOWN)
 		App->power->AddPowerup(POWERUP_TYPES::SPOWER, App->render->camera.x + 300, 100);
+
+	if (App->input->keyboard[SDL_SCANCODE_KP_9] == KEY_DOWN)
+		App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, App->render->camera.x + 300, 100);
 
 	return UPDATE_CONTINUE;
 }

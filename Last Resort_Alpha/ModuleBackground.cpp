@@ -888,6 +888,8 @@ update_status ModuleBackground::Update()
 
 		if (App->input->keyboard[SDL_SCANCODE_KP_8] == KEY_DOWN)
 			App->power->AddPowerup(POWERUP_TYPES::SPOWER, App->render->camera.x + 300, 100);
+		
+		
 
 		return UPDATE_CONTINUE;
 	}

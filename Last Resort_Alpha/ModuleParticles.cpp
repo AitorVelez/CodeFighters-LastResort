@@ -86,6 +86,16 @@ ModuleParticles::ModuleParticles()
 	SmallTankShot.fx = 7;
 
 
+	SmallTurretShot.anim.PushBack({ 245, 831, 5, 5 });
+	SmallTurretShot.anim.PushBack({ 250, 831, 5, 5 });
+	SmallTurretShot.anim.PushBack({ 235, 831, 5, 5 });
+	SmallTurretShot.anim.PushBack({ 240, 831, 5, 5 });
+	SmallTurretShot.anim.speed = 0.3f;
+	SmallTurretShot.speed.x = 2;
+	SmallTurretShot.life = 3000;
+	SmallTurretShot.texture = 2;
+	SmallTurretShot.fx = 7;
+
 	////PowerUp Laser Particle
 
 	bullet_laser.anim.PushBack({ 389,240,56,3 });
@@ -365,6 +375,8 @@ ModuleParticles::ModuleParticles()
 	Bubbles.anim.speed = 0.1;
 	Bubbles.life = 100;
 	Bubbles.texture = 4;
+
+	 
 }
 
 ModuleParticles::~ModuleParticles()
@@ -385,6 +397,7 @@ bool ModuleParticles::Start()
 	chunks[8] = App->audio->LoadChunk("assets/SFX/Explosion2.wav");
 	chunks[9] = App->audio->LoadChunk("assets/SFX/Charging shot.wav");
 	chunks[10] = App->audio->LoadChunk("assets/SFX/Releasing charged shot.wav");
+	chunks[11] = App->audio->LoadChunk("assets/SFX/BOOM_ALLAHU.wav");
 
 	textures[0] = App->textures->Load("assets/sprites/main_character.png");			// Texture -> 0
 	textures[1] = App->textures->Load("assets/sprites/SpritesPlayer2.png");			// Texture -> 1
