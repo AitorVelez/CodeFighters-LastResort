@@ -75,6 +75,7 @@ public:
 	Particle pilot_dying;
 	Particle BigTankShot; 
 	Particle SmallTankShot; 
+	Particle SmallTurretShot;
 
 	Particle Red_Car_Explosion;
 	Particle Blue_Car_Explosion;
