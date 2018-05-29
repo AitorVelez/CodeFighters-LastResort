@@ -37,6 +37,26 @@ ModuleParticles::ModuleParticles()
 	Releasing_Ball.texture = 3;
 	Releasing_Ball.fx = 10;
 
+	Charging_Ball.anim.PushBack({ 0,274,46,45 });
+	Charging_Ball.anim.PushBack({ 46,274,46,45 });
+	Charging_Ball.anim.PushBack({ 92,274,46,45 });
+	Charging_Ball.anim.PushBack({ 138,274,46,45 });
+	Charging_Ball.anim.PushBack({ 184,274,46,45 });
+	Charging_Ball.anim.PushBack({ 230,274,46,45 });
+	Charging_Ball.anim.PushBack({ 0,319,46,45 });
+	Charging_Ball.anim.PushBack({ 46,319,46,45 });
+	Charging_Ball.anim.PushBack({ 92,319,46,45 });
+	Charging_Ball.anim.PushBack({ 138,319,46,45 });
+	Charging_Ball.anim.PushBack({ 184,319,46,45 });
+	Charging_Ball.anim.PushBack({ 230,319,46,45 });
+	Charging_Ball.anim.PushBack({ 0,364,46,45 });
+	Charging_Ball.anim.PushBack({ 46,364,46,45 });
+	Charging_Ball.anim.PushBack({ 92,364,46,45 });
+	Charging_Ball.anim.speed = 0.3f;
+	Charging_Ball.anim.loop = true;
+	Charging_Ball.texture = 3;
+	//Charging_Ball.fx = 10;
+
 	bullet_propulsion.anim.PushBack({ 278, 90,13,12 });
 	bullet_propulsion.anim.PushBack({ 291, 92,10,9 });
 	bullet_propulsion.anim.PushBack({ 304, 92,10,9 });

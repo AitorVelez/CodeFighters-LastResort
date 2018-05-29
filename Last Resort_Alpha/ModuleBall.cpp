@@ -328,6 +328,7 @@ void ModuleBall::Ball_Input_Attack()
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_REPEAT)
 	{
 		charge += 20;
+		//App->particles->AddParticle(App->particles->Charging_Ball, ball_position.x, ball_position.y - 8, COLLIDER_PLAYER_SHOT);
 	}
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_UP)
 	{

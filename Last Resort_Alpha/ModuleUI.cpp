@@ -70,6 +70,8 @@ update_status ModuleUI::Update()
 	char score[10];
 	char score2[10];
 	char coins[10];
+	char livesp1[10];
+	char livesp2[10];
 	App->player->score_p1;
 	int a, b;
 	b = App->player2->score_p2 + 1000;
@@ -77,18 +79,23 @@ update_status ModuleUI::Update()
 	sprintf_s(score2, "%d", App->player2->score_p2);
 	sprintf_s(score, "%d", App->player->score_p1);
 	sprintf_s(coins, "%d", coin);
+	sprintf_s(livesp1, "%d", App->player->lives);
+	sprintf_s(livesp2, "%d", App->player2->lives);
 
 	if (ready == true || stgclr == true) {
 		App->render->Blit(UIS, 0, 0, &UIstable, 0, false);
 		App->Fonts->BlitText(280, 216, 0, coins);
+		App->Fonts->BlitText(50, 24, 0, livesp1);
 	}
 	if (ready)
 		App->Fonts->BlitText(45, 15, 0, score);
 
-	if (ready == true && App->background->activ == false)
+	if (ready == true && App->background->activ == false) 
 		App->render->Blit(P2, 210, 20, &Player2.GetCurrentFrame(), 0, false);
+		
 	if ((ready == true && App->background->activ == true) || (stgclr == true && pl2 == true)) {
 		App->render->Blit(P22, 260, 15, &Pl2.GetCurrentFrame(), 0, false);
+		App->Fonts->BlitText(268, 23, 0, livesp2);
 		
 		App->render->Blit(P22, 200, 208, &Punit2.GetCurrentFrame(), 0, false);
 
