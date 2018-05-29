@@ -85,7 +85,7 @@ update_status ModuleUI::Update()
 	if (ready == true || stgclr == true) {
 		App->render->Blit(UIS, 0, 0, &UIstable, 0, false);
 		App->Fonts->BlitText(280, 216, 0, coins);
-		App->Fonts->BlitText(50, 24, 0, livesp2);
+		App->Fonts->BlitText(50, 24, 0, livesp1);
 	}
 	if (ready)
 		App->Fonts->BlitText(45, 15, 0, score);
@@ -95,7 +95,7 @@ update_status ModuleUI::Update()
 		
 	if ((ready == true && App->background->activ == true) || (stgclr == true && pl2 == true)) {
 		App->render->Blit(P22, 260, 15, &Pl2.GetCurrentFrame(), 0, false);
-		App->Fonts->BlitText(268, 23, 0, livesp1);
+		App->Fonts->BlitText(268, 23, 0, livesp2);
 		
 		App->render->Blit(P22, 200, 208, &Punit2.GetCurrentFrame(), 0, false);
 
