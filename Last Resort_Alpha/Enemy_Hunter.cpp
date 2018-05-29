@@ -78,7 +78,11 @@ void Enemy_Hunter::Move()
 		speed = -3; 
 		anim2ndLevel = &fly;
 		
-		collider = App->collision->AddCollider({ 0, 19, 32, 14 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+		if (colliderAdded == false) {
+			collider = App->collision->AddCollider({ 0, 19, 32, 14 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+			colliderAdded = true; 
+		}
+		collider->SetPos(position.x, position.y);
 	}
 	else {
 		if (position.x < App->background2->bgpos) {
