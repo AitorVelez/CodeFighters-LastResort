@@ -208,7 +208,8 @@ ModuleBall::~ModuleBall()
 
 bool ModuleBall::Start()
 {
-	texture = App->textures->Load("assets/sprites/blue_ball_axis.png");
+	blue_ball_texture = App->textures->Load("assets/sprites/blue_ball_axis.png");
+	orange_ball_texture = App->textures->Load("assets/sprites/orange_ball_axis.png");
 
 	ball_position.x = App->player->position.x;
 	ball_position.y = App->player->position.y;
@@ -228,7 +229,6 @@ void ModuleBall::Ball_Input_Movement()
 		if (ball_locked == false) ball_locked = true;
 		else ball_locked = false;
 	}
-
 
 	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_REPEAT || SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTY) < -10000) {
 		// The aiming angle grows or decreases to 90º dependending on its place 
@@ -296,7 +296,6 @@ void ModuleBall::Ball_Input_Movement()
 			}
 		}
 	}
-
 
 	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT || SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTX) > 10000) {
 
@@ -454,12 +453,17 @@ update_status ModuleBall::Update()
 
 	SDL_Rect r = current_animation->GetCurrentFrame();
 
-	App->render->Blit(texture, ball_position.x, ball_position.y, &r);
+	if(ball_type == BALL_TYPE::BLUE_BALL)
+	App->render->Blit(blue_ball_texture, ball_position.x, ball_position.y, &r);
+
+	else
+	App->render->Blit(orange_ball_texture, ball_position.x, ball_position.y, &r); 
+
 	return update_status::UPDATE_CONTINUE;
 }
 
 bool ModuleBall::CleanUp()
 {
-	App->textures->Unload(texture);
+	App->textures->Unload(blue_ball_texture);
 	return true;
 }

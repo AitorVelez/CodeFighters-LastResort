@@ -2,6 +2,7 @@
 #include "Application.h"
 #include "ModulePlayer2.h"
 #include "ModuleBackground.h"
+#include "ModuleBackground2.h"
 #include "ModuleTextures.h"
 #include "ModuleInput.h"
 #include "ModuleRender.h"
@@ -208,7 +209,8 @@ ModuleBall_P2::~ModuleBall_P2()
 
 bool ModuleBall_P2::Start()
 {
-	texture = App->textures->Load("assets/sprites/blue_ball_axis.png");
+	blue_ball_texture = App->textures->Load("assets/sprites/blue_ball_axis.png");
+	orange_ball_texture = App->textures->Load("assets/sprites/orange_ball_axis.png");
 
 	ball_position.x = App->player2->position.x;
 	ball_position.y = App->player2->position.y;
@@ -358,7 +360,7 @@ void ModuleBall_P2::Ball_Launch()
 	if ((ball_position.x <  center_player.x + 30 && ball_position.x > center_player.x - 30) &&
 		(ball_position.y < center_player.y + 30 && ball_position.y > center_player.y - 30) && go_back) in_place = true;
 
-	if (ball_position.x < App->background->bgpos || ball_position.x > App->background->bgpos + SCREEN_WIDTH || ball_position.y < -50 || ball_position.y > SCREEN_HEIGHT) {
+	if (ball_position.x < App->background2->bgpos || ball_position.x > App->background2->bgpos + SCREEN_WIDTH || ball_position.y < -50 || ball_position.y > SCREEN_HEIGHT) {
 		go_back = true;
 	}
 
@@ -453,12 +455,17 @@ update_status ModuleBall_P2::Update()
 
 	SDL_Rect r = current_animation->GetCurrentFrame();
 
-	App->render->Blit(texture, ball_position.x, ball_position.y, &r);
+	if (ball_type == BALL2_TYPE::BLUE_BALL2)
+		App->render->Blit(blue_ball_texture, ball_position.x, ball_position.y, &r);
+
+	else
+		App->render->Blit(orange_ball_texture, ball_position.x, ball_position.y, &r);
+
 	return update_status::UPDATE_CONTINUE;
 }
 
 bool ModuleBall_P2::CleanUp()
 {
-	App->textures->Unload(texture);
+	App->textures->Unload(blue_ball_texture);
 	return true;
 }
