@@ -8,6 +8,8 @@ class Enemy_Hunter : public Enemy
 private:
 	Animation fly;
 	Animation appear;
+	uint now = 0;
+	uint last = 0;
 	int y_original;
 	int speed = 0; 
 	bool ArrivedLeft = false; 
