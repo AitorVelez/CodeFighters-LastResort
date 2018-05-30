@@ -13,7 +13,10 @@ struct SDL_Texture;
 struct Collider;
 struct Particle;
 
-
+enum BALL2_TYPE {
+	BLUE_BALL2,
+	ORANGE_BALL2
+};
 
 class ModuleBall_P2 : public Module {
 
@@ -65,11 +68,12 @@ public:
 	float angle_aiming = 0;
 	float angle_aiming_speed = 11.25;
 
-
+	BALL2_TYPE ball_type = ORANGE_BALL2; 
 	uint charge = 0;
 	iPoint ball_position;
 	iPoint center_player;
-	SDL_Texture* texture = nullptr;
+	SDL_Texture* blue_ball_texture = nullptr;
+	SDL_Texture* orange_ball_texture = nullptr; 
 };
 
 

@@ -11,6 +11,7 @@ private:
 	int y_original;
 	int speed = 0; 
 	bool ArrivedLeft = false; 
+	bool colliderAdded = false; 
 public:
 
 	Enemy_Hunter(int x, int y, int HP);

@@ -7,7 +7,12 @@
 class Enemy_Hunter_ZigZag : public Enemy
 {
 private:
-	Animation fly;
+	Animation up_anim;
+	Animation down_anim; 
+	Animation up_forw;
+	Animation down_forw; 
+	Animation forward; 
+
 	Path up;
 	Path down;
 	int speed = 0;
@@ -15,11 +20,11 @@ private:
 	bool player_higher = false;
 	bool player_lower = false; 
 
+	iPoint original_position;
 public:
 
 	Enemy_Hunter_ZigZag(int x, int y, int HP);
 	void Move();
-	void Attack();
 };
 
 #endif // __ENEMY_HUNTER_ZIGZAG_H__
