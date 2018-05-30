@@ -221,6 +221,13 @@ bool ModuleBall::Start()
 	return true;
 }
 
+void ModuleBall::OnCollision(Collider* c1, Collider* c2) {
+	if (c2->type == COLLIDER_WALL) {
+		//go_back = true;
+		FollowBg = true; 
+	}
+}
+
 void ModuleBall::Ball_Input_Movement()
 {
 	if (App->input->keyboard[SDL_SCANCODE_F] == KEY_DOWN)
@@ -345,6 +352,9 @@ void ModuleBall::Ball_Launch()
 	current_animation = &flying;
 
 	if (!go_back) {
+		if (FollowBg == true) {
+			angle = 0; 
+		}
 		ball_position.x = ball_position.x + 5 * cos(angle*PI / 180);
 		ball_position.y = ball_position.y + 5 * sin(angle*PI / 180);
 	}

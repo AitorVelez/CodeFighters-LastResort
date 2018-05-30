@@ -17,7 +17,7 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_WALL][COLLIDER_CAR] = false; 
 	matrix[COLLIDER_WALL][COLLIDER_POWERUP_L] = false; 
 	matrix[COLLIDER_WALL][COLLIDER_POWERUP_S] = false;
-	matrix[COLLIDER_WALL][COLLIDER_BALL] = false; 
+	matrix[COLLIDER_WALL][COLLIDER_BALL] = true; // false;
 	matrix[COLLIDER_WALL][COLLIDER_BALL2] = false;
 	matrix[COLLIDER_WALL][COLLIDER_GOD] = true;
 
@@ -126,7 +126,7 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_POWERUP_S][COLLIDER_BALL2] = false;
 	matrix[COLLIDER_POWERUP_S][COLLIDER_GOD] = true;
 
-	matrix[COLLIDER_BALL][COLLIDER_WALL] = false;
+	matrix[COLLIDER_BALL][COLLIDER_WALL] = true; // false;
 	matrix[COLLIDER_BALL][COLLIDER_PLAYER] = false;
 	matrix[COLLIDER_BALL][COLLIDER_ENEMY] = false;
 	matrix[COLLIDER_BALL][COLLIDER_PLAYER_SHOT] = false;
@@ -139,7 +139,7 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_BALL][COLLIDER_BALL2] = false;
 	matrix[COLLIDER_BALL][COLLIDER_GOD] = false;
 
-	matrix[COLLIDER_BALL2][COLLIDER_WALL] = false;
+	matrix[COLLIDER_BALL2][COLLIDER_WALL] = false; 
 	matrix[COLLIDER_BALL2][COLLIDER_PLAYER] = false;
 	matrix[COLLIDER_BALL2][COLLIDER_ENEMY] = false;
 	matrix[COLLIDER_BALL2][COLLIDER_PLAYER_SHOT] = false;
@@ -229,7 +229,7 @@ update_status ModuleCollision::Update()
 
 void ModuleCollision::DebugDraw()
 {
-	if (App->input->keyboard[SDL_SCANCODE_F1] == KEY_DOWN) {
+	if (App->input->keyboard[SDL_SCANCODE_0] == KEY_DOWN) {
 		if (debug == false) debug = true;
 		else debug = false;
 	}

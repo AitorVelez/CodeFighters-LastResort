@@ -30,6 +30,8 @@ public:
 	bool CleanUp();
 	//bool CleanUp();
 
+	void OnCollision(Collider* c1, Collider* c2);
+
 
 	Animation N;
 	Animation NNE;
@@ -68,6 +70,8 @@ public:
 	iPoint ball_position;
 	iPoint center_player;
 	SDL_Texture* texture = nullptr;
+
+	bool FollowBg = false; 
 };
 
 
