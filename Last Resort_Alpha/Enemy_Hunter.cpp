@@ -45,36 +45,19 @@ Enemy_Hunter::Enemy_Hunter(int x, int y, int HP) : Enemy(x, y, HP)
 	appear.loop = false;
 
 	anim2ndLevel = &appear;
-	fly.PushBack({ 509,256,32,32 });
-	fly.PushBack({ 509,256,32,32 });
-	fly.PushBack({ 509,256,32,32 });
 
-	fly.PushBack({ 509,0,65,32 });
-
-	fly.PushBack({ 509,32,65,32 });
-
-	fly.PushBack({ 509,64,65,32 });
-
-	fly.PushBack({ 509,96,65,32 });
-
-	fly.PushBack({ 509,256,32,32 });
-
-	fly.PushBack({ 509,128,65,32 });
-
+	fly.PushBack({ 509,288,65,32 });
+	fly.PushBack({ 509,256,65,32 });
+	fly.PushBack({ 509,224,65,32 });
+	fly.PushBack({ 509,192,65,32 });
 	fly.PushBack({ 509,160,65,32 });
-	
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
+	fly.PushBack({ 509,128,65,32 });
+	fly.PushBack({ 509,96,65,32 });
+	fly.PushBack({ 509,64,65,32 });
+	fly.PushBack({ 509,32,65,32 });
+	fly.PushBack({ 509,0,32,32 });
 	fly.loop = false;
-	fly.speed = 0.15;
+	fly.speed = 0.2;
 
 	y_original = y;
 
@@ -92,6 +75,7 @@ void Enemy_Hunter::Move()
 		
 		if (now > last + 2000) {
 		speed = -3; 
+		position.y = y_original -9 + (App->render->camera.y / 3);
 		anim2ndLevel = &fly;
 		
 		if (colliderAdded == false) {
