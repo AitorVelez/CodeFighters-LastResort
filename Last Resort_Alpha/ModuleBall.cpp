@@ -223,10 +223,11 @@ bool ModuleBall::Start()
 }
 
 void ModuleBall::OnCollision(Collider* c1, Collider* c2) {
+
 	if (c2->type == COLLIDER_WALL) {
-		//go_back = true;
-		FollowBg = true; 
+		FollowBg = true;
 	}
+	LOG("FOLLOW BG IS: %i", FollowBg); 
 }
 
 void ModuleBall::Ball_Input_Movement()
@@ -351,6 +352,7 @@ void ModuleBall::Ball_Launch()
 	}
 	current_animation = &flying;
 
+
 	if (!go_back) {
 		if (FollowBg == true) {
 			angle = 0; 
@@ -370,6 +372,7 @@ void ModuleBall::Ball_Launch()
 
 	if (ball_position.x < App->background2->bgpos || ball_position.x > App->background2->bgpos + SCREEN_WIDTH || ball_position.y < -50 || ball_position.y > SCREEN_HEIGHT) {
 		go_back = true;
+		FollowBg = false;
 	}
 
 	if (in_place) {
