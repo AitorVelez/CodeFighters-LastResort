@@ -75,15 +75,14 @@ public:
 	uint charge = 0;
 	iPoint ball_position;
 	iPoint center_player;
-<<<<<<< HEAD
+
 	SDL_Texture* texture = nullptr;
 
 	bool FollowBg = false; 
-=======
+
 	SDL_Texture* blue_ball_texture = nullptr;
 	SDL_Texture* orange_ball_texture = nullptr; 
 
->>>>>>> fc3cf250971ce042e205ad9bfa5c746ede94d8af
 };
 
 
