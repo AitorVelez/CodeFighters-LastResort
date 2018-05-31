@@ -12,6 +12,11 @@ private:
 	Animation Upleft;
 	Animation Downright;
 	Animation Downleft;
+	uint now = 0;
+	uint lastshot = 0;
+	uint recoil = 2000;
+	bool shotting = false;
+
 	bool topleft = false;
 	float speed;
 	int original_y = 0;

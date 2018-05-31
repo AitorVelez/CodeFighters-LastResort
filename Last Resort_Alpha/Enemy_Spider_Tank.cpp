@@ -42,37 +42,54 @@ Enemy_Spider_Tank::Enemy_Spider_Tank(int x, int y, int HP) : Enemy(x, y, HP)
 void Enemy_Spider_Tank::Move()
 {
 	speed = 1;
-	if (original_y > 78) // abajo
-	{
-		SpiderTank = &Downright;
-		if (position.x < original_x - 150 || topleft == true) {
-			position.x += speed;
-			topleft = true;
-			if (position.x == original_x)
-				topleft = false;
+	if (now > lastshot + 7000 || shotting) {
+		position.x += speed * 0;
+		lastshot = SDL_GetTicks();
+		if (recoil + 700  > lastshot) {
+			shotting = true;
 		}
-		else if (position.x <= original_x && topleft == false) {
-			position.x -= speed;
-
-		}
-		/*else if(){
-
-		}*/
-	}
-	if (original_y < 78) // arriba
-	{	
-		/*position.x -= speed;*/
-		SpiderTank = &Upright;
-		if (position.x < original_x - 150 || topleft == true) {
-			position.x += speed;
-			topleft = true;
-			if (position.x == original_x)
-				topleft = false;
-		}
-		else if (position.x  <= original_x && topleft == false) {
-			position.x -= speed;
-
+		else {
+			shotting = false;
 		}
 		
+		
 	}
+	else {
+		recoil = SDL_GetTicks();
+		now = SDL_GetTicks();
+		if (original_y > 78) // abajo
+		{
+			SpiderTank = &Downright;
+			if (position.x < original_x - 150 || topleft == true) {
+				position.x += speed;
+				topleft = true;
+				if (position.x == original_x)
+					topleft = false;
+			}
+			else if (position.x <= original_x && topleft == false) {
+				position.x -= speed;
+
+			}
+			/*else if(){
+
+			}*/
+		}
+		if (original_y < 78) // arriba
+		{
+			/*position.x -= speed;*/
+			SpiderTank = &Upright;
+			if (position.x < original_x - 150 || topleft == true) {
+				position.x += speed;
+				topleft = true;
+				if (position.x == original_x)
+					topleft = false;
+			}
+			else if (position.x <= original_x && topleft == false) {
+				position.x -= speed;
+
+			}
+
+		}
+	}
+	
 }
