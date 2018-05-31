@@ -11,7 +11,12 @@ Enemy_Turret::Enemy_Turret(int x, int y, int HP) : Enemy(x, y, HP)
 {
 	original_hp = 1;
 	collider = App->collision->AddCollider({ 0, 0, 16, 16 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
-	anim2ndLevel = &UpLeft;
+	if (original_y < 100) {
+		anim2ndLevel = &UpLeft;
+	}
+	else {
+		anim2ndLevel = &DownLeft;
+	}
 	UpLeft.PushBack({ 296, 159, 16, 12}); 
 	UpLeft2.PushBack({ 316, 159, 16, 12 });
 	UpLeft3.PushBack({ 333, 160, 16, 14 });
@@ -40,37 +45,74 @@ void Enemy_Turret::Move()
 {
 	position.x += 0.416f; // stay as foreground
 
-	if (App->player->position.y < position.y) {                                  // above superior limit 
-		if (App->player->position.x < position.x + TurretWidth*2) {
-			anim2ndLevel = &UpLeft;
+	if (original_y < 100) {                        // TOP TURRETS
+		if (App->player->position.y < position.y + 25) {                                  // above superior limit 
+			if (App->player->position.x < position.x + TurretWidth/2) {
+				anim2ndLevel = &UpLeft; // &UpLeft;
+			}
+			else {
+				anim2ndLevel = &UpRight4;
+			}
 		}
 		else {
-			anim2ndLevel = &UpRight;
+			if (App->player->position.x > position.x - SCREEN_WIDTH && App->player->position.x < position.x - 160) {
+				anim2ndLevel = &UpLeft2;
+			}
+			else if (App->player->position.x >= position.x - 160 && App->player->position.x < position.x - 53) {
+				anim2ndLevel = &UpLeft3;
+			}
+			else if (App->player->position.x >= position.x - 53 && App->player->position.x < position.x - 24) {
+				anim2ndLevel = &UpLeft4;
+			}
+			else if (App->player->position.x >= position.x - 24 && App->player->position.x <= TurretWidth + position.x + 24) {
+				anim2ndLevel = &Up;
+			}
+			else if (App->player->position.x >= TurretWidth + position.x + 24 && App->player->position.x < TurretWidth + position.x + 53) {
+				anim2ndLevel = &UpRight;
+			}
+			else if (App->player->position.x >= TurretWidth + position.x + 53 && App->player->position.x < TurretWidth + position.x + 160) {
+				anim2ndLevel = &UpRight2;
+			}
+			else if (App->player->position.x >= TurretWidth + position.x + 160 && App->player->position.x < TurretWidth + SCREEN_WIDTH) {
+				anim2ndLevel = &UpRight3;
+			}
+
 		}
 	}
-	else {
-		if (App->player->position.x > position.x - SCREEN_WIDTH && App->player->position.x < position.x - 160 ) {
-			anim2ndLevel = &UpLeft2;
+	else {         // BOTTOM TURRETS
+		if (App->player->position.y > position.y) {                                  // above superior limit 
+			if (App->player->position.x < position.x + TurretWidth * 2) {
+				anim2ndLevel = &DownLeft;
+			}
+			else {
+				anim2ndLevel = &DownRight4;
+			}
 		}
-		else if (App->player->position.x >= position.x - 160 && App->player->position.x < position.x - 53) {
-			anim2ndLevel = &UpLeft3;
+		else {
+			if (App->player->position.x > position.x - SCREEN_WIDTH && App->player->position.x < position.x - 160) {
+				anim2ndLevel = &DownLeft2;
+			}
+			else if (App->player->position.x >= position.x - 160 && App->player->position.x < position.x - 53) {
+				anim2ndLevel = &DownLeft3;
+			}
+			else if (App->player->position.x >= position.x - 53 && App->player->position.x < position.x - 24) {
+				anim2ndLevel = &DownLeft4;
+			}
+			else if (App->player->position.x >= position.x - 24 && App->player->position.x <= TurretWidth + position.x + 24) {
+				anim2ndLevel = &Down;
+			}
+			else if (App->player->position.x >= TurretWidth + position.x + 24 && App->player->position.x < TurretWidth + position.x + 53) {
+				anim2ndLevel = &DownRight;
+			}
+			else if (App->player->position.x >= TurretWidth + position.x + 53 && App->player->position.x < TurretWidth + position.x + 160) {
+				anim2ndLevel = &DownRight2;
+			}
+			else if (App->player->position.x >= TurretWidth + position.x + 160 && App->player->position.x < TurretWidth + SCREEN_WIDTH) {
+				anim2ndLevel = &DownRight3;
+			}
+
 		}
-		else if (App->player->position.x >= position.x - 53 && App->player->position.x < position.x - 24) {
-			anim2ndLevel = &UpLeft4;
-		}
-		else if (App->player->position.x >= position.x - 24 && App->player->position.x <= TurretWidth + position.x + 24) {
-			anim2ndLevel = &Up;
-		}
-		else if (App->player->position.x >= TurretWidth + position.x + 24 && App->player->position.x < TurretWidth + position.x + 53) {
-			anim2ndLevel = &UpRight;
-		}
-		else if (App->player->position.x >= TurretWidth + position.x + 53 && App->player->position.x < TurretWidth + position.x + 160) {
-			anim2ndLevel = &UpRight2;
-		}
-		else if (App->player->position.x >= TurretWidth + position.x + 160 && App->player->position.x < TurretWidth + SCREEN_WIDTH) {
-			anim2ndLevel = &UpRight3;
-		}
-		
+
 	}
 }
 
@@ -85,12 +127,12 @@ void Enemy_Turret::Shoot()
 
 	
 
-	App->particles->SmallTurretShot.speed.x = (dirx / sqrt((pow(dirx, 2)) + (pow(diry, 2)))) * 4;
-	App->particles->SmallTurretShot.speed.y = (diry / sqrt((pow(dirx, 2)) + (pow(diry, 2)))) * 4;
+	App->particles->TurretShot.speed.x = (dirx / sqrt((pow(dirx, 2)) + (pow(diry, 2)))) * 4;
+	App->particles->TurretShot.speed.y = (diry / sqrt((pow(dirx, 2)) + (pow(diry, 2)))) * 4;
 
 	current_time = SDL_GetTicks();
 	if (current_time > last_time + 800) {
-			App->particles->AddParticle(App->particles->SmallTurretShot, position.x, position.y, COLLIDER_ENEMY_SHOT);	
+			App->particles->AddParticle(App->particles->TurretShot, position.x, position.y, COLLIDER_ENEMY_SHOT);	
 		last_time = current_time;
 	}
 	

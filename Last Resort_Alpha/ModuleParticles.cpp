@@ -106,15 +106,15 @@ ModuleParticles::ModuleParticles()
 	SmallTankShot.fx = 7;
 
 
-	SmallTurretShot.anim.PushBack({ 245, 831, 5, 5 });
-	SmallTurretShot.anim.PushBack({ 250, 831, 5, 5 });
-	SmallTurretShot.anim.PushBack({ 235, 831, 5, 5 });
-	SmallTurretShot.anim.PushBack({ 240, 831, 5, 5 });
-	SmallTurretShot.anim.speed = 0.3f;
-	SmallTurretShot.speed.x = 2;
-	SmallTurretShot.life = 3000;
-	SmallTurretShot.texture = 2;
-	SmallTurretShot.fx = 7;
+    TurretShot.anim.PushBack({ 245, 831, 5, 5 });
+	TurretShot.anim.PushBack({ 250, 831, 5, 5 });
+	TurretShot.anim.PushBack({ 235, 831, 5, 5 });
+	TurretShot.anim.PushBack({ 240, 831, 5, 5 });
+	TurretShot.anim.speed = 0.3f;
+	TurretShot.speed.x = 2;
+	TurretShot.life = 3000;
+	TurretShot.texture = 2;
+
 
 	////PowerUp Laser Particle
 

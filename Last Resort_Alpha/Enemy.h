@@ -4,7 +4,7 @@
 #include "p2Point.h"
 #include "Animation.h"
 #include "Path.h"
-#define MAX_ANIM 10
+#define MAX_ANIM 15 // 10
 struct SDL_Texture;
 struct Collider;
 

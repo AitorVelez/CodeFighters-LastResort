@@ -2,6 +2,7 @@
 #include "ModuleInput.h"
 #include "ModuleRender.h"
 #include "ModuleCollision.h"
+#include "ModuleBall.h"
 
 ModuleCollision::ModuleCollision()
 {
@@ -203,14 +204,24 @@ update_status ModuleCollision::PreUpdate()
 				continue;
 
 			c2 = colliders[k];
-
+			
 			if (c1->CheckCollision(c2->rect) == true)
 			{
-				if (matrix[c1->type][c2->type] && c1->callback)
-					c1->callback->OnCollision(c1, c2);
+				if (c1->type == COLLIDER_BALL && c2->type == COLLIDER_WALL || c1->type == COLLIDER_WALL && c2->type == COLLIDER_BALL) {
+					App->ball->FollowingBg = true; LOG("BALL FOLLOWS BG //////////////////////////////////////////////////////////////"); 
+				} 
+				else {
+					if (matrix[c1->type][c2->type] && c1->callback)
+						c1->callback->OnCollision(c1, c2);
+					if (matrix[c2->type][c1->type] && c2->callback)
+						c2->callback->OnCollision(c2, c1);
+				}
+			}
+			else {
+				if (c1->type == COLLIDER_BALL && c2->type == COLLIDER_WALL || c1->type == COLLIDER_WALL && c2->type == COLLIDER_BALL) {
+					App->ball->FollowingBg = false; LOG("BALL DOES NOT FOLLOW BG");
+				};
 
-				if (matrix[c2->type][c1->type] && c2->callback)
-					c2->callback->OnCollision(c2, c1);
 			}
 		}
 	}
@@ -223,7 +234,6 @@ update_status ModuleCollision::Update()
 {
 
 	DebugDraw();
-
 	return UPDATE_CONTINUE;
 }
 

@@ -224,11 +224,20 @@ bool ModuleBall::Start()
 
 void ModuleBall::OnCollision(Collider* c1, Collider* c2) {
 
-	if (c2->type == COLLIDER_WALL) {
-		FollowBg = true;
+	if (ball_type == BALL_TYPE::ORANGE_BALL) {
+		if (c2->type == COLLIDER_WALL) {
+			FollowBg = true;
+		}
 	}
-	LOG("FOLLOW BG IS: %i", FollowBg); 
+	/*if (c1->CheckCollision(c2->rect) == true)
+	{
+		FollowingBg = true; 
+	}
+	else {
+		FollowingBg = false; 
+	}*/
 }
+
 
 void ModuleBall::Ball_Input_Movement()
 {
@@ -354,9 +363,13 @@ void ModuleBall::Ball_Launch()
 
 
 	if (!go_back) {
-		if (FollowBg == true) {
-			angle = 0; 
-		}
+		if (ball_type == BALL_TYPE::ORANGE_BALL)
+			if (FollowBg == true) {
+	                     // ball either continues straight, or changes angle, and the angle can be 0, 90 or -90 
+					angle = 0;
+				
+			}
+	
 		ball_position.x = ball_position.x + 5 * cos(angle*PI / 180);
 		ball_position.y = ball_position.y + 5 * sin(angle*PI / 180);
 	}
@@ -446,10 +459,14 @@ void ModuleBall::Ball_Set_Position()
 }
 
 
+
 update_status ModuleBall::Update()
 {
+	
+
 	center_player.x = App->player->position.x + 16;
 	center_player.y = App->player->position.y - 6;
+
 
 	if (!ball_launched) {
 
