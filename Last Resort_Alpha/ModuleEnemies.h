@@ -29,7 +29,8 @@ enum ENEMY_TYPES
 	HUNTER_ZIGZAG,
 	METAL_BEE,
 	JUMPY,
-	SPIDER_TANK
+	SPIDER_TANK,
+	ROCKET
 };
 
 class Enemy;
@@ -60,7 +61,7 @@ public:
 private:
 
 	void SpawnEnemy(const EnemyInfo& info);
-
+	
 private:
 
 	EnemyInfo queue[MAX_ENEMIES];

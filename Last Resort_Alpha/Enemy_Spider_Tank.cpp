@@ -54,7 +54,7 @@ void Enemy_Spider_Tank::Move()
 			if (shotting2) {
 				shotting2 = false;
 				if (original_y > 78) {
-					App->enemies->AddEnemy(ENEMY_TYPES::METAL_BEE, position.x, position.y-10);
+					App->enemies->AddEnemy(ENEMY_TYPES::METAL_BEE, position.x, position.y - 10);
 				}
 				if (original_y < 78) {
 					App->enemies->AddEnemy(ENEMY_TYPES::METAL_BEE, position.x, position.y + 10);

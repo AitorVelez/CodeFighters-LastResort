@@ -22,6 +22,7 @@
 #include "Enemy_Metal_Bee.h"
 #include "Enemy_Jumpy.h"
 #include "Enemy_Spider_Tank.h"
+#include "Enemy_Rocket.h"
 
 #define SPAWN_MARGIN 50
 
@@ -198,6 +199,8 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::SPIDER_TANK:
 			enemies[i] = new Enemy_Spider_Tank(info.x, info.y, info.HP);
 			break;
+		case ENEMY_TYPES::ROCKET:
+			enemies[i] = new Enemy_Rocket(info.x, info.y, info.HP);
 		}
 	}
 	
