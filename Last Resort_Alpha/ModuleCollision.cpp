@@ -208,7 +208,7 @@ update_status ModuleCollision::PreUpdate()
 			if (c1->CheckCollision(c2->rect) == true)
 			{
 				if (c1->type == COLLIDER_BALL && c2->type == COLLIDER_WALL || c1->type == COLLIDER_WALL && c2->type == COLLIDER_BALL) {
-					App->ball->FollowingBg = true; LOG("BALL FOLLOWS BG //////////////////////////////////////////////////////////////"); 
+					App->ball->FollowingBg = true; /*LOG("BALL FOLLOWS BG //////////////////////////////////////////////////////////////"); */
 				} 
 				else {
 					if (matrix[c1->type][c2->type] && c1->callback)
@@ -219,7 +219,7 @@ update_status ModuleCollision::PreUpdate()
 			}
 			else {
 				if (c1->type == COLLIDER_BALL && c2->type == COLLIDER_WALL || c1->type == COLLIDER_WALL && c2->type == COLLIDER_BALL) {
-					App->ball->FollowingBg = false; LOG("BALL DOES NOT FOLLOW BG");
+					App->ball->FollowingBg = false; /*LOG("BALL DOES NOT FOLLOW BG");*/
 				};
 
 			}

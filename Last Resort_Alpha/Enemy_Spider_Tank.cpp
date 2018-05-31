@@ -35,7 +35,7 @@ Enemy_Spider_Tank::Enemy_Spider_Tank(int x, int y, int HP) : Enemy(x, y, HP)
 	Upright.speed = 0.15f;
 
 
-	collider = App->collision->AddCollider({ 0, 0, 31, 30 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 61, 48 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 	original_y = y;
 	original_x = x;
@@ -49,15 +49,15 @@ void Enemy_Spider_Tank::Move()
 		position.x += speed * 0;
 	}
 	else {
-		if (now > lastshot + 7000 || shotting) {
+		if ((now > lastshot + 7000 || shotting) && App->player->position.x + 30 > position.x) {
 			position.x += speed * 0;
 			if (shotting2) {
 				shotting2 = false;
 				if (original_y > 78) {
-					App->enemies->AddEnemy(ENEMY_TYPES::METAL_BEE, position.x, position.y - 10);
+					App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, position.x, position.y - 10);
 				}
 				if (original_y < 78) {
-					App->enemies->AddEnemy(ENEMY_TYPES::METAL_BEE, position.x, position.y + 10);
+					App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, position.x, position.y + 10);
 				}
 			}
 			lastshot = SDL_GetTicks();

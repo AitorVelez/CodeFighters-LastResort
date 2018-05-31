@@ -162,11 +162,11 @@ bool ModuleBackground2::Start()
 	
 
 	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 660, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::JUMPY, 700, 100);
+	//App->enemies->AddEnemy(ENEMY_TYPES::JUMPY, 700, 100);
 	/*App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);*/
 
 	
-	App->enemies->AddEnemy(ENEMY_TYPES::SPIDER_TANK, 500, 20);
+	App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, 100, 70);
 	//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 1505, 195);
 	//
 	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3060, TopTurretPosY);

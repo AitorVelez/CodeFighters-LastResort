@@ -71,6 +71,7 @@ public:
 	Particle Charging_Ball;
 	Particle Releasing_Ball;
 	Particle Bubbles;
+	Particle MisileSpidy;
 
 	Particle pilot_dying;
 	Particle BigTankShot; 

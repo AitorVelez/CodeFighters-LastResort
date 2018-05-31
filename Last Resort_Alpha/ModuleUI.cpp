@@ -8,6 +8,7 @@
 #include "ModuleBackground.h"
 #include "ModulePlayer2.h"
 #include "ModuleInput.h"
+#include "Enemy_Rocket.h"
 #include <string.h>
 #include <sstream>
 
@@ -145,6 +146,7 @@ update_status ModuleUI::Update()
 	char score[10];
 	char score2[10];
 	char coins[10];
+	char angle[10];
 	char livesp1[10];
 	char livesp2[10];
 	App->player->score_p1;
@@ -156,6 +158,7 @@ update_status ModuleUI::Update()
 	sprintf_s(coins, "%d", coin);
 	sprintf_s(livesp1, "%d", App->player->lives);
 	sprintf_s(livesp2, "%d", App->player2->lives);
+
 
 	if (ready == true || stgclr == true) {
 		App->render->Blit(UIS, 0, 0, &UIstable, 0, false);
@@ -216,6 +219,8 @@ update_status ModuleUI::Update()
 		
 
 	}
+
+	App->Fonts->BlitText(50, 50, 0, "");
 
 	if (App->input->keyboard[SDL_SCANCODE_C] == KEY_STATE::KEY_DOWN) {
 		App->UI->coin += 1;
