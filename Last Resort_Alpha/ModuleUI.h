@@ -25,9 +25,12 @@ public:
 
 	Animation Player2;
 	Animation Pl2;
+	Animation Bola1;
+	Animation Bola2;
 	Animation Punit2;
 	int font_score = -1;
 	char score_text[10];
+	SDL_Texture * Pball = nullptr;
 	SDL_Texture * P2 = nullptr;
 	SDL_Texture * UIS = nullptr;
 	bool ready = false;

@@ -28,7 +28,8 @@ enum ENEMY_TYPES
 	HUNTER,
 	HUNTER_ZIGZAG,
 	METAL_BEE,
-	JUMPY
+	JUMPY,
+	SPIDER_TANK
 };
 
 class Enemy;

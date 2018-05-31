@@ -21,6 +21,7 @@
 #include "Enemy_Hunter_ZigZag.h"
 #include "Enemy_Metal_Bee.h"
 #include "Enemy_Jumpy.h"
+#include "Enemy_Spider_Tank.h"
 
 #define SPAWN_MARGIN 50
 
@@ -40,6 +41,7 @@ bool ModuleEnemies::Start()
 	// Create a prototype for each enemy available so we can copy them around
 	sprites = App->textures->Load("assets/sprites/common_enemies1.png");
 	sprites2 = App->textures->Load("assets/sprites/CommonEnemies2.png");
+	sprites3 = App->textures->Load("assets/sprites/SpiderTank1.png");
 	return true;
 }
 
@@ -71,6 +73,7 @@ update_status ModuleEnemies::Update()
 	for (uint i = 0; i < MAX_ENEMIES; ++i) {
 		if (enemies[i] != nullptr) { enemies[i]->Draw(sprites); }
 		if (enemies[i] != nullptr) { enemies[i]->Draw2(sprites2); }
+		if (enemies[i] != nullptr) { enemies[i]->Draw3(sprites3); }
 	}
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 		if (enemies[i] != nullptr) enemies[i]->Shoot();
@@ -104,6 +107,7 @@ bool ModuleEnemies::CleanUp()
 
 	App->textures->Unload(sprites);
 	App->textures->Unload(sprites2);
+	App->textures->Unload(sprites3);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
@@ -190,6 +194,9 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 
 		case ENEMY_TYPES::JUMPY:
 			enemies[i] = new Enemy_Jumpy(info.x, info.y, info.HP);
+			break;
+		case ENEMY_TYPES::SPIDER_TANK:
+			enemies[i] = new Enemy_Spider_Tank(info.x, info.y, info.HP);
 			break;
 		}
 	}

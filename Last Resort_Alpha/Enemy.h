@@ -14,7 +14,8 @@ protected:
 	Animation* animation = nullptr;
 	Animation* animation2 = nullptr;
 	Animation* animation3 = nullptr;
-	Animation* anim2ndLevel= nullptr;      // Use in case of enemy level 2 
+	Animation* anim2ndLevel= nullptr;   // Use in case of enemy level 2 
+	Animation* SpiderTank = nullptr; 
 	Collider* collider = nullptr;
 	uint is_a_car = 0; 
 public:
@@ -34,6 +35,7 @@ public:
 	virtual void Move() {};
 	virtual void Draw(SDL_Texture* sprites);
 	virtual void Draw2(SDL_Texture* sprites2);
+	virtual void Draw3(SDL_Texture* sprites3);
 	virtual void OnCollision(Collider* collider);
 	virtual void Shoot(); 
 };

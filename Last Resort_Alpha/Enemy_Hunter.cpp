@@ -3,6 +3,7 @@
 #include "ModuleCollision.h"
 #include "ModuleRender.h"
 #include "ModuleBackground2.h"
+#include "SDL\include\SDL_timer.h"
 
 Enemy_Hunter::Enemy_Hunter(int x, int y, int HP) : Enemy(x, y, HP)
 {
@@ -40,27 +41,21 @@ Enemy_Hunter::Enemy_Hunter(int x, int y, int HP) : Enemy(x, y, HP)
 	appear.PushBack({ 64,514,32,15 });
 	appear.PushBack({ 32,514,32,15 });
 	appear.PushBack({ 0,514,32,15 });
-	appear.speed = 0.2;
+	appear.speed = 0.154;
+	appear.loop = false;
 
 	anim2ndLevel = &appear;
 
-	fly.PushBack({ 509,0,65,32 });
-	fly.PushBack({ 509,32,65,32 });
-	fly.PushBack({ 509,64,65,32 });
-	fly.PushBack({ 509,96,65,32 });
-	fly.PushBack({ 509,128,65,32 });
-	fly.PushBack({ 509,160,65,32 });
-	fly.PushBack({ 509,192,65,32 });
-	fly.PushBack({ 509,224,65,32 });
+	fly.PushBack({ 509,288,65,32 });
 	fly.PushBack({ 509,256,65,32 });
-	fly.PushBack({ 509,256,32,32 });
-	fly.PushBack({ 509,256,32,32 });
-	fly.PushBack({ 509,256,32,32 });
-	fly.PushBack({ 509,256,32,32 });
-	fly.PushBack({ 509,256,32,32 });
-	fly.PushBack({ 509,256,32,32 });
-	fly.PushBack({ 509,256,32,32 });
-	fly.PushBack({ 509,256,32,32 });
+	fly.PushBack({ 509,224,65,32 });
+	fly.PushBack({ 509,192,65,32 });
+	fly.PushBack({ 509,160,65,32 });
+	fly.PushBack({ 509,128,65,32 });
+	fly.PushBack({ 509,96,65,32 });
+	fly.PushBack({ 509,64,65,32 });
+	fly.PushBack({ 509,32,65,32 });
+	fly.PushBack({ 509,0,32,32 });
 	fly.loop = false;
 	fly.speed = 0.2;
 
@@ -72,27 +67,37 @@ void Enemy_Hunter::Move()
 {
 
 	position.y = y_original + (App->render->camera.y / 3);
-
+	
 	if (appear.Finished())
-	{
+	{	
+		speed = 1;
+		now = SDL_GetTicks();
+		
+		if (now > last + 2000) {
 		speed = -3; 
+		position.y = y_original -9 + (App->render->camera.y / 3);
 		anim2ndLevel = &fly;
 		
 		if (colliderAdded == false) {
 			collider = App->collision->AddCollider({ 0, 19, 32, 14 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 			colliderAdded = true; 
+
 		}
 		collider->SetPos(position.x, position.y);
+		}
+		
 	}
 	else {
-		if (position.x < App->background2->bgpos) {
+		if (position.x < App->background2->bgpos + 20) {
 			ArrivedLeft = true;
 		}
 		else {
 			speed = -3; 
+			
 		}
 		if (ArrivedLeft) {
 			speed = 3;
+			last = SDL_GetTicks();
 		}
 	}
 
