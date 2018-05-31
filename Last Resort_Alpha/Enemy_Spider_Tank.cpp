@@ -15,9 +15,9 @@ Enemy_Spider_Tank::Enemy_Spider_Tank(int x, int y, int HP) : Enemy(x, y, HP)
 	Downleft.speed = 0.15f;
 
 
-	Downright.PushBack({ 7,59,61,48 });
-	Downright.PushBack({ 71,58,61,48 });
-	Downright.PushBack({ 135,58,61,47 });
+	Downright.PushBack({ 7,58,61,48 });
+	Downright.PushBack({ 71,57,61,48 });
+	Downright.PushBack({ 135,56,61,48 });
 	Downright.speed = 0.15f;
 
 	Upleft.PushBack({ 7,111,61,47 });
@@ -31,7 +31,7 @@ Enemy_Spider_Tank::Enemy_Spider_Tank(int x, int y, int HP) : Enemy(x, y, HP)
 	Upright.PushBack({ 135,163,61,48 });
 	Upright.speed = 0.15f;
 
-	SpiderTank = &Downleft;
+
 	collider = App->collision->AddCollider({ 0, 0, 31, 30 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 	original_y = y;
@@ -44,6 +44,7 @@ void Enemy_Spider_Tank::Move()
 	speed = 1;
 	if (original_y > 78) // abajo
 	{
+		SpiderTank = &Downright;
 		if (position.x < original_x - 150 || topleft == true) {
 			position.x += speed;
 			topleft = true;
@@ -61,6 +62,7 @@ void Enemy_Spider_Tank::Move()
 	if (original_y < 78) // arriba
 	{	
 		/*position.x -= speed;*/
+		SpiderTank = &Upright;
 		if (position.x < original_x - 150 || topleft == true) {
 			position.x += speed;
 			topleft = true;
