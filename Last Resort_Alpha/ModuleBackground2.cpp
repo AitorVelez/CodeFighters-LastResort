@@ -105,18 +105,18 @@ bool ModuleBackground2::Start()
 
 	hangar_1 = App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);
 
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 300, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 300, BottomTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 340, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 340, BottomTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 380, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 380, BottomTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 420, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 420, BottomTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 460, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 460, BottomTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 500, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 500, BottomTurretPosY);
+	/*App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 300, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 300, BottomTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 340, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 340, BottomTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 380, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 380, BottomTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 420, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 420, BottomTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 460, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 460, BottomTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 500, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 500, BottomTurretPosY);*/
 
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 205, 100);
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 255, 100);

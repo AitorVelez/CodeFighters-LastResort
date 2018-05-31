@@ -16,6 +16,7 @@ private:
 	uint lastshot = 0;
 	uint recoil = 2000;
 	bool shotting = false;
+	bool shotting2 = true;
 
 	bool topleft = true;
 	float speed;
