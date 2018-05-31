@@ -45,6 +45,7 @@
     <ClCompile Include="SPower.cpp" />
     <ClCompile Include="Yellow_Car.cpp" />
     <ClCompile Include="Enemy_Jumpy.cpp" />
+    <ClCompile Include="Enemy_Spider_Tank.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
@@ -95,5 +96,6 @@
     <ClInclude Include="SPower.h" />
     <ClInclude Include="Yellow_Car.h" />
     <ClInclude Include="Enemy_Jumpy.h" />
+    <ClInclude Include="Enemy_Spider_Tank.h" />
   </ItemGroup>
 </Project>

@@ -107,7 +107,7 @@ bool ModuleBackground2::Start()
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 205, 100);
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 255, 100);
 	
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 500, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::SPIDER_TANK, 500, 20);
 	//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 1505, 195);
 	//
 	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3060, TopTurretPosY);

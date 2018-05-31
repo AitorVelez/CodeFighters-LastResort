@@ -86,6 +86,7 @@
     <ClInclude Include="Enemy_Metal_Bee.h" />
     <ClInclude Include="Enemy_RedLamella.h" />
     <ClInclude Include="Enemy_Rhino.h" />
+    <ClInclude Include="Enemy_Spider_Tank.h" />
     <ClInclude Include="Enemy_Tank.h" />
     <ClInclude Include="Enemy_Turret.h" />
     <ClInclude Include="Globals.h" />
@@ -135,6 +136,7 @@
     <ClCompile Include="Enemy_Metal_Bee.cpp" />
     <ClCompile Include="Enemy_RedLamella.cpp" />
     <ClCompile Include="Enemy_Rhino.cpp" />
+    <ClCompile Include="Enemy_Spider_Tank.cpp" />
     <ClCompile Include="Enemy_Tank.cpp" />
     <ClCompile Include="Enemy_Turret.cpp" />
     <ClCompile Include="Globals.cpp" />
