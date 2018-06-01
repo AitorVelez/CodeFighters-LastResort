@@ -69,8 +69,16 @@ void Enemy_Rocket::Move()
 			}
 
 			else {
-				position.x -= dirx1 * speed * 1.6f;
-				position.y -= diry1 * speed * 1.6f;
+				if (App->player2->position.x < position.x) {
+					position.x -= dirx1 * speed;
+					position.y -= diry1 * speed * 1.6f;
+				}
+				else {
+					position.x -= dirx1 * speed * 1.6f;
+					position.y -= diry1 * speed * 1.6f;
+				}
+				
+				
 			}
 
 		}
@@ -82,8 +90,14 @@ void Enemy_Rocket::Move()
 			}
 
 			else {
-				position.x -= dirx1 * speed * 1.6f;
-				position.y -= diry1 * speed * 1.6f;
+				if (App->player2->position.x < position.x) {
+					position.x -= dirx1 * speed;
+					position.y -= diry * speed * 1.6f;
+				}
+				else {
+					position.x -= dirx1 * speed * 1.6f;
+					position.y -= diry1 * speed * 1.6f;
+				}
 			}
 		}
 
@@ -240,8 +254,14 @@ void Enemy_Rocket::Move()
 		}
 
 		else {
-			position.x -= dirx * speed * 1.6f;
-			position.y -= diry * speed * 1.6f;
+			if (App->player->position.x < position.x) {
+				position.x -= dirx * speed;
+				position.y -= diry * speed * 1.6f;
+			}
+			else {
+				position.x -= dirx * speed * 1.6f;
+				position.y -= diry * speed * 1.6f;
+			}
 		}
 
 	}
@@ -253,8 +273,14 @@ void Enemy_Rocket::Move()
 		}
 
 		else {
-			position.x -= dirx * speed * 1.6f;
-			position.y -= diry * speed * 1.6f;
+			if (App->player->position.x < position.x) {
+				position.x -= dirx * speed;
+				position.y -= diry * speed * 1.6f;
+			}
+			else {
+				position.x -= dirx * speed * 1.6f;
+				position.y -= diry * speed * 1.6f;
+			}
 		}
 	}
 

@@ -44,7 +44,7 @@ Enemy_Spider_Tank::Enemy_Spider_Tank(int x, int y, int HP) : Enemy(x, y, HP)
 
 void Enemy_Spider_Tank::Move()
 {
-	speed = 2;
+	speed = 1.5;
 	if (position.x > original_x + 1000) {
 		position.x += speed * 0;
 	}
@@ -91,7 +91,7 @@ void Enemy_Spider_Tank::Move()
 
 
 				if (position.x > App->render->camera.x + 80 && topleft == true) {
-					position.x -= (speed / 2);
+					position.x -= (speed)/2;
 				}
 				else /*if (position.x <= App->render->camera.x + 80 )*/ {
 					position.x += speed;
@@ -119,7 +119,7 @@ void Enemy_Spider_Tank::Move()
 
 				}*/
 				if (position.x > App->render->camera.x + 80 && topleft == true) {
-					position.x -= (speed / 2);
+					position.x -= (speed)/2;
 				}
 				else /*if (position.x <= App->render->camera.x + 80 )*/ {
 					position.x += speed;
