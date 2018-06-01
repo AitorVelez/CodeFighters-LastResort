@@ -10,7 +10,7 @@
 
 Enemy_Spider_Tank::Enemy_Spider_Tank(int x, int y, int HP) : Enemy(x, y, HP)
 {
-	HP = 20;
+	original_hp = 20;
 	
 	Downleft.PushBack({7,6,61,47});
 	Downleft.PushBack({ 71,6,61,48 });
@@ -49,7 +49,7 @@ void Enemy_Spider_Tank::Move()
 		position.x += speed * 0;
 	}
 	else {
-		if ((now > lastshot + 7000 || shotting) && App->player->position.x + 30 > position.x) {
+		if ((now > lastshot + 7000 || shotting)) {
 			position.x += speed * 0;
 			if (shotting2) {
 				shotting2 = false;
@@ -95,7 +95,7 @@ void Enemy_Spider_Tank::Move()
 				else /*if (position.x <= App->render->camera.x + 80 )*/ {
 					position.x += speed;
 					topleft = false;
-					if (position.x > App->render->camera.x + 400) {
+					if (position.x > App->render->camera.x + 300) {
 						topleft = true;
 					}
 				}
@@ -123,7 +123,7 @@ void Enemy_Spider_Tank::Move()
 				else /*if (position.x <= App->render->camera.x + 80 )*/ {
 					position.x += speed;
 					topleft = false;
-					if (position.x > App->render->camera.x + 400) {
+					if (position.x > App->render->camera.x + 300) {
 						topleft = true;
 					}
 				}

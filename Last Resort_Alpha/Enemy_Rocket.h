@@ -22,8 +22,10 @@ private:
 	Animation nw1;
 	Animation nw2;
 	Animation nw3;
-	uint now;
-	uint last;
+	uint now = 0;
+	uint last = 0;
+	uint shot = 0;
+	uint aim = 0;
 	float angle;
 
 	int original_y = 0;

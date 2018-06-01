@@ -37,19 +37,51 @@ Enemy_Rocket::Enemy_Rocket(int x, int y, int HP) : Enemy(x, y, HP)
 void Enemy_Rocket::Move()
 {
 	float queso;
-	position.x += 1;
+	
+	int initial_speed = 1;
 	dirx = position.x - App->player->position.x;
 	diry = position.y - App->player->position.y;
-	//hyp = sqrt(dirx*dirx + diry*diry);
-
-	
+	hyp = sqrt(dirx*dirx + diry*diry);
 	angle = atan2(diry,dirx);
 
 	angle = (angle * 360) / (2 * PI);
 	angle += 180;
 	queso = floor(angle / 22.5);
+	speed = 2;
+
+	dirx /= hyp;
+	diry /= hyp;
 
 	now = SDL_GetTicks();
+	if (position.y == original_y) {
+		shot = SDL_GetTicks();
+	}
+	if (original_y < 78) // arriba
+	{
+		aim = SDL_GetTicks();
+		if (aim < shot + 1000) {
+			position.y += 1;
+		}
+
+		else {
+			position.x -= dirx * speed * 1.6f;
+			position.y -= diry * speed * 1.6f;
+		}
+
+	}
+	if (original_y > 78) // abajo
+	{
+		aim = SDL_GetTicks();
+		if (aim < shot + 1000) {
+			position.y -= 1;
+		}
+
+		else {
+			position.x -= dirx * speed * 1.6f;
+			position.y -= diry * speed * 1.6f;
+		}
+	}
+
 	
 	/*LOG("CCC dx=%f dy=%f a=%f q=%f", dirx, diry, angle, queso);*/
 
