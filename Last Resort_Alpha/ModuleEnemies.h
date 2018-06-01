@@ -30,7 +30,8 @@ enum ENEMY_TYPES
 	METAL_BEE,
 	JUMPY,
 	SPIDER_TANK,
-	ROCKET
+	ROCKET,
+	GUSTAV
 };
 
 class Enemy;

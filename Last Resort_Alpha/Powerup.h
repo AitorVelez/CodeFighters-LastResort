@@ -16,7 +16,6 @@ protected:
 
 public:
 	iPoint position;
-	bool blue; 
 
 public:
 	Powerup(int x, int y);

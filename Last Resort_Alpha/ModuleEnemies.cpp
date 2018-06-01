@@ -23,6 +23,7 @@
 #include "Enemy_Jumpy.h"
 #include "Enemy_Spider_Tank.h"
 #include "Enemy_Rocket.h"
+#include "Enemy_Gustav.h"
 
 #define SPAWN_MARGIN 50
 
@@ -201,6 +202,10 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			break;
 		case ENEMY_TYPES::ROCKET:
 			enemies[i] = new Enemy_Rocket(info.x, info.y, info.HP);
+			
+		case ENEMY_TYPES::GUSTAV:
+			enemies[i] = new Enemy_Gustav(info.x, info.y, info.HP);
+			break;
 		}
 	}
 	

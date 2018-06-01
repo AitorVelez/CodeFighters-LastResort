@@ -2,55 +2,55 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Enemy.cpp">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Barrel.cpp">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Cockroach.cpp">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Hunter.cpp">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Hunter_ZigZag.cpp">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Jumpy.cpp">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Lamella.cpp">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Metal_Bee.cpp">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_RedLamella.cpp">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Rhino.cpp">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Rocket.cpp">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Spider_Tank.cpp">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Tank.cpp">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Turret.cpp">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Powerup.cpp">
-      <Filter>Enemies\PowerUps</Filter>
+      <Filter>Modules\Enemies\PowerUps</Filter>
     </ClCompile>
     <ClCompile Include="SPower.cpp">
-      <Filter>Enemies\PowerUps</Filter>
+      <Filter>Modules\Enemies\PowerUps</Filter>
     </ClCompile>
     <ClCompile Include="LPower.cpp">
-      <Filter>Enemies\PowerUps</Filter>
+      <Filter>Modules\Enemies\PowerUps</Filter>
     </ClCompile>
     <ClCompile Include="Application.cpp">
       <Filter>Core</Filter>
@@ -62,13 +62,13 @@
       <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="Blue_Car.cpp">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Red_Car.cpp">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Yellow_Car.cpp">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="ModuleAudio.cpp">
       <Filter>Modules</Filter>
@@ -139,58 +139,61 @@
     <ClCompile Include="ModuleWindow.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy_Gustav.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy.h">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Barrel.h">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Cockroach.h">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Hunter.h">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Hunter_ZigZag.h">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Jumpy.h">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Lamella.h">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Metal_Bee.h">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_RedLamella.h">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Rhino.h">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Rocket.h">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Spider_Tank.h">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Tank.h">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Turret.h">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Powerup.h">
-      <Filter>Enemies\PowerUps</Filter>
+      <Filter>Modules\Enemies\PowerUps</Filter>
     </ClInclude>
     <ClInclude Include="SPower.h">
-      <Filter>Enemies\PowerUps</Filter>
+      <Filter>Modules\Enemies\PowerUps</Filter>
     </ClInclude>
     <ClInclude Include="LPower.h">
-      <Filter>Enemies\PowerUps</Filter>
+      <Filter>Modules\Enemies\PowerUps</Filter>
     </ClInclude>
     <ClInclude Include="Application.h">
       <Filter>Core</Filter>
@@ -211,13 +214,13 @@
       <Filter>Containers</Filter>
     </ClInclude>
     <ClInclude Include="Blue_Car.h">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Red_Car.h">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Yellow_Car.h">
-      <Filter>Enemies</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Module.h">
       <Filter>Modules</Filter>
@@ -291,11 +294,11 @@
     <ClInclude Include="ModuleWindow.h">
       <Filter>Modules</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy_Gustav.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Enemies">
-      <UniqueIdentifier>{f7dbc685-03b1-489f-9698-120b9609bb9e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core">
       <UniqueIdentifier>{7c51852e-23bf-4beb-b431-1728e101c5b5}</UniqueIdentifier>
     </Filter>
@@ -305,7 +308,10 @@
     <Filter Include="Modules">
       <UniqueIdentifier>{c44fbd76-e507-44b7-b0b7-b5eaa08d3ead}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Enemies\PowerUps">
+    <Filter Include="Modules\Enemies">
+      <UniqueIdentifier>{f7dbc685-03b1-489f-9698-120b9609bb9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Enemies\PowerUps">
       <UniqueIdentifier>{b033e2fd-b2a4-4991-80cf-b3fccb60e523}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
