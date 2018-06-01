@@ -4,7 +4,7 @@
 #include "Module.h"
 //#include "Enemy_Cockroach.h"
 
-#define MAX_ENEMIES 200
+#define MAX_ENEMIES 500 //200
 
 // TODO 2: Add a new enemy: Brown Cookies!
 
@@ -28,7 +28,10 @@ enum ENEMY_TYPES
 	HUNTER,
 	HUNTER_ZIGZAG,
 	METAL_BEE,
-	JUMPY
+	JUMPY,
+	SPIDER_TANK,
+	ROCKET,
+	GUSTAV
 };
 
 class Enemy;
@@ -59,7 +62,7 @@ public:
 private:
 
 	void SpawnEnemy(const EnemyInfo& info);
-
+	
 private:
 
 	EnemyInfo queue[MAX_ENEMIES];

@@ -31,11 +31,14 @@ public:
 	void Ball_Launch();
 	void Ball_Set_Angle();
 	void Ball_Set_Position(); 
+ 
+	
 	update_status Update();
+
 	bool CleanUp();
 	//bool CleanUp();
 
-	void OnCollision(Collider* c1, Collider* c2);
+    void OnCollision(Collider* c1, Collider* c2);
 
 
 	Animation N;
@@ -79,7 +82,7 @@ public:
 	SDL_Texture* texture = nullptr;
 
 	bool FollowBg = false; 
-
+	bool FollowingBg = false; 
 	SDL_Texture* blue_ball_texture = nullptr;
 	SDL_Texture* orange_ball_texture = nullptr; 
 

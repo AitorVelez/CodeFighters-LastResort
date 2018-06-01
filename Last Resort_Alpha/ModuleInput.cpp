@@ -48,7 +48,7 @@ update_status ModuleInput::PreUpdate()
 		if (SDL_IsGameController(i)) {
 			controller = SDL_GameControllerOpen(i);
 			if (controller) {
-				LOG("THERE IS A MF CONTROLLER");
+				/*LOG("THERE IS A MF CONTROLLER");*/
 				break;
 			}
 			else {

@@ -7,7 +7,7 @@
 #include "p2Point.h"
 #include "ModuleCollision.h"
 
-#define MAX_ACTIVE_PARTICLES 50
+#define MAX_ACTIVE_PARTICLES 500 //50
 #define MAX_PART_CHUNKS 25
 #define MAX_PART_TEXTURES 11
 
@@ -22,7 +22,7 @@ struct Particle
 	Animation anim;
 	uint fx = -1;
 	iPoint position;
-	iPoint speed;
+	fPoint speed;
 	Uint32 born = 0;
 	Uint32 life = 0;
 	uint texture = -1; 
@@ -71,11 +71,12 @@ public:
 	Particle Charging_Ball;
 	Particle Releasing_Ball;
 	Particle Bubbles;
+	Particle MisileSpidy;
 
 	Particle pilot_dying;
 	Particle BigTankShot; 
 	Particle SmallTankShot; 
-	Particle SmallTurretShot;
+	Particle TurretShot;
 
 	Particle Red_Car_Explosion;
 	Particle Blue_Car_Explosion;

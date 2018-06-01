@@ -8,6 +8,7 @@
 #include "ModuleBackground.h"
 #include "ModulePlayer2.h"
 #include "ModuleInput.h"
+#include "Enemy_Rocket.h"
 #include <string.h>
 #include <sstream>
 
@@ -21,76 +22,12 @@ ModuleUI::ModuleUI()
 	UIstable.w = SCREEN_WIDTH;
 	UIstable.h = SCREEN_HEIGHT;
 
-	Bola1.PushBack({0,1,199,16});
-	Bola1.PushBack({ 0,18,199,16 });
-	Bola1.PushBack({ 0,35,199,16 });
-	Bola1.PushBack({ 0,52,199,16 });
-	Bola1.PushBack({ 0,69,199,16 });
-	Bola1.PushBack({ 0,86,199,16 });
-	Bola1.PushBack({ 0,103,199,16 });
-	Bola1.PushBack({ 0,120,199,16 });
-	Bola1.PushBack({ 0,137,199,16 });
-	Bola1.PushBack({ 0,154,199,16 });
-	Bola1.PushBack({ 0,171,199,16 });
-	Bola1.PushBack({ 0,188,199,16 });
-	Bola1.PushBack({ 0,205,199,16 });
-	Bola1.PushBack({ 0,222,199,16 });
-	Bola1.PushBack({ 0,239,199,16 });
-	Bola1.PushBack({ 0,256,199,16 });
-	Bola1.PushBack({ 0,273,199,16 });
-	Bola1.PushBack({ 0,290,199,16 });
-	Bola1.PushBack({ 0,307,199,16 });
-	Bola1.PushBack({ 0,324,199,16 });
-	Bola1.PushBack({ 0,341,199,16 });
-	Bola1.PushBack({ 0,358,199,16 });
-	Bola1.PushBack({ 0,375,199,16 });
-	Bola1.PushBack({ 0,392,199,16 });
-	Bola1.PushBack({ 0,409,199,16 });
-	Bola1.PushBack({ 0,426,199,16 });
-	Bola1.PushBack({ 0,443,199,16 });
-	Bola1.PushBack({ 208,1,199,16 });
-	Bola1.PushBack({ 208,18,199,16 });
-	Bola1.PushBack({ 208,35,199,16 });
-	Bola1.PushBack({ 208,52,199,16 });
-	Bola1.PushBack({ 208,69,199,16 });
-	Bola1.PushBack({ 208,86,199,16 });
+	
 	Bola1.speed = 2.0f;
 	Bola1.loop = false;
 
 
-	Bola2.PushBack({ 0,1,199,16 });
-	Bola2.PushBack({ 0,18,199,16 });
-	Bola2.PushBack({ 0,35,199,16 });
-	Bola2.PushBack({ 0,52,199,16 });
-	Bola2.PushBack({ 0,69,199,16 });
-	Bola2.PushBack({ 0,86,199,16 });
-	Bola2.PushBack({ 0,103,199,16 });
-	Bola2.PushBack({ 0,120,199,16 });
-	Bola2.PushBack({ 0,137,199,16 });
-	Bola2.PushBack({ 0,154,199,16 });
-	Bola2.PushBack({ 0,171,199,16 });
-	Bola2.PushBack({ 0,188,199,16 });
-	Bola2.PushBack({ 0,205,199,16 });
-	Bola2.PushBack({ 0,222,199,16 });
-	Bola2.PushBack({ 0,239,199,16 });
-	Bola2.PushBack({ 0,256,199,16 });
-	Bola2.PushBack({ 0,273,199,16 });
-	Bola2.PushBack({ 0,290,199,16 });
-	Bola2.PushBack({ 0,307,199,16 });
-	Bola2.PushBack({ 0,324,199,16 });
-	Bola2.PushBack({ 0,341,199,16 });
-	Bola2.PushBack({ 0,358,199,16 });
-	Bola2.PushBack({ 0,375,199,16 });
-	Bola2.PushBack({ 0,392,199,16 });
-	Bola2.PushBack({ 0,409,199,16 });
-	Bola2.PushBack({ 0,426,199,16 });
-	Bola2.PushBack({ 0,443,199,16 });
-	Bola2.PushBack({ 71,1,199,16 });
-	Bola2.PushBack({ 71,18,199,16 });
-	Bola2.PushBack({ 71,35,199,16 });
-	Bola2.PushBack({ 71,52,199,16 });
-	Bola2.PushBack({ 71,69,199,16 });
-	Bola2.PushBack({ 71,86,199,16 });
+
 	Bola2.speed = 2.0f;
 	Bola2.loop = false;
 
@@ -145,6 +82,7 @@ update_status ModuleUI::Update()
 	char score[10];
 	char score2[10];
 	char coins[10];
+	char angle[10];
 	char livesp1[10];
 	char livesp2[10];
 	App->player->score_p1;
@@ -156,6 +94,7 @@ update_status ModuleUI::Update()
 	sprintf_s(coins, "%d", coin);
 	sprintf_s(livesp1, "%d", App->player->lives);
 	sprintf_s(livesp2, "%d", App->player2->lives);
+
 
 	if (ready == true || stgclr == true) {
 		App->render->Blit(UIS, 0, 0, &UIstable, 0, false);
@@ -216,6 +155,8 @@ update_status ModuleUI::Update()
 		
 
 	}
+
+	App->Fonts->BlitText(50, 50, 0, "");
 
 	if (App->input->keyboard[SDL_SCANCODE_C] == KEY_STATE::KEY_DOWN) {
 		App->UI->coin += 1;

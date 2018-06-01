@@ -435,7 +435,7 @@ update_status ModulePlayer::Update()
 				}
 			}
 
-			if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {
+			if (App->input->keyboard[SDL_SCANCODE_5] == KEY_STATE::KEY_DOWN) {
 				if (god_mode == true) god_mode = false;
 				else god_mode = true;
 			}

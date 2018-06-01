@@ -106,15 +106,15 @@ ModuleParticles::ModuleParticles()
 	SmallTankShot.fx = 7;
 
 
-	SmallTurretShot.anim.PushBack({ 245, 831, 5, 5 });
-	SmallTurretShot.anim.PushBack({ 250, 831, 5, 5 });
-	SmallTurretShot.anim.PushBack({ 235, 831, 5, 5 });
-	SmallTurretShot.anim.PushBack({ 240, 831, 5, 5 });
-	SmallTurretShot.anim.speed = 0.3f;
-	SmallTurretShot.speed.x = 2;
-	SmallTurretShot.life = 3000;
-	SmallTurretShot.texture = 2;
-	SmallTurretShot.fx = 7;
+    TurretShot.anim.PushBack({ 245, 831, 5, 5 });
+	TurretShot.anim.PushBack({ 250, 831, 5, 5 });
+	TurretShot.anim.PushBack({ 235, 831, 5, 5 });
+	TurretShot.anim.PushBack({ 240, 831, 5, 5 });
+	TurretShot.anim.speed = 0.3f;
+	TurretShot.speed.x = 2;
+	TurretShot.life = 3000;
+	TurretShot.texture = 2;
+
 
 	////PowerUp Laser Particle
 
@@ -396,6 +396,14 @@ ModuleParticles::ModuleParticles()
 	Bubbles.life = 100;
 	Bubbles.texture = 4;
 
+	MisileSpidy.anim.PushBack({ 88,304,16,16 });
+	MisileSpidy.anim.PushBack({ 109,304,16,16 });
+	MisileSpidy.anim.PushBack({ 123,304,16,16 });
+	MisileSpidy.life = 200;
+	MisileSpidy.speed.x = 1;
+
+	MisileSpidy.anim.speed = 0.5;
+	MisileSpidy.texture = 5;
 	 
 }
 
@@ -424,6 +432,7 @@ bool ModuleParticles::Start()
 	textures[2] = App->textures->Load("assets/sprites/common_enemies1.png");
 	textures[3] = App->textures->Load("assets/sprites/blue_ball_axis.png");
 	textures[4] = App->textures->Load("Ship_Underwater_Perticles.png");
+	textures[5] = App->textures->Load("assets/sprites/Particles.png");
 
 
 	return true; 

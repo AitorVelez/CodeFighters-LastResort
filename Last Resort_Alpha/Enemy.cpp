@@ -45,6 +45,17 @@ void Enemy::Draw2(SDL_Texture* sprites2)
 
 	if (anim2ndLevel != nullptr)
 		App->render->Blit(sprites2, position.x, position.y, &(anim2ndLevel->GetCurrentFrame()));
+
+	
+}
+
+
+void Enemy::Draw3(SDL_Texture* sprites3)
+{
+	if (collider != nullptr)
+		collider->SetPos(position.x, position.y);
+	if (SpiderTank != nullptr)
+		App->render->Blit(sprites3, position.x, position.y, &(SpiderTank->GetCurrentFrame()));
 }
 
 void Enemy::OnCollision(Collider* collider)

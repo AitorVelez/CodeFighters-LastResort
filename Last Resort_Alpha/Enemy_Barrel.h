@@ -7,7 +7,7 @@ class Enemy_Barrel : public Enemy
 {
 private:
 	Animation fly;
-	iPoint original_position;
+	fPoint original_position;
 	Path path;
 public:
 
