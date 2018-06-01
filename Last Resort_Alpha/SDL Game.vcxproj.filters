@@ -1,103 +1,312 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Application.cpp" />
-    <ClCompile Include="Blue_Car.cpp" />
-    <ClCompile Include="Enemy.cpp" />
-    <ClCompile Include="Enemy_Barrel.cpp" />
-    <ClCompile Include="Enemy_Cockroach.cpp" />
-    <ClCompile Include="Enemy_Hunter.cpp" />
-    <ClCompile Include="Enemy_Hunter_ZigZag.cpp" />
-    <ClCompile Include="Enemy_Lamella.cpp" />
-    <ClCompile Include="Enemy_Metal_Bee.cpp" />
-    <ClCompile Include="Enemy_RedLamella.cpp" />
-    <ClCompile Include="Enemy_Rhino.cpp" />
-    <ClCompile Include="Enemy_Tank.cpp" />
-    <ClCompile Include="Enemy_Turret.cpp" />
-    <ClCompile Include="Globals.cpp" />
-    <ClCompile Include="LPower.cpp" />
-    <ClCompile Include="ModuleBackground2.cpp" />
-    <ClCompile Include="ModuleBall.cpp" />
-    <ClCompile Include="ModuleBall_P2.cpp" />
-    <ClCompile Include="ModuleEnemies.cpp" />
-    <ClCompile Include="ModuleFonts.cpp" />
-    <ClCompile Include="ModuleIntroNeoGeo.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="ModuleAudio.cpp" />
-    <ClCompile Include="ModuleBackground.cpp" />
-    <ClCompile Include="ModuleCollision.cpp" />
-    <ClCompile Include="ModuleFadeToBlack.cpp" />
-    <ClCompile Include="ModuleInput.cpp" />
-    <ClCompile Include="ModuleLoseImage.cpp" />
-    <ClCompile Include="ModuleParticles.cpp" />
-    <ClCompile Include="ModulePlayer.cpp" />
-    <ClCompile Include="ModulePlayer2.cpp" />
-    <ClCompile Include="ModulePowerUp.cpp" />
-    <ClCompile Include="ModuleReady.cpp" />
-    <ClCompile Include="ModuleRender.cpp" />
-    <ClCompile Include="ModuleStageClear.cpp" />
-    <ClCompile Include="ModuleStartingImage.cpp" />
-    <ClCompile Include="ModuleTextures.cpp" />
-    <ClCompile Include="ModuleUI.cpp" />
-    <ClCompile Include="ModuleWindow.cpp" />
-    <ClCompile Include="Powerup.cpp" />
-    <ClCompile Include="Red_Car.cpp" />
-    <ClCompile Include="SPower.cpp" />
-    <ClCompile Include="Yellow_Car.cpp" />
-    <ClCompile Include="Enemy_Jumpy.cpp" />
-    <ClCompile Include="Enemy_Spider_Tank.cpp" />
-    <ClCompile Include="Enemy_Rocket.cpp" />
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Barrel.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Cockroach.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Hunter.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Hunter_ZigZag.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Jumpy.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Lamella.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Metal_Bee.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_RedLamella.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Rhino.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Rocket.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Spider_Tank.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Tank.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Turret.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Powerup.cpp">
+      <Filter>Enemies\PowerUps</Filter>
+    </ClCompile>
+    <ClCompile Include="SPower.cpp">
+      <Filter>Enemies\PowerUps</Filter>
+    </ClCompile>
+    <ClCompile Include="LPower.cpp">
+      <Filter>Enemies\PowerUps</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Globals.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Blue_Car.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Red_Car.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Yellow_Car.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleAudio.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleBackground.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleBackground2.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleBall.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleBall_P2.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleCollision.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleEnemies.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleFadeToBlack.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleFonts.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleInput.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleIntroNeoGeo.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleLoseImage.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleParticles.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModulePlayer.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModulePlayer2.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModulePowerUp.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleReady.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleRender.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleStageClear.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleStartingImage.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleTextures.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleUI.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleWindow.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Animation.h" />
-    <ClInclude Include="Application.h" />
-    <ClInclude Include="Blue_Car.h" />
-    <ClInclude Include="Enemy.h" />
-    <ClInclude Include="Enemy_Barrel.h" />
-    <ClInclude Include="Enemy_Cockroach.h" />
-    <ClInclude Include="Enemy_Hunter.h" />
-    <ClInclude Include="Enemy_Hunter_ZigZag.h" />
-    <ClInclude Include="Enemy_Lamella.h" />
-    <ClInclude Include="Enemy_Metal_Bee.h" />
-    <ClInclude Include="Enemy_RedLamella.h" />
-    <ClInclude Include="Enemy_Rhino.h" />
-    <ClInclude Include="Enemy_Tank.h" />
-    <ClInclude Include="Enemy_Turret.h" />
-    <ClInclude Include="Globals.h" />
-    <ClInclude Include="LPower.h" />
-    <ClInclude Include="ModuleBackground2.h" />
-    <ClInclude Include="ModuleBall.h" />
-    <ClInclude Include="ModuleBall_P2.h" />
-    <ClInclude Include="ModuleEnemies.h" />
-    <ClInclude Include="ModuleFonts.h" />
-    <ClInclude Include="ModuleIntroNeoGeo.h" />
-    <ClInclude Include="MemLeaks.h" />
-    <ClInclude Include="Module.h" />
-    <ClInclude Include="ModuleAudio.h" />
-    <ClInclude Include="ModuleBackground.h" />
-    <ClInclude Include="ModuleCollision.h" />
-    <ClInclude Include="ModuleFadeToBlack.h" />
-    <ClInclude Include="ModuleInput.h" />
-    <ClInclude Include="ModuleLoseImage.h" />
-    <ClInclude Include="ModuleParticles.h" />
-    <ClInclude Include="ModulePlayer.h" />
-    <ClInclude Include="ModulePlayer2.h" />
-    <ClInclude Include="ModulePowerUp.h" />
-    <ClInclude Include="ModuleReady.h" />
-    <ClInclude Include="ModuleRender.h" />
-    <ClInclude Include="ModuleStageClear.h" />
-    <ClInclude Include="ModuleStartingImage.h" />
-    <ClInclude Include="ModuleTextures.h" />
-    <ClInclude Include="ModuleUI.h" />
-    <ClInclude Include="ModuleWindow.h" />
-    <ClInclude Include="p2Point.h" />
-    <ClInclude Include="Path.h" />
-    <ClInclude Include="Powerup.h" />
-    <ClInclude Include="Red_Car.h" />
-    <ClInclude Include="SPower.h" />
-    <ClInclude Include="Yellow_Car.h" />
-    <ClInclude Include="Enemy_Jumpy.h" />
-    <ClInclude Include="Enemy_Spider_Tank.h" />
-    <ClInclude Include="Enemy_Rocket.h" />
+    <ClInclude Include="Enemy.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Barrel.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Cockroach.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Hunter.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Hunter_ZigZag.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Jumpy.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Lamella.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Metal_Bee.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_RedLamella.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Rhino.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Rocket.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Spider_Tank.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Tank.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Turret.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Powerup.h">
+      <Filter>Enemies\PowerUps</Filter>
+    </ClInclude>
+    <ClInclude Include="SPower.h">
+      <Filter>Enemies\PowerUps</Filter>
+    </ClInclude>
+    <ClInclude Include="LPower.h">
+      <Filter>Enemies\PowerUps</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Globals.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="MemLeaks.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="Path.h">
+      <Filter>Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="p2Point.h">
+      <Filter>Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="Blue_Car.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Red_Car.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Yellow_Car.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Module.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleAudio.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleBackground.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleBackground2.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleBall.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleBall_P2.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleCollision.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleEnemies.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleFadeToBlack.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleFonts.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleInput.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleIntroNeoGeo.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleLoseImage.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleParticles.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModulePlayer.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModulePlayer2.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModulePowerUp.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleReady.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleRender.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleStageClear.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleStartingImage.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleTextures.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleUI.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleWindow.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Enemies">
+      <UniqueIdentifier>{f7dbc685-03b1-489f-9698-120b9609bb9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{7c51852e-23bf-4beb-b431-1728e101c5b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers">
+      <UniqueIdentifier>{fb29c340-5c81-4265-b0c3-b007f3aa8d86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules">
+      <UniqueIdentifier>{c44fbd76-e507-44b7-b0b7-b5eaa08d3ead}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemies\PowerUps">
+      <UniqueIdentifier>{b033e2fd-b2a4-4991-80cf-b3fccb60e523}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
