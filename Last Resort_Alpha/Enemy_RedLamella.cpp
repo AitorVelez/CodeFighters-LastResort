@@ -35,7 +35,7 @@ Enemy_RedLamella::Enemy_RedLamella(int x, int y, int HP) : Enemy(x, y, HP)
 
 void Enemy_RedLamella::Move()
 {
-	speed = 1.2f;
+	speed = 1.4f;
 
 
 	dir2x = App->player2->position.x - position.x;

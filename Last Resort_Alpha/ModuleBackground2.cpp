@@ -105,9 +105,12 @@ bool ModuleBackground2::Start()
 
 	hangar_1 = App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 405, 25); 
-	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 450, 205);  
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 505, 25); 
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 550, 205);  
 
+
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 905, 25);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 950, 205);
 
 	/*App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 300, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 300, BottomTurretPosY);
