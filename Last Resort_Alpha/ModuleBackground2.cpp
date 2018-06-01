@@ -105,6 +105,10 @@ bool ModuleBackground2::Start()
 
 	hangar_1 = App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);
 
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 405, 25); 
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 450, 205);  
+
+
 	/*App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 300, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 300, BottomTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 340, TopTurretPosY);
@@ -116,13 +120,18 @@ bool ModuleBackground2::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 460, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 460, BottomTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 500, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 500, BottomTurretPosY);*/
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 500, BottomTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 605, 195);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 635, 195);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 655, 195);
 
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 205, 100);
 	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 255, 100);
 
 	App->enemies->AddEnemy(ENEMY_TYPES::METAL_BEE, 805, 195);
 	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 1505, 195);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 200, TopTurretPosY);
 	
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3060, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3100, TopTurretPosY);
@@ -163,7 +172,7 @@ bool ModuleBackground2::Start()
 
 	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 660, TopTurretPosY);
 	//App->enemies->AddEnemy(ENEMY_TYPES::JUMPY, 700, 100);
-	/*App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);*/
+	/*App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);
 
 	
 	App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, 100, 70);
@@ -188,7 +197,7 @@ bool ModuleBackground2::Start()
 	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3680, TopTurretPosY);
 	//App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 660, TopTurretPosY);
 	//App->enemies->AddEnemy(ENEMY_TYPES::JUMPY, 700, 100);
-	///*App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);
+	///*App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);*/
 
 	
 
