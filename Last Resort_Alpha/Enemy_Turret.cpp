@@ -127,8 +127,8 @@ void Enemy_Turret::Shoot()
 
 	
 
-	App->particles->TurretShot.speed.x = (dirx / sqrt((pow(dirx, 2)) + (pow(diry, 2)))) * 4;
-	App->particles->TurretShot.speed.y = (diry / sqrt((pow(dirx, 2)) + (pow(diry, 2)))) * 4;
+	App->particles->TurretShot.speed.x = (dirx / sqrt((pow(dirx, 2)) + (pow(diry, 2)))) * 1.4;
+	App->particles->TurretShot.speed.y = (diry / sqrt((pow(dirx, 2)) + (pow(diry, 2)))) * 1.4;
 
 	current_time = SDL_GetTicks();
 	if (current_time > last_time + 800) {
