@@ -78,6 +78,7 @@
     <ClInclude Include="Blue_Car.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Enemy_Barrel.h" />
+    <ClInclude Include="Enemy_Boss.h" />
     <ClInclude Include="Enemy_Cockroach.h" />
     <ClInclude Include="Enemy_Gustav.h" />
     <ClInclude Include="Enemy_Hunter.h" />
@@ -130,6 +131,7 @@
     <ClCompile Include="Blue_Car.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Enemy_Barrel.cpp" />
+    <ClCompile Include="Enemy_Boss.cpp" />
     <ClCompile Include="Enemy_Cockroach.cpp" />
     <ClCompile Include="Enemy_Gustav.cpp" />
     <ClCompile Include="Enemy_Hunter.cpp" />

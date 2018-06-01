@@ -16,6 +16,7 @@ protected:
 	Animation* animation3 = nullptr;
 	Animation* anim2ndLevel= nullptr;   // Use in case of enemy level 2 
 	Animation* SpiderTank = nullptr; 
+	Animation* BossAnim = nullptr;
 	Collider* collider = nullptr;
 	uint is_a_car = 0; 
 public:
