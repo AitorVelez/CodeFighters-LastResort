@@ -399,8 +399,10 @@ ModuleParticles::ModuleParticles()
 	MisileSpidy.anim.PushBack({ 88,304,16,16 });
 	MisileSpidy.anim.PushBack({ 109,304,16,16 });
 	MisileSpidy.anim.PushBack({ 123,304,16,16 });
-	MisileSpidy.life = 100;
-	MisileSpidy.anim.speed = 1.5;
+	MisileSpidy.life = 200;
+
+
+	MisileSpidy.anim.speed = 0.3;
 	MisileSpidy.texture = 5;
 	 
 }
@@ -430,7 +432,7 @@ bool ModuleParticles::Start()
 	textures[2] = App->textures->Load("assets/sprites/common_enemies1.png");
 	textures[3] = App->textures->Load("assets/sprites/blue_ball_axis.png");
 	textures[4] = App->textures->Load("Ship_Underwater_Perticles.png");
-	textures[5] = App->textures->Load("Particles.png");
+	textures[5] = App->textures->Load("assets/sprites/Particles.png");
 
 
 	return true; 

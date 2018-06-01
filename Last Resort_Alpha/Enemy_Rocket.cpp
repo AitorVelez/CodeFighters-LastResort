@@ -48,11 +48,17 @@ void Enemy_Rocket::Move()
 	angle = (angle * 360) / (2 * PI);
 	angle += 180;
 	queso = floor(angle / 22.5);
+
+	now = SDL_GetTicks();
 	
 	/*LOG("CCC dx=%f dy=%f a=%f q=%f", dirx, diry, angle, queso);*/
 
 	if (queso == 1) {
 		SpiderTank = &se1;
+		/*if (now > last + 400) {
+			last = SDL_GetTicks();
+			App->particles->AddParticle(App->particles->MisileSpidy, position.x - 14, position.y - 10);
+		}*/
 		
 	}
 	else if (queso == 2) {
