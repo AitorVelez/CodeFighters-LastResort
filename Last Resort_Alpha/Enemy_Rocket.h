@@ -35,6 +35,15 @@ private:
 	int original_x = 0;
 	int hyp;
 
+	float angle1;
+
+
+	float dirx1;
+	float diry1;
+
+
+	int hyp1;
+
 
 
 public:
