@@ -51,6 +51,7 @@ void Enemy_Spider_Tank::Move()
 	else {
 		if ((now > lastshot + 7000 || shotting)) {
 			position.x += speed * 0;
+			lastshot = SDL_GetTicks();
 			if (shotting2) {
 				shotting2 = false;
 				if (original_y > 78) {
@@ -60,7 +61,7 @@ void Enemy_Spider_Tank::Move()
 					App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, position.x, position.y + 10);
 				}
 			}
-			lastshot = SDL_GetTicks();
+			
 			if (recoil + 700  > lastshot) {
 				shotting = true;
 			}

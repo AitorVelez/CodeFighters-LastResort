@@ -52,7 +52,7 @@ void Enemy_Rocket::Move()
 		angle1 = (angle1 * 360) / (2 * PI);
 		angle1 += 180;
 		queso2 = floor(angle1 / 22.5);
-		speed = 2;
+		speed = 1.2;
 
 		dirx1 /= hyp1;
 		diry1 /= hyp1;
@@ -223,7 +223,7 @@ void Enemy_Rocket::Move()
 	angle = (angle * 360) / (2 * PI);
 	angle += 180;
 	queso = floor(angle / 22.5);
-	speed = 2;
+	speed = 1.2;
 
 	dirx /= hyp;
 	diry /= hyp;

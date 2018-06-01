@@ -20,7 +20,7 @@ private:
 	bool player_higher = false;
 	bool player_lower = false; 
 
-	iPoint original_position;
+	fPoint original_position;
 public:
 
 	Enemy_Hunter_ZigZag(int x, int y, int HP);

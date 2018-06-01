@@ -21,7 +21,7 @@ protected:
 public:
 	uint hp = 1;
 	uint original_hp = 1;
-	iPoint position; 
+	fPoint position; 
 	iPoint Anim2Distance;
 	iPoint Anim3Distance;
 	iPoint Anim4Distance;
