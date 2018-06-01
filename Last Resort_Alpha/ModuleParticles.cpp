@@ -400,9 +400,9 @@ ModuleParticles::ModuleParticles()
 	MisileSpidy.anim.PushBack({ 109,304,16,16 });
 	MisileSpidy.anim.PushBack({ 123,304,16,16 });
 	MisileSpidy.life = 200;
+	MisileSpidy.speed.x = 1;
 
-
-	MisileSpidy.anim.speed = 0.3;
+	MisileSpidy.anim.speed = 0.5;
 	MisileSpidy.texture = 5;
 	 
 }
