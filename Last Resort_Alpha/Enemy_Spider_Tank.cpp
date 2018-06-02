@@ -6,6 +6,7 @@
 #include "ModuleParticles.h"
 #include "ModuleRender.h"
 #include "ModuleEnemies.h"
+#include "ModuleAudio.h"
 
 
 Enemy_Spider_Tank::Enemy_Spider_Tank(int x, int y, int HP) : Enemy(x, y, HP)
@@ -55,10 +56,12 @@ void Enemy_Spider_Tank::Move()
 			if (shotting2) {
 				shotting2 = false;
 				if (original_y > 78) {
-					App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, position.x, position.y - 50);
+					App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, position.x, position.y - 10);
+					App->audio->PlayChunk(App->particles->chunks[7], 1);
 				}
 				if (original_y < 78) {
 					App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, position.x, position.y + 10);
+					App->audio->PlayChunk(App->particles->chunks[7], 1);
 				}
 			}
 			
