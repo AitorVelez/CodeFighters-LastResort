@@ -45,6 +45,8 @@ bool ModuleEnemies::Start()
 	sprites = App->textures->Load("assets/sprites/common_enemies1.png");
 	sprites2 = App->textures->Load("assets/sprites/CommonEnemies2.png");
 	sprites3 = App->textures->Load("assets/sprites/SpiderTank1.png");
+	sprites4 = App->textures->Load("assets/sprites/BOSSS.png");
+
 	return true;
 }
 
@@ -111,6 +113,7 @@ bool ModuleEnemies::CleanUp()
 	App->textures->Unload(sprites);
 	App->textures->Unload(sprites2);
 	App->textures->Unload(sprites3);
+	App->textures->Unload(sprites4);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{

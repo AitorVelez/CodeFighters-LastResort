@@ -58,6 +58,23 @@ void Enemy::Draw3(SDL_Texture* sprites3)
 		App->render->Blit(sprites3, position.x, position.y, &(SpiderTank->GetCurrentFrame()));
 }
 
+void Enemy::Draw4(SDL_Texture* sprites4)
+{
+	if (collider != nullptr)
+		collider->SetPos(position.x, position.y);
+	if (SpiderTank != nullptr)
+		App->render->Blit(sprites4, position.x, position.y, &(BossAnim->GetCurrentFrame()));
+}
+
+
+void Enemy::Draw5(SDL_Texture* sprites4)
+{
+	if (collider != nullptr)
+		collider->SetPos(position.x, position.y);
+	if (SpiderTank != nullptr)
+		App->render->Blit(sprites4, position.x, position.y, &(BossFire->GetCurrentFrame()));
+}
+
 void Enemy::OnCollision(Collider* collider)
 {
 	hp--;
