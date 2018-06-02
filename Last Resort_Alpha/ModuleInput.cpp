@@ -57,10 +57,7 @@ update_status ModuleInput::PreUpdate()
 		}
 	}
 	
-	if (SDL_GameControllerGetButton(controller, SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_A) == 1)
-	{
-		App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN;
-	}
+	
 
 	const Uint8* keys = SDL_GetKeyboardState(NULL);
 
@@ -80,6 +77,11 @@ update_status ModuleInput::PreUpdate()
 			else
 				keyboard[i] = KEY_IDLE;
 		}
+	}
+
+	if (SDL_GameControllerGetButton(controller, SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_A) == 1)
+	{
+		App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN;
 	}
 
 	if (keyboard[SDL_SCANCODE_ESCAPE])
