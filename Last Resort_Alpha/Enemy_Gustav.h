@@ -9,14 +9,11 @@ class Enemy_Gustav : public Enemy
 private:
 	Animation up_anim;
 
-	
-	Path up;
-	Path down;
-	int speed = 0;
+	float vec_x;
+	float vec_y; 
 
-	bool player_higher = false;
-	bool player_lower = false;
-
+	int speed; 
+	fPoint track; 
 	fPoint original_position;
 public:
 
