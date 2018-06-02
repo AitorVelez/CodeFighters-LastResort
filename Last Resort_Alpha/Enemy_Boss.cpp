@@ -58,7 +58,6 @@ void Enemy_Boss::Move()
 
 	
 
-
 	position.x += 1; 
 
 
