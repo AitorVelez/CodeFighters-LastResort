@@ -52,8 +52,8 @@ update_status ModulePowerUp::PreUpdate()
 // Called before render is available
 update_status ModulePowerUp::Update()
 {
-	/*for (uint i = 0; i < MAX_POWERUPS; ++i)
-		if (powerups[i] != nullptr) powerups[i]->Move();*/
+	for (uint i = 0; i < MAX_POWERUPS; ++i)
+		if (powerups[i] != nullptr) powerups[i]->SwapColor();
 
 	for (uint i = 0; i < MAX_POWERUPS; ++i)
 		if (powerups[i] != nullptr) powerups[i]->Draw(sprites);
@@ -147,7 +147,7 @@ void ModulePowerUp::OnCollision(Collider* c1, Collider* c2)
 	{
 		if (powerups[i] != nullptr && powerups[i]->GetCollider() == c1)
 		{
-			powerups[i]->OnCollision(c2);
+			powerups[i]->OnCollision(c1,c2);
 			delete powerups[i];
 			powerups[i] = nullptr;
 			break;
