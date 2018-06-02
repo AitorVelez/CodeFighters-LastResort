@@ -62,7 +62,7 @@ void Enemy_Boss::Move()
 
 
 	if (FireThrowerSpawned == false) {
-		if (position.x < App->player->position.x + 30) {
+		if (position.x < App->player->position.x + 180) {
 			App->enemies->AddEnemy(ENEMY_TYPES::BOSSFIRE, position.x - 20, position.y + 20);
 		}
 		FireThrowerSpawned = true;
