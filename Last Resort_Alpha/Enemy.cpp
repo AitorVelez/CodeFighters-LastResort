@@ -62,13 +62,28 @@ void Enemy::Draw4(SDL_Texture* sprites4)
 {
 	if (collider != nullptr)
 		collider->SetPos(position.x, position.y);
-	if (BossFire != nullptr)
-		App->render->Blit(sprites4, position.x, position.y, &(BossFire->GetCurrentFrame()));
-	if (BossFireThrower != nullptr)
+	
+	    
+	if (BossFireThrower != nullptr) {
 		App->render->Blit(sprites4, position.x, position.y, &(BossFireThrower->GetCurrentFrame()));
+	}
 
 	if (BossAnim != nullptr)
 		App->render->Blit(sprites4, position.x, position.y, &(BossAnim->GetCurrentFrame()));
+}
+
+void Enemy::Draw5(SDL_Texture* sprites5)
+{
+	if (AsignedFirePos == false) {
+		FireFakePos.x = position.x - 20;
+		FireFakePos.y = position.y - 20;
+		AsignedFirePos = true;
+	}
+
+	if (BossFireAnim != nullptr) {
+		App->render->Blit(sprites5, FireFakePos.x, FireFakePos.y, &(BossFireAnim->GetCurrentFrame()));
+		FireFakePos.x += 0.5f; 
+			}
 }
 
 /*
