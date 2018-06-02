@@ -104,6 +104,7 @@ bool ModuleBackground2::Start()
 
 
 	hangar_1 = App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);
+	App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, 505, 25);
 
 	//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 505, 25); 
 	//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 550, 205);  

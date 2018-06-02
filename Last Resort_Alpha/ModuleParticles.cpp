@@ -22,7 +22,7 @@ ModuleParticles::ModuleParticles()
 
 	for (uint i = 0; i < MAX_PART_TEXTURES; ++i)
 		textures[i] = nullptr;
-
+	
 
 	Releasing_Ball.anim.PushBack({ 241,244,30,30 });
 	Releasing_Ball.anim.PushBack({ 271,244,30,30 });

@@ -72,6 +72,7 @@ public:
 	Particle Releasing_Ball;
 	Particle Bubbles;
 	Particle MisileSpidy;
+	Particle GPower; 
 
 	Particle pilot_dying;
 	Particle BigTankShot; 
