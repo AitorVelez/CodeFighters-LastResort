@@ -144,9 +144,6 @@ bool ModuleEnemies::AddEnemy(ENEMY_TYPES type, int x, int y)
 			queue[i].x = x;
 			queue[i].y = y;
 			ret = true;
-			if (type == BOSSFIRE) {
-				BossFireSticker = "BossFire"; 
-			}
 			break;
 		}
 	}
@@ -258,8 +255,8 @@ void ModuleEnemies::ForcedDeath() {
 		{
 			delete enemies[i];
 			enemies[i] = nullptr;
+			break;
 		}
-		break;
 	}
 	
 }
