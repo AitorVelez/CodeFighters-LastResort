@@ -33,7 +33,7 @@ enum ENEMY_TYPES
 	ROCKET,
 	GUSTAV,
 	BOSS,
-	BOSSFIRE,
+	BOSSFIRE
 };
 
 class Enemy;

@@ -208,9 +208,11 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			break;
 		case ENEMY_TYPES::ROCKET:
 			enemies[i] = new Enemy_Rocket(info.x, info.y, info.HP);
+			break;
 			
 		case ENEMY_TYPES::GUSTAV:
 			enemies[i] = new Enemy_Gustav(info.x, info.y, info.HP);
+			break;
 		
 		case ENEMY_TYPES::BOSS:
 			enemies[i] = new Enemy_Boss(info.x, info.y, info.HP);
