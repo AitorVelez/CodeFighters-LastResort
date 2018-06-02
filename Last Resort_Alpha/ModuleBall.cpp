@@ -500,5 +500,7 @@ update_status ModuleBall::Update()
 bool ModuleBall::CleanUp()
 {
 	App->textures->Unload(blue_ball_texture);
+	App->textures->Unload(orange_ball_texture);
+	App->textures->Unload(Pball);
 	return true;
 }

@@ -424,7 +424,7 @@ update_status ModuleBackground2::Update()
 		if (App->fade->FadeToBlack(App->background2, App->loseimage, 1.5f))
 			App->audio->FadeMus(750);
 	}
-	if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN) {
+	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_STATE::KEY_DOWN) {
 		App->player2->Enable();
 		App->player2->TwoPlayers = true;
 	}

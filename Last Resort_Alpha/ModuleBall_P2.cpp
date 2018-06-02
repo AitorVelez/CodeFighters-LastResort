@@ -9,6 +9,7 @@
 #include "ModuleCollision.h"
 #include "ModuleParticles.h"
 #include "ModuleAudio.h"
+#include "ModuleUI.h"
 
 ModuleBall_P2::ModuleBall_P2()
 {
@@ -211,6 +212,7 @@ bool ModuleBall_P2::Start()
 {
 	blue_ball_texture = App->textures->Load("assets/sprites/blue_ball_axis.png");
 	orange_ball_texture = App->textures->Load("assets/sprites/orange_ball_axis.png");
+	Pball = App->textures->Load("assets/sprites/Bolitatoflama.png");
 
 	ball_position.x = App->player2->position.x;
 	ball_position.y = App->player2->position.y;
@@ -330,10 +332,12 @@ void ModuleBall_P2::Ball_Input_Attack()
 	if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_REPEAT)
 	{
 		charge += 20;
+		App->render->Blit(Pball, 200, 208, &App->UI->Bola2.GetCurrentFrame(), 0, false);
 	}
 	if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_UP)
 	{
 		if (charge < 500) charge = 0;
+		App->UI->Bola2.Reset();
 	}
 }
 
@@ -342,6 +346,7 @@ void ModuleBall_P2::Ball_Launch()
 	if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_UP)
 	{
 		ball_launched = true;
+		App->UI->Bola2.Reset();
 		App->audio->PlayChunk(App->particles->chunks[10], 1);
 	}
 	current_animation = &flying;
@@ -467,5 +472,7 @@ update_status ModuleBall_P2::Update()
 bool ModuleBall_P2::CleanUp()
 {
 	App->textures->Unload(blue_ball_texture);
+	App->textures->Unload(orange_ball_texture);
+	App->textures->Unload(Pball);
 	return true;
 }
