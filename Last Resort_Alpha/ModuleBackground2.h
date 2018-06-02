@@ -40,6 +40,7 @@ public:
 
 	bool activ = false;
 	bool scroll = true;
+	bool LifeReset = false; 
 	int bgpos;
 	float depth_1;
 

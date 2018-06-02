@@ -80,6 +80,8 @@ public:
 	Particle SmallTankShot; 
 	Particle TurretShot;
 	Particle BossGreenShot; 
+	Particle PreBossGreenShot;
+	Particle PreBossGreenShot2;
 
 	Particle Red_Car_Explosion;
 	Particle Blue_Car_Explosion;
