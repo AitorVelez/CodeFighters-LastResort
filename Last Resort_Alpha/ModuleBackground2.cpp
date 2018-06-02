@@ -112,9 +112,7 @@ bool ModuleBackground2::Start()
 
 
 	hangar_1 = App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);
-	App->power->AddPowerup(POWERUP_TYPES::GPOWER, 205, 100);
 	/*App->power->AddPowerup(POWERUP_TYPES::LPOWER, 255, 100);*/
-	App->enemies->AddEnemy(ENEMY_TYPES::GRENADE, 200,30);
 	App->enemies->AddEnemy(ENEMY_TYPES::METAL_BEE, 805, 195);
 	//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 505, 25); 
 	//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 550, 205);  
@@ -510,11 +508,17 @@ update_status ModuleBackground2::Update()
 	if (App->input->keyboard[SDL_SCANCODE_KP_9] == KEY_DOWN)
 		App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, App->render->camera.x + 300, 100);
 
+	if (App->input->keyboard[SDL_SCANCODE_G] == KEY_DOWN)
+		App->power->AddPowerup(POWERUP_TYPES::GPOWER, App->render->camera.x + 300, 100);
+	
 	if (App->input->keyboard[SDL_SCANCODE_X] == KEY_DOWN)
 		App->power->AddPowerup(POWERUP_TYPES::LPOWER, App->render->camera.x + 300, 100);
 
 	if (App->input->keyboard[SDL_SCANCODE_P] == KEY_DOWN)
 		App->enemies->AddEnemy(ENEMY_TYPES::GUSTAV, App->render->camera.x + 300, 100);
+
+	if (App->input->keyboard[SDL_SCANCODE_U] == KEY_DOWN)
+		App->enemies->AddEnemy(ENEMY_TYPES::SPIDER_TANK, App->render->camera.x + 300, 100);
 
 	return UPDATE_CONTINUE;
 }
