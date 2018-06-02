@@ -82,6 +82,7 @@ public:
 	Particle BossGreenShot; 
 	Particle PreBossGreenShot;
 	Particle PreBossGreenShot2;
+	Particle PreBossGreenShot3;
 
 	Particle Red_Car_Explosion;
 	Particle Blue_Car_Explosion;

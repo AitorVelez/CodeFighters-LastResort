@@ -63,9 +63,8 @@ void Enemy_Boss::Move()
 	position.x += 1; 
 	if (App->input->keyboard[SDL_SCANCODE_R] == KEY_DOWN) {
 		App->particles->AddParticle(App->particles->PreBossGreenShot, position.x - 10, position.y + 12, COLLIDER_ENEMY_SHOT);
-	//	if (App->particles->PreBossGreenShot.anim.Finished()) {
+		App->particles->AddParticle(App->particles->PreBossGreenShot3, position.x + 15, position.y + 6, COLLIDER_ENEMY_SHOT);
 			App->particles->AddParticle(App->particles->BossGreenShot, position.x - 10, position.y + 12, COLLIDER_ENEMY_SHOT);
-		// }
 	}
 
 	if (FireThrowerSpawned == false) {
