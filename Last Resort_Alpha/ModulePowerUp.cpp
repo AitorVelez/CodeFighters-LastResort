@@ -8,6 +8,7 @@
 #include "LPower.h"
 #include "Spower.h"
 #include "GPower.h"
+#include "HPower.h"
 
 #define SPAWN_MARGIN 50
 
@@ -53,8 +54,8 @@ update_status ModulePowerUp::PreUpdate()
 // Called before render is available
 update_status ModulePowerUp::Update()
 {
-	/*for (uint i = 0; i < MAX_POWERUPS; ++i)
-		if (powerups[i] != nullptr) powerups[i]->Move();*/
+	for (uint i = 0; i < MAX_POWERUPS; ++i)
+		if (powerups[i] != nullptr) powerups[i]->SwapColor();
 
 	for (uint i = 0; i < MAX_POWERUPS; ++i)
 		if (powerups[i] != nullptr) powerups[i]->Draw(sprites);
@@ -140,6 +141,9 @@ void ModulePowerUp::SpawnPowerup(const PowerupInfo& info)
 		case POWERUP_TYPES::GPOWER:
 			powerups[i] = new GrenadePowerUp(info.x, info.y);
 			break;
+		case POWERUP_TYPES::HPOWER:
+			powerups[i] = new HellfirePowerUp(info.x, info.y);
+			break;
 		}
 	}
 
@@ -152,7 +156,7 @@ void ModulePowerUp::OnCollision(Collider* c1, Collider* c2)
 	{
 		if (powerups[i] != nullptr && powerups[i]->GetCollider() == c1)
 		{
-			powerups[i]->OnCollision(c2);
+			powerups[i]->OnCollision(c1,c2);
 			delete powerups[i];
 			powerups[i] = nullptr;
 			break;

@@ -225,36 +225,9 @@ bool ModulePlayer::CleanUp()
 
 void ModulePlayer::OnCollision(Collider * c1, Collider * c2)
 {
-		if (c2->type == COLLIDER_TYPE::COLLIDER_POWERUP_L)
-		{
-			if (App->ball->IsEnabled() == false)
-				App->ball->Enable(); 
 
-			if (bullet_state == BULLET_STATE::BULLET_NO_TYPE|| bullet_state == BULLET_STATE::GRENADE1 )
-				bullet_state = BULLET_STATE::LASER1;
+	
 
-			else if (bullet_state == BULLET_STATE::LASER1)
-				bullet_state = BULLET_STATE::LASER2; 
-
-			LOG("Powerup picked");
-
-
-		}
-
-		if (c2->type == COLLIDER_TYPE::COLLIDER_POWERUP_G)
-		{
-			if (App->ball->IsEnabled() == false)
-				App->ball->Enable();
-			if (bullet_state == BULLET_STATE::BULLET_NO_TYPE || bullet_state == BULLET_STATE::LASER1 || bullet_state == BULLET_STATE::LASER2)
-				bullet_state = BULLET_STATE::GRENADE1;
-
-			else if (bullet_state == BULLET_STATE::GRENADE1)
-				bullet_state = BULLET_STATE::GRENADE2;
-			
-			
-			
-
-		}
 
 		if (c2->type == COLLIDER_TYPE::COLLIDER_POWERUP_S)
 			if(speed!=3) speed = 3; 
@@ -291,7 +264,7 @@ update_status ModulePlayer::Update()
 			current_animation = &idle;
 		}
 
-		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT || SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTY) < -10000)
+		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT || SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTY) < -15000)
 		{
 			if (relativeposition.y > CHARACTER_HEIGHT + TopLimit + 4) {
 				if (App->background2->IsEnabled() == true) {
@@ -354,7 +327,7 @@ update_status ModulePlayer::Update()
 
 
 
-			if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT || SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTY) > 10000)
+			if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT || SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTY) > 15000)
 			{
 				if (relativeposition.y < SCREEN_HEIGHT - TopLimit) {
 					if (App->background2->IsEnabled() == true) {
@@ -414,7 +387,7 @@ update_status ModulePlayer::Update()
 				}
 			}
 
-			if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT || SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTX) > 10000) {
+			if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT || SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTX) > 15000) {
 				if (relativeposition.x < SCREEN_WIDTH - CHARACTER_WIDTH - SideLimit) {
 					relativeposition.x += speed;
 					position.x += speed;
@@ -423,7 +396,7 @@ update_status ModulePlayer::Update()
 					relativeposition.x = SCREEN_WIDTH - CHARACTER_WIDTH - SideLimit;
 				}
 			}
-			if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT || SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTX) < -10000) {
+			if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT || SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTX) < -15000) {
 				if (relativeposition.x > SideLimit) {
 					relativeposition.x -= speed;
 					position.x -= speed;

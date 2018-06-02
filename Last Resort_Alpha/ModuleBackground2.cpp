@@ -100,7 +100,15 @@ bool ModuleBackground2::Start()
 	hangar_2_texture = App->textures->Load("assets/sprites/Foreground_part_3.png");
 	//App->audio->PlayMus(mus);
 
-	
+	if (LifeReset == false) {
+		if (App->player->lives != 3) {
+			App->player->lives = 3;
+		}
+	if (App->player2->lives != 3) {
+		App->player2->lives = 3;
+	}
+	LifeReset = true; 
+	}
 
 
 	hangar_1 = App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);
@@ -216,6 +224,7 @@ bool ModuleBackground2::Start()
 
 
 	//App->enemies->AddEnemy(ENEMY_TYPES::BOSS, 200, 20);
+
 
 
 
@@ -427,7 +436,7 @@ update_status ModuleBackground2::Update()
 			App->audio->FadeMus(750);
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_F3] == KEY_STATE::KEY_DOWN) {
+	if (App->input->keyboard[SDL_SCANCODE_T] == KEY_STATE::KEY_DOWN) {
 		App->player->god_mode = true;
 		App->player2->god_mode = true;
 		if (App->fade->FadeToBlack(App->background2, App->loseimage, 1.5f))

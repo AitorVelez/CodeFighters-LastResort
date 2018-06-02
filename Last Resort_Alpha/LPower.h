@@ -11,8 +11,6 @@ private:
 public:
 
 	LaserPowerUp(int x, int y);
-
-	virtual void OnCollision(Collider* collider);
 };
 
 #endif // __POWERUPL_H__

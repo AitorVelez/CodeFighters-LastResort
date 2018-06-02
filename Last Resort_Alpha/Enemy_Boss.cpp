@@ -4,6 +4,10 @@
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
 #include "ModuleEnemies.h"
+#include "ModuleParticles.h"
+#include "ModuleInput.h"
+#include "SDL\include\SDL_timer.h"
+
 
 Enemy_Boss::Enemy_Boss(int x, int y, int HP) : Enemy(x, y, HP)
 {
@@ -27,6 +31,23 @@ Enemy_Boss::Enemy_Boss(int x, int y, int HP) : Enemy(x, y, HP)
 	AnimMove.speed = 0.15f;
 
 
+	FireSpot.PushBack({ 531, 813, 119, 81 });
+	FireSpot.PushBack({ 369, 812, 121, 81 });
+	FireSpot.PushBack({ 524, 709, 123, 81 });
+	FireSpot.PushBack({ 369, 709, 126, 80 });
+	FireSpot.PushBack({ 521, 604, 129, 80 });
+	FireSpot.PushBack({ 363, 603, 137, 80 });
+	FireSpot.speed = 0.1f; 
+
+	FireSpotDespawn.PushBack({ 363, 603, 137, 80 });
+	FireSpotDespawn.PushBack({ 521, 604, 129, 80 });
+	FireSpotDespawn.PushBack({ 369, 709, 126, 80 });
+	FireSpotDespawn.PushBack({ 524, 709, 123, 81 });
+	FireSpotDespawn.PushBack({ 369, 812, 121, 81 });
+	FireSpotDespawn.PushBack({ 531, 813, 119, 81 });
+	FireSpotDespawn.speed = 0.1f;
+
+	FireSpotMove.PushBack({ 38, 70, 128, 81 });
 
 	BossAnim = &AnimMove; 
 	original_y = y;
@@ -59,13 +80,43 @@ void Enemy_Boss::Move()
 	
 
 	position.x += 1; 
-
-
-	if (FireThrowerSpawned == false) {
-		if (position.x < App->player->position.x + 180) {
-			App->enemies->AddEnemy(ENEMY_TYPES::BOSSFIRE, position.x - 20, position.y + 20);
-		}
-		FireThrowerSpawned = true;
+	if (App->input->keyboard[SDL_SCANCODE_R] == KEY_DOWN) {
+		App->particles->AddParticle(App->particles->PreBossGreenShot, position.x - 10, position.y + 12, COLLIDER_ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->PreBossGreenShot3, position.x + 15, position.y + 6, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->BossGreenShot, position.x - 10, position.y + 12, COLLIDER_ENEMY_SHOT);
 	}
+
+	
+	if (FireThrowerSpawned == false) {
+		if (position.x < App->player->position.x + 180) {	
+			FireSpotSpawned = true; 
+		}
+	}
+	if (FireSpotSpawned == true) {
+		BossAnim = &FireSpot;
+		now = SDL_GetTicks();
+		if (now > last + 2100) {
+			App->enemies->AddEnemy(ENEMY_TYPES::BOSSFIRE, position.x - 20, position.y + 20);
+			FireThrowerSpawned = true;    LOG("DANGER: FIRETHROWER HAS SPAWNED ------------------------------");
+			FireSpotSpawned = false; 
+		}
+	}
+
+	now = SDL_GetTicks();
+	int delay = 500; 
+	if (FireThrowerSpawned == true) {
+		if (now < last + 5000) {
+			BossAnim = &FireSpotMove;
+		}
+		else if (now > last + 5000 && now < last + 500 + delay) {
+			App->enemies->BossFlameDespawn = true; 
+			BossAnim = &FireSpotDespawn;
+		}
+		else if (now >= last + 5000 + delay) {
+			BossAnim = &AnimMove; 
+		}
+	}
+		
+	
 
 }

@@ -17,7 +17,8 @@ GrenadePowerUp::GrenadePowerUp(int x, int y) : Powerup(x, y)
 
 
 	collider = App->collision->AddCollider({ 0, 0, 18, 21 }, COLLIDER_TYPE::COLLIDER_POWERUP_G, (Module*)App->power);
-
+	type = GRENADER_POWER;
+	color = ORANGE;
 }
 
 

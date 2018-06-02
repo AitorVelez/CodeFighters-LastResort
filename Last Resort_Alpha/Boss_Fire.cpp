@@ -4,6 +4,7 @@
 #include "ModuleRender.h"
 #include "SDL\include\SDL_timer.h"
 #include "ModulePlayer.h"
+#include "ModuleEnemies.h"
 
 BossFire::BossFire(int x, int y, int HP) : Enemy(x, y, HP)
 {
@@ -61,8 +62,9 @@ void BossFire::Move()
 	position.x += 1; 
 	int delay = 350; 
 
-	BossFireAnim = &Fire;
 
+		BossFireAnim = &Fire;
+	
 
 
 	now = SDL_GetTicks(); 
@@ -99,6 +101,8 @@ void BossFire::Move()
 		last = now; 
 	}
 
-	 
+	if (App->enemies->BossFlameDespawn == true) {
+		App->enemies->ForcedDeath(); 
+	 }
 
 }

@@ -15,6 +15,7 @@ SpeedPowerUp::SpeedPowerUp(int x, int y) : Powerup(x, y)
 
 	collider = App->collision->AddCollider({ 0, 0, 18, 21 }, COLLIDER_TYPE::COLLIDER_POWERUP_S, (Module*)App->power);
 
+	type = SPEED_POWER; 
 }
 
 void SpeedPowerUp::OnCollision(Collider *collider)
