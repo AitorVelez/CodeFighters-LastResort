@@ -23,7 +23,7 @@ ModuleUI::ModuleUI()
 	UIstable.h = SCREEN_HEIGHT;
 
 	
-	Bola1.speed = 2.0f;
+	Bola1.speed = 1.4f;
 	Bola1.loop = false;
 
 	Bola1.PushBack({ 0,0,96,8 });
@@ -163,7 +163,7 @@ ModuleUI::ModuleUI()
 	Bola2.PushBack({ 192,136,96,8 });
 
 	Bola2.PushBack({ 192,152,96,8 });
-	Bola2.speed = 2.0f;
+	Bola2.speed = 1.4f;
 	Bola2.loop = false;
 
 
