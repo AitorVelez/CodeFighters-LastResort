@@ -40,4 +40,5 @@ void Enemy_Boss::Move()
 	position.y = int(float(original_y) + (10.0f * sinf(wave)));
 	position.x -= 2;
 	*/
+	position.x += 1; 
 }
