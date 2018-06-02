@@ -33,7 +33,9 @@ enum ENEMY_TYPES
 	ROCKET,
 	GUSTAV,
 	BOSS,
-	BOSSFIRE
+	BOSSFIRE,
+	GRENADE,
+	GRENADEP2
 };
 
 class Enemy;
@@ -58,8 +60,13 @@ public:
 	update_status PostUpdate();
 	bool CleanUp();
 	void OnCollision(Collider* c1, Collider* c2);
-
+	void ForcedDeath(); 
 	bool AddEnemy(ENEMY_TYPES type, int x, int y);
+
+
+
+	bool BossFlameDespawn = false; 
+
 
 private:
 
@@ -74,6 +81,7 @@ private:
 	SDL_Texture* sprites3 = nullptr;
 	SDL_Texture* sprites4 = nullptr;
 	SDL_Texture* sprites5 = nullptr;
+	SDL_Texture* sprites6 = nullptr;
 };
 
 #endif // __ModuleEnemies_H__

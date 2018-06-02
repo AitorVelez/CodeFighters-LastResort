@@ -39,6 +39,9 @@ class ModuleParticles : public Module
 public:
 	ModuleParticles();
 	~ModuleParticles();
+	uint explosion;
+	uint finished;
+	bool TNT = true;
 
 	bool Start();
 	update_status Update();

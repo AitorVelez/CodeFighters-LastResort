@@ -5,6 +5,7 @@
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
 #include "ModuleBall.h"
+#include "ModulePlayer2.h"
 #include "SDL\include\SDL_timer.h"
 
 Powerup::Powerup(int x, int y) : position(x, y)
@@ -66,16 +67,21 @@ void Powerup::OnCollision(Collider* c1, Collider* c2)
 			switch (type)
 			{
 			case LASER_POWER:
-				if (App->player->bullet_state == BULLET_STATE::BULLET_NO_TYPE)
+				if (App->player->bullet_state == BULLET_STATE::BULLET_NO_TYPE || App->player->bullet_state == BULLET_STATE::GRENADE1)
 					App->player->bullet_state = BULLET_STATE::LASER1;
 
 				else if (App->player->bullet_state == BULLET_STATE::LASER1)
 					App->player->bullet_state = BULLET_STATE::LASER2;
 				break;
+			case GRENADER_POWER:
+				if (App->player->bullet_state == BULLET_STATE::BULLET_NO_TYPE || App->player->bullet_state == BULLET_STATE::LASER1 || App->player->bullet_state == BULLET_STATE::LASER2)
+					App->player->bullet_state = BULLET_STATE::GRENADE1;
 
 				// Case HPOWER etc
 			}
 		}
 	}
+
+	
 }
 																								//when an enemy is killed there will be shown 2 explosions

@@ -614,11 +614,29 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 		{
 		/*	if ((c2->type == COLLIDER_ENEMY || c2->type == COLLIDER_CAR) && c1->type == COLLIDER_PLAYER_SHOT) App->player->score_p1 += 100;
 			else if ((c2->type == COLLIDER_ENEMY || c2->type == COLLIDER_CAR) && c1->type == COLLIDER_PLAYER2_SHOT) App->player2->score_p2 += 100; */
+			if (c1->type == COLLIDER_PLAYER1_EXPLOSION || c1->type == COLLIDER_PLAYER2_EXPLOSION) {
+				finished = SDL_GetTicks();
+				if (TNT) {
+					explosion = SDL_GetTicks();
+					TNT = false;
+				}
+				if (explosion + 300 < finished) {
+					TNT = true;
+					delete active[i];
+					active[i] = nullptr;
+					
+				}
+
+			}
+			else {
 			LOG("HEY SOMEONE SCORED %i", App->player->score_p1);
 			AddParticle(bullet_explosion, active[i]->position.x, active[i]->position.y -3);
 			delete active[i];
 			active[i] = nullptr;
+			
 			break;
+			}
+			
 		}
 	}
 }

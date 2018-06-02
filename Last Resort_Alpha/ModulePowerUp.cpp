@@ -7,6 +7,8 @@
 #include "Powerup.h"
 #include "LPower.h"
 #include "Spower.h"
+#include "GPower.h"
+#include "HPower.h"
 
 #define SPAWN_MARGIN 50
 
@@ -134,6 +136,13 @@ void ModulePowerUp::SpawnPowerup(const PowerupInfo& info)
 
 		case POWERUP_TYPES::SPOWER:
 			powerups[i] = new SpeedPowerUp(info.x, info.y);
+			break;
+
+		case POWERUP_TYPES::GPOWER:
+			powerups[i] = new GrenadePowerUp(info.x, info.y);
+			break;
+		case POWERUP_TYPES::HPOWER:
+			powerups[i] = new HellfirePowerUp(info.x, info.y);
 			break;
 		}
 	}

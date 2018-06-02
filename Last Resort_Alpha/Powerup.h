@@ -17,8 +17,10 @@ enum TYPES {
 	NO_PTYPE,
 	LASER_POWER,
 	SPEED_POWER,
+	HELL_POWER,
+	GRENADER_POWER,
 	ZPOWER,
-	HPOWER
+
 };
 
 class Powerup

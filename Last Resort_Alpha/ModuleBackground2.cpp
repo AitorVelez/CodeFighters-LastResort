@@ -112,9 +112,10 @@ bool ModuleBackground2::Start()
 
 
 	hangar_1 = App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);
-	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 205, 100);
-	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 255, 100);
-
+	App->power->AddPowerup(POWERUP_TYPES::GPOWER, 205, 100);
+	/*App->power->AddPowerup(POWERUP_TYPES::LPOWER, 255, 100);*/
+	App->enemies->AddEnemy(ENEMY_TYPES::GRENADE, 200,30);
+	App->enemies->AddEnemy(ENEMY_TYPES::METAL_BEE, 805, 195);
 	//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 505, 25); 
 	//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 550, 205);  
 
@@ -140,7 +141,7 @@ bool ModuleBackground2::Start()
 
 	
 
-	App->enemies->AddEnemy(ENEMY_TYPES::METAL_BEE, 805, 195);
+
 	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 1505, 195);
 
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 200, TopTurretPosY);
@@ -222,8 +223,7 @@ bool ModuleBackground2::Start()
 
 
 
-	App->enemies->AddEnemy(ENEMY_TYPES::BOSS, 200, 20);
-
+	//App->enemies->AddEnemy(ENEMY_TYPES::BOSS, 200, 20);
 
 
 	

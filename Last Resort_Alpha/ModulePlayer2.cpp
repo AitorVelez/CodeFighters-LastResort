@@ -15,6 +15,7 @@
 #include "ModuleUI.h"
 #include "ModuleBackground2.h"
 #include "SDL\include\SDL_timer.h"
+#include "ModuleEnemies.h"
 
 
 #define  SideLimit 15
@@ -186,14 +187,32 @@ void ModulePlayer2::OnCollision(Collider * c1, Collider * c2)
 {
 	if (c2->type == COLLIDER_TYPE::COLLIDER_POWERUP_L)
 	{
-		if(App->ball_p2->IsEnabled() == false)
-			App->ball_p2->Enable(); 
+		if (App->ball_p2->IsEnabled() == false)
+			App->ball_p2->Enable();
 
-		if (bullet_state_2 == BULLET_STATE_2::BULLET_NO_TYPE_2)
+		if (bullet_state_2 == BULLET_STATE_2::BULLET_NO_TYPE_2 || bullet_state_2 == BULLET_STATE_2::GRENADE1_2)
 			bullet_state_2 = BULLET_STATE_2::LASER1_2;
 
 		else if (bullet_state_2 == BULLET_STATE_2::LASER1_2)
 			bullet_state_2 = BULLET_STATE_2::LASER2_2;
+
+		
+
+
+	}
+
+	if (c2->type == COLLIDER_TYPE::COLLIDER_POWERUP_G)
+	{
+		if (App->ball_p2->IsEnabled() == false)
+			App->ball_p2->Enable();
+		if (bullet_state_2 == BULLET_STATE_2::BULLET_NO_TYPE_2 || bullet_state_2 == BULLET_STATE_2::LASER1_2 || bullet_state_2 == BULLET_STATE_2::LASER2_2)
+			bullet_state_2 = BULLET_STATE_2::GRENADE1_2;
+
+		
+
+
+
+
 	}
 
 	if (c2->type == COLLIDER_TYPE::COLLIDER_POWERUP_S)
@@ -298,6 +317,12 @@ update_status ModulePlayer2::Update()
 				App->particles->AddParticle(App->particles->bullet_laser2, position.x + 28, position.y - 24, COLLIDER_PLAYER2_SHOT);
 				//App->particles->AddParticle(App->particles->bullet_laser2, position.x + 73, position.y - 24, COLLIDER_PLAYER2_SHOT);
 				last_time = current_time; 
+			}
+			if (bullet_state_2 == GRENADE1_2 && current_time > last_time + 2000) {
+				App->enemies->AddEnemy(ENEMY_TYPES::GRENADEP2, position.x + 31, position.y-8);
+				App->enemies->AddEnemy(ENEMY_TYPES::GRENADEP2, position.x + 31, position.y + 8);
+				last_time = current_time;
+
 			}
 		}
 
