@@ -203,7 +203,7 @@ bool ModuleBackground2::Start()
 	//App->enemies->AddEnemy(ENEMY_TYPES::JUMPY, 700, 100);
 	///*App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);*/
 	App->enemies->AddEnemy(ENEMY_TYPES::SPIDER_TANK, 100, 20);
-	
+	App->enemies->AddEnemy(ENEMY_TYPES::BOSS, 300, 20);
 
 	App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);
 	App->collision->AddCollider({ 2000,156,80,68 }, COLLIDER_WALL);
