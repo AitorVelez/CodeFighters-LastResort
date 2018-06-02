@@ -9,6 +9,7 @@ class Enemy_Gustav : public Enemy
 private:
 	Animation up_anim;
 	Animation body;
+	Animation head;
 
 	float vec_x;
 	float vec_y; 

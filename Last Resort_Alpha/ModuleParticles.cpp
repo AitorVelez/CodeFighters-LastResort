@@ -424,6 +424,18 @@ ModuleParticles::ModuleParticles()
 	Bubbles.life = 100;
 	Bubbles.texture = 4;
 
+	Underwater_splash.anim.PushBack({ 344,184,64,39 });
+	Underwater_splash.anim.PushBack({ 413,184,64,39 });
+	Underwater_splash.anim.PushBack({ 344,223,64,39 });
+	Underwater_splash.anim.PushBack({ 413,223,64,39 });
+	Underwater_splash.anim.PushBack({ 344,262,64,39 });
+	Underwater_splash.anim.PushBack({ 413,262,64,39 });
+	Underwater_splash.anim.PushBack({ 344,301,64,39 });
+	Underwater_splash.anim.PushBack({ 413,301,64,39 });
+	Underwater_splash.anim.loop = true;
+	Underwater_splash.anim.speed = 0.2;
+	Underwater_splash.texture = 0;
+
 	MisileSpidy.anim.PushBack({ 88,304,16,16 });
 	MisileSpidy.anim.PushBack({ 109,304,16,16 });
 	MisileSpidy.anim.PushBack({ 123,304,16,16 });

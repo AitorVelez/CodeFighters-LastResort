@@ -21,7 +21,17 @@ Enemy_Gustav::Enemy_Gustav(int x, int y, int HP) : Enemy(x, y, HP)
 	body.speed = 0.2f;
 	body.loop = true;
 
-	anim2ndLevel = &body;
+	head.PushBack({ 0,0,38,37 });
+	head.PushBack({ 38,0,38,37 });
+	head.PushBack({ 76,0,38,37 });
+	head.PushBack({ 114,0,38,37 });
+	head.PushBack({ 152,0,38,37 });
+	head.PushBack({ 190,0,38,37 });
+	head.PushBack({ 228,0,38,37 });
+	head.speed = 0.1f;
+	head.loop = false;
+
+	anim2ndLevel = &head;
 }
 
 void Enemy_Gustav::Move()
