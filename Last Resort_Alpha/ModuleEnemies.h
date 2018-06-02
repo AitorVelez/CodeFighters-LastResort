@@ -33,7 +33,9 @@ enum ENEMY_TYPES
 	ROCKET,
 	GUSTAV,
 	BOSS,
-	BOSSFIRE
+	BOSSFIRE,
+	GRENADE,
+	GRENADEP2
 };
 
 class Enemy;
@@ -74,6 +76,7 @@ private:
 	SDL_Texture* sprites3 = nullptr;
 	SDL_Texture* sprites4 = nullptr;
 	SDL_Texture* sprites5 = nullptr;
+	SDL_Texture* sprites6 = nullptr;
 };
 
 #endif // __ModuleEnemies_H__

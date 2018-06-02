@@ -148,6 +148,18 @@
     <ClCompile Include="Boss_Fire.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
+    <ClCompile Include="HPower.cpp">
+      <Filter>Modules\Enemies\PowerUps</Filter>
+    </ClCompile>
+    <ClCompile Include="GPower.cpp">
+      <Filter>Modules\Enemies\PowerUps</Filter>
+    </ClCompile>
+    <ClCompile Include="Grenade.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Grenade2.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy.h">
@@ -307,6 +319,18 @@
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="BossFire.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="HPower.h">
+      <Filter>Modules\Enemies\PowerUps</Filter>
+    </ClInclude>
+    <ClInclude Include="GPower.h">
+      <Filter>Modules\Enemies\PowerUps</Filter>
+    </ClInclude>
+    <ClInclude Include="Grenade.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Grenade2.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
   </ItemGroup>

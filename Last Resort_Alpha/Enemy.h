@@ -19,8 +19,10 @@ protected:
 	Animation* BossAnim = nullptr;
 	Animation* BossFireAnim = nullptr; 
 	Animation* BossFireThrower = nullptr;
+	Animation* Bullets = nullptr;
 	Collider* collider = nullptr;
 	uint is_a_car = 0; 
+	uint alliedgrenade;
 public:
 	uint hp = 1;
 	uint original_hp = 1;
@@ -45,6 +47,7 @@ public:
 	virtual void Draw3(SDL_Texture* sprites3);
 	virtual void Draw4(SDL_Texture* sprites4);
 	virtual void Draw5(SDL_Texture* sprites5);
+	virtual void Draw6(SDL_Texture* sprites6);
 
 	virtual void OnCollision(Collider* collider);
 	virtual void Shoot(); 

@@ -89,6 +89,14 @@ void Enemy::Draw5(SDL_Texture* sprites5)
 
 }
 
+void Enemy::Draw6(SDL_Texture* sprites6)
+{
+	if (collider != nullptr)
+		collider->SetPos(position.x, position.y);
+	if (Bullets != nullptr)
+		App->render->Blit(sprites6, position.x, position.y, &(Bullets->GetCurrentFrame()));
+}
+
 /*
 void Enemy::Draw5(SDL_Texture* sprites4)
 {
@@ -115,6 +123,23 @@ void Enemy::OnCollision(Collider* collider)
 				App->particles->AddParticle(App->particles->Yellow_Car_Explosion, position.x, position.y);
 				break; 
 			}
+		}
+		else if (alliedgrenade == 1) {
+			App->particles->AddParticle(App->particles->CommonExplosion, position.x, position.y, COLLIDER_PLAYER1_EXPLOSION, 0);
+			App->particles->AddParticle(App->particles->CommonExplosion, position.x, position.y+10, COLLIDER_PLAYER1_EXPLOSION, 100);
+			App->particles->AddParticle(App->particles->CommonExplosion, position.x, position.y-10, COLLIDER_PLAYER1_EXPLOSION, 100);
+			App->particles->AddParticle(App->particles->CommonExplosion, position.x, position.y+20, COLLIDER_PLAYER1_EXPLOSION, 200);
+			App->particles->AddParticle(App->particles->CommonExplosion, position.x, position.y-20, COLLIDER_PLAYER1_EXPLOSION, 200);
+			App->particles->CommonExplosion.fx = 8;
+
+		}
+		else if (alliedgrenade == 1) {
+			App->particles->AddParticle(App->particles->CommonExplosion, position.x, position.y, COLLIDER_PLAYER2_EXPLOSION, 0);
+			App->particles->AddParticle(App->particles->CommonExplosion, position.x, position.y + 10, COLLIDER_PLAYER2_EXPLOSION, 100);
+			App->particles->AddParticle(App->particles->CommonExplosion, position.x, position.y - 10, COLLIDER_PLAYER2_EXPLOSION, 100);
+			App->particles->AddParticle(App->particles->CommonExplosion, position.x, position.y + 20, COLLIDER_PLAYER2_EXPLOSION, 200);
+			App->particles->AddParticle(App->particles->CommonExplosion, position.x, position.y - 20, COLLIDER_PLAYER2_EXPLOSION, 200);
+			App->particles->CommonExplosion.fx = 8;
 		}
 		else {
 			int number;

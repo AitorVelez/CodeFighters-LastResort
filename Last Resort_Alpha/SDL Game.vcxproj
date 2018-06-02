@@ -94,6 +94,10 @@
     <ClInclude Include="Enemy_Tank.h" />
     <ClInclude Include="Enemy_Turret.h" />
     <ClInclude Include="Globals.h" />
+    <ClInclude Include="GPower.h" />
+    <ClInclude Include="Grenade.h" />
+    <ClInclude Include="Grenade2.h" />
+    <ClInclude Include="HPower.h" />
     <ClInclude Include="LPower.h" />
     <ClInclude Include="ModuleBackground2.h" />
     <ClInclude Include="ModuleBall.h" />
@@ -148,6 +152,10 @@
     <ClCompile Include="Enemy_Tank.cpp" />
     <ClCompile Include="Enemy_Turret.cpp" />
     <ClCompile Include="Globals.cpp" />
+    <ClCompile Include="GPower.cpp" />
+    <ClCompile Include="Grenade.cpp" />
+    <ClCompile Include="Grenade2.cpp" />
+    <ClCompile Include="HPower.cpp" />
     <ClCompile Include="LPower.cpp" />
     <ClCompile Include="ModuleBackground2.cpp" />
     <ClCompile Include="ModuleBall.cpp" />

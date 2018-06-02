@@ -26,6 +26,8 @@
 #include "Enemy_Gustav.h"
 #include "Enemy_Boss.h"
 #include "BossFire.h"
+#include "Grenade.h"
+#include "Grenade2.h"
 
 #define SPAWN_MARGIN 50
 
@@ -48,6 +50,7 @@ bool ModuleEnemies::Start()
 	sprites3 = App->textures->Load("assets/sprites/SpiderTank1.png");
 	sprites4 = App->textures->Load("assets/sprites/BOSSS.png");
 	sprites5 = App->textures->Load("assets/sprites/BOSSS.png");
+	sprites6 = App->textures->Load("assets/sprites/main_character.png");
 
 	return true;
 }
@@ -83,6 +86,7 @@ update_status ModuleEnemies::Update()
 		if (enemies[i] != nullptr) { enemies[i]->Draw3(sprites3); }
 		if (enemies[i] != nullptr) { enemies[i]->Draw4(sprites4); }
 		if (enemies[i] != nullptr) { enemies[i]->Draw5(sprites5); }
+		if (enemies[i] != nullptr) { enemies[i]->Draw6(sprites6); }
 	}
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 		if (enemies[i] != nullptr) enemies[i]->Shoot();
@@ -119,6 +123,7 @@ bool ModuleEnemies::CleanUp()
 	App->textures->Unload(sprites3);
 	App->textures->Unload(sprites4);
 	App->textures->Unload(sprites5);
+	App->textures->Unload(sprites6);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
@@ -223,6 +228,12 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::BOSSFIRE:
 			enemies[i] = new BossFire(info.x, info.y, info.HP);
 			break;
+		case ENEMY_TYPES::GRENADE:
+			enemies[i] = new Grenade(info.x, info.y, info.HP);
+			break;
+		case ENEMY_TYPES::GRENADEP2:
+			enemies[i] = new Grenade2(info.x, info.y, info.HP);
+			break;
 		}
 	}
 	
@@ -238,8 +249,8 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			enemies[i]->OnCollision(c2);
 			if (enemies[i]->hp <= 0) {			// IF HP <= 0 DELETE
 				delete enemies[i];    
-				if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_BALL) App->player->score_p1 += 100;
-				else if (c2->type == COLLIDER_PLAYER2_SHOT || c2->type == COLLIDER_BALL2) App->player2->score_p2 += 100; 
+				if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_BALL || c2->type == COLLIDER_PLAYER1_EXPLOSION) App->player->score_p1 += 100;
+				else if (c2->type == COLLIDER_PLAYER2_SHOT || c2->type == COLLIDER_BALL2 || c2->type == COLLIDER_PLAYER2_EXPLOSION) App->player2->score_p2 += 100;
 				enemies[i] = nullptr;
 			}
 			break;

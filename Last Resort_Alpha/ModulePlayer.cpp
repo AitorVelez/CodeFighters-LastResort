@@ -15,6 +15,7 @@
 #include "ModulePowerUp.h"
 #include "ModuleBackground2.h"
 #include "SDL\include\SDL_timer.h"
+#include "ModuleEnemies.h"
 
 
 #define MAX_LIVES 3 
@@ -229,11 +230,30 @@ void ModulePlayer::OnCollision(Collider * c1, Collider * c2)
 			if (App->ball->IsEnabled() == false)
 				App->ball->Enable(); 
 
-			if (bullet_state == BULLET_STATE::BULLET_NO_TYPE)
+			if (bullet_state == BULLET_STATE::BULLET_NO_TYPE|| bullet_state == BULLET_STATE::GRENADE1 )
 				bullet_state = BULLET_STATE::LASER1;
 
 			else if (bullet_state == BULLET_STATE::LASER1)
 				bullet_state = BULLET_STATE::LASER2; 
+
+			LOG("Powerup picked");
+
+
+		}
+
+		if (c2->type == COLLIDER_TYPE::COLLIDER_POWERUP_G)
+		{
+			if (App->ball->IsEnabled() == false)
+				App->ball->Enable();
+			if (bullet_state == BULLET_STATE::BULLET_NO_TYPE || bullet_state == BULLET_STATE::LASER1 || bullet_state == BULLET_STATE::LASER2)
+				bullet_state = BULLET_STATE::GRENADE1;
+
+			else if (bullet_state == BULLET_STATE::GRENADE1)
+				bullet_state = BULLET_STATE::GRENADE2;
+			
+			
+			
+
 		}
 
 		if (c2->type == COLLIDER_TYPE::COLLIDER_POWERUP_S)
@@ -417,6 +437,7 @@ update_status ModulePlayer::Update()
 			current_time = SDL_GetTicks();
 
 			if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
+				
 				App->particles->AddParticle(App->particles->bullet_propulsion, position.x + 31, position.y - 15);
 				App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->bullet_propulsion, position.x + 31, position.y - 15);
@@ -432,6 +453,12 @@ update_status ModulePlayer::Update()
 					App->particles->AddParticle(App->particles->bullet_laser2, position.x + 28, position.y - 24, COLLIDER_PLAYER_SHOT);
 					//App->particles->AddParticle(App->particles->firing_laser, position.x + 32, position.y -16);
 					last_time = current_time; 
+				}
+				if (bullet_state == GRENADE1 && current_time > last_time + 2000) {
+					App->enemies->AddEnemy(ENEMY_TYPES::GRENADE, position.x + 31, position.y-8);
+					App->enemies->AddEnemy(ENEMY_TYPES::GRENADE, position.x + 31, position.y + 8);
+					last_time = current_time;
+
 				}
 			}
 

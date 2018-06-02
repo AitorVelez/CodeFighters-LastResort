@@ -18,6 +18,8 @@ enum BULLET_STATE
 	BULLET_NO_TYPE=1,
 	LASER1,
 	LASER2,
+	GRENADE1,
+	GRENADE2,
 };
 
 class ModulePlayer : public Module
