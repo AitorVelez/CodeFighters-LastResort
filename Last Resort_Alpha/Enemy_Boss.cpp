@@ -2,7 +2,8 @@
 #include "Enemy_Boss.h"
 #include "ModuleCollision.h"
 #include "ModuleRender.h"
-
+#include "ModulePlayer.h"
+#include "ModuleEnemies.h"
 
 Enemy_Boss::Enemy_Boss(int x, int y, int HP) : Enemy(x, y, HP)
 {
@@ -59,4 +60,13 @@ void Enemy_Boss::Move()
 
 	position.x += 1; 
 
+<<<<<<< HEAD
+	if (FireThrowerSpawned == false) {
+		if (position.x < App->player->position.x + 30) {
+			App->enemies->AddEnemy(ENEMY_TYPES::BOSSFIRE, position.x - 20, position.y + 20);
+		}
+		FireThrowerSpawned = true;
+	}
+=======
+>>>>>>> f7da6811d896075f7c9327fd63347741096082f6
 }

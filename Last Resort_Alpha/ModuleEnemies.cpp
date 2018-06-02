@@ -25,6 +25,7 @@
 #include "Enemy_Rocket.h"
 #include "Enemy_Gustav.h"
 #include "Enemy_Boss.h"
+#include "BossFire.h"
 
 #define SPAWN_MARGIN 50
 
@@ -213,6 +214,9 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		
 		case ENEMY_TYPES::BOSS:
 			enemies[i] = new Enemy_Boss(info.x, info.y, info.HP);
+			break;
+		case ENEMY_TYPES::BOSSFIRE:
+			enemies[i] = new BossFire(info.x, info.y, info.HP);
 			break;
 		}
 	}
