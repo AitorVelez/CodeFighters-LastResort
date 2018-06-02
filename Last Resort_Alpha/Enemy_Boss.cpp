@@ -4,6 +4,8 @@
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
 #include "ModuleEnemies.h"
+#include "ModuleParticles.h"
+#include "ModuleInput.h"
 
 Enemy_Boss::Enemy_Boss(int x, int y, int HP) : Enemy(x, y, HP)
 {
@@ -59,11 +61,13 @@ void Enemy_Boss::Move()
 	
 
 	position.x += 1; 
-
+	if (App->input->keyboard[SDL_SCANCODE_R] == KEY_DOWN)
+	App->particles->AddParticle(App->particles->BossGreenShot, position.x - 10, position.y+12, COLLIDER_ENEMY_SHOT);
 
 	if (FireThrowerSpawned == false) {
 		if (position.x < App->player->position.x + 180) {
-			App->enemies->AddEnemy(ENEMY_TYPES::BOSSFIRE, position.x - 20, position.y + 20);
+			App->enemies->AddEnemy(ENEMY_TYPES::BOSSFIRE, position.x -20, position.y +20);
+			
 		}
 		FireThrowerSpawned = true;
 	}

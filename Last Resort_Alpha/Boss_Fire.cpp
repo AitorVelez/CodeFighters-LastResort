@@ -61,8 +61,9 @@ void BossFire::Move()
 	position.x += 1; 
 	int delay = 350; 
 
-	BossFireAnim = &Fire;
 
+		BossFireAnim = &Fire;
+	
 
 
 	now = SDL_GetTicks(); 

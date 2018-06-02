@@ -78,6 +78,7 @@ public:
 	Particle BigTankShot; 
 	Particle SmallTankShot; 
 	Particle TurretShot;
+	Particle BossGreenShot; 
 
 	Particle Red_Car_Explosion;
 	Particle Blue_Car_Explosion;
