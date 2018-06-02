@@ -16,7 +16,9 @@ Enemy_Gustav::Enemy_Gustav(int x, int y, int HP) : Enemy(x, y, HP)
 	body.PushBack({ 18,111,18,18 });
 	body.PushBack({ 36,111,18,18 });
 	body.PushBack({ 54,111,18,18 });
-	body.speed = 0.1f;
+	body.PushBack({ 72,111,18,18 });
+	body.PushBack({ 90,111,18,18 });
+	body.speed = 0.2f;
 	body.loop = true;
 
 	anim2ndLevel = &body;
