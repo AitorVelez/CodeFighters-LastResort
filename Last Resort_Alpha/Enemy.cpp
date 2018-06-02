@@ -6,6 +6,7 @@
 #include "ModuleParticles.h"
 #include "ModuleRender.h"
 #include "ModuleRender.h"
+#include "ModulePlayer.h"
 
 Enemy::Enemy(float x, float y, int HP) : position(x, y)
 {}
@@ -81,9 +82,11 @@ void Enemy::Draw5(SDL_Texture* sprites5)
 	}
 
 	if (BossFireAnim != nullptr) {
-		App->render->Blit(sprites5, FireFakePos.x, FireFakePos.y, &(BossFireAnim->GetCurrentFrame()));
-		FireFakePos.x += 0.5f; 
+		App->render->Blit(sprites5, position.x -20, position.y +20, &(BossFireAnim->GetCurrentFrame()));
+		//FireFakePos.x += 0.5f; 
 			}
+	
+
 }
 
 /*

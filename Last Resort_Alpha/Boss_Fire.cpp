@@ -3,9 +3,11 @@
 #include "ModuleCollision.h"
 #include "ModuleRender.h"
 #include "SDL\include\SDL_timer.h"
+#include "ModulePlayer.h"
 
 BossFire::BossFire(int x, int y, int HP) : Enemy(x, y, HP)
 {
+
 
 	FlameThrowerDistance.x = -20; 
 	FlameThrowerDistance.y = 20;
@@ -43,7 +45,7 @@ BossFire::BossFire(int x, int y, int HP) : Enemy(x, y, HP)
 	Fire.PushBack({ 246,730,64,58 });
 	Fire.PushBack({ 40,815,63,58 });
 	Fire.PushBack({ 106,820,64,48 });
-    
+	Fire.speed = 0.4f; 
 
 
 
@@ -60,6 +62,7 @@ void BossFire::Move()
 	int delay = 350; 
 
 	BossFireAnim = &Fire;
+
 
 
 	now = SDL_GetTicks(); 
