@@ -271,7 +271,7 @@ update_status ModulePlayer::Update()
 			current_animation = &idle;
 		}
 
-		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT || SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTY) < -10000)
+		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT || SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTY) < -15000)
 		{
 			if (relativeposition.y > CHARACTER_HEIGHT + TopLimit + 4) {
 				if (App->background2->IsEnabled() == true) {
@@ -334,7 +334,7 @@ update_status ModulePlayer::Update()
 
 
 
-			if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT || SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTY) > 10000)
+			if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT || SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTY) > 15000)
 			{
 				if (relativeposition.y < SCREEN_HEIGHT - TopLimit) {
 					if (App->background2->IsEnabled() == true) {
@@ -394,7 +394,7 @@ update_status ModulePlayer::Update()
 				}
 			}
 
-			if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT || SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTX) > 10000) {
+			if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT || SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTX) > 15000) {
 				if (relativeposition.x < SCREEN_WIDTH - CHARACTER_WIDTH - SideLimit) {
 					relativeposition.x += speed;
 					position.x += speed;
@@ -403,7 +403,7 @@ update_status ModulePlayer::Update()
 					relativeposition.x = SCREEN_WIDTH - CHARACTER_WIDTH - SideLimit;
 				}
 			}
-			if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT || SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTX) < -10000) {
+			if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT || SDL_GameControllerGetAxis(App->input->controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTX) < -15000) {
 				if (relativeposition.x > SideLimit) {
 					relativeposition.x -= speed;
 					position.x -= speed;
