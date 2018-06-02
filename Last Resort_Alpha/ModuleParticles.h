@@ -83,7 +83,7 @@ public:
 	Particle Blue_Car_Explosion;
 	Particle Yellow_Car_Explosion;
 
-
+	Particle Fire; 
 
 	SDL_Texture* textures[MAX_PART_TEXTURES];
 	Mix_Chunk* chunks[MAX_PART_CHUNKS];
