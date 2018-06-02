@@ -81,7 +81,7 @@ update_status ModuleInput::PreUpdate()
 
 	if (SDL_GameControllerGetButton(controller, SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_A) == 1)
 	{
-		App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN;
+		App->input->keyboard[SDL_SCANCODE_SPACE] = KEY_DOWN;
 	}
 
 	if (keyboard[SDL_SCANCODE_ESCAPE])
