@@ -8,6 +8,7 @@ class Enemy_Gustav : public Enemy
 {
 private:
 	Animation up_anim;
+	Animation body;
 
 	float vec_x;
 	float vec_y; 

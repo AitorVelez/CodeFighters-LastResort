@@ -497,5 +497,8 @@ update_status ModuleBackground2::Update()
 	if (App->input->keyboard[SDL_SCANCODE_X] == KEY_DOWN)
 		App->power->AddPowerup(POWERUP_TYPES::LPOWER, App->render->camera.x + 300, 100);
 
+	if (App->input->keyboard[SDL_SCANCODE_P] == KEY_DOWN)
+		App->enemies->AddEnemy(ENEMY_TYPES::GUSTAV, App->render->camera.x + 300, 100);
+
 	return UPDATE_CONTINUE;
 }
