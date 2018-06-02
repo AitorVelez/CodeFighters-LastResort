@@ -104,7 +104,8 @@ bool ModuleBackground2::Start()
 
 
 	hangar_1 = App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);
-
+	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 205, 100);
+	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 255, 100);
 
 	//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 505, 25); 
 	//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 550, 205);  
@@ -129,8 +130,7 @@ bool ModuleBackground2::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 635, 195);
 	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 655, 195);
 
-	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 205, 100);
-	App->power->AddPowerup(POWERUP_TYPES::LPOWER, 255, 100);
+	
 
 	App->enemies->AddEnemy(ENEMY_TYPES::METAL_BEE, 805, 195);
 	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 1505, 195);
@@ -424,7 +424,7 @@ update_status ModuleBackground2::Update()
 		if (App->fade->FadeToBlack(App->background2, App->loseimage, 1.5f))
 			App->audio->FadeMus(750);
 	}
-	if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN) {
+	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_STATE::KEY_DOWN) {
 		App->player2->Enable();
 		App->player2->TwoPlayers = true;
 	}

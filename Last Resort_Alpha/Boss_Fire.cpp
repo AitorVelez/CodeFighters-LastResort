@@ -54,7 +54,7 @@ BossFire::BossFire(int x, int y, int HP) : Enemy(x, y, HP)
 	BossFireThrower = &middle; 
 	
 	original_y = y;
-	collider = App->collision->AddCollider({ 0, 0, 128, 80 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 44, 22 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 }
 

@@ -85,7 +85,7 @@ public:
 	bool FollowingBg = false; 
 	SDL_Texture* blue_ball_texture = nullptr;
 	SDL_Texture* orange_ball_texture = nullptr; 
-
+	SDL_Texture* Pball = nullptr;
 };
 
 

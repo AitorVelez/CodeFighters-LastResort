@@ -44,10 +44,10 @@ Application::Application()
 	modules[14] = collision = new ModuleCollision();
 	modules[15] = fade = new ModuleFadeToBlack();
 	modules[16] = player = new ModulePlayer();
-	modules[17] = power = new ModulePowerUp();		
+	modules[20] = power = new ModulePowerUp();		
 	modules[18] = ball = new ModuleBall();
 	modules[19] = ball_p2 = new ModuleBall_P2();
-	modules[20] = UI = new ModuleUI();
+	modules[17] = UI = new ModuleUI();
 	modules[21] = Fonts = new ModuleFonts();
 	modules[22] = Ready = new ModuleReady();
 

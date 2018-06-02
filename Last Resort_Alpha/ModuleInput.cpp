@@ -57,20 +57,7 @@ update_status ModuleInput::PreUpdate()
 		}
 	}
 	
-	if (SDL_GameControllerGetButton(controller, SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_A) == 1)
-	{
-		if (button_A == KEY_IDLE)
-			button_A == KEY_DOWN;
-		else
-			button_A == KEY_REPEAT;
-	}
-	else 
-	{
-		if (button_A == KEY_REPEAT || button_A == KEY_DOWN)
-			button_A == KEY_UP; 
-		
-		else (button_A == KEY_IDLE);
-	}
+	
 
 	const Uint8* keys = SDL_GetKeyboardState(NULL);
 
@@ -90,6 +77,11 @@ update_status ModuleInput::PreUpdate()
 			else
 				keyboard[i] = KEY_IDLE;
 		}
+	}
+
+	if (SDL_GameControllerGetButton(controller, SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_A) == 1)
+	{
+		App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN;
 	}
 
 	if (keyboard[SDL_SCANCODE_ESCAPE])

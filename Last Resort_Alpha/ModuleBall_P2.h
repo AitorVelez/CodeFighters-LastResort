@@ -65,6 +65,7 @@ public:
 	int angle = 0;
 	int angle_speed = 10;
 
+
 	float angle_aiming = 0;
 	float angle_aiming_speed = 11.25;
 
@@ -74,6 +75,7 @@ public:
 	iPoint center_player;
 	SDL_Texture* blue_ball_texture = nullptr;
 	SDL_Texture* orange_ball_texture = nullptr; 
+	SDL_Texture* Pball = nullptr;
 };
 
 

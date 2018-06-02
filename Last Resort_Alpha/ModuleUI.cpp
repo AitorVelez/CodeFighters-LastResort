@@ -26,8 +26,143 @@ ModuleUI::ModuleUI()
 	Bola1.speed = 2.0f;
 	Bola1.loop = false;
 
+	Bola1.PushBack({ 0,0,96,8 });
+	
+	Bola1.PushBack({ 0,24,96,8 });
+	
+	Bola1.PushBack({ 0,40,96,8 });
+	
+	Bola1.PushBack({ 0,56,96,8 });
+	
+	Bola1.PushBack({ 0,72,96,8 });
+	
+
+	
+	Bola1.PushBack({ 0,104,96,8 });
+
+	Bola1.PushBack({ 0,120,96,8 });
+
+	Bola1.PushBack({ 0,136,96,8 });
+
+	Bola1.PushBack({ 0,152,96,8 });
+
+	Bola1.PushBack({ 0,168,96,8 });
 
 
+	Bola1.PushBack({ 96,0,96,8 });
+
+	Bola1.PushBack({ 96,24,96,8 });
+	
+	Bola1.PushBack({ 96,40,96,8 });
+	
+	Bola1.PushBack({ 96,56,96,8 });
+
+	Bola1.PushBack({ 96,72,96,8 });
+	
+
+
+	Bola1.PushBack({ 96,104,96,8 });
+
+	Bola1.PushBack({ 96,120,96,8 });
+
+	Bola1.PushBack({ 96,136,96,8 });
+
+	Bola1.PushBack({ 96,152,96,8 });
+	
+	Bola1.PushBack({ 96,168,96,8 });
+
+
+
+	Bola1.PushBack({ 192,0,96,8 });
+	
+	Bola1.PushBack({ 192,24,96,8 });
+	
+	Bola1.PushBack({ 192,40,96,8 });
+	
+	Bola1.PushBack({ 192,56,96,8 });
+	
+	Bola1.PushBack({ 192,72,96,8 });
+	
+
+	
+	Bola1.PushBack({ 192,104,96,8 });
+	
+	Bola1.PushBack({ 192,120,96,8 });
+
+	Bola1.PushBack({ 192,136,96,8 });
+
+	Bola1.PushBack({ 192,152,96,8 });
+
+	Punit1.PushBack({ 0,0,96,8 });
+
+	/*Bola1.PushBack({ 192,168,96,8 });
+	Bola1.PushBack({ 192,176,96,8 });*/
+	Bola2.PushBack({ 0,0,96,8 });
+
+	Bola2.PushBack({ 0,24,96,8 });
+
+	Bola2.PushBack({ 0,40,96,8 });
+
+	Bola2.PushBack({ 0,56,96,8 });
+
+	Bola2.PushBack({ 0,72,96,8 });
+
+
+
+	Bola2.PushBack({ 0,104,96,8 });
+
+	Bola2.PushBack({ 0,120,96,8 });
+
+	Bola2.PushBack({ 0,136,96,8 });
+
+	Bola2.PushBack({ 0,152,96,8 });
+
+	Bola2.PushBack({ 0,168,96,8 });
+
+
+	Bola2.PushBack({ 96,0,96,8 });
+
+	Bola2.PushBack({ 96,24,96,8 });
+
+	Bola2.PushBack({ 96,40,96,8 });
+
+	Bola2.PushBack({ 96,56,96,8 });
+
+	Bola2.PushBack({ 96,72,96,8 });
+
+
+
+	Bola2.PushBack({ 96,104,96,8 });
+
+	Bola2.PushBack({ 96,120,96,8 });
+
+	Bola2.PushBack({ 96,136,96,8 });
+
+	Bola2.PushBack({ 96,152,96,8 });
+
+	Bola2.PushBack({ 96,168,96,8 });
+
+
+
+	Bola2.PushBack({ 192,0,96,8 });
+
+	Bola2.PushBack({ 192,24,96,8 });
+
+	Bola2.PushBack({ 192,40,96,8 });
+
+	Bola2.PushBack({ 192,56,96,8 });
+
+	Bola2.PushBack({ 192,72,96,8 });
+
+
+
+	Bola2.PushBack({ 192,104,96,8 });
+
+	Bola2.PushBack({ 192,120,96,8 });
+
+	Bola2.PushBack({ 192,136,96,8 });
+
+	Bola2.PushBack({ 192,152,96,8 });
 	Bola2.speed = 2.0f;
 	Bola2.loop = false;
 
@@ -36,7 +171,7 @@ ModuleUI::ModuleUI()
 	Player2.PushBack({ 90,90,95,15 });
 	Player2.speed = 0.02;
 
-	Punit2.PushBack({ 0,17,96,8 });
+	Punit2.PushBack({ 0,0,96,8 });
 	Punit2.speed = 0;
 
 	Pl2.PushBack({ 0,0,40,16 });
@@ -98,14 +233,10 @@ update_status ModuleUI::Update()
 
 	if (ready == true || stgclr == true) {
 		App->render->Blit(UIS, 0, 0, &UIstable, 0, false);
+		App->render->Blit(Pball, 30, 208, &Punit1.GetCurrentFrame(), 0, false);
 		App->Fonts->BlitText(280, 216, 0, coins);
 		App->Fonts->BlitText(50, 24, 0, livesp1);
-		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_REPEAT)
-			App->render->Blit(Pball, 30, 70, &Bola1.GetCurrentFrame(), 0, false);
-		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_UP)
-			Bola1.Reset();
 		
-			
 	}
 	if (ready)
 		App->Fonts->BlitText(45, 15, 0, score);
@@ -116,9 +247,7 @@ update_status ModuleUI::Update()
 	if ((ready == true && App->background->activ == true) || (stgclr == true && pl2 == true)) {
 		App->render->Blit(P22, 260, 15, &Pl2.GetCurrentFrame(), 0, false);
 		App->Fonts->BlitText(268, 23, 0, livesp2);
-		if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_REPEAT)
-		
-		App->render->Blit(P22, 200, 208, &Punit2.GetCurrentFrame(), 0, false);
+		App->render->Blit(Pball, 200, 208, &Punit2.GetCurrentFrame(), 0, false);
 
 	}
 	if (ready == true && App->background->activ == true)

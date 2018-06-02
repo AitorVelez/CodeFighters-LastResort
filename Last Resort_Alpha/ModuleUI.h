@@ -28,6 +28,7 @@ public:
 	Animation Bola1;
 	Animation Bola2;
 	Animation Punit2;
+	Animation Punit1;
 	int font_score = -1;
 	char score_text[10];
 	SDL_Texture * Pball = nullptr;
