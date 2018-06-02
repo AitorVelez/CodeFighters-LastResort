@@ -2,6 +2,7 @@
 #include "Application.h"
 #include "ModulePlayer.h"
 #include "ModuleBackground2.h"
+#include "ModuleCollision.h"
 
 Enemy_Hunter_ZigZag::Enemy_Hunter_ZigZag(int x, int y, int HP) : Enemy (x,y,HP)
 {
@@ -11,11 +12,11 @@ Enemy_Hunter_ZigZag::Enemy_Hunter_ZigZag(int x, int y, int HP) : Enemy (x,y,HP)
 	up_anim.speed = 0.5f;
 	up_anim.loop = true; 
 
-	down_anim.PushBack({ 392, 510, 40, 23 });
+	/*down_anim.PushBack({ 392, 510, 40, 23 });
 	down_anim.PushBack({ 443, 511, 40, 22 });
 	down_anim.PushBack({ 490, 511, 40, 24 });
 	down_anim.speed = 0.5f;
-	down_anim.loop = true; 
+	down_anim.loop = true; */
 
 	forward.PushBack({ 287, 539, 50, 23 });
 	forward.PushBack({ 345, 540, 45, 22 });
@@ -27,35 +28,39 @@ Enemy_Hunter_ZigZag::Enemy_Hunter_ZigZag(int x, int y, int HP) : Enemy (x,y,HP)
 	up.PushBack({ -0.2f, -0.2f }, 20, &up_anim);
 	up.loop = true; 
 
-	down.PushBack({ 0.2f, -0.2f }, 20, &down_anim);
-	down.PushBack({ -0.2f, -0.2f }, 20, &down_anim);
-	down.loop = true;
+	//down.PushBack({ 0.2f, -0.2f }, 20, &down_anim);
+	//down.PushBack({ -0.2f, -0.2f }, 20, &down_anim);
+	//down.loop = true;
 
 	original_position.x = x; 
 	original_position.y = y; 
 
 
-	anim2ndLevel = &up_anim;
-	if (App->player->position.y > position.y) player_lower = true;
-	else player_higher = true;
+	anim2ndLevel = &up_anim;	
+	collider = App->collision->AddCollider({ 0,0, 40, 22 }, COLLIDER_ENEMY, (Module*)App->enemies);
 }
 
 void Enemy_Hunter_ZigZag::Move()
 {
 
-	if (player_higher)
+	if (PlayerHigher() && !attacking)
 	{
-		
 		position = original_position + up.GetCurrentPosition();
-
-		if (position.y < App->player->position.y)
-			position.x += 3; 
 	}
 
-	if (player_lower)
-	{
-		position = original_position + down.GetCurrentPosition();
+	else {
+		Attack();
+		attacking = true; 
 	}
 }
   
+bool Enemy_Hunter_ZigZag::PlayerHigher()
+{
+	return App->player->position.y < position.y + 20;
+}
+
+void Enemy_Hunter_ZigZag::Attack()
+{
+	position.x -= 3; 
+}
 
