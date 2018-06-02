@@ -62,12 +62,13 @@ void Enemy::Draw4(SDL_Texture* sprites4)
 {
 	if (collider != nullptr)
 		collider->SetPos(position.x, position.y);
-	if (BossAnim != nullptr)
-		App->render->Blit(sprites4, position.x, position.y, &(BossAnim->GetCurrentFrame()));
 	if (BossFire != nullptr)
 		App->render->Blit(sprites4, position.x, position.y, &(BossFire->GetCurrentFrame()));
 	if (BossFireThrower != nullptr)
 		App->render->Blit(sprites4, position.x, position.y, &(BossFireThrower->GetCurrentFrame()));
+
+	if (BossAnim != nullptr)
+		App->render->Blit(sprites4, position.x, position.y, &(BossAnim->GetCurrentFrame()));
 }
 
 /*

@@ -2,7 +2,7 @@
 #include "BossFire.h"
 #include "ModuleCollision.h"
 #include "ModuleRender.h"
-
+#include "SDL\include\SDL_timer.h"
 
 BossFire::BossFire(int x, int y, int HP) : Enemy(x, y, HP)
 {
@@ -27,7 +27,39 @@ BossFire::BossFire(int x, int y, int HP) : Enemy(x, y, HP)
 void BossFire::Move()
 {
 	position.x += 1; 
+	int delay = 350; 
+	now = SDL_GetTicks(); 
+	if (now <= last + delay) {
+		BossFireThrower = &middle;
+	}
+	else if (now > last + delay && now <= last + delay * 2) {
+		BossFireThrower = &up;
+	}
+		
+	else if (now > last + delay * 2 && now <= last + delay * 3) {
+			BossFireThrower = &Moreup;
+		}
 
+	else if (now > last + delay * 3 && now <= last + delay * 4) {
+		BossFireThrower = &up;
+	}
+	else if (now > last + delay * 4 && now <= last + delay * 5) {
+		BossFireThrower = &middle;
+	}
+	else if (now > last + delay * 5 && now <= last + delay * 6) {
+		BossFireThrower = &Down;
+	}
+	else if (now > last + delay * 6 && now <= last + delay * 7) {
+		BossFireThrower = &MoreDown;
+	}
+	else if (now > last + delay * 7 && now <= last + delay * 8) {
+		BossFireThrower = &Down;
+	}
+	else if (now > last + delay * 8 && now <= last + delay * 9) {
+		BossFireThrower = &middle;
+		last = now; 
+	}
 
+	 
 
 }

@@ -206,7 +206,7 @@ bool ModuleBackground2::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::SPIDER_TANK, 600, 20);
 
 
-	App->enemies->AddEnemy(ENEMY_TYPES::BOSS, 500, 20);
+	App->enemies->AddEnemy(ENEMY_TYPES::BOSS, 200, 20);
 
 
 
