@@ -18,36 +18,32 @@ BossFire::BossFire(int x, int y, int HP) : Enemy(x, y, HP)
 	MoreDown.PushBack({ 510,530,40,22 });
 
 
-	Fire.PushBack({ 0,0,0,0 });
-	Fire.PushBack({ 0,0,0,0 });
-	Fire.PushBack({ 0,0,0,0 });
-	Fire.PushBack({ 0,0,0,0 });
-	Fire.PushBack({ 0,0,0,0 });
-	Fire.PushBack({ 0,0,0,0 });
-	Fire.PushBack({ 0,0,0,0 });
-	Fire.PushBack({ 0,0,0,0 });
-	Fire.PushBack({ 0,0,0,0 });
-	Fire.PushBack({ 0,0,0,0 });
-	Fire.PushBack({ 0,0,0,0 });
-	Fire.PushBack({ 0,0,0,0 });
-    Fire.PushBack({ 0,0,0,0 });
-	Fire.PushBack({ 0,0,0,0 });
-	Fire.PushBack({ 0,0,0,0 });
-	Fire.PushBack({ 0,0,0,0 });
-	Fire.PushBack({ 0,0,0,0 });
-	Fire.PushBack({ 0,0,0,0 });
-	Fire.PushBack({ 0,0,0,0 });
-	Fire.PushBack({ 0,0,0,0 });
-	Fire.PushBack({ 0,0,0,0 });
-	Fire.PushBack({ 0,0,0,0 });
-	Fire.PushBack({ 0,0,0,0 });
-	Fire.PushBack({ 0,0,0,0 });
-	Fire.PushBack({ 0,0,0,0 });
-	Fire.PushBack({ 0,0,0,0 });
-	Fire.PushBack({ 0,0,0,0 });
-	Fire.PushBack({ 0,0,0,0 });
-	Fire.PushBack({ 0,0,0,0 });
-	Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 48,490,7,5 });
+	Fire.PushBack({ 61,487,11,9 });
+	Fire.PushBack({ 77,483,15,13 });
+	Fire.PushBack({ 99,481,19,17 });
+	Fire.PushBack({ 124,478,26,24 });
+	Fire.PushBack({ 152,471,35,30 });
+	Fire.PushBack({ 191,468,37,34 });
+	Fire.PushBack({ 233,464,40,39 });
+	Fire.PushBack({ 47,525,46,42 });
+	Fire.PushBack({ 96,520,54,49 });
+	Fire.PushBack({ 153,515,58,53 });
+	Fire.PushBack({ 214,511,60,58 });
+    Fire.PushBack({ 44,583,62,62 });
+	Fire.PushBack({ 107,583,59,57 });
+	Fire.PushBack({ 167,584,60,58 });
+	Fire.PushBack({ 227,584,62,58 });
+	Fire.PushBack({ 43,654,60,58 });
+	Fire.PushBack({ 110,657,64,61 });
+	Fire.PushBack({ 177,657,62,58 });
+	Fire.PushBack({ 35,730,62,58 });
+	Fire.PushBack({ 103,731,64,57 });
+	Fire.PushBack({ 174,733,60,58 });
+	Fire.PushBack({ 246,730,64,58 });
+	Fire.PushBack({ 40,815,63,58 });
+	Fire.PushBack({ 106,820,64,48 });
+    
 
 
 
