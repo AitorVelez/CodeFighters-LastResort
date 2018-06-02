@@ -23,6 +23,10 @@ protected:
 	uint is_a_car = 0; 
 public:
 	uint hp = 1;
+
+	char* Sticker = nullptr; 
+
+
 	uint original_hp = 1;
 	fPoint position; 
 	iPoint Anim2Distance;

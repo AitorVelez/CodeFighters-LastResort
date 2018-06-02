@@ -64,7 +64,7 @@ public:
 
 
 	bool BossFlameDespawn = false; 
-	bool IsAlive = false; 
+
 
 private:
 
