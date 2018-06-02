@@ -416,7 +416,7 @@ update_status ModulePlayer::Update()
 
 			current_time = SDL_GetTicks();
 
-			if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
+			if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || SDL_GameControllerGetButton(App->input->controller,SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_A) == 1) {
 				App->particles->AddParticle(App->particles->bullet_propulsion, position.x + 31, position.y - 15);
 				App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->bullet_propulsion, position.x + 31, position.y - 15);
