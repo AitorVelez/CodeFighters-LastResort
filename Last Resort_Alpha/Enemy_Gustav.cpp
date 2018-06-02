@@ -9,15 +9,14 @@ Enemy_Gustav::Enemy_Gustav(int x, int y, int HP) : Enemy(x, y, HP)
 	body.PushBack({ 18,93,18,18 });
 	body.PushBack({ 36,93,18,18 });
 	body.PushBack({ 54,93,18,18 });
-	body.PushBack({ 62,93,18,18 });
-	body.PushBack({ 80,93,18,18 });
-	body.PushBack({ 98,93,18,18 });
+	body.PushBack({ 72,93,18,18 });
+	body.PushBack({ 90,93,18,18 });
+	body.PushBack({ 108,93,18,18 });
 	body.PushBack({ 0,111,18,18 });
 	body.PushBack({ 18,111,18,18 });
 	body.PushBack({ 36,111,18,18 });
 	body.PushBack({ 54,111,18,18 });
-	body.PushBack({ 62,111,18,18 });
-	body.speed = 0.4f;
+	body.speed = 0.1f;
 	body.loop = true;
 
 	anim2ndLevel = &body;
