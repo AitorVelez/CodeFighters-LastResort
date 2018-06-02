@@ -32,7 +32,8 @@ enum ENEMY_TYPES
 	SPIDER_TANK,
 	ROCKET,
 	GUSTAV,
-	BOSS
+	BOSS,
+	BOSSFIRE,
 };
 
 class Enemy;

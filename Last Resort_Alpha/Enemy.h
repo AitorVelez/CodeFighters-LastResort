@@ -18,6 +18,7 @@ protected:
 	Animation* SpiderTank = nullptr; 
 	Animation* BossAnim = nullptr;
 	Animation* BossFire = nullptr; 
+	Animation* BossFireThrower = nullptr;
 	Collider* collider = nullptr;
 	uint is_a_car = 0; 
 public:
@@ -28,6 +29,9 @@ public:
 	iPoint Anim3Distance;
 	iPoint Anim4Distance;
 	iPoint Anim5Distance;
+
+
+	fPoint FlameThrowerDistance; 
 public:
 	Enemy(float x, float y, int HP);
 	virtual ~Enemy();
