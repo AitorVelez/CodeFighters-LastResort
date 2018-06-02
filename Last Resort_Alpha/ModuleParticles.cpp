@@ -461,6 +461,32 @@ ModuleParticles::ModuleParticles()
 	BossGreenShot.anim.loop = true;
 	BossGreenShot.life = 2000;
 	BossGreenShot.speed.x = -2; 
+
+
+	PreBossGreenShot2.anim.PushBack({ 282, 377, 30, 30 });
+	PreBossGreenShot2.anim.PushBack({ 238, 375, 30, 30 });
+	PreBossGreenShot2.anim.speed = 0.2f;
+	PreBossGreenShot2.anim.loop = false;
+	PreBossGreenShot2.texture = 5;
+	PreBossGreenShot2.speed.x = 1;
+
+	PreBossGreenShot3.anim.PushBack({ 312, 357, 13, 13 });
+	PreBossGreenShot3.anim.PushBack({ 332, 357, 15, 15 });
+	PreBossGreenShot3.anim.speed = 0.2f;
+	PreBossGreenShot3.anim.loop = false;
+	PreBossGreenShot3.texture = 5;
+	PreBossGreenShot3.speed.x = 1;
+
+
+	PreBossGreenShot.anim.PushBack({ 210, 380, 16, 16 });
+	PreBossGreenShot.anim.PushBack({ 96, 386, 31, 7 });
+	PreBossGreenShot.anim.PushBack({ 54, 388, 31, 5 });
+	PreBossGreenShot.anim.PushBack({ 12, 390, 33, 3 });
+	PreBossGreenShot.anim.speed = 0.2f;
+	PreBossGreenShot.anim.loop = false;
+	PreBossGreenShot.texture = 5;
+	PreBossGreenShot.speed.x = 1;
+
 }
 
 ModuleParticles::~ModuleParticles()

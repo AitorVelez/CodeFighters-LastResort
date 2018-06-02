@@ -65,7 +65,9 @@ update_status ModuleStageClear::Update()
 	App->render->Blit(TexStageImage, 0, 0, &StageImage);
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
-			if (App->fade->FadeToBlack(App->stageclear, App->background2, 1.5f))
+		if (App->fade->FadeToBlack(App->stageclear, App->background2, 1.5f))
+			App->player->lives = 3; 
+		    App->player2->lives = 3;
 				App->audio->FadeMus(750);
 	}
 
