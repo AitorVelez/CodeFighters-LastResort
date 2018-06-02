@@ -24,7 +24,7 @@ Enemy_Gustav::Enemy_Gustav(int x, int y, int HP) : Enemy(x, y, HP)
 
 void Enemy_Gustav::Move()
 {
-	speed = 4; 
+	speed = 1.1f; 
 
 	vec_x = App->player->position.x - position.x; 
 	vec_y = App->player->position.y - position.y; 

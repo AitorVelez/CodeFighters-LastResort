@@ -73,7 +73,7 @@ public:
 	float angle_aiming = 0;
 	float angle_aiming_speed = 11.25;
 
-	BALL_TYPE ball_type = ORANGE_BALL; 
+	BALL_TYPE ball_type = BLUE_BALL; 
 
 	uint charge = 0;
 	iPoint ball_position;

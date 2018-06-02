@@ -238,6 +238,12 @@ void ModuleBall::OnCollision(Collider* c1, Collider* c2) {
 	else {
 		FollowingBg = false; 
 	}*/
+
+	if (ball_type == BALL_TYPE::BLUE_BALL) {
+		if (c2->type == COLLIDER_WALL || c2->type == COLLIDER_ENEMY) {
+			go_back = true;
+		}
+	}
 }
 
 

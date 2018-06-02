@@ -22,7 +22,35 @@ ModuleParticles::ModuleParticles()
 
 	for (uint i = 0; i < MAX_PART_TEXTURES; ++i)
 		textures[i] = nullptr;
-	
+
+	Fire.anim.PushBack({ 48,490,7,5 });
+	Fire.anim.PushBack({ 61,487,11,9 });
+	Fire.anim.PushBack({ 77,483,15,13 });
+	Fire.anim.PushBack({ 99,481,19,17 });
+	Fire.anim.PushBack({ 124,478,26,24 });
+	Fire.anim.PushBack({ 152,471,35,30 });
+	Fire.anim.PushBack({ 191,468,37,34 });
+	Fire.anim.PushBack({ 233,464,40,39 });
+	Fire.anim.PushBack({ 47,525,46,42 });
+	Fire.anim.PushBack({ 96,520,54,49 });
+	Fire.anim.PushBack({ 153,515,58,53 });
+	Fire.anim.PushBack({ 214,511,60,58 });
+	Fire.anim.PushBack({ 44,583,62,62 });
+	Fire.anim.PushBack({ 107,583,59,57 });
+	Fire.anim.PushBack({ 167,584,60,58 });
+	Fire.anim.PushBack({ 227,584,62,58 });
+	Fire.anim.PushBack({ 43,654,60,58 });
+	Fire.anim.PushBack({ 110,657,64,61 });
+	Fire.anim.PushBack({ 177,657,62,58 });
+	Fire.anim.PushBack({ 35,730,62,58 });
+	Fire.anim.PushBack({ 103,731,64,57 });
+	Fire.anim.PushBack({ 174,733,60,58 });
+	Fire.anim.PushBack({ 246,730,64,58 });
+	Fire.anim.PushBack({ 40,815,63,58 });
+	Fire.anim.PushBack({ 106,820,64,48 });
+	Fire.speed.x = 0.4f;
+	Fire.anim.loop = false;
+	Fire.texture = 6; 
 
 	Releasing_Ball.anim.PushBack({ 241,244,30,30 });
 	Releasing_Ball.anim.PushBack({ 271,244,30,30 });
@@ -433,6 +461,7 @@ bool ModuleParticles::Start()
 	textures[3] = App->textures->Load("assets/sprites/blue_ball_axis.png");
 	textures[4] = App->textures->Load("Ship_Underwater_Perticles.png");
 	textures[5] = App->textures->Load("assets/sprites/Particles.png");
+	textures[6] = App->textures->Load("assets/sprites/BOSSS.png");
 
 
 	return true; 
