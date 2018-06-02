@@ -226,8 +226,6 @@ bool ModuleBackground2::Start()
 	//App->enemies->AddEnemy(ENEMY_TYPES::BOSS, 200, 20);
 
 
-
-
 	
 
 

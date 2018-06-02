@@ -108,7 +108,7 @@ void Enemy_Boss::Move()
 		if (now < last + 5000) {
 			BossAnim = &FireSpotMove;
 		}
-		else if (now > last + 5000 && now < last + 500 + delay) {
+		else if (now > last + 5000 && now < last + 5000 + delay) {
 			App->enemies->BossFlameDespawn = true; 
 			BossAnim = &FireSpotDespawn;
 		}

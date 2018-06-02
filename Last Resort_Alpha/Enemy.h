@@ -25,6 +25,10 @@ protected:
 	uint alliedgrenade;
 public:
 	uint hp = 1;
+
+	char* Sticker = nullptr; 
+
+
 	uint original_hp = 1;
 	fPoint position; 
 	iPoint Anim2Distance;
