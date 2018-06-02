@@ -17,7 +17,7 @@ protected:
 	Animation* anim2ndLevel= nullptr;   // Use in case of enemy level 2 
 	Animation* SpiderTank = nullptr; 
 	Animation* BossAnim = nullptr;
-	Animation* BossFire = nullptr; 
+	Animation* BossFireAnim = nullptr; 
 	Animation* BossFireThrower = nullptr;
 	Collider* collider = nullptr;
 	uint is_a_car = 0; 
@@ -29,7 +29,8 @@ public:
 	iPoint Anim3Distance;
 	iPoint Anim4Distance;
 	iPoint Anim5Distance;
-
+	fPoint FireFakePos; 
+	bool AsignedFirePos = false; 
 
 	fPoint FlameThrowerDistance; 
 public:
@@ -43,6 +44,7 @@ public:
 	virtual void Draw2(SDL_Texture* sprites2);
 	virtual void Draw3(SDL_Texture* sprites3);
 	virtual void Draw4(SDL_Texture* sprites4);
+	virtual void Draw5(SDL_Texture* sprites5);
 
 	virtual void OnCollision(Collider* collider);
 	virtual void Shoot(); 

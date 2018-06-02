@@ -17,6 +17,40 @@ BossFire::BossFire(int x, int y, int HP) : Enemy(x, y, HP)
 	Down.PushBack({ 455,533,42,18 });
 	MoreDown.PushBack({ 510,530,40,22 });
 
+
+	Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 0,0,0,0 });
+    Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 0,0,0,0 });
+	Fire.PushBack({ 0,0,0,0 });
+
+
+
 	BossFireThrower = &middle; 
 	
 	original_y = y;
@@ -28,7 +62,13 @@ void BossFire::Move()
 {
 	position.x += 1; 
 	int delay = 350; 
+
+	BossFireAnim = &Fire;
+
+
 	now = SDL_GetTicks(); 
+
+
 	if (now <= last + delay) {
 		BossFireThrower = &middle;
 	}

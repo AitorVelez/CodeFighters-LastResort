@@ -47,6 +47,7 @@ bool ModuleEnemies::Start()
 	sprites2 = App->textures->Load("assets/sprites/CommonEnemies2.png");
 	sprites3 = App->textures->Load("assets/sprites/SpiderTank1.png");
 	sprites4 = App->textures->Load("assets/sprites/BOSSS.png");
+	sprites5 = App->textures->Load("assets/sprites/BOSSS.png");
 
 	return true;
 }
@@ -81,6 +82,7 @@ update_status ModuleEnemies::Update()
 		if (enemies[i] != nullptr) { enemies[i]->Draw2(sprites2); }
 		if (enemies[i] != nullptr) { enemies[i]->Draw3(sprites3); }
 		if (enemies[i] != nullptr) { enemies[i]->Draw4(sprites4); }
+		if (enemies[i] != nullptr) { enemies[i]->Draw5(sprites5); }
 	}
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 		if (enemies[i] != nullptr) enemies[i]->Shoot();
@@ -116,6 +118,7 @@ bool ModuleEnemies::CleanUp()
 	App->textures->Unload(sprites2);
 	App->textures->Unload(sprites3);
 	App->textures->Unload(sprites4);
+	App->textures->Unload(sprites5);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
