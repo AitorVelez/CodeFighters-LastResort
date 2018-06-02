@@ -39,7 +39,7 @@ public:
 	virtual void Draw2(SDL_Texture* sprites2);
 	virtual void Draw3(SDL_Texture* sprites3);
 	virtual void Draw4(SDL_Texture* sprites4);
-	virtual void Draw5(SDL_Texture* sprites4);
+
 	virtual void OnCollision(Collider* collider);
 	virtual void Shoot(); 
 };
