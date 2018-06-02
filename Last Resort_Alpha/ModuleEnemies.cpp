@@ -246,3 +246,16 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 		}
 	}
 }
+
+
+void ModuleEnemies::ForcedDeath() {
+	for (uint i = 0; i < MAX_ENEMIES; ++i)
+	{
+		if (enemies[i] != nullptr)
+		{
+			delete enemies[i];
+			enemies[i] = nullptr;
+		}
+		break;
+	}
+}

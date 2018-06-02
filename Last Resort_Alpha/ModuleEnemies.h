@@ -58,8 +58,13 @@ public:
 	update_status PostUpdate();
 	bool CleanUp();
 	void OnCollision(Collider* c1, Collider* c2);
-
+	void ForcedDeath(); 
 	bool AddEnemy(ENEMY_TYPES type, int x, int y);
+
+
+
+	bool BossFlameDespawn = false; 
+	bool IsAlive = false; 
 
 private:
 

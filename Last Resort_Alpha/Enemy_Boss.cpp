@@ -39,6 +39,14 @@ Enemy_Boss::Enemy_Boss(int x, int y, int HP) : Enemy(x, y, HP)
 	FireSpot.PushBack({ 363, 603, 137, 80 });
 	FireSpot.speed = 0.1f; 
 
+	FireSpotDespawn.PushBack({ 363, 603, 137, 80 });
+	FireSpotDespawn.PushBack({ 521, 604, 129, 80 });
+	FireSpotDespawn.PushBack({ 369, 709, 126, 80 });
+	FireSpotDespawn.PushBack({ 524, 709, 123, 81 });
+	FireSpotDespawn.PushBack({ 369, 812, 121, 81 });
+	FireSpotDespawn.PushBack({ 531, 813, 119, 81 });
+	FireSpotDespawn.speed = 0.1f;
+
 	FireSpotMove.PushBack({ 38, 70, 128, 81 });
 
 	BossAnim = &AnimMove; 
@@ -94,9 +102,21 @@ void Enemy_Boss::Move()
 		}
 	}
 
-
+	now = SDL_GetTicks();
+	int delay = 500; 
 	if (FireThrowerSpawned == true) {
-		BossAnim = &FireSpotMove; 
+		if (now < last + 5000) {
+			BossAnim = &FireSpotMove;
+		}
+		else if (now > last + 5000 && now < last + 500 + delay) {
+			App->enemies->BossFlameDespawn = true; 
+			BossAnim = &FireSpotDespawn;
+		}
+		else if (now >= last + 5000 + delay) {
+			BossAnim = &AnimMove; 
+		}
 	}
+		
+	
 
 }
