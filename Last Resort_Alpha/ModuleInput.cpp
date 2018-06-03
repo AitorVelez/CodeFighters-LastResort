@@ -8,7 +8,28 @@ ModuleInput::ModuleInput() : Module()
 	for (uint i = 0; i < MAX_KEYS; ++i)
 		keyboard[i] = KEY_IDLE;
 
-	button_A = KEY_IDLE;
+	for (uint i = 0; i < SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_MAX; ++i)
+		Controller_1[i] = KEY_IDLE;
+
+	for (uint i = 0; i < SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_MAX; ++i)
+		Controller_2[i] = KEY_IDLE;
+
+	uint i = 0;
+	button_array[i] = SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_A; ++i;
+	button_array[i] = SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_B; ++i;
+	button_array[i] = SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_BACK; ++i;
+	button_array[i] = SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_DPAD_DOWN; ++i;
+	button_array[i] = SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_DPAD_LEFT; ++i;
+	button_array[i] = SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_DPAD_RIGHT; ++i;
+	button_array[i] = SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_DPAD_UP; ++i;
+	button_array[i] = SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_GUIDE; ++i;
+	button_array[i] = SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_LEFTSHOULDER; ++i;
+	button_array[i] = SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_LEFTSTICK; ++i;
+	button_array[i] = SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_RIGHTSHOULDER; ++i;
+	button_array[i] = SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_RIGHTSTICK; ++i;
+	button_array[i] = SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_START; ++i;
+	button_array[i] = SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_X; ++i;
+	button_array[i] = SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_Y; ++i;
 }
 
 // Destructor
@@ -37,28 +58,7 @@ bool ModuleInput::Init()
 update_status ModuleInput::PreUpdate()
 {
 	SDL_PumpEvents();
-	SDL_Event e;
-	SDL_PollEvent(&e);
-	if (e.type == SDL_QUIT) {
-		return update_status::UPDATE_STOP;
-	}
-
-
-	for (int i = 0; i < SDL_NumJoysticks(); ++i) {
-		if (SDL_IsGameController(i)) {
-			controller = SDL_GameControllerOpen(i);
-			if (controller) {
-				/*LOG("THERE IS A MF CONTROLLER");*/
-				break;
-			}
-			else {
-				LOG("Could not open gamecontroller %i: %s\n", i, SDL_GetError());
-			}
-		}
-	}
 	
-	
-
 	const Uint8* keys = SDL_GetKeyboardState(NULL);
 
 	for (int i = 0; i < MAX_KEYS; ++i)
@@ -79,9 +79,82 @@ update_status ModuleInput::PreUpdate()
 		}
 	}
 
-	if (SDL_GameControllerGetButton(controller, SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_A) == 1)
+	for (int i = 0; i < SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_MAX; ++i)	
 	{
-		App->input->keyboard[SDL_SCANCODE_SPACE] = KEY_DOWN;
+		if (SDL_GameControllerGetButton(controller[0].controller, button_array[i]))
+		{
+			if (Controller_1[i] == KEY_IDLE)
+				Controller_1[i] = KEY_DOWN;
+
+			else
+				Controller_1[i] = KEY_REPEAT;
+		}
+		else
+		{
+			if (Controller_1[i] == KEY_REPEAT || Controller_1[i] == KEY_DOWN)
+				Controller_1[i] = KEY_UP;
+
+			else
+				Controller_1[i] = KEY_IDLE;
+		}
+	}
+
+
+	for (int i = 0; i < SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_MAX; ++i)
+	{
+		if (SDL_GameControllerGetButton(controller[1].controller, button_array[i]))
+		{
+			if (Controller_2[i] == KEY_IDLE)
+				Controller_2[i] = KEY_DOWN;
+
+			else
+				Controller_2[i] = KEY_REPEAT;
+		}
+		else
+		{
+			if (Controller_2[i] == KEY_REPEAT || Controller_2[i] == KEY_DOWN)
+				Controller_2[i] = KEY_UP;
+
+			else
+				Controller_2[i] = KEY_IDLE;
+		}
+	}
+
+
+	SDL_PollEvent(&e);
+
+	if (e.type == SDL_CONTROLLERDEVICEADDED)
+	{
+		for (int i = 0; i < MAX_CONTROLLERS; i++)
+		{
+			if (controller[i].controller == nullptr && controller[i].joyId == -1)
+			{
+				controller[i].controller = SDL_GameControllerOpen(i);
+				SDL_Joystick* j = SDL_GameControllerGetJoystick(controller[i].controller);
+				controller[i].joyId = SDL_JoystickInstanceID(j);
+				break;
+			}
+		}
+	}
+
+	if (e.type == SDL_CONTROLLERDEVICEREMOVED)
+	{
+		for (int i = 0; i < MAX_CONTROLLERS; ++i)
+		{
+			if (controller[i].joyId == e.cdevice.which)
+			{
+				SDL_GameControllerClose(controller[i].controller);
+				controller[i].controller = nullptr;
+				controller[i].joyId = -1;
+
+				LOG("Disconnected gamepad index: %d", i)
+					break;
+			}
+		}
+	}
+
+	if (e.type == SDL_QUIT) {
+		return update_status::UPDATE_STOP;
 	}
 
 	if (keyboard[SDL_SCANCODE_ESCAPE])

@@ -31,5 +31,5 @@ Enemy_JumpyRider2::Enemy_JumpyRider2(int x, int y, int HP) : Enemy(x, y, HP)
 void Enemy_JumpyRider2::Move()
 {
 
-	position.x -= 0.5;
+	position.x += 1;
 }
