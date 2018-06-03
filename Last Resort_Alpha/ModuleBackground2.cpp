@@ -241,51 +241,43 @@ bool ModuleBackground2::Start()
 
 	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 1505, 195);*/
 
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 2725, TopTurretPosY + 36);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 2765, TopTurretPosY + 36);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 2805, TopTurretPosY + 36);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 2860, TopTurretPosY + 3);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 2900, TopTurretPosY + 3);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 2940, TopTurretPosY + 3);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 2980, TopTurretPosY + 3);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3020, TopTurretPosY + 3);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3060, TopTurretPosY+3);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3100, TopTurretPosY+3);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3140, TopTurretPosY+3);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3180, TopTurretPosY+3);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3220, TopTurretPosY+3);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3260, TopTurretPosY+3);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3280, TopTurretPosY + 36);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3320, TopTurretPosY + 36);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3360, TopTurretPosY +36);
 
-	
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3060, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3100, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3140, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3180, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3220, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3260, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3300, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3340, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3380, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3420, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3460, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3480, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3520, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3560, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3600, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3640, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3680, TopTurretPosY);
 
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 2725, BottomTurretPosY-31);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 2755, BottomTurretPosY-31);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 2805, BottomTurretPosY-31);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 2860, BottomTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 2900, BottomTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 2940, BottomTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 2980, BottomTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3020, BottomTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3060, BottomTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3100, BottomTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3140, BottomTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3180, BottomTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3220, BottomTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3260, BottomTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3300, BottomTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3340, BottomTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3380, BottomTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3420, BottomTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3460, BottomTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3480, BottomTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3520, BottomTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3560, BottomTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3600, BottomTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3640, BottomTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3680, BottomTurretPosY);
-	
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3275, BottomTurretPosY-31);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3315, BottomTurretPosY-31);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3355, BottomTurretPosY-31);
 
-
-
-
-
-
-	
 
 	// App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 660, TopTurretPosY);
 
