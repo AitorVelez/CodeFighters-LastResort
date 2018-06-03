@@ -28,6 +28,7 @@
 #include "BossFire.h"
 #include "Grenade.h"
 #include "Grenade2.h"
+#include "Hellfire.h"
 
 #define SPAWN_MARGIN 50
 
@@ -234,6 +235,9 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::GRENADEP2:
 			enemies[i] = new Grenade2(info.x, info.y, info.HP);
 			break;
+		case ENEMY_TYPES::HELLFIRE:
+			enemies[i] = new Hellfire(info.x, info.y, info.HP);
+			break;
 		}
 	}
 	
@@ -270,4 +274,66 @@ void ModuleEnemies::ForcedDeath() {
 		}
 	}
 	
+}/*
+float ModuleEnemies::nearbyenemyx(float x, float y) {
+	for (uint i = 0; i < MAX_ENEMIES; i++)
+	{
+		if (i == 0) {
+			dirx = enemies[i]->position.x - x;
+			diry = enemies[i]->position.y - y;
+			hyp = sqrt(dirx*dirx + diry*diry);
+
+			proxim = hyp;
+			proximx = dirx / hyp;
+			proximy = diry / hyp;
+
+			}
+
+		else {
+			dirx = enemies[i]->position.x - x;
+			diry = enemies[i]->position.y - y;
+			hyp = sqrt(dirx*dirx + diry*diry);
+			if (hyp > proxim) {
+				proxim = hyp;
+				proximx = dirx / hyp;
+				proximy = diry / hyp;
+						}
+					}
+				}
+	return proximx;
+			
+
+		
 }
+float ModuleEnemies::nearbyenemyy(float x, float y) {
+	for (uint i = 0; i < MAX_ENEMIES; i++)
+	{
+		if (i == 0) {
+			dirx = enemies[i]->position.x - x;
+			diry = enemies[i]->position.y - y;
+			hyp = sqrt(dirx*dirx + diry*diry);
+
+			proxim = hyp;
+			proximx = dirx / hyp;
+			proximy = diry / hyp;
+
+		}
+
+		else {
+			dirx = enemies[i]->position.x - x;
+			diry = enemies[i]->position.y - y;
+			hyp = sqrt(dirx*dirx + diry*diry);
+			if (hyp < 30){}
+
+			else if (hyp > proxim) {
+				proxim = hyp;
+				proximx = dirx / hyp;
+				proximy = diry / hyp;
+			}
+		}
+	}
+	return proximy;
+
+
+
+}*/
