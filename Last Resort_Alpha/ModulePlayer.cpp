@@ -167,7 +167,7 @@ bool ModulePlayer::Start()
 				relativeposition.y = position.y;
 			} 
 			else if (App->background2->IsEnabled() == true) {
-				position.x = App->background2->bgpos + 50;
+				position.x = App->background2->bgpos + 50;  LOG("RESPAWN POS          -------------------- %i ", App->background2->bgpos + 50)
 			 	position.y = 125;
 				relativeposition.x = 50;
 				relativeposition.y = position.y;

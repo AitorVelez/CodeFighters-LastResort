@@ -501,6 +501,7 @@ update_status ModuleBackground2::Update()
 		App->player->god_mode = true;
 		App->player2->god_mode = true;
 		if (App->fade->FadeToBlack(App->background2, App->stageclear, 1.5f))
+			App->player2->TwoPlayers = false; 
 			App->audio->FadeMus(750);
 	}
 
@@ -540,7 +541,7 @@ update_status ModuleBackground2::Update()
 		//	if (App->player2->alive_p2 == false && App->player2->alive_p2 == false) {
 				if (App->player->lives == 0 && App->player2->lives == 0) {
 					App->fade->FadeToBlack((Module*)App->background2, (Module*)App->loseimage, 2.5f);
-					
+					App->player2->TwoPlayers = false;
 				}
 			//}
 		}
