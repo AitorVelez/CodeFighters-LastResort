@@ -47,7 +47,7 @@ Roger Cano: Personal Github [here](https://github.com/RogerCano)
 
 ## Video of the gameplay
 
-[Last Resort Video](https://youtu.be/aybhwlEV0EM)
+[Last Resort Video](<iframe width="1280" height="720" src="https://www.youtube.com/embed/9DEpsvblBMo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>)
 
 
 
