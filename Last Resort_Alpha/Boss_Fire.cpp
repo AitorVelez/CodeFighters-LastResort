@@ -62,45 +62,49 @@ void BossFire::Move()
 {
 	position.x += 1; 
 	int delay = 350; 
+	int start = 9500; 
 
-
-		BossFireAnim = &Fire;
+		//BossFireAnim = &Fire;
 	
 
 
 	now = SDL_GetTicks(); 
 
 
-	if (now <= last + delay) {
+	if (now <= last + start + delay) {
 		BossFireThrower = &middle;
 	}
-	else if (now > last + delay && now <= last + delay * 2) {
+	else if (now > last + start + delay && now <= last + start + delay * 2) {
 		BossFireThrower = &up;
 	}
 		
-	else if (now > last + delay * 2 && now <= last + delay * 3) {
+	else if (now > last + start + delay * 2 && now <= last + start + delay * 3) {
 			BossFireThrower = &Moreup;
 		}
 
-	else if (now > last + delay * 3 && now <= last + delay * 4) {
+	else if (now > last + start + delay * 3 && now <= last + start + delay * 4) {
 		BossFireThrower = &up;
 	}
-	else if (now > last + delay * 4 && now <= last + delay * 5) {
+	else if (now > last + start  + delay * 4 && now <= last + start + delay * 5) {
 		BossFireThrower = &middle;
 	}
-	else if (now > last + delay * 5 && now <= last + delay * 6) {
+	else if (now > last + start + delay * 5 && now <= last + start + delay * 6) {
 		BossFireThrower = &Down;
 	}
-	else if (now > last + delay * 6 && now <= last + delay * 7) {
+	else if (now > last + start + delay * 6 && now <= last + start + delay * 7) {
 		BossFireThrower = &MoreDown;
 	}
-	else if (now > last + delay * 7 && now <= last + delay * 8) {
+	else if (now > last + start + delay * 7 && now <= last + start + delay * 8) {
 		BossFireThrower = &Down;
 	}
-	else if (now > last + delay * 8 && now <= last + delay * 9) {
+	else if (now > last + start + delay * 8 && now <= last + start + delay * 9) {
 		BossFireThrower = &middle;
-		last = now; 
+		last = now - start - delay; 
 	}
+	
+
+
+
 
 	if (App->enemies->BossFlameDespawn == true) {
 		App->enemies->ForcedDeath(); 

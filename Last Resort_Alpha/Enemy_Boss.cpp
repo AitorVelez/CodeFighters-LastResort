@@ -48,7 +48,7 @@ Enemy_Boss::Enemy_Boss(int x, int y, int HP) : Enemy(x, y, HP)
 	FireSpotDespawn.PushBack({ 531, 813, 119, 81 });
 	FireSpotDespawn.speed = 0.1f;
 
-	FireSpotMove.PushBack({ 38, 70, 128, 81 });
+	FireSpotMove.PushBack({ 38, 61, 128, 81 });
 
 	BossAnim = &AnimMove; 
 	original_y = y;
@@ -88,9 +88,9 @@ void Enemy_Boss::Move()
 		App->particles->AddParticle(App->particles->PreBossGreenShot3, position.x + 5, position.y + 6, COLLIDER_ENEMY_SHOT);
 			App->particles->AddParticle(App->particles->BossGreenShot, position.x - 15, position.y + 12, COLLIDER_ENEMY_SHOT); 
 
-			App->particles->AddParticle(App->particles->PreBossGreenShot, position.x -35, position.y + 61, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->PreBossGreenShot3, position.x -10, position.y + 55, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->BossGreenShot, position.x -30 , position.y + 61, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->PreBossGreenShot, position.x -35, position.y + 66, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->PreBossGreenShot3, position.x -10, position.y + 60, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->BossGreenShot, position.x -30 , position.y + 66, COLLIDER_ENEMY_SHOT);
 
 			GreenLast = GreenShotTimer; 
 	}
@@ -101,31 +101,43 @@ void Enemy_Boss::Move()
 			FireSpotSpawned = true; 
 		}
 	}
+	now = SDL_GetTicks(); 
+	int delay = 500;
+	int firsttime = 9000;
+	int time = 15000;
+
 	if (FireSpotSpawned == true) {
-		BossAnim = &FireSpot;
-		now = SDL_GetTicks();
-		if (now > last + 2100) {
-			App->enemies->AddEnemy(ENEMY_TYPES::BOSSFIRE, position.x - 20, position.y + 20);
+		if (now > last + firsttime + delay) {
+			App->enemies->AddEnemy(ENEMY_TYPES::BOSSFIRE, position.x - 20, position.y + 25);
 			FireThrowerSpawned = true;    LOG("DANGER: FIRETHROWER HAS SPAWNED ------------------------------");
 			FireSpotSpawned = false; 
 		}
 	}
 
 	//now = SDL_GetTicks();
-	int delay = 500; 
-	if (FireThrowerSpawned == true) {
-		if (now < last + 5000) {
-			BossAnim = &FireSpotMove;
+	
+	if (FireThrowerSpawned == false) {
+		if (now < last + firsttime) {
+			BossAnim = &AnimMove;                // move
 		}
-		else if (now > last + 5000 && now < last + 5000 + delay) {
-			App->enemies->BossFlameDespawn = true; 
-			BossAnim = &FireSpotDespawn;
-		}
-		else if (now >= last + 5000 + delay) {
-			BossAnim = &AnimMove; 
+		else if (now >= last + firsttime && now <= last + firsttime + delay) {
+			BossAnim = &FireSpot;                                                // spawn flame thrower 
 		}
 	}
-		
+	else {
+	    if (now >= last + firsttime + delay && now < last + time) {
+		    BossAnim = &FireSpotMove;                                           // move with flame thrower 
+	    }
+	    else if (now >= last + time && now < last + time + delay) {
+		     App->enemies->BossFlameDespawn = true;
+	   	     BossAnim = &FireSpotDespawn;                                      // despawn flame thrower 
+       	}
+	    else if (now >= last + time + delay) {
+		    BossAnim = &AnimMove;                       // move
+	    }
+
+	}
+	
 	
 
 }
