@@ -3,7 +3,9 @@ We are going to 'emulate' the arcade game Last Resort, as the aim of project 1 s
 
 ![LastResort](https://i.imgur.com/OvSOF.jpg)
 
+## DOWNLOAD HERE!
 
+[Link to Last Resort Alpha](https://github.com/AitorVelez/CodeFighters-LastResort/releases/tag/1.0)
 
 ## Game Description
 
@@ -49,5 +51,5 @@ Roger Cano: Personal Github [here](https://github.com/RogerCano)
 
 [![Last Resort Video](https://github.com/AitorVelez/CodeFighters-LastResort/blob/master/Wiki/Team%20Photo/title%20for%20vide.png?raw=true)](https://youtu.be/9DEpsvblBMo)
 
-
+[Link to Last Resort Alpha](https://github.com/AitorVelez/CodeFighters-LastResort/releases/tag/1.0)
 
