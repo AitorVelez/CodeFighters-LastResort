@@ -115,8 +115,8 @@ bool ModuleBackground2::Start()
 	App->power->AddPowerup(POWERUP_TYPES::GPOWER, 255, 100);
 	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 300, 70);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::JUMPYRIDER, 400, 70);
-	
+	App->enemies->AddEnemy(ENEMY_TYPES::JUMPYRIDER, 400, 150);
+	App->enemies->AddEnemy(ENEMY_TYPES::JUMPYRIDER2, 400, 70);
 
 	/*hangar_1 = App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);*/
 
@@ -255,7 +255,11 @@ bool ModuleBackground2::Start()
 	//App->enemies->AddEnemy(ENEMY_TYPES::JUMPY, 700, 100);
 	//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);
 
+<<<<<<< HEAD
 	App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, 200, 100);
+=======
+	App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, 200, 100);*/
+>>>>>>> 521bc161f86eb854ada391387605790e0a7a4beb
 
 
 	/*App->enemies->AddEnemy(ENEMY_TYPES::SPIDER_TANK, 200, 20);
