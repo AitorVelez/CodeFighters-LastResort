@@ -256,25 +256,32 @@ bool ModuleBackground2::Start()
 	//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);
 
 
+<<<<<<< HEAD
 
 	App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, 200, 100);
+=======
+>>>>>>> 45391dcdab775ff3b5835838b83cd52149f31469
 
+
+<<<<<<< HEAD
+=======
+
+>>>>>>> 45391dcdab775ff3b5835838b83cd52149f31469
 	App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, 200, 100);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, 200, 100);
 
 
 
 
-	/*App->enemies->AddEnemy(ENEMY_TYPES::SPIDER_TANK, 200, 20);
+	//App->enemies->AddEnemy(ENEMY_TYPES::SPIDER_TANK, 200, 20);
 
-	//App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, 200, 100);
-
-
+	////App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, 200, 100);
 
 
-	App->enemies->AddEnemy(ENEMY_TYPES::BOSS, 300, 20);
-	//App->enemies->AddEnemy(ENEMY_TYPES::BOSSFIRE, 200, 40);
+
+
+	//App->enemies->AddEnemy(ENEMY_TYPES::BOSS, 300, 20);
+	////App->enemies->AddEnemy(ENEMY_TYPES::BOSSFIRE, 200, 40);
 
 
 	
@@ -384,7 +391,7 @@ bool ModuleBackground2::Start()
 	App->collision->AddCollider({ 7157,0,65,19 }, COLLIDER_WALL);				//estret dalt
 
 	App->collision->AddCollider({ 7222,187,192,37 }, COLLIDER_WALL);			//llarg baix
-	App->collision->AddCollider({ 7222,0,192,19 }, COLLIDER_WALL);				//larg dalt*/
+	App->collision->AddCollider({ 7222,0,192,19 }, COLLIDER_WALL);				//larg dalt
 
 
 
