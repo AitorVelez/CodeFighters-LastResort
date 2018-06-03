@@ -112,7 +112,7 @@ bool ModuleBackground2::Start()
 
 
 	hangar_1 = App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);
-	App->power->AddPowerup(POWERUP_TYPES::GPOWER, 255, 100);
+	/*App->power->AddPowerup(POWERUP_TYPES::GPOWER, 255, 100);
 	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 300, 70);
 
 
@@ -238,8 +238,13 @@ bool ModuleBackground2::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3560, BottomTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3600, BottomTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3640, BottomTurretPosY);
+<<<<<<< HEAD
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3680, BottomTurretPosY);*/
+	
+=======
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3680, BottomTurretPosY);
 	*/
+>>>>>>> 4c0f0b287a7968120bcddd3ef8f4163369b4e920
 
 	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 660, TopTurretPosY);
 	//App->enemies->AddEnemy(ENEMY_TYPES::JUMPY, 700, 100);
@@ -281,7 +286,7 @@ bool ModuleBackground2::Start()
 
 
 
-	//App->enemies->AddEnemy(ENEMY_TYPES::BOSS, 200, 20);
+	App->enemies->AddEnemy(ENEMY_TYPES::BOSS, 600, 20);
 
 
 	
@@ -486,20 +491,20 @@ update_status ModuleBackground2::Update()
 	
 
 	// Fade to black
-	if (App->input->keyboard[SDL_SCANCODE_F2] == KEY_STATE::KEY_DOWN) {
+	if (App->input->keyboard[SDL_SCANCODE_T] == KEY_STATE::KEY_DOWN) {
 		App->player->god_mode = true;
 		App->player2->god_mode = true;
 		if (App->fade->FadeToBlack(App->background2, App->stageclear, 1.5f))
 			App->audio->FadeMus(750);
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_T] == KEY_STATE::KEY_DOWN) {
+	if (App->input->keyboard[SDL_SCANCODE_Y] == KEY_STATE::KEY_DOWN) {
 		App->player->god_mode = true;
 		App->player2->god_mode = true;
 		if (App->fade->FadeToBlack(App->background2, App->loseimage, 1.5f))
 			App->audio->FadeMus(750);
 	}
-	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_STATE::KEY_DOWN) {
+	if (App->input->keyboard[SDL_SCANCODE_4] == KEY_STATE::KEY_DOWN) {
 		App->player2->Enable();
 		App->player2->TwoPlayers = true;
 	}

@@ -69,6 +69,8 @@ public:
 	SDL_Rect StImage;
 	Mix_Music* mus = nullptr;
 
+
+	bool PlayerLifeReset = false; 
 };
 
 #endif // __MODULESTARTINGIMAGE_H__
