@@ -467,13 +467,6 @@ bool ModuleBackground2::Start()
 	App->collision->AddCollider({ 7222,0,192,19 }, COLLIDER_WALL);				//larg dalt
 
 
-
-	
-
-
-
-
-
 	activ = false;
 	App->UI->ready = true;
 
@@ -564,7 +557,7 @@ update_status ModuleBackground2::Update()
 	
 
 	// Fade to black
-	if (App->input->keyboard[SDL_SCANCODE_T] == KEY_STATE::KEY_DOWN) {
+	if (App->input->keyboard[SDL_SCANCODE_F3] == KEY_STATE::KEY_DOWN) {
 		App->player->god_mode = true;
 		App->player2->god_mode = true;
 		if (App->fade->FadeToBlack(App->background2, App->stageclear, 1.5f))
@@ -572,13 +565,13 @@ update_status ModuleBackground2::Update()
 			App->audio->FadeMus(750);
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_Y] == KEY_STATE::KEY_DOWN) {
+	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_STATE::KEY_DOWN) {
 		App->player->god_mode = true;
 		App->player2->god_mode = true;
 		if (App->fade->FadeToBlack(App->background2, App->loseimage, 1.5f))
 			App->audio->FadeMus(750);
 	}
-	if (App->input->keyboard[SDL_SCANCODE_4] == KEY_STATE::KEY_DOWN
+	if (App->input->keyboard[SDL_SCANCODE_RETURN] == KEY_STATE::KEY_DOWN
 		|| App->input->Controller_2[SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_START] == KEY_DOWN) {
 		App->player2->Enable();
 		App->player2->TwoPlayers = true;
@@ -621,9 +614,8 @@ update_status ModuleBackground2::Update()
 	}
 
 
-
 	if (App->input->keyboard[SDL_SCANCODE_KP_1] == KEY_DOWN)
-		App->enemies->AddEnemy(ENEMY_TYPES::TURRET, App->render->camera.x + 300, BottomTurretPosY);
+		App->enemies->AddEnemy(ENEMY_TYPES::SPIDER_TANK, App->render->camera.x + 300, 100);
 
 	if (App->input->keyboard[SDL_SCANCODE_KP_2] == KEY_DOWN)
 		App->enemies->AddEnemy(ENEMY_TYPES::BARREL, App->render->camera.x + 300, 100);
@@ -635,13 +627,13 @@ update_status ModuleBackground2::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, App->render->camera.x + 300, 0);
 
 	if (App->input->keyboard[SDL_SCANCODE_KP_5] == KEY_DOWN)
-		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, App->render->camera.x + 300, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, App->render->camera.x + 300, 200);
 
 	if (App->input->keyboard[SDL_SCANCODE_KP_6] == KEY_DOWN)
-		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, App->render->camera.x + 300, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, App->render->camera.x + 300, 100);
 
 	if (App->input->keyboard[SDL_SCANCODE_KP_7] == KEY_DOWN)
-		App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, App->render->camera.x + 300, 200);
+		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, App->render->camera.x + 300, 100);
 
 	if (App->input->keyboard[SDL_SCANCODE_KP_8] == KEY_DOWN)
 		App->power->AddPowerup(POWERUP_TYPES::SPOWER, App->render->camera.x + 300, 100);
@@ -649,23 +641,24 @@ update_status ModuleBackground2::Update()
 	if (App->input->keyboard[SDL_SCANCODE_KP_9] == KEY_DOWN)
 		App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, App->render->camera.x + 300, 100);
 
-	if (App->input->keyboard[SDL_SCANCODE_KP_9] == KEY_DOWN)
-		App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, App->render->camera.x + 300, 100);
-
-	if (App->input->keyboard[SDL_SCANCODE_O] == KEY_DOWN)
-		App->enemies->AddEnemy(ENEMY_TYPES::BOSS, App->render->camera.x + 220, SCREEN_HEIGHT/2 - 80);
-
-	if (App->input->keyboard[SDL_SCANCODE_G] == KEY_DOWN)
-		App->power->AddPowerup(POWERUP_TYPES::GPOWER, App->render->camera.x + 300, 100);
-	
-	if (App->input->keyboard[SDL_SCANCODE_X] == KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_KP_1] == KEY_DOWN && App->input->keyboard[SDL_SCANCODE_LSHIFT] == KEY_REPEAT)
 		App->power->AddPowerup(POWERUP_TYPES::LPOWER, App->render->camera.x + 300, 100);
 
-	if (App->input->keyboard[SDL_SCANCODE_P] == KEY_DOWN)
-		App->enemies->AddEnemy(ENEMY_TYPES::GUSTAV, App->render->camera.x + 300, 100);
+	if (App->input->keyboard[SDL_SCANCODE_KP_2] == KEY_DOWN && App->input->keyboard[SDL_SCANCODE_LSHIFT] == KEY_REPEAT)
+		App->power->AddPowerup(POWERUP_TYPES::GPOWER, App->render->camera.x + 300, 100);
+	
+	if (App->input->keyboard[SDL_SCANCODE_KP_3] == KEY_DOWN && App->input->keyboard[SDL_SCANCODE_LSHIFT] == KEY_REPEAT)
+		App->power->AddPowerup(POWERUP_TYPES::HPOWER, App->render->camera.x + 300, 100);
 
-	if (App->input->keyboard[SDL_SCANCODE_U] == KEY_DOWN)
-		App->enemies->AddEnemy(ENEMY_TYPES::SPIDER_TANK, App->render->camera.x + 300, 100);
+	if (App->input->keyboard[SDL_SCANCODE_B] == KEY_DOWN)
+		App->enemies->AddEnemy(ENEMY_TYPES::BOSS, App->render->camera.x + 220, SCREEN_HEIGHT / 2 - 80);
+
+	if (App->input->keyboard[SDL_SCANCODE_KP_1] == KEY_DOWN  && App->input->keyboard[SDL_SCANCODE_LSHIFT] == KEY_REPEAT)
+		App->enemies->AddEnemy(ENEMY_TYPES::TURRET, App->render->camera.x + 300, BottomTurretPosY);
+
+	if (App->input->keyboard[SDL_SCANCODE_KP_2] == KEY_DOWN  && App->input->keyboard[SDL_SCANCODE_LSHIFT] == KEY_REPEAT)
+		App->enemies->AddEnemy(ENEMY_TYPES::TURRET, App->render->camera.x + 300, TopTurretPosY);
+
 
 	return UPDATE_CONTINUE;
 }

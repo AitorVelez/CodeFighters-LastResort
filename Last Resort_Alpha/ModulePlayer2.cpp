@@ -337,9 +337,15 @@ update_status ModulePlayer2::Update()
 			if (god_mode == true) god_mode = false;
 			else god_mode = true;
 		}
-		if (App->input->keyboard[SDL_SCANCODE_8] == KEY_STATE::KEY_DOWN) {
+
+		if (App->input->keyboard[SDL_SCANCODE_F8] == KEY_STATE::KEY_DOWN) {
 			alive_p2 = false;
 			//App->audio->PlayChunk(App->particles->chunks[11], 1);
+		}
+
+		if (App->input->keyboard[SDL_SCANCODE_F2] == KEY_DOWN) {
+			if (App->ball_p2->ball_type== BALL2_TYPE::ORANGE_BALL2) App->ball_p2->ball_type = BALL2_TYPE::BLUE_BALL2;
+			else App->ball_p2->ball_type = ORANGE_BALL2;
 		}
 	}
 
