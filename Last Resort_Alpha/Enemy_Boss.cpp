@@ -7,7 +7,7 @@
 #include "ModuleParticles.h"
 #include "ModuleInput.h"
 #include "SDL\include\SDL_timer.h"
-
+#define BOSSHEIGHT 80 
 
 Enemy_Boss::Enemy_Boss(int x, int y, int HP) : Enemy(x, y, HP)
 {
@@ -58,43 +58,44 @@ Enemy_Boss::Enemy_Boss(int x, int y, int HP) : Enemy(x, y, HP)
 
 void Enemy_Boss::Move()
 {
-/*	
-	if (going_up)
-	{
-		if (wave > 5.0f)
-			going_up = false;
-		else
-			wave += 0.1f;
-	}
-	else
-	{
-		if (wave < -5.0f)
-			going_up = true;
-		else
-			wave -= 0.1f;
-	}
 
-	position.y = int(float(original_y) + (10.0f * sinf(wave)));
-	position.x -= 2;
-	*/
 
 	
 
 	position.x += 1; 
 
+	if (IsFiringGreen == true) {
+		if (goingup == false) {
+			position.y += 0.5f;
+			if (position.y > SCREEN_HEIGHT - BOSSHEIGHT - 50) {
+				goingup = true;
+			}
+		}
+		else {
+			position.y -= 0.5f;
+			if (position.y < 30) {
+				goingup = false;
+			}
+		}
+	}
+
+	//int ShotCounter = 0; 
 	GreenShotTimer = SDL_GetTicks(); 
 	if (GreenShotTimer > GreenLast + 1000) {
-		if (IsFiringGreen == true) {
-			App->particles->AddParticle(App->particles->PreBossGreenShot, position.x - 20, position.y + 12, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->PreBossGreenShot3, position.x + 5, position.y + 6, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->BossGreenShot, position.x - 15, position.y + 12, COLLIDER_ENEMY_SHOT);
+		//if (ShotCounter < 3) {
+			if (IsFiringGreen == true) {
+				App->particles->AddParticle(App->particles->PreBossGreenShot, position.x - 20, position.y + 12, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->PreBossGreenShot3, position.x + 5, position.y + 6, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->BossGreenShot, position.x - 15, position.y + 12, COLLIDER_ENEMY_SHOT);
 
-			App->particles->AddParticle(App->particles->PreBossGreenShot, position.x - 35, position.y + 66, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->PreBossGreenShot3, position.x - 10, position.y + 60, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->BossGreenShot, position.x - 30, position.y + 66, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->PreBossGreenShot, position.x - 35, position.y + 66, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->PreBossGreenShot3, position.x - 10, position.y + 60, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->BossGreenShot, position.x - 30, position.y + 66, COLLIDER_ENEMY_SHOT);
 
-			GreenLast = GreenShotTimer;
-		}
+				GreenLast = GreenShotTimer;
+				//ShotCounter++;
+			}
+		//}
 	}
 	
 	
@@ -103,6 +104,7 @@ void Enemy_Boss::Move()
 			FireSpotSpawned = true; 
 		}
 	}
+
 	now = SDL_GetTicks(); 
 	int delay = 500;
 	int firsttime = 9000;

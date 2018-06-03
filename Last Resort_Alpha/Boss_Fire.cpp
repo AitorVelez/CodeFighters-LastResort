@@ -4,6 +4,7 @@
 #include "ModuleRender.h"
 #include "SDL\include\SDL_timer.h"
 #include "ModulePlayer.h"
+#include "ModuleParticles.h"
 #include "ModuleEnemies.h"
 
 BossFire::BossFire(int x, int y, int HP) : Enemy(x, y, HP)
@@ -15,11 +16,11 @@ BossFire::BossFire(int x, int y, int HP) : Enemy(x, y, HP)
 	FlameThrowerDistance.y = 20;
 
 
-	middle.PushBack({ 564,530,44,16 });
-	up.PushBack({ 397,526,42,19 });
-	Moreup.PushBack({ 336,520,41,24 });
-	Down.PushBack({ 455,533,42,18 });
-	MoreDown.PushBack({ 510,530,40,22 });
+	middle.PushBack({ 562,520,44 + 2,16 + 10 });
+	up.PushBack({ 397,519,42,19 + 7 });
+	Moreup.PushBack({ 336,518,41,24 +2 });
+	Down.PushBack({ 455,524,42,18 + 9 });
+	MoreDown.PushBack({ 510,521,40,22+9 });
 
 
 	Fire.PushBack({ 48,490,7,5 });
@@ -49,7 +50,7 @@ BossFire::BossFire(int x, int y, int HP) : Enemy(x, y, HP)
 	Fire.PushBack({ 106,820,64,48 });
 	Fire.speed = 0.4f; 
 
-
+	original_x = x;
 
 	BossFireThrower = &middle; 
 	
@@ -64,50 +65,82 @@ void BossFire::Move()
 	int delay = 350; 
 	int start = 9500; 
 
-		//BossFireAnim = &Fire;
+	now = SDL_GetTicks(); //BossFireAnim = &Fire;
 	
+	if (position.x == original_x) {
+		last = SDL_GetTicks();
+	}
 
-
-	now = SDL_GetTicks(); 
-
-
-	if (now <= last + start + delay) {
+	else if (now < last + 500) {
 		BossFireThrower = &middle;
-	}
-	else if (now > last + start + delay && now <= last + start + delay * 2) {
-		BossFireThrower = &up;
-	}
+		xx = -30 + 5;
+		yy = -10;
+
 		
-	else if (now > last + start + delay * 2 && now <= last + start + delay * 3) {
-			BossFireThrower = &Moreup;
-		}
-
-	else if (now > last + start + delay * 3 && now <= last + start + delay * 4) {
+	}
+	else if(now < last + 1000){
 		BossFireThrower = &up;
+		xx = -25 + 5;
+		yy = -20;
+		
 	}
-	else if (now > last + start  + delay * 4 && now <= last + start + delay * 5) {
+	else if (now < last + 1500) {
+		BossFireThrower = &Moreup;
+		xx = -23 +5 ;
+		yy = -23;
+		
+	}
+	else if (now < last + 2000) {
+		BossFireThrower = &up;
+		xx = -25 +5;
+		yy = -20;
+	}
+	else if (now < last + 2500) {
 		BossFireThrower = &middle;
+		xx = -30 +5 ;
+		yy = -10;
 	}
-	else if (now > last + start + delay * 5 && now <= last + start + delay * 6) {
+	else if (now < last + 3000) {
 		BossFireThrower = &Down;
+		xx = -25 +5;
+		yy = 10;
 	}
-	else if (now > last + start + delay * 6 && now <= last + start + delay * 7) {
+	else if (now < last + 3500) {
 		BossFireThrower = &MoreDown;
+		xx = -23 +5 ;
+		yy = 13;
 	}
-	else if (now > last + start + delay * 7 && now <= last + start + delay * 8) {
+	else if (now < last + 4000) {
 		BossFireThrower = &Down;
+		xx = -25 +5 ;
+		yy = 10;
 	}
-	else if (now > last + start + delay * 8 && now <= last + start + delay * 9) {
+	else if (now < last + 4500) {
 		BossFireThrower = &middle;
-		last = now - start - delay; 
+		xx = -30 +5;
+		yy = -10;
+	}
+
+	else {
+		if (now > last + 5000)
+			last = SDL_GetTicks();
 	}
 	
+
+	fire = SDL_GetTicks();
+
+	if (fire > recoill + 300) {
+		App->particles->AddParticle(App->particles->Fire, position.x + xx, position.y + yy, COLLIDER_ENEMY_SHOT);
+		recoill = SDL_GetTicks();
+
+	}
 
 
 
 
 	if (App->enemies->BossFlameDespawn == true) {
 		App->enemies->ForcedDeath(); 
+
 	 }
 
 }
