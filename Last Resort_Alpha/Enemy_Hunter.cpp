@@ -66,6 +66,7 @@ Enemy_Hunter::Enemy_Hunter(int x, int y, int HP) : Enemy(x, y, HP)
 void Enemy_Hunter::Move()
 {
 
+
 	position.y = y_original + (App->render->camera.y / 3);
 	
 	if (appear.Finished())

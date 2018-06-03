@@ -304,7 +304,7 @@ update_status ModulePlayer2::Update()
 		current_time = SDL_GetTicks();
 
 		if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_STATE::KEY_DOWN
-			|| App->input->Controller_1[SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_A] == KEY_DOWN) 
+			|| App->input->Controller_2[SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_A] == KEY_DOWN) 
 		{
 			App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER2_SHOT);
 			App->particles->AddParticle(App->particles->bullet_propulsion, position.x + 31, position.y - 15);

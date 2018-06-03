@@ -49,7 +49,7 @@ void Powerup::SwapColor()
 
 void Powerup::OnCollision(Collider* c1, Collider* c2)
 {
-	if (c2->callback == App->player) 
+	/*if (c2->callback == App->player) 
 	{
 		if (type != SPEED_POWER && type != ZPOWER)
 		{
@@ -85,7 +85,7 @@ void Powerup::OnCollision(Collider* c1, Collider* c2)
 				break;
 			}
 		}
-	}
+	}*/
 
 	if (c2->callback = App->player2)
 	{
