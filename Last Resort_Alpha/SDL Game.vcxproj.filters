@@ -172,6 +172,9 @@
     <ClCompile Include="Enemy_JumpyRider.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy_JumpyRider2.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -374,5 +377,10 @@
     <Filter Include="Modules\PowerUps">
       <UniqueIdentifier>{b053da4a-ba93-4e03-9f06-7ad1f10b748a}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Enemy_JumpyRider2.h">
+      <Filter>Modules\Enemies</Filter>
+    </None>
   </ItemGroup>
 </Project>
