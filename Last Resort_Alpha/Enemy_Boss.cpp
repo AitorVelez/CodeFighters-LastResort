@@ -175,14 +175,14 @@ void Enemy_Boss::Move()
 
 
 
-	if (JumpySpawned == false) {
+	/*if (JumpySpawned == false) {
 		if (App->enemies->BOSSHASSPAWNED == true) {
 			last = SDL_GetTicks();
 			App->enemies->AddEnemy(ENEMY_TYPES::JUMPYRIDER2, position.x, App->background2->TopTurretPosY);
 			App->enemies->AddEnemy(ENEMY_TYPES::JUMPYRIDER, position.x, App->background2->BottomTurretPosY);
 		}
 		JumpySpawned = true; 
-	}
+	}*/
 
 
 
