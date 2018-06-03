@@ -27,6 +27,10 @@ private:
 	float diry;
 	float hyp;
 	float angle;
+	float dirx1;
+	float diry1;
+	float hyp1;
+	float angle1;
 
 	fPoint original_position;
 	Path path;
