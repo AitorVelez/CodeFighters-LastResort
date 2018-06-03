@@ -4,6 +4,7 @@
 #include "ModuleBackground2.h"
 #include "ModuleCollision.h"
 #include "ModuleAudio.h"
+#include "ModuleParticles.h"
 
 Enemy_Hunter_ZigZag::Enemy_Hunter_ZigZag(int x, int y, int HP) : Enemy (x,y,HP)
 {
@@ -45,12 +46,17 @@ Enemy_Hunter_ZigZag::Enemy_Hunter_ZigZag(int x, int y, int HP) : Enemy (x,y,HP)
 void Enemy_Hunter_ZigZag::Move()
 {
 	if (chunk_played == false) {
-		App->audio->LoadChunk("assets/SFX/Hunter1.wav");
+		App->particles->AddParticle(App->particles->Hunter1, 0, 0);
 		chunk_played = true;
 	}
 
 	if (PlayerHigher() && !attacking || position.y > 130)
 	{
+		chunk_played = false;
+		if (chunk_played == false) {
+			App->particles->AddParticle(App->particles->Hunter2, 0, 0);
+			chunk_played = true;
+		}
 		position = original_position + up.GetCurrentPosition();
 	}
 

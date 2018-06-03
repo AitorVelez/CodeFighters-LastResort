@@ -22,6 +22,7 @@ public:
 	Enemy_Hunter_ZigZag_Down(int x, int y, int HP);
 	void Move();
 	bool PlayerLower();
+	bool chunk_played;
 	void Attack();
 };
 

@@ -3,6 +3,8 @@
 #include "ModulePlayer.h"
 #include "ModuleBackground2.h"
 #include "ModuleCollision.h"
+#include "ModuleAudio.h"
+#include "ModuleParticles.h"
 
 Enemy_Hunter_ZigZag_Down::Enemy_Hunter_ZigZag_Down(int x, int y, int HP) : Enemy(x, y, HP)
 {
@@ -32,6 +34,10 @@ Enemy_Hunter_ZigZag_Down::Enemy_Hunter_ZigZag_Down(int x, int y, int HP) : Enemy
 
 void Enemy_Hunter_ZigZag_Down::Move()
 {
+	if (chunk_played == false) {
+		App->particles->AddParticle(App->particles->Hunter1, 0, 0);
+		chunk_played = true;
+	}
 
 	if (PlayerLower() && !attacking || position.y < 60)
 	{

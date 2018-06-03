@@ -4,6 +4,7 @@
 #include "ModuleRender.h"
 #include "ModuleBackground2.h"
 #include "ModuleAudio.h"
+#include "ModuleParticles.h"
 #include "SDL\include\SDL_timer.h"
 
 Enemy_Hunter::Enemy_Hunter(int x, int y, int HP) : Enemy(x, y, HP)
@@ -69,12 +70,17 @@ void Enemy_Hunter::Move()
 
 	position.y = y_original + (App->render->camera.y / 3);
 	if (chunk_played == false) {
-		App->audio->LoadChunk("assets/SFX/Hunter1.wav");
-			chunk_played = true;
+		App->particles->AddParticle(App->particles->Hunter1, 0, 0);
+		chunk_played = true;
 	}
 	
 	if (appear.Finished())
 	{	
+		chunk_played = false;
+		if (chunk_played == false) {
+			App->particles->AddParticle(App->particles->Hunter2, 0, 0);
+			chunk_played = true;
+		}
 
 		speed = 1;
 		now = SDL_GetTicks();

@@ -78,6 +78,10 @@ public:
 	Particle MisileSpidy;
 	Particle GPower; 
 	Particle Bossgreen;
+	Particle ShipIn;
+	Particle ShipOut;
+	Particle Hunter1;
+	Particle Hunter2;
 
 	Particle pilot_dying;
 	Particle BigTankShot; 

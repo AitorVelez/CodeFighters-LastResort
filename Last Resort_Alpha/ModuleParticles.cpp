@@ -491,6 +491,8 @@ ModuleParticles::ModuleParticles()
 	PreBossGreenShot.texture = 5;
 	PreBossGreenShot.speed.x = 1;
 	PreBossGreenShot.fx = 12;
+
+	Hunter1.fx = 15;
 }
 
 ModuleParticles::~ModuleParticles()
