@@ -110,12 +110,6 @@ void Enemy_Hunter::Move()
 
 	position.x  += speed;
 
-	chunk_played = false;
-	if (chunk_played == false) {
-		App->particles->AddParticle(App->particles->Hunter2, 0, 0);
-		chunk_played = true;
-	}
-
 }
 
 void Enemy_Hunter::Appear()

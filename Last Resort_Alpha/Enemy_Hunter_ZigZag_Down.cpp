@@ -41,10 +41,6 @@ void Enemy_Hunter_ZigZag_Down::Move()
 
 	if (PlayerLower() && !attacking || position.y < 60)
 	{
-		if (chunk2_played == false) {
-			App->particles->AddParticle(App->particles->Hunter2, 0, 0);
-			chunk2_played = true;
-		}
 		position = original_position + down.GetCurrentPosition();
 	}
 
@@ -61,6 +57,10 @@ bool Enemy_Hunter_ZigZag_Down::PlayerLower()
 
 void Enemy_Hunter_ZigZag_Down::Attack()
 {
+	if (chunk2_played == false) {
+		App->particles->AddParticle(App->particles->Hunter2, 0, 0);
+		chunk2_played = true;
+	}
 	position.x -= 3;
 	anim2ndLevel = &forward; 
 }

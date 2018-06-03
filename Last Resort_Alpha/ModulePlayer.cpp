@@ -356,6 +356,7 @@ update_status ModulePlayer::Update()
 				if (relativeposition.y < SCREEN_HEIGHT - TopLimit) {
 					if (App->background2->IsEnabled() == true) {
 						if (position.y > 202) {
+							App->particles->AddParticle(App->particles->ShipIn, 0, 0);
 							current_animation = &WaterDown;
 							re_WaterUp.Reset();
 							re_WaterDown.Reset();
