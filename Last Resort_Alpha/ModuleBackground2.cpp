@@ -293,8 +293,8 @@ bool ModuleBackground2::Start()
 
 
 
-	/*App->enemies->AddEnemy(ENEMY_TYPES::BOSS, 200, 20);*/
-	App->enemies->AddEnemy(ENEMY_TYPES::BOSSFIRE, 200, 40);
+	App->enemies->AddEnemy(ENEMY_TYPES::BOSS, 200, 20);
+	//App->enemies->AddEnemy(ENEMY_TYPES::BOSSFIRE, 200, 40);
 
 
 	
