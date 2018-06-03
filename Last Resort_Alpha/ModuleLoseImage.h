@@ -23,6 +23,7 @@ public:
 	SDL_Texture * TexLoseImage = nullptr;
 	SDL_Rect LoseImage;
 	Mix_Music* LoseMus = nullptr;
+	bool PlayerLifeReset = false;
 
 };
 

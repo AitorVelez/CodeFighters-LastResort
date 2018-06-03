@@ -343,7 +343,7 @@ update_status ModulePlayer2::Update()
 		}
 		if (App->input->keyboard[SDL_SCANCODE_8] == KEY_STATE::KEY_DOWN) {
 			alive_p2 = false;
-			App->audio->PlayChunk(App->particles->chunks[11], 1);
+			//App->audio->PlayChunk(App->particles->chunks[11], 1);
 		}
 	}
 

@@ -71,6 +71,17 @@ update_status ModuleLoseImage::Update()
 			App->audio->FadeMus(750);
 	}
 
+	if (PlayerLifeReset == false) {
+		if (App->player->lives != 3) {
+			App->player->lives = 3;
+		}
+
+		if (App->player2->lives != 3) {
+			App->player2->lives = 3;
+		}
+		PlayerLifeReset = true;
+	}
+
 
 	return UPDATE_CONTINUE;
 }
