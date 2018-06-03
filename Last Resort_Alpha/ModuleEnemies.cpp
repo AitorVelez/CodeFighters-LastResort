@@ -142,7 +142,6 @@ bool ModuleEnemies::CleanUp()
 			enemies[i] = nullptr;
 		}
 	}
-
 	return true;
 }
 
