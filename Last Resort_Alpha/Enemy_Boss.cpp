@@ -12,6 +12,7 @@
 Enemy_Boss::Enemy_Boss(int x, int y, int HP) : Enemy(x, y, HP)
 {
 	hp = 5000; 
+	App->enemies->BOSSHASSPAWNED = true; 
 
 	AnimMove.PushBack({ 19,936,128,80 });
 	AnimMove.PushBack({ 152,936,128,81 });
