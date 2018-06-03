@@ -48,7 +48,7 @@ void Enemy_Rocket::Move()
 		diry1 = position.y - App->player2->position.y;
 		hyp1 = sqrt(dirx1*dirx1 + diry1*diry1);
 		angle1 = atan2(diry1, dirx1);
-
+	
 		angle1 = (angle1 * 360) / (2 * PI);
 		angle1 += 180;
 		queso2 = floor(angle1 / 22.5);

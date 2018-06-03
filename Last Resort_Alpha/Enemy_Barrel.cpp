@@ -4,6 +4,8 @@
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
 #include "ModulePlayer2.h"
+#include "SDL\include\SDL_timer.h"
+#include "ModuleParticles.h"
 
 Enemy_Barrel::Enemy_Barrel(int x, int y, int HP) : Enemy(x, y, HP)
 {
@@ -21,12 +23,35 @@ Enemy_Barrel::Enemy_Barrel(int x, int y, int HP) : Enemy(x, y, HP)
 	Barrelito6.PushBack({ 79,166,14,13 });
 	Barrelito7.PushBack({ 98,167,13,10 });
 	Barrelito8.PushBack({ 113,168,13,10 });
-	
+
+	Barrelitoup.PushBack({ 65,160,10,12 + 6 });
+	Barrelitoup.PushBack({ 65,161,10,12 + 5 });
+	Barrelitoup.PushBack({ 65,162,10,12 + 4 });
+	Barrelitoup.PushBack({ 65,163,10,12 + 3 });
+	Barrelitoup.PushBack({ 65,164,10,12 + 2 });
+	Barrelitoup.PushBack({ 65,165,10,12 + 1 });
+	Barrelitoup.PushBack({ 65,166,10,12 });
+	Barrelitoup.speed = 0.5f;
+	Barrelitoup.loop = false;
+
+	Barrelitodown.PushBack({ 65,166,10,12 });
+	Barrelitodown.PushBack({ 65,165,10,12 + 1 });
+	Barrelitodown.PushBack({ 65,163,10,12 + 3 });
+	Barrelitodown.PushBack({ 65,162,10,12 + 4 });
+	Barrelitodown.PushBack({ 65,161,10,12 + 5 });
+	Barrelitodown.PushBack({ 65,158,10,12 + 6 });
+	Barrelitodown.speed = 0.5f;
+	Barrelitodown.loop = false;
+
+
+
+
+
 	path.PushBack({ 0,0.1f }, 60, &fly);
 	path.PushBack({ 0,-0.1f }, 60, &fly);
 
 	fly.speed = 0.1;
-	animation = &fly;
+	
 
 //	original_position.x = x;
 //	original_position.y = y;
@@ -40,36 +65,124 @@ Enemy_Barrel::Enemy_Barrel(int x, int y, int HP) : Enemy(x, y, HP)
 
 void Enemy_Barrel::Move()
 {
+	int axis;
 	dirx = position.x - App->player->position.x;
 	diry = position.y - App->player->position.y;
 	hyp = sqrt(dirx*dirx + diry*diry);
 	angle = atan2(diry, dirx);
 	angle = (angle * 360) / (2 * PI);
 	angle += 180;
+	
+	
+	now = SDL_GetTicks();
 
-	if (angle > 337.5 && angle < 22.5) {
-		Barrels_boy = &Barrelito7;
+	if (now > up + 3000) {
+		Barrels_boy = &Barrelitoup;
+	
+		
+		if (Barrelitoup.Finished()) {
+			if (flag) {
+				stay = SDL_GetTicks();
+				flag = false;
+			}
+			
+			if (angle > 337.5 && angle < 22.5) {
+				Barrels_boy = &Barrelito7;
+				if (pum == false) {
+					pum = true;
+					App->particles->TurretShot.speed.x = 1.5f;
+					App->particles->TurretShot.speed.y = 0;
+					App->particles->AddParticle(App->particles->TurretShot, position.x, position.y, COLLIDER_ENEMY_SHOT);
+				
+				}
+			}
+			else if (angle > 22.5 && angle < 67.5) {
+				Barrels_boy = &Barrelito5;
+				if (pum == false) {
+					pum = true;
+					App->particles->TurretShot.speed.x = 1;
+					App->particles->TurretShot.speed.y = 1;
+					App->particles->AddParticle(App->particles->TurretShot, position.x, position.y, COLLIDER_ENEMY_SHOT);
+				
+				}
+			}
+			else if (angle > 67.5 && angle < 112.5) {
+				Barrels_boy = &Barrelito2;
+				if (pum == false) {
+					pum = true;
+					App->particles->TurretShot.speed.x = 0;
+					App->particles->TurretShot.speed.y = 1.5f;
+					App->particles->AddParticle(App->particles->TurretShot, position.x, position.y, COLLIDER_ENEMY_SHOT);
+				
+
+				}
+			}
+			else if (angle > 112.5 && angle < 157.5) {
+				Barrels_boy = &Barrelito6;
+				if (pum == false) {
+					pum = true;
+					App->particles->TurretShot.speed.x = -1;
+					App->particles->TurretShot.speed.y = 1;
+					App->particles->AddParticle(App->particles->TurretShot, position.x, position.y, COLLIDER_ENEMY_SHOT);
+				
+
+				}
+			}
+			else if (angle > 157.5 && angle < 202.5) {
+				Barrels_boy = &Barrelito8;
+				if (pum == false) {
+					pum = true;
+					App->particles->TurretShot.speed.x = -1.5;
+					App->particles->TurretShot.speed.y = 0;
+					App->particles->AddParticle(App->particles->TurretShot, position.x, position.y, COLLIDER_ENEMY_SHOT);
+				
+
+				}
+			}
+			else if (angle > 202.5 && angle < 247.5) {
+				Barrels_boy = &Barrelito3;
+				if (pum == false) {
+					pum = true;
+					App->particles->TurretShot.speed.x = -1;
+					App->particles->TurretShot.speed.y = -1;
+					App->particles->AddParticle(App->particles->TurretShot, position.x, position.y, COLLIDER_ENEMY_SHOT);
+				
+
+				}
+			}
+			else if (angle > 247.5 && angle < 292.5) {
+				Barrels_boy = &Barrelito1;
+				if (pum == false) {
+					pum = true;
+					App->particles->TurretShot.speed.x = 0;
+					App->particles->TurretShot.speed.y = -1.5;
+					App->particles->AddParticle(App->particles->TurretShot, position.x, position.y, COLLIDER_ENEMY_SHOT);
+				
+
+				}
+			}
+			else {
+				Barrels_boy = &Barrelito4;
+				if (pum == false) {
+					pum = true;
+					App->particles->TurretShot.speed.x = 1;
+					App->particles->TurretShot.speed.y = -1;
+					App->particles->AddParticle(App->particles->TurretShot, position.x, position.y, COLLIDER_ENEMY_SHOT);
+				
+				}
+			}
+				
+			if (now > stay + 2000) {
+				Barrels_boy = &Barrelitodown;
+				if (Barrelitodown.Finished()) {
+					up = SDL_GetTicks();
+					pum = false;
+				}
+			}
+		}
 	}
-	else if (angle > 22.5 && angle < 67.5) {
-		Barrels_boy = &Barrelito4;
-	}
-	else if (angle > 67.5 && angle < 112.5) {
-		Barrels_boy = &Barrelito1;
-	}
-	else if (angle > 112.5 && angle < 157.5) {
-		Barrels_boy = &Barrelito3;
-	}
-	else if (angle > 157.5 && angle < 202.5) {
-		Barrels_boy = &Barrelito8;
-	}
-	else if (angle > 202.5 && angle < 247.5) {
-		Barrels_boy = &Barrelito6;
-	}
-	else if (angle > 247.5 && angle < 292.5) {
-		Barrels_boy = &Barrelito2;
-	}
-	else {
-		Barrels_boy = &Barrelito5;
-	}
+
+	
+	animation = &fly;
 	/*position = original_position + path.GetCurrentPosition();*/
 }

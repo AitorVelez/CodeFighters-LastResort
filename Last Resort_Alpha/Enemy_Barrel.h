@@ -15,6 +15,14 @@ private:
 	Animation Barrelito6;
 	Animation Barrelito7;
 	Animation Barrelito8;
+	Animation Barrelitoup;
+	Animation Barrelitodown;
+	uint now;
+	uint up;
+	uint stay;
+	uint shot;
+	bool pum = false;
+	bool flag = true;
 	float dirx;
 	float diry;
 	float hyp;

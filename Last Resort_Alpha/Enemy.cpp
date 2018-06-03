@@ -21,6 +21,13 @@ const Collider* Enemy::GetCollider() const
 {
 	return collider;
 }
+void Enemy::Draw7(SDL_Texture* sprites7)
+{
+	if (collider != nullptr)
+		collider->SetPos(position.x, position.y);
+	if (Barrels_boy != nullptr)
+		App->render->Blit(sprites7, position.x + 3, position.y, &(Barrels_boy->GetCurrentFrame()));
+}
 
 void Enemy::Draw(SDL_Texture* sprites)
 {
@@ -97,13 +104,7 @@ void Enemy::Draw6(SDL_Texture* sprites6)
 		App->render->Blit(sprites6, position.x, position.y, &(Bullets->GetCurrentFrame()));
 }
 
-void Enemy::Draw7(SDL_Texture* sprites7)
-{
-	if (collider != nullptr)
-		collider->SetPos(position.x, position.y);
-	if (Barrels_boy != nullptr)
-		App->render->Blit(sprites7, position.x, position.y, &(Barrels_boy->GetCurrentFrame()));
-}
+
 /*
 void Enemy::Draw5(SDL_Texture* sprites4)
 {
