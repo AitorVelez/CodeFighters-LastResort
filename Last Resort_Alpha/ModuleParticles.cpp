@@ -493,6 +493,8 @@ ModuleParticles::ModuleParticles()
 	PreBossGreenShot.fx = 12;
 
 	Hunter1.fx = 15;
+
+	Hunter2.fx = 16;
 }
 
 ModuleParticles::~ModuleParticles()

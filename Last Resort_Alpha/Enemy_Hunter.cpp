@@ -76,12 +76,7 @@ void Enemy_Hunter::Move()
 	
 	if (appear.Finished())
 	{	
-		chunk_played = false;
-		if (chunk_played == false) {
-			App->particles->AddParticle(App->particles->Hunter2, 0, 0);
-			chunk_played = true;
-		}
-
+	
 		speed = 1;
 		now = SDL_GetTicks();
 		
@@ -111,13 +106,16 @@ void Enemy_Hunter::Move()
 			speed = +3;
 			last = SDL_GetTicks();
 		}
-	}
-
-		
-
-
+	}	
 
 	position.x  += speed;
+
+	chunk_played = false;
+	if (chunk_played == false) {
+		App->particles->AddParticle(App->particles->Hunter2, 0, 0);
+		chunk_played = true;
+	}
+
 }
 
 void Enemy_Hunter::Appear()
