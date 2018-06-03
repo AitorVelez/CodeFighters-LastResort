@@ -262,18 +262,8 @@ bool ModuleBackground2::Start()
 	//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);
 
 
-<<<<<<< HEAD
-
-	App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, 200, 100);
-
-
-
-
-	App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, 200, 100);
-=======
-
 	//App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, 200, 100);
->>>>>>> d4b51feb31d5d966cb43c38f0649fb2b24802c60
+
 
 
 
@@ -511,7 +501,7 @@ update_status ModuleBackground2::Update()
 			App->audio->FadeMus(750);
 	}
 	if (App->input->keyboard[SDL_SCANCODE_4] == KEY_STATE::KEY_DOWN
-		|| App->input->Controller_2[SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_START] == KEY_DOWN) {
+		|| App->input->Controller_2[SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_Y] == KEY_DOWN) {
 		App->player2->Enable();
 		App->player2->TwoPlayers = true;
 	}

@@ -49,7 +49,7 @@ void Powerup::SwapColor()
 
 void Powerup::OnCollision(Collider* c1, Collider* c2)
 {
-	/*if (c2->callback == App->player) 
+	if (c2->callback == App->player) 
 	{
 		if (type != SPEED_POWER && type != ZPOWER)
 		{
@@ -85,9 +85,9 @@ void Powerup::OnCollision(Collider* c1, Collider* c2)
 				break;
 			}
 		}
-	}*/
+	}
 
-	if (c2->callback = App->player2)
+	/*if (c2->callback = App->player2)
 	{
 		if (type != SPEED_POWER && type != ZPOWER)
 		{
@@ -126,9 +126,8 @@ void Powerup::OnCollision(Collider* c1, Collider* c2)
 					App->player2->bullet_state_2 == BULLET_STATE_2::LASER2_2 || App->player2->bullet_state_2 == BULLET_STATE_2::GRENADE1_2)
 					App->player2->bullet_state_2 = BULLET_STATE_2::HELLFIRE1_2;
 				break;
-
 			}
 		}
-	}
+	}*/
 }
 																								//when an enemy is killed there will be shown 2 explosions
