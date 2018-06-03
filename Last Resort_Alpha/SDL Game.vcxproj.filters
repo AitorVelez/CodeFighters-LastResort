@@ -163,7 +163,11 @@
     <ClCompile Include="HellFire.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Enemy_Hunter_ZigZag_Down.cpp">
+=======
+    <ClCompile Include="HellFire2.cpp">
+>>>>>>> 9c276c6fb9a23821a408f60a45f2e2b284bdad45
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
@@ -342,7 +346,11 @@
     <ClInclude Include="Hellfire.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Enemy_Hunter_ZigZag_Down.h">
+=======
+    <ClInclude Include="Hellfire2.h">
+>>>>>>> 9c276c6fb9a23821a408f60a45f2e2b284bdad45
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
   </ItemGroup>

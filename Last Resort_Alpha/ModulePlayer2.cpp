@@ -190,7 +190,7 @@ void ModulePlayer2::OnCollision(Collider * c1, Collider * c2)
 		if (App->ball_p2->IsEnabled() == false)
 			App->ball_p2->Enable();
 
-		if (bullet_state_2 == BULLET_STATE_2::BULLET_NO_TYPE_2 || bullet_state_2 == BULLET_STATE_2::GRENADE1_2)
+		if (bullet_state_2 == BULLET_STATE_2::BULLET_NO_TYPE_2 || bullet_state_2 == BULLET_STATE_2::GRENADE1_2 || bullet_state_2 == BULLET_STATE_2::HELLFIRE1_2)
 			bullet_state_2 = BULLET_STATE_2::LASER1_2;
 
 		else if (bullet_state_2 == BULLET_STATE_2::LASER1_2)
@@ -200,13 +200,19 @@ void ModulePlayer2::OnCollision(Collider * c1, Collider * c2)
 
 
 	}
+	if (c2->type == COLLIDER_TYPE::COLLIDER_POWERUP_H) {
+		if (App->ball_p2->IsEnabled() == false)
+			App->ball_p2->Enable();
+		if (bullet_state_2 == BULLET_STATE_2::BULLET_NO_TYPE_2 || bullet_state_2 == BULLET_STATE_2::LASER1_2 || bullet_state_2 == BULLET_STATE_2::LASER2_2 || bullet_state_2 == BULLET_STATE_2::HELLFIRE1_2)
+			bullet_state_2 = BULLET_STATE_2::GRENADE1_2;
+	}
 
 	if (c2->type == COLLIDER_TYPE::COLLIDER_POWERUP_G)
 	{
 		if (App->ball_p2->IsEnabled() == false)
 			App->ball_p2->Enable();
-		if (bullet_state_2 == BULLET_STATE_2::BULLET_NO_TYPE_2 || bullet_state_2 == BULLET_STATE_2::LASER1_2 || bullet_state_2 == BULLET_STATE_2::LASER2_2)
-			bullet_state_2 = BULLET_STATE_2::GRENADE1_2;
+		if (bullet_state_2 == BULLET_STATE_2::BULLET_NO_TYPE_2 || bullet_state_2 == BULLET_STATE_2::LASER1_2 || bullet_state_2 == BULLET_STATE_2::LASER2_2 || bullet_state_2 == BULLET_STATE_2::HELLFIRE1_2)
+			bullet_state_2 = BULLET_STATE_2::HELLFIRE1_2;
 
 		
 
@@ -323,6 +329,11 @@ update_status ModulePlayer2::Update()
 				App->enemies->AddEnemy(ENEMY_TYPES::GRENADEP2, position.x + 31, position.y + 8);
 				last_time = current_time;
 
+			}
+			if (bullet_state_2 == HELLFIRE1_2 && current_time > last_time + 1000) {
+				App->enemies->AddEnemy(ENEMY_TYPES::HELLFIREP2, position.x + 31, position.y - 24);
+				App->enemies->AddEnemy(ENEMY_TYPES::HELLFIREP2, position.x + 31, position.y + 7);
+				last_time = current_time;
 			}
 		}
 

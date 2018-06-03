@@ -414,7 +414,7 @@ update_status ModulePlayer::Update()
 				App->particles->AddParticle(App->particles->bullet_propulsion, position.x + 31, position.y - 15);
 				App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->bullet_propulsion, position.x + 31, position.y - 15);
-				App->enemies->AddEnemy(ENEMY_TYPES::HELLFIRE, position.x + 31, position.y);
+				
 				if (bullet_state == LASER1 && current_time > last_time + 500) {
 					App->particles->AddParticle(App->particles->bullet_laser2_1, position.x, position.y - 10, COLLIDER_PLAYER_SHOT);
 					//App->particles->AddParticle(App->particles->firing_laser, position.x + 32, position.y-16);
@@ -433,6 +433,11 @@ update_status ModulePlayer::Update()
 					App->enemies->AddEnemy(ENEMY_TYPES::GRENADE, position.x + 31, position.y + 8);
 					last_time = current_time;
 
+				}
+				if (bullet_state == HELLFIRE1 && current_time > last_time + 1000) {
+					App->enemies->AddEnemy(ENEMY_TYPES::HELLFIRE, position.x + 31, position.y -24);
+					App->enemies->AddEnemy(ENEMY_TYPES::HELLFIRE, position.x + 31, position.y + 7);
+					last_time = current_time;
 				}
 			}
 

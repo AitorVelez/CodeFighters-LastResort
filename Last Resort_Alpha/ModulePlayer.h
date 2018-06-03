@@ -19,7 +19,7 @@ enum BULLET_STATE
 	LASER1,
 	LASER2,
 	GRENADE1,
-	GRENADE2,
+	HELLFIRE1,
 };
 
 class ModulePlayer : public Module
