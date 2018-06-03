@@ -3,7 +3,10 @@
 #include "ModuleCollision.h"
 #include "ModuleEnemies.h"
 #include "SDL\include\SDL_timer.h"
-
+#include "ModuleParticles.h"
+#include "ModulePlayer.h"
+#include "ModulePlayer2.h"
+#include "SDL\include\SDL_timer.h"
 
 Enemy_JumpyRider::Enemy_JumpyRider(int x, int y, int HP) : Enemy(x, y, HP)
 {
@@ -36,6 +39,17 @@ void Enemy_JumpyRider::Move()
 	
 	position.x +=1;
 	
+	dirx = App->player->position.x - position.x;
+	diry = App->player->position.y - position.y;
+
+	App->particles->Bossgreen.speed.x = (dirx / sqrt((pow(dirx, 2)) + (pow(diry, 2))));
+	App->particles->Bossgreen.speed.y = (diry / sqrt((pow(dirx, 2)) + (pow(diry, 2))));
+
+	now = SDL_GetTicks(); 
+	if (now > last + 2000) {
+		App->particles->AddParticle(App->particles->Bossgreen, position.x, position.y, COLLIDER_ENEMY_SHOT);
+	}
+	last = now; 
 	
 	
 

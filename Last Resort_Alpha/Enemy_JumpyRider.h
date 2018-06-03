@@ -11,6 +11,9 @@ private:
 	int original_y = 0;
 	Animation fly;
 	bool JumpySpawned = false; 
+	float dirx; 
+	float diry; 
+
 public:
 
 	Enemy_JumpyRider(int x, int y, int HP);
