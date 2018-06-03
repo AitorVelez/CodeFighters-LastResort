@@ -449,6 +449,11 @@ update_status ModulePlayer::Update()
 				App->audio->PlayChunk(App->particles->chunks[11], 1);
 				alive_p1 = false; 
 			}
+			
+			if (App->input->keyboard[SDL_SCANCODE_B] == KEY_DOWN) {
+				if(App->ball->ball_type == BALL_TYPE::ORANGE_BALL) App->ball->ball_type = BALL_TYPE::BLUE_BALL;
+				else App->ball->ball_type = ORANGE_BALL;
+			}
 		}
 
 		if (god_mode == true) PlayerCollider->type = COLLIDER_TYPE::COLLIDER_GOD;
