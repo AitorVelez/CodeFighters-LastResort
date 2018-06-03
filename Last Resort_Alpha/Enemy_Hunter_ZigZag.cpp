@@ -3,6 +3,7 @@
 #include "ModulePlayer.h"
 #include "ModuleBackground2.h"
 #include "ModuleCollision.h"
+#include "ModuleAudio.h"
 
 Enemy_Hunter_ZigZag::Enemy_Hunter_ZigZag(int x, int y, int HP) : Enemy (x,y,HP)
 {
@@ -42,10 +43,18 @@ Enemy_Hunter_ZigZag::Enemy_Hunter_ZigZag(int x, int y, int HP) : Enemy (x,y,HP)
 
 void Enemy_Hunter_ZigZag::Move()
 {
+	if (chunk_played == false) {
+		App->audio->LoadChunk("assets/SFX/Hunter1.wav");
+		chunk_played = true;
+	}
 
 	if (PlayerHigher() && !attacking || position.y > 130)
 	{
 		position = original_position + up.GetCurrentPosition();
+		if (chunk_played2 == false) {
+			App->audio->LoadChunk("assets/SFX/Hunter1.wav");
+			chunk_played2 = true;
+		}
 	}
 
 	else {
