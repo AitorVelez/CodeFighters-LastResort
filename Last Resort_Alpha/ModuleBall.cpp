@@ -215,6 +215,7 @@ bool ModuleBall::Start()
 
 	ball_position.x = App->player->position.x;
 	ball_position.y = App->player->position.y;
+	ball_locked = false; 
 
 	angle = 0;
 	angle_aiming = 0;
