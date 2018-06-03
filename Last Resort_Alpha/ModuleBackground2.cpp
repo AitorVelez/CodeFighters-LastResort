@@ -319,18 +319,21 @@ bool ModuleBackground2::Start()
 	
 	App->collision->AddCollider({ 3368,187,736,37 }, COLLIDER_WALL);			//llarg baix
 	App->collision->AddCollider({ 3368,0,736,19 }, COLLIDER_WALL);				//larg dalt
+	App->collision->AddCollider({ 3691,17,65,34 }, COLLIDER_WALL);				//petit dalt
 	App->collision->AddCollider({ 4104,140,100,100 }, COLLIDER_WALL);			//cuadrat baix
 	App->collision->AddCollider({ 4104,0,96,68 }, COLLIDER_WALL);				//cuadrat dalt
 	App->collision->AddCollider({ 4200,187,130,37 }, COLLIDER_WALL);			//llarg baix
 	App->collision->AddCollider({ 4200,0,130,19 }, COLLIDER_WALL);				//larg dalt
 
 	App->collision->AddCollider({ 4330,172,65,52 }, COLLIDER_WALL);				//petit baix
+	App->collision->AddCollider({ 4843,172,65,52 }, COLLIDER_WALL);				//petit baix
 	App->collision->AddCollider({ 4330,0,65,34 }, COLLIDER_WALL);				//petit dalt
 
 	App->collision->AddCollider({ 4395,187,192,37 }, COLLIDER_WALL);			//llarg baix
 	App->collision->AddCollider({ 4395,0,192,19 }, COLLIDER_WALL);				//larg dalt
 
 	App->collision->AddCollider({ 4587,172,65,52 }, COLLIDER_WALL);				//petit baix
+	App->collision->AddCollider({ 5356,172,65,52 }, COLLIDER_WALL);				//petit baix
 	App->collision->AddCollider({ 4587,0,65,19 }, COLLIDER_WALL);				//estret dalt
 
 	App->collision->AddCollider({ 4652,187,192,37 }, COLLIDER_WALL);			//llarg baix
@@ -338,6 +341,8 @@ bool ModuleBackground2::Start()
 
 
 	App->collision->AddCollider({ 4844,187,65,52 }, COLLIDER_WALL);				//petit baix
+	App->collision->AddCollider({ 5865,172,65,52 }, COLLIDER_WALL);				//petit baix
+	App->collision->AddCollider({ 6385,172,65,52 }, COLLIDER_WALL);				//petit baix
 	App->collision->AddCollider({ 4844,0,65,34 }, COLLIDER_WALL);				//petit dalt
 
 	App->collision->AddCollider({ 4909,187,192,37 }, COLLIDER_WALL);			//llarg baix
