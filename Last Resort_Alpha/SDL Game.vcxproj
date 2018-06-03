@@ -86,6 +86,7 @@
     <ClInclude Include="Enemy_Hunter_ZigZag.h" />
     <ClInclude Include="Enemy_Hunter_ZigZag_Down.h" />
     <ClInclude Include="Enemy_Jumpy.h" />
+    <ClInclude Include="Enemy_JumpyRider.h" />
     <ClInclude Include="Enemy_Lamella.h" />
     <ClInclude Include="Enemy_Metal_Bee.h" />
     <ClInclude Include="Enemy_RedLamella.h" />
@@ -147,6 +148,8 @@
     <ClCompile Include="Enemy_Hunter_ZigZag.cpp" />
     <ClCompile Include="Enemy_Hunter_ZigZag_Down.cpp" />
     <ClCompile Include="Enemy_Jumpy.cpp" />
+    <ClCompile Include="Enemy_JumpyRider.cpp" />
+    <ClCompile Include="Enemy_JumpyRider2.cpp" />
     <ClCompile Include="Enemy_Lamella.cpp" />
     <ClCompile Include="Enemy_Metal_Bee.cpp" />
     <ClCompile Include="Enemy_RedLamella.cpp" />
@@ -191,6 +194,9 @@
     <ClCompile Include="Red_Car.cpp" />
     <ClCompile Include="SPower.cpp" />
     <ClCompile Include="Yellow_Car.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Enemy_JumpyRider2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

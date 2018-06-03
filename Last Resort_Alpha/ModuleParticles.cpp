@@ -23,6 +23,7 @@ ModuleParticles::ModuleParticles()
 	for (uint i = 0; i < MAX_PART_TEXTURES; ++i)
 		textures[i] = nullptr;
 
+	Fire.anim.PushBack({ 3000,3000,50,50 });
 	Fire.anim.PushBack({ 48,490,7,5 });
 	Fire.anim.PushBack({ 61,487,11,9 });
 	Fire.anim.PushBack({ 77,483,15,13 });
@@ -48,7 +49,10 @@ ModuleParticles::ModuleParticles()
 	Fire.anim.PushBack({ 246,730,64,58 });
 	Fire.anim.PushBack({ 40,815,63,58 });
 	Fire.anim.PushBack({ 106,820,64,48 });
-	Fire.speed.x = 0.4f;
+	Fire.anim.speed = 0.5f;
+	
+	Fire.life = 700;
+	Fire.speed.x = -0.6f;
 	Fire.anim.loop = false;
 	Fire.texture = 6; 
 
@@ -83,7 +87,7 @@ ModuleParticles::ModuleParticles()
 	Charging_Ball.anim.speed = 0.3f;
 	Charging_Ball.anim.loop = true;
 	Charging_Ball.texture = 3;
-	//Charging_Ball.fx = 10;
+	Charging_Ball.fx = 9;
 
 	bullet_propulsion.anim.PushBack({ 278, 90,13,12 });
 	bullet_propulsion.anim.PushBack({ 291, 92,10,9 });
@@ -486,7 +490,7 @@ ModuleParticles::ModuleParticles()
 	PreBossGreenShot.anim.loop = false;
 	PreBossGreenShot.texture = 5;
 	PreBossGreenShot.speed.x = 1;
-
+	PreBossGreenShot.fx = 12;
 }
 
 ModuleParticles::~ModuleParticles()
@@ -505,9 +509,10 @@ bool ModuleParticles::Start()
 	chunks[6] = App->audio->LoadChunk("assets/SFX/Laser_2.wav");
 	chunks[7] = App->audio->LoadChunk("assets/SFX/TankShot.wav");
 	chunks[8] = App->audio->LoadChunk("assets/SFX/Explosion2.wav");
-	chunks[9] = App->audio->LoadChunk("assets/SFX/Charging shot.wav");
+	chunks[9] = App->audio->LoadChunk("assets/SFX/Charging_shot.wav");
 	chunks[10] = App->audio->LoadChunk("assets/SFX/Releasing charged shot.wav");
 	chunks[11] = App->audio->LoadChunk("assets/SFX/BOOM_ALLAHU.wav");
+	chunks[12] = App->audio->LoadChunk("assets/SFX/Boss_shot.wav");
 
 	textures[0] = App->textures->Load("assets/sprites/main_character.png");			// Texture -> 0
 	textures[1] = App->textures->Load("assets/sprites/SpritesPlayer2.png");			// Texture -> 1

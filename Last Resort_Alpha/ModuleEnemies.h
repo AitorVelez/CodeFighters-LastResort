@@ -38,7 +38,9 @@ enum ENEMY_TYPES
 	GRENADE,
 	GRENADEP2,
 	HELLFIRE,
-	HELLFIREP2
+	HELLFIREP2,
+	JUMPYRIDER,
+	JUMPYRIDER2
 };
 
 class Enemy;
@@ -76,7 +78,7 @@ public:
 	Enemy* enemies[MAX_ENEMIES];
 
 	bool BossFlameDespawn = false; 
-
+	bool BOSSHASSPAWNED = false; 
 
 private:
 

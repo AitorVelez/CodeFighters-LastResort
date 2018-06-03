@@ -77,6 +77,7 @@ public:
 	Particle Underwater_splash;
 	Particle MisileSpidy;
 	Particle GPower; 
+	Particle Bossgreen;
 
 	Particle pilot_dying;
 	Particle BigTankShot; 

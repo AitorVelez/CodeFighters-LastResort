@@ -111,68 +111,76 @@ bool ModuleBackground2::Start()
 	}
 
 
-	hangar_1 = App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);
+	hangar_1 = App->collision->AddCollider({750,156,80,68}, COLLIDER_WALL);
 	App->power->AddPowerup(POWERUP_TYPES::GPOWER, 255, 100);
 	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 300, 70);
 
+	App->enemies->AddEnemy(ENEMY_TYPES::JUMPYRIDER, 400, 150);
+	App->enemies->AddEnemy(ENEMY_TYPES::JUMPYRIDER2, 400, 70);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 375, 120);
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 425, 90);
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 425, 150);
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 475, 70);
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 475, 170);
+	/*hangar_1 = App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);*/
 
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 500, 85);
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 500, 30);
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 500, 30);
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 500, 30); // salen si les cambias el numero
-
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 500, 35);
+	//App->power->AddPowerup(POWERUP_TYPES::GPOWER, 255, 100);
+	//App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 300, 70);
 
 
-	App->enemies->AddEnemy(ENEMY_TYPES::JUMPY, 650, 120);
-	App->enemies->AddEnemy(ENEMY_TYPES::JUMPY, 750, 90);
+	//App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 375, 120);
+	//App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 425, 90);
+	//App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 425, 150);
+	//App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 475, 70);
+	//App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 475, 170);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 550, 120);
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 600, 90);
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 600, 150);
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 650, 70);
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 650, 170);
+	//App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 500, 85);
+	//App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 500, 30);
+	//App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 500, 30);
+	//App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 500, 30); // salen si les cambias el numero
 
-	
-	
-	App->enemies->AddEnemy(ENEMY_TYPES::METAL_BEE, 750, 120);			//NO SPAWNEAN POR ALGO
-	App->enemies->AddEnemy(ENEMY_TYPES::METAL_BEE, 950, 120);
-
-	App->enemies->AddEnemy(ENEMY_TYPES::JUMPY, 1050, 90);
+	//App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 500, 35);
 
 
-	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1200, 140);
-	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1225, 85);
-	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1200, 170);
-	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1225, 60);
+	//App->enemies->AddEnemy(ENEMY_TYPES::JUMPY, 650, 120);
+	//App->enemies->AddEnemy(ENEMY_TYPES::JUMPY, 750, 90);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1250, 140);
-	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1275, 85);
-	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1250, 170);
-	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1275, 60);
+	//App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 550, 120);
+	//App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 600, 90);
+	//App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 600, 150);
+	//App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 650, 70);
+	//App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 650, 170);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1300, 140);
-	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1325, 85);
-	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1300, 170);
-	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1325, 60);
+	//
+	//
+	//App->enemies->AddEnemy(ENEMY_TYPES::METAL_BEE, 750, 120);			//NO SPAWNEAN POR ALGO
+	//App->enemies->AddEnemy(ENEMY_TYPES::METAL_BEE, 950, 120);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1350, 140);
-	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1375, 85);
-	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1350, 170);
-	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1375, 60);
+	//App->enemies->AddEnemy(ENEMY_TYPES::JUMPY, 1050, 90);
 
 
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 2000, 85);
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 2000, 30);
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 2000, 30);
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 2000, 30);
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 2000, 30);
+	//App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1200, 140);
+	//App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1225, 85);
+	//App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1200, 170);
+	//App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1225, 60);
+
+	//App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1250, 140);
+	//App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1275, 85);
+	//App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1250, 170);
+	//App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1275, 60);
+
+	//App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1300, 140);
+	//App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1325, 85);
+	//App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1300, 170);
+	//App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1325, 60);
+
+	//App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1350, 140);
+	//App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1375, 85);
+	//App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1350, 170);
+	//App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1375, 60);
+
+
+	//App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 2000, 85);
+	//App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 2000, 30);
+	//App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 2000, 30);
+	//App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 2000, 30);
+	//App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 2000, 30);
 
 
 
@@ -186,18 +194,7 @@ bool ModuleBackground2::Start()
 	//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 905, 25);
 	//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 950, 205);
 
-/*	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 300, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 300, BottomTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 340, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 340, BottomTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 380, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 380, BottomTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 420, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 420, BottomTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 460, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 460, BottomTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 500, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 500, BottomTurretPosY);
+/*
 	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 605, 195);
 	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 635, 195);
 	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 655, 195);
@@ -205,9 +202,9 @@ bool ModuleBackground2::Start()
 	
 
 
-	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 1505, 195);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 1505, 195);*/
 
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 200, TopTurretPosY);
+
 	
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3060, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3100, TopTurretPosY);
@@ -243,54 +240,48 @@ bool ModuleBackground2::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3560, BottomTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3600, BottomTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3640, BottomTurretPosY);
-<
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3680, BottomTurretPosY);*/
-	
-
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3680, BottomTurretPosY);
+	
 
 
-	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 660, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::JUMPY, 700, 100);
-	/*App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);
+
+
+
 
 	
 
-	//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 1505, 195);
-	//
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3060, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3100, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3140, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3180, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3220, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3260, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3300, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3340, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3380, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3420, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3460, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3480, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3520, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3560, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3600, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3640, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3680, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 660, TopTurretPosY);
+	// App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 660, TopTurretPosY);
 
 	//App->enemies->AddEnemy(ENEMY_TYPES::JUMPY, 700, 100);
 	//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);
+
+
 <<<<<<< HEAD
-	App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, 200, 100);*/
+
+	App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, 200, 100);
+=======
+>>>>>>> 45391dcdab775ff3b5835838b83cd52149f31469
 
 
-	/*App->enemies->AddEnemy(ENEMY_TYPES::SPIDER_TANK, 200, 20);*/
+<<<<<<< HEAD
+=======
 
-	//App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, 200, 100);
+>>>>>>> 45391dcdab775ff3b5835838b83cd52149f31469
+	App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, 200, 100);
 
 
 
 
-	App->enemies->AddEnemy(ENEMY_TYPES::BOSS, 600, 20);
+
+	//App->enemies->AddEnemy(ENEMY_TYPES::SPIDER_TANK, 200, 20);
+
+	////App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, 200, 100);
+
+
+
+
+	//App->enemies->AddEnemy(ENEMY_TYPES::BOSS, 300, 20);
+	////App->enemies->AddEnemy(ENEMY_TYPES::BOSSFIRE, 200, 40);
 
 
 	
@@ -298,7 +289,7 @@ bool ModuleBackground2::Start()
 
 
 
-	App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);
+	App->collision->AddCollider({ 750,156,80,68 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 2000,156,80,68 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 2200,0,80,35 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 2400,156,80,68 }, COLLIDER_WALL);
@@ -315,18 +306,21 @@ bool ModuleBackground2::Start()
 	
 	App->collision->AddCollider({ 3368,187,736,37 }, COLLIDER_WALL);			//llarg baix
 	App->collision->AddCollider({ 3368,0,736,19 }, COLLIDER_WALL);				//larg dalt
+	App->collision->AddCollider({ 3691,17,65,34 }, COLLIDER_WALL);				//petit dalt
 	App->collision->AddCollider({ 4104,140,100,100 }, COLLIDER_WALL);			//cuadrat baix
 	App->collision->AddCollider({ 4104,0,96,68 }, COLLIDER_WALL);				//cuadrat dalt
 	App->collision->AddCollider({ 4200,187,130,37 }, COLLIDER_WALL);			//llarg baix
 	App->collision->AddCollider({ 4200,0,130,19 }, COLLIDER_WALL);				//larg dalt
 
 	App->collision->AddCollider({ 4330,172,65,52 }, COLLIDER_WALL);				//petit baix
+	App->collision->AddCollider({ 4843,172,65,52 }, COLLIDER_WALL);				//petit baix
 	App->collision->AddCollider({ 4330,0,65,34 }, COLLIDER_WALL);				//petit dalt
 
 	App->collision->AddCollider({ 4395,187,192,37 }, COLLIDER_WALL);			//llarg baix
 	App->collision->AddCollider({ 4395,0,192,19 }, COLLIDER_WALL);				//larg dalt
 
 	App->collision->AddCollider({ 4587,172,65,52 }, COLLIDER_WALL);				//petit baix
+	App->collision->AddCollider({ 5356,172,65,52 }, COLLIDER_WALL);				//petit baix
 	App->collision->AddCollider({ 4587,0,65,19 }, COLLIDER_WALL);				//estret dalt
 
 	App->collision->AddCollider({ 4652,187,192,37 }, COLLIDER_WALL);			//llarg baix
@@ -334,6 +328,8 @@ bool ModuleBackground2::Start()
 
 
 	App->collision->AddCollider({ 4844,187,65,52 }, COLLIDER_WALL);				//petit baix
+	App->collision->AddCollider({ 5865,172,65,52 }, COLLIDER_WALL);				//petit baix
+	App->collision->AddCollider({ 6385,172,65,52 }, COLLIDER_WALL);				//petit baix
 	App->collision->AddCollider({ 4844,0,65,34 }, COLLIDER_WALL);				//petit dalt
 
 	App->collision->AddCollider({ 4909,187,192,37 }, COLLIDER_WALL);			//llarg baix
@@ -484,7 +480,7 @@ update_status ModuleBackground2::Update()
 	/*App->render->Blit(hangar_texture, 1000, 156, &hangar_body,1.0f);
 	App->render->Blit(hangar_2_texture, 300, 0, &hangar_2_body, 1.0f);*/
 
-	App->render->Blit(hangar_texture, 500, 156, &hangar_body, 1.0f);
+	App->render->Blit(hangar_texture, 750, 156, &hangar_body, 1.0f);
 	App->render->Blit(hangar_texture, 2000, 156, &hangar_body, 1.0f);
 	App->render->Blit(hangar_2_texture, 2200, 0, &hangar_2_body, 1.0f);
 	App->render->Blit(hangar_texture, 2400, 156, &hangar_body, 1.0f);
@@ -582,7 +578,7 @@ update_status ModuleBackground2::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, App->render->camera.x + 300, 100);
 
 	if (App->input->keyboard[SDL_SCANCODE_O] == KEY_DOWN)
-		App->enemies->AddEnemy(ENEMY_TYPES::BOSS, App->render->camera.x + 220, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOSS, App->render->camera.x + 220, SCREEN_HEIGHT/2 - 80);
 
 	if (App->input->keyboard[SDL_SCANCODE_G] == KEY_DOWN)
 		App->power->AddPowerup(POWERUP_TYPES::GPOWER, App->render->camera.x + 300, 100);

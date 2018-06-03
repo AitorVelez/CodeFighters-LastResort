@@ -7,11 +7,17 @@
 #include "ModuleParticles.h"
 #include "ModuleInput.h"
 #include "SDL\include\SDL_timer.h"
+#include "ModuleBackground.h"
+#include "ModuleRender.h"
+#include "ModuleEnemies.h"
+#include "ModuleBackground2.h"
 
+#define BOSSHEIGHT 80 
 
 Enemy_Boss::Enemy_Boss(int x, int y, int HP) : Enemy(x, y, HP)
 {
 	hp = 5000; 
+	App->enemies->BOSSHASSPAWNED = true; 
 
 	AnimMove.PushBack({ 19,936,128,80 });
 	AnimMove.PushBack({ 152,936,128,81 });
@@ -51,6 +57,7 @@ Enemy_Boss::Enemy_Boss(int x, int y, int HP) : Enemy(x, y, HP)
 	FireSpotMove.PushBack({ 38, 61, 128, 81 });
 
 	BossAnim = &AnimMove; 
+	original_x = x;
 	original_y = y;
 	collider = App->collision->AddCollider({ 0, 0, 128, 80 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
@@ -58,63 +65,75 @@ Enemy_Boss::Enemy_Boss(int x, int y, int HP) : Enemy(x, y, HP)
 
 void Enemy_Boss::Move()
 {
-/*	
-	if (going_up)
-	{
-		if (wave > 5.0f)
-			going_up = false;
-		else
-			wave += 0.1f;
-	}
-	else
-	{
-		if (wave < -5.0f)
-			going_up = true;
-		else
-			wave -= 0.1f;
-	}
 
-	position.y = int(float(original_y) + (10.0f * sinf(wave)));
-	position.x -= 2;
-	*/
-
+	int speed = 0; 
+	if (position.x > App->render->camera.x + 200) {
+		speed = 0; 
+	}
+	else {
+		speed = 1; 
+	}
 	
+	position.x += speed; 
+	if (original_x == position.x) {
+		last = SDL_GetTicks();
+	}
 
-	position.x += 1; 
-
-	GreenShotTimer = SDL_GetTicks(); 
-	if (GreenShotTimer > GreenLast + 1000) {
-		if (IsFiringGreen == true) {
-			App->particles->AddParticle(App->particles->PreBossGreenShot, position.x - 20, position.y + 12, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->PreBossGreenShot3, position.x + 5, position.y + 6, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->BossGreenShot, position.x - 15, position.y + 12, COLLIDER_ENEMY_SHOT);
-
-			App->particles->AddParticle(App->particles->PreBossGreenShot, position.x - 35, position.y + 66, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->PreBossGreenShot3, position.x - 10, position.y + 60, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->BossGreenShot, position.x - 30, position.y + 66, COLLIDER_ENEMY_SHOT);
-
-			GreenLast = GreenShotTimer;
+	if (IsFiringGreen == true) {
+		if (goingup == false) {
+			position.y += 0.5f;
+			if (position.y > SCREEN_HEIGHT - BOSSHEIGHT - 50) {
+				goingup = true;
+			}
+		}
+		else {
+			position.y -= 0.5f;
+			if (position.y < 30) {
+				goingup = false;
+			}
 		}
 	}
+
+	//int ShotCounter = 0; 
+	GreenShotTimer = SDL_GetTicks(); 
+	if (GreenShotTimer > GreenLast + 1000) {
+		//if (ShotCounter < 3) {
+			if (IsFiringGreen == true) {
+				App->particles->AddParticle(App->particles->PreBossGreenShot, position.x - 20, position.y + 12, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->PreBossGreenShot3, position.x + 5, position.y + 6, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->BossGreenShot, position.x - 15, position.y + 12, COLLIDER_ENEMY_SHOT);
+
+				App->particles->AddParticle(App->particles->PreBossGreenShot, position.x - 35, position.y + 66, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->PreBossGreenShot3, position.x - 10, position.y + 60, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->BossGreenShot, position.x - 30, position.y + 66, COLLIDER_ENEMY_SHOT);
+
+				GreenLast = GreenShotTimer;
+				//ShotCounter++;
+			}
+		//}
+	}
 	
 	
-	if (FireThrowerSpawned == false) {
+	/*if (FireThrowerSpawned == false) {
 		if (position.x < App->player->position.x + 180) {	
 			FireSpotSpawned = true; 
 		}
-	}
+	}*/
+
 	now = SDL_GetTicks(); 
 	int delay = 500;
 	int firsttime = 9000;
 	int time = 15000;
 
-	if (FireSpotSpawned == true) {
-		if (now > last + firsttime + delay) {
-			App->enemies->AddEnemy(ENEMY_TYPES::BOSSFIRE, position.x - 20, position.y + 25);
-			FireThrowerSpawned = true;    LOG("DANGER: FIRETHROWER HAS SPAWNED ------------------------------");
-			FireSpotSpawned = false; 
-		}
+	//if (FireSpotSpawned == true) {
+	if (now > last + firsttime + delay && flag == false) {
+		flag = true;
+		App->enemies->AddEnemy(ENEMY_TYPES::BOSSFIRE, position.x - 20, position.y + 25);
+		
+		FireThrowerSpawned = true;    LOG("DANGER: FIRETHROWER HAS SPAWNED ------------------------------");
+		FireSpotSpawned = false; 
 	}
+	//}
 
 	//now = SDL_GetTicks();
 	
@@ -137,14 +156,36 @@ void Enemy_Boss::Move()
 		     App->enemies->BossFlameDespawn = true;
 	   	     BossAnim = &FireSpotDespawn;                                      // despawn flame thrower 
 			 IsFiringGreen = false;
+			 
        	}
 	    else if (now >= last + time + delay) {
-		    BossAnim = &AnimMove;                       // move
+		    BossAnim = &AnimMove; 
+			App->enemies->BossFlameDespawn = false;// move
 			IsFiringGreen = true;
+			FireThrowerSpawned = false;
+			last = SDL_GetTicks();
+			flag = false;
+
+
 	    }
 
 	}
 	
+
+
+
+
+	if (JumpySpawned == false) {
+		if (App->enemies->BOSSHASSPAWNED == true) {
+			last = SDL_GetTicks();
+			App->enemies->AddEnemy(ENEMY_TYPES::JUMPYRIDER2, position.x, App->background2->TopTurretPosY);
+			App->enemies->AddEnemy(ENEMY_TYPES::JUMPYRIDER, position.x, App->background2->BottomTurretPosY);
+		}
+		JumpySpawned = true; 
+	}
+
+
+
 	
 
 }
