@@ -11,6 +11,7 @@
 
 Enemy_Boss::Enemy_Boss(int x, int y, int HP) : Enemy(x, y, HP)
 {
+	hp = 5000; 
 
 	AnimMove.PushBack({ 19,936,128,80 });
 	AnimMove.PushBack({ 152,936,128,81 });
@@ -80,12 +81,20 @@ void Enemy_Boss::Move()
 	
 
 	position.x += 1; 
-	if (App->input->keyboard[SDL_SCANCODE_R] == KEY_DOWN) {
-		App->particles->AddParticle(App->particles->PreBossGreenShot, position.x - 10, position.y + 12, COLLIDER_ENEMY_SHOT);
-		App->particles->AddParticle(App->particles->PreBossGreenShot3, position.x + 15, position.y + 6, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->BossGreenShot, position.x - 10, position.y + 12, COLLIDER_ENEMY_SHOT);
-	}
 
+	GreenShotTimer = SDL_GetTicks(); 
+	if (GreenShotTimer > GreenLast + 1000) {
+		App->particles->AddParticle(App->particles->PreBossGreenShot, position.x - 20, position.y + 12, COLLIDER_ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->PreBossGreenShot3, position.x + 5, position.y + 6, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->BossGreenShot, position.x - 15, position.y + 12, COLLIDER_ENEMY_SHOT); 
+
+			App->particles->AddParticle(App->particles->PreBossGreenShot, position.x -35, position.y + 61, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->PreBossGreenShot3, position.x -10, position.y + 55, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->BossGreenShot, position.x -30 , position.y + 61, COLLIDER_ENEMY_SHOT);
+
+			GreenLast = GreenShotTimer; 
+	}
+	
 	
 	if (FireThrowerSpawned == false) {
 		if (position.x < App->player->position.x + 180) {	
@@ -102,7 +111,7 @@ void Enemy_Boss::Move()
 		}
 	}
 
-	now = SDL_GetTicks();
+	//now = SDL_GetTicks();
 	int delay = 500; 
 	if (FireThrowerSpawned == true) {
 		if (now < last + 5000) {

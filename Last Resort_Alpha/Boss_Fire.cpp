@@ -9,6 +9,7 @@
 BossFire::BossFire(int x, int y, int HP) : Enemy(x, y, HP)
 {
 	Sticker = "BossFire"; 
+	hp = 1000; 
 
 	FlameThrowerDistance.x = -20; 
 	FlameThrowerDistance.y = 20;

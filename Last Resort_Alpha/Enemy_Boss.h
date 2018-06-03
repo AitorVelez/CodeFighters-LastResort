@@ -18,6 +18,8 @@ private:
 	bool FireSpotSpawned = true; 
 	uint now = 0; 
 	uint last = 0; 
+	uint GreenShotTimer = 0; 
+	uint GreenLast = 0; 
 public:
 
 	Enemy_Boss(int x, int y, int HP);
