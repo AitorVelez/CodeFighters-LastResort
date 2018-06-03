@@ -513,6 +513,11 @@ bool ModuleParticles::Start()
 	chunks[10] = App->audio->LoadChunk("assets/SFX/Releasing charged shot.wav");
 	chunks[11] = App->audio->LoadChunk("assets/SFX/BOOM_ALLAHU.wav");
 	chunks[12] = App->audio->LoadChunk("assets/SFX/Boss_shot.wav");
+	chunks[13] = App->audio->LoadChunk("assets/SFX/ShipIn.wav");
+	chunks[14] = App->audio->LoadChunk("assets/SFX/ShipOut.wav"); 
+	chunks[15] = App->audio->LoadChunk("assets/SFX/Hunter1.wav");
+	chunks[16] = App->audio->LoadChunk("assets/SFX/Hunter2.wav");
+	chunks[17] = App->audio->LoadChunk("assets/SFX/Barrelshot.wav");
 
 	textures[0] = App->textures->Load("assets/sprites/main_character.png");			// Texture -> 0
 	textures[1] = App->textures->Load("assets/sprites/SpritesPlayer2.png");			// Texture -> 1

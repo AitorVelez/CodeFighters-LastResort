@@ -128,7 +128,7 @@ void Enemy_Boss::Move()
 	//if (FireSpotSpawned == true) {
 	if (now > last + firsttime + delay && flag == false) {
 		flag = true;
-		App->enemies->AddEnemy(ENEMY_TYPES::BOSSFIRE, position.x - 20, position.y + 25);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOSSFIRE, position.x - 20, position.y + 17);
 		
 		FireThrowerSpawned = true;    LOG("DANGER: FIRETHROWER HAS SPAWNED ------------------------------");
 		FireSpotSpawned = false; 
