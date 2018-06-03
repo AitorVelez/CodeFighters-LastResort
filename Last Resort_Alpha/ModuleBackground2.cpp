@@ -228,6 +228,14 @@ bool ModuleBackground2::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 2220, -140);
 
 
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, 2420, 140);
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, 2420, 160);
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, 2420, 180);
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, 2420, 200);
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, 2420, 220);
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, 2420, 240);
+
+
 
 
 
