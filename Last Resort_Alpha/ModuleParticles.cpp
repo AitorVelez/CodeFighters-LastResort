@@ -490,7 +490,7 @@ ModuleParticles::ModuleParticles()
 	PreBossGreenShot.anim.loop = false;
 	PreBossGreenShot.texture = 5;
 	PreBossGreenShot.speed.x = 1;
-
+	PreBossGreenShot.fx = 12;
 }
 
 ModuleParticles::~ModuleParticles()
@@ -512,6 +512,7 @@ bool ModuleParticles::Start()
 	chunks[9] = App->audio->LoadChunk("assets/SFX/Charging_shot.wav");
 	chunks[10] = App->audio->LoadChunk("assets/SFX/Releasing charged shot.wav");
 	chunks[11] = App->audio->LoadChunk("assets/SFX/BOOM_ALLAHU.wav");
+	chunks[12] = App->audio->LoadChunk("assets/SFX/Boss_shot.wav");
 
 	textures[0] = App->textures->Load("assets/sprites/main_character.png");			// Texture -> 0
 	textures[1] = App->textures->Load("assets/sprites/SpritesPlayer2.png");			// Texture -> 1
