@@ -356,7 +356,7 @@ void ModuleBall::Ball_Input_Attack()
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_REPEAT
-		|| App->input->Controller_1[SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_A] == KEY_DOWN)
+		|| App->input->Controller_1[SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_A] == KEY_REPEAT)
 	{
 		charge += 20;
 		App->render->Blit(Pball, 30, 208, &App->UI->Bola1.GetCurrentFrame(), 0, false);

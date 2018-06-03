@@ -33,7 +33,7 @@ Enemy_Hunter_ZigZag_Down::Enemy_Hunter_ZigZag_Down(int x, int y, int HP) : Enemy
 void Enemy_Hunter_ZigZag_Down::Move()
 {
 
-	if (PlayerLower() && !attacking || position.y < 35)
+	if (PlayerLower() && !attacking || position.y < 60)
 	{
 		position = original_position + down.GetCurrentPosition();
 	}
