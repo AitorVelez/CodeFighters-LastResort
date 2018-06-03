@@ -3,6 +3,8 @@
 #include "ModuleRender.h"
 #include "ModuleWindow.h"
 #include "ModuleInput.h"
+#include "ModulePlayer.h"
+#include "ModulePlayer2.h"
 #include "ModuleBackground.h"
 #include "SDL/include/SDL.h"
 
@@ -50,22 +52,25 @@ update_status ModuleRender::PreUpdate()
 
 update_status ModuleRender::Update()	
 {
-	int speed = 30;
+	int speed = 10;
 
 	if (App->input->keyboard[SDL_SCANCODE_I] == KEY_REPEAT) {
-		camera.y += speed;
-		
+		camera.y -= speed;
 	}
 	if (App->input->keyboard[SDL_SCANCODE_K] == KEY_REPEAT) {
-		camera.y -= speed;
+		camera.y += speed;
 	}
 	if (App->input->keyboard[SDL_SCANCODE_L] == KEY_REPEAT) {
 		camera.x += speed;
 		App->background->falscamara -= speed;
+		App->player->position.x += speed;
+		App->player->god_mode = true; 
 	}
 	if (App->input->keyboard[SDL_SCANCODE_J] == KEY_REPEAT) {
 		camera.x -= speed;
 		App->background->falscamara += speed;
+		App->player->position.x -= speed;
+		App->player->god_mode = true; 
 	}
 
 	/*SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
