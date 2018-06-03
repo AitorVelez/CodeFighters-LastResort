@@ -499,7 +499,7 @@ update_status ModuleBackground2::Update()
 			App->audio->FadeMus(750);
 	}
 	if (App->input->keyboard[SDL_SCANCODE_4] == KEY_STATE::KEY_DOWN
-		|| App->input->Controller_2[SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_Y] == KEY_DOWN) {
+		|| App->input->Controller_2[SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_START] == KEY_DOWN) {
 		App->player2->Enable();
 		App->player2->TwoPlayers = true;
 	}
