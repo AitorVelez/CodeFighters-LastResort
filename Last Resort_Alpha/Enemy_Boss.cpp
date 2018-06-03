@@ -7,6 +7,9 @@
 #include "ModuleParticles.h"
 #include "ModuleInput.h"
 #include "SDL\include\SDL_timer.h"
+#include "ModuleBackground.h"
+#include "ModuleRender.h"
+
 #define BOSSHEIGHT 80 
 
 Enemy_Boss::Enemy_Boss(int x, int y, int HP) : Enemy(x, y, HP)
@@ -61,10 +64,15 @@ Enemy_Boss::Enemy_Boss(int x, int y, int HP) : Enemy(x, y, HP)
 void Enemy_Boss::Move()
 {
 
-
+	int speed = 0; 
+	if (position.x > App->render->camera.x + 200) {
+		speed = 0; 
+	}
+	else {
+		speed = 1; 
+	}
 	
-
-	position.x += 1; 
+	position.x += speed; 
 	if (original_x == position.x) {
 		last = SDL_GetTicks();
 	}

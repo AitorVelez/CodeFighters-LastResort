@@ -1,6 +1,9 @@
 #include "Application.h"
 #include "Enemy_JumpyRider.h"
 #include "ModuleCollision.h"
+#include "ModuleEnemies.h"
+#include "SDL\include\SDL_timer.h"
+
 
 Enemy_JumpyRider::Enemy_JumpyRider(int x, int y, int HP) : Enemy(x, y, HP)
 {
@@ -32,5 +35,15 @@ void Enemy_JumpyRider::Move()
 {
 	
 	position.x -= 0.5;
+	
+	now = SDL_GetTicks(); 
+	if (JumpySpawned == false) {
+		if (App->enemies->BOSSHASSPAWNED == true) {
+			last = SDL_GetTicks();
+		}
+		JumpySpawned = true;
+	}
+
+	
 
 }
