@@ -468,16 +468,16 @@ update_status ModulePlayer::Update()
 				}
 			}
 
-			if (App->input->keyboard[SDL_SCANCODE_5] == KEY_STATE::KEY_DOWN) {
+			if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {
 				if (god_mode == true) god_mode = false;
 				else god_mode = true;
 			}
-			if (App->input->keyboard[SDL_SCANCODE_7] == KEY_STATE::KEY_DOWN) {
+			if (App->input->keyboard[SDL_SCANCODE_F7] == KEY_STATE::KEY_DOWN) {
 				//App->audio->PlayChunk(App->particles->chunks[11], 1);
 				alive_p1 = false; 
 			}
 			
-			if (App->input->keyboard[SDL_SCANCODE_B] == KEY_DOWN) {
+			if (App->input->keyboard[SDL_SCANCODE_F1] == KEY_DOWN) {
 				if(App->ball->ball_type == BALL_TYPE::ORANGE_BALL) App->ball->ball_type = BALL_TYPE::BLUE_BALL;
 				else App->ball->ball_type = ORANGE_BALL;
 			}
