@@ -87,7 +87,7 @@ ModuleParticles::ModuleParticles()
 	Charging_Ball.anim.speed = 0.3f;
 	Charging_Ball.anim.loop = true;
 	Charging_Ball.texture = 3;
-	//Charging_Ball.fx = 10;
+	Charging_Ball.fx = 9;
 
 	bullet_propulsion.anim.PushBack({ 278, 90,13,12 });
 	bullet_propulsion.anim.PushBack({ 291, 92,10,9 });
@@ -509,7 +509,7 @@ bool ModuleParticles::Start()
 	chunks[6] = App->audio->LoadChunk("assets/SFX/Laser_2.wav");
 	chunks[7] = App->audio->LoadChunk("assets/SFX/TankShot.wav");
 	chunks[8] = App->audio->LoadChunk("assets/SFX/Explosion2.wav");
-	chunks[9] = App->audio->LoadChunk("assets/SFX/Charging shot.wav");
+	chunks[9] = App->audio->LoadChunk("assets/SFX/Charging_shot.wav");
 	chunks[10] = App->audio->LoadChunk("assets/SFX/Releasing charged shot.wav");
 	chunks[11] = App->audio->LoadChunk("assets/SFX/BOOM_ALLAHU.wav");
 

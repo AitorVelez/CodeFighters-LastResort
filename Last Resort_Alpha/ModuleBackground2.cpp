@@ -256,10 +256,17 @@ bool ModuleBackground2::Start()
 	//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);
 
 
+<<<<<<< HEAD
 	App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, 200, 100);
 
 	App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, 200, 100);
 
+=======
+	App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, 200, 100);
+
+	
+
+>>>>>>> 3978fd22f069e9d48be2ce990e51d09e8439bbf2
 
 
 	/*App->enemies->AddEnemy(ENEMY_TYPES::SPIDER_TANK, 200, 20);
