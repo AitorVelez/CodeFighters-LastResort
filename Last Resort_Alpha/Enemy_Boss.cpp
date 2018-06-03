@@ -51,6 +51,7 @@ Enemy_Boss::Enemy_Boss(int x, int y, int HP) : Enemy(x, y, HP)
 	FireSpotMove.PushBack({ 38, 61, 128, 81 });
 
 	BossAnim = &AnimMove; 
+	original_x = x;
 	original_y = y;
 	collider = App->collision->AddCollider({ 0, 0, 128, 80 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
@@ -63,6 +64,9 @@ void Enemy_Boss::Move()
 	
 
 	position.x += 1; 
+	if (original_x == position.x) {
+		last = SDL_GetTicks();
+	}
 
 	if (IsFiringGreen == true) {
 		if (goingup == false) {
@@ -99,24 +103,26 @@ void Enemy_Boss::Move()
 	}
 	
 	
-	if (FireThrowerSpawned == false) {
+	/*if (FireThrowerSpawned == false) {
 		if (position.x < App->player->position.x + 180) {	
 			FireSpotSpawned = true; 
 		}
-	}
+	}*/
 
 	now = SDL_GetTicks(); 
 	int delay = 500;
 	int firsttime = 9000;
 	int time = 15000;
-	last = SDL_GetTicks();
-	if (FireSpotSpawned == true) {
-		if (now > last + firsttime + delay) {
-			App->enemies->AddEnemy(ENEMY_TYPES::BOSSFIRE, position.x - 20, position.y + 25);
-			FireThrowerSpawned = true;    LOG("DANGER: FIRETHROWER HAS SPAWNED ------------------------------");
-			FireSpotSpawned = false; 
-		}
+
+	//if (FireSpotSpawned == true) {
+	if (now > last + firsttime + delay && flag == false) {
+		flag = true;
+		App->enemies->AddEnemy(ENEMY_TYPES::BOSSFIRE, position.x - 20, position.y + 25);
+		
+		FireThrowerSpawned = true;    LOG("DANGER: FIRETHROWER HAS SPAWNED ------------------------------");
+		FireSpotSpawned = false; 
 	}
+	//}
 
 	//now = SDL_GetTicks();
 	
@@ -139,10 +145,17 @@ void Enemy_Boss::Move()
 		     App->enemies->BossFlameDespawn = true;
 	   	     BossAnim = &FireSpotDespawn;                                      // despawn flame thrower 
 			 IsFiringGreen = false;
+			 
        	}
 	    else if (now >= last + time + delay) {
-		    BossAnim = &AnimMove;                       // move
+		    BossAnim = &AnimMove; 
+			App->enemies->BossFlameDespawn = false;// move
 			IsFiringGreen = true;
+			FireThrowerSpawned = false;
+			last = SDL_GetTicks();
+			flag = false;
+
+
 	    }
 
 	}
