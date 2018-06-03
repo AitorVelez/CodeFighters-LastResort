@@ -492,6 +492,10 @@ ModuleParticles::ModuleParticles()
 	PreBossGreenShot.speed.x = 1;
 	PreBossGreenShot.fx = 12;
 
+	ShipIn.fx = 13;
+
+	ShipOut.fx = 14;
+
 	Hunter1.fx = 15;
 
 	Hunter2.fx = 16;
