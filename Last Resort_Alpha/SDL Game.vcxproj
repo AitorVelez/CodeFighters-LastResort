@@ -97,6 +97,8 @@
     <ClInclude Include="GPower.h" />
     <ClInclude Include="Grenade.h" />
     <ClInclude Include="Grenade2.h" />
+    <ClInclude Include="Hellfire.h" />
+    <ClInclude Include="Hellfire2.h" />
     <ClInclude Include="HPower.h" />
     <ClInclude Include="LPower.h" />
     <ClInclude Include="ModuleBackground2.h" />
@@ -155,6 +157,8 @@
     <ClCompile Include="GPower.cpp" />
     <ClCompile Include="Grenade.cpp" />
     <ClCompile Include="Grenade2.cpp" />
+    <ClCompile Include="HellFire.cpp" />
+    <ClCompile Include="HellFire2.cpp" />
     <ClCompile Include="HPower.cpp" />
     <ClCompile Include="LPower.cpp" />
     <ClCompile Include="ModuleBackground2.cpp" />

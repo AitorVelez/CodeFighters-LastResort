@@ -16,7 +16,7 @@ HellfirePowerUp::HellfirePowerUp(int x, int y) : Powerup(x, y)
 	animation = &PowChangeColor;
 
 
-	collider = App->collision->AddCollider({ 0, 0, 18, 21 }, COLLIDER_TYPE::COLLIDER_POWERUP_L, (Module*)App->power);
+	collider = App->collision->AddCollider({ 0, 0, 18, 21 }, COLLIDER_TYPE::COLLIDER_POWERUP_H, (Module*)App->power);
 	type = HELL_POWER;
 	color = ORANGE;
 

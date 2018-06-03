@@ -67,15 +67,21 @@ void Powerup::OnCollision(Collider* c1, Collider* c2)
 			switch (type)
 			{
 			case LASER_POWER:
-				if (App->player->bullet_state == BULLET_STATE::BULLET_NO_TYPE || App->player->bullet_state == BULLET_STATE::GRENADE1)
+				if (App->player->bullet_state == BULLET_STATE::BULLET_NO_TYPE || App->player->bullet_state == BULLET_STATE::GRENADE1 || App->player->bullet_state == BULLET_STATE::HELLFIRE1)
 					App->player->bullet_state = BULLET_STATE::LASER1;
 
 				else if (App->player->bullet_state == BULLET_STATE::LASER1)
 					App->player->bullet_state = BULLET_STATE::LASER2;
 				break;
 			case GRENADER_POWER:
-				if (App->player->bullet_state == BULLET_STATE::BULLET_NO_TYPE || App->player->bullet_state == BULLET_STATE::LASER1 || App->player->bullet_state == BULLET_STATE::LASER2)
+				if (App->player->bullet_state == BULLET_STATE::BULLET_NO_TYPE || App->player->bullet_state == BULLET_STATE::LASER1 || App->player->bullet_state == BULLET_STATE::LASER2 || App->player->bullet_state == BULLET_STATE::HELLFIRE1)
 					App->player->bullet_state = BULLET_STATE::GRENADE1;
+				break;
+			case HELL_POWER:
+				if (App->player->bullet_state == BULLET_STATE::BULLET_NO_TYPE || App->player->bullet_state == BULLET_STATE::LASER1 || App->player->bullet_state == BULLET_STATE::LASER2 || App->player->bullet_state == BULLET_STATE::GRENADE1) 
+					App->player->bullet_state = BULLET_STATE::HELLFIRE1;
+				break;
+				
 
 				// Case HPOWER etc
 			}

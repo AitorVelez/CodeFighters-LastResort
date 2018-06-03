@@ -35,7 +35,9 @@ enum ENEMY_TYPES
 	BOSS,
 	BOSSFIRE,
 	GRENADE,
-	GRENADEP2
+	GRENADEP2,
+	HELLFIRE,
+	HELLFIREP2
 };
 
 class Enemy;
@@ -53,7 +55,12 @@ public:
 
 	ModuleEnemies();
 	~ModuleEnemies();
-
+	float dirx;
+	float diry;
+	float hyp;
+	float proximx;
+	float proximy;
+	float proxim;
 	bool Start();
 	update_status PreUpdate();
 	update_status Update();
@@ -61,9 +68,11 @@ public:
 	bool CleanUp();
 	void OnCollision(Collider* c1, Collider* c2);
 	void ForcedDeath(); 
+	float nearbyenemyx(float x, float y);
+	float nearbyenemyy(float x, float y);
 	bool AddEnemy(ENEMY_TYPES type, int x, int y);
 
-
+	Enemy* enemies[MAX_ENEMIES];
 
 	bool BossFlameDespawn = false; 
 
@@ -75,7 +84,7 @@ private:
 private:
 
 	EnemyInfo queue[MAX_ENEMIES];
-	Enemy* enemies[MAX_ENEMIES];
+	
 	SDL_Texture* sprites = nullptr;
 	SDL_Texture* sprites2 = nullptr;
 	SDL_Texture* sprites3 = nullptr;
