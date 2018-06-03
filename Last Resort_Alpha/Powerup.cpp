@@ -23,21 +23,6 @@ const Collider* Powerup::GetCollider() const
 	return collider;
 }
 
-void Powerup::SwapColor()
-{
-	now = SDL_GetTicks();
-
-	if (now > last_time + 1000)
-	{
-		if (color == ORANGE)
-			color = BLUE;
-		else color = ORANGE;
-		
-		last_time = now; 
-	}
-}
-
-
 void Powerup::Draw(SDL_Texture* sprites)
 {
 	if (collider != nullptr)
@@ -47,24 +32,35 @@ void Powerup::Draw(SDL_Texture* sprites)
 		App->render->Blit(sprites, position.x, position.y, &(animation->GetCurrentFrame()));
 }
 
+void Powerup::SwapColor()
+{
+	now = SDL_GetTicks();
+
+	if (now > last_time + 1000)
+	{
+	if (color == ORANGE)
+	color = BLUE;
+	else color = ORANGE;
+
+	last_time = now;
+	}
+	
+}
+
 void Powerup::OnCollision(Collider* c1, Collider* c2)
 {
-	if (c2->callback == App->player) {
+	if (c2->callback == App->player) 
+	{
 		if (type != SPEED_POWER && type != ZPOWER)
 		{
 			if (App->ball->IsEnabled() == false)
 			{
 				App->ball->Enable();
-			}
-
-			else
-			{
-				if (color == BLUE)
-					App->ball->ball_type = BALL_TYPE::BLUE_BALL;
-				else App->ball->ball_type = BALL_TYPE::ORANGE_BALL;
-			}
-
-
+			}	
+			if (color == BLUE)
+				App->ball->ball_type = BALL_TYPE::BLUE_BALL;
+			else App->ball->ball_type = BALL_TYPE::ORANGE_BALL;
+			
 			switch (type)
 			{
 			case LASER_POWER:
@@ -87,7 +83,6 @@ void Powerup::OnCollision(Collider* c1, Collider* c2)
 					|| App->player->bullet_state == BULLET_STATE::LASER2 || App->player->bullet_state == BULLET_STATE::GRENADE1)
 					App->player->bullet_state = BULLET_STATE::HELLFIRE1;
 				break;
-
 			}
 		}
 	}

@@ -43,8 +43,8 @@ public:
 
 	const Collider* GetCollider() const;
 
-	virtual void SwapColor();
 	virtual void Draw(SDL_Texture* sprites);
+	virtual void SwapColor();
 	virtual void OnCollision(Collider* c1, Collider* c2);
 };
 
