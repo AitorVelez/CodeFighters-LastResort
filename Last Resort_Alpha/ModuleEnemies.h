@@ -91,6 +91,7 @@ private:
 	SDL_Texture* sprites4 = nullptr;
 	SDL_Texture* sprites5 = nullptr;
 	SDL_Texture* sprites6 = nullptr;
+	SDL_Texture* sprites7 = nullptr;
 };
 
 #endif // __ModuleEnemies_H__
