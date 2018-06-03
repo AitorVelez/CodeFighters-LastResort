@@ -34,16 +34,9 @@ Enemy_JumpyRider::Enemy_JumpyRider(int x, int y, int HP) : Enemy(x, y, HP)
 void Enemy_JumpyRider::Move()
 {
 	
-	position.x -= 0.5;
+	position.x +=1;
 	
-	now = SDL_GetTicks(); 
-	if (JumpySpawned == false) {
-		if (App->enemies->BOSSHASSPAWNED == true) {
-			last = SDL_GetTicks();
-		}
-		JumpySpawned = true;
-	}
-
+	
 	
 
 }

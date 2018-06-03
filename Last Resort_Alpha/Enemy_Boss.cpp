@@ -9,6 +9,8 @@
 #include "SDL\include\SDL_timer.h"
 #include "ModuleBackground.h"
 #include "ModuleRender.h"
+#include "ModuleEnemies.h"
+#include "ModuleBackground2.h"
 
 #define BOSSHEIGHT 80 
 
@@ -169,6 +171,21 @@ void Enemy_Boss::Move()
 
 	}
 	
+
+
+
+
+	if (JumpySpawned == false) {
+		if (App->enemies->BOSSHASSPAWNED == true) {
+			last = SDL_GetTicks();
+			App->enemies->AddEnemy(ENEMY_TYPES::JUMPYRIDER2, position.x, App->background2->TopTurretPosY);
+			App->enemies->AddEnemy(ENEMY_TYPES::JUMPYRIDER, position.x, App->background2->BottomTurretPosY);
+		}
+		JumpySpawned = true; 
+	}
+
+
+
 	
 
 }

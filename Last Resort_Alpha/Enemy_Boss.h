@@ -24,6 +24,7 @@ private:
 	uint GreenLast = 0; 
 	bool IsFiringGreen = false; 
 	bool goingup = false; 
+	bool JumpySpawned = false; 
 
 public:
 
