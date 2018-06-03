@@ -111,7 +111,10 @@ bool ModuleBackground2::Start()
 	}
 
 
-	hangar_1 = App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);
+	hangar_1 = App->collision->AddCollider({750,156,80,68}, COLLIDER_WALL);
+	App->power->AddPowerup(POWERUP_TYPES::GPOWER, 255, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 300, 70);
+	/*hangar_1 = App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);*/
 	//App->power->AddPowerup(POWERUP_TYPES::GPOWER, 255, 100);
 	//App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 300, 70);
 
@@ -299,7 +302,7 @@ bool ModuleBackground2::Start()
 
 
 
-	App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);
+	App->collision->AddCollider({ 750,156,80,68 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 2000,156,80,68 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 2200,0,80,35 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 2400,156,80,68 }, COLLIDER_WALL);
@@ -485,7 +488,7 @@ update_status ModuleBackground2::Update()
 	/*App->render->Blit(hangar_texture, 1000, 156, &hangar_body,1.0f);
 	App->render->Blit(hangar_2_texture, 300, 0, &hangar_2_body, 1.0f);*/
 
-	App->render->Blit(hangar_texture, 500, 156, &hangar_body, 1.0f);
+	App->render->Blit(hangar_texture, 750, 156, &hangar_body, 1.0f);
 	App->render->Blit(hangar_texture, 2000, 156, &hangar_body, 1.0f);
 	App->render->Blit(hangar_2_texture, 2200, 0, &hangar_2_body, 1.0f);
 	App->render->Blit(hangar_texture, 2400, 156, &hangar_body, 1.0f);
