@@ -7,7 +7,7 @@
 Enemy_Metal_Bee::Enemy_Metal_Bee(int x, int y, int HP) : Enemy(x, y, HP)
 {
 
-	original_hp = 11;
+	hp = 11;
 	// De frente -->derecha;
 	Right1.PushBack({ 141,98,41,46 });
 	Right1.PushBack({ 184,98,41,46 });

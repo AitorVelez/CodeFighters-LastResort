@@ -10,6 +10,7 @@
 
 Enemy_JumpyRider::Enemy_JumpyRider(int x, int y, int HP) : Enemy(x, y, HP)
 {
+	
 	fly.PushBack({ 257,295,48,41 });
 	fly.PushBack({ 315,295,48,39 });
 	fly.PushBack({ 373,290,48,40 });

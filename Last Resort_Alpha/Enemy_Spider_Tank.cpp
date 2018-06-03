@@ -11,7 +11,7 @@
 
 Enemy_Spider_Tank::Enemy_Spider_Tank(int x, int y, int HP) : Enemy(x, y, HP)
 {
-	original_hp = 20;
+	hp = original_hp = 20;
 	
 	Downleft.PushBack({7,6,61,47});
 	Downleft.PushBack({ 71,6,61,48 });
@@ -55,6 +55,7 @@ void Enemy_Spider_Tank::Move()
 			lastshot = SDL_GetTicks();
 			if (shotting2) {
 				shotting2 = false;
+
 				if (original_y > 78) {
 					App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, position.x, position.y - 10);
 					App->audio->PlayChunk(App->particles->chunks[7], 1);
