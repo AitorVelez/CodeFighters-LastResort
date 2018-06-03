@@ -48,7 +48,9 @@ ModuleParticles::ModuleParticles()
 	Fire.anim.PushBack({ 246,730,64,58 });
 	Fire.anim.PushBack({ 40,815,63,58 });
 	Fire.anim.PushBack({ 106,820,64,48 });
-	Fire.speed.x = 0.4f;
+	Fire.anim.speed = 0.5f;
+	Fire.life = 700;
+	Fire.speed.x = -0.6f;
 	Fire.anim.loop = false;
 	Fire.texture = 6; 
 
