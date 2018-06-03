@@ -145,14 +145,7 @@ bool ModuleBackground2::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, 755, 180);
 	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, 755, 160); // salen si les cambias el numero
 	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, 755, 140);
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, 755, 280);
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, 755, 260);
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, 755, 240);
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, 755, 220);
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, 755, 200);
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, 755, 180);
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, 755, 160); // salen si les cambias el numero
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, 755, 140);
+
 
 	//App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 500, 35);
 
@@ -206,22 +199,33 @@ bool ModuleBackground2::Start()
 	//App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1350, 170);
 	//App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1375, 60);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1900, 140);
-	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1900, 140);
-	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1910, 140);
-	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1910, 140);
-	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1920, 140);
-	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1920, 140);
-	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1930, 140);
-	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1930, 140);
+	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1900, 30);
+	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1900, 60);
+	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1910, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1910, 130);
+	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1920, 30);
+	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1920, 60);
+	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1930, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1930, 130);
 
 
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, 2000, 85);
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, 2000, 80);
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, 2000, 90);
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, 2000, 75);
-	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, 2000, 70);
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, 2000, 140);
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, 2000, 160);
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, 2000, 180);
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, 2000, 200);
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, 2000, 220);
 
+
+
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 2220, 20);
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 2220, 0);
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 2220, -20);
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 2220, -40);
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 2220, -60);
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 2220, -80);
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 2220, -10);
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 2220, -120);
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 2220, -140);
 
 
 

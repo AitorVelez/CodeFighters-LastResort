@@ -647,7 +647,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 
 			}
 			else {
-			LOG("HEY SOMEONE SCORED %i", App->player->score_p1);
+			
 			AddParticle(bullet_explosion, active[i]->position.x, active[i]->position.y -3);
 			delete active[i];
 			active[i] = nullptr;
