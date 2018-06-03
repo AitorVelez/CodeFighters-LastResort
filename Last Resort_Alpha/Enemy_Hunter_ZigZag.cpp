@@ -51,10 +51,6 @@ void Enemy_Hunter_ZigZag::Move()
 	if (PlayerHigher() && !attacking || position.y > 130)
 	{
 		position = original_position + up.GetCurrentPosition();
-		if (chunk_played2 == false) {
-			App->audio->LoadChunk("assets/SFX/Hunter1.wav");
-			chunk_played2 = true;
-		}
 	}
 
 	else {

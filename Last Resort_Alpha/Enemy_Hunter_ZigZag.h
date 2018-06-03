@@ -23,7 +23,6 @@ public:
 	void Move();
 	bool PlayerHigher(); 
 	bool chunk_played;
-	bool chunk_played2;
 	void Attack(); 
 };
 
