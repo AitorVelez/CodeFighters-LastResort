@@ -37,7 +37,7 @@ Enemy_Hunter_ZigZag::Enemy_Hunter_ZigZag(int x, int y, int HP) : Enemy (x,y,HP)
 
 
 	anim2ndLevel = &up_anim;	
-	collider = App->collision->AddCollider({ 0,0, 40, 22 }, COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 32, 26 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 }
 
 void Enemy_Hunter_ZigZag::Move()
