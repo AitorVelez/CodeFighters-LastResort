@@ -1,74 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Barrel.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Cockroach.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Hunter.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Hunter_ZigZag.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Jumpy.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Lamella.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Metal_Bee.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_RedLamella.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Rhino.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Rocket.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Spider_Tank.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Tank.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Turret.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Powerup.cpp">
-      <Filter>Modules\Enemies\PowerUps</Filter>
-    </ClCompile>
-    <ClCompile Include="SPower.cpp">
-      <Filter>Modules\Enemies\PowerUps</Filter>
-    </ClCompile>
-    <ClCompile Include="LPower.cpp">
-      <Filter>Modules\Enemies\PowerUps</Filter>
-    </ClCompile>
     <ClCompile Include="Application.cpp">
       <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="Globals.cpp">
       <Filter>Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Blue_Car.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Red_Car.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Yellow_Car.cpp">
-      <Filter>Modules\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="ModuleAudio.cpp">
       <Filter>Modules</Filter>
@@ -139,95 +76,101 @@
     <ClCompile Include="ModuleWindow.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy_Gustav.cpp">
-      <Filter>Modules\Enemies</Filter>
+    <ClCompile Include="HPower.cpp">
+      <Filter>Modules\PowerUps</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy_Boss.cpp">
+    <ClCompile Include="LPower.cpp">
+      <Filter>Modules\PowerUps</Filter>
+    </ClCompile>
+    <ClCompile Include="HellFire2.cpp">
+      <Filter>Modules\PowerUps</Filter>
+    </ClCompile>
+    <ClCompile Include="HellFire.cpp">
+      <Filter>Modules\PowerUps</Filter>
+    </ClCompile>
+    <ClCompile Include="SPower.cpp">
+      <Filter>Modules\PowerUps</Filter>
+    </ClCompile>
+    <ClCompile Include="Powerup.cpp">
+      <Filter>Modules\PowerUps</Filter>
+    </ClCompile>
+    <ClCompile Include="Grenade2.cpp">
+      <Filter>Modules\PowerUps</Filter>
+    </ClCompile>
+    <ClCompile Include="GPower.cpp">
+      <Filter>Modules\PowerUps</Filter>
+    </ClCompile>
+    <ClCompile Include="Grenade.cpp">
+      <Filter>Modules\PowerUps</Filter>
+    </ClCompile>
+    <ClCompile Include="Blue_Car.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Boss_Fire.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="HPower.cpp">
-      <Filter>Modules\Enemies\PowerUps</Filter>
-    </ClCompile>
-    <ClCompile Include="GPower.cpp">
-      <Filter>Modules\Enemies\PowerUps</Filter>
-    </ClCompile>
-    <ClCompile Include="Grenade.cpp">
+    <ClCompile Include="Enemy.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="Grenade2.cpp">
+    <ClCompile Include="Enemy_Barrel.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="HellFire.cpp">
+    <ClCompile Include="Enemy_Boss.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="HellFire2.cpp">
+    <ClCompile Include="Enemy_Cockroach.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Gustav.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Hunter.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Hunter_ZigZag.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Hunter_ZigZag_Down.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Jumpy.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Lamella.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Metal_Bee.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_RedLamella.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Rhino.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Rocket.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Spider_Tank.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Tank.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Turret.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Red_Car.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Yellow_Car.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Enemy.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Barrel.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Cockroach.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Hunter.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Hunter_ZigZag.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Jumpy.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Lamella.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Metal_Bee.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_RedLamella.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Rhino.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Rocket.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Spider_Tank.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Tank.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Turret.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Powerup.h">
-      <Filter>Modules\Enemies\PowerUps</Filter>
-    </ClInclude>
-    <ClInclude Include="SPower.h">
-      <Filter>Modules\Enemies\PowerUps</Filter>
-    </ClInclude>
-    <ClInclude Include="LPower.h">
-      <Filter>Modules\Enemies\PowerUps</Filter>
-    </ClInclude>
-    <ClInclude Include="Application.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Globals.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="MemLeaks.h">
-      <Filter>Core</Filter>
-    </ClInclude>
     <ClInclude Include="Animation.h">
       <Filter>Containers</Filter>
     </ClInclude>
@@ -237,14 +180,14 @@
     <ClInclude Include="p2Point.h">
       <Filter>Containers</Filter>
     </ClInclude>
-    <ClInclude Include="Blue_Car.h">
-      <Filter>Modules\Enemies</Filter>
+    <ClInclude Include="Application.h">
+      <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="Red_Car.h">
-      <Filter>Modules\Enemies</Filter>
+    <ClInclude Include="Globals.h">
+      <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="Yellow_Car.h">
-      <Filter>Modules\Enemies</Filter>
+    <ClInclude Include="MemLeaks.h">
+      <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="Module.h">
       <Filter>Modules</Filter>
@@ -318,49 +261,112 @@
     <ClInclude Include="ModuleWindow.h">
       <Filter>Modules</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy_Gustav.h">
+    <ClInclude Include="HPower.h">
+      <Filter>Modules\PowerUps</Filter>
+    </ClInclude>
+    <ClInclude Include="LPower.h">
+      <Filter>Modules\PowerUps</Filter>
+    </ClInclude>
+    <ClInclude Include="Hellfire2.h">
+      <Filter>Modules\PowerUps</Filter>
+    </ClInclude>
+    <ClInclude Include="Hellfire.h">
+      <Filter>Modules\PowerUps</Filter>
+    </ClInclude>
+    <ClInclude Include="SPower.h">
+      <Filter>Modules\PowerUps</Filter>
+    </ClInclude>
+    <ClInclude Include="Powerup.h">
+      <Filter>Modules\PowerUps</Filter>
+    </ClInclude>
+    <ClInclude Include="Grenade2.h">
+      <Filter>Modules\PowerUps</Filter>
+    </ClInclude>
+    <ClInclude Include="Grenade.h">
+      <Filter>Modules\PowerUps</Filter>
+    </ClInclude>
+    <ClInclude Include="GPower.h">
+      <Filter>Modules\PowerUps</Filter>
+    </ClInclude>
+    <ClInclude Include="Yellow_Car.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy_Boss.h">
+    <ClInclude Include="Blue_Car.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="BossFire.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="HPower.h">
-      <Filter>Modules\Enemies\PowerUps</Filter>
-    </ClInclude>
-    <ClInclude Include="GPower.h">
-      <Filter>Modules\Enemies\PowerUps</Filter>
-    </ClInclude>
-    <ClInclude Include="Grenade.h">
+    <ClInclude Include="Enemy.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="Grenade2.h">
+    <ClInclude Include="Enemy_Barrel.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="Hellfire.h">
+    <ClInclude Include="Enemy_Boss.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="Hellfire2.h">
+    <ClInclude Include="Enemy_Cockroach.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Gustav.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Hunter.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Hunter_ZigZag.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Hunter_ZigZag_Down.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Jumpy.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Lamella.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Metal_Bee.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_RedLamella.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Rhino.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Rocket.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Spider_Tank.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Tank.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Turret.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Red_Car.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Core">
-      <UniqueIdentifier>{7c51852e-23bf-4beb-b431-1728e101c5b5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Containers">
-      <UniqueIdentifier>{fb29c340-5c81-4265-b0c3-b007f3aa8d86}</UniqueIdentifier>
+      <UniqueIdentifier>{3ca93d77-22b2-433e-aa20-54c9a0ef8c54}</UniqueIdentifier>
     </Filter>
     <Filter Include="Modules">
-      <UniqueIdentifier>{c44fbd76-e507-44b7-b0b7-b5eaa08d3ead}</UniqueIdentifier>
+      <UniqueIdentifier>{538dcded-a311-4c3d-8df4-c1c9ffd81705}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers">
+      <UniqueIdentifier>{29b24b6e-ce99-48c8-baac-4ca9d1162e22}</UniqueIdentifier>
     </Filter>
     <Filter Include="Modules\Enemies">
-      <UniqueIdentifier>{f7dbc685-03b1-489f-9698-120b9609bb9e}</UniqueIdentifier>
+      <UniqueIdentifier>{587b2fa0-0baa-4b27-939c-93ce49ac6465}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Modules\Enemies\PowerUps">
-      <UniqueIdentifier>{b033e2fd-b2a4-4991-80cf-b3fccb60e523}</UniqueIdentifier>
+    <Filter Include="Modules\PowerUps">
+      <UniqueIdentifier>{b053da4a-ba93-4e03-9f06-7ad1f10b748a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

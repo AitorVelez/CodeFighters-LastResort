@@ -492,7 +492,7 @@ update_status ModuleBackground2::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, App->render->camera.x + 300, 100);
 
 	if (App->input->keyboard[SDL_SCANCODE_KP_4] == KEY_DOWN)
-		App->enemies->AddEnemy(ENEMY_TYPES::LAMELLA, App->render->camera.x + 300, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, App->render->camera.x + 300, 0);
 
 	if (App->input->keyboard[SDL_SCANCODE_KP_5] == KEY_DOWN)
 		App->enemies->AddEnemy(ENEMY_TYPES::COCKROACH, App->render->camera.x + 300, 100);
@@ -501,10 +501,13 @@ update_status ModuleBackground2::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::RHINO, App->render->camera.x + 300, 100);
 
 	if (App->input->keyboard[SDL_SCANCODE_KP_7] == KEY_DOWN)
-		App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, App->render->camera.x + 300, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG, App->render->camera.x + 300, 200);
 
 	if (App->input->keyboard[SDL_SCANCODE_KP_8] == KEY_DOWN)
 		App->power->AddPowerup(POWERUP_TYPES::SPOWER, App->render->camera.x + 300, 100);
+
+	if (App->input->keyboard[SDL_SCANCODE_KP_9] == KEY_DOWN)
+		App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, App->render->camera.x + 300, 100);
 
 	if (App->input->keyboard[SDL_SCANCODE_KP_9] == KEY_DOWN)
 		App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, App->render->camera.x + 300, 100);
