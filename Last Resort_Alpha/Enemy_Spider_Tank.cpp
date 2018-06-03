@@ -46,7 +46,7 @@ Enemy_Spider_Tank::Enemy_Spider_Tank(int x, int y, int HP) : Enemy(x, y, HP)
 void Enemy_Spider_Tank::Move()
 {
 	speed = 1.5;
-	if (position.x > original_x + 1000) {
+	if (position.x > original_x + 600) {
 		position.x += speed * 0;
 	}
 	else {
