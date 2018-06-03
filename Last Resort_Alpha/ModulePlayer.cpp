@@ -437,6 +437,7 @@ update_status ModulePlayer::Update()
 				if (bullet_state == HELLFIRE1 && current_time > last_time + 1000) {
 					App->enemies->AddEnemy(ENEMY_TYPES::HELLFIRE, position.x + 31, position.y -24);
 					App->enemies->AddEnemy(ENEMY_TYPES::HELLFIRE, position.x + 31, position.y + 7);
+					last_time = current_time;
 				}
 			}
 
