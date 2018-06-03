@@ -30,6 +30,8 @@
 #include "Grenade.h"
 #include "Grenade2.h"
 #include "Hellfire.h"
+#include "Enemy_JumpyRider.h"
+#include "Enemy_JumpyRider2.h"
 
 
 #define SPAWN_MARGIN 10
@@ -248,6 +250,12 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			break;
 		case ENEMY_TYPES::HELLFIRE:
 			enemies[i] = new Hellfire(info.x, info.y, info.HP);
+			break;
+		case ENEMY_TYPES::JUMPYRIDER:
+			enemies[i] = new Enemy_JumpyRider(info.x, info.y, info.HP);
+			break;
+		case ENEMY_TYPES::JUMPYRIDER2:
+			enemies[i] = new Enemy_JumpyRider2(info.x, info.y, info.HP);
 			break;
 		}
 	}

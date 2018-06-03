@@ -23,6 +23,7 @@ ModuleParticles::ModuleParticles()
 	for (uint i = 0; i < MAX_PART_TEXTURES; ++i)
 		textures[i] = nullptr;
 
+	Fire.anim.PushBack({ 3000,3000,50,50 });
 	Fire.anim.PushBack({ 48,490,7,5 });
 	Fire.anim.PushBack({ 61,487,11,9 });
 	Fire.anim.PushBack({ 77,483,15,13 });
@@ -49,6 +50,7 @@ ModuleParticles::ModuleParticles()
 	Fire.anim.PushBack({ 40,815,63,58 });
 	Fire.anim.PushBack({ 106,820,64,48 });
 	Fire.anim.speed = 0.5f;
+	
 	Fire.life = 700;
 	Fire.speed.x = -0.6f;
 	Fire.anim.loop = false;
