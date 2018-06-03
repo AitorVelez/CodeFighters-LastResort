@@ -582,7 +582,7 @@ update_status ModuleBackground2::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, App->render->camera.x + 300, 100);
 
 	if (App->input->keyboard[SDL_SCANCODE_O] == KEY_DOWN)
-		App->enemies->AddEnemy(ENEMY_TYPES::BOSS, App->render->camera.x + 220, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOSS, App->render->camera.x + 220, SCREEN_HEIGHT/2 - 80);
 
 	if (App->input->keyboard[SDL_SCANCODE_G] == KEY_DOWN)
 		App->power->AddPowerup(POWERUP_TYPES::GPOWER, App->render->camera.x + 300, 100);

@@ -21,6 +21,8 @@ private:
 	uint GreenShotTimer = 0; 
 	uint GreenLast = 0; 
 	bool IsFiringGreen = false; 
+	bool goingup = false; 
+
 public:
 
 	Enemy_Boss(int x, int y, int HP);
