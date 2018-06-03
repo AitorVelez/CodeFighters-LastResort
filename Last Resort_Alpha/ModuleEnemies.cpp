@@ -32,7 +32,7 @@
 #include "Hellfire.h"
 
 
-#define SPAWN_MARGIN 50
+#define SPAWN_MARGIN 10
 
 ModuleEnemies::ModuleEnemies()
 {
