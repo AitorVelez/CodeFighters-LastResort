@@ -14,6 +14,8 @@ private:
 	int speed = 0; 
 	bool ArrivedLeft = false; 
 	bool colliderAdded = false; 
+	bool chunk_played;
+
 public:
 
 	Enemy_Hunter(int x, int y, int HP);
