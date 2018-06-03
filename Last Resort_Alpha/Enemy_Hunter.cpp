@@ -74,7 +74,7 @@ void Enemy_Hunter::Move()
 		now = SDL_GetTicks();
 		
 		if (now > last + 2000) {
-		speed = -3; 
+		speed = -2; 
 		position.y = y_original -9 + (App->render->camera.y / 3);
 		anim2ndLevel = &fly;
 		
@@ -92,11 +92,11 @@ void Enemy_Hunter::Move()
 			ArrivedLeft = true;
 		}
 		else {
-			speed = -3; 
+			speed = -2; 
 			
 		}
 		if (ArrivedLeft) {
-			speed = 3;
+			speed = 2;
 			last = SDL_GetTicks();
 		}
 	}
@@ -105,7 +105,7 @@ void Enemy_Hunter::Move()
 
 
 
-	position.x += speed;
+	position.x  += speed;
 }
 
 void Enemy_Hunter::Appear()

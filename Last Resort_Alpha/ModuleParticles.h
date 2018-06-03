@@ -7,7 +7,7 @@
 #include "p2Point.h"
 #include "ModuleCollision.h"
 
-#define MAX_ACTIVE_PARTICLES 500 //50
+#define MAX_ACTIVE_PARTICLES 1000 //50
 #define MAX_PART_CHUNKS 25
 #define MAX_PART_TEXTURES 11
 

@@ -114,6 +114,29 @@ bool ModuleBackground2::Start()
 	hangar_1 = App->collision->AddCollider({500,156,80,68}, COLLIDER_WALL);
 	App->power->AddPowerup(POWERUP_TYPES::GPOWER, 255, 100);
 	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 300, 70);
+
+
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 375, 120);
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 425, 90);
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 425, 150);
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 475, 70);
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 475, 170);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::JUMPY, 650, 120);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 550, 120);
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 600, 90);
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 600, 150);
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 650, 70);
+	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 650, 170);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::METAL_BEE, 800, 120);
+
+
+	App->enemies->AddEnemy(ENEMY_TYPES::BOSS, 800, 120);
+
+
+
 	//App->enemies->AddEnemy(ENEMY_TYPES::HELLFIRE, 50, 50);
 	//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 50, 25); 
 	//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 550, 205);  
@@ -122,7 +145,7 @@ bool ModuleBackground2::Start()
 	//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 905, 25);
 	//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 950, 205);
 
-	/*App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 300, TopTurretPosY);
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 300, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 300, BottomTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 340, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 340, BottomTurretPosY);
@@ -402,7 +425,7 @@ update_status ModuleBackground2::Update()
 
 
 		// Background  
-	App->render->Blit(BackgroundLvl2, 0, 0, &background2, 0.25);						
+	App->render->Blit(BackgroundLvl2, 0, 0, &background2, 0.1f);						
 		
 	
 		// Rain
@@ -420,6 +443,7 @@ update_status ModuleBackground2::Update()
 	App->render->Blit(hangar_texture, 2000, 156, &hangar_body, 1.0f);
 	App->render->Blit(hangar_2_texture, 2200, 0, &hangar_2_body, 1.0f);
 	App->render->Blit(hangar_texture, 2400, 156, &hangar_body, 1.0f);
+
 
 
 		
