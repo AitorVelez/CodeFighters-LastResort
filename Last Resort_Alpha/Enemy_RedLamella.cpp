@@ -8,7 +8,7 @@
 
 Enemy_RedLamella::Enemy_RedLamella(int x, int y, int HP) : Enemy(x, y, HP)
 {
-	original_hp = 11;
+	hp = 11;
 	Right.PushBack({ 325, 0, 30, 29}); 
 	Right.PushBack({ 355, 0, 31, 30});
 	Right.PushBack({ 386, 0, 31, 31});

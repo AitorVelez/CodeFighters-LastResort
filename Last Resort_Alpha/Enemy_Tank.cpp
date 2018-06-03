@@ -13,6 +13,7 @@
 #define TANKHEIGHT 64
 Enemy_Tank::Enemy_Tank(int x, int y, int HP) : Enemy(x, y, HP)
 { 
+
 	RelPosx = SCREEN_WIDTH; 
 	RelPosy = SCREEN_HEIGHT - TANKHEIGHT;
 	hp = original_hp = 80;

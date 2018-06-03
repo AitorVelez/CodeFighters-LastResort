@@ -6,6 +6,7 @@
 
 Enemy_Hunter_ZigZag::Enemy_Hunter_ZigZag(int x, int y, int HP) : Enemy (x,y,HP)
 {
+
 	up_anim.PushBack({ 392, 482, 40, 23 });
 	up_anim.PushBack({ 442, 481, 40, 24 });
 	up_anim.PushBack({ 490, 481, 40, 28 });

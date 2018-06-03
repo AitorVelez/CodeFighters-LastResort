@@ -9,6 +9,7 @@
 
 Enemy_Turret::Enemy_Turret(int x, int y, int HP) : Enemy(x, y, HP)
 {
+	hp = 20;
 	original_hp = 1;
 	collider = App->collision->AddCollider({ 0, 0, 16, 16 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 	if (original_y < 100) {
