@@ -30,6 +30,6 @@ Enemy_JumpyRider::Enemy_JumpyRider(int x, int y, int HP) : Enemy(x, y, HP)
 
 void Enemy_JumpyRider::Move()
 {
-	position.y = int(float(original_y) + (80.0f * sinf(wave)));
+	
 	position.x -= 0.5;
 }

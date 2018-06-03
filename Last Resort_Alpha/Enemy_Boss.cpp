@@ -109,7 +109,7 @@ void Enemy_Boss::Move()
 	int delay = 500;
 	int firsttime = 9000;
 	int time = 15000;
-
+	last = SDL_GetTicks();
 	if (FireSpotSpawned == true) {
 		if (now > last + firsttime + delay) {
 			App->enemies->AddEnemy(ENEMY_TYPES::BOSSFIRE, position.x - 20, position.y + 25);
