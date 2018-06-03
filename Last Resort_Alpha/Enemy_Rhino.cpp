@@ -4,6 +4,7 @@
 
 Enemy_Rhino::Enemy_Rhino(int x, int y, int HP) : Enemy(x, y, HP)
 {
+
 	fly.PushBack({ 9,290,48,46 });
 	fly.PushBack({ 57,290,48,46 });
 	fly.PushBack({ 105,290,48,46 });

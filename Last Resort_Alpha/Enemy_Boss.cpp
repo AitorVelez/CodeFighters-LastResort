@@ -16,7 +16,7 @@
 
 Enemy_Boss::Enemy_Boss(int x, int y, int HP) : Enemy(x, y, HP)
 {
-	hp = 5000; 
+	hp = 300; 
 	App->enemies->BOSSHASSPAWNED = true; 
 
 	AnimMove.PushBack({ 19,936,128,80 });
@@ -128,7 +128,7 @@ void Enemy_Boss::Move()
 	//if (FireSpotSpawned == true) {
 	if (now > last + firsttime + delay && flag == false) {
 		flag = true;
-		App->enemies->AddEnemy(ENEMY_TYPES::BOSSFIRE, position.x - 20, position.y + 25);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOSSFIRE, position.x - 20, position.y + 17);
 		
 		FireThrowerSpawned = true;    LOG("DANGER: FIRETHROWER HAS SPAWNED ------------------------------");
 		FireSpotSpawned = false; 

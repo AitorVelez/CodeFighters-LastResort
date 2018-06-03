@@ -9,6 +9,7 @@
 
 Enemy_Barrel::Enemy_Barrel(int x, int y, int HP) : Enemy(x, y, HP)
 {
+	hp = 4;
 
 	fly.PushBack({ 198,853-9,20,22+9 });
 	fly.PushBack({ 228,853-9,20,22+9 });
