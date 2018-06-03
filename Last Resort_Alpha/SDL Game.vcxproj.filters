@@ -163,6 +163,9 @@
     <ClCompile Include="HellFire.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
+    <ClCompile Include="HellFire2.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy.h">
@@ -337,6 +340,9 @@
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Hellfire.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Hellfire2.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
   </ItemGroup>

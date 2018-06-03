@@ -4,11 +4,11 @@
 #include "ModuleRender.h"
 #include "Path.h"
 #include "SDL\include\SDL_timer.h"
-#include "ModulePlayer.h"
-#include "Hellfire.h"
+#include "ModulePlayer2.h"
+#include "Hellfire2.h"
 #include "ModuleEnemies.h"
 
-Hellfire::Hellfire(int x, int y, int HP) : Enemy(x, y, HP)
+Hellfire2::Hellfire2(int x, int y, int HP) : Enemy(x, y, HP)
 {
 	Launch.PushBack({ 330,49,14,6 });
 
@@ -19,12 +19,11 @@ Hellfire::Hellfire(int x, int y, int HP) : Enemy(x, y, HP)
 
 }
 
-void Hellfire::Move()
+void Hellfire2::Move()
 {
-
+	uint i = 0;
 	now = SDL_GetTicks();
-	if (original_y > App->player->position.y || flag) { // abajo
-		flag = true;
+	if (original_y > App->player2->position.y) { // abajo
 		if (position.x == original_x) {
 			shhot = SDL_GetTicks();
 			position.x -= 1.5f;
@@ -54,7 +53,7 @@ void Hellfire::Move()
 			position.x += 5.5;
 		}
 	}
-	
-		
+
+
 
 }
