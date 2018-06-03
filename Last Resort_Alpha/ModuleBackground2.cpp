@@ -156,7 +156,9 @@ bool ModuleBackground2::Start()
 	
 	
 	App->enemies->AddEnemy(ENEMY_TYPES::METAL_BEE, 750, 120);			//NO SPAWNEAN POR ALGO
-	App->enemies->AddEnemy(ENEMY_TYPES::METAL_BEE, 950, 120);
+	App->enemies->AddEnemy(ENEMY_TYPES::METAL_BEE, 800, 120);
+	App->enemies->AddEnemy(ENEMY_TYPES::METAL_BEE, 850, 120);
+	App->enemies->AddEnemy(ENEMY_TYPES::METAL_BEE, 900, 120);
 
 	App->enemies->AddEnemy(ENEMY_TYPES::JUMPY, 1050, 90);
 
@@ -187,6 +189,8 @@ bool ModuleBackground2::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 2000, 90);
 	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 2000, 75);
 	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER_ZIGZAG_DOWN, 2000, 70);
+
+
 
 
 
