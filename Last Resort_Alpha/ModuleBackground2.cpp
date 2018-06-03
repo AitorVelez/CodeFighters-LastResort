@@ -123,6 +123,7 @@ bool ModuleBackground2::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 475, 170);
 
 	App->enemies->AddEnemy(ENEMY_TYPES::JUMPY, 650, 120);
+	App->enemies->AddEnemy(ENEMY_TYPES::JUMPY, 750, 90);
 
 	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 550, 120);
 	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 600, 90);
@@ -130,10 +131,38 @@ bool ModuleBackground2::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 650, 70);
 	App->enemies->AddEnemy(ENEMY_TYPES::HUNTER, 650, 170);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::METAL_BEE, 800, 120);
+	
+	
+	App->enemies->AddEnemy(ENEMY_TYPES::METAL_BEE, 750, 120);			//NO SPAWNEAN POR ALGO
+	App->enemies->AddEnemy(ENEMY_TYPES::METAL_BEE, 950, 120);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::JUMPY, 1050, 90);
 
 
-	App->enemies->AddEnemy(ENEMY_TYPES::BOSS, 800, 120);
+	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1200, 140);
+	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1225, 85);
+	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1200, 170);
+	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1225, 60);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1250, 140);
+	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1275, 85);
+	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1250, 170);
+	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1275, 60);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1300, 140);
+	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1325, 85);
+	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1300, 170);
+	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1325, 60);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1350, 140);
+	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1375, 85);
+	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1350, 170);
+	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 1375, 60);
+
+
+
+
+
 
 
 
@@ -145,7 +174,7 @@ bool ModuleBackground2::Start()
 	//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 905, 25);
 	//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 950, 205);
 
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 300, TopTurretPosY);
+/*	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 300, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 300, BottomTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 340, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 340, BottomTurretPosY);
@@ -202,8 +231,13 @@ bool ModuleBackground2::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3560, BottomTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3600, BottomTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3640, BottomTurretPosY);
+<<<<<<< HEAD
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3680, BottomTurretPosY);*/
 	
+=======
+	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3680, BottomTurretPosY);
+	*/
+>>>>>>> 4c0f0b287a7968120bcddd3ef8f4163369b4e920
 
 	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 660, TopTurretPosY);
 	//App->enemies->AddEnemy(ENEMY_TYPES::JUMPY, 700, 100);

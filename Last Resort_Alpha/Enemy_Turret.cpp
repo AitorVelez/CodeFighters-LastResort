@@ -43,7 +43,7 @@ Enemy_Turret::Enemy_Turret(int x, int y, int HP) : Enemy(x, y, HP)
 
 void Enemy_Turret::Move()
 {
-	position.x += 0.416f; // stay as foreground
+	position.x += 1.0f; // stay as foreground
 
 	if (original_y < 100) {                        // TOP TURRETS
 		if (App->player->position.y < position.y + 25) {                                  // above superior limit 
