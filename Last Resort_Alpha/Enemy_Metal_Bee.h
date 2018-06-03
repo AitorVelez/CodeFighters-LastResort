@@ -34,4 +34,4 @@ public:
 	void Move();
 };
 
-#endif // METAL_BEE_H__ #pragma once
+#endif // METAL_BEE_H__ e

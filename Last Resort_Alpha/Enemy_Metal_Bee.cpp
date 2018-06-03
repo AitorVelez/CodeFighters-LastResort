@@ -6,7 +6,7 @@
 
 Enemy_Metal_Bee::Enemy_Metal_Bee(int x, int y, int HP) : Enemy(x, y, HP)
 {
-	original_hp = 11;
+
 
 	// De frente -->derecha;
 	Right1.PushBack({ 141,98,41,46 });
@@ -137,7 +137,8 @@ Enemy_Metal_Bee::Enemy_Metal_Bee(int x, int y, int HP) : Enemy(x, y, HP)
 
 	animation = &Left;
 
-	collider = App->collision->AddCollider({ 0, 0, 39, 42 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 24, 24 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+
 
 	original_y = y;
 	original_x = x;
@@ -150,7 +151,7 @@ void Enemy_Metal_Bee::Move()
 	speed = 1.2f;
 
 
-	Animation *Current;
+
 	if (App->player->position.x < position.x) {
 
 		animation = &frontright;
@@ -186,7 +187,7 @@ void Enemy_Metal_Bee::Move()
 	
 
 	dirx = App->player->position.x - position.x;
-	diry = App->player->relativeposition.y - position.y;
+	diry = App->player->position.y - position.y;
 	hyp = sqrt(dirx*dirx + diry * diry);
 
 	dirx /= hyp;
