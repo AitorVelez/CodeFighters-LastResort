@@ -194,18 +194,7 @@ bool ModuleBackground2::Start()
 	//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 905, 25);
 	//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 950, 205);
 
-/*	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 300, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 300, BottomTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 340, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 340, BottomTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 380, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 380, BottomTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 420, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 420, BottomTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 460, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 460, BottomTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 500, TopTurretPosY);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 500, BottomTurretPosY);
+/*
 	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 605, 195);
 	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 635, 195);
 	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 655, 195);
@@ -213,9 +202,9 @@ bool ModuleBackground2::Start()
 	
 
 
-	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 1505, 195);
+	App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 1505, 195);*/
 
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 200, TopTurretPosY);
+
 	
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3060, TopTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3100, TopTurretPosY);
@@ -251,47 +240,25 @@ bool ModuleBackground2::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3560, BottomTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3600, BottomTurretPosY);
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3640, BottomTurretPosY);
-<
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3680, BottomTurretPosY);*/
-	
-
 	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3680, BottomTurretPosY);
+	
 
 
-	App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 660, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::JUMPY, 700, 100);
-	/*App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);
+
+
+
 
 	
 
-	//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 1505, 195);
-	//
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3060, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3100, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3140, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3180, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3220, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3260, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3300, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3340, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3380, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3420, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3460, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3480, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3520, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3560, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3600, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3640, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 3680, TopTurretPosY);
-	//App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 660, TopTurretPosY);
+	// App->enemies->AddEnemy(ENEMY_TYPES::BARREL, 660, TopTurretPosY);
 
 	//App->enemies->AddEnemy(ENEMY_TYPES::JUMPY, 700, 100);
 	//App->enemies->AddEnemy(ENEMY_TYPES::RED_LAMELLA, 205, 195);
-<<<<<<< HEAD
-	App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, 200, 100);*/
+
+	App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, 200, 100);
 
 
-	/*App->enemies->AddEnemy(ENEMY_TYPES::SPIDER_TANK, 200, 20);*/
+	/*App->enemies->AddEnemy(ENEMY_TYPES::SPIDER_TANK, 200, 20);
 
 	//App->enemies->AddEnemy(ENEMY_TYPES::ROCKET, 200, 100);
 
@@ -404,7 +371,7 @@ bool ModuleBackground2::Start()
 	App->collision->AddCollider({ 7157,0,65,19 }, COLLIDER_WALL);				//estret dalt
 
 	App->collision->AddCollider({ 7222,187,192,37 }, COLLIDER_WALL);			//llarg baix
-	App->collision->AddCollider({ 7222,0,192,19 }, COLLIDER_WALL);				//larg dalt
+	App->collision->AddCollider({ 7222,0,192,19 }, COLLIDER_WALL);				//larg dalt*/
 
 
 

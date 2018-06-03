@@ -32,4 +32,5 @@ void Enemy_JumpyRider::Move()
 {
 	
 	position.x -= 0.5;
+
 }

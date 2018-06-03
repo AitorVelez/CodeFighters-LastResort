@@ -77,7 +77,7 @@ public:
 	Enemy* enemies[MAX_ENEMIES];
 
 	bool BossFlameDespawn = false; 
-
+	bool BOSSHASSPAWNED = false; 
 
 private:
 
