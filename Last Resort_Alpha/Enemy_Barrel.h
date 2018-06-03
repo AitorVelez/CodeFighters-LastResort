@@ -15,6 +15,10 @@ private:
 	Animation Barrelito6;
 	Animation Barrelito7;
 	Animation Barrelito8;
+	float dirx;
+	float diry;
+	float hyp;
+	float angle;
 
 	fPoint original_position;
 	Path path;
