@@ -17,12 +17,16 @@ private:
 
 	bool attacking = false;
 	fPoint original_position;
+
+	bool chunk_played;
+	bool chunk2_played;
+
+
 public:
 
 	Enemy_Hunter_ZigZag(int x, int y, int HP);
 	void Move();
 	bool PlayerHigher(); 
-	bool chunk_played;
 	void Attack(); 
 };
 
