@@ -102,7 +102,7 @@ void Enemy_Hunter::Move()
 			
 		}
 		if (ArrivedLeft) {
-			speed = 2;
+			speed = +3;
 			last = SDL_GetTicks();
 		}
 	}
