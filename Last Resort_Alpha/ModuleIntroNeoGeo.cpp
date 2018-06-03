@@ -253,7 +253,9 @@ update_status ModuleIntroNeoGeo::Update()
 	// Draw everything --------------------------------------	
 	//App->render->Blit(TexNeoGeoImage, 0, 0, &StImage);
 
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1
+		|| App->input->Controller_1[SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_A] == KEY_DOWN
+		|| App->input->Controller_2[SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_A] == KEY_DOWN) {
 		if (App->fade->FadeToBlack(this, App->startimage, 1.5f))
 			App->audio->FadeMus(750);
 	}

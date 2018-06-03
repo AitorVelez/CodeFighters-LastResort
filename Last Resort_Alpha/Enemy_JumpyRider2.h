@@ -16,6 +16,7 @@ public:
 	Enemy_JumpyRider2(int x, int y, int HP);
 
 	void Move();
+
 };
 
 #endif // __ENEMY_RHINO_H__

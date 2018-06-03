@@ -470,7 +470,9 @@ update_status ModuleStartingImage::Update()
 
 
 
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN 
+		|| App->input->Controller_1[SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_A] == KEY_DOWN
+		|| App->input->Controller_2[SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_A] == KEY_DOWN) {
 		if (App->fade->FadeToBlack(App->startimage, App->background2, 1.5f))
 			App->audio->FadeMus(750);
 	}
