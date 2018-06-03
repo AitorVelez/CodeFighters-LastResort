@@ -34,10 +34,6 @@ Enemy_Hunter_ZigZag_Down::Enemy_Hunter_ZigZag_Down(int x, int y, int HP) : Enemy
 
 void Enemy_Hunter_ZigZag_Down::Move()
 {
-	if (chunk_played == false) {
-		App->particles->AddParticle(App->particles->Hunter1, 0, 0);
-		chunk_played = true;
-	}
 
 	if (PlayerLower() && !attacking || position.y < 60)
 	{
@@ -57,10 +53,6 @@ bool Enemy_Hunter_ZigZag_Down::PlayerLower()
 
 void Enemy_Hunter_ZigZag_Down::Attack()
 {
-	if (chunk2_played == false) {
-		App->particles->AddParticle(App->particles->Hunter2, 0, 0);
-		chunk2_played = true;
-	}
 	position.x -= 3;
 	anim2ndLevel = &forward; 
 }
