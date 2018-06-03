@@ -10,10 +10,12 @@ private:
 	bool going_up = true;
 	int original_y = 0;
 	Animation fly;
-
+	bool JumpySpawned = false; 
 public:
 
 	Enemy_JumpyRider(int x, int y, int HP);
+	uint now = 0; 
+	uint last = 0; 
 
 	void Move();
 };
