@@ -64,6 +64,7 @@ update_status ModuleLoseImage::Update()
 		|| App->input->Controller_1[SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_A] == KEY_DOWN
 		|| App->input->Controller_2[SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_A] == KEY_DOWN) {
 		if (App->fade->FadeToBlack(App->loseimage, App->startimage, 1.5f))
+			App->player2->TwoPlayers = false;
 			App->audio->FadeMus(750);
 	}
 
