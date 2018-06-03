@@ -130,6 +130,7 @@ void BossFire::Move()
 	fire = SDL_GetTicks();
 
 	if (fire > recoill + 300) {
+		
 		App->particles->AddParticle(App->particles->Fire, position.x + xx, position.y + yy, COLLIDER_ENEMY_SHOT);
 		recoill = SDL_GetTicks();
 
