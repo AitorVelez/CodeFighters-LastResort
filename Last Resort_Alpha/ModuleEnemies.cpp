@@ -19,6 +19,7 @@
 #include "Enemy_Barrel.h"
 #include "Enemy_Hunter.h"
 #include "Enemy_Hunter_ZigZag.h"
+#include "Enemy_Hunter_ZigZag_Down.h"
 #include "Enemy_Metal_Bee.h"
 #include "Enemy_Jumpy.h"
 #include "Enemy_Spider_Tank.h"
@@ -29,6 +30,7 @@
 #include "Grenade.h"
 #include "Grenade2.h"
 #include "Hellfire.h"
+
 
 #define SPAWN_MARGIN 50
 
@@ -205,6 +207,11 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::HUNTER_ZIGZAG:
 			enemies[i] = new Enemy_Hunter_ZigZag(info.x, info.y, info.HP);
 			break;
+
+		case ENEMY_TYPES::HUNTER_ZIGZAG_DOWN:
+			enemies[i] = new Enemy_Hunter_ZigZag_Down(info.x, info.y, info.HP);
+			break; 
+
 		case ENEMY_TYPES::METAL_BEE:
 			enemies[i] = new Enemy_Metal_Bee(info.x, info.y, info.HP);
 			break;

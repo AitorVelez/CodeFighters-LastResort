@@ -84,6 +84,7 @@
     <ClInclude Include="Enemy_Gustav.h" />
     <ClInclude Include="Enemy_Hunter.h" />
     <ClInclude Include="Enemy_Hunter_ZigZag.h" />
+    <ClInclude Include="Enemy_Hunter_ZigZag_Down.h" />
     <ClInclude Include="Enemy_Jumpy.h" />
     <ClInclude Include="Enemy_Lamella.h" />
     <ClInclude Include="Enemy_Metal_Bee.h" />
@@ -143,6 +144,7 @@
     <ClCompile Include="Enemy_Gustav.cpp" />
     <ClCompile Include="Enemy_Hunter.cpp" />
     <ClCompile Include="Enemy_Hunter_ZigZag.cpp" />
+    <ClCompile Include="Enemy_Hunter_ZigZag_Down.cpp" />
     <ClCompile Include="Enemy_Jumpy.cpp" />
     <ClCompile Include="Enemy_Lamella.cpp" />
     <ClCompile Include="Enemy_Metal_Bee.cpp" />
