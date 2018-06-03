@@ -227,14 +227,16 @@ bool ModuleBall_P2::Start()
 
 void ModuleBall_P2::Ball_Input_Movement()
 {
-	if (App->input->keyboard[SDL_SCANCODE_RSHIFT] == KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_RSHIFT] == KEY_DOWN
+		|| App->input->Controller_2[SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_B] == KEY_DOWN)
 	{
 		if (ball_locked == false) ball_locked = true;
 		else ball_locked = false;
 	}
 
 
-	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_REPEAT) {
+	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_REPEAT
+		|| SDL_GameControllerGetAxis(App->input->controller[1].controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTY) < -15000) {
 		// The aiming angle grows or decreases to 90º dependending on its place 
 		if (angle_aiming <= 270 && angle_aiming > 90)		// Using te shortest way always
 			angle_aiming -= angle_speed;
@@ -256,7 +258,8 @@ void ModuleBall_P2::Ball_Input_Movement()
 		}
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_REPEAT) {
+	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_REPEAT
+		|| SDL_GameControllerGetAxis(App->input->controller[1].controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTY) > 15000) {
 
 		if (angle_aiming >= 90 && angle_aiming<270)					// Using the shortest way always
 			angle_aiming += angle_aiming_speed;
@@ -282,7 +285,8 @@ void ModuleBall_P2::Ball_Input_Movement()
 		}
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_REPEAT) {
+	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_REPEAT
+		|| SDL_GameControllerGetAxis(App->input->controller[1].controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTX) < -15000) {
 
 		if (angle_aiming <= 180 && angle_aiming > 0)
 			angle_aiming -= angle_aiming_speed;
@@ -302,7 +306,8 @@ void ModuleBall_P2::Ball_Input_Movement()
 	}
 
 
-	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_REPEAT) {
+	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_REPEAT
+		|| SDL_GameControllerGetAxis(App->input->controller[1].controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTY) > 15000) {
 
 		if (angle_aiming > 180)
 			angle_aiming -= angle_aiming_speed;
@@ -324,17 +329,20 @@ void ModuleBall_P2::Ball_Input_Movement()
 void ModuleBall_P2::Ball_Input_Attack()
 {
 
-	if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_DOWN
+		|| App->input->Controller_2[SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_A] == KEY_DOWN)
 	{
 		App->particles->AddParticle(App->particles->ball_bullet, ball_position.x + 8, ball_position.y + 10, COLLIDER_PLAYER_SHOT);
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_REPEAT)
+	if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_REPEAT
+		|| App->input->Controller_2[SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_A] == KEY_REPEAT)
 	{
 		charge += 20;
 		App->render->Blit(Pball, 200, 208, &App->UI->Bola2.GetCurrentFrame(), 0, false);
 	}
-	if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_UP)
+	if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_UP
+		|| App->input->Controller_2[SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_A] == KEY_UP)
 	{
 		if (charge < 500) charge = 0;
 		App->UI->Bola2.Reset();
@@ -343,7 +351,8 @@ void ModuleBall_P2::Ball_Input_Attack()
 
 void ModuleBall_P2::Ball_Launch()
 {
-	if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_UP)
+	if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_UP
+		|| App->input->Controller_2[SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_A] == KEY_UP)
 	{
 		ball_launched = true;
 		App->UI->Bola2.Reset();

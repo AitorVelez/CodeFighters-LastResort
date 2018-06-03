@@ -195,10 +195,6 @@ void ModulePlayer2::OnCollision(Collider * c1, Collider * c2)
 
 		else if (bullet_state_2 == BULLET_STATE_2::LASER1_2)
 			bullet_state_2 = BULLET_STATE_2::LASER2_2;
-
-		
-
-
 	}
 	if (c2->type == COLLIDER_TYPE::COLLIDER_POWERUP_H) {
 		if (App->ball_p2->IsEnabled() == false)
@@ -213,12 +209,6 @@ void ModulePlayer2::OnCollision(Collider * c1, Collider * c2)
 			App->ball_p2->Enable();
 		if (bullet_state_2 == BULLET_STATE_2::BULLET_NO_TYPE_2 || bullet_state_2 == BULLET_STATE_2::LASER1_2 || bullet_state_2 == BULLET_STATE_2::LASER2_2 || bullet_state_2 == BULLET_STATE_2::HELLFIRE1_2)
 			bullet_state_2 = BULLET_STATE_2::HELLFIRE1_2;
-
-		
-
-
-
-
 	}
 
 	if (c2->type == COLLIDER_TYPE::COLLIDER_POWERUP_S)
@@ -242,7 +232,8 @@ update_status ModulePlayer2::Update()
 	// Input -----
 	if (alive_p2 && playershowup.Finished()) {
 
-		if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT)
+		if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT
+			|| SDL_GameControllerGetAxis(App->input->controller[1].controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTY) < -15000)
 		{
 			if (relativeposition.y > CHARACTER_HEIGHT + TopLimit) {
 				current_animation = &up;
@@ -264,7 +255,8 @@ update_status ModulePlayer2::Update()
 		}
 
 
-		if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT)
+		if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT
+			|| SDL_GameControllerGetAxis(App->input->controller[1].controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTY) > 15000)
 		{
 			if (relativeposition.y < SCREEN_HEIGHT - TopLimit -1) {
 				current_animation = &down;
@@ -287,7 +279,8 @@ update_status ModulePlayer2::Update()
 
 		}
 
-		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) {
+		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT
+			|| SDL_GameControllerGetAxis(App->input->controller[1].controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTX) > 15000) {
 			if (relativeposition.x < SCREEN_WIDTH - CHARACTER_WIDTH - SideLimit) {
 				relativeposition.x += speed;
 				position.x += speed;
@@ -296,7 +289,8 @@ update_status ModulePlayer2::Update()
 				relativeposition.x = SCREEN_WIDTH - CHARACTER_WIDTH - SideLimit;
 			}
 		}
-		if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) {
+		if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT
+			|| SDL_GameControllerGetAxis(App->input->controller[1].controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTX) < -15000) {
 			if (relativeposition.x > SideLimit) {
 				relativeposition.x -= speed;
 				position.x -= speed;
@@ -309,7 +303,9 @@ update_status ModulePlayer2::Update()
 
 		current_time = SDL_GetTicks();
 
-		if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_STATE::KEY_DOWN) {
+		if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_STATE::KEY_DOWN
+			|| App->input->Controller_1[SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_A] == KEY_DOWN) 
+		{
 			App->particles->AddParticle(App->particles->bullet, position.x + 31, position.y - 12, COLLIDER_PLAYER2_SHOT);
 			App->particles->AddParticle(App->particles->bullet_propulsion, position.x + 31, position.y - 15);
 			if (bullet_state_2 == LASER1_2 && current_time > last_time + 500) {
